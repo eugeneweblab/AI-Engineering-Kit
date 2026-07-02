@@ -1,5 +1,25 @@
 # Writing Standard
 
+## Audience
+
+This repository is written for:
+
+- Software engineers
+- Engineering managers
+- Technical leads
+- AI coding agents
+
+When a conflict exists, optimize for the engineer first.
+
+## Non-goals
+
+This repository is not intended to:
+
+- teach programming from scratch
+- replace official documentation
+- prescribe one technology stack
+- replace engineering judgment
+
 ## Purpose
 
 Define a single writing style for the entire AI Engineering Kit repository.
