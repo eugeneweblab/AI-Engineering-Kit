@@ -1,3 +1,15 @@
+---
+id: figma/02-layout-analysis
+topic: figma
+slug: layout-analysis
+title: "Figma Layout Analysis"
+type: doc
+order: 2
+status: ready
+tags: [figma, layout-analysis]
+related: []
+when_to_use: ""
+---
 # Figma Layout Analysis
 
 ## Purpose
@@ -10,7 +22,7 @@ A correct layout analysis dramatically reduces implementation mistakes, prevents
 
 ---
 
-# Core Principle
+## Core Principle
 
 Never recreate pixels.
 
@@ -20,7 +32,7 @@ The implementation should mirror the design's structure rather than its appearan
 
 ---
 
-# Layout Analysis Workflow
+## Layout Analysis Workflow
 
 Every page should be analyzed in the following order:
 
@@ -48,7 +60,7 @@ Always work from the outside inward.
 
 ---
 
-# Step 1 — Identify Top-Level Sections
+## Step 1 — Identify Top-Level Sections
 
 Separate the page into logical blocks.
 
@@ -69,7 +81,7 @@ Each section should become an independent layout block.
 
 ---
 
-# Step 2 — Identify Containers
+## Step 2 — Identify Containers
 
 Determine whether sections share a common container width.
 
@@ -85,7 +97,7 @@ Containers should be reused throughout the project.
 
 ---
 
-# Step 3 — Analyze Grid System
+## Step 3 — Analyze Grid System
 
 Determine whether the page uses:
 
@@ -99,7 +111,7 @@ Look for repeating column patterns before writing code.
 
 ---
 
-# Step 4 — Analyze Auto Layout
+## Step 4 — Analyze Auto Layout
 
 Auto Layout should be treated as the primary source of truth.
 
@@ -117,7 +129,7 @@ Avoid manually recreating spacing values when Auto Layout already defines them.
 
 ---
 
-# Step 5 — Identify Parent–Child Relationships
+## Step 5 — Identify Parent–Child Relationships
 
 Understand hierarchy before implementation.
 
@@ -143,7 +155,7 @@ Component hierarchy should closely match the Figma hierarchy.
 
 ---
 
-# Step 6 — Analyze Spacing System
+## Step 6 — Analyze Spacing System
 
 Look for consistent spacing increments.
 
@@ -177,7 +189,7 @@ Avoid arbitrary values.
 
 ---
 
-# Step 7 — Analyze Alignment
+## Step 7 — Analyze Alignment
 
 Review:
 
@@ -192,7 +204,7 @@ Alignment should remain consistent throughout the page.
 
 ---
 
-# Step 8 — Analyze Constraints
+## Step 8 — Analyze Constraints
 
 Review resizing behavior.
 
@@ -209,7 +221,7 @@ Constraints often determine responsive implementation.
 
 ---
 
-# Step 9 — Analyze Overflow
+## Step 9 — Analyze Overflow
 
 Identify elements that may overflow.
 
@@ -226,7 +238,7 @@ Plan overflow behavior before implementation.
 
 ---
 
-# Step 10 — Analyze Layer Complexity
+## Step 10 — Analyze Layer Complexity
 
 Review nested structures.
 
@@ -241,7 +253,7 @@ Avoid reproducing unnecessary wrapper elements from Figma.
 
 ---
 
-# Mapping Figma to HTML
+## Mapping Figma to HTML
 
 Prefer semantic structure.
 
@@ -287,7 +299,7 @@ Translate them into semantic HTML.
 
 ---
 
-# Mapping Figma to CSS
+## Mapping Figma to CSS
 
 Prefer layout primitives.
 
@@ -313,7 +325,7 @@ Avoid forcing every layout into a single technique.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -357,7 +369,7 @@ Avoid forcing every layout into a single technique.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -379,7 +391,7 @@ Mirroring Figma layer names in code.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A layout analysis is complete when:
 
@@ -392,7 +404,7 @@ A layout analysis is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Professional frontend development starts by understanding the structure behind the design.
 

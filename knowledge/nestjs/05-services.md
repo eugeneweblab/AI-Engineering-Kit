@@ -1,3 +1,15 @@
+---
+id: nestjs/05-services
+topic: nestjs
+slug: services
+title: "NestJS Services"
+type: doc
+order: 5
+status: ready
+tags: [nestjs, services]
+related: []
+when_to_use: ""
+---
 # NestJS Services
 
 ## Purpose
@@ -10,7 +22,7 @@ Services are the core of the application's business layer.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Business logic belongs in services.
 
@@ -18,7 +30,7 @@ Everything else should support them.
 
 ---
 
-# Service Goals
+## Service Goals
 
 Every service should strive for:
 
@@ -33,7 +45,7 @@ Services should model business capabilities rather than technical operations.
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 Services are responsible for:
 
@@ -48,7 +60,7 @@ Services should not manage HTTP requests or persistence details directly.
 
 ---
 
-# Service Position
+## Service Position
 
 A typical execution flow:
 
@@ -80,7 +92,7 @@ Services act as the boundary between transport and persistence.
 
 ---
 
-# Single Responsibility
+## Single Responsibility
 
 Each service should own one business capability.
 
@@ -100,7 +112,7 @@ Avoid creating generic services with unrelated responsibilities.
 
 ---
 
-# Business Logic
+## Business Logic
 
 Business logic includes:
 
@@ -115,7 +127,7 @@ Business logic should not be duplicated across controllers.
 
 ---
 
-# Collaboration
+## Collaboration
 
 Services may collaborate with:
 
@@ -128,7 +140,7 @@ Dependencies should remain explicit and intentional.
 
 ---
 
-# Repository Usage
+## Repository Usage
 
 Services should delegate persistence to repositories.
 
@@ -150,7 +162,7 @@ Avoid embedding SQL or ORM queries directly inside services.
 
 ---
 
-# Transactions
+## Transactions
 
 When multiple operations must succeed together, services should coordinate transactional boundaries.
 
@@ -164,7 +176,7 @@ Avoid unnecessarily long-running transactions.
 
 ---
 
-# Idempotency
+## Idempotency
 
 Operations that may be retried should be idempotent whenever practical.
 
@@ -178,7 +190,7 @@ Repeated execution should not corrupt business data.
 
 ---
 
-# External Integrations
+## External Integrations
 
 Services should interact with external systems through dedicated adapters.
 
@@ -193,7 +205,7 @@ Avoid coupling business logic directly to SDK implementations.
 
 ---
 
-# Error Handling
+## Error Handling
 
 Services should throw meaningful domain exceptions.
 
@@ -207,7 +219,7 @@ Failures should be predictable and actionable.
 
 ---
 
-# Return Values
+## Return Values
 
 Services should return domain objects or well-defined result structures.
 
@@ -219,7 +231,7 @@ Avoid returning transport-specific objects such as:
 
 ---
 
-# Asynchronous Operations
+## Asynchronous Operations
 
 Use asynchronous operations where appropriate.
 
@@ -234,7 +246,7 @@ Avoid blocking operations.
 
 ---
 
-# Side Effects
+## Side Effects
 
 Keep side effects explicit.
 
@@ -249,7 +261,7 @@ Separate side effects from core business rules whenever practical.
 
 ---
 
-# Domain Events
+## Domain Events
 
 Use domain events to notify other modules about completed business operations.
 
@@ -263,7 +275,7 @@ Events should reduce coupling between modules.
 
 ---
 
-# Configuration
+## Configuration
 
 Services should receive configuration through dependency injection.
 
@@ -271,7 +283,7 @@ Avoid reading environment variables directly inside service methods.
 
 ---
 
-# Security
+## Security
 
 Services should enforce business-level security rules.
 
@@ -285,7 +297,7 @@ Never rely solely on controllers for security.
 
 ---
 
-# Performance
+## Performance
 
 Review:
 
@@ -298,7 +310,7 @@ Business workflows should remain efficient and scalable.
 
 ---
 
-# Testing
+## Testing
 
 Services should be tested independently.
 
@@ -314,7 +326,7 @@ Replace external dependencies with mocks or fakes.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -356,7 +368,7 @@ Replace external dependencies with mocks or fakes.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -376,7 +388,7 @@ Duplicating business rules across services.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A service implementation is complete when:
 
@@ -389,7 +401,7 @@ A service implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Services are the heart of every NestJS application.
 

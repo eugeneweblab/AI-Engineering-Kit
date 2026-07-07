@@ -1,3 +1,15 @@
+---
+id: nestjs/18-transactions
+topic: nestjs
+slug: transactions
+title: "NestJS Transactions"
+type: doc
+order: 18
+status: ready
+tags: [nestjs, transactions]
+related: []
+when_to_use: ""
+---
 # NestJS Transactions
 
 ## Purpose
@@ -12,7 +24,7 @@ They should never become the default solution for every operation.
 
 ---
 
-# Core Principle
+## Core Principle
 
 A transaction should represent one business operation.
 
@@ -20,7 +32,7 @@ Not one HTTP request.
 
 ---
 
-# Transaction Goals
+## Transaction Goals
 
 Every transaction should provide:
 
@@ -35,7 +47,7 @@ Transactions should be as small as possible.
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 Transactions are responsible for:
 
@@ -54,7 +66,7 @@ Transactions should not:
 
 ---
 
-# Transaction Lifecycle
+## Transaction Lifecycle
 
 ```
 Begin Transaction
@@ -96,7 +108,7 @@ Rollback
 
 ---
 
-# ACID Principles
+## ACID Principles
 
 Every engineer should understand ACID.
 
@@ -126,7 +138,7 @@ Committed data survives failures.
 
 ---
 
-# Transaction Boundaries
+## Transaction Boundaries
 
 Transactions belong in the service layer.
 
@@ -154,7 +166,7 @@ Avoid repositories creating independent transactions automatically.
 
 ---
 
-# Unit of Work
+## Unit of Work
 
 Treat one transaction as one business unit.
 
@@ -180,7 +192,7 @@ The entire workflow succeeds or fails together.
 
 ---
 
-# Idempotency
+## Idempotency
 
 Retryable operations should be idempotent.
 
@@ -194,7 +206,7 @@ Running the same transaction twice should not create duplicate business effects.
 
 ---
 
-# External Services
+## External Services
 
 Never keep a database transaction open while calling:
 
@@ -208,7 +220,7 @@ External systems are not part of the database transaction.
 
 ---
 
-# Outbox Pattern
+## Outbox Pattern
 
 When both database changes and event publication are required:
 
@@ -240,7 +252,7 @@ This guarantees reliable event delivery.
 
 ---
 
-# Saga Pattern
+## Saga Pattern
 
 For distributed workflows:
 
@@ -266,7 +278,7 @@ Distributed systems cannot rely on a single database transaction.
 
 ---
 
-# Compensation
+## Compensation
 
 Compensation should reverse completed business actions.
 
@@ -288,7 +300,7 @@ Compensation is not the same as rollback.
 
 ---
 
-# Isolation Levels
+## Isolation Levels
 
 Choose the weakest isolation level that satisfies business consistency.
 
@@ -302,7 +314,7 @@ Review:
 
 ---
 
-# Deadlocks
+## Deadlocks
 
 Deadlocks may occur when concurrent transactions lock resources differently.
 
@@ -316,7 +328,7 @@ Applications should retry retryable deadlocks when appropriate.
 
 ---
 
-# Retry Strategy
+## Retry Strategy
 
 Retry only transient failures.
 
@@ -330,7 +342,7 @@ Do not retry business validation failures.
 
 ---
 
-# Long Transactions
+## Long Transactions
 
 Avoid transactions containing:
 
@@ -343,7 +355,7 @@ Transactions should finish quickly.
 
 ---
 
-# Nested Transactions
+## Nested Transactions
 
 Avoid unnecessary nested transactions.
 
@@ -351,7 +363,7 @@ Prefer one clearly defined transaction boundary.
 
 ---
 
-# Optimistic vs Pessimistic Locking
+## Optimistic vs Pessimistic Locking
 
 Optimistic locking:
 
@@ -365,7 +377,7 @@ Choose according to business requirements.
 
 ---
 
-# Event Consistency
+## Event Consistency
 
 Business events should represent committed state.
 
@@ -373,7 +385,7 @@ Never publish events before a successful commit.
 
 ---
 
-# Error Handling
+## Error Handling
 
 Rollback should occur automatically on unrecoverable failures.
 
@@ -381,7 +393,7 @@ Business exceptions should leave the database unchanged.
 
 ---
 
-# Observability
+## Observability
 
 Monitor:
 
@@ -395,7 +407,7 @@ Long-running transactions should be investigated.
 
 ---
 
-# Performance
+## Performance
 
 Review:
 
@@ -408,7 +420,7 @@ Transactions should remain lightweight.
 
 ---
 
-# Security
+## Security
 
 Transactions do not replace authorization.
 
@@ -416,7 +428,7 @@ Validate permissions before beginning transactional work whenever practical.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -431,7 +443,7 @@ Transaction behavior should remain deterministic.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Use transactions for:
 
@@ -455,7 +467,7 @@ Do **not** use transactions for:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -497,7 +509,7 @@ Do **not** use transactions for:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -517,7 +529,7 @@ Retrying business validation errors.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A transactional workflow is complete when:
 
@@ -530,7 +542,7 @@ A transactional workflow is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Transactions preserve business consistency across multiple persistence operations.
 

@@ -1,3 +1,15 @@
+---
+id: workflows/08-build-react-component
+topic: workflows
+slug: build-react-component
+title: "Workflow — Build a React Component"
+type: doc
+order: 8
+status: ready
+tags: [workflows, build-react-component]
+related: []
+when_to_use: ""
+---
 # Workflow — Build a React Component
 
 ## Purpose
@@ -12,7 +24,7 @@ It should become a natural part of the application's component ecosystem.
 
 ---
 
-# Goal
+## Goal
 
 Build a component that:
 
@@ -26,7 +38,7 @@ Build a component that:
 
 ---
 
-# Workflow Overview
+## Workflow Overview
 
 ```
 Understand Requirements
@@ -52,7 +64,7 @@ Review
 
 ---
 
-# Step 1 — Understand the Requirements
+## Step 1 — Understand the Requirements
 
 Determine:
 
@@ -67,7 +79,7 @@ Never begin implementation before understanding how the component should behave.
 
 ---
 
-# Step 2 — Analyze Existing Components
+## Step 2 — Analyze Existing Components
 
 Search the repository.
 
@@ -86,7 +98,7 @@ Reuse before creating.
 
 ---
 
-# Step 3 — Define Component Responsibility
+## Step 3 — Define Component Responsibility
 
 Every component should have one primary responsibility.
 
@@ -104,7 +116,7 @@ Avoid components that attempt to solve multiple unrelated problems.
 
 ---
 
-# Step 4 — Design the Component API
+## Step 4 — Design the Component API
 
 Define:
 
@@ -120,7 +132,7 @@ The API should be small, predictable, and easy to understand.
 
 ---
 
-# Step 5 — Build the Structure
+## Step 5 — Build the Structure
 
 Create semantic markup.
 
@@ -140,7 +152,7 @@ Avoid unnecessary wrapper elements.
 
 ---
 
-# Step 6 — Implement Styling
+## Step 6 — Implement Styling
 
 Follow the project's styling strategy.
 
@@ -164,7 +176,7 @@ Do not introduce a new styling approach.
 
 ---
 
-# Step 7 — Implement Logic
+## Step 7 — Implement Logic
 
 Keep rendering and business logic separated.
 
@@ -178,7 +190,7 @@ Avoid placing complex business logic directly inside JSX.
 
 ---
 
-# Step 8 — Accessibility Review
+## Step 8 — Accessibility Review
 
 Verify:
 
@@ -194,7 +206,7 @@ Accessibility is a required feature.
 
 ---
 
-# Step 9 — Responsive Review
+## Step 9 — Responsive Review
 
 Verify:
 
@@ -217,7 +229,7 @@ Responsive behavior should be intentional.
 
 ---
 
-# Step 10 — Final Review
+## Step 10 — Final Review
 
 Review:
 
@@ -234,7 +246,7 @@ The component should be understandable without additional explanation.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -294,7 +306,7 @@ The component should be understandable without additional explanation.
 
 ---
 
-# React Best Practices
+## React Best Practices
 
 Prefer:
 
@@ -328,7 +340,7 @@ Premature optimization
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -350,7 +362,7 @@ Adding unnecessary abstractions.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 The workflow is complete only if:
 
@@ -364,7 +376,7 @@ The workflow is complete only if:
 
 ---
 
-# Expected AI Output
+## Expected AI Output
 
 After completing this workflow, the AI should explain:
 
@@ -378,7 +390,7 @@ After completing this workflow, the AI should explain:
 
 ---
 
-# Summary
+## Summary
 
 A high-quality React component is more than a rendered UI.
 

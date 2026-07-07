@@ -1,3 +1,15 @@
+---
+id: ai/04-code-modification
+topic: ai
+slug: code-modification
+title: "Code Modification"
+type: doc
+order: 4
+status: ready
+tags: [ai, code-modification]
+related: []
+when_to_use: ""
+---
 # Code Modification
 
 ## Purpose
@@ -12,7 +24,7 @@ The objective is to make the smallest correct change while preserving the integr
 
 ---
 
-# Core Principle
+## Core Principle
 
 Respect the existing codebase.
 
@@ -29,7 +41,7 @@ Changing code without understanding its role increases technical debt.
 
 ---
 
-# Modification Strategy
+## Modification Strategy
 
 Always follow this sequence.
 
@@ -53,7 +65,7 @@ Never begin editing immediately.
 
 ---
 
-# Rule 1 — Read Before Editing
+## Rule 1 — Read Before Editing
 
 Read the entire file.
 
@@ -73,7 +85,7 @@ Local changes often have file-level implications.
 
 ---
 
-# Rule 2 — Understand Why
+## Rule 2 — Understand Why
 
 Before changing existing logic determine:
 
@@ -86,7 +98,7 @@ Never assume existing code is incorrect simply because it looks unfamiliar.
 
 ---
 
-# Rule 3 — Minimize the Change Surface
+## Rule 3 — Minimize the Change Surface
 
 Modify only what is necessary.
 
@@ -103,7 +115,7 @@ Small changes reduce risk.
 
 ---
 
-# Rule 4 — Preserve Public Contracts
+## Rule 4 — Preserve Public Contracts
 
 When modifying:
 
@@ -121,7 +133,7 @@ Backward compatibility should be preserved whenever practical.
 
 ---
 
-# Rule 5 — Preserve Existing Patterns
+## Rule 5 — Preserve Existing Patterns
 
 Match:
 
@@ -136,7 +148,7 @@ Avoid introducing a new pattern inside an established project.
 
 ---
 
-# Rule 6 — Avoid Hidden Side Effects
+## Rule 6 — Avoid Hidden Side Effects
 
 Before modifying code determine:
 
@@ -152,7 +164,7 @@ Every modification should consider downstream consumers.
 
 ---
 
-# Rule 7 — Separate Refactoring From Functional Changes
+## Rule 7 — Separate Refactoring From Functional Changes
 
 Do not combine:
 
@@ -168,7 +180,7 @@ Mixed changes increase review complexity.
 
 ---
 
-# Rule 8 — Preserve Existing Behavior
+## Rule 8 — Preserve Existing Behavior
 
 If behavior is not intentionally changing:
 
@@ -178,7 +190,7 @@ Regression prevention is a primary engineering responsibility.
 
 ---
 
-# Rule 9 — Extend Before Replacing
+## Rule 9 — Extend Before Replacing
 
 If existing code can safely support the new requirement:
 
@@ -190,7 +202,7 @@ Engineering history has value.
 
 ---
 
-# Rule 10 — Remove Temporary Changes
+## Rule 10 — Remove Temporary Changes
 
 Before completion remove:
 
@@ -205,7 +217,7 @@ Only intentional code should remain.
 
 ---
 
-# Safe Modification Checklist
+## Safe Modification Checklist
 
 Before editing verify:
 
@@ -237,7 +249,7 @@ Before completing verify:
 
 ---
 
-# Modification Risk Assessment
+## Modification Risk Assessment
 
 Before modifying code estimate the risk.
 
@@ -273,7 +285,7 @@ Higher-risk changes require more investigation and verification.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -327,7 +339,7 @@ Higher-risk changes require more investigation and verification.
 
 ---
 
-# Common Anti-patterns
+## Common Anti-patterns
 
 ## Rewrite Instead of Extend
 
@@ -361,7 +373,7 @@ Unclear code should be investigated—not deleted.
 
 ---
 
-# AI Responsibilities
+## AI Responsibilities
 
 Before proposing modifications AI should explain:
 
@@ -375,7 +387,7 @@ Transparency improves engineering confidence.
 
 ---
 
-# Definition of Success
+## Definition of Success
 
 A successful modification:
 
@@ -390,7 +402,7 @@ The best modification is often the one that future engineers barely notice becau
 
 ---
 
-# Summary
+## Summary
 
 Professional software engineering is primarily the discipline of changing existing systems safely.
 

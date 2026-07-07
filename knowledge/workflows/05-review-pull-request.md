@@ -1,3 +1,15 @@
+---
+id: workflows/05-review-pull-request
+topic: workflows
+slug: review-pull-request
+title: "Workflow — Review a Pull Request"
+type: doc
+order: 5
+status: ready
+tags: [workflows, review-pull-request]
+related: []
+when_to_use: ""
+---
 # Workflow — Review a Pull Request
 
 ## Purpose
@@ -12,7 +24,7 @@ A good review is objective, constructive, and evidence-based.
 
 ---
 
-# Goal
+## Goal
 
 Approve only pull requests that:
 
@@ -25,7 +37,7 @@ Approve only pull requests that:
 
 ---
 
-# Workflow Overview
+## Workflow Overview
 
 ```
 Read Pull Request
@@ -47,7 +59,7 @@ Approve or Request Changes
 
 ---
 
-# Step 1 — Read the Entire Pull Request
+## Step 1 — Read the Entire Pull Request
 
 Before reviewing code:
 
@@ -66,7 +78,7 @@ Never review code without understanding its purpose.
 
 ---
 
-# Step 2 — Review the Scope
+## Step 2 — Review the Scope
 
 Determine whether the scope is appropriate.
 
@@ -81,7 +93,7 @@ Large pull requests are harder to review and more likely to introduce defects.
 
 ---
 
-# Step 3 — Verify Requirements
+## Step 3 — Verify Requirements
 
 Confirm that the implementation satisfies the requested behavior.
 
@@ -97,7 +109,7 @@ Code should solve the intended problem—not a different one.
 
 ---
 
-# Step 4 — Review Architecture
+## Step 4 — Review Architecture
 
 Verify that the implementation respects the existing architecture.
 
@@ -114,7 +126,7 @@ Reject architectural drift unless intentionally approved.
 
 ---
 
-# Step 5 — Review Code Quality
+## Step 5 — Review Code Quality
 
 Evaluate:
 
@@ -131,7 +143,7 @@ Every line should have a clear purpose.
 
 ---
 
-# Step 6 — Review Reusability
+## Step 6 — Review Reusability
 
 Determine whether existing code could have been reused.
 
@@ -147,7 +159,7 @@ Reuse should always be preferred over duplication.
 
 ---
 
-# Step 7 — Review Safety
+## Step 7 — Review Safety
 
 Inspect:
 
@@ -163,7 +175,7 @@ Security and stability are mandatory review topics.
 
 ---
 
-# Step 8 — Review Performance
+## Step 8 — Review Performance
 
 Evaluate whether the implementation introduces:
 
@@ -178,7 +190,7 @@ Performance issues should be identified before merge.
 
 ---
 
-# Step 9 — Review Testing
+## Step 9 — Review Testing
 
 Verify:
 
@@ -191,7 +203,7 @@ Testing should match the importance of the change.
 
 ---
 
-# Step 10 — Review Documentation
+## Step 10 — Review Documentation
 
 Determine whether updates are required for:
 
@@ -206,7 +218,7 @@ Documentation should evolve with the codebase.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Understanding
 
@@ -274,7 +286,7 @@ Documentation should evolve with the codebase.
 
 ---
 
-# Review Feedback Guidelines
+## Review Feedback Guidelines
 
 Feedback should be:
 
@@ -343,7 +355,7 @@ Optional improvements that are not required for correctness.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -363,7 +375,7 @@ Ignoring regression risks.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A pull request is ready for approval only if:
 
@@ -377,7 +389,7 @@ A pull request is ready for approval only if:
 
 ---
 
-# Expected AI Output
+## Expected AI Output
 
 After completing the review, the AI should provide:
 
@@ -407,7 +419,7 @@ Request Changes
 
 ---
 
-# Summary
+## Summary
 
 A pull request review is an engineering quality gate.
 

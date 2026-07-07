@@ -1,3 +1,15 @@
+---
+id: nextjs/01-architecture
+topic: nextjs
+slug: architecture
+title: "Next.js Architecture"
+type: doc
+order: 1
+status: ready
+tags: [nextjs, architecture]
+related: []
+when_to_use: ""
+---
 # Next.js Architecture
 
 ## Purpose
@@ -10,7 +22,7 @@ Architecture decisions should prioritize long-term maintainability over short-te
 
 ---
 
-# Core Principle
+## Core Principle
 
 Render on the server whenever possible.
 
@@ -20,7 +32,7 @@ The server is the default execution environment.
 
 ---
 
-# Architectural Goals
+## Architectural Goals
 
 Every Next.js application should strive for:
 
@@ -34,7 +46,7 @@ Every Next.js application should strive for:
 
 ---
 
-# Server-First Architecture
+## Server-First Architecture
 
 Prefer executing logic on the server.
 
@@ -52,7 +64,7 @@ Move logic to the client only when browser APIs or user interaction require it.
 
 ---
 
-# Rendering Hierarchy
+## Rendering Hierarchy
 
 Design the application using the following hierarchy.
 
@@ -84,7 +96,7 @@ Each layer should have a clearly defined responsibility.
 
 ---
 
-# Separation of Responsibilities
+## Separation of Responsibilities
 
 Each layer should own a specific concern.
 
@@ -132,7 +144,7 @@ Components should remain focused and reusable.
 
 ---
 
-# Data Flow
+## Data Flow
 
 Prefer one-way data flow.
 
@@ -156,7 +168,7 @@ Avoid unnecessary bidirectional dependencies.
 
 ---
 
-# Business Logic
+## Business Logic
 
 Business logic should remain independent from presentation.
 
@@ -171,7 +183,7 @@ Avoid embedding business logic inside UI components.
 
 ---
 
-# Client Components
+## Client Components
 
 Use Client Components only when required.
 
@@ -187,7 +199,7 @@ Everything else should remain on the server.
 
 ---
 
-# Server Components
+## Server Components
 
 Prefer Server Components for:
 
@@ -202,7 +214,7 @@ Server Components reduce client-side JavaScript and improve performance.
 
 ---
 
-# Feature Organization
+## Feature Organization
 
 Organize the application by feature rather than technology.
 
@@ -226,7 +238,7 @@ Each feature should remain as self-contained as practical.
 
 ---
 
-# Shared Components
+## Shared Components
 
 Reusable UI belongs in shared component directories.
 
@@ -248,7 +260,7 @@ Shared components should remain independent from business features.
 
 ---
 
-# State Management
+## State Management
 
 Keep state as close as possible to where it is used.
 
@@ -262,7 +274,7 @@ Avoid unnecessary global state.
 
 ---
 
-# Performance
+## Performance
 
 Architecture should encourage:
 
@@ -276,7 +288,7 @@ Performance should result from good architecture rather than excessive optimizat
 
 ---
 
-# Security
+## Security
 
 Keep sensitive operations on the server.
 
@@ -291,7 +303,7 @@ Never trust client-side validation alone.
 
 ---
 
-# Accessibility
+## Accessibility
 
 Architecture should support accessibility by default.
 
@@ -306,7 +318,7 @@ Accessibility should not depend on client-side JavaScript.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -348,7 +360,7 @@ Accessibility should not depend on client-side JavaScript.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -368,7 +380,7 @@ Placing secrets in client-side code.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 The architecture is complete when:
 
@@ -382,7 +394,7 @@ The architecture is complete when:
 
 ---
 
-# Summary
+## Summary
 
 A well-designed Next.js architecture leverages the strengths of the server while keeping the client lightweight.
 

@@ -1,3 +1,15 @@
+---
+id: workflows/06-investigate-production-bug
+topic: workflows
+slug: investigate-production-bug
+title: "Workflow — Investigate a Production Bug"
+type: doc
+order: 6
+status: ready
+tags: [workflows, investigate-production-bug]
+related: []
+when_to_use: ""
+---
 # Workflow — Investigate a Production Bug
 
 ## Purpose
@@ -10,7 +22,7 @@ The primary objective is to restore service safely, identify the root cause, and
 
 ---
 
-# Goal
+## Goal
 
 Resolve the production issue while:
 
@@ -24,7 +36,7 @@ Production stability always takes priority over feature development.
 
 ---
 
-# Workflow Overview
+## Workflow Overview
 
 ```
 Receive Incident
@@ -50,7 +62,7 @@ Prevent Recurrence
 
 ---
 
-# Step 1 — Assess the Incident
+## Step 1 — Assess the Incident
 
 Determine:
 
@@ -66,7 +78,7 @@ Classify the incident before making changes.
 
 ---
 
-# Step 2 — Preserve Evidence
+## Step 2 — Preserve Evidence
 
 Before modifying anything, collect evidence.
 
@@ -86,7 +98,7 @@ Do not destroy evidence during the investigation.
 
 ---
 
-# Step 3 — Determine Recent Changes
+## Step 3 — Determine Recent Changes
 
 Review changes that occurred before the incident.
 
@@ -103,7 +115,7 @@ Recent changes often provide valuable clues.
 
 ---
 
-# Step 4 — Reproduce the Issue
+## Step 4 — Reproduce the Issue
 
 Whenever possible, reproduce the issue outside production.
 
@@ -123,7 +135,7 @@ Avoid experimenting directly in production.
 
 ---
 
-# Step 5 — Contain the Incident
+## Step 5 — Contain the Incident
 
 If the issue is actively affecting users, determine whether temporary mitigation is possible.
 
@@ -139,7 +151,7 @@ Temporary mitigation is not the final solution.
 
 ---
 
-# Step 6 — Identify the Root Cause
+## Step 6 — Identify the Root Cause
 
 Continue investigating until the underlying cause is known.
 
@@ -158,7 +170,7 @@ Avoid treating symptoms as causes.
 
 ---
 
-# Step 7 — Plan the Fix
+## Step 7 — Plan the Fix
 
 Before implementation identify:
 
@@ -173,7 +185,7 @@ Production changes should always have a rollback strategy.
 
 ---
 
-# Step 8 — Implement Carefully
+## Step 8 — Implement Carefully
 
 Apply the smallest safe change.
 
@@ -188,7 +200,7 @@ Emergency fixes should remain focused.
 
 ---
 
-# Step 9 — Validate the Resolution
+## Step 9 — Validate the Resolution
 
 Verify:
 
@@ -202,7 +214,7 @@ Do not close the incident immediately after deployment.
 
 ---
 
-# Step 10 — Prevent Recurrence
+## Step 10 — Prevent Recurrence
 
 Determine how similar incidents can be prevented.
 
@@ -221,7 +233,7 @@ Every incident should improve the system.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -281,7 +293,7 @@ Every incident should improve the system.
 
 ---
 
-# Severity Guidelines
+## Severity Guidelines
 
 ## Critical
 
@@ -333,7 +345,7 @@ Can be scheduled according to normal priorities.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -353,7 +365,7 @@ Assuming the first identified issue is the root cause.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 The investigation is complete only if:
 
@@ -367,7 +379,7 @@ The investigation is complete only if:
 
 ---
 
-# Expected AI Output
+## Expected AI Output
 
 After completing the workflow, the AI should provide:
 
@@ -389,7 +401,7 @@ Preventive Recommendations
 
 ---
 
-# Summary
+## Summary
 
 Production incidents require discipline, evidence, and careful decision-making.
 

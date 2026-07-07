@@ -1,3 +1,15 @@
+---
+id: nestjs/11-exception-filters
+topic: nestjs
+slug: exception-filters
+title: "NestJS Exception Filters"
+type: doc
+order: 11
+status: ready
+tags: [nestjs, exception-filters]
+related: []
+when_to_use: ""
+---
 # NestJS Exception Filters
 
 ## Purpose
@@ -12,7 +24,7 @@ They should never contain business logic.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Fail predictably.
 
@@ -20,7 +32,7 @@ Every error should produce a consistent response.
 
 ---
 
-# Error Handling Goals
+## Error Handling Goals
 
 Every application should provide:
 
@@ -35,7 +47,7 @@ Errors should be understandable by both humans and machines.
 
 ---
 
-# Error Flow
+## Error Flow
 
 Typical execution flow:
 
@@ -71,7 +83,7 @@ All unhandled exceptions should pass through a centralized filter.
 
 ---
 
-# Error Categories
+## Error Categories
 
 Separate errors into categories.
 
@@ -183,7 +195,7 @@ Clients should never receive stack traces.
 
 ---
 
-# Error Response Structure
+## Error Response Structure
 
 Responses should remain consistent.
 
@@ -204,7 +216,7 @@ Every response should follow the same structure.
 
 ---
 
-# Error Codes
+## Error Codes
 
 Every business error should have a stable code.
 
@@ -224,7 +236,7 @@ Clients should depend on codes rather than localized messages.
 
 ---
 
-# Correlation ID
+## Correlation ID
 
 Every error should include the request identifier.
 
@@ -250,7 +262,7 @@ This enables production debugging.
 
 ---
 
-# Logging
+## Logging
 
 Unexpected errors should be logged.
 
@@ -266,7 +278,7 @@ Never log sensitive information.
 
 ---
 
-# Sensitive Data
+## Sensitive Data
 
 Never expose:
 
@@ -281,7 +293,7 @@ Clients should receive safe error messages.
 
 ---
 
-# Domain Exceptions
+## Domain Exceptions
 
 Business rules should throw domain-specific exceptions.
 
@@ -299,7 +311,7 @@ Avoid generic exceptions for business failures.
 
 ---
 
-# Infrastructure Exceptions
+## Infrastructure Exceptions
 
 Infrastructure adapters should translate low-level failures into application-level exceptions.
 
@@ -307,7 +319,7 @@ Avoid leaking ORM or SDK-specific exceptions.
 
 ---
 
-# Retryable Errors
+## Retryable Errors
 
 Some failures may be retried.
 
@@ -321,7 +333,7 @@ Business conflicts generally should not be retried automatically.
 
 ---
 
-# API Consistency
+## API Consistency
 
 Every endpoint should return errors using the same structure.
 
@@ -329,13 +341,13 @@ Consistency simplifies client implementation.
 
 ---
 
-# GraphQL
+## GraphQL
 
 GraphQL applications should translate internal exceptions into GraphQL-compatible responses while preserving error codes.
 
 ---
 
-# WebSockets
+## WebSockets
 
 WebSocket gateways should use the same domain exception strategy.
 
@@ -345,7 +357,7 @@ Business errors do not.
 
 ---
 
-# Observability
+## Observability
 
 Exception Filters should integrate with:
 
@@ -358,7 +370,7 @@ Unexpected failures should always be observable.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -372,7 +384,7 @@ Error handling should remain deterministic.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -414,7 +426,7 @@ Error handling should remain deterministic.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -434,7 +446,7 @@ Ignoring correlation IDs.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Exception handling is complete when:
 
@@ -447,7 +459,7 @@ Exception handling is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Exception Filters define the application's error boundary.
 

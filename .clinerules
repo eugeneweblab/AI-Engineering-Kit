@@ -1,0 +1,3 @@
+Agent instructions for this repository are in AGENTS.md (repo root). Read it first.
+Find knowledge via knowledge/INDEX.json — use only status: "ready" docs, matched by
+topic/tags/when_to_use. Ignore draft stubs. Verify with the topic 98/99/100 checklists.

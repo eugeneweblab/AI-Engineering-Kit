@@ -1,0 +1,3 @@
+# Encryption
+
+> TODO: Document pending.

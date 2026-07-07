@@ -1,3 +1,15 @@
+---
+id: react/02-component-architecture
+topic: react
+slug: component-architecture
+title: "React Component Architecture"
+type: doc
+order: 2
+status: ready
+tags: [react, component-architecture]
+related: []
+when_to_use: ""
+---
 # React Component Architecture
 
 ## Purpose
@@ -10,7 +22,7 @@ Component architecture is one of the primary factors affecting long-term maintai
 
 ---
 
-# Core Principle
+## Core Principle
 
 A component should solve one problem.
 
@@ -20,7 +32,7 @@ Applications should be built by composing small, focused building blocks.
 
 ---
 
-# Component Hierarchy
+## Component Hierarchy
 
 Design components using a hierarchical structure.
 
@@ -42,7 +54,7 @@ Each level should have a clearly defined responsibility.
 
 ---
 
-# Component Types
+## Component Types
 
 Every component should belong to one of the following categories.
 
@@ -134,7 +146,7 @@ Primitives should be generic and highly reusable.
 
 ---
 
-# Component Composition
+## Component Composition
 
 Prefer composition instead of configuration.
 
@@ -156,7 +168,7 @@ Avoid components with dozens of optional props controlling unrelated behavior.
 
 ---
 
-# Component Responsibilities
+## Component Responsibilities
 
 Each component should answer:
 
@@ -169,7 +181,7 @@ If responsibilities become difficult to explain, the component is likely too lar
 
 ---
 
-# Component Size
+## Component Size
 
 As a general guideline:
 
@@ -189,7 +201,7 @@ Split components when:
 
 ---
 
-# Folder Structure
+## Folder Structure
 
 Organize components by feature rather than file type whenever practical.
 
@@ -227,7 +239,7 @@ Related files should remain close together.
 
 ---
 
-# Component Communication
+## Component Communication
 
 Prefer one-way communication.
 
@@ -255,7 +267,7 @@ Avoid direct communication between sibling components.
 
 ---
 
-# Dependency Direction
+## Dependency Direction
 
 Dependencies should point toward lower-level building blocks.
 
@@ -283,7 +295,7 @@ Lower-level components should not depend on higher-level features.
 
 ---
 
-# Reusability
+## Reusability
 
 Before creating a new component:
 
@@ -296,7 +308,7 @@ Reuse existing implementations whenever possible.
 
 ---
 
-# Accessibility
+## Accessibility
 
 Every component should:
 
@@ -309,7 +321,7 @@ Accessibility should be built into the component architecture.
 
 ---
 
-# Testing
+## Testing
 
 Components should support independent testing.
 
@@ -323,7 +335,7 @@ Avoid unnecessary dependencies on:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -363,7 +375,7 @@ Avoid unnecessary dependencies on:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -383,7 +395,7 @@ Ignoring accessibility.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A component architecture is considered complete when:
 
@@ -396,7 +408,7 @@ A component architecture is considered complete when:
 
 ---
 
-# Summary
+## Summary
 
 Strong React applications are built from a clear hierarchy of focused, reusable components.
 

@@ -1,3 +1,15 @@
+---
+id: nestjs/20-queues
+topic: nestjs
+slug: queues
+title: "NestJS Queues"
+type: doc
+order: 20
+status: ready
+tags: [nestjs, queues]
+related: []
+when_to_use: ""
+---
 # NestJS Queues
 
 ## Purpose
@@ -12,7 +24,7 @@ They should not replace synchronous business logic unnecessarily.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Respond quickly.
 
@@ -20,7 +32,7 @@ Process expensive work asynchronously.
 
 ---
 
-# Queue Goals
+## Queue Goals
 
 Every queue system should provide:
 
@@ -35,7 +47,7 @@ Background processing should never compromise business consistency.
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 Queues are responsible for:
 
@@ -54,7 +66,7 @@ Queues should not:
 
 ---
 
-# Processing Flow
+## Processing Flow
 
 ```
 HTTP Request
@@ -88,7 +100,7 @@ Business state should be committed before background processing begins.
 
 ---
 
-# Typical Use Cases
+## Typical Use Cases
 
 Queues are appropriate for:
 
@@ -105,7 +117,7 @@ Avoid queues for operations that must complete before responding to the client.
 
 ---
 
-# Queue Technologies
+## Queue Technologies
 
 Common implementations include:
 
@@ -120,7 +132,7 @@ Application architecture should remain independent of the queue provider.
 
 ---
 
-# Job Design
+## Job Design
 
 Every job should have:
 
@@ -134,7 +146,7 @@ Jobs should contain only the data required for execution.
 
 ---
 
-# Idempotency
+## Idempotency
 
 Workers should be idempotent.
 
@@ -150,7 +162,7 @@ Idempotency is essential for reliable distributed systems.
 
 ---
 
-# Retry Strategy
+## Retry Strategy
 
 Retry only transient failures.
 
@@ -168,7 +180,7 @@ Do not retry:
 
 ---
 
-# Backoff Strategy
+## Backoff Strategy
 
 Prefer exponential backoff.
 
@@ -188,7 +200,7 @@ Avoid aggressive retry loops.
 
 ---
 
-# Dead Letter Queue (DLQ)
+## Dead Letter Queue (DLQ)
 
 Failed jobs exceeding retry limits should move to a Dead Letter Queue.
 
@@ -212,7 +224,7 @@ Never silently discard failed jobs.
 
 ---
 
-# Poison Messages
+## Poison Messages
 
 A poison message consistently fails processing.
 
@@ -226,7 +238,7 @@ Move poison messages to the DLQ.
 
 ---
 
-# Delayed Jobs
+## Delayed Jobs
 
 Use delayed execution for:
 
@@ -239,7 +251,7 @@ Scheduling should remain predictable.
 
 ---
 
-# Job Priorities
+## Job Priorities
 
 Support priorities when required.
 
@@ -263,7 +275,7 @@ Priorities should reflect business value.
 
 ---
 
-# Worker Design
+## Worker Design
 
 Workers should:
 
@@ -276,7 +288,7 @@ Avoid large, multi-purpose workers.
 
 ---
 
-# Concurrency
+## Concurrency
 
 Configure worker concurrency carefully.
 
@@ -291,7 +303,7 @@ Higher concurrency is not always better.
 
 ---
 
-# Ordering
+## Ordering
 
 Do not assume global ordering.
 
@@ -304,7 +316,7 @@ Explicitly document ordering guarantees.
 
 ---
 
-# Queue Monitoring
+## Queue Monitoring
 
 Monitor:
 
@@ -319,7 +331,7 @@ Healthy queues require continuous monitoring.
 
 ---
 
-# Graceful Shutdown
+## Graceful Shutdown
 
 Workers should:
 
@@ -332,7 +344,7 @@ Avoid terminating active processing abruptly.
 
 ---
 
-# Observability
+## Observability
 
 Every job should include:
 
@@ -346,7 +358,7 @@ Background execution should be traceable.
 
 ---
 
-# Security
+## Security
 
 Validate all job payloads.
 
@@ -362,7 +374,7 @@ Sensitive information should be minimized.
 
 ---
 
-# Performance
+## Performance
 
 Optimize:
 
@@ -375,7 +387,7 @@ Avoid oversized job payloads.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -390,7 +402,7 @@ Queue behavior should remain deterministic.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Use queues for:
 
@@ -416,7 +428,7 @@ Do **not** use queues for:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -458,7 +470,7 @@ Do **not** use queues for:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -478,7 +490,7 @@ Blocking workers with long-running synchronous code.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Queue implementation is complete when:
 
@@ -491,7 +503,7 @@ Queue implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Queues enable reliable asynchronous processing in NestJS applications.
 

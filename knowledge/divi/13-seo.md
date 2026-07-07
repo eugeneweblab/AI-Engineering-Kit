@@ -1,0 +1,3 @@
+# Seo
+
+> TODO: Document pending.

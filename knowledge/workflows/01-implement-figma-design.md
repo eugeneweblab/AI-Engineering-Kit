@@ -1,3 +1,15 @@
+---
+id: workflows/01-implement-figma-design
+topic: workflows
+slug: implement-figma-design
+title: "Workflow — Implement a Figma Design"
+type: doc
+order: 1
+status: ready
+tags: [workflows, implement-figma-design]
+related: []
+when_to_use: ""
+---
 # Workflow — Implement a Figma Design
 
 ## Purpose
@@ -10,7 +22,7 @@ The objective is to faithfully implement the design system, layout, behavior, an
 
 ---
 
-# Core Principle
+## Core Principle
 
 Never start coding immediately after opening a Figma file.
 
@@ -20,7 +32,7 @@ Only after the analysis is complete should implementation begin.
 
 ---
 
-# Workflow Overview
+## Workflow Overview
 
 ```
 Receive Design
@@ -48,7 +60,7 @@ Final Review
 
 ---
 
-# Step 1 — Analyze the Entire Design
+## Step 1 — Analyze the Entire Design
 
 Before writing code:
 
@@ -69,7 +81,7 @@ Never begin implementation after inspecting only the first screen.
 
 ---
 
-# Step 2 — Identify the Design System
+## Step 2 — Identify the Design System
 
 Determine whether the design already contains reusable rules.
 
@@ -90,7 +102,7 @@ These become implementation constraints.
 
 ---
 
-# Step 3 — Split the Design Into Components
+## Step 3 — Split the Design Into Components
 
 Do not think in pixels.
 
@@ -158,7 +170,7 @@ Large UI should be decomposed recursively.
 
 ---
 
-# Step 4 — Compare With Existing Project
+## Step 4 — Compare With Existing Project
 
 Before creating anything:
 
@@ -178,7 +190,7 @@ Prefer reuse over recreation.
 
 ---
 
-# Step 5 — Build an Implementation Plan
+## Step 5 — Build an Implementation Plan
 
 Before editing files determine:
 
@@ -200,7 +212,7 @@ Implementation should follow a plan.
 
 ---
 
-# Step 6 — Implement From Large to Small
+## Step 6 — Implement From Large to Small
 
 Recommended order:
 
@@ -234,7 +246,7 @@ Avoid styling individual elements before the page structure exists.
 
 ---
 
-# Step 7 — Preserve Design Consistency
+## Step 7 — Preserve Design Consistency
 
 Maintain consistency for:
 
@@ -260,7 +272,7 @@ One inconsistent component reduces the quality of the entire interface.
 
 ---
 
-# Step 8 — Responsive Implementation
+## Step 8 — Responsive Implementation
 
 Responsive behavior should not be added after desktop implementation.
 
@@ -284,7 +296,7 @@ Layout should adapt naturally.
 
 ---
 
-# Step 9 — Accessibility Review
+## Step 9 — Accessibility Review
 
 Verify:
 
@@ -308,7 +320,7 @@ Accessibility is part of implementation—not an optional enhancement.
 
 ---
 
-# Step 10 — Visual Verification
+## Step 10 — Visual Verification
 
 Compare the implementation against the Figma design.
 
@@ -338,7 +350,7 @@ The comparison should use the complete page—not isolated components.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Design Analysis
 
@@ -408,7 +420,7 @@ The comparison should use the complete page—not isolated components.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -432,7 +444,7 @@ Treating Figma as an image instead of a system.
 
 ---
 
-# AI Responsibilities
+## AI Responsibilities
 
 Before implementation AI should explain:
 
@@ -453,7 +465,7 @@ After implementation AI should explain:
 
 ---
 
-# Definition of Success
+## Definition of Success
 
 A successful implementation:
 
@@ -473,7 +485,7 @@ Introduces minimal technical debt.
 
 ---
 
-# Summary
+## Summary
 
 Figma is not a collection of pixels.
 

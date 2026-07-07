@@ -1,3 +1,15 @@
+---
+id: wordpress/07-testing
+topic: wordpress
+slug: testing
+title: "WordPress Testing"
+type: doc
+order: 7
+status: ready
+tags: [wordpress, testing]
+related: []
+when_to_use: ""
+---
 # WordPress Testing
 
 ## Purpose
@@ -10,7 +22,7 @@ The objective is to ensure that every feature behaves correctly, remains maintai
 
 ---
 
-# Core Principle
+## Core Principle
 
 Every change should increase confidence in the system.
 
@@ -20,7 +32,7 @@ Testing is about discovering where it does not.
 
 ---
 
-# Testing Pyramid
+## Testing Pyramid
 
 Prefer the following balance:
 
@@ -36,7 +48,7 @@ Large tests should be fewer.
 
 ---
 
-# What Should Be Tested
+## What Should Be Tested
 
 Every feature should verify:
 
@@ -52,7 +64,7 @@ Testing should cover both successful and unsuccessful scenarios.
 
 ---
 
-# Unit Testing
+## Unit Testing
 
 Unit tests should validate isolated business logic.
 
@@ -69,7 +81,7 @@ Unit tests should not depend on WordPress whenever possible.
 
 ---
 
-# Integration Testing
+## Integration Testing
 
 Integration tests verify interactions between components.
 
@@ -86,7 +98,7 @@ Integration tests ensure that independently tested components work together corr
 
 ---
 
-# End-to-End Testing
+## End-to-End Testing
 
 End-to-end tests simulate real user behavior.
 
@@ -103,7 +115,7 @@ E2E tests validate complete user journeys.
 
 ---
 
-# Manual Testing
+## Manual Testing
 
 Some scenarios require manual verification.
 
@@ -120,7 +132,7 @@ Manual testing complements automated testing.
 
 ---
 
-# WordPress-Specific Testing
+## WordPress-Specific Testing
 
 Verify:
 
@@ -138,7 +150,7 @@ Every integration point should be tested.
 
 ---
 
-# Security Testing
+## Security Testing
 
 Verify:
 
@@ -154,7 +166,7 @@ Security should be verified as part of normal testing.
 
 ---
 
-# Performance Testing
+## Performance Testing
 
 Review:
 
@@ -168,7 +180,7 @@ Performance regressions should be detected early.
 
 ---
 
-# Regression Testing
+## Regression Testing
 
 Before merging changes verify that existing functionality still works.
 
@@ -184,7 +196,7 @@ Every bug fix should reduce the chance of future regressions.
 
 ---
 
-# Test Data
+## Test Data
 
 Use predictable and reusable test data.
 
@@ -198,7 +210,7 @@ Tests should produce consistent results.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -242,7 +254,7 @@ Tests should produce consistent results.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -262,7 +274,7 @@ Ignoring regression testing.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Testing is considered complete when:
 
@@ -275,7 +287,7 @@ Testing is considered complete when:
 
 ---
 
-# Summary
+## Summary
 
 Testing provides confidence that software behaves correctly today and continues to behave correctly as the project evolves.
 

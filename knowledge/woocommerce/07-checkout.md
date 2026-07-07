@@ -1,0 +1,3 @@
+# Checkout
+
+> TODO: Document pending.

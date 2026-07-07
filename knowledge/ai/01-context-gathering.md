@@ -1,3 +1,15 @@
+---
+id: ai/01-context-gathering
+topic: ai
+slug: context-gathering
+title: "Context Gathering"
+type: doc
+order: 1
+status: ready
+tags: [ai, context-gathering]
+related: []
+when_to_use: ""
+---
 # Context Gathering
 
 ## Purpose
@@ -10,7 +22,7 @@ AI should spend more effort understanding the project than generating code.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Never generate code using only the user's request.
 
@@ -27,7 +39,7 @@ Engineering decisions should also be based on:
 
 ---
 
-# Context Priority
+## Context Priority
 
 Always gather context in the following order.
 
@@ -127,7 +139,7 @@ Additional dependencies increase maintenance cost.
 
 ---
 
-# Repository Investigation
+## Repository Investigation
 
 Before implementation, AI should answer:
 
@@ -155,7 +167,7 @@ If these questions cannot be answered, additional investigation is required.
 
 ---
 
-# Searching Strategy
+## Searching Strategy
 
 Never stop after the first search result.
 
@@ -192,7 +204,7 @@ Large repositories often contain multiple valid implementations.
 
 ---
 
-# Detect Existing Conventions
+## Detect Existing Conventions
 
 Before writing code, identify conventions for:
 
@@ -220,7 +232,7 @@ Follow existing conventions unless there is a clear engineering reason not to.
 
 ---
 
-# Missing Context
+## Missing Context
 
 If important context is unavailable, AI should explicitly identify what is missing.
 
@@ -236,7 +248,7 @@ Missing context should be communicated before implementation.
 
 ---
 
-# When To Ask Questions
+## When To Ask Questions
 
 AI should ask questions when:
 
@@ -258,7 +270,7 @@ Questions reduce incorrect assumptions.
 
 ---
 
-# Context Checklist
+## Context Checklist
 
 Before implementation verify:
 
@@ -277,7 +289,7 @@ Implementation should not begin until every applicable item has been completed.
 
 ---
 
-# Anti-patterns
+## Anti-patterns
 
 Avoid:
 
@@ -297,7 +309,7 @@ Treating every task as a greenfield implementation.
 
 ---
 
-# Summary
+## Summary
 
 Context gathering is the highest return activity in AI-assisted software development.
 

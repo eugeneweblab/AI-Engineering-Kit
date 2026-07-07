@@ -1,3 +1,15 @@
+---
+id: nestjs/07-dto
+topic: nestjs
+slug: dto
+title: "NestJS Data Transfer Objects (DTO)"
+type: doc
+order: 7
+status: ready
+tags: [nestjs, dto]
+related: []
+when_to_use: ""
+---
 # NestJS Data Transfer Objects (DTO)
 
 ## Purpose
@@ -12,7 +24,7 @@ They are not business objects or database entities.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Separate transport models from business models.
 
@@ -20,7 +32,7 @@ Never expose persistence models directly through the API.
 
 ---
 
-# DTO Goals
+## DTO Goals
 
 Every DTO should provide:
 
@@ -35,7 +47,7 @@ DTOs should describe data—not behavior.
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 DTOs are responsible for:
 
@@ -54,7 +66,7 @@ DTOs should never contain:
 
 ---
 
-# Request Flow
+## Request Flow
 
 Typical flow:
 
@@ -102,7 +114,7 @@ Every layer has a dedicated responsibility.
 
 ---
 
-# DTO Categories
+## DTO Categories
 
 A feature typically contains:
 
@@ -124,7 +136,7 @@ Separate DTOs by purpose.
 
 ---
 
-# Request DTOs
+## Request DTOs
 
 Request DTOs describe incoming data.
 
@@ -139,7 +151,7 @@ Every public endpoint accepting a request body should use a dedicated Request DT
 
 ---
 
-# Response DTOs
+## Response DTOs
 
 Response DTOs define outgoing data.
 
@@ -153,7 +165,7 @@ Never return ORM entities directly.
 
 ---
 
-# Why Entities Must Not Be Returned
+## Why Entities Must Not Be Returned
 
 Avoid:
 
@@ -177,7 +189,7 @@ Always map entities to Response DTOs.
 
 ---
 
-# Mapper Pattern
+## Mapper Pattern
 
 Use dedicated mappers.
 
@@ -201,7 +213,7 @@ Avoid performing mapping throughout controllers.
 
 ---
 
-# Validation
+## Validation
 
 Request DTOs should validate:
 
@@ -216,7 +228,7 @@ Invalid input should never reach business logic.
 
 ---
 
-# Nested DTOs
+## Nested DTOs
 
 Nested objects should use dedicated DTOs.
 
@@ -238,7 +250,7 @@ Avoid anonymous nested object definitions.
 
 ---
 
-# Partial Updates
+## Partial Updates
 
 Use dedicated update DTOs.
 
@@ -256,7 +268,7 @@ Update DTOs should clearly express optional fields.
 
 ---
 
-# Serialization
+## Serialization
 
 Response DTOs should control serialization.
 
@@ -271,7 +283,7 @@ Serialization rules should remain predictable.
 
 ---
 
-# Sensitive Data
+## Sensitive Data
 
 Never expose:
 
@@ -286,7 +298,7 @@ Sensitive data should never leave the backend.
 
 ---
 
-# Pagination DTOs
+## Pagination DTOs
 
 Collection endpoints should use dedicated DTOs.
 
@@ -318,7 +330,7 @@ Maintain a consistent pagination contract.
 
 ---
 
-# Versioning
+## Versioning
 
 Public APIs should support DTO versioning when breaking changes occur.
 
@@ -334,7 +346,7 @@ Avoid modifying existing public contracts incompatibly.
 
 ---
 
-# Reusability
+## Reusability
 
 Share DTOs only when semantics are identical.
 
@@ -342,7 +354,7 @@ Avoid creating generic DTOs that attempt to satisfy unrelated endpoints.
 
 ---
 
-# Documentation
+## Documentation
 
 DTOs should serve as the source of truth for API documentation.
 
@@ -354,7 +366,7 @@ Every public property should be:
 
 ---
 
-# Performance
+## Performance
 
 Avoid unnecessary DTO nesting.
 
@@ -364,7 +376,7 @@ Transfer only the data required by clients.
 
 ---
 
-# Security
+## Security
 
 Review every Response DTO for:
 
@@ -376,7 +388,7 @@ Assume every exposed property becomes part of the public API.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -390,7 +402,7 @@ DTO contracts should remain stable.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -432,7 +444,7 @@ DTO contracts should remain stable.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -454,7 +466,7 @@ Treating DTOs as domain models.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A DTO implementation is complete when:
 
@@ -467,7 +479,7 @@ A DTO implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 DTOs define the public language of a NestJS application.
 

@@ -1,3 +1,15 @@
+---
+id: nestjs/30-engineering-principles
+topic: nestjs
+slug: engineering-principles
+title: "Engineering Principles"
+type: doc
+order: 30
+status: ready
+tags: [nestjs, engineering-principles]
+related: []
+when_to_use: ""
+---
 # Engineering Principles
 
 ## Purpose
@@ -10,7 +22,7 @@ Engineering principles should guide every technical decision.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Choose the simplest solution that correctly solves the problem while remaining maintainable over time.
 
@@ -27,7 +39,7 @@ No single principle should override all others.
 
 ---
 
-# SOLID
+## SOLID
 
 Apply SOLID principles where they improve maintainability.
 
@@ -41,7 +53,7 @@ SOLID should improve code quality rather than increase abstraction unnecessarily
 
 ---
 
-# DRY (Don't Repeat Yourself)
+## DRY (Don't Repeat Yourself)
 
 Avoid duplicating knowledge.
 
@@ -51,7 +63,7 @@ Accept small duplication when removing it would significantly increase complexit
 
 ---
 
-# KISS (Keep It Simple, Stupid)
+## KISS (Keep It Simple, Stupid)
 
 Prefer the simplest solution that satisfies the requirements.
 
@@ -59,7 +71,7 @@ Complexity should be introduced only when justified by measurable needs.
 
 ---
 
-# YAGNI (You Aren't Gonna Need It)
+## YAGNI (You Aren't Gonna Need It)
 
 Do not implement functionality based on speculative future requirements.
 
@@ -67,7 +79,7 @@ Build what is required today while designing for future evolution.
 
 ---
 
-# Separation of Concerns
+## Separation of Concerns
 
 Each component should have a clearly defined responsibility.
 
@@ -83,7 +95,7 @@ Clear boundaries improve maintainability.
 
 ---
 
-# High Cohesion
+## High Cohesion
 
 Related responsibilities should remain together.
 
@@ -91,7 +103,7 @@ A module should focus on one business capability.
 
 ---
 
-# Low Coupling
+## Low Coupling
 
 Components should depend on abstractions rather than implementations.
 
@@ -99,7 +111,7 @@ Reducing coupling improves flexibility and testability.
 
 ---
 
-# Composition over Inheritance
+## Composition over Inheritance
 
 Prefer composing small, focused components instead of creating deep inheritance hierarchies.
 
@@ -107,7 +119,7 @@ Composition usually provides greater flexibility.
 
 ---
 
-# Explicit over Implicit
+## Explicit over Implicit
 
 Make behavior obvious.
 
@@ -117,7 +129,7 @@ Code should be easy to understand without guessing.
 
 ---
 
-# Fail Fast
+## Fail Fast
 
 Detect invalid states as early as possible.
 
@@ -127,7 +139,7 @@ Early failures simplify debugging.
 
 ---
 
-# Principle of Least Astonishment
+## Principle of Least Astonishment
 
 Software should behave in ways that experienced developers naturally expect.
 
@@ -135,7 +147,7 @@ Unexpected behavior increases maintenance costs.
 
 ---
 
-# Law of Demeter
+## Law of Demeter
 
 A component should communicate only with its immediate collaborators.
 
@@ -143,7 +155,7 @@ Avoid navigating deep object graphs.
 
 ---
 
-# Immutability
+## Immutability
 
 Prefer immutable data when practical.
 
@@ -151,7 +163,7 @@ Immutable objects reduce unintended side effects and simplify reasoning.
 
 ---
 
-# Defensive Programming
+## Defensive Programming
 
 Validate assumptions.
 
@@ -163,7 +175,7 @@ Do not rely on callers to always behave correctly.
 
 ---
 
-# Readability
+## Readability
 
 Code is read more often than it is written.
 
@@ -173,7 +185,7 @@ Readable code reduces long-term maintenance costs.
 
 ---
 
-# Naming
+## Naming
 
 Names should communicate intent.
 
@@ -183,7 +195,7 @@ Avoid abbreviations unless universally understood.
 
 ---
 
-# Comments
+## Comments
 
 Code should explain *how*.
 
@@ -193,7 +205,7 @@ Remove comments that become inaccurate.
 
 ---
 
-# Consistency
+## Consistency
 
 Apply consistent:
 
@@ -207,7 +219,7 @@ Consistency reduces cognitive load.
 
 ---
 
-# Incremental Improvement
+## Incremental Improvement
 
 Follow the Boy Scout Rule.
 
@@ -217,7 +229,7 @@ Small improvements accumulate over time.
 
 ---
 
-# Pragmatism
+## Pragmatism
 
 Engineering decisions involve trade-offs.
 
@@ -233,7 +245,7 @@ Avoid dogmatic application of any principle.
 
 ---
 
-# Documentation
+## Documentation
 
 Document decisions that are not obvious from the code.
 
@@ -241,7 +253,7 @@ Architecture and operational knowledge should survive team changes.
 
 ---
 
-# Continuous Learning
+## Continuous Learning
 
 Continuously evaluate:
 
@@ -254,7 +266,7 @@ Engineering practices should evolve with experience.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Prefer solutions that are:
 
@@ -286,7 +298,7 @@ Avoid solutions that are:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -328,7 +340,7 @@ Avoid solutions that are:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -348,7 +360,7 @@ Treating principles as absolute rules.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Engineering principles are successfully applied when:
 
@@ -361,7 +373,7 @@ Engineering principles are successfully applied when:
 
 ---
 
-# Summary
+## Summary
 
 Engineering principles provide a framework for making consistent technical decisions.
 

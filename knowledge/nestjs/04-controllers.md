@@ -1,3 +1,15 @@
+---
+id: nestjs/04-controllers
+topic: nestjs
+slug: controllers
+title: "NestJS Controllers"
+type: doc
+order: 4
+status: ready
+tags: [nestjs, controllers]
+related: []
+when_to_use: ""
+---
 # NestJS Controllers
 
 ## Purpose
@@ -10,7 +22,7 @@ Controllers should coordinate requests—not implement business logic.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Controllers translate HTTP requests into application actions.
 
@@ -18,7 +30,7 @@ Business decisions belong in services.
 
 ---
 
-# Controller Goals
+## Controller Goals
 
 Every controller should provide:
 
@@ -33,7 +45,7 @@ Controllers should remain thin.
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 Controllers are responsible for:
 
@@ -47,7 +59,7 @@ Controllers should not contain business workflows.
 
 ---
 
-# Request Lifecycle
+## Request Lifecycle
 
 A typical request follows this flow:
 
@@ -87,7 +99,7 @@ Each layer should perform a single responsibility.
 
 ---
 
-# Routing
+## Routing
 
 Routes should be:
 
@@ -114,7 +126,7 @@ Avoid action-oriented URLs.
 
 ---
 
-# Resource Naming
+## Resource Naming
 
 Use plural resource names.
 
@@ -134,7 +146,7 @@ Avoid inconsistent naming conventions.
 
 ---
 
-# HTTP Methods
+## HTTP Methods
 
 Use HTTP methods according to their intent.
 
@@ -162,7 +174,7 @@ Do not overload endpoints with unrelated behavior.
 
 ---
 
-# Request Parameters
+## Request Parameters
 
 Extract request data explicitly.
 
@@ -177,7 +189,7 @@ Avoid ambiguous parameter handling.
 
 ---
 
-# DTO Usage
+## DTO Usage
 
 Every request body should use a DTO.
 
@@ -191,7 +203,7 @@ Avoid accepting untyped objects.
 
 ---
 
-# Validation
+## Validation
 
 Validate incoming requests before reaching business logic.
 
@@ -207,7 +219,7 @@ Invalid requests should fail early.
 
 ---
 
-# Response Structure
+## Response Structure
 
 Responses should remain consistent.
 
@@ -221,7 +233,7 @@ Avoid returning inconsistent response shapes.
 
 ---
 
-# Status Codes
+## Status Codes
 
 Use appropriate HTTP status codes.
 
@@ -242,7 +254,7 @@ Status codes should accurately reflect the outcome.
 
 ---
 
-# Error Handling
+## Error Handling
 
 Controllers should not swallow exceptions.
 
@@ -252,7 +264,7 @@ Avoid custom error formatting inside individual controllers.
 
 ---
 
-# Authentication
+## Authentication
 
 Authentication should be enforced through Guards.
 
@@ -260,7 +272,7 @@ Controllers should assume authenticated identity has already been established.
 
 ---
 
-# Authorization
+## Authorization
 
 Authorization should verify resource access before executing business logic.
 
@@ -268,7 +280,7 @@ Authorization rules should remain centralized and reusable.
 
 ---
 
-# Pagination
+## Pagination
 
 Collection endpoints should support pagination.
 
@@ -284,7 +296,7 @@ Avoid returning unbounded collections.
 
 ---
 
-# Filtering
+## Filtering
 
 Filtering should be implemented using query parameters.
 
@@ -300,7 +312,7 @@ Filtering behavior should remain predictable.
 
 ---
 
-# Versioning
+## Versioning
 
 Public APIs should support versioning.
 
@@ -316,7 +328,7 @@ Versioning strategy should remain consistent throughout the application.
 
 ---
 
-# File Uploads
+## File Uploads
 
 Controllers handling uploads should:
 
@@ -329,7 +341,7 @@ Avoid embedding storage logic inside controllers.
 
 ---
 
-# Security
+## Security
 
 Controllers should:
 
@@ -342,7 +354,7 @@ Security should be enforced before business logic executes.
 
 ---
 
-# Testing
+## Testing
 
 Controllers should verify:
 
@@ -355,7 +367,7 @@ Business rules should be tested within services rather than controllers.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -397,7 +409,7 @@ Business rules should be tested within services rather than controllers.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -417,7 +429,7 @@ Duplicating validation logic.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A controller implementation is complete when:
 
@@ -430,7 +442,7 @@ A controller implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Controllers provide the entry point into a NestJS application.
 

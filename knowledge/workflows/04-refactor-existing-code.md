@@ -1,3 +1,15 @@
+---
+id: workflows/04-refactor-existing-code
+topic: workflows
+slug: refactor-existing-code
+title: "Workflow — Refactor Existing Code"
+type: doc
+order: 4
+status: ready
+tags: [workflows, refactor-existing-code]
+related: []
+when_to_use: ""
+---
 # Workflow — Refactor Existing Code
 
 ## Purpose
@@ -10,7 +22,7 @@ Refactoring is not feature development.
 
 ---
 
-# Goal
+## Goal
 
 Produce cleaner code that:
 
@@ -23,7 +35,7 @@ Produce cleaner code that:
 
 ---
 
-# Workflow Overview
+## Workflow Overview
 
 ```
 Identify Refactoring Target
@@ -47,7 +59,7 @@ Complete
 
 ---
 
-# Step 1 — Identify the Refactoring Target
+## Step 1 — Identify the Refactoring Target
 
 Determine why the refactoring is needed.
 
@@ -65,7 +77,7 @@ Every refactoring should have a clear objective.
 
 ---
 
-# Step 2 — Understand Existing Behavior
+## Step 2 — Understand Existing Behavior
 
 Before changing anything, understand exactly how the current implementation works.
 
@@ -82,7 +94,7 @@ Never refactor code you do not understand.
 
 ---
 
-# Step 3 — Analyze Dependencies
+## Step 3 — Analyze Dependencies
 
 Determine what depends on the code.
 
@@ -100,7 +112,7 @@ Shared code requires additional caution.
 
 ---
 
-# Step 4 — Define the Scope
+## Step 4 — Define the Scope
 
 Clearly define what is included.
 
@@ -124,7 +136,7 @@ Do not expand the scope during implementation.
 
 ---
 
-# Step 5 — Create a Safety Net
+## Step 5 — Create a Safety Net
 
 Before refactoring, verify existing behavior.
 
@@ -139,7 +151,7 @@ Behavior should be protected before implementation begins.
 
 ---
 
-# Step 6 — Refactor Incrementally
+## Step 6 — Refactor Incrementally
 
 Perform small, isolated changes.
 
@@ -157,7 +169,7 @@ Avoid large rewrites.
 
 ---
 
-# Step 7 — Verify Behavior
+## Step 7 — Verify Behavior
 
 Confirm that functionality remains unchanged.
 
@@ -174,7 +186,7 @@ Refactoring should not introduce behavioral differences.
 
 ---
 
-# Step 8 — Review Code Quality
+## Step 8 — Review Code Quality
 
 Review the final implementation.
 
@@ -190,7 +202,7 @@ Every refactoring should leave the codebase in a better state.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -250,7 +262,7 @@ Every refactoring should leave the codebase in a better state.
 
 ---
 
-# Manual Verification
+## Manual Verification
 
 Before completing:
 
@@ -262,7 +274,7 @@ Before completing:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -282,7 +294,7 @@ Assuming behavior has not changed without verification.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 The workflow is complete only if:
 
@@ -296,7 +308,7 @@ The workflow is complete only if:
 
 ---
 
-# Expected AI Output
+## Expected AI Output
 
 After completing this workflow, the AI should be able to explain:
 
@@ -309,7 +321,7 @@ After completing this workflow, the AI should be able to explain:
 
 ---
 
-# Summary
+## Summary
 
 Refactoring is the disciplined process of improving code without changing what it does.
 

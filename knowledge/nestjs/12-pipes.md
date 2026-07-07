@@ -1,3 +1,15 @@
+---
+id: nestjs/12-pipes
+topic: nestjs
+slug: pipes
+title: "NestJS Pipes"
+type: doc
+order: 12
+status: ready
+tags: [nestjs, pipes]
+related: []
+when_to_use: ""
+---
 # NestJS Pipes
 
 ## Purpose
@@ -12,7 +24,7 @@ They should prepare data—not implement business rules.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Transform early.
 
@@ -22,7 +34,7 @@ Execute business logic only after input has been prepared.
 
 ---
 
-# Pipe Goals
+## Pipe Goals
 
 Every Pipe should provide:
 
@@ -36,7 +48,7 @@ Pipes should always produce the same output for the same input.
 
 ---
 
-# Request Lifecycle
+## Request Lifecycle
 
 Typical request flow:
 
@@ -84,7 +96,7 @@ Pipes execute immediately before controller method invocation.
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 Pipes are responsible for:
 
@@ -103,7 +115,7 @@ Pipes should not:
 
 ---
 
-# Pipe Types
+## Pipe Types
 
 NestJS provides several categories of Pipes.
 
@@ -121,7 +133,7 @@ Custom Pipes should follow the same design principles.
 
 ---
 
-# Transformation
+## Transformation
 
 Pipes may transform values.
 
@@ -155,7 +167,7 @@ Transformation should remain deterministic.
 
 ---
 
-# Validation
+## Validation
 
 Pipes may reject invalid transport data.
 
@@ -170,7 +182,7 @@ Business rules belong elsewhere.
 
 ---
 
-# Normalization
+## Normalization
 
 Normalize request data consistently.
 
@@ -185,7 +197,7 @@ Normalization should remain predictable.
 
 ---
 
-# Pipes vs DTO Validation
+## Pipes vs DTO Validation
 
 DTO validation verifies object structure.
 
@@ -195,7 +207,7 @@ Use both together when appropriate.
 
 ---
 
-# Pipes vs Services
+## Pipes vs Services
 
 Services answer business questions.
 
@@ -217,7 +229,7 @@ Business logic should never move into Pipes.
 
 ---
 
-# Pipes vs Guards
+## Pipes vs Guards
 
 Guards answer:
 
@@ -235,7 +247,7 @@ Authorization does not belong in Pipes.
 
 ---
 
-# Pipes vs Interceptors
+## Pipes vs Interceptors
 
 Interceptors wrap request execution.
 
@@ -245,7 +257,7 @@ They solve different problems.
 
 ---
 
-# Database Access
+## Database Access
 
 Avoid database queries inside Pipes.
 
@@ -285,7 +297,7 @@ Business validation belongs inside services.
 
 ---
 
-# Exception Handling
+## Exception Handling
 
 Pipes should throw meaningful validation exceptions.
 
@@ -295,7 +307,7 @@ Exception Filters should format responses consistently.
 
 ---
 
-# Composition
+## Composition
 
 Prefer composing multiple focused Pipes rather than creating one large Pipe.
 
@@ -317,7 +329,7 @@ Small Pipes are easier to reuse and test.
 
 ---
 
-# Reusability
+## Reusability
 
 Reusable Pipes should remain independent of business features.
 
@@ -331,7 +343,7 @@ Feature-specific logic should remain inside services.
 
 ---
 
-# Performance
+## Performance
 
 Pipes execute on every request.
 
@@ -346,7 +358,7 @@ Keep execution lightweight.
 
 ---
 
-# Security
+## Security
 
 Validate:
 
@@ -360,7 +372,7 @@ Reject malformed requests immediately.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -374,7 +386,7 @@ Pipes should be deterministic.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Use a Pipe when the task is:
 
@@ -400,7 +412,7 @@ Do **not** use a Pipe for:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -442,7 +454,7 @@ Do **not** use a Pipe for:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -462,7 +474,7 @@ Adding side effects.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A Pipe implementation is complete when:
 
@@ -475,7 +487,7 @@ A Pipe implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Pipes define the transport boundary of a NestJS application.
 

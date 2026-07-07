@@ -1,0 +1,3 @@
+# Coupons
+
+> TODO: Document pending.

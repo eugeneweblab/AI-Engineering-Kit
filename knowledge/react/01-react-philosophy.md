@@ -1,3 +1,15 @@
+---
+id: react/01-react-philosophy
+topic: react
+slug: react-philosophy
+title: "React Philosophy"
+type: doc
+order: 1
+status: ready
+tags: [react, react-philosophy]
+related: []
+when_to_use: ""
+---
 # React Philosophy
 
 ## Purpose
@@ -12,7 +24,7 @@ It should not become a place for business logic, duplicated state, or unnecessar
 
 ---
 
-# Core Principle
+## Core Principle
 
 Components should describe the UI.
 
@@ -22,7 +34,7 @@ A React component should be easy to understand by reading it from top to bottom.
 
 ---
 
-# React Mindset
+## React Mindset
 
 Before writing a component, ask:
 
@@ -37,7 +49,7 @@ Prefer simple components over clever abstractions.
 
 ---
 
-# Design Principles
+## Design Principles
 
 Every component should follow these principles.
 
@@ -104,7 +116,7 @@ A new engineer should understand the component without additional explanation.
 
 ---
 
-# Component Responsibilities
+## Component Responsibilities
 
 A component should primarily:
 
@@ -117,7 +129,7 @@ Avoid embedding unrelated responsibilities.
 
 ---
 
-# State Management
+## State Management
 
 Before introducing state, ask:
 
@@ -130,7 +142,7 @@ Only store information that cannot be derived.
 
 ---
 
-# Data Flow
+## Data Flow
 
 React applications should maintain one-way data flow.
 
@@ -158,7 +170,7 @@ Avoid unnecessary bidirectional dependencies.
 
 ---
 
-# Side Effects
+## Side Effects
 
 Side effects should be isolated.
 
@@ -174,7 +186,7 @@ Keep rendering logic separate from side effects.
 
 ---
 
-# Performance
+## Performance
 
 Optimize only after identifying a real bottleneck.
 
@@ -189,7 +201,7 @@ Do not introduce premature optimizations.
 
 ---
 
-# Accessibility
+## Accessibility
 
 Every component should support:
 
@@ -203,7 +215,7 @@ Accessibility is part of component quality.
 
 ---
 
-# Testing
+## Testing
 
 Components should be designed so they can be tested independently.
 
@@ -211,7 +223,7 @@ Avoid tightly coupling components to global state or external services.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -253,7 +265,7 @@ Avoid tightly coupling components to global state or external services.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -273,7 +285,7 @@ Ignoring accessibility.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A React component is complete when:
 
@@ -286,7 +298,7 @@ A React component is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Well-designed React applications are built from small, focused, reusable components.
 

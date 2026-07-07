@@ -1,3 +1,15 @@
+---
+id: wordpress/05-performance
+topic: wordpress
+slug: performance
+title: "WordPress Performance"
+type: doc
+order: 5
+status: ready
+tags: [wordpress, performance]
+related: []
+when_to_use: ""
+---
 # WordPress Performance
 
 ## Purpose
@@ -12,7 +24,7 @@ The objective is to deliver fast, scalable, and efficient applications that rema
 
 ---
 
-# Core Principle
+## Core Principle
 
 Optimize architecture before optimizing code.
 
@@ -22,7 +34,7 @@ Always identify the real bottleneck before implementing changes.
 
 ---
 
-# Performance Mindset
+## Performance Mindset
 
 Every implementation should consider:
 
@@ -38,7 +50,7 @@ Avoid optimizing areas that are not measurable bottlenecks.
 
 ---
 
-# Measure Before Optimizing
+## Measure Before Optimizing
 
 Before making performance changes:
 
@@ -51,7 +63,7 @@ Never optimize based on assumptions.
 
 ---
 
-# Database Performance
+## Database Performance
 
 Prefer:
 
@@ -73,7 +85,7 @@ Every database query should have a clear purpose.
 
 ---
 
-# Query Optimization
+## Query Optimization
 
 Before writing a query ask:
 
@@ -87,7 +99,7 @@ Duplicate queries should be eliminated whenever possible.
 
 ---
 
-# Object Caching
+## Object Caching
 
 Use object caching for frequently requested data.
 
@@ -103,7 +115,7 @@ Avoid caching data that changes frequently unless invalidation is well defined.
 
 ---
 
-# Transients
+## Transients
 
 Use transients for temporary cached data.
 
@@ -118,7 +130,7 @@ Always define an expiration strategy.
 
 ---
 
-# REST API Performance
+## REST API Performance
 
 Review:
 
@@ -132,7 +144,7 @@ Return only the data required by the client.
 
 ---
 
-# Asset Loading
+## Asset Loading
 
 Load only required assets.
 
@@ -149,7 +161,7 @@ Avoid loading assets globally when they are page-specific.
 
 ---
 
-# Image Optimization
+## Image Optimization
 
 Prefer:
 
@@ -163,7 +175,7 @@ Avoid serving oversized images.
 
 ---
 
-# JavaScript Performance
+## JavaScript Performance
 
 Reduce:
 
@@ -177,7 +189,7 @@ Move expensive work away from the critical rendering path.
 
 ---
 
-# CSS Performance
+## CSS Performance
 
 Maintain:
 
@@ -190,7 +202,7 @@ Avoid duplicated styles across components.
 
 ---
 
-# External APIs
+## External APIs
 
 External services introduce latency.
 
@@ -205,7 +217,7 @@ External dependencies should degrade gracefully.
 
 ---
 
-# Background Processing
+## Background Processing
 
 Long-running tasks should execute outside the request lifecycle whenever possible.
 
@@ -221,7 +233,7 @@ Keep page requests fast.
 
 ---
 
-# Monitoring
+## Monitoring
 
 Continuously monitor:
 
@@ -236,7 +248,7 @@ Performance is an ongoing engineering activity.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -292,7 +304,7 @@ Performance is an ongoing engineering activity.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -314,7 +326,7 @@ Ignoring long-term scalability.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Performance work is complete only if:
 
@@ -326,7 +338,7 @@ Performance work is complete only if:
 
 ---
 
-# Summary
+## Summary
 
 Performance is the result of good architecture, efficient data access, responsible resource usage, and continuous measurement.
 

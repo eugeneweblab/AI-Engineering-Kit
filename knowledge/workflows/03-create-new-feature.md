@@ -1,3 +1,15 @@
+---
+id: workflows/03-create-new-feature
+topic: workflows
+slug: create-new-feature
+title: "Workflow — Create a New Feature"
+type: doc
+order: 3
+status: ready
+tags: [workflows, create-new-feature]
+related: []
+when_to_use: ""
+---
 # Workflow — Create a New Feature
 
 ## Purpose
@@ -10,7 +22,7 @@ The objective is to deliver maintainable functionality that follows the project'
 
 ---
 
-# Goal
+## Goal
 
 Deliver a feature that:
 
@@ -22,7 +34,7 @@ Deliver a feature that:
 
 ---
 
-# Workflow Overview
+## Workflow Overview
 
 ```
 Receive Requirements
@@ -48,7 +60,7 @@ Complete
 
 ---
 
-# Step 1 — Understand the Requirements
+## Step 1 — Understand the Requirements
 
 Read the complete specification.
 
@@ -65,7 +77,7 @@ If any requirement is unclear, resolve it before implementation.
 
 ---
 
-# Step 2 — Understand the Existing System
+## Step 2 — Understand the Existing System
 
 Investigate how similar functionality is implemented.
 
@@ -84,7 +96,7 @@ Every feature should feel native to the project.
 
 ---
 
-# Step 3 — Search Before Creating
+## Step 3 — Search Before Creating
 
 Before creating new code, search for reusable implementations.
 
@@ -112,7 +124,7 @@ Prefer extension over duplication.
 
 ---
 
-# Step 4 — Design the Implementation
+## Step 4 — Design the Implementation
 
 Create a technical plan.
 
@@ -131,7 +143,7 @@ The implementation plan should be understandable before coding begins.
 
 ---
 
-# Step 5 — Estimate Impact
+## Step 5 — Estimate Impact
 
 Determine what could be affected.
 
@@ -152,7 +164,7 @@ Every feature has consequences beyond its own code.
 
 ---
 
-# Step 6 — Implement Incrementally
+## Step 6 — Implement Incrementally
 
 Implement in small logical steps.
 
@@ -196,7 +208,7 @@ Avoid implementing the entire feature in one large change.
 
 ---
 
-# Step 7 — Verify Functionality
+## Step 7 — Verify Functionality
 
 Verify:
 
@@ -212,7 +224,7 @@ The feature is not complete until every important scenario has been reviewed.
 
 ---
 
-# Step 8 — Review Integration
+## Step 8 — Review Integration
 
 Confirm the feature integrates naturally.
 
@@ -230,7 +242,7 @@ The feature should feel like part of the product—not an addition.
 
 ---
 
-# Step 9 — Update Documentation
+## Step 9 — Update Documentation
 
 When appropriate update:
 
@@ -245,7 +257,7 @@ Documentation is part of implementation.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -307,7 +319,7 @@ Documentation is part of implementation.
 
 ---
 
-# Manual Verification
+## Manual Verification
 
 Before completing the feature:
 
@@ -321,7 +333,7 @@ Before completing the feature:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -343,7 +355,7 @@ Treating documentation as optional.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 The workflow is complete only if:
 
@@ -357,7 +369,7 @@ The workflow is complete only if:
 
 ---
 
-# Expected AI Output
+## Expected AI Output
 
 After completing this workflow, the AI should be able to explain:
 
@@ -371,7 +383,7 @@ After completing this workflow, the AI should be able to explain:
 
 ---
 
-# Summary
+## Summary
 
 A successful feature is not measured by the amount of new code.
 

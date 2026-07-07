@@ -1,3 +1,15 @@
+---
+id: nestjs/27-performance
+topic: nestjs
+slug: performance
+title: "Performance Engineering"
+type: doc
+order: 27
+status: ready
+tags: [nestjs, performance]
+related: []
+when_to_use: ""
+---
 # Performance Engineering
 
 ## Purpose
@@ -12,7 +24,7 @@ Optimization should always be guided by measurements rather than assumptions.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Measure first.
 
@@ -22,7 +34,7 @@ Never optimize code without identifying the actual bottleneck.
 
 ---
 
-# Performance Goals
+## Performance Goals
 
 Every production application should provide:
 
@@ -37,7 +49,7 @@ Performance improvements should always be measurable.
 
 ---
 
-# Performance Lifecycle
+## Performance Lifecycle
 
 ```
 Measure
@@ -63,7 +75,7 @@ Every optimization should include before-and-after measurements.
 
 ---
 
-# Common Bottlenecks
+## Common Bottlenecks
 
 Typical bottlenecks include:
 
@@ -80,7 +92,7 @@ Never assume the bottleneck.
 
 ---
 
-# Node.js Event Loop
+## Node.js Event Loop
 
 NestJS runs on the Node.js event loop.
 
@@ -95,7 +107,7 @@ Long-running CPU work should be moved to worker threads or background processing
 
 ---
 
-# Database Performance
+## Database Performance
 
 Optimize:
 
@@ -115,7 +127,7 @@ Always inspect execution plans for slow queries.
 
 ---
 
-# Caching
+## Caching
 
 Use caching only when it produces measurable improvements.
 
@@ -130,7 +142,7 @@ The database remains the source of truth.
 
 ---
 
-# API Performance
+## API Performance
 
 Review:
 
@@ -144,7 +156,7 @@ Return only the data required by clients.
 
 ---
 
-# Asynchronous Processing
+## Asynchronous Processing
 
 Move expensive operations to queues.
 
@@ -159,7 +171,7 @@ Request latency should remain low.
 
 ---
 
-# Memory Management
+## Memory Management
 
 Monitor:
 
@@ -172,7 +184,7 @@ Memory consumption should remain predictable over time.
 
 ---
 
-# CPU Utilization
+## CPU Utilization
 
 Review:
 
@@ -185,7 +197,7 @@ High CPU usage often indicates inefficient algorithms.
 
 ---
 
-# Network Performance
+## Network Performance
 
 Reduce:
 
@@ -198,7 +210,7 @@ Prefer batching where appropriate.
 
 ---
 
-# Concurrency
+## Concurrency
 
 Design for concurrent workloads.
 
@@ -212,7 +224,7 @@ Concurrency should improve throughput without compromising correctness.
 
 ---
 
-# Horizontal Scaling
+## Horizontal Scaling
 
 Applications should remain stateless whenever possible.
 
@@ -226,7 +238,7 @@ Stateless services scale more effectively.
 
 ---
 
-# Load Testing
+## Load Testing
 
 Validate performance under realistic workloads.
 
@@ -241,7 +253,7 @@ Load testing should occur before production releases.
 
 ---
 
-# Profiling
+## Profiling
 
 Use profilers to identify hotspots.
 
@@ -256,7 +268,7 @@ Optimize the largest bottleneck first.
 
 ---
 
-# Observability
+## Observability
 
 Monitor:
 
@@ -271,7 +283,7 @@ Performance must remain observable.
 
 ---
 
-# Performance Budgets
+## Performance Budgets
 
 Define acceptable limits.
 
@@ -286,7 +298,7 @@ Budgets prevent gradual performance degradation.
 
 ---
 
-# Benchmarking
+## Benchmarking
 
 Benchmark critical operations after significant architectural changes.
 
@@ -296,7 +308,7 @@ Compare results over time.
 
 ---
 
-# Security vs Performance
+## Security vs Performance
 
 Never sacrifice security solely for performance.
 
@@ -310,7 +322,7 @@ Correctness and security always take priority.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -324,7 +336,7 @@ Performance tests should be repeatable.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Optimize:
 
@@ -350,7 +362,7 @@ Do **not** optimize:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -392,7 +404,7 @@ Do **not** optimize:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -412,7 +424,7 @@ Treating caching as a universal solution.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Performance engineering is complete when:
 
@@ -425,7 +437,7 @@ Performance engineering is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Performance engineering is the continuous process of measuring, optimizing, validating, and monitoring application behavior.
 

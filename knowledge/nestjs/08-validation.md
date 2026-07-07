@@ -1,3 +1,15 @@
+---
+id: nestjs/08-validation
+topic: nestjs
+slug: validation
+title: "NestJS Validation"
+type: doc
+order: 8
+status: ready
+tags: [nestjs, validation]
+related: []
+when_to_use: ""
+---
 # NestJS Validation
 
 ## Purpose
@@ -12,7 +24,7 @@ Business rules remain inside services.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Validate input immediately.
 
@@ -20,7 +32,7 @@ Reject invalid data before it enters the application.
 
 ---
 
-# Validation Goals
+## Validation Goals
 
 Every validation strategy should provide:
 
@@ -35,7 +47,7 @@ Validation should reduce the number of invalid states the application can reach.
 
 ---
 
-# Validation Layers
+## Validation Layers
 
 Validation exists at multiple layers.
 
@@ -67,7 +79,7 @@ Each layer validates different concerns.
 
 ---
 
-# Transport Validation
+## Transport Validation
 
 Transport validation verifies:
 
@@ -83,7 +95,7 @@ Transport validation should not verify business rules.
 
 ---
 
-# Business Validation
+## Business Validation
 
 Business validation verifies rules such as:
 
@@ -97,7 +109,7 @@ Business validation belongs inside services.
 
 ---
 
-# ValidationPipe
+## ValidationPipe
 
 Enable a global `ValidationPipe`.
 
@@ -112,7 +124,7 @@ Validation should be centralized.
 
 ---
 
-# DTO Validation
+## DTO Validation
 
 Every request DTO should define validation rules.
 
@@ -129,7 +141,7 @@ Every public endpoint accepting request data should use DTO validation.
 
 ---
 
-# Nested Validation
+## Nested Validation
 
 Validate nested objects explicitly.
 
@@ -151,7 +163,7 @@ Every nested object should have its own DTO.
 
 ---
 
-# Array Validation
+## Array Validation
 
 Arrays should validate:
 
@@ -164,7 +176,7 @@ Avoid accepting arbitrary arrays.
 
 ---
 
-# Custom Validators
+## Custom Validators
 
 Create custom validators for reusable domain-independent rules.
 
@@ -179,7 +191,7 @@ Keep custom validators focused and reusable.
 
 ---
 
-# Business Rules
+## Business Rules
 
 Business rules should never be implemented as DTO validation.
 
@@ -199,7 +211,7 @@ Validation attributes cannot replace business logic.
 
 ---
 
-# Fail-Fast
+## Fail-Fast
 
 Reject invalid requests immediately.
 
@@ -207,7 +219,7 @@ Avoid allowing partially valid requests to continue through the application.
 
 ---
 
-# Error Messages
+## Error Messages
 
 Validation errors should be:
 
@@ -220,7 +232,7 @@ Do not expose internal implementation details.
 
 ---
 
-# Sanitization
+## Sanitization
 
 Normalize data before business processing when appropriate.
 
@@ -235,7 +247,7 @@ Sanitization should be deterministic.
 
 ---
 
-# Transformation
+## Transformation
 
 Incoming values may be transformed into:
 
@@ -248,7 +260,7 @@ Transformation should occur before business logic executes.
 
 ---
 
-# Unknown Fields
+## Unknown Fields
 
 Unexpected request fields should be rejected.
 
@@ -256,7 +268,7 @@ Allowing arbitrary fields increases security risks and API ambiguity.
 
 ---
 
-# Alternative Validators
+## Alternative Validators
 
 Alternative validation libraries may be appropriate.
 
@@ -270,7 +282,7 @@ When selected, validation strategy should remain consistent across the applicati
 
 ---
 
-# API Documentation
+## API Documentation
 
 Validation rules should align with API documentation.
 
@@ -285,7 +297,7 @@ Documentation and validation should never contradict each other.
 
 ---
 
-# Performance
+## Performance
 
 Validation should remain efficient.
 
@@ -299,7 +311,7 @@ Business logic should receive already validated data.
 
 ---
 
-# Security
+## Security
 
 Validation helps prevent:
 
@@ -313,7 +325,7 @@ Validation is part of the application's security model.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -328,7 +340,7 @@ Validation should remain deterministic.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -370,7 +382,7 @@ Validation should remain deterministic.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -390,7 +402,7 @@ Trusting client-side validation.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Validation is complete when:
 
@@ -403,7 +415,7 @@ Validation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Validation establishes the first line of defense for every NestJS application.
 

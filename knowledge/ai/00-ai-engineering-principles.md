@@ -1,3 +1,15 @@
+---
+id: ai/00-ai-engineering-principles
+topic: ai
+slug: ai-engineering-principles
+title: "AI Engineering Principles"
+type: doc
+order: 0
+status: ready
+tags: [ai, ai-engineering-principles]
+related: []
+when_to_use: ""
+---
 # AI Engineering Principles
 
 ## Purpose
@@ -10,7 +22,7 @@ Whether the implementation is performed by Cursor, Claude Code, Codex, GitHub Co
 
 ---
 
-# Principle 1 — Think Before Generating
+## Principle 1 — Think Before Generating
 
 Generating code is never the first step.
 
@@ -28,7 +40,7 @@ Code generation without understanding is guessing.
 
 ---
 
-# Principle 2 — Context Is More Valuable Than Prompts
+## Principle 2 — Context Is More Valuable Than Prompts
 
 AI should rely on repository context before relying on instructions.
 
@@ -45,7 +57,7 @@ Repository knowledge always has higher priority than generic programming knowled
 
 ---
 
-# Principle 3 — Read Before Writing
+## Principle 3 — Read Before Writing
 
 Never generate code inside a file that has not been read completely.
 
@@ -60,7 +72,7 @@ Context prevents inconsistent implementations.
 
 ---
 
-# Principle 4 — Search Before Creating
+## Principle 4 — Search Before Creating
 
 Before creating any new file, class, function, component, hook, service, utility, or API:
 
@@ -74,7 +86,7 @@ Duplication increases maintenance cost.
 
 ---
 
-# Principle 5 — Explain Decisions
+## Principle 5 — Explain Decisions
 
 AI should explain engineering decisions.
 
@@ -93,7 +105,7 @@ Engineering decisions should be transparent.
 
 ---
 
-# Principle 6 — Make Small Changes
+## Principle 6 — Make Small Changes
 
 Large modifications increase risk.
 
@@ -108,7 +120,7 @@ Smaller changes are easier to review and safer to deploy.
 
 ---
 
-# Principle 7 — Preserve Architecture
+## Principle 7 — Preserve Architecture
 
 AI should adapt to the project.
 
@@ -124,7 +136,7 @@ Follow the project's engineering language.
 
 ---
 
-# Principle 8 — Distinguish Facts From Assumptions
+## Principle 8 — Distinguish Facts From Assumptions
 
 AI must clearly separate:
 
@@ -148,7 +160,7 @@ Never present assumptions as facts.
 
 ---
 
-# Principle 9 — State Uncertainty
+## Principle 9 — State Uncertainty
 
 If important information is missing, say so.
 
@@ -166,7 +178,7 @@ Honest uncertainty is preferable to confident hallucination.
 
 ---
 
-# Principle 10 — Verify Before Finishing
+## Principle 10 — Verify Before Finishing
 
 Never assume generated code is correct.
 
@@ -187,7 +199,7 @@ Verification completes it.
 
 ---
 
-# AI Decision Order
+## AI Decision Order
 
 For every task follow this order.
 
@@ -213,7 +225,7 @@ Never reverse this order.
 
 ---
 
-# AI Responsibilities
+## AI Responsibilities
 
 AI should:
 
@@ -234,7 +246,7 @@ AI should not:
 
 ---
 
-# Engineering Mindset
+## Engineering Mindset
 
 AI should behave like an experienced engineer joining an existing team.
 
@@ -254,7 +266,7 @@ Leave the codebase better than it was found.
 
 ---
 
-# Summary
+## Summary
 
 The primary responsibility of an AI coding agent is not generating code.
 

@@ -1,3 +1,15 @@
+---
+id: nestjs/10-interceptors
+topic: nestjs
+slug: interceptors
+title: "NestJS Interceptors"
+type: doc
+order: 10
+status: ready
+tags: [nestjs, interceptors]
+related: []
+when_to_use: ""
+---
 # NestJS Interceptors
 
 ## Purpose
@@ -12,7 +24,7 @@ They should not contain business logic.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Business logic belongs in services.
 
@@ -20,7 +32,7 @@ Cross-cutting concerns belong in interceptors.
 
 ---
 
-# Interceptor Goals
+## Interceptor Goals
 
 Every interceptor should provide:
 
@@ -32,7 +44,7 @@ Every interceptor should provide:
 
 ---
 
-# Request Lifecycle
+## Request Lifecycle
 
 Typical execution order:
 
@@ -84,7 +96,7 @@ Interceptors execute both before and after controller execution.
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 Interceptors are responsible for:
 
@@ -101,7 +113,7 @@ Interceptors should never implement business rules.
 
 ---
 
-# Response Mapping
+## Response Mapping
 
 Interceptors may normalize responses.
 
@@ -121,7 +133,7 @@ Avoid formatting responses individually inside controllers.
 
 ---
 
-# Logging
+## Logging
 
 Centralize request logging.
 
@@ -139,7 +151,7 @@ Avoid logging sensitive information.
 
 ---
 
-# Correlation ID
+## Correlation ID
 
 Every request should receive a unique correlation ID.
 
@@ -173,7 +185,7 @@ The same identifier should appear in all related logs.
 
 ---
 
-# Performance Monitoring
+## Performance Monitoring
 
 Measure:
 
@@ -186,7 +198,7 @@ Performance data should be consistent and actionable.
 
 ---
 
-# Audit Logging
+## Audit Logging
 
 Audit interceptors should record important business events.
 
@@ -201,7 +213,7 @@ Audit logs should be immutable.
 
 ---
 
-# Caching
+## Caching
 
 Interceptors may coordinate response caching.
 
@@ -215,7 +227,7 @@ Caching strategy should remain centralized.
 
 ---
 
-# Timeout Handling
+## Timeout Handling
 
 Long-running requests should fail predictably.
 
@@ -229,7 +241,7 @@ Avoid allowing requests to run indefinitely.
 
 ---
 
-# Retry Strategy
+## Retry Strategy
 
 Retries should be limited to transient failures.
 
@@ -243,7 +255,7 @@ Never retry operations that are not idempotent unless explicitly designed for it
 
 ---
 
-# Exception Propagation
+## Exception Propagation
 
 Interceptors should allow exceptions to propagate to Exception Filters.
 
@@ -251,7 +263,7 @@ Avoid catching exceptions solely to suppress them.
 
 ---
 
-# Tracing
+## Tracing
 
 Integrate distributed tracing when supported.
 
@@ -266,7 +278,7 @@ Tracing should support production diagnostics.
 
 ---
 
-# Metrics
+## Metrics
 
 Collect metrics such as:
 
@@ -280,7 +292,7 @@ Metrics should support operational monitoring.
 
 ---
 
-# Security
+## Security
 
 Never log:
 
@@ -294,7 +306,7 @@ Review every logged field.
 
 ---
 
-# Controller Independence
+## Controller Independence
 
 Controllers should remain unaware of interceptors.
 
@@ -302,7 +314,7 @@ Business logic should not depend on interceptor behavior.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -317,7 +329,7 @@ Interceptors should be independently testable.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -359,7 +371,7 @@ Interceptors should be independently testable.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -379,7 +391,7 @@ Ignoring correlation IDs.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 An interceptor implementation is complete when:
 
@@ -392,7 +404,7 @@ An interceptor implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Interceptors provide a powerful mechanism for implementing cross-cutting concerns in NestJS.
 

@@ -1,3 +1,15 @@
+---
+id: workflows/11-build-gutenberg-block
+topic: workflows
+slug: build-gutenberg-block
+title: "Workflow — Build a Gutenberg Block"
+type: doc
+order: 11
+status: ready
+tags: [workflows, build-gutenberg-block]
+related: []
+when_to_use: ""
+---
 # Workflow — Build a Gutenberg Block
 
 ## Purpose
@@ -12,7 +24,7 @@ It is a content authoring experience, a frontend component, and a long-term cont
 
 ---
 
-# Goal
+## Goal
 
 Build a Gutenberg block that:
 
@@ -26,7 +38,7 @@ Build a Gutenberg block that:
 
 ---
 
-# Workflow Overview
+## Workflow Overview
 
 ```
 Understand Requirements
@@ -52,7 +64,7 @@ Complete
 
 ---
 
-# Step 1 — Understand the Requirements
+## Step 1 — Understand the Requirements
 
 Before implementation determine:
 
@@ -67,7 +79,7 @@ Understand both the editor experience and the visitor experience.
 
 ---
 
-# Step 2 — Analyze Existing Blocks
+## Step 2 — Analyze Existing Blocks
 
 Search the project for:
 
@@ -83,7 +95,7 @@ Prefer extending existing solutions over creating new ones.
 
 ---
 
-# Step 3 — Inspect the Project Architecture
+## Step 3 — Inspect the Project Architecture
 
 Review:
 
@@ -99,7 +111,7 @@ The new block should match the project's existing architecture.
 
 ---
 
-# Step 4 — Design the Block API
+## Step 4 — Design the Block API
 
 Define:
 
@@ -125,7 +137,7 @@ Avoid unnecessary editor settings.
 
 ---
 
-# Step 5 — Implement the Editor Experience
+## Step 5 — Implement the Editor Experience
 
 The editor should provide:
 
@@ -140,7 +152,7 @@ The editor experience is part of the product.
 
 ---
 
-# Step 6 — Implement Rendering
+## Step 6 — Implement Rendering
 
 Determine whether the block should use:
 
@@ -161,7 +173,7 @@ Rendering should remain predictable.
 
 ---
 
-# Step 7 — Implement Styling
+## Step 7 — Implement Styling
 
 Follow the project's styling strategy.
 
@@ -178,7 +190,7 @@ Avoid introducing isolated styling systems.
 
 ---
 
-# Step 8 — Accessibility Review
+## Step 8 — Accessibility Review
 
 Verify:
 
@@ -194,7 +206,7 @@ Accessibility should be verified in both the editor and the frontend.
 
 ---
 
-# Step 9 — Responsive Review
+## Step 9 — Responsive Review
 
 Review:
 
@@ -217,7 +229,7 @@ Responsive behavior should be intentional rather than accidental.
 
 ---
 
-# Step 10 — Compatibility Review
+## Step 10 — Compatibility Review
 
 Verify compatibility with:
 
@@ -233,7 +245,7 @@ The block should integrate without disrupting the editor ecosystem.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -293,7 +305,7 @@ The block should integrate without disrupting the editor ecosystem.
 
 ---
 
-# Gutenberg Engineering Principles
+## Gutenberg Engineering Principles
 
 Prefer:
 
@@ -327,7 +339,7 @@ Mixing editor state with business logic
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -349,7 +361,7 @@ Ignoring localization.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 The workflow is complete only if:
 
@@ -363,7 +375,7 @@ The workflow is complete only if:
 
 ---
 
-# Expected AI Output
+## Expected AI Output
 
 After completing this workflow, the AI should explain:
 
@@ -378,7 +390,7 @@ After completing this workflow, the AI should explain:
 
 ---
 
-# Summary
+## Summary
 
 A professional Gutenberg block is a complete editing experience rather than simply a UI component.
 

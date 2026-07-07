@@ -1,3 +1,15 @@
+---
+id: nestjs/21-events
+topic: nestjs
+slug: events
+title: "Event-Driven Architecture"
+type: doc
+order: 21
+status: ready
+tags: [nestjs, events]
+related: []
+when_to_use: ""
+---
 # Event-Driven Architecture
 
 ## Purpose
@@ -12,7 +24,7 @@ They should never communicate intentions.
 
 ---
 
-# Core Principle
+## Core Principle
 
 An event represents something that has already happened.
 
@@ -36,7 +48,7 @@ Events describe completed work.
 
 ---
 
-# Event Goals
+## Event Goals
 
 Every event-driven system should provide:
 
@@ -49,7 +61,7 @@ Every event-driven system should provide:
 
 ---
 
-# Event Lifecycle
+## Event Lifecycle
 
 ```
 Business Operation
@@ -83,7 +95,7 @@ Events should only be published after successful persistence.
 
 ---
 
-# Event Categories
+## Event Categories
 
 Separate events by purpose.
 
@@ -129,7 +141,7 @@ They should be versioned carefully.
 
 ---
 
-# Commands vs Events
+## Commands vs Events
 
 Commands:
 
@@ -159,7 +171,7 @@ Never confuse the two.
 
 ---
 
-# Event Bus
+## Event Bus
 
 An Event Bus distributes events.
 
@@ -173,7 +185,7 @@ Business logic should remain independent of the Event Bus implementation.
 
 ---
 
-# Synchronous Events
+## Synchronous Events
 
 Execute immediately.
 
@@ -186,7 +198,7 @@ Avoid long-running synchronous event handlers.
 
 ---
 
-# Asynchronous Events
+## Asynchronous Events
 
 Execute independently.
 
@@ -201,7 +213,7 @@ Asynchronous handlers improve scalability.
 
 ---
 
-# Event Payload
+## Event Payload
 
 Every event should include:
 
@@ -217,7 +229,7 @@ Avoid oversized payloads.
 
 ---
 
-# Event Versioning
+## Event Versioning
 
 Events are contracts.
 
@@ -235,7 +247,7 @@ Consumers should migrate gradually.
 
 ---
 
-# Event Naming
+## Event Naming
 
 Events should use past tense.
 
@@ -261,7 +273,7 @@ PublishProduct
 
 ---
 
-# Event Ordering
+## Event Ordering
 
 Do not assume global ordering.
 
@@ -273,7 +285,7 @@ If ordering matters:
 
 ---
 
-# Idempotency
+## Idempotency
 
 Every event handler should be idempotent.
 
@@ -283,7 +295,7 @@ Duplicate delivery is expected in distributed systems.
 
 ---
 
-# Outbox Pattern
+## Outbox Pattern
 
 Reliable publication:
 
@@ -315,7 +327,7 @@ Never publish events before commit.
 
 ---
 
-# Event Consumers
+## Event Consumers
 
 Consumers should:
 
@@ -328,7 +340,7 @@ Avoid creating large event handlers.
 
 ---
 
-# Event Chaining
+## Event Chaining
 
 Avoid deep event chains.
 
@@ -358,7 +370,7 @@ Long chains become difficult to understand and debug.
 
 ---
 
-# Event Ownership
+## Event Ownership
 
 Every event should have:
 
@@ -369,7 +381,7 @@ Ownership should remain explicit.
 
 ---
 
-# Observability
+## Observability
 
 Monitor:
 
@@ -383,7 +395,7 @@ Every event should be traceable.
 
 ---
 
-# Correlation ID
+## Correlation ID
 
 Propagate the same correlation ID across:
 
@@ -415,7 +427,7 @@ Tracing should span the complete workflow.
 
 ---
 
-# Security
+## Security
 
 Events should never expose:
 
@@ -428,7 +440,7 @@ Only publish information required by consumers.
 
 ---
 
-# Performance
+## Performance
 
 Review:
 
@@ -441,7 +453,7 @@ Optimize based on measurements.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -455,7 +467,7 @@ Events should remain deterministic.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Use events for:
 
@@ -481,7 +493,7 @@ Do **not** use events for:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -523,7 +535,7 @@ Do **not** use events for:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -543,7 +555,7 @@ Breaking public event contracts.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 An event-driven implementation is complete when:
 
@@ -556,7 +568,7 @@ An event-driven implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Events allow independent parts of a system to communicate through completed business facts.
 

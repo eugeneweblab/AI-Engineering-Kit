@@ -1,3 +1,15 @@
+---
+id: figma/16-accessibility-from-figma
+topic: figma
+slug: accessibility-from-figma
+title: "Accessibility from Figma"
+type: doc
+order: 16
+status: ready
+tags: [figma, accessibility-from-figma]
+related: []
+when_to_use: ""
+---
 # Accessibility from Figma
 
 ## Purpose
@@ -10,7 +22,7 @@ The goal is to produce interfaces that are usable by all users while remaining f
 
 ---
 
-# Core Principle
+## Core Principle
 
 Accessibility starts in the design phase.
 
@@ -20,7 +32,7 @@ Do not treat accessibility as a separate task.
 
 ---
 
-# Accessibility Review Workflow
+## Accessibility Review Workflow
 
 Follow this sequence during design analysis.
 
@@ -48,7 +60,7 @@ Prepare Implementation
 
 ---
 
-# Step 1 — Semantic Structure
+## Step 1 — Semantic Structure
 
 Identify the document structure.
 
@@ -66,7 +78,7 @@ Every visible section should have a semantic purpose.
 
 ---
 
-# Step 2 — Heading Hierarchy
+## Step 2 — Heading Hierarchy
 
 Review the complete heading structure.
 
@@ -81,7 +93,7 @@ Headings create the document outline for assistive technologies.
 
 ---
 
-# Step 3 — Interactive Elements
+## Step 3 — Interactive Elements
 
 Identify every interactive component.
 
@@ -101,7 +113,7 @@ Every interactive element must be operable using both a mouse and a keyboard.
 
 ---
 
-# Step 4 — Forms
+## Step 4 — Forms
 
 Review every form.
 
@@ -119,7 +131,7 @@ Placeholders must never replace labels.
 
 ---
 
-# Step 5 — Images
+## Step 5 — Images
 
 Classify every image.
 
@@ -136,7 +148,7 @@ Decorative images should not create unnecessary noise for assistive technologies
 
 ---
 
-# Step 6 — Icons
+## Step 6 — Icons
 
 Determine whether icons:
 
@@ -150,7 +162,7 @@ Decorative icons should not be announced unnecessarily.
 
 ---
 
-# Step 7 — Color Contrast
+## Step 7 — Color Contrast
 
 Review:
 
@@ -165,7 +177,7 @@ Do not rely on color alone to communicate meaning.
 
 ---
 
-# Step 8 — Typography
+## Step 8 — Typography
 
 Verify:
 
@@ -179,7 +191,7 @@ Typography directly affects readability.
 
 ---
 
-# Step 9 — Focus Management
+## Step 9 — Focus Management
 
 Review every interactive flow.
 
@@ -194,7 +206,7 @@ Users should never lose track of keyboard focus.
 
 ---
 
-# Step 10 — Responsive Accessibility
+## Step 10 — Responsive Accessibility
 
 Review every breakpoint.
 
@@ -210,7 +222,7 @@ Accessibility must be preserved across all supported devices.
 
 ---
 
-# Accessibility Questions
+## Accessibility Questions
 
 Before implementation ask:
 
@@ -224,7 +236,7 @@ If any answer is "No", improve the implementation plan.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -260,7 +272,7 @@ If any answer is "No", improve the implementation plan.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -282,7 +294,7 @@ Adding accessibility only after implementation.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Accessibility planning is complete when:
 
@@ -295,7 +307,7 @@ Accessibility planning is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Accessibility begins during design analysis.
 

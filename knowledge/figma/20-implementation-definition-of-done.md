@@ -1,3 +1,15 @@
+---
+id: figma/20-implementation-definition-of-done
+topic: figma
+slug: implementation-definition-of-done
+title: "Implementation Definition of Done"
+type: doc
+order: 20
+status: ready
+tags: [figma, implementation-definition-of-done]
+related: []
+when_to_use: ""
+---
 # Implementation Definition of Done
 
 ## Purpose
@@ -10,7 +22,7 @@ An implementation is considered complete only when every requirement in this doc
 
 ---
 
-# Core Principle
+## Core Principle
 
 Code completion is not task completion.
 
@@ -18,7 +30,7 @@ A feature is complete only after implementation, verification, review, testing, 
 
 ---
 
-# Definition of Done Workflow
+## Definition of Done Workflow
 
 Every implementation must complete the following stages.
 
@@ -48,7 +60,7 @@ No stage may be skipped.
 
 ---
 
-# Stage 1 — Requirements
+## Stage 1 — Requirements
 
 Verify:
 
@@ -66,7 +78,7 @@ Implementation should never begin with unresolved requirements.
 
 ---
 
-# Stage 2 — Implementation
+## Stage 2 — Implementation
 
 Verify:
 
@@ -84,7 +96,7 @@ Verify:
 
 ---
 
-# Stage 3 — Design Verification
+## Stage 3 — Design Verification
 
 Compare implementation with the approved Figma design.
 
@@ -110,7 +122,7 @@ No significant visual differences should remain.
 
 ---
 
-# Stage 4 — Accessibility
+## Stage 4 — Accessibility
 
 Verify:
 
@@ -132,7 +144,7 @@ Accessibility issues must be resolved before completion.
 
 ---
 
-# Stage 5 — Responsive Verification
+## Stage 5 — Responsive Verification
 
 Review:
 
@@ -162,7 +174,7 @@ Every supported breakpoint must be verified.
 
 ---
 
-# Stage 6 — Performance
+## Stage 6 — Performance
 
 Verify:
 
@@ -182,7 +194,7 @@ Implementation quality includes runtime performance.
 
 ---
 
-# Stage 7 — Code Quality
+## Stage 7 — Code Quality
 
 Verify:
 
@@ -202,7 +214,7 @@ Code should be understandable without additional explanation.
 
 ---
 
-# Stage 8 — Testing
+## Stage 8 — Testing
 
 Verify:
 
@@ -222,7 +234,7 @@ Testing confirms that implementation works as intended.
 
 ---
 
-# Stage 9 — Documentation
+## Stage 9 — Documentation
 
 Verify:
 
@@ -238,7 +250,7 @@ Documentation should remain synchronized with implementation.
 
 ---
 
-# Stage 10 — Final Review
+## Stage 10 — Final Review
 
 Before marking the task complete, confirm:
 
@@ -260,7 +272,7 @@ Before marking the task complete, confirm:
 
 ---
 
-# AI Completion Report
+## AI Completion Report
 
 Before finishing a task, AI should summarize:
 
@@ -301,7 +313,7 @@ Do not hide known limitations.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -331,7 +343,7 @@ Do not hide known limitations.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -351,7 +363,7 @@ Marking incomplete work as finished.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Implementation is complete only when:
 
@@ -366,7 +378,7 @@ Implementation is complete only when:
 
 ---
 
-# Summary
+## Summary
 
 A consistent Definition of Done creates predictable engineering quality.
 

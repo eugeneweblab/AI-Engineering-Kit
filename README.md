@@ -12,6 +12,26 @@ The goal is simple:
 
 ---
 
+## For AI agents
+
+Start at **[`AGENTS.md`](AGENTS.md)**. It defines how to consume this repository:
+find a `ready` document via [`knowledge/INDEX.json`](knowledge/INDEX.json), follow the
+matching guide in [`knowledge/workflows/`](knowledge/workflows/), and self-verify with
+each topic's checklists. Tool-native entrypoints (`CLAUDE.md`, `GEMINI.md`,
+`.github/copilot-instructions.md`, `.cursor/rules/`, `.clinerules`) all redirect there.
+
+## Repository layout
+
+| Path | Purpose |
+|------|---------|
+| `AGENTS.md` | Canonical entrypoint for AI coding agents. |
+| `knowledge/` | The knowledge base (topics, workflows, principles) + `INDEX.json`/`INDEX.md`. |
+| `agents/` | Tool-specific integration notes. |
+| `docs/structure/` | Frozen canonical structure spec and file list. |
+| `scripts/` | Metadata + index generators (`inject-frontmatter.py`, `build-index.py`). |
+
+---
+
 ## Why this project exists
 
 Modern AI tools are incredibly capable, yet they often struggle with engineering consistency.

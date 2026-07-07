@@ -1,3 +1,15 @@
+---
+id: ai/06-self-verification
+topic: ai
+slug: self-verification
+title: "Self Verification"
+type: doc
+order: 6
+status: ready
+tags: [ai, self-verification]
+related: []
+when_to_use: ""
+---
 # Self Verification
 
 ## Purpose
@@ -12,7 +24,7 @@ AI should assume that every implementation may contain mistakes until it has bee
 
 ---
 
-# Core Principle
+## Core Principle
 
 Never trust the first implementation.
 
@@ -24,7 +36,7 @@ Verification turns a draft into an engineering solution.
 
 ---
 
-# Verification Workflow
+## Verification Workflow
 
 Every completed task should pass through the same workflow.
 
@@ -50,7 +62,7 @@ No step should be skipped.
 
 ---
 
-# Step 1 — Verify Requirements
+## Step 1 — Verify Requirements
 
 Compare the implementation with the original request.
 
@@ -65,7 +77,7 @@ Never assume the task was completed simply because code was written.
 
 ---
 
-# Step 2 — Review Architecture
+## Step 2 — Review Architecture
 
 Confirm that the implementation follows the existing architecture.
 
@@ -82,7 +94,7 @@ The implementation should fit naturally into the repository.
 
 ---
 
-# Step 3 — Review Code Quality
+## Step 3 — Review Code Quality
 
 Inspect the generated code as though it were written by another engineer.
 
@@ -100,7 +112,7 @@ Good code should require minimal explanation.
 
 ---
 
-# Step 4 — Review Dependencies
+## Step 4 — Review Dependencies
 
 Confirm:
 
@@ -114,7 +126,7 @@ Prefer existing project capabilities over introducing new ones.
 
 ---
 
-# Step 5 — Analyze Regression Risk
+## Step 5 — Analyze Regression Risk
 
 Ask:
 
@@ -134,7 +146,7 @@ Every modification has potential side effects.
 
 ---
 
-# Step 6 — Review Error Handling
+## Step 6 — Review Error Handling
 
 Verify:
 
@@ -149,7 +161,7 @@ Failure paths should be as intentional as success paths.
 
 ---
 
-# Step 7 — Review Security
+## Step 7 — Review Security
 
 Confirm:
 
@@ -163,7 +175,7 @@ Security verification is mandatory.
 
 ---
 
-# Step 8 — Review Performance
+## Step 8 — Review Performance
 
 Evaluate whether the implementation introduces:
 
@@ -178,7 +190,7 @@ Performance optimization should be evidence-based.
 
 ---
 
-# Step 9 — Review Documentation
+## Step 9 — Review Documentation
 
 Determine whether any documentation requires updates.
 
@@ -195,7 +207,7 @@ Code and documentation should remain synchronized.
 
 ---
 
-# Step 10 — Final Review
+## Step 10 — Final Review
 
 Before marking the task complete ask:
 
@@ -205,7 +217,7 @@ If the answer is uncertain, continue reviewing.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Requirements
 
@@ -275,7 +287,7 @@ If the answer is uncertain, continue reviewing.
 
 ---
 
-# Confidence Assessment
+## Confidence Assessment
 
 Before completing the task, estimate confidence.
 
@@ -310,7 +322,7 @@ AI should clearly communicate low confidence instead of presenting uncertain con
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A task should only be marked complete if all of the following are true:
 
@@ -326,7 +338,7 @@ Completion is a quality decision, not a coding milestone.
 
 ---
 
-# Anti-patterns
+## Anti-patterns
 
 Avoid:
 
@@ -344,7 +356,7 @@ Confusing implementation with completion.
 
 ---
 
-# AI Responsibilities
+## AI Responsibilities
 
 Before stating that a task is complete, AI should explain:
 
@@ -359,7 +371,7 @@ Engineering confidence should always be justified.
 
 ---
 
-# Definition of Success
+## Definition of Success
 
 Successful self-verification means:
 
@@ -373,7 +385,7 @@ Another experienced engineer would be comfortable approving the implementation w
 
 ---
 
-# Summary
+## Summary
 
 Self-verification is the final engineering discipline before task completion.
 

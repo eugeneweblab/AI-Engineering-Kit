@@ -1,3 +1,15 @@
+---
+id: engineering/05-context-first-development
+topic: engineering
+slug: context-first-development
+title: "Context-First Development"
+type: doc
+order: 5
+status: ready
+tags: [engineering, context-first-development]
+related: []
+when_to_use: ""
+---
 # Context-First Development
 
 ## Purpose
@@ -12,7 +24,7 @@ Adding more code without understanding the existing system usually increases tec
 
 ---
 
-# Core Principle
+## Core Principle
 
 Context always comes before implementation.
 
@@ -29,7 +41,7 @@ Implementation without context produces inconsistent software.
 
 ---
 
-# What Is Context?
+## What Is Context?
 
 Context is every piece of information that influences an engineering decision.
 
@@ -53,7 +65,7 @@ Context extends beyond the current file.
 
 ---
 
-# Levels of Context
+## Levels of Context
 
 Engineering decisions should be made using multiple levels of context.
 
@@ -136,7 +148,7 @@ Local optimizations should never violate higher-level architecture.
 
 ---
 
-# Context Investigation Checklist
+## Context Investigation Checklist
 
 Before writing code, inspect:
 
@@ -152,7 +164,7 @@ Engineering is often about discovering existing solutions rather than creating n
 
 ---
 
-# Context Before Creation
+## Context Before Creation
 
 Before creating a new...
 
@@ -205,7 +217,7 @@ Prefer extending an existing service over introducing competing abstractions.
 
 ---
 
-# Warning Signs
+## Warning Signs
 
 The following often indicate insufficient context.
 
@@ -223,7 +235,7 @@ Most of these problems originate from implementing before investigating.
 
 ---
 
-# AI Guidance
+## AI Guidance
 
 Before generating code, AI coding agents should explicitly determine:
 
@@ -237,7 +249,7 @@ If important context is missing, AI should explain what information is required 
 
 ---
 
-# Self Review
+## Self Review
 
 Before implementation ask:
 
@@ -253,7 +265,7 @@ If any answer is **No**, continue investigating.
 
 ---
 
-# Anti-patterns
+## Anti-patterns
 
 Avoid:
 
@@ -271,7 +283,7 @@ Treating every task as an isolated problem.
 
 ---
 
-# Summary
+## Summary
 
 Strong engineers spend significant time building context before writing code.
 

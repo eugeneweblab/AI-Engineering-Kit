@@ -1,3 +1,15 @@
+---
+id: nestjs/03-dependency-injection
+topic: nestjs
+slug: dependency-injection
+title: "NestJS Dependency Injection"
+type: doc
+order: 3
+status: ready
+tags: [nestjs, dependency-injection]
+related: []
+when_to_use: ""
+---
 # NestJS Dependency Injection
 
 ## Purpose
@@ -10,7 +22,7 @@ Dependency Injection should simplify architecture rather than complicate it.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Depend on abstractions.
 
@@ -20,7 +32,7 @@ Dependencies should be injected, never created manually inside business logic.
 
 ---
 
-# Dependency Injection Goals
+## Dependency Injection Goals
 
 Every application should strive for:
 
@@ -33,7 +45,7 @@ Every application should strive for:
 
 ---
 
-# Dependency Flow
+## Dependency Flow
 
 Dependencies should flow in one direction.
 
@@ -57,7 +69,7 @@ Lower layers must never depend on higher layers.
 
 ---
 
-# Constructor Injection
+## Constructor Injection
 
 Prefer constructor injection for all dependencies.
 
@@ -81,7 +93,7 @@ Avoid property injection.
 
 ---
 
-# Providers
+## Providers
 
 Providers are the primary mechanism for dependency injection.
 
@@ -98,7 +110,7 @@ Providers should encapsulate a single responsibility.
 
 ---
 
-# Provider Registration
+## Provider Registration
 
 Register providers inside the owning module.
 
@@ -122,7 +134,7 @@ Avoid registering unrelated providers in the same module.
 
 ---
 
-# Injection Tokens
+## Injection Tokens
 
 Use injection tokens when:
 
@@ -135,7 +147,7 @@ Prefer descriptive token names.
 
 ---
 
-# Custom Providers
+## Custom Providers
 
 Use custom providers for:
 
@@ -148,7 +160,7 @@ Keep custom provider configuration centralized.
 
 ---
 
-# Factory Providers
+## Factory Providers
 
 Use factory providers when object creation requires:
 
@@ -161,7 +173,7 @@ Factory logic should remain simple and predictable.
 
 ---
 
-# Value Providers
+## Value Providers
 
 Use value providers for:
 
@@ -173,7 +185,7 @@ Avoid placing business logic inside value providers.
 
 ---
 
-# Existing Providers
+## Existing Providers
 
 Reuse existing providers when multiple tokens should resolve to the same implementation.
 
@@ -181,7 +193,7 @@ Avoid creating duplicate service instances unnecessarily.
 
 ---
 
-# Provider Scope
+## Provider Scope
 
 Prefer singleton providers.
 
@@ -193,7 +205,7 @@ Choose the simplest scope that satisfies the requirement.
 
 ---
 
-# Optional Dependencies
+## Optional Dependencies
 
 Mark dependencies as optional only when the application can function correctly without them.
 
@@ -201,7 +213,7 @@ Avoid excessive optional dependencies.
 
 ---
 
-# Circular Dependencies
+## Circular Dependencies
 
 Avoid circular dependencies between providers.
 
@@ -215,7 +227,7 @@ Using circular dependency workarounds should be a last resort.
 
 ---
 
-# Service Design
+## Service Design
 
 Services should:
 
@@ -228,7 +240,7 @@ Services should not create other services directly.
 
 ---
 
-# Repository Injection
+## Repository Injection
 
 Repositories should be injected rather than instantiated manually.
 
@@ -236,7 +248,7 @@ Persistence concerns should remain isolated from business logic.
 
 ---
 
-# Configuration Injection
+## Configuration Injection
 
 Inject configuration through dedicated configuration providers.
 
@@ -244,7 +256,7 @@ Avoid reading environment variables directly throughout the application.
 
 ---
 
-# External Integrations
+## External Integrations
 
 Inject external services such as:
 
@@ -257,7 +269,7 @@ Infrastructure should remain replaceable.
 
 ---
 
-# Testing
+## Testing
 
 Dependency Injection should simplify testing.
 
@@ -272,7 +284,7 @@ Tests should isolate the component under verification.
 
 ---
 
-# Performance
+## Performance
 
 Avoid unnecessary request-scoped providers.
 
@@ -286,7 +298,7 @@ Dependency Injection should not introduce avoidable overhead.
 
 ---
 
-# Security
+## Security
 
 Inject security-related services through well-defined providers.
 
@@ -301,7 +313,7 @@ Sensitive functionality should remain centralized.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -343,7 +355,7 @@ Sensitive functionality should remain centralized.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -363,7 +375,7 @@ Injecting unnecessary dependencies.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Dependency Injection is implemented correctly when:
 
@@ -376,7 +388,7 @@ Dependency Injection is implemented correctly when:
 
 ---
 
-# Summary
+## Summary
 
 Dependency Injection is one of the core architectural strengths of NestJS.
 

@@ -1,3 +1,15 @@
+---
+id: figma/13-visual-regression
+topic: figma
+slug: visual-regression
+title: "Visual Regression"
+type: doc
+order: 13
+status: ready
+tags: [figma, visual-regression]
+related: []
+when_to_use: ""
+---
 # Visual Regression
 
 ## Purpose
@@ -10,7 +22,7 @@ Visual regression testing is a mandatory verification step before approving fron
 
 ---
 
-# Core Principle
+## Core Principle
 
 Every visual change must be intentional.
 
@@ -18,7 +30,7 @@ Unexpected differences are defects until proven otherwise.
 
 ---
 
-# Verification Workflow
+## Verification Workflow
 
 Every implementation should be verified in the following order:
 
@@ -42,7 +54,7 @@ Approval
 
 ---
 
-# Step 1 — Compare Overall Layout
+## Step 1 — Compare Overall Layout
 
 Verify:
 
@@ -55,7 +67,7 @@ Verify:
 
 ---
 
-# Step 2 — Compare Components
+## Step 2 — Compare Components
 
 Review every reusable component.
 
@@ -74,7 +86,7 @@ All instances should remain visually consistent.
 
 ---
 
-# Step 3 — Compare Typography
+## Step 3 — Compare Typography
 
 Verify:
 
@@ -88,7 +100,7 @@ Verify:
 
 ---
 
-# Step 4 — Compare Spacing
+## Step 4 — Compare Spacing
 
 Review:
 
@@ -102,7 +114,7 @@ Spacing should follow the project's design system.
 
 ---
 
-# Step 5 — Compare Colors
+## Step 5 — Compare Colors
 
 Verify:
 
@@ -118,7 +130,7 @@ Use design tokens whenever possible.
 
 ---
 
-# Step 6 — Compare Responsive Layouts
+## Step 6 — Compare Responsive Layouts
 
 Verify:
 
@@ -140,7 +152,7 @@ Ensure that layout transitions match the design.
 
 ---
 
-# Step 7 — Compare Interactions
+## Step 7 — Compare Interactions
 
 Review:
 
@@ -155,7 +167,7 @@ Interactive behavior should remain consistent.
 
 ---
 
-# Step 8 — Compare Accessibility
+## Step 8 — Compare Accessibility
 
 Verify:
 
@@ -168,7 +180,7 @@ Verify:
 
 ---
 
-# AI Checklist
+## AI Checklist
 
 ## Investigation
 
@@ -202,7 +214,7 @@ Verify:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -218,7 +230,7 @@ Approving visual regressions without investigation.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Visual regression review is complete when:
 
@@ -229,6 +241,6 @@ Visual regression review is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Visual regression testing protects design consistency and prevents unintended frontend changes from reaching production.

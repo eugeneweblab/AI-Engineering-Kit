@@ -1,3 +1,15 @@
+---
+id: figma/03-design-token-extraction
+topic: figma
+slug: design-token-extraction
+title: "Design Token Extraction"
+type: doc
+order: 3
+status: ready
+tags: [figma, design-token-extraction]
+related: []
+when_to_use: ""
+---
 # Design Token Extraction
 
 ## Purpose
@@ -10,7 +22,7 @@ Professional frontend development is based on reusable tokens rather than hardco
 
 ---
 
-# Core Principle
+## Core Principle
 
 Do not copy values.
 
@@ -20,7 +32,7 @@ A design token should represent a reusable design decision rather than a single 
 
 ---
 
-# What Are Design Tokens
+## What Are Design Tokens
 
 Design tokens are reusable values that define the visual language of a product.
 
@@ -41,7 +53,7 @@ Tokens should be shared across the entire application.
 
 ---
 
-# Token Extraction Workflow
+## Token Extraction Workflow
 
 Every design should be analyzed in the following order:
 
@@ -69,7 +81,7 @@ Do not jump directly into implementation.
 
 ---
 
-# Step 1 — Extract Colors
+## Step 1 — Extract Colors
 
 Identify the complete color palette.
 
@@ -91,7 +103,7 @@ Repeated colors should become shared tokens.
 
 ---
 
-# Step 2 — Extract Typography
+## Step 2 — Extract Typography
 
 Identify the typography system.
 
@@ -110,7 +122,7 @@ Do not create unique styles for every text element.
 
 ---
 
-# Step 3 — Extract Spacing
+## Step 3 — Extract Spacing
 
 Identify recurring spacing values.
 
@@ -135,7 +147,7 @@ Prefer a consistent spacing scale over arbitrary values.
 
 ---
 
-# Step 4 — Extract Sizing
+## Step 4 — Extract Sizing
 
 Review recurring dimensions.
 
@@ -153,7 +165,7 @@ Reusable dimensions should become shared tokens.
 
 ---
 
-# Step 5 — Extract Border Radius
+## Step 5 — Extract Border Radius
 
 Review every rounded corner.
 
@@ -175,7 +187,7 @@ Avoid creating unique radius values for individual components.
 
 ---
 
-# Step 6 — Extract Shadows
+## Step 6 — Extract Shadows
 
 Identify shadow patterns.
 
@@ -191,7 +203,7 @@ Shadows should communicate hierarchy rather than decoration.
 
 ---
 
-# Step 7 — Extract Icons
+## Step 7 — Extract Icons
 
 Review:
 
@@ -205,7 +217,7 @@ Icons should belong to one consistent visual family.
 
 ---
 
-# Step 8 — Extract Animation Tokens
+## Step 8 — Extract Animation Tokens
 
 Review:
 
@@ -220,7 +232,7 @@ Animations should follow consistent timing.
 
 ---
 
-# Step 9 — Extract Responsive Tokens
+## Step 9 — Extract Responsive Tokens
 
 Review:
 
@@ -234,7 +246,7 @@ Responsive behavior should also be tokenized whenever possible.
 
 ---
 
-# Identify Existing Tokens
+## Identify Existing Tokens
 
 Before creating new tokens, inspect the existing project.
 
@@ -252,7 +264,7 @@ Never create duplicate tokens.
 
 ---
 
-# Mapping Tokens
+## Mapping Tokens
 
 Translate extracted values into reusable names.
 
@@ -296,7 +308,7 @@ Names should describe purpose rather than appearance.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -342,7 +354,7 @@ Names should describe purpose rather than appearance.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -362,7 +374,7 @@ Creating component-specific tokens that should be global.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Token extraction is complete when:
 
@@ -374,7 +386,7 @@ Token extraction is complete when:
 
 ---
 
-# Summary
+## Summary
 
 A professional implementation does not reproduce individual values from Figma.
 

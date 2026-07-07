@@ -1,3 +1,15 @@
+---
+id: engineering/04-task-execution
+topic: engineering
+slug: task-execution
+title: "Task Execution Workflow"
+type: doc
+order: 4
+status: ready
+tags: [engineering, task-execution]
+related: []
+when_to_use: ""
+---
 # Task Execution Workflow
 
 ## Purpose
@@ -10,7 +22,7 @@ The objective is to produce predictable, maintainable, and verifiable changes wh
 
 ---
 
-# Core Principle
+## Core Principle
 
 Never begin implementation immediately.
 
@@ -20,7 +32,7 @@ The quality of the solution depends far more on understanding the problem than o
 
 ---
 
-# Standard Workflow
+## Standard Workflow
 
 Every task should follow this sequence.
 
@@ -48,7 +60,7 @@ Skipping phases increases the likelihood of defects.
 
 ---
 
-# Phase 1 — Receive the Task
+## Phase 1 — Receive the Task
 
 Identify exactly what is being requested.
 
@@ -66,7 +78,7 @@ Never invent missing requirements.
 
 ---
 
-# Phase 2 — Understand the Existing System
+## Phase 2 — Understand the Existing System
 
 Before changing code, inspect the surrounding context.
 
@@ -83,7 +95,7 @@ The objective is to understand why the current implementation exists.
 
 ---
 
-# Phase 3 — Investigate
+## Phase 3 — Investigate
 
 Collect evidence before making decisions.
 
@@ -101,7 +113,7 @@ Engineering decisions should be evidence-based.
 
 ---
 
-# Phase 4 — Create an Implementation Plan
+## Phase 4 — Create an Implementation Plan
 
 Think before writing code.
 
@@ -118,7 +130,7 @@ Planning reduces unnecessary changes.
 
 ---
 
-# Phase 5 — Implement
+## Phase 5 — Implement
 
 Implementation should follow the established architecture.
 
@@ -134,7 +146,7 @@ Every change should have a clear purpose.
 
 ---
 
-# Phase 6 — Verify
+## Phase 6 — Verify
 
 Before considering the task complete, verify the implementation.
 
@@ -151,7 +163,7 @@ Verification is part of implementation.
 
 ---
 
-# Phase 7 — Perform Self Review
+## Phase 7 — Perform Self Review
 
 Review your own work before asking others to review it.
 
@@ -167,7 +179,7 @@ Self-review should identify obvious issues before they reach code review.
 
 ---
 
-# Phase 8 — Complete the Task
+## Phase 8 — Complete the Task
 
 A task is complete only when:
 
@@ -181,7 +193,7 @@ Completion is determined by quality, not by the last edited file.
 
 ---
 
-# Decision Rules
+## Decision Rules
 
 During implementation always prefer:
 
@@ -203,7 +215,7 @@ Root-cause fixes over symptom fixes.
 
 ---
 
-# Task Checklist
+## Task Checklist
 
 Before beginning:
 
@@ -234,7 +246,7 @@ Before finishing:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid the following:
 
@@ -258,7 +270,7 @@ Marking tasks complete without verification.
 
 ---
 
-# AI Guidance
+## AI Guidance
 
 AI coding agents should always explain:
 
@@ -279,7 +291,7 @@ When uncertainty exists, AI should state it explicitly instead of presenting spe
 
 ---
 
-# Definition of Done
+## Definition of Done
 
 A task is considered complete only if:
 
@@ -295,7 +307,7 @@ Completion means the codebase is in a better state than before the task began.
 
 ---
 
-# Summary
+## Summary
 
 Professional engineering is not defined by writing code quickly.
 

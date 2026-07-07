@@ -1,3 +1,15 @@
+---
+id: figma/15-screenshot-comparison
+topic: figma
+slug: screenshot-comparison
+title: "Screenshot Comparison"
+type: doc
+order: 15
+status: ready
+tags: [figma, screenshot-comparison]
+related: []
+when_to_use: ""
+---
 # Screenshot Comparison
 
 ## Purpose
@@ -10,7 +22,7 @@ Screenshot comparison should validate the final implementation rather than repla
 
 ---
 
-# Core Principle
+## Core Principle
 
 Compare the rendered result, not assumptions.
 
@@ -18,7 +30,7 @@ A page should be evaluated using identical conditions so that only implementatio
 
 ---
 
-# Comparison Workflow
+## Comparison Workflow
 
 Every comparison should follow this sequence.
 
@@ -46,7 +58,7 @@ Repeat Verification
 
 ---
 
-# Step 1 — Prepare the Environment
+## Step 1 — Prepare the Environment
 
 Verify:
 
@@ -61,7 +73,7 @@ The implementation should be reviewed in its intended environment.
 
 ---
 
-# Step 2 — Match Viewport
+## Step 2 — Match Viewport
 
 Use the same viewport dimensions as the design whenever possible.
 
@@ -76,7 +88,7 @@ A mismatch in viewport size may produce misleading differences.
 
 ---
 
-# Step 3 — Match Zoom
+## Step 3 — Match Zoom
 
 Verify:
 
@@ -88,7 +100,7 @@ Do not compare screenshots captured at different scales.
 
 ---
 
-# Step 4 — Compare Page Structure
+## Step 4 — Compare Page Structure
 
 Review:
 
@@ -102,7 +114,7 @@ Large structural differences should be investigated before reviewing smaller det
 
 ---
 
-# Step 5 — Compare Components
+## Step 5 — Compare Components
 
 Review every reusable component.
 
@@ -122,7 +134,7 @@ Every instance should remain visually consistent.
 
 ---
 
-# Step 6 — Compare Typography
+## Step 6 — Compare Typography
 
 Verify:
 
@@ -138,7 +150,7 @@ Typography differences often indicate incorrect design token usage.
 
 ---
 
-# Step 7 — Compare Spacing
+## Step 7 — Compare Spacing
 
 Review:
 
@@ -152,7 +164,7 @@ Spacing should follow the approved design system.
 
 ---
 
-# Step 8 — Compare Colors
+## Step 8 — Compare Colors
 
 Verify:
 
@@ -167,7 +179,7 @@ Always compare against approved design tokens rather than subjective visual impr
 
 ---
 
-# Step 9 — Compare Responsive Layouts
+## Step 9 — Compare Responsive Layouts
 
 Repeat the comparison for:
 
@@ -188,7 +200,7 @@ Every breakpoint should be verified independently.
 
 ---
 
-# Step 10 — Compare Interactions
+## Step 10 — Compare Interactions
 
 Review interactive elements.
 
@@ -206,7 +218,7 @@ Static screenshots alone are not sufficient for interaction verification.
 
 ---
 
-# Recording Differences
+## Recording Differences
 
 Every identified issue should include:
 
@@ -221,7 +233,7 @@ Clear documentation reduces unnecessary review cycles.
 
 ---
 
-# Severity Levels
+## Severity Levels
 
 ## Critical
 
@@ -273,7 +285,7 @@ May be deferred if they do not affect usability or design consistency.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -307,7 +319,7 @@ May be deferred if they do not affect usability or design consistency.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -327,7 +339,7 @@ Approving pages without side-by-side comparison.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Screenshot comparison is complete when:
 
@@ -338,7 +350,7 @@ Screenshot comparison is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Screenshot comparison provides an objective method for validating frontend implementations against approved designs.
 

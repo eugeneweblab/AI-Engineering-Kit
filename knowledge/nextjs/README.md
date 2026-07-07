@@ -1,3 +1,15 @@
+---
+id: nextjs/readme
+topic: nextjs
+slug: readme
+title: "Next.js Engineering Standards"
+type: index
+order: -1
+status: ready
+tags: [nextjs]
+related: []
+when_to_use: ""
+---
 # Next.js Engineering Standards
 
 ## Purpose
@@ -10,7 +22,7 @@ These standards should be followed by both human developers and AI coding assist
 
 ---
 
-# Scope
+## Scope
 
 This documentation covers:
 
@@ -43,7 +55,7 @@ This documentation covers:
 
 ---
 
-# Learning Path
+## Learning Path
 
 Developers should study the documents in the following order.
 
@@ -113,7 +125,7 @@ Developers should study the documents in the following order.
 
 ---
 
-# Engineering Principles
+## Engineering Principles
 
 Every Next.js feature should satisfy the following principles:
 
@@ -130,7 +142,7 @@ Every Next.js feature should satisfy the following principles:
 
 ---
 
-# Intended Audience
+## Intended Audience
 
 These standards are intended for:
 
@@ -143,6 +155,6 @@ These standards are intended for:
 
 ---
 
-# Summary
+## Summary
 
 Following these standards ensures that Next.js applications remain consistent, scalable, performant, secure, and maintainable throughout their lifecycle.

@@ -1,3 +1,15 @@
+---
+id: figma/04-auto-layout
+topic: figma
+slug: auto-layout
+title: "Figma Auto Layout"
+type: doc
+order: 4
+status: ready
+tags: [figma, auto-layout]
+related: []
+when_to_use: ""
+---
 # Figma Auto Layout
 
 ## Purpose
@@ -12,7 +24,7 @@ A correct understanding of Auto Layout significantly reduces layout bugs and unn
 
 ---
 
-# Core Principle
+## Core Principle
 
 Auto Layout describes behavior, not appearance.
 
@@ -22,7 +34,7 @@ Recreate the layout behavior.
 
 ---
 
-# AI Mindset
+## AI Mindset
 
 When inspecting Auto Layout, ask:
 
@@ -37,7 +49,7 @@ Understanding behavior is more important than copying values.
 
 ---
 
-# Auto Layout Workflow
+## Auto Layout Workflow
 
 Always analyze Auto Layout in the following order:
 
@@ -61,7 +73,7 @@ Responsive Behavior
 
 ---
 
-# Step 1 — Direction
+## Step 1 — Direction
 
 Determine whether the layout flows:
 
@@ -79,7 +91,7 @@ Wrapping Auto Layout → Flex Wrap or CSS Grid
 
 ---
 
-# Step 2 — Item Spacing
+## Step 2 — Item Spacing
 
 Determine whether spacing is:
 
@@ -105,7 +117,7 @@ Repeated margins usually indicate an incorrect implementation.
 
 ---
 
-# Step 3 — Padding
+## Step 3 — Padding
 
 Identify internal spacing.
 
@@ -122,7 +134,7 @@ Never distribute container padding across child elements.
 
 ---
 
-# Step 4 — Alignment
+## Step 4 — Alignment
 
 Review:
 
@@ -136,7 +148,7 @@ Alignment should come from the parent layout rather than child positioning.
 
 ---
 
-# Step 5 — Distribution
+## Step 5 — Distribution
 
 Determine how children occupy available space.
 
@@ -150,7 +162,7 @@ Understanding these rules is essential for responsive layouts.
 
 ---
 
-# Step 6 — Hug Contents
+## Step 6 — Hug Contents
 
 "Hug Contents" means that the element sizes itself according to its content.
 
@@ -166,7 +178,7 @@ Avoid assigning unnecessary fixed widths.
 
 ---
 
-# Step 7 — Fill Container
+## Step 7 — Fill Container
 
 "Fill Container" indicates that the element expands to occupy available space.
 
@@ -187,7 +199,7 @@ or an equivalent layout rule.
 
 ---
 
-# Step 8 — Fixed Size
+## Step 8 — Fixed Size
 
 Use fixed dimensions only when the design explicitly requires them.
 
@@ -202,7 +214,7 @@ Avoid converting flexible layouts into fixed-width implementations.
 
 ---
 
-# Step 9 — Nested Auto Layout
+## Step 9 — Nested Auto Layout
 
 Auto Layout frequently contains additional Auto Layout containers.
 
@@ -226,7 +238,7 @@ Each nested Auto Layout usually represents a reusable layout component.
 
 ---
 
-# Step 10 — Constraints
+## Step 10 — Constraints
 
 Review how the layout behaves when resized.
 
@@ -243,7 +255,7 @@ Constraints often determine the responsive implementation.
 
 ---
 
-# Mapping to CSS
+## Mapping to CSS
 
 Prefer layout primitives.
 
@@ -313,7 +325,7 @@ inline-flex
 
 ---
 
-# Mapping to Tailwind
+## Mapping to Tailwind
 
 Examples:
 
@@ -349,7 +361,7 @@ Prefer semantic layout over utility accumulation.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -393,7 +405,7 @@ Prefer semantic layout over utility accumulation.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -415,7 +427,7 @@ Copying the visual appearance instead of the layout behavior.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 An Auto Layout implementation is complete when:
 
@@ -427,7 +439,7 @@ An Auto Layout implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Auto Layout is the blueprint for implementation.
 

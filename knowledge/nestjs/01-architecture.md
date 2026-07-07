@@ -1,3 +1,15 @@
+---
+id: nestjs/01-architecture
+topic: nestjs
+slug: architecture
+title: "NestJS Architecture"
+type: doc
+order: 1
+status: ready
+tags: [nestjs, architecture]
+related: []
+when_to_use: ""
+---
 # NestJS Architecture
 
 ## Purpose
@@ -10,7 +22,7 @@ Architecture decisions should prioritize long-term maintainability over short-te
 
 ---
 
-# Core Principle
+## Core Principle
 
 Design around business domains.
 
@@ -18,7 +30,7 @@ Business logic should remain independent from frameworks and infrastructure.
 
 ---
 
-# Architectural Goals
+## Architectural Goals
 
 Every NestJS application should strive for:
 
@@ -33,7 +45,7 @@ Every NestJS application should strive for:
 
 ---
 
-# High-Level Architecture
+## High-Level Architecture
 
 Applications should be organized into independent business modules.
 
@@ -65,7 +77,7 @@ Each layer has a clearly defined responsibility.
 
 ---
 
-# Feature-Based Organization
+## Feature-Based Organization
 
 Organize code by business feature rather than technical type.
 
@@ -89,7 +101,7 @@ Each module should own its business logic and expose a clear public API.
 
 ---
 
-# Layer Responsibilities
+## Layer Responsibilities
 
 ## Module
 
@@ -155,7 +167,7 @@ Infrastructure should remain replaceable.
 
 ---
 
-# Dependency Flow
+## Dependency Flow
 
 Dependencies should move in one direction.
 
@@ -179,7 +191,7 @@ Lower layers must never depend on higher layers.
 
 ---
 
-# Dependency Injection
+## Dependency Injection
 
 Register dependencies through NestJS providers.
 
@@ -193,7 +205,7 @@ Avoid:
 
 ---
 
-# Business Logic
+## Business Logic
 
 Business rules belong inside services.
 
@@ -208,7 +220,7 @@ Business logic should remain framework-independent whenever practical.
 
 ---
 
-# Module Boundaries
+## Module Boundaries
 
 Modules should communicate through explicit interfaces.
 
@@ -222,7 +234,7 @@ Modules should remain independently maintainable.
 
 ---
 
-# Shared Code
+## Shared Code
 
 Place reusable code inside shared modules.
 
@@ -246,7 +258,7 @@ Shared code should remain generic and reusable.
 
 ---
 
-# Configuration
+## Configuration
 
 Centralize application configuration.
 
@@ -261,7 +273,7 @@ Avoid scattering configuration across modules.
 
 ---
 
-# Error Handling
+## Error Handling
 
 Define a consistent error handling strategy.
 
@@ -276,7 +288,7 @@ Errors should remain predictable.
 
 ---
 
-# Scalability
+## Scalability
 
 Architecture should support:
 
@@ -290,7 +302,7 @@ Avoid designs that tightly couple unrelated features.
 
 ---
 
-# Security
+## Security
 
 Sensitive operations should remain isolated.
 
@@ -305,7 +317,7 @@ Security should be enforced consistently across modules.
 
 ---
 
-# Testing
+## Testing
 
 Architecture should support:
 
@@ -317,7 +329,7 @@ Modules should remain testable in isolation.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -359,7 +371,7 @@ Modules should remain testable in isolation.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -379,7 +391,7 @@ Ignoring module boundaries.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 The architecture is complete when:
 
@@ -392,7 +404,7 @@ The architecture is complete when:
 
 ---
 
-# Summary
+## Summary
 
 A well-designed NestJS architecture is modular, predictable, and centered around business domains.
 

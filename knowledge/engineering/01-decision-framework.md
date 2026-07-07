@@ -1,3 +1,15 @@
+---
+id: engineering/01-decision-framework
+topic: engineering
+slug: decision-framework
+title: "Engineering Decision Framework"
+type: doc
+order: 1
+status: ready
+tags: [engineering, decision-framework]
+related: []
+when_to_use: ""
+---
 # Engineering Decision Framework
 
 ## Purpose
@@ -10,7 +22,7 @@ The framework is intentionally technology-independent and can be applied to any 
 
 ---
 
-# Step 1 — Understand the Request
+## Step 1 — Understand the Request
 
 Do not start implementing immediately.
 
@@ -26,7 +38,7 @@ If the request is ambiguous, resolve the ambiguity before implementation.
 
 ---
 
-# Step 2 — Understand the Existing System
+## Step 2 — Understand the Existing System
 
 Never assume the current implementation is incorrect.
 
@@ -44,7 +56,7 @@ The goal is to understand why the current solution exists before replacing it.
 
 ---
 
-# Step 3 — Define the Real Problem
+## Step 3 — Define the Real Problem
 
 Many requests describe symptoms instead of root causes.
 
@@ -66,7 +78,7 @@ Never optimize before identifying the actual bottleneck.
 
 ---
 
-# Step 4 — Evaluate Existing Solutions
+## Step 4 — Evaluate Existing Solutions
 
 Before introducing new code, determine whether the project already contains an appropriate solution.
 
@@ -83,7 +95,7 @@ Reuse should always be considered before creating something new.
 
 ---
 
-# Step 5 — Evaluate Impact
+## Step 5 — Evaluate Impact
 
 Every change has consequences.
 
@@ -102,7 +114,7 @@ The best implementation is not always the smallest one.
 
 ---
 
-# Step 6 — Choose the Simplest Correct Solution
+## Step 6 — Choose the Simplest Correct Solution
 
 Prefer solutions that are:
 
@@ -117,7 +129,7 @@ Avoid solving future problems that do not yet exist.
 
 ---
 
-# Step 7 — Verify Before Completing
+## Step 7 — Verify Before Completing
 
 Before considering the task complete, verify:
 
@@ -132,7 +144,7 @@ Implementation is not complete until verification is complete.
 
 ---
 
-# Decision Checklist
+## Decision Checklist
 
 Before writing code:
 
@@ -148,7 +160,7 @@ If any answer is **No**, continue investigating before implementing.
 
 ---
 
-# Decision Tree
+## Decision Tree
 
 ```
 Receive request

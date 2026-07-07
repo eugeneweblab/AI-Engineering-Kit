@@ -1,3 +1,15 @@
+---
+id: figma/17-animation-analysis
+topic: figma
+slug: animation-analysis
+title: "Animation Analysis"
+type: doc
+order: 17
+status: ready
+tags: [figma, animation-analysis]
+related: []
+when_to_use: ""
+---
 # Animation Analysis
 
 ## Purpose
@@ -12,7 +24,7 @@ They should never exist solely for decoration.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Understand why an animation exists before deciding how to implement it.
 
@@ -20,7 +32,7 @@ Every animation should have a functional purpose.
 
 ---
 
-# Animation Review Workflow
+## Animation Review Workflow
 
 Analyze animations using the following sequence.
 
@@ -44,7 +56,7 @@ Select Implementation Strategy
 
 ---
 
-# Step 1 — Identify Motion
+## Step 1 — Identify Motion
 
 Review the complete design.
 
@@ -65,7 +77,7 @@ Document every animation before implementation.
 
 ---
 
-# Step 2 — Determine Purpose
+## Step 2 — Determine Purpose
 
 Every animation should have a reason.
 
@@ -82,7 +94,7 @@ If no purpose exists, reconsider implementing the animation.
 
 ---
 
-# Step 3 — Classify Animation
+## Step 3 — Classify Animation
 
 Classify each animation.
 
@@ -103,7 +115,7 @@ Different animation types may require different implementation strategies.
 
 ---
 
-# Step 4 — Analyze Trigger
+## Step 4 — Analyze Trigger
 
 Determine what starts the animation.
 
@@ -122,7 +134,7 @@ Every trigger should be intentional.
 
 ---
 
-# Step 5 — Analyze Timing
+## Step 5 — Analyze Timing
 
 Review:
 
@@ -136,7 +148,7 @@ Animations should feel responsive without delaying user interaction.
 
 ---
 
-# Step 6 — Analyze Relationships
+## Step 6 — Analyze Relationships
 
 Determine whether animations depend on one another.
 
@@ -160,7 +172,7 @@ Coordinated animations should remain synchronized.
 
 ---
 
-# Step 7 — Responsive Behavior
+## Step 7 — Responsive Behavior
 
 Verify animation behavior across:
 
@@ -173,7 +185,7 @@ Large animations may require simplified behavior on smaller devices.
 
 ---
 
-# Step 8 — Accessibility
+## Step 8 — Accessibility
 
 Review:
 
@@ -189,7 +201,7 @@ Accessibility takes priority over visual effects.
 
 ---
 
-# Step 9 — Performance
+## Step 9 — Performance
 
 Prefer animations that use:
 
@@ -209,7 +221,7 @@ Performance should never be sacrificed for decorative effects.
 
 ---
 
-# Step 10 — Implementation Strategy
+## Step 10 — Implementation Strategy
 
 Choose the simplest solution that satisfies the design.
 
@@ -231,7 +243,7 @@ Avoid introducing additional dependencies unless justified.
 
 ---
 
-# WordPress Considerations
+## WordPress Considerations
 
 For WordPress projects:
 
@@ -244,7 +256,7 @@ Animations should remain independent of page content.
 
 ---
 
-# Divi Considerations
+## Divi Considerations
 
 When using Divi:
 
@@ -255,7 +267,7 @@ When using Divi:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -299,7 +311,7 @@ When using Divi:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -319,7 +331,7 @@ Blocking user interaction with animations.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Animation analysis is complete when:
 
@@ -331,7 +343,7 @@ Animation analysis is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Effective animation enhances usability by communicating change, guiding attention, and providing feedback.
 

@@ -1,3 +1,15 @@
+---
+id: figma/05-responsive-analysis
+topic: figma
+slug: responsive-analysis
+title: "Responsive Design Analysis"
+type: doc
+order: 5
+status: ready
+tags: [figma, responsive-analysis]
+related: []
+when_to_use: ""
+---
 # Responsive Design Analysis
 
 ## Purpose
@@ -10,7 +22,7 @@ It is about understanding how the design system adapts across different viewport
 
 ---
 
-# Core Principle
+## Core Principle
 
 Design for behavior, not breakpoints.
 
@@ -20,7 +32,7 @@ Responsive behavior is the real specification.
 
 ---
 
-# AI Mindset
+## AI Mindset
 
 Before writing any responsive code, answer the following questions:
 
@@ -35,7 +47,7 @@ Never guess responsive behavior if it can be inferred from the design.
 
 ---
 
-# Responsive Analysis Workflow
+## Responsive Analysis Workflow
 
 Analyze every page using the following sequence:
 
@@ -61,7 +73,7 @@ Always analyze from the largest layout to the smallest.
 
 ---
 
-# Step 1 — Compare Layouts
+## Step 1 — Compare Layouts
 
 Compare every available design.
 
@@ -79,7 +91,7 @@ Document every structural difference.
 
 ---
 
-# Step 2 — Analyze Containers
+## Step 2 — Analyze Containers
 
 Determine how containers behave.
 
@@ -96,7 +108,7 @@ Container behavior should remain consistent throughout the project.
 
 ---
 
-# Step 3 — Analyze Grid Changes
+## Step 3 — Analyze Grid Changes
 
 Review how grids adapt.
 
@@ -124,7 +136,7 @@ Grid transitions should be predictable.
 
 ---
 
-# Step 4 — Analyze Component Behavior
+## Step 4 — Analyze Component Behavior
 
 Review every reusable component.
 
@@ -174,7 +186,7 @@ Full width
 
 ---
 
-# Step 5 — Analyze Typography
+## Step 5 — Analyze Typography
 
 Review:
 
@@ -191,7 +203,7 @@ Avoid arbitrary font-size changes.
 
 ---
 
-# Step 6 — Analyze Images
+## Step 6 — Analyze Images
 
 Determine:
 
@@ -205,7 +217,7 @@ Images should preserve their purpose rather than their exact dimensions.
 
 ---
 
-# Step 7 — Analyze Spacing
+## Step 7 — Analyze Spacing
 
 Compare spacing between layouts.
 
@@ -221,7 +233,7 @@ Spacing should follow the same design scale across all breakpoints.
 
 ---
 
-# Step 8 — Analyze Visibility
+## Step 8 — Analyze Visibility
 
 Review which elements:
 
@@ -234,7 +246,7 @@ Do not hide important functionality without design justification.
 
 ---
 
-# Step 9 — Analyze Interactions
+## Step 9 — Analyze Interactions
 
 Responsive behavior also affects interaction.
 
@@ -251,7 +263,7 @@ Touch interfaces require different interaction patterns than desktop interfaces.
 
 ---
 
-# Step 10 — Plan Implementation
+## Step 10 — Plan Implementation
 
 Before writing code define:
 
@@ -265,7 +277,7 @@ Implementation should follow a clear plan rather than evolve through trial and e
 
 ---
 
-# Mapping to CSS
+## Mapping to CSS
 
 Prefer fluid layouts.
 
@@ -284,7 +296,7 @@ Avoid relying exclusively on fixed pixel values.
 
 ---
 
-# Mapping to Tailwind
+## Mapping to Tailwind
 
 Prefer existing responsive utilities.
 
@@ -308,7 +320,7 @@ Avoid unnecessary breakpoint-specific styling.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -354,7 +366,7 @@ Avoid unnecessary breakpoint-specific styling.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -374,7 +386,7 @@ Adding breakpoint-specific fixes instead of improving the layout.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Responsive analysis is complete when:
 
@@ -386,7 +398,7 @@ Responsive analysis is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Responsive implementation should reproduce the behavior of the design system rather than individual layouts.
 

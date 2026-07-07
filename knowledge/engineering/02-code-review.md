@@ -1,3 +1,15 @@
+---
+id: engineering/02-code-review
+topic: engineering
+slug: code-review
+title: "Engineering Code Review"
+type: doc
+order: 2
+status: ready
+tags: [engineering, code-review]
+related: []
+when_to_use: ""
+---
 # Engineering Code Review
 
 ## Purpose
@@ -12,7 +24,7 @@ This document should be used both for reviewing pull requests and for performing
 
 ---
 
-# Review Mindset
+## Review Mindset
 
 The purpose of a review is to improve the software—not to criticize the author.
 
@@ -28,7 +40,7 @@ Every review should assume good intentions.
 
 ---
 
-# Review Order
+## Review Order
 
 Always review code in the following order.
 
@@ -219,7 +231,7 @@ Code and documentation should evolve together.
 
 ---
 
-# Self Review
+## Self Review
 
 Before submitting changes, every engineer should perform a complete self-review.
 
@@ -285,7 +297,7 @@ Before considering the task complete, verify:
 
 ---
 
-# Review Anti-patterns
+## Review Anti-patterns
 
 Avoid reviews that focus primarily on:
 
@@ -306,7 +318,7 @@ If the answer is **no**, the comment may not be valuable.
 
 ---
 
-# Summary
+## Summary
 
 Excellent engineering reviews improve software quality, reduce long-term maintenance costs, and encourage consistent decision-making.
 

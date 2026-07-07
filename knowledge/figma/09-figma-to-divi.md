@@ -1,3 +1,15 @@
+---
+id: figma/09-figma-to-divi
+topic: figma
+slug: figma-to-divi
+title: "Figma to Divi Builder"
+type: doc
+order: 9
+status: ready
+tags: [figma, figma-to-divi]
+related: []
+when_to_use: ""
+---
 # Figma to Divi Builder
 
 ## Purpose
@@ -10,7 +22,7 @@ Divi should be treated as a visual page builder—not as a replacement for softw
 
 ---
 
-# Core Principle
+## Core Principle
 
 Use Divi for content composition.
 
@@ -20,7 +32,7 @@ Every implementation should balance editor flexibility with code quality.
 
 ---
 
-# AI Mindset
+## AI Mindset
 
 Before implementing a section, determine:
 
@@ -36,7 +48,7 @@ Never implement everything with standard Divi modules if a cleaner engineering s
 
 ---
 
-# Implementation Workflow
+## Implementation Workflow
 
 ```
 Analyze Figma
@@ -58,7 +70,7 @@ Verify Editor Experience
 
 ---
 
-# Step 1 — Split the Page Into Sections
+## Step 1 — Split the Page Into Sections
 
 Typical sections:
 
@@ -78,7 +90,7 @@ Avoid building an entire page inside a single section.
 
 ---
 
-# Step 2 — Prefer Native Modules
+## Step 2 — Prefer Native Modules
 
 Always check whether Divi already provides an appropriate module.
 
@@ -101,7 +113,7 @@ Do not create custom modules without justification.
 
 ---
 
-# Step 3 — Create Custom Modules Only When Necessary
+## Step 3 — Create Custom Modules Only When Necessary
 
 Custom modules are appropriate when:
 
@@ -114,7 +126,7 @@ Custom modules should solve engineering problems—not visual preferences.
 
 ---
 
-# Step 4 — Reuse Global Elements
+## Step 4 — Reuse Global Elements
 
 Before creating new layouts, search for:
 
@@ -128,7 +140,7 @@ Reuse existing assets whenever possible.
 
 ---
 
-# Step 5 — Keep Styling Centralized
+## Step 5 — Keep Styling Centralized
 
 Prefer:
 
@@ -147,7 +159,7 @@ Styling should remain consistent across the project.
 
 ---
 
-# Step 6 — Preserve the Design System
+## Step 6 — Preserve the Design System
 
 Do not recreate typography for every page.
 
@@ -164,7 +176,7 @@ The design system should exist outside individual layouts.
 
 ---
 
-# Step 7 — Dynamic Content
+## Step 7 — Dynamic Content
 
 Determine which content should be editable.
 
@@ -183,7 +195,7 @@ Content should come from WordPress whenever possible.
 
 ---
 
-# Step 8 — Responsive Implementation
+## Step 8 — Responsive Implementation
 
 Review:
 
@@ -198,7 +210,7 @@ Avoid fixing responsive issues with excessive custom CSS.
 
 ---
 
-# Step 9 — Performance
+## Step 9 — Performance
 
 Review:
 
@@ -215,7 +227,7 @@ Use only what is necessary.
 
 ---
 
-# Step 10 — Editor Experience
+## Step 10 — Editor Experience
 
 A content editor should be able to:
 
@@ -230,7 +242,7 @@ Editors should not need to modify custom code.
 
 ---
 
-# Recommended Engineering Strategy
+## Recommended Engineering Strategy
 
 Prefer this order:
 
@@ -254,7 +266,7 @@ Always search before creating.
 
 ---
 
-# When Custom Development Is Better
+## When Custom Development Is Better
 
 Prefer custom development for:
 
@@ -271,7 +283,7 @@ Divi should manage layout—not application logic.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -315,7 +327,7 @@ Divi should manage layout—not application logic.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -337,7 +349,7 @@ Building pages that only developers can maintain.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A Figma-to-Divi implementation is complete when:
 
@@ -349,7 +361,7 @@ A Figma-to-Divi implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Professional Divi development is not measured by how little custom code is written.
 

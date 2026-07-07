@@ -1,3 +1,15 @@
+---
+id: nestjs/16-authorization
+topic: nestjs
+slug: authorization
+title: "NestJS Authorization"
+type: doc
+order: 16
+status: ready
+tags: [nestjs, authorization]
+related: []
+when_to_use: ""
+---
 # NestJS Authorization
 
 ## Purpose
@@ -12,7 +24,7 @@ Authorization determines permissions.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Never trust authenticated users automatically.
 
@@ -20,7 +32,7 @@ Every protected action must be authorized.
 
 ---
 
-# Authorization Goals
+## Authorization Goals
 
 Every authorization system should provide:
 
@@ -35,7 +47,7 @@ Authorization should be deterministic and explicit.
 
 ---
 
-# Authorization Flow
+## Authorization Flow
 
 ```
 Request
@@ -65,7 +77,7 @@ Business logic should execute only after authorization succeeds.
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 Authorization is responsible for:
 
@@ -85,7 +97,7 @@ Authorization should not:
 
 ---
 
-# Authorization Models
+## Authorization Models
 
 Choose the simplest model that satisfies application requirements.
 
@@ -144,7 +156,7 @@ ReBAC is well suited for collaborative systems.
 
 ---
 
-# Ownership Authorization
+## Ownership Authorization
 
 Ownership is one of the most common authorization rules.
 
@@ -178,7 +190,7 @@ Ownership validation belongs in authorization policies—not controllers.
 
 ---
 
-# Policy-Based Authorization
+## Policy-Based Authorization
 
 Prefer policies over scattered permission checks.
 
@@ -202,7 +214,7 @@ Policies should express business permissions clearly.
 
 ---
 
-# Permission Matrix
+## Permission Matrix
 
 Document permissions explicitly.
 
@@ -218,7 +230,7 @@ Permission matrices improve maintainability.
 
 ---
 
-# Multi-Tenant Authorization
+## Multi-Tenant Authorization
 
 Every request should verify tenant boundaries.
 
@@ -233,7 +245,7 @@ Never trust tenant identifiers supplied by clients.
 
 ---
 
-# Resource-Level Authorization
+## Resource-Level Authorization
 
 Authorization should evaluate both:
 
@@ -262,7 +274,7 @@ Policy Evaluation
 
 ---
 
-# Least Privilege
+## Least Privilege
 
 Grant only the permissions required.
 
@@ -276,7 +288,7 @@ Least privilege reduces security risk.
 
 ---
 
-# Default Deny
+## Default Deny
 
 If no authorization rule grants access:
 
@@ -288,7 +300,7 @@ Default deny should be the application's security posture.
 
 ---
 
-# Frontend vs Backend Authorization
+## Frontend vs Backend Authorization
 
 Frontend authorization improves user experience.
 
@@ -298,7 +310,7 @@ Never rely on frontend authorization alone.
 
 ---
 
-# External Authorization Engines
+## External Authorization Engines
 
 Large systems may integrate with:
 
@@ -311,7 +323,7 @@ Application code should remain independent of the authorization engine.
 
 ---
 
-# Auditing
+## Auditing
 
 Record authorization decisions for sensitive operations.
 
@@ -326,7 +338,7 @@ Audit logs support incident investigations.
 
 ---
 
-# Security
+## Security
 
 Always verify:
 
@@ -339,7 +351,7 @@ Never cache authorization decisions longer than appropriate.
 
 ---
 
-# Performance
+## Performance
 
 Avoid:
 
@@ -351,7 +363,7 @@ Permission evaluation should remain efficient.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -366,7 +378,7 @@ Authorization should remain deterministic.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Authorization is responsible for:
 
@@ -392,7 +404,7 @@ Authorization is **not** responsible for:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -434,7 +446,7 @@ Authorization is **not** responsible for:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -454,7 +466,7 @@ Mixing authentication with authorization.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Authorization is complete when:
 
@@ -467,7 +479,7 @@ Authorization is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Authorization protects application resources by evaluating permissions after authentication succeeds.
 

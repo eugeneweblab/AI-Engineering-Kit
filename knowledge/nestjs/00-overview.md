@@ -1,3 +1,15 @@
+---
+id: nestjs/00-overview
+topic: nestjs
+slug: overview
+title: "NestJS Overview"
+type: doc
+order: 0
+status: ready
+tags: [nestjs, overview]
+related: []
+when_to_use: ""
+---
 # NestJS Overview
 
 ## Purpose
@@ -10,7 +22,7 @@ NestJS applications should prioritize clear module boundaries, dependency inject
 
 ---
 
-# Core Principle
+## Core Principle
 
 Organize applications around business domains.
 
@@ -20,7 +32,7 @@ Design for maintainability rather than short-term implementation speed.
 
 ---
 
-# Engineering Goals
+## Engineering Goals
 
 Every NestJS application should strive for:
 
@@ -35,7 +47,7 @@ Every NestJS application should strive for:
 
 ---
 
-# Architectural Principles
+## Architectural Principles
 
 Applications should follow these principles:
 
@@ -49,7 +61,7 @@ Applications should follow these principles:
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 NestJS should primarily be responsible for:
 
@@ -67,7 +79,7 @@ Frontend concerns should remain outside the backend.
 
 ---
 
-# Typical Application Structure
+## Typical Application Structure
 
 ```
 src/
@@ -91,7 +103,7 @@ Applications should remain organized around business features rather than techni
 
 ---
 
-# Request Lifecycle
+## Request Lifecycle
 
 A typical request flows through:
 
@@ -139,7 +151,7 @@ Each layer should have a single, well-defined responsibility.
 
 ---
 
-# Dependency Injection
+## Dependency Injection
 
 Prefer dependency injection for:
 
@@ -152,7 +164,7 @@ Avoid manual object construction whenever possible.
 
 ---
 
-# Business Logic
+## Business Logic
 
 Business logic belongs inside services or domain modules.
 
@@ -160,7 +172,7 @@ Controllers should coordinate requests rather than implement business rules.
 
 ---
 
-# Scalability
+## Scalability
 
 Applications should support:
 
@@ -173,7 +185,7 @@ Architecture should remain maintainable as the codebase grows.
 
 ---
 
-# Security
+## Security
 
 Security should be considered by default.
 
@@ -188,7 +200,7 @@ Examples:
 
 ---
 
-# Observability
+## Observability
 
 Applications should provide:
 
@@ -202,7 +214,7 @@ Production systems should always be observable.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -244,7 +256,7 @@ Production systems should always be observable.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -262,7 +274,7 @@ Mixing infrastructure with business logic.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A NestJS application architecture is complete when:
 
@@ -275,7 +287,7 @@ A NestJS application architecture is complete when:
 
 ---
 
-# Summary
+## Summary
 
 NestJS provides a powerful foundation for building scalable backend systems.
 

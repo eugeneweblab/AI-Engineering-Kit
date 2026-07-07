@@ -1,3 +1,15 @@
+---
+id: engineering/03-debugging-methodology
+topic: engineering
+slug: debugging-methodology
+title: "Debugging Methodology"
+type: doc
+order: 3
+status: ready
+tags: [engineering, debugging-methodology]
+related: []
+when_to_use: ""
+---
 # Debugging Methodology
 
 ## Purpose
@@ -12,7 +24,7 @@ This methodology applies to all technologies, programming languages, and AI codi
 
 ---
 
-# Core Principle
+## Core Principle
 
 Never fix a bug you do not understand.
 
@@ -22,7 +34,7 @@ Until that cause is identified, every code change is a hypothesis.
 
 ---
 
-# The Debugging Process
+## The Debugging Process
 
 Always follow the same sequence.
 
@@ -46,7 +58,7 @@ Never skip steps.
 
 ---
 
-# Step 1 — Observe
+## Step 1 — Observe
 
 Understand what actually happened.
 
@@ -67,7 +79,7 @@ Facts are more valuable than assumptions.
 
 ---
 
-# Step 2 — Reproduce
+## Step 2 — Reproduce
 
 A bug that cannot be reproduced cannot be reliably fixed.
 
@@ -86,7 +98,7 @@ Document the shortest possible reproduction.
 
 ---
 
-# Step 3 — Define Expected Behavior
+## Step 3 — Define Expected Behavior
 
 Before fixing the issue, define what should happen.
 
@@ -101,7 +113,7 @@ Do not assume the report is accurate.
 
 ---
 
-# Step 4 — Isolate the Problem
+## Step 4 — Isolate the Problem
 
 Reduce the problem to the smallest possible scope.
 
@@ -118,7 +130,7 @@ The smaller the investigation area, the faster the solution.
 
 ---
 
-# Step 5 — Collect Evidence
+## Step 5 — Collect Evidence
 
 Avoid changing code during investigation.
 
@@ -135,7 +147,7 @@ Evidence should explain the behavior.
 
 ---
 
-# Step 6 — Identify the Root Cause
+## Step 6 — Identify the Root Cause
 
 Ask repeatedly:
 
@@ -161,7 +173,7 @@ Fix the root cause—not the symptom.
 
 ---
 
-# Step 7 — Design the Fix
+## Step 7 — Design the Fix
 
 Before modifying code, determine:
 
@@ -175,7 +187,7 @@ Avoid rewriting working code.
 
 ---
 
-# Step 8 — Verify the Fix
+## Step 8 — Verify the Fix
 
 Confirm that:
 
@@ -188,7 +200,7 @@ Verification is mandatory.
 
 ---
 
-# Step 9 — Prevent Regression
+## Step 9 — Prevent Regression
 
 Whenever practical:
 
@@ -202,7 +214,7 @@ A good fix reduces the chance of the same issue returning.
 
 ---
 
-# Debugging Rules
+## Debugging Rules
 
 Always:
 
@@ -220,7 +232,7 @@ Never:
 
 ---
 
-# Debugging Checklist
+## Debugging Checklist
 
 ## Investigation
 
@@ -249,7 +261,7 @@ Never:
 
 ---
 
-# Common Anti-patterns
+## Common Anti-patterns
 
 ## Guess-Driven Development
 
@@ -283,7 +295,7 @@ Implementing a completely new solution instead of following existing architectur
 
 ---
 
-# AI Guidance
+## AI Guidance
 
 When debugging, AI coding agents should:
 
@@ -299,7 +311,7 @@ AI should never present hypotheses as facts.
 
 ---
 
-# Summary
+## Summary
 
 Effective debugging is a disciplined engineering process.
 

@@ -1,3 +1,15 @@
+---
+id: nestjs/14-configuration
+topic: nestjs
+slug: configuration
+title: "NestJS Configuration"
+type: doc
+order: 14
+status: ready
+tags: [nestjs, configuration]
+related: []
+when_to_use: ""
+---
 # NestJS Configuration
 
 ## Purpose
@@ -12,7 +24,7 @@ It should never contain business logic.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Configuration should be loaded once.
 
@@ -24,7 +36,7 @@ Never read environment variables directly throughout the application.
 
 ---
 
-# Configuration Goals
+## Configuration Goals
 
 Every configuration system should provide:
 
@@ -39,7 +51,7 @@ Applications should fail during startup rather than during runtime.
 
 ---
 
-# Configuration Flow
+## Configuration Flow
 
 ```
 Environment Variables
@@ -69,7 +81,7 @@ Configuration should always enter the application through a single controlled pa
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 Configuration is responsible for:
 
@@ -88,7 +100,7 @@ Configuration should not:
 
 ---
 
-# Configuration Categories
+## Configuration Categories
 
 Separate configuration by domain.
 
@@ -116,7 +128,7 @@ Avoid one large configuration file.
 
 ---
 
-# Environment Variables
+## Environment Variables
 
 Environment variables should contain only deployment-specific values.
 
@@ -132,7 +144,7 @@ Never hardcode deployment-specific values.
 
 ---
 
-# Validation
+## Validation
 
 Validate every environment variable during startup.
 
@@ -150,7 +162,7 @@ Applications should terminate immediately if configuration is invalid.
 
 ---
 
-# Type Safety
+## Type Safety
 
 Configuration should expose strongly typed values.
 
@@ -170,7 +182,7 @@ Typed configuration improves maintainability and IDE support.
 
 ---
 
-# Fail Fast
+## Fail Fast
 
 Startup should fail if:
 
@@ -183,7 +195,7 @@ Never allow partially configured applications to start.
 
 ---
 
-# Secret Management
+## Secret Management
 
 Secrets include:
 
@@ -202,7 +214,7 @@ Secrets should never:
 
 ---
 
-# Feature Flags
+## Feature Flags
 
 Feature flags should be configuration-driven.
 
@@ -216,7 +228,7 @@ Business logic should not depend on hardcoded feature toggles.
 
 ---
 
-# Environment Separation
+## Environment Separation
 
 Typical environments:
 
@@ -229,7 +241,7 @@ Behavior differences should be configuration-driven rather than code-driven.
 
 ---
 
-# Configuration Injection
+## Configuration Injection
 
 Inject configuration through dependency injection.
 
@@ -245,7 +257,7 @@ Configuration access should remain centralized.
 
 ---
 
-# Configuration Caching
+## Configuration Caching
 
 Load configuration once during application startup.
 
@@ -253,7 +265,7 @@ Avoid repeatedly parsing environment variables during request processing.
 
 ---
 
-# External Secret Providers
+## External Secret Providers
 
 Large applications may integrate with:
 
@@ -266,7 +278,7 @@ Application code should remain independent of the underlying secret provider.
 
 ---
 
-# Logging
+## Logging
 
 Configuration logs should never expose sensitive values.
 
@@ -284,7 +296,7 @@ Unsafe examples:
 
 ---
 
-# Security
+## Security
 
 Review configuration regularly.
 
@@ -297,7 +309,7 @@ Ensure:
 
 ---
 
-# Testing
+## Testing
 
 Provide dedicated configuration for:
 
@@ -309,7 +321,7 @@ Tests should not depend on production configuration.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Configuration belongs here:
 
@@ -335,7 +347,7 @@ Do **not** store:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -377,7 +389,7 @@ Do **not** store:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -397,7 +409,7 @@ Creating circular configuration dependencies.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Configuration management is complete when:
 
@@ -410,7 +422,7 @@ Configuration management is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Configuration is the foundation of every production NestJS application.
 

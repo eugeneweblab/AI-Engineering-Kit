@@ -1,3 +1,15 @@
+---
+id: wordpress/10-review-checklist
+topic: wordpress
+slug: review-checklist
+title: "WordPress Code Review Checklist"
+type: doc
+order: 10
+status: ready
+tags: [wordpress, review-checklist]
+related: []
+when_to_use: ""
+---
 # WordPress Code Review Checklist
 
 ## Purpose
@@ -12,7 +24,7 @@ It should verify that the implementation is maintainable, secure, scalable, and 
 
 ---
 
-# Core Principle
+## Core Principle
 
 Review the solution, not only the code.
 
@@ -22,7 +34,7 @@ The objective of a review is to improve the overall quality of the project.
 
 ---
 
-# Phase 1 — Requirements Review
+## Phase 1 — Requirements Review
 
 Verify:
 
@@ -38,7 +50,7 @@ Verify:
 
 ---
 
-# Phase 2 — Architecture Review
+## Phase 2 — Architecture Review
 
 Verify:
 
@@ -58,7 +70,7 @@ Architecture should become cleaner after every change.
 
 ---
 
-# Phase 3 — WordPress Review
+## Phase 3 — WordPress Review
 
 Verify:
 
@@ -76,7 +88,7 @@ Verify:
 
 ---
 
-# Phase 4 — Security Review
+## Phase 4 — Security Review
 
 Verify:
 
@@ -98,7 +110,7 @@ Security issues block approval.
 
 ---
 
-# Phase 5 — Performance Review
+## Phase 5 — Performance Review
 
 Verify:
 
@@ -118,7 +130,7 @@ Avoid accepting performance regressions without justification.
 
 ---
 
-# Phase 6 — Frontend Review
+## Phase 6 — Frontend Review
 
 Verify:
 
@@ -136,7 +148,7 @@ Verify:
 
 ---
 
-# Phase 7 — Backend Review
+## Phase 7 — Backend Review
 
 Verify:
 
@@ -154,7 +166,7 @@ Verify:
 
 ---
 
-# Phase 8 — Code Quality Review
+## Phase 8 — Code Quality Review
 
 Verify:
 
@@ -178,7 +190,7 @@ Readable code should require minimal explanation.
 
 ---
 
-# Phase 9 — Testing Review
+## Phase 9 — Testing Review
 
 Verify:
 
@@ -198,7 +210,7 @@ Testing should provide confidence rather than merely increase coverage.
 
 ---
 
-# Phase 10 — Documentation Review
+## Phase 10 — Documentation Review
 
 Verify:
 
@@ -216,7 +228,7 @@ Documentation should explain why the implementation exists.
 
 ---
 
-# Review Questions
+## Review Questions
 
 Before approving a change, ask:
 
@@ -232,7 +244,7 @@ If the answer to any question is uncertain, request clarification or improvement
 
 ---
 
-# Approval Criteria
+## Approval Criteria
 
 Approve only if:
 
@@ -254,7 +266,7 @@ Every approval increases the long-term quality of the project.
 
 ---
 
-# AI Review Summary
+## AI Review Summary
 
 When an AI assistant performs a review, it should provide a structured summary containing:
 
@@ -299,7 +311,7 @@ The recommendation should be based on engineering quality rather than personal p
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A review is complete only when:
 
@@ -311,7 +323,7 @@ A review is complete only when:
 
 ---
 
-# Summary
+## Summary
 
 A high-quality code review protects the project's architecture, prevents technical debt, and improves the overall engineering culture.
 

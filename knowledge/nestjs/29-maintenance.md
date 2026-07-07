@@ -1,3 +1,15 @@
+---
+id: nestjs/29-maintenance
+topic: nestjs
+slug: maintenance
+title: "Maintenance"
+type: doc
+order: 29
+status: ready
+tags: [nestjs, maintenance]
+related: []
+when_to_use: ""
+---
 # Maintenance
 
 ## Purpose
@@ -12,7 +24,7 @@ It is a continuous engineering activity.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Every production system is expected to evolve.
 
@@ -20,7 +32,7 @@ Design applications so they can be safely modified over time.
 
 ---
 
-# Maintenance Goals
+## Maintenance Goals
 
 Every application should support:
 
@@ -35,7 +47,7 @@ Maintenance should be proactive rather than reactive.
 
 ---
 
-# Maintenance Lifecycle
+## Maintenance Lifecycle
 
 ```
 Deploy
@@ -65,7 +77,7 @@ Maintenance is an iterative process.
 
 ---
 
-# Version Management
+## Version Management
 
 Track:
 
@@ -79,7 +91,7 @@ Version history should be traceable.
 
 ---
 
-# Dependency Management
+## Dependency Management
 
 Review dependencies regularly.
 
@@ -94,7 +106,7 @@ Prefer frequent small updates over infrequent major upgrades.
 
 ---
 
-# API Evolution
+## API Evolution
 
 APIs should evolve without unnecessarily breaking clients.
 
@@ -108,7 +120,7 @@ Breaking changes should be planned.
 
 ---
 
-# Deprecation Policy
+## Deprecation Policy
 
 Every deprecated feature should define:
 
@@ -121,7 +133,7 @@ Deprecation should never surprise consumers.
 
 ---
 
-# Technical Debt
+## Technical Debt
 
 Technical debt should be:
 
@@ -134,7 +146,7 @@ Ignoring technical debt increases long-term costs.
 
 ---
 
-# Refactoring
+## Refactoring
 
 Refactor to improve:
 
@@ -148,7 +160,7 @@ Refactoring should preserve observable behavior.
 
 ---
 
-# Architecture Decision Records (ADR)
+## Architecture Decision Records (ADR)
 
 Significant architectural decisions should be documented.
 
@@ -163,7 +175,7 @@ Architecture knowledge should survive team changes.
 
 ---
 
-# Runbooks
+## Runbooks
 
 Create runbooks for common operational tasks.
 
@@ -179,7 +191,7 @@ Runbooks reduce operational uncertainty.
 
 ---
 
-# Incident Management
+## Incident Management
 
 Every significant incident should include:
 
@@ -193,7 +205,7 @@ Focus on learning rather than blame.
 
 ---
 
-# Postmortems
+## Postmortems
 
 Conduct postmortems after major incidents.
 
@@ -208,7 +220,7 @@ Postmortems should improve systems and processes.
 
 ---
 
-# SLI, SLO and SLA
+## SLI, SLO and SLA
 
 Define service quality objectives.
 
@@ -233,7 +245,7 @@ Operational goals should be measurable.
 
 ---
 
-# Monitoring Reviews
+## Monitoring Reviews
 
 Review periodically:
 
@@ -247,7 +259,7 @@ Monitoring should evolve with the application.
 
 ---
 
-# Capacity Planning
+## Capacity Planning
 
 Forecast future resource requirements.
 
@@ -263,7 +275,7 @@ Scale before capacity becomes a problem.
 
 ---
 
-# Backup Strategy
+## Backup Strategy
 
 Verify:
 
@@ -276,7 +288,7 @@ Backups that cannot be restored are ineffective.
 
 ---
 
-# Disaster Recovery
+## Disaster Recovery
 
 Prepare for:
 
@@ -289,7 +301,7 @@ Recovery procedures should be tested regularly.
 
 ---
 
-# Documentation
+## Documentation
 
 Documentation should remain current.
 
@@ -305,7 +317,7 @@ Outdated documentation reduces engineering efficiency.
 
 ---
 
-# Knowledge Sharing
+## Knowledge Sharing
 
 Encourage:
 
@@ -318,7 +330,7 @@ Knowledge should not depend on individuals.
 
 ---
 
-# Security Maintenance
+## Security Maintenance
 
 Review regularly:
 
@@ -332,7 +344,7 @@ Security maintenance is continuous.
 
 ---
 
-# Testing
+## Testing
 
 Maintenance activities should preserve:
 
@@ -345,7 +357,7 @@ Refactoring without testing increases risk.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Maintain continuously:
 
@@ -373,7 +385,7 @@ Do **not** ignore:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -415,7 +427,7 @@ Do **not** ignore:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -435,7 +447,7 @@ Treating maintenance as optional.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Maintenance processes are complete when:
 
@@ -448,7 +460,7 @@ Maintenance processes are complete when:
 
 ---
 
-# Summary
+## Summary
 
 Maintenance ensures software remains reliable, secure, and adaptable throughout its lifecycle.
 

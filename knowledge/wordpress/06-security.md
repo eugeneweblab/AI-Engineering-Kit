@@ -1,3 +1,15 @@
+---
+id: wordpress/06-security
+topic: wordpress
+slug: security
+title: "WordPress Security"
+type: doc
+order: 6
+status: ready
+tags: [wordpress, security]
+related: []
+when_to_use: ""
+---
 # WordPress Security
 
 ## Purpose
@@ -10,7 +22,7 @@ Every feature, endpoint, integration, and administrative interface should be des
 
 ---
 
-# Core Principle
+## Core Principle
 
 Never trust external input.
 
@@ -29,7 +41,7 @@ should be considered untrusted until validated.
 
 ---
 
-# Security Mindset
+## Security Mindset
 
 Every implementation should answer the following questions:
 
@@ -44,7 +56,7 @@ Security begins before writing code.
 
 ---
 
-# Authentication
+## Authentication
 
 Authentication verifies identity.
 
@@ -62,7 +74,7 @@ Never implement custom authentication without a strong justification.
 
 ---
 
-# Authorization
+## Authorization
 
 Authentication does not imply authorization.
 
@@ -82,7 +94,7 @@ Every privileged action should perform an explicit capability check.
 
 ---
 
-# Nonce Verification
+## Nonce Verification
 
 Protect state-changing requests with nonces.
 
@@ -97,7 +109,7 @@ Never rely solely on hidden form fields.
 
 ---
 
-# Input Validation
+## Input Validation
 
 Validate every input.
 
@@ -116,7 +128,7 @@ Reject invalid input as early as possible.
 
 ---
 
-# Data Sanitization
+## Data Sanitization
 
 Sanitize data before storing it.
 
@@ -138,7 +150,7 @@ Store clean data whenever possible.
 
 ---
 
-# Output Escaping
+## Output Escaping
 
 Escape data immediately before rendering.
 
@@ -160,7 +172,7 @@ Never escape data when storing it.
 
 ---
 
-# SQL Safety
+## SQL Safety
 
 Prefer WordPress APIs.
 
@@ -175,7 +187,7 @@ Never concatenate untrusted input into SQL queries.
 
 ---
 
-# REST API Security
+## REST API Security
 
 Every endpoint should verify:
 
@@ -190,7 +202,7 @@ Sensitive fields should never be returned unless explicitly required.
 
 ---
 
-# File Upload Security
+## File Upload Security
 
 Before accepting uploads verify:
 
@@ -204,7 +216,7 @@ Never trust the client-provided filename or extension.
 
 ---
 
-# Cross-Site Scripting (XSS)
+## Cross-Site Scripting (XSS)
 
 Prevent XSS by:
 
@@ -217,7 +229,7 @@ Output context determines the correct escaping strategy.
 
 ---
 
-# Cross-Site Request Forgery (CSRF)
+## Cross-Site Request Forgery (CSRF)
 
 Protect state-changing actions with:
 
@@ -229,7 +241,7 @@ Do not rely on HTTP method alone.
 
 ---
 
-# Sensitive Data
+## Sensitive Data
 
 Never expose:
 
@@ -243,7 +255,7 @@ Store secrets outside the repository whenever possible.
 
 ---
 
-# Logging
+## Logging
 
 Log security-relevant events.
 
@@ -259,7 +271,7 @@ Logs should support investigation without exposing sensitive information.
 
 ---
 
-# Dependencies
+## Dependencies
 
 Regularly review:
 
@@ -275,7 +287,7 @@ Update supported dependencies promptly after reviewing compatibility.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -325,7 +337,7 @@ Update supported dependencies promptly after reviewing compatibility.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -347,7 +359,7 @@ Ignoring uploaded file validation.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A feature is considered secure when:
 
@@ -361,7 +373,7 @@ A feature is considered secure when:
 
 ---
 
-# Summary
+## Summary
 
 Security is achieved through multiple layers of protection rather than a single defensive mechanism.
 

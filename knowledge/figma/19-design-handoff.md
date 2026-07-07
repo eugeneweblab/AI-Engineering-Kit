@@ -1,3 +1,15 @@
+---
+id: figma/19-design-handoff
+topic: figma
+slug: design-handoff
+title: "Design Handoff"
+type: doc
+order: 19
+status: ready
+tags: [figma, design-handoff]
+related: []
+when_to_use: ""
+---
 # Design Handoff
 
 ## Purpose
@@ -10,7 +22,7 @@ A successful handoff minimizes ambiguity, reduces implementation iterations, and
 
 ---
 
-# Core Principle
+## Core Principle
 
 A design handoff is a knowledge transfer process.
 
@@ -20,7 +32,7 @@ Every implementation should begin only after the design has been fully understoo
 
 ---
 
-# Handoff Workflow
+## Handoff Workflow
 
 Every handoff should follow this sequence.
 
@@ -46,7 +58,7 @@ Approval
 
 ---
 
-# Step 1 — Project Overview
+## Step 1 — Project Overview
 
 Document:
 
@@ -60,7 +72,7 @@ Every participant should understand the business objective before discussing imp
 
 ---
 
-# Step 2 — Business Requirements
+## Step 2 — Business Requirements
 
 Clarify:
 
@@ -74,7 +86,7 @@ Engineering decisions should support business requirements.
 
 ---
 
-# Step 3 — Design Review
+## Step 3 — Design Review
 
 Review the complete design.
 
@@ -92,7 +104,7 @@ Implementation should never begin after reviewing only isolated sections.
 
 ---
 
-# Step 4 — Responsive Review
+## Step 4 — Responsive Review
 
 Review every supported breakpoint.
 
@@ -109,7 +121,7 @@ Avoid guessing responsive behavior.
 
 ---
 
-# Step 5 — Component Review
+## Step 5 — Component Review
 
 Identify:
 
@@ -125,7 +137,7 @@ Reuse is preferred over creating new implementations.
 
 ---
 
-# Step 6 — Dynamic Content
+## Step 6 — Dynamic Content
 
 Identify all content sources.
 
@@ -142,7 +154,7 @@ Nothing intended to be editable should be hardcoded.
 
 ---
 
-# Step 7 — Asset Review
+## Step 7 — Asset Review
 
 Verify:
 
@@ -163,7 +175,7 @@ Missing assets should be identified before implementation.
 
 ---
 
-# Step 8 — Accessibility Review
+## Step 8 — Accessibility Review
 
 Verify:
 
@@ -179,7 +191,7 @@ Accessibility requirements should be documented before development.
 
 ---
 
-# Step 9 — Technical Review
+## Step 9 — Technical Review
 
 Determine:
 
@@ -194,7 +206,7 @@ The implementation approach should be agreed before coding begins.
 
 ---
 
-# Step 10 — Implementation Plan
+## Step 10 — Implementation Plan
 
 Document:
 
@@ -209,7 +221,7 @@ Implementation should follow a documented plan.
 
 ---
 
-# AI Handoff Requirements
+## AI Handoff Requirements
 
 Before implementation, AI should identify:
 
@@ -224,7 +236,7 @@ AI should summarize this information before generating code.
 
 ---
 
-# Handoff Deliverables
+## Handoff Deliverables
 
 A complete handoff should include:
 
@@ -238,7 +250,7 @@ A complete handoff should include:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -282,7 +294,7 @@ A complete handoff should include:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -304,7 +316,7 @@ Beginning development without an implementation plan.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A design handoff is complete when:
 
@@ -319,7 +331,7 @@ A design handoff is complete when:
 
 ---
 
-# Summary
+## Summary
 
 An effective design handoff creates a shared understanding between design and engineering.
 

@@ -1,3 +1,15 @@
+---
+id: figma/07-figma-to-html
+topic: figma
+slug: figma-to-html
+title: "Figma to Semantic HTML"
+type: doc
+order: 7
+status: ready
+tags: [figma, figma-to-html]
+related: []
+when_to_use: ""
+---
 # Figma to Semantic HTML
 
 ## Purpose
@@ -14,7 +26,7 @@ They should never have a one-to-one relationship.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Translate intent, not layers.
 
@@ -24,7 +36,7 @@ Never reproduce the Figma layer hierarchy directly.
 
 ---
 
-# AI Mindset
+## AI Mindset
 
 Before writing HTML, ask:
 
@@ -40,7 +52,7 @@ Choose semantics before choosing styling.
 
 ---
 
-# HTML Planning Workflow
+## HTML Planning Workflow
 
 Every page should follow this workflow:
 
@@ -64,7 +76,7 @@ HTML structure should exist independently of CSS.
 
 ---
 
-# Step 1 — Identify Page Landmarks
+## Step 1 — Identify Page Landmarks
 
 Every page should define its major landmarks.
 
@@ -90,7 +102,7 @@ Landmarks improve accessibility and document structure.
 
 ---
 
-# Step 2 — Build the Content Hierarchy
+## Step 2 — Build the Content Hierarchy
 
 Content should follow a logical hierarchy.
 
@@ -116,7 +128,7 @@ Do not create wrappers unless they have a clear responsibility.
 
 ---
 
-# Step 3 — Use Semantic Elements
+## Step 3 — Use Semantic Elements
 
 Prefer semantic HTML whenever possible.
 
@@ -162,7 +174,7 @@ Avoid replacing semantic elements with generic `<div>` elements.
 
 ---
 
-# Step 4 — Choose the Correct Element
+## Step 4 — Choose the Correct Element
 
 Examples:
 
@@ -236,7 +248,7 @@ Use the element that best represents the content.
 
 ---
 
-# Step 5 — Minimize Wrapper Elements
+## Step 5 — Minimize Wrapper Elements
 
 Every wrapper should have a purpose.
 
@@ -251,7 +263,7 @@ Avoid wrappers created only because they existed in Figma.
 
 ---
 
-# Step 6 — Group Related Content
+## Step 6 — Group Related Content
 
 Example:
 
@@ -287,7 +299,7 @@ Semantic grouping improves readability.
 
 ---
 
-# Step 7 — Respect Heading Hierarchy
+## Step 7 — Respect Heading Hierarchy
 
 Example:
 
@@ -307,7 +319,7 @@ Headings describe document structure rather than appearance.
 
 ---
 
-# Step 8 — Separate Structure from Presentation
+## Step 8 — Separate Structure from Presentation
 
 HTML defines structure.
 
@@ -317,7 +329,7 @@ Avoid writing HTML that exists only to simplify CSS.
 
 ---
 
-# Step 9 — Accessibility
+## Step 9 — Accessibility
 
 Review:
 
@@ -333,7 +345,7 @@ Semantic HTML is the foundation of accessibility.
 
 ---
 
-# Step 10 — Review the Result
+## Step 10 — Review the Result
 
 Before implementation ask:
 
@@ -346,7 +358,7 @@ If not, improve the markup before styling.
 
 ---
 
-# Figma Layer vs HTML
+## Figma Layer vs HTML
 
 Never map layers directly.
 
@@ -390,7 +402,7 @@ The HTML represents content, not editor objects.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -436,7 +448,7 @@ The HTML represents content, not editor objects.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -458,7 +470,7 @@ Ignoring accessibility.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Semantic HTML is complete when:
 
@@ -471,7 +483,7 @@ Semantic HTML is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Great frontend development begins with excellent HTML.
 

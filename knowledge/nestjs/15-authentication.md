@@ -1,3 +1,15 @@
+---
+id: nestjs/15-authentication
+topic: nestjs
+slug: authentication
+title: "NestJS Authentication"
+type: doc
+order: 15
+status: ready
+tags: [nestjs, authentication]
+related: []
+when_to_use: ""
+---
 # NestJS Authentication
 
 ## Purpose
@@ -14,7 +26,7 @@ It should not determine what the user is allowed to do.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Authenticate identities.
 
@@ -24,7 +36,7 @@ Authorization belongs elsewhere.
 
 ---
 
-# Authentication Goals
+## Authentication Goals
 
 Every authentication system should provide:
 
@@ -39,7 +51,7 @@ Authentication should remain transport-independent whenever practical.
 
 ---
 
-# Authentication Flow
+## Authentication Flow
 
 Typical JWT flow:
 
@@ -83,7 +95,7 @@ Every stage should have a clearly defined responsibility.
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 Authentication is responsible for:
 
@@ -102,7 +114,7 @@ Authentication should not:
 
 ---
 
-# Identity Providers
+## Identity Providers
 
 Authentication may use:
 
@@ -118,7 +130,7 @@ Business logic should remain independent of the identity provider.
 
 ---
 
-# Password Handling
+## Password Handling
 
 Passwords should:
 
@@ -131,7 +143,7 @@ Password verification should occur only during authentication.
 
 ---
 
-# Access Tokens
+## Access Tokens
 
 Access tokens should:
 
@@ -144,7 +156,7 @@ Avoid storing sensitive information inside tokens.
 
 ---
 
-# Refresh Tokens
+## Refresh Tokens
 
 Refresh tokens should:
 
@@ -157,7 +169,7 @@ Refresh tokens should never be treated as permanent credentials.
 
 ---
 
-# Token Rotation
+## Token Rotation
 
 Implement refresh token rotation.
 
@@ -187,7 +199,7 @@ Reusing an old refresh token should be treated as a security event.
 
 ---
 
-# Token Revocation
+## Token Revocation
 
 Support revocation for:
 
@@ -200,7 +212,7 @@ Revoked tokens should no longer grant access.
 
 ---
 
-# JWT Claims
+## JWT Claims
 
 Include only necessary claims.
 
@@ -217,7 +229,7 @@ Avoid embedding authorization rules inside JWTs unless explicitly required.
 
 ---
 
-# Session Management
+## Session Management
 
 Authentication may remain stateless.
 
@@ -231,7 +243,7 @@ Session behavior should remain predictable.
 
 ---
 
-# Multi-Factor Authentication
+## Multi-Factor Authentication
 
 Support MFA when required.
 
@@ -246,7 +258,7 @@ MFA should complement—not replace—strong password security.
 
 ---
 
-# OAuth Integration
+## OAuth Integration
 
 When integrating OAuth:
 
@@ -259,7 +271,7 @@ Never trust unverified identity data.
 
 ---
 
-# API Keys
+## API Keys
 
 API keys should:
 
@@ -272,7 +284,7 @@ Treat API keys as secrets.
 
 ---
 
-# Rate Limiting
+## Rate Limiting
 
 Authentication endpoints should be protected against abuse.
 
@@ -286,7 +298,7 @@ Protect against brute-force attacks.
 
 ---
 
-# Account Lockout
+## Account Lockout
 
 Repeated authentication failures may trigger:
 
@@ -298,7 +310,7 @@ Avoid permanent lockout without administrative recovery.
 
 ---
 
-# Audit Logging
+## Audit Logging
 
 Record security events.
 
@@ -315,7 +327,7 @@ Audit logs should be immutable.
 
 ---
 
-# Security
+## Security
 
 Always verify:
 
@@ -329,7 +341,7 @@ Never trust client-provided identity information.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -344,7 +356,7 @@ Authentication should remain deterministic.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Authentication is responsible for:
 
@@ -370,7 +382,7 @@ Authentication is **not** responsible for:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -412,7 +424,7 @@ Authentication is **not** responsible for:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -432,7 +444,7 @@ Logging credentials or tokens.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Authentication is complete when:
 
@@ -445,7 +457,7 @@ Authentication is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Authentication establishes the identity of every request.
 

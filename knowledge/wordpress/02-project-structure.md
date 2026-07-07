@@ -1,3 +1,15 @@
+---
+id: wordpress/02-project-structure
+topic: wordpress
+slug: project-structure
+title: "WordPress Project Structure"
+type: doc
+order: 2
+status: ready
+tags: [wordpress, project-structure]
+related: []
+when_to_use: ""
+---
 # WordPress Project Structure
 
 ## Purpose
@@ -10,7 +22,7 @@ The exact folder names may vary between projects, but the architectural principl
 
 ---
 
-# Core Principle
+## Core Principle
 
 A directory should represent a responsibility, not a technology.
 
@@ -34,7 +46,7 @@ Every folder should communicate its purpose immediately.
 
 ---
 
-# High-Level Structure
+## High-Level Structure
 
 A typical enterprise WordPress project may be organized as follows:
 
@@ -61,7 +73,7 @@ The exact layout depends on the project's deployment strategy.
 
 ---
 
-# Theme Structure
+## Theme Structure
 
 A modern custom theme may contain:
 
@@ -94,7 +106,7 @@ Each directory should have a clearly defined responsibility.
 
 ---
 
-# Plugin Structure
+## Plugin Structure
 
 Large plugins should follow a modular architecture.
 
@@ -129,7 +141,7 @@ Business logic should reside inside dedicated classes rather than the bootstrap 
 
 ---
 
-# Responsibility Guidelines
+## Responsibility Guidelines
 
 ## Templates
 
@@ -215,7 +227,7 @@ Each module should encapsulate one feature.
 
 ---
 
-# Asset Organization
+## Asset Organization
 
 Separate assets by type.
 
@@ -239,7 +251,7 @@ Avoid placing unrelated files together.
 
 ---
 
-# JavaScript Organization
+## JavaScript Organization
 
 Modern JavaScript should follow feature-based organization.
 
@@ -263,7 +275,7 @@ Avoid placing hundreds of files in a single directory.
 
 ---
 
-# PHP Organization
+## PHP Organization
 
 Prefer:
 
@@ -289,7 +301,7 @@ Large procedural files
 
 ---
 
-# Naming Conventions
+## Naming Conventions
 
 Prefer descriptive names.
 
@@ -321,7 +333,7 @@ Names should describe responsibilities.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -371,7 +383,7 @@ Names should describe responsibilities.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -391,7 +403,7 @@ Inconsistent naming.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A project structure is considered successful when:
 
@@ -403,7 +415,7 @@ A project structure is considered successful when:
 
 ---
 
-# Summary
+## Summary
 
 A well-organized project structure reduces cognitive load, improves maintainability, and helps both engineers and AI coding agents navigate the codebase efficiently.
 

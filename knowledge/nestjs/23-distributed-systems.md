@@ -1,3 +1,15 @@
+---
+id: nestjs/23-distributed-systems
+topic: nestjs
+slug: distributed-systems
+title: "Distributed Systems"
+type: doc
+order: 23
+status: ready
+tags: [nestjs, distributed-systems]
+related: []
+when_to_use: ""
+---
 # Distributed Systems
 
 ## Purpose
@@ -14,7 +26,7 @@ Use them only when justified.
 
 ---
 
-# Core Principle
+## Core Principle
 
 A distributed system should behave predictably even when individual components fail.
 
@@ -24,7 +36,7 @@ Design for them.
 
 ---
 
-# Goals
+## Goals
 
 Distributed systems should provide:
 
@@ -39,7 +51,7 @@ Every additional service increases operational complexity.
 
 ---
 
-# Architecture
+## Architecture
 
 Typical topology:
 
@@ -73,7 +85,7 @@ Services communicate through well-defined contracts.
 
 ---
 
-# Service Boundaries
+## Service Boundaries
 
 Split services by business capability.
 
@@ -89,7 +101,7 @@ Never split services by database tables.
 
 ---
 
-# Synchronous Communication
+## Synchronous Communication
 
 Examples:
 
@@ -111,7 +123,7 @@ Disadvantages:
 
 ---
 
-# Asynchronous Communication
+## Asynchronous Communication
 
 Examples:
 
@@ -133,7 +145,7 @@ Disadvantages:
 
 ---
 
-# API Gateway
+## API Gateway
 
 Gateway responsibilities:
 
@@ -147,7 +159,7 @@ Business logic should remain inside services.
 
 ---
 
-# Backend For Frontend (BFF)
+## Backend For Frontend (BFF)
 
 Different clients may require different APIs.
 
@@ -173,7 +185,7 @@ Avoid forcing every client through identical APIs.
 
 ---
 
-# Service Discovery
+## Service Discovery
 
 Services should locate each other dynamically when infrastructure requires it.
 
@@ -181,7 +193,7 @@ Avoid hardcoding service addresses.
 
 ---
 
-# Circuit Breaker
+## Circuit Breaker
 
 Protect services from cascading failures.
 
@@ -211,7 +223,7 @@ Circuit Closed
 
 ---
 
-# Timeout
+## Timeout
 
 Every remote call should define a timeout.
 
@@ -219,7 +231,7 @@ Never wait indefinitely.
 
 ---
 
-# Retry
+## Retry
 
 Retry only transient failures.
 
@@ -231,7 +243,7 @@ Combine retries with:
 
 ---
 
-# Bulkhead
+## Bulkhead
 
 Isolate resources.
 
@@ -239,7 +251,7 @@ Failure in one subsystem should not exhaust the entire application.
 
 ---
 
-# Saga Pattern
+## Saga Pattern
 
 Coordinate distributed business workflows.
 
@@ -263,7 +275,7 @@ Failures require compensation.
 
 ---
 
-# Eventual Consistency
+## Eventual Consistency
 
 Distributed systems cannot guarantee immediate consistency everywhere.
 
@@ -271,7 +283,7 @@ Applications should tolerate temporary inconsistency.
 
 ---
 
-# Contracts
+## Contracts
 
 Service contracts should be:
 
@@ -283,7 +295,7 @@ Breaking changes require migration strategies.
 
 ---
 
-# Correlation ID
+## Correlation ID
 
 Every request should propagate the same correlation ID across services.
 
@@ -291,7 +303,7 @@ Tracing should span the entire request lifecycle.
 
 ---
 
-# Observability
+## Observability
 
 Monitor:
 
@@ -306,7 +318,7 @@ Distributed systems require centralized observability.
 
 ---
 
-# Health Checks
+## Health Checks
 
 Expose health endpoints.
 
@@ -321,7 +333,7 @@ Health checks should reflect real readiness.
 
 ---
 
-# Security
+## Security
 
 Every service should:
 
@@ -336,7 +348,7 @@ Apply Zero Trust principles.
 
 ---
 
-# Performance
+## Performance
 
 Measure:
 
@@ -349,7 +361,7 @@ Optimize based on measurements.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -364,7 +376,7 @@ Distributed systems should be tested under failure conditions.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Use distributed architecture when:
 
@@ -388,7 +400,7 @@ Avoid when:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -430,7 +442,7 @@ Avoid when:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -450,7 +462,7 @@ Creating synchronous dependency chains.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A distributed architecture is complete when:
 
@@ -463,7 +475,7 @@ A distributed architecture is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Distributed systems enable independent scaling, resilience, and organizational flexibility.
 

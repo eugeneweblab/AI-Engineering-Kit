@@ -1,3 +1,15 @@
+---
+id: wordpress/03-best-practices
+topic: wordpress
+slug: best-practices
+title: "WordPress Best Practices"
+type: doc
+order: 3
+status: ready
+tags: [wordpress, best-practices]
+related: []
+when_to_use: ""
+---
 # WordPress Best Practices
 
 ## Purpose
@@ -10,7 +22,7 @@ The objective is to create maintainable, secure, scalable, and predictable softw
 
 ---
 
-# Core Philosophy
+## Core Philosophy
 
 Write code that another engineer can confidently modify two years from now.
 
@@ -27,7 +39,7 @@ The best implementation is usually the simplest one that satisfies the requireme
 
 ---
 
-# Design Before Coding
+## Design Before Coding
 
 Never begin implementation immediately.
 
@@ -43,7 +55,7 @@ Planning reduces bugs and unnecessary refactoring.
 
 ---
 
-# Reuse Before Creating
+## Reuse Before Creating
 
 Always search the project before creating:
 
@@ -60,7 +72,7 @@ Duplicate code increases maintenance costs.
 
 ---
 
-# Follow WordPress APIs
+## Follow WordPress APIs
 
 Prefer WordPress APIs over custom implementations.
 
@@ -79,7 +91,7 @@ Using established APIs improves compatibility and future upgrades.
 
 ---
 
-# Keep Business Logic Separate
+## Keep Business Logic Separate
 
 Business logic should never be embedded inside:
 
@@ -93,7 +105,7 @@ Business rules belong inside dedicated services.
 
 ---
 
-# Write Small Functions
+## Write Small Functions
 
 Functions should perform one responsibility.
 
@@ -109,7 +121,7 @@ Large functions usually indicate multiple responsibilities.
 
 ---
 
-# Keep Templates Simple
+## Keep Templates Simple
 
 Templates should focus on presentation.
 
@@ -127,7 +139,7 @@ Templates should not:
 
 ---
 
-# Respect Existing Architecture
+## Respect Existing Architecture
 
 Do not introduce new architectural patterns unless explicitly required.
 
@@ -143,7 +155,7 @@ Consistency is more valuable than personal preference.
 
 ---
 
-# Validate, Sanitize, Escape
+## Validate, Sanitize, Escape
 
 Every feature should follow three rules:
 
@@ -157,7 +169,7 @@ Never assume external data is safe.
 
 ---
 
-# Capability Checks
+## Capability Checks
 
 Administrative functionality should always verify user permissions.
 
@@ -171,7 +183,7 @@ Never rely solely on hidden UI elements.
 
 ---
 
-# Prefer Dependency Injection
+## Prefer Dependency Injection
 
 Dependencies should be explicit whenever practical.
 
@@ -189,7 +201,7 @@ Avoid hidden dependencies through global state.
 
 ---
 
-# Keep Hooks Focused
+## Keep Hooks Focused
 
 Each action or filter should perform one clear responsibility.
 
@@ -207,7 +219,7 @@ Avoid placing large amounts of business logic directly inside hook callbacks.
 
 ---
 
-# Error Handling
+## Error Handling
 
 Handle expected failures gracefully.
 
@@ -222,7 +234,7 @@ Error messages should help developers while remaining safe for users.
 
 ---
 
-# Logging
+## Logging
 
 Log useful operational information.
 
@@ -237,7 +249,7 @@ Avoid excessive logging that obscures important events.
 
 ---
 
-# Performance Awareness
+## Performance Awareness
 
 Before adding new code consider:
 
@@ -252,7 +264,7 @@ Performance should be part of implementation—not an afterthought.
 
 ---
 
-# Documentation
+## Documentation
 
 Document:
 
@@ -268,7 +280,7 @@ Documentation explains why.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -324,7 +336,7 @@ Documentation explains why.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -346,7 +358,7 @@ Overengineering simple solutions.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A WordPress implementation follows best practices when:
 
@@ -360,7 +372,7 @@ A WordPress implementation follows best practices when:
 
 ---
 
-# Summary
+## Summary
 
 Professional WordPress development is built on consistency, reuse, and respect for the platform.
 

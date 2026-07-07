@@ -1,3 +1,15 @@
+---
+id: nestjs/26-security
+topic: nestjs
+slug: security
+title: "Security"
+type: doc
+order: 26
+status: ready
+tags: [nestjs, security]
+related: []
+when_to_use: ""
+---
 # Security
 
 ## Purpose
@@ -14,7 +26,7 @@ Every component contributes to the application's security posture.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Assume every request is untrusted until verified.
 
@@ -29,7 +41,7 @@ Every boundary must validate incoming data.
 
 ---
 
-# Security Goals
+## Security Goals
 
 Every application should provide:
 
@@ -44,7 +56,7 @@ Security decisions should prioritize risk reduction over convenience.
 
 ---
 
-# Defense in Depth
+## Defense in Depth
 
 Apply multiple independent security layers.
 
@@ -86,7 +98,7 @@ No single layer should be responsible for all security.
 
 ---
 
-# Zero Trust
+## Zero Trust
 
 Assume that no client, service, or network segment is inherently trusted.
 
@@ -101,7 +113,7 @@ Every request should be authenticated and authorized.
 
 ---
 
-# Input Validation
+## Input Validation
 
 Validate all external input.
 
@@ -119,7 +131,7 @@ Reject invalid data immediately.
 
 ---
 
-# Output Encoding
+## Output Encoding
 
 Encode data according to its destination.
 
@@ -135,7 +147,7 @@ Never assume output is safe by default.
 
 ---
 
-# Secrets Management
+## Secrets Management
 
 Secrets include:
 
@@ -154,7 +166,7 @@ Secrets should:
 
 ---
 
-# Authentication
+## Authentication
 
 Authentication should verify identity before granting access.
 
@@ -168,7 +180,7 @@ Authentication should remain independent from authorization.
 
 ---
 
-# Authorization
+## Authorization
 
 Every protected operation requires authorization.
 
@@ -183,7 +195,7 @@ Default to deny access.
 
 ---
 
-# OWASP Top 10
+## OWASP Top 10
 
 Review every application against the latest OWASP Top 10.
 
@@ -203,7 +215,7 @@ Security reviews should be continuous.
 
 ---
 
-# Injection Prevention
+## Injection Prevention
 
 Always use:
 
@@ -219,7 +231,7 @@ Never concatenate user input into:
 
 ---
 
-# XSS Prevention
+## XSS Prevention
 
 Escape or sanitize all untrusted content rendered in browsers.
 
@@ -229,7 +241,7 @@ Never trust HTML submitted by users.
 
 ---
 
-# CSRF Protection
+## CSRF Protection
 
 Protect state-changing endpoints when using cookie-based authentication.
 
@@ -241,7 +253,7 @@ Use:
 
 ---
 
-# SSRF Protection
+## SSRF Protection
 
 Validate outbound requests.
 
@@ -255,7 +267,7 @@ Never proxy arbitrary user-provided URLs.
 
 ---
 
-# File Uploads
+## File Uploads
 
 Validate:
 
@@ -270,7 +282,7 @@ Never execute uploaded files.
 
 ---
 
-# Rate Limiting
+## Rate Limiting
 
 Protect:
 
@@ -283,7 +295,7 @@ Rate limiting reduces abuse.
 
 ---
 
-# Encryption
+## Encryption
 
 Encrypt sensitive data:
 
@@ -296,7 +308,7 @@ Use proven libraries.
 
 ---
 
-# Dependency Security
+## Dependency Security
 
 Continuously review dependencies.
 
@@ -310,7 +322,7 @@ Apply updates regularly.
 
 ---
 
-# Logging
+## Logging
 
 Log:
 
@@ -327,7 +339,7 @@ Never log:
 
 ---
 
-# Audit Trail
+## Audit Trail
 
 Record:
 
@@ -340,7 +352,7 @@ Audit records should be immutable.
 
 ---
 
-# Incident Response
+## Incident Response
 
 Prepare procedures for:
 
@@ -353,7 +365,7 @@ Security incidents require predefined response plans.
 
 ---
 
-# Security Headers
+## Security Headers
 
 Enable appropriate HTTP security headers.
 
@@ -367,7 +379,7 @@ Examples:
 
 ---
 
-# Testing
+## Testing
 
 Include:
 
@@ -381,7 +393,7 @@ Security testing belongs in CI/CD.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Always protect:
 
@@ -407,7 +419,7 @@ Never trust:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -449,7 +461,7 @@ Never trust:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -469,7 +481,7 @@ Skipping authorization checks.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Security implementation is complete when:
 
@@ -482,7 +494,7 @@ Security implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Security is a continuous engineering discipline rather than a single feature.
 

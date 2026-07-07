@@ -1,3 +1,15 @@
+---
+id: nestjs/06-repositories
+topic: nestjs
+slug: repositories
+title: "NestJS Repositories"
+type: doc
+order: 6
+status: ready
+tags: [nestjs, repositories]
+related: []
+when_to_use: ""
+---
 # NestJS Repositories
 
 ## Purpose
@@ -10,7 +22,7 @@ Repositories are responsible for persistence—not business decisions.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Repositories persist data.
 
@@ -20,7 +32,7 @@ Never mix these responsibilities.
 
 ---
 
-# Repository Goals
+## Repository Goals
 
 Every repository should provide:
 
@@ -35,7 +47,7 @@ Repositories should remain focused on storage concerns.
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 Repositories are responsible for:
 
@@ -56,7 +68,7 @@ Repositories should not:
 
 ---
 
-# Repository Position
+## Repository Position
 
 Typical flow:
 
@@ -80,7 +92,7 @@ Repositories should never be called directly by controllers.
 
 ---
 
-# Repository Structure
+## Repository Structure
 
 Example:
 
@@ -98,7 +110,7 @@ One repository should generally correspond to one aggregate or business entity.
 
 ---
 
-# Repository Interface
+## Repository Interface
 
 Expose business-oriented methods.
 
@@ -136,7 +148,7 @@ Repositories should express intent.
 
 ---
 
-# Query Responsibility
+## Query Responsibility
 
 Complex database queries belong inside repositories.
 
@@ -152,7 +164,7 @@ Services should not construct SQL or ORM queries.
 
 ---
 
-# ORM Isolation
+## ORM Isolation
 
 Repositories should encapsulate ORM-specific code.
 
@@ -169,7 +181,7 @@ Replacing the ORM should require minimal changes outside repositories.
 
 ---
 
-# Transactions
+## Transactions
 
 Services coordinate transactions.
 
@@ -179,7 +191,7 @@ Repositories should not independently create transaction boundaries unless expli
 
 ---
 
-# Pagination
+## Pagination
 
 Repositories should provide consistent pagination.
 
@@ -194,7 +206,7 @@ Pagination behavior should remain predictable.
 
 ---
 
-# Performance
+## Performance
 
 Repositories should optimize:
 
@@ -212,7 +224,7 @@ Avoid:
 
 ---
 
-# Soft Deletes
+## Soft Deletes
 
 If soft deletes are used:
 
@@ -223,7 +235,7 @@ Behavior should remain consistent across the application.
 
 ---
 
-# Domain Objects
+## Domain Objects
 
 Repositories should return:
 
@@ -235,7 +247,7 @@ Avoid returning raw database responses.
 
 ---
 
-# Error Handling
+## Error Handling
 
 Repositories should translate persistence failures into meaningful exceptions.
 
@@ -243,7 +255,7 @@ Avoid leaking ORM-specific errors into higher application layers.
 
 ---
 
-# Caching
+## Caching
 
 Repositories should not implement caching unless they are explicitly designed as cache-aware repositories.
 
@@ -251,7 +263,7 @@ Caching policies belong to dedicated infrastructure or service layers.
 
 ---
 
-# External Storage
+## External Storage
 
 Repositories may represent:
 
@@ -265,7 +277,7 @@ The abstraction should remain consistent regardless of the backend.
 
 ---
 
-# Security
+## Security
 
 Repositories should:
 
@@ -278,7 +290,7 @@ Security begins at the persistence layer.
 
 ---
 
-# Testing
+## Testing
 
 Repositories should be tested with:
 
@@ -290,7 +302,7 @@ Mock repositories when testing services.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -332,7 +344,7 @@ Mock repositories when testing services.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -352,7 +364,7 @@ Performing authorization inside repositories.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A repository implementation is complete when:
 
@@ -365,7 +377,7 @@ A repository implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Repositories form the persistence boundary of a NestJS application.
 

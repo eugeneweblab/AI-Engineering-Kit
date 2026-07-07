@@ -1,3 +1,15 @@
+---
+id: engineering/00-engineering-principles
+topic: engineering
+slug: engineering-principles
+title: "Engineering Principles"
+type: doc
+order: 0
+status: ready
+tags: [engineering, engineering-principles]
+related: []
+when_to_use: ""
+---
 # Engineering Principles
 
 ## Purpose
@@ -10,7 +22,7 @@ When documentation appears to conflict, these principles take precedence.
 
 ---
 
-# Principle 1 — Understand Before Changing
+## Principle 1 — Understand Before Changing
 
 Never modify code before understanding its purpose.
 
@@ -25,7 +37,7 @@ Making changes without understanding the existing system often introduces unnece
 
 ---
 
-# Principle 2 — Solve the Root Cause
+## Principle 2 — Solve the Root Cause
 
 Do not optimize symptoms.
 
@@ -37,7 +49,7 @@ Temporary workarounds should be explicitly documented.
 
 ---
 
-# Principle 3 — Prefer Simplicity
+## Principle 3 — Prefer Simplicity
 
 Choose the simplest solution that fully satisfies the requirements.
 
@@ -53,7 +65,7 @@ Simplicity should never sacrifice correctness.
 
 ---
 
-# Principle 4 — Preserve Consistency
+## Principle 4 — Preserve Consistency
 
 Consistency is more valuable than personal preference.
 
@@ -63,7 +75,7 @@ Consistency reduces cognitive load and improves long-term maintainability.
 
 ---
 
-# Principle 5 — Reuse Before Creating
+## Principle 5 — Reuse Before Creating
 
 Before introducing new code, determine whether an existing implementation can be reused.
 
@@ -78,7 +90,7 @@ Create new abstractions only when reuse would increase complexity.
 
 ---
 
-# Principle 6 — Minimize Change Surface
+## Principle 6 — Minimize Change Surface
 
 Modify as little code as necessary.
 
@@ -93,7 +105,7 @@ Avoid unrelated refactoring during feature implementation or bug fixes.
 
 ---
 
-# Principle 7 — Make Intent Obvious
+## Principle 7 — Make Intent Obvious
 
 Code should communicate intent before implementation details.
 
@@ -108,7 +120,7 @@ Future maintainers should understand *why* the code exists before reading *how* 
 
 ---
 
-# Principle 8 — Optimize for Maintainability
+## Principle 8 — Optimize for Maintainability
 
 Software is read significantly more often than it is written.
 
@@ -124,7 +136,7 @@ Maintainability includes:
 
 ---
 
-# Principle 9 — Verify Assumptions
+## Principle 9 — Verify Assumptions
 
 Never assume.
 
@@ -140,7 +152,7 @@ Assumptions should be replaced with evidence.
 
 ---
 
-# Principle 10 — Respect Existing Architecture
+## Principle 10 — Respect Existing Architecture
 
 Every project has architectural decisions.
 
@@ -152,7 +164,7 @@ When improvements are necessary, evolve the architecture incrementally instead o
 
 ---
 
-# Principle 11 — Separate Problems
+## Principle 11 — Separate Problems
 
 Solve one problem at a time.
 
@@ -168,7 +180,7 @@ Independent changes produce clearer reviews and safer deployments.
 
 ---
 
-# Principle 12 — Design for Future Readers
+## Principle 12 — Design for Future Readers
 
 Write every line of code as if the next person maintaining it has no prior context.
 
@@ -183,7 +195,7 @@ Readable code reduces engineering cost.
 
 ---
 
-# Principle 13 — Performance Requires Evidence
+## Principle 13 — Performance Requires Evidence
 
 Do not optimize based on assumptions.
 
@@ -195,7 +207,7 @@ Avoid sacrificing readability for hypothetical performance improvements.
 
 ---
 
-# Principle 14 — Security Is a Requirement
+## Principle 14 — Security Is a Requirement
 
 Security is never an optional enhancement.
 
@@ -212,7 +224,7 @@ Secure defaults are preferable to configurable security.
 
 ---
 
-# Principle 15 — Quality Before Speed
+## Principle 15 — Quality Before Speed
 
 Fast delivery has value.
 

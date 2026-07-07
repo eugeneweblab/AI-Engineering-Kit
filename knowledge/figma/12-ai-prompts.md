@@ -1,3 +1,15 @@
+---
+id: figma/12-ai-prompts
+topic: figma
+slug: ai-prompts
+title: "AI Prompting Standard for Figma Tasks"
+type: doc
+order: 12
+status: ready
+tags: [figma, ai-prompts]
+related: []
+when_to_use: ""
+---
 # AI Prompting Standard for Figma Tasks
 
 ## Purpose
@@ -10,7 +22,7 @@ This document applies to Cursor, Claude Code, Codex, GitHub Copilot, Cline, Gemi
 
 ---
 
-# Core Principle
+## Core Principle
 
 Never ask AI to "implement the design."
 
@@ -20,7 +32,7 @@ Better context produces better code.
 
 ---
 
-# Standard Prompt Structure
+## Standard Prompt Structure
 
 Every implementation request should contain the following information.
 
@@ -46,7 +58,7 @@ Do not skip sections.
 
 ---
 
-# Required Context
+## Required Context
 
 Every prompt should answer these questions.
 
@@ -148,7 +160,7 @@ Follow existing naming conventions.
 
 ---
 
-# Required AI Workflow
+## Required AI Workflow
 
 Every implementation request should explicitly require AI to perform these steps.
 
@@ -192,7 +204,7 @@ Skipping analysis should be considered an error.
 
 ---
 
-# Prompt Template
+## Prompt Template
 
 ```
 Task
@@ -230,7 +242,7 @@ Do not implement anything until analysis has been completed.
 
 ---
 
-# WordPress Example
+## WordPress Example
 
 ```
 Implement this section as a reusable WordPress component.
@@ -246,7 +258,7 @@ Requirements:
 
 ---
 
-# Divi Example
+## Divi Example
 
 ```
 Implement this section using Divi.
@@ -262,7 +274,7 @@ Requirements:
 
 ---
 
-# React Example
+## React Example
 
 ```
 Implement this section as a reusable React component.
@@ -280,7 +292,7 @@ Requirements:
 
 ---
 
-# Next.js Example
+## Next.js Example
 
 ```
 Implement this page in Next.js.
@@ -296,7 +308,7 @@ Requirements:
 
 ---
 
-# Review Prompt
+## Review Prompt
 
 Before considering the task complete, ask AI to perform a review.
 
@@ -318,7 +330,7 @@ Return every issue found before finishing.
 
 ---
 
-# Anti-Patterns
+## Anti-Patterns
 
 Avoid prompts such as:
 
@@ -338,7 +350,7 @@ These prompts lack engineering context.
 
 ---
 
-# Definition of Done Prompt
+## Definition of Done Prompt
 
 Every implementation should finish with confirmation that:
 
@@ -352,7 +364,7 @@ Every implementation should finish with confirmation that:
 
 ---
 
-# AI Checklist
+## AI Checklist
 
 Before starting:
 
@@ -384,7 +396,7 @@ Before finishing:
 
 ---
 
-# Summary
+## Summary
 
 High-quality AI output begins with high-quality instructions.
 

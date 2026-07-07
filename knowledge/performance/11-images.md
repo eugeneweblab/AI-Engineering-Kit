@@ -1,0 +1,3 @@
+# Images
+
+> TODO: Document pending.

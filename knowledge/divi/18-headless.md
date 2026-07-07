@@ -1,0 +1,3 @@
+# Headless
+
+> TODO: Document pending.

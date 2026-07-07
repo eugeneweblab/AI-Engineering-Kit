@@ -1,3 +1,15 @@
+---
+id: nestjs/98-production-checklist
+topic: nestjs
+slug: production-checklist
+title: "Production Readiness Checklist"
+type: doc
+order: 98
+status: ready
+tags: [nestjs, production-checklist]
+related: []
+when_to_use: ""
+---
 # Production Readiness Checklist
 
 ## Purpose
@@ -10,7 +22,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Architecture
+## Architecture
 
 ☐ Responsibilities are clearly separated.
 
@@ -26,7 +38,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# API Design
+## API Design
 
 ☐ REST or GraphQL contracts are consistent.
 
@@ -42,7 +54,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Authentication & Authorization
+## Authentication & Authorization
 
 ☐ Authentication is implemented.
 
@@ -56,7 +68,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Validation
+## Validation
 
 ☐ Request validation is complete.
 
@@ -68,7 +80,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Database
+## Database
 
 ☐ Database schema reviewed.
 
@@ -84,7 +96,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Caching
+## Caching
 
 ☐ Cache invalidation strategy defined.
 
@@ -94,7 +106,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Background Processing
+## Background Processing
 
 ☐ Queue retries configured.
 
@@ -106,7 +118,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Distributed Systems
+## Distributed Systems
 
 ☐ Service contracts documented.
 
@@ -120,7 +132,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Security
+## Security
 
 ☐ OWASP review completed.
 
@@ -138,7 +150,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Performance
+## Performance
 
 ☐ Performance bottlenecks measured.
 
@@ -152,7 +164,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Observability
+## Observability
 
 ☐ Structured logging enabled.
 
@@ -168,7 +180,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Testing
+## Testing
 
 ☐ Unit tests pass.
 
@@ -184,7 +196,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Deployment
+## Deployment
 
 ☐ Deployment fully automated.
 
@@ -200,7 +212,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Maintenance
+## Maintenance
 
 ☐ Documentation updated.
 
@@ -214,7 +226,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# Documentation
+## Documentation
 
 ☐ README updated.
 
@@ -226,7 +238,7 @@ A feature is not complete until it is production ready.
 
 ---
 
-# AI Final Verification
+## AI Final Verification
 
 Before considering implementation complete, verify:
 
@@ -250,7 +262,7 @@ Before considering implementation complete, verify:
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A feature is considered production ready only when every applicable checklist item has been reviewed and satisfied.
 
@@ -258,7 +270,7 @@ Skipping checklist items requires explicit engineering justification.
 
 ---
 
-# Summary
+## Summary
 
 Production readiness is achieved through disciplined engineering rather than successful compilation alone.
 

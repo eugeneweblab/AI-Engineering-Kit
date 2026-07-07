@@ -1,3 +1,15 @@
+---
+id: ai/02-task-planning
+topic: ai
+slug: task-planning
+title: "Task Planning"
+type: doc
+order: 2
+status: ready
+tags: [ai, task-planning]
+related: []
+when_to_use: ""
+---
 # Task Planning
 
 ## Purpose
@@ -10,7 +22,7 @@ Implementation should always be the result of a plan—not the beginning of one.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Think first.
 
@@ -22,7 +34,7 @@ The larger the task, the more detailed the plan should be.
 
 ---
 
-# Planning Workflow
+## Planning Workflow
 
 Always follow the same planning sequence.
 
@@ -46,7 +58,7 @@ Never skip planning because a task appears simple.
 
 ---
 
-# Step 1 — Understand the Goal
+## Step 1 — Understand the Goal
 
 Determine exactly what needs to be accomplished.
 
@@ -62,7 +74,7 @@ Do not assume hidden requirements.
 
 ---
 
-# Step 2 — Break the Task Into Smaller Problems
+## Step 2 — Break the Task Into Smaller Problems
 
 Large tasks should never be implemented as one large change.
 
@@ -90,7 +102,7 @@ Smaller tasks reduce complexity.
 
 ---
 
-# Step 3 — Identify Affected Areas
+## Step 3 — Identify Affected Areas
 
 List every part of the project that may be impacted.
 
@@ -110,7 +122,7 @@ Understanding impact reduces unexpected regressions.
 
 ---
 
-# Step 4 — Search Before Creating
+## Step 4 — Search Before Creating
 
 For every planned change determine whether existing code can be reused.
 
@@ -128,7 +140,7 @@ The implementation plan should identify reusable code before writing new code.
 
 ---
 
-# Step 5 — Evaluate Risks
+## Step 5 — Evaluate Risks
 
 Every task has potential risks.
 
@@ -146,7 +158,7 @@ Risks should be identified before implementation begins.
 
 ---
 
-# Step 6 — Define Implementation Order
+## Step 6 — Define Implementation Order
 
 Determine the safest order of execution.
 
@@ -165,7 +177,7 @@ Avoid constantly switching between unrelated parts of the project.
 
 ---
 
-# Step 7 — Define Verification
+## Step 7 — Define Verification
 
 Every plan should define how success will be verified.
 
@@ -182,7 +194,7 @@ A task without a verification plan is incomplete.
 
 ---
 
-# Planning Questions
+## Planning Questions
 
 Before implementation answer:
 
@@ -204,7 +216,7 @@ What could break?
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Before Planning
 
@@ -240,7 +252,7 @@ Only after completing every applicable step should implementation begin.
 
 ---
 
-# Anti-patterns
+## Anti-patterns
 
 Avoid:
 
@@ -262,7 +274,7 @@ Ignoring rollback considerations.
 
 ---
 
-# AI Responsibilities
+## AI Responsibilities
 
 During planning AI should:
 
@@ -282,7 +294,7 @@ Planning should be transparent.
 
 ---
 
-# Example Planning Output
+## Example Planning Output
 
 Good:
 
@@ -327,7 +339,7 @@ The second example contains no engineering thinking.
 
 ---
 
-# Summary
+## Summary
 
 Planning is an engineering activity, not administrative overhead.
 

@@ -1,3 +1,15 @@
+---
+id: ai/03-code-generation
+topic: ai
+slug: code-generation
+title: "Code Generation"
+type: doc
+order: 3
+status: ready
+tags: [ai, code-generation]
+related: []
+when_to_use: ""
+---
 # Code Generation
 
 ## Purpose
@@ -12,7 +24,7 @@ Code generation should preserve architecture, reduce maintenance cost, and integ
 
 ---
 
-# Core Principle
+## Core Principle
 
 Generate code that belongs to the project.
 
@@ -22,7 +34,7 @@ The generated implementation should feel as though it has always been part of th
 
 ---
 
-# Generation Priorities
+## Generation Priorities
 
 Always prioritize:
 
@@ -38,7 +50,7 @@ Shorter code is not necessarily better code.
 
 ---
 
-# Repository-First Generation
+## Repository-First Generation
 
 Before generating any code, inspect the repository.
 
@@ -59,7 +71,7 @@ Never generate code based only on generic framework examples.
 
 ---
 
-# Reuse Before Creation
+## Reuse Before Creation
 
 Before creating any new implementation, search for:
 
@@ -78,7 +90,7 @@ Creating duplicate logic should always be the last option.
 
 ---
 
-# Match Existing Style
+## Match Existing Style
 
 Generated code should match the repository.
 
@@ -97,7 +109,7 @@ The generated code should not reveal which AI model produced it.
 
 ---
 
-# Generate the Smallest Correct Change
+## Generate the Smallest Correct Change
 
 Modify only what is required.
 
@@ -113,7 +125,7 @@ The safest implementation is usually the smallest implementation.
 
 ---
 
-# Respect Existing Boundaries
+## Respect Existing Boundaries
 
 Do not move responsibilities between modules unless explicitly required.
 
@@ -131,7 +143,7 @@ Avoid mixing responsibilities.
 
 ---
 
-# Prefer Extension Over Replacement
+## Prefer Extension Over Replacement
 
 When existing code can be extended safely:
 
@@ -143,7 +155,7 @@ Respect the engineering history of the project.
 
 ---
 
-# Error Handling
+## Error Handling
 
 Generated code should follow existing error handling patterns.
 
@@ -162,7 +174,7 @@ Every failure path should be intentional.
 
 ---
 
-# Dependency Management
+## Dependency Management
 
 Before introducing a dependency, verify:
 
@@ -174,7 +186,7 @@ New dependencies should require clear engineering justification.
 
 ---
 
-# Comments
+## Comments
 
 Comments should explain intent.
 
@@ -204,7 +216,7 @@ submissionCount++;
 
 ---
 
-# Generated Code Should Be Predictable
+## Generated Code Should Be Predictable
 
 Future engineers should be able to predict where new code will be located.
 
@@ -218,7 +230,7 @@ Avoid unique patterns for common problems.
 
 ---
 
-# Hallucination Prevention
+## Hallucination Prevention
 
 Never invent:
 
@@ -235,7 +247,7 @@ When information cannot be verified, state the uncertainty.
 
 ---
 
-# Large Tasks
+## Large Tasks
 
 Large implementations should be completed incrementally.
 
@@ -271,7 +283,7 @@ Avoid generating hundreds of lines of code before validation.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Before Generation
 
@@ -310,7 +322,7 @@ Avoid generating hundreds of lines of code before validation.
 
 ---
 
-# Anti-patterns
+## Anti-patterns
 
 Avoid:
 
@@ -334,7 +346,7 @@ Generating large changes without incremental verification.
 
 ---
 
-# AI Responsibilities
+## AI Responsibilities
 
 AI should always explain:
 
@@ -356,7 +368,7 @@ Transparency increases trust.
 
 ---
 
-# Definition of Success
+## Definition of Success
 
 Generated code is successful when:
 
@@ -378,7 +390,7 @@ The best generated code is code that another engineer would naturally assume was
 
 ---
 
-# Summary
+## Summary
 
 AI should not generate code that merely works.
 

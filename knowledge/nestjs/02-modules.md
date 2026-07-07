@@ -1,3 +1,15 @@
+---
+id: nestjs/02-modules
+topic: nestjs
+slug: modules
+title: "NestJS Modules"
+type: doc
+order: 2
+status: ready
+tags: [nestjs, modules]
+related: []
+when_to_use: ""
+---
 # NestJS Modules
 
 ## Purpose
@@ -10,7 +22,7 @@ Modules are the primary building blocks of a NestJS application.
 
 ---
 
-# Core Principle
+## Core Principle
 
 One module.
 
@@ -20,7 +32,7 @@ Modules should represent business domains rather than technical categories.
 
 ---
 
-# Module Goals
+## Module Goals
 
 Every module should provide:
 
@@ -35,7 +47,7 @@ A module should be understandable independently from the rest of the application
 
 ---
 
-# Feature-Based Organization
+## Feature-Based Organization
 
 Organize modules around business features.
 
@@ -61,7 +73,7 @@ Avoid organizing the application by technical layers.
 
 ---
 
-# Module Structure
+## Module Structure
 
 A typical module may contain:
 
@@ -95,7 +107,7 @@ Keep the internal structure consistent across modules.
 
 ---
 
-# Module Responsibilities
+## Module Responsibilities
 
 A module owns:
 
@@ -110,7 +122,7 @@ A module should expose only what other modules require.
 
 ---
 
-# Public API
+## Public API
 
 Export only stable providers.
 
@@ -132,7 +144,7 @@ Do not expose internal implementation details.
 
 ---
 
-# Imports
+## Imports
 
 Import only modules that are required.
 
@@ -142,7 +154,7 @@ Review every import and justify its necessity.
 
 ---
 
-# Exports
+## Exports
 
 Export providers intentionally.
 
@@ -152,7 +164,7 @@ Avoid exporting everything by default.
 
 ---
 
-# Shared Modules
+## Shared Modules
 
 Place generic functionality inside shared modules.
 
@@ -176,7 +188,7 @@ Shared modules should remain independent from business features.
 
 ---
 
-# Global Modules
+## Global Modules
 
 Use global modules sparingly.
 
@@ -190,7 +202,7 @@ Business modules should not normally be global.
 
 ---
 
-# Dynamic Modules
+## Dynamic Modules
 
 Use dynamic modules when runtime configuration is required.
 
@@ -205,7 +217,7 @@ Keep dynamic configuration centralized.
 
 ---
 
-# Circular Dependencies
+## Circular Dependencies
 
 Avoid circular dependencies between modules.
 
@@ -219,7 +231,7 @@ Circular dependencies often indicate architectural problems.
 
 ---
 
-# Dependency Direction
+## Dependency Direction
 
 Dependencies should flow toward lower-level services.
 
@@ -241,7 +253,7 @@ Avoid bidirectional dependencies.
 
 ---
 
-# Configuration
+## Configuration
 
 Each module should own only its feature-specific configuration.
 
@@ -249,7 +261,7 @@ Application-wide configuration belongs in centralized configuration modules.
 
 ---
 
-# Validation
+## Validation
 
 Validation should remain close to the feature.
 
@@ -263,7 +275,7 @@ Validation responsibilities should remain explicit.
 
 ---
 
-# Events
+## Events
 
 Modules may communicate through domain events when direct dependencies become excessive.
 
@@ -271,7 +283,7 @@ Events should reduce coupling without obscuring application flow.
 
 ---
 
-# Testing
+## Testing
 
 Each module should be independently testable.
 
@@ -286,7 +298,7 @@ Modules should not require the entire application to execute tests.
 
 ---
 
-# Scalability
+## Scalability
 
 Modules should support:
 
@@ -298,7 +310,7 @@ Architecture should not assume a monolithic future.
 
 ---
 
-# Security
+## Security
 
 Each module should enforce its own:
 
@@ -311,7 +323,7 @@ Do not rely solely on external modules for security.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -353,7 +365,7 @@ Do not rely solely on external modules for security.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -373,7 +385,7 @@ Ignoring module ownership.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A module implementation is complete when:
 
@@ -386,7 +398,7 @@ A module implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Modules are the foundation of every NestJS application.
 

@@ -1,3 +1,15 @@
+---
+id: wordpress/01-wordpress-architecture
+topic: wordpress
+slug: wordpress-architecture
+title: "WordPress Architecture"
+type: doc
+order: 1
+status: ready
+tags: [wordpress, wordpress-architecture]
+related: []
+when_to_use: ""
+---
 # WordPress Architecture
 
 ## Purpose
@@ -10,7 +22,7 @@ The objective is to ensure that every implementation remains maintainable, scala
 
 ---
 
-# Core Philosophy
+## Core Philosophy
 
 WordPress is an application framework—not simply a CMS.
 
@@ -32,7 +44,7 @@ Every feature should integrate with these systems instead of replacing them.
 
 ---
 
-# Architectural Principles
+## Architectural Principles
 
 ## Respect Existing Architecture
 
@@ -120,7 +132,7 @@ Reuse is preferred over duplication.
 
 ---
 
-# Recommended Project Structure
+## Recommended Project Structure
 
 A typical enterprise project may contain:
 
@@ -152,7 +164,7 @@ Folder names may vary, but responsibilities should remain clear.
 
 ---
 
-# Theme Responsibilities
+## Theme Responsibilities
 
 Themes should primarily handle:
 
@@ -166,7 +178,7 @@ Avoid placing business logic inside templates.
 
 ---
 
-# Plugin Responsibilities
+## Plugin Responsibilities
 
 Plugins should primarily contain:
 
@@ -181,7 +193,7 @@ Features that may outlive the active theme generally belong in plugins.
 
 ---
 
-# Hooks First
+## Hooks First
 
 Before modifying WordPress behavior, determine whether it can be achieved through:
 
@@ -201,7 +213,7 @@ Prefer extension over modification.
 
 ---
 
-# REST API
+## REST API
 
 REST endpoints should:
 
@@ -218,7 +230,7 @@ Business logic belongs in services.
 
 ---
 
-# Database Strategy
+## Database Strategy
 
 Prefer:
 
@@ -240,7 +252,7 @@ When SQL is required:
 
 ---
 
-# Configuration
+## Configuration
 
 Configuration should be centralized.
 
@@ -258,7 +270,7 @@ Avoid scattered configuration values.
 
 ---
 
-# Security Principles
+## Security Principles
 
 Every feature should include:
 
@@ -274,7 +286,7 @@ Security is an architectural concern.
 
 ---
 
-# Performance Principles
+## Performance Principles
 
 Review:
 
@@ -290,7 +302,7 @@ Optimize architecture before micro-optimizing code.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -348,7 +360,7 @@ Optimize architecture before micro-optimizing code.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -370,7 +382,7 @@ Ignoring future maintainability.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A WordPress implementation is considered architecturally correct when:
 
@@ -384,7 +396,7 @@ A WordPress implementation is considered architecturally correct when:
 
 ---
 
-# Summary
+## Summary
 
 Well-designed WordPress architecture is based on clear responsibilities, reuse, and integration with the WordPress ecosystem.
 

@@ -1,3 +1,15 @@
+---
+id: nestjs/19-caching
+topic: nestjs
+slug: caching
+title: "NestJS Caching"
+type: doc
+order: 19
+status: ready
+tags: [nestjs, caching]
+related: []
+when_to_use: ""
+---
 # NestJS Caching
 
 ## Purpose
@@ -12,7 +24,7 @@ It must never become the source of truth.
 
 ---
 
-# Core Principle
+## Core Principle
 
 The database remains the primary source of truth.
 
@@ -20,7 +32,7 @@ Caches exist only to improve performance.
 
 ---
 
-# Caching Goals
+## Caching Goals
 
 Every caching strategy should provide:
 
@@ -34,7 +46,7 @@ Never introduce caching without a measurable benefit.
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 Caching is responsible for:
 
@@ -52,7 +64,7 @@ Caching should not:
 
 ---
 
-# Cache Flow
+## Cache Flow
 
 ```
 Request
@@ -94,7 +106,7 @@ The application should always behave correctly when the cache is unavailable.
 
 ---
 
-# Cache Levels
+## Cache Levels
 
 Typical cache layers include:
 
@@ -108,7 +120,7 @@ Each layer solves different performance problems.
 
 ---
 
-# Suitable Candidates
+## Suitable Candidates
 
 Cache data that is:
 
@@ -127,7 +139,7 @@ Examples:
 
 ---
 
-# Poor Candidates
+## Poor Candidates
 
 Avoid caching:
 
@@ -139,7 +151,7 @@ Avoid caching:
 
 ---
 
-# Cache Keys
+## Cache Keys
 
 Cache keys should be:
 
@@ -162,7 +174,7 @@ Avoid ambiguous keys.
 
 ---
 
-# Time-To-Live (TTL)
+## Time-To-Live (TTL)
 
 Every cache entry should define an expiration strategy.
 
@@ -176,7 +188,7 @@ Avoid infinite TTL unless absolutely required.
 
 ---
 
-# Cache Invalidation
+## Cache Invalidation
 
 Invalidation is often more important than caching itself.
 
@@ -191,7 +203,7 @@ Stale caches cause incorrect application behavior.
 
 ---
 
-# Cache-Aside Pattern
+## Cache-Aside Pattern
 
 Preferred strategy:
 
@@ -223,7 +235,7 @@ Applications remain functional even if the cache becomes unavailable.
 
 ---
 
-# Write Strategy
+## Write Strategy
 
 When data changes:
 
@@ -247,7 +259,7 @@ Avoid updating cache before successful persistence.
 
 ---
 
-# Distributed Cache
+## Distributed Cache
 
 For multiple application instances, prefer a distributed cache.
 
@@ -260,7 +272,7 @@ Application behavior should remain independent of cache implementation.
 
 ---
 
-# Serialization
+## Serialization
 
 Cache serialized objects rather than ORM entities.
 
@@ -268,7 +280,7 @@ Avoid storing framework-specific objects.
 
 ---
 
-# Stampede Prevention
+## Stampede Prevention
 
 Prevent many requests rebuilding the same cache simultaneously.
 
@@ -281,7 +293,7 @@ Possible strategies:
 
 ---
 
-# Cache Warming
+## Cache Warming
 
 Preload frequently accessed data after deployment or startup when appropriate.
 
@@ -289,7 +301,7 @@ Avoid warming unnecessary data.
 
 ---
 
-# Metrics
+## Metrics
 
 Measure:
 
@@ -303,7 +315,7 @@ Optimize based on metrics.
 
 ---
 
-# Performance
+## Performance
 
 Review:
 
@@ -316,7 +328,7 @@ Caching should improve measurable performance.
 
 ---
 
-# Security
+## Security
 
 Never cache:
 
@@ -329,7 +341,7 @@ Review every cached object.
 
 ---
 
-# Failure Handling
+## Failure Handling
 
 If the cache is unavailable:
 
@@ -342,7 +354,7 @@ Cache outages should not make the application unavailable.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -357,7 +369,7 @@ Caching behavior should remain predictable.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Cache:
 
@@ -381,7 +393,7 @@ Do **not** cache:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -423,7 +435,7 @@ Do **not** cache:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -443,7 +455,7 @@ Failing when cache is unavailable.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Caching is complete when:
 
@@ -456,7 +468,7 @@ Caching is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Caching improves performance by reducing repeated work and database load.
 

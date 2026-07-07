@@ -1,3 +1,15 @@
+---
+id: workflows/10-build-divi-module
+topic: workflows
+slug: build-divi-module
+title: "Workflow — Build a Divi Module"
+type: doc
+order: 10
+status: ready
+tags: [workflows, build-divi-module]
+related: []
+when_to_use: ""
+---
 # Workflow — Build a Divi Module
 
 ## Purpose
@@ -10,7 +22,7 @@ The objective is to create production-ready Divi modules that are maintainable, 
 
 ---
 
-# Goal
+## Goal
 
 Deliver a Divi module that:
 
@@ -24,7 +36,7 @@ Deliver a Divi module that:
 
 ---
 
-# Workflow Overview
+## Workflow Overview
 
 ```
 Understand Requirements
@@ -50,7 +62,7 @@ Complete
 
 ---
 
-# Step 1 — Understand the Requirements
+## Step 1 — Understand the Requirements
 
 Determine:
 
@@ -68,7 +80,7 @@ Think from both perspectives:
 
 ---
 
-# Step 2 — Analyze Existing Modules
+## Step 2 — Analyze Existing Modules
 
 Search the repository for existing:
 
@@ -83,7 +95,7 @@ Never create a module before understanding existing implementation patterns.
 
 ---
 
-# Step 3 — Understand the Design
+## Step 3 — Understand the Design
 
 Review the complete design before implementation.
 
@@ -102,7 +114,7 @@ Treat Figma as the source of truth.
 
 ---
 
-# Step 4 — Design the Module API
+## Step 4 — Design the Module API
 
 Design editor fields before implementation.
 
@@ -125,7 +137,7 @@ Avoid exposing unnecessary settings.
 
 ---
 
-# Step 5 — Reuse Existing Code
+## Step 5 — Reuse Existing Code
 
 Search before creating:
 
@@ -141,7 +153,7 @@ Duplicate code should never become the default solution.
 
 ---
 
-# Step 6 — Implement the Module
+## Step 6 — Implement the Module
 
 Separate responsibilities.
 
@@ -171,7 +183,7 @@ Avoid mixing rendering logic with configuration logic.
 
 ---
 
-# Step 7 — Implement Builder Experience
+## Step 7 — Implement Builder Experience
 
 Verify:
 
@@ -187,7 +199,7 @@ The editor experience should be intuitive.
 
 ---
 
-# Step 8 — Verify Frontend Rendering
+## Step 8 — Verify Frontend Rendering
 
 Review:
 
@@ -204,7 +216,7 @@ Frontend output should match the design system.
 
 ---
 
-# Step 9 — Performance Review
+## Step 9 — Performance Review
 
 Review:
 
@@ -220,7 +232,7 @@ Performance matters inside both the builder and the frontend.
 
 ---
 
-# Step 10 — Compatibility Review
+## Step 10 — Compatibility Review
 
 Verify:
 
@@ -236,7 +248,7 @@ Compatibility should be confirmed before completion.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -296,7 +308,7 @@ Compatibility should be confirmed before completion.
 
 ---
 
-# Divi Engineering Principles
+## Divi Engineering Principles
 
 Prefer:
 
@@ -332,7 +344,7 @@ Hardcoded colors
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -354,7 +366,7 @@ Ignoring project conventions.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 The workflow is complete only if:
 
@@ -368,7 +380,7 @@ The workflow is complete only if:
 
 ---
 
-# Expected AI Output
+## Expected AI Output
 
 After completing this workflow, the AI should explain:
 
@@ -382,7 +394,7 @@ After completing this workflow, the AI should explain:
 
 ---
 
-# Summary
+## Summary
 
 A professional Divi module is more than a custom block of content.
 

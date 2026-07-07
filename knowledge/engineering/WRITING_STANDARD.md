@@ -1,3 +1,15 @@
+---
+id: engineering/WRITING_STANDARD
+topic: engineering
+slug: writing-standard
+title: "Writing Standard"
+type: doc
+order: 999
+status: ready
+tags: [engineering, writing-standard]
+related: []
+when_to_use: ""
+---
 # Writing Standard
 
 ## Audience

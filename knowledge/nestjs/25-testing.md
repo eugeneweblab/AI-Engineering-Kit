@@ -1,3 +1,15 @@
+---
+id: nestjs/25-testing
+topic: nestjs
+slug: testing
+title: "Testing"
+type: doc
+order: 25
+status: ready
+tags: [nestjs, testing]
+related: []
+when_to_use: ""
+---
 # Testing
 
 ## Purpose
@@ -12,7 +24,7 @@ It is not a phase performed after development.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Test behavior.
 
@@ -22,7 +34,7 @@ Tests should verify what the system does—not how it is implemented internally.
 
 ---
 
-# Goals
+## Goals
 
 A testing strategy should provide:
 
@@ -37,7 +49,7 @@ A passing test suite should increase confidence—not simply improve coverage me
 
 ---
 
-# Testing Pyramid
+## Testing Pyramid
 
 Prefer the classic Testing Pyramid.
 
@@ -57,7 +69,7 @@ End-to-end tests validate complete business flows.
 
 ---
 
-# Test Types
+## Test Types
 
 ## Unit Tests
 
@@ -163,7 +175,7 @@ Security testing belongs in CI/CD.
 
 ---
 
-# Test Doubles
+## Test Doubles
 
 Use the correct test double.
 
@@ -193,7 +205,7 @@ Choose the simplest double that satisfies the test.
 
 ---
 
-# Test Independence
+## Test Independence
 
 Every test should:
 
@@ -205,7 +217,7 @@ Tests should execute in any order.
 
 ---
 
-# Determinism
+## Determinism
 
 Avoid dependence on:
 
@@ -218,7 +230,7 @@ Deterministic tests build confidence.
 
 ---
 
-# Test Data
+## Test Data
 
 Generate only the data required for each scenario.
 
@@ -228,7 +240,7 @@ Avoid large fixture files.
 
 ---
 
-# Database Testing
+## Database Testing
 
 Prefer isolated databases.
 
@@ -242,7 +254,7 @@ Avoid shared development databases.
 
 ---
 
-# External Dependencies
+## External Dependencies
 
 Mock external services unless integration is explicitly under test.
 
@@ -255,7 +267,7 @@ Examples:
 
 ---
 
-# Snapshot Testing
+## Snapshot Testing
 
 Use snapshots only for stable output.
 
@@ -269,7 +281,7 @@ Snapshots should remain readable.
 
 ---
 
-# Property-Based Testing
+## Property-Based Testing
 
 Useful when validating:
 
@@ -282,7 +294,7 @@ Test properties rather than individual examples.
 
 ---
 
-# Mutation Testing
+## Mutation Testing
 
 Measure test quality.
 
@@ -292,7 +304,7 @@ Coverage alone does not guarantee correctness.
 
 ---
 
-# Code Coverage
+## Code Coverage
 
 Coverage is a metric.
 
@@ -304,7 +316,7 @@ A lower-quality suite with 100% coverage is worse than a smaller suite with exce
 
 ---
 
-# Flaky Tests
+## Flaky Tests
 
 Flaky tests must be fixed immediately.
 
@@ -319,7 +331,7 @@ Never ignore flaky tests.
 
 ---
 
-# Naming
+## Naming
 
 Test names should describe behavior.
 
@@ -339,7 +351,7 @@ Names should communicate intent.
 
 ---
 
-# Arrange, Act, Assert
+## Arrange, Act, Assert
 
 Prefer the AAA structure.
 
@@ -359,7 +371,7 @@ Keep these sections visually distinct.
 
 ---
 
-# Error Scenarios
+## Error Scenarios
 
 Every critical feature should test:
 
@@ -372,7 +384,7 @@ Every critical feature should test:
 
 ---
 
-# Continuous Integration
+## Continuous Integration
 
 Tests should execute automatically.
 
@@ -382,7 +394,7 @@ Testing should be part of every pull request.
 
 ---
 
-# Performance
+## Performance
 
 Test suites should remain fast.
 
@@ -396,7 +408,7 @@ Slow test suites discourage execution.
 
 ---
 
-# AI Test Generation
+## AI Test Generation
 
 AI should generate tests that:
 
@@ -410,7 +422,7 @@ AI should never generate assertions solely to increase coverage.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Use Unit Tests for:
 
@@ -444,7 +456,7 @@ Use E2E Tests for:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -486,7 +498,7 @@ Use E2E Tests for:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -508,7 +520,7 @@ Sharing state between tests.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A testing strategy is complete when:
 
@@ -521,7 +533,7 @@ A testing strategy is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Testing provides confidence that software behaves correctly under expected and unexpected conditions.
 

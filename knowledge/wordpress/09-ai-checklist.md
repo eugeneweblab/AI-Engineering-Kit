@@ -1,3 +1,15 @@
+---
+id: wordpress/09-ai-checklist
+topic: wordpress
+slug: ai-checklist
+title: "WordPress AI Checklist"
+type: doc
+order: 9
+status: ready
+tags: [wordpress, ai-checklist]
+related: []
+when_to_use: ""
+---
 # WordPress AI Checklist
 
 ## Purpose
@@ -10,7 +22,7 @@ Completing this checklist reduces regressions, architectural inconsistencies, du
 
 ---
 
-# Core Principle
+## Core Principle
 
 A task is not complete when the code compiles.
 
@@ -18,7 +30,7 @@ A task is complete when it integrates correctly into the existing project, satis
 
 ---
 
-# Phase 1 — Understand the Task
+## Phase 1 — Understand the Task
 
 Before writing code verify:
 
@@ -36,7 +48,7 @@ Never implement features based on assumptions.
 
 ---
 
-# Phase 2 — Understand the Existing Project
+## Phase 2 — Understand the Existing Project
 
 Before creating anything verify:
 
@@ -58,7 +70,7 @@ Always search before creating.
 
 ---
 
-# Phase 3 — Architecture
+## Phase 3 — Architecture
 
 Verify:
 
@@ -78,7 +90,7 @@ Architecture should become stronger after every task.
 
 ---
 
-# Phase 4 — WordPress Standards
+## Phase 4 — WordPress Standards
 
 Verify:
 
@@ -96,7 +108,7 @@ Verify:
 
 ---
 
-# Phase 5 — Security
+## Phase 5 — Security
 
 Verify:
 
@@ -118,7 +130,7 @@ Security is never optional.
 
 ---
 
-# Phase 6 — Performance
+## Phase 6 — Performance
 
 Verify:
 
@@ -138,7 +150,7 @@ Performance should improve or remain unchanged.
 
 ---
 
-# Phase 7 — Frontend
+## Phase 7 — Frontend
 
 Verify:
 
@@ -156,7 +168,7 @@ Verify:
 
 ---
 
-# Phase 8 — Backend
+## Phase 8 — Backend
 
 Verify:
 
@@ -174,7 +186,7 @@ Verify:
 
 ---
 
-# Phase 9 — Code Quality
+## Phase 9 — Code Quality
 
 Verify:
 
@@ -196,7 +208,7 @@ Readable code is preferred over clever code.
 
 ---
 
-# Phase 10 — Testing
+## Phase 10 — Testing
 
 Verify:
 
@@ -214,7 +226,7 @@ Verify:
 
 ---
 
-# Phase 11 — Documentation
+## Phase 11 — Documentation
 
 Verify:
 
@@ -230,7 +242,7 @@ Verify:
 
 ---
 
-# Final Self-Review
+## Final Self-Review
 
 Before marking the task as complete ask:
 
@@ -246,7 +258,7 @@ If the answer to any question is "No", continue improving the implementation.
 
 ---
 
-# Mandatory AI Output
+## Mandatory AI Output
 
 Before completing the task, every AI agent should summarize:
 
@@ -278,7 +290,7 @@ This summary should accompany every non-trivial implementation.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A WordPress task is complete only if:
 
@@ -292,7 +304,7 @@ A WordPress task is complete only if:
 
 ---
 
-# Summary
+## Summary
 
 This checklist is the minimum quality standard for all WordPress development.
 

@@ -1,3 +1,15 @@
+---
+id: figma/18-image-assets
+topic: figma
+slug: image-assets
+title: "Image Assets"
+type: doc
+order: 18
+status: ready
+tags: [figma, image-assets]
+related: []
+when_to_use: ""
+---
 # Image Assets
 
 ## Purpose
@@ -10,7 +22,7 @@ Image assets should support both visual quality and frontend performance.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Export only what cannot be created with code.
 
@@ -26,7 +38,7 @@ Do not export images that represent simple UI elements.
 
 ---
 
-# Asset Review Workflow
+## Asset Review Workflow
 
 Follow this sequence for every design.
 
@@ -50,7 +62,7 @@ Verify
 
 ---
 
-# Step 1 — Identify Assets
+## Step 1 — Identify Assets
 
 Review the entire design.
 
@@ -71,7 +83,7 @@ Document every required asset before implementation.
 
 ---
 
-# Step 2 — Classify Assets
+## Step 2 — Classify Assets
 
 Every asset should belong to one category.
 
@@ -114,7 +126,7 @@ Usually generated programmatically.
 
 ---
 
-# Step 3 — Choose the Correct Format
+## Step 3 — Choose the Correct Format
 
 Preferred formats:
 
@@ -177,7 +189,7 @@ Ideal for high-quality photographic content with minimal file size.
 
 ---
 
-# Step 4 — Responsive Images
+## Step 4 — Responsive Images
 
 Plan responsive behavior.
 
@@ -194,7 +206,7 @@ Images should remain visually effective across all breakpoints.
 
 ---
 
-# Step 5 — Image Optimization
+## Step 5 — Image Optimization
 
 Verify:
 
@@ -209,7 +221,7 @@ Avoid exporting oversized assets.
 
 ---
 
-# Step 6 — Naming Convention
+## Step 6 — Naming Convention
 
 Use descriptive filenames.
 
@@ -245,7 +257,7 @@ Names should describe purpose rather than origin.
 
 ---
 
-# Step 7 — WordPress Guidelines
+## Step 7 — WordPress Guidelines
 
 For WordPress projects:
 
@@ -259,7 +271,7 @@ Content should remain editable.
 
 ---
 
-# Step 8 — Divi Guidelines
+## Step 8 — Divi Guidelines
 
 For Divi projects:
 
@@ -272,7 +284,7 @@ Large hero backgrounds should be carefully evaluated for performance.
 
 ---
 
-# Step 9 — Accessibility
+## Step 9 — Accessibility
 
 Review every image.
 
@@ -292,7 +304,7 @@ Accessibility requirements depend on the purpose of the image.
 
 ---
 
-# Step 10 — Performance
+## Step 10 — Performance
 
 Verify:
 
@@ -307,7 +319,7 @@ Every image should justify its network cost.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -349,7 +361,7 @@ Every image should justify its network cost.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -371,7 +383,7 @@ Using generic filenames.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Image asset preparation is complete when:
 
@@ -384,7 +396,7 @@ Image asset preparation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Well-managed image assets improve frontend performance, accessibility, maintainability, and editor experience.
 

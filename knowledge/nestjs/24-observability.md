@@ -1,3 +1,15 @@
+---
+id: nestjs/24-observability
+topic: nestjs
+slug: observability
+title: "Observability"
+type: doc
+order: 24
+status: ready
+tags: [nestjs, observability]
+related: []
+when_to_use: ""
+---
 # Observability
 
 ## Purpose
@@ -14,7 +26,7 @@ Every production service should provide enough information to diagnose problems 
 
 ---
 
-# Core Principle
+## Core Principle
 
 If a system cannot be observed, it cannot be reliably operated.
 
@@ -24,7 +36,7 @@ Not a debugging tool.
 
 ---
 
-# Goals
+## Goals
 
 Every application should provide:
 
@@ -39,7 +51,7 @@ These capabilities should work together.
 
 ---
 
-# Three Pillars
+## Three Pillars
 
 Observability consists of three complementary pillars.
 
@@ -105,7 +117,7 @@ Tracing identifies bottlenecks across distributed systems.
 
 ---
 
-# Structured Logging
+## Structured Logging
 
 Logs should always be structured.
 
@@ -123,7 +135,7 @@ Avoid free-form logging.
 
 ---
 
-# Log Levels
+## Log Levels
 
 Use consistent levels.
 
@@ -145,7 +157,7 @@ Choose the lowest level that accurately represents the event.
 
 ---
 
-# Correlation IDs
+## Correlation IDs
 
 Every request should receive a correlation ID.
 
@@ -161,7 +173,7 @@ A single business operation should be traceable end-to-end.
 
 ---
 
-# Distributed Tracing
+## Distributed Tracing
 
 Trace every significant operation.
 
@@ -178,7 +190,7 @@ Every span should have meaningful names.
 
 ---
 
-# Metrics
+## Metrics
 
 Collect metrics for:
 
@@ -194,7 +206,7 @@ Measure trends rather than isolated values.
 
 ---
 
-# Health Checks
+## Health Checks
 
 Health endpoints should report:
 
@@ -211,7 +223,7 @@ Separate:
 
 ---
 
-# Audit Logs
+## Audit Logs
 
 Audit logs record security-sensitive actions.
 
@@ -227,7 +239,7 @@ Audit logs should be immutable.
 
 ---
 
-# Error Tracking
+## Error Tracking
 
 Capture:
 
@@ -241,7 +253,7 @@ Every production exception should be traceable.
 
 ---
 
-# OpenTelemetry
+## OpenTelemetry
 
 Prefer OpenTelemetry as the standard telemetry framework.
 
@@ -255,7 +267,7 @@ Application code should remain independent of monitoring vendors.
 
 ---
 
-# Dashboards
+## Dashboards
 
 Dashboards should expose:
 
@@ -270,7 +282,7 @@ Dashboards should support rapid diagnosis.
 
 ---
 
-# Alerting
+## Alerting
 
 Alert on:
 
@@ -286,7 +298,7 @@ Alerts should be actionable.
 
 ---
 
-# Performance
+## Performance
 
 Observability introduces overhead.
 
@@ -303,7 +315,7 @@ Avoid unnecessary telemetry.
 
 ---
 
-# Security
+## Security
 
 Never log:
 
@@ -317,7 +329,7 @@ Review log content regularly.
 
 ---
 
-# Privacy
+## Privacy
 
 Protect personal information.
 
@@ -327,7 +339,7 @@ Log only what is operationally necessary.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -341,7 +353,7 @@ Observability should be continuously validated.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Always observe:
 
@@ -369,7 +381,7 @@ Do **not** log:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -411,7 +423,7 @@ Do **not** log:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -431,7 +443,7 @@ Treating observability as optional.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Observability is complete when:
 
@@ -444,7 +456,7 @@ Observability is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Observability provides visibility into the runtime behavior of an application.
 

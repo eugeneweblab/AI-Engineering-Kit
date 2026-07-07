@@ -1,3 +1,15 @@
+---
+id: workflows/02-fix-a-bug
+topic: workflows
+slug: fix-a-bug
+title: "Workflow — Fix a Bug"
+type: doc
+order: 2
+status: ready
+tags: [workflows, fix-a-bug]
+related: []
+when_to_use: ""
+---
 # Workflow — Fix a Bug
 
 ## Purpose
@@ -10,7 +22,7 @@ This workflow applies to all technologies and frameworks.
 
 ---
 
-# Goal
+## Goal
 
 Produce a fix that:
 
@@ -22,7 +34,7 @@ Produce a fix that:
 
 ---
 
-# Workflow Overview
+## Workflow Overview
 
 ```
 Receive Bug Report
@@ -50,7 +62,7 @@ Complete
 
 ---
 
-# Step 1 — Receive the Bug Report
+## Step 1 — Receive the Bug Report
 
 Read the report carefully.
 
@@ -67,7 +79,7 @@ If information is missing, request clarification before proceeding.
 
 ---
 
-# Step 2 — Reproduce the Bug
+## Step 2 — Reproduce the Bug
 
 Reproduce the issue before modifying code.
 
@@ -86,7 +98,7 @@ If the issue cannot be reproduced, continue investigating before implementing ch
 
 ---
 
-# Step 3 — Collect Evidence
+## Step 3 — Collect Evidence
 
 Gather objective evidence.
 
@@ -105,7 +117,7 @@ Avoid making assumptions without evidence.
 
 ---
 
-# Step 4 — Identify the Root Cause
+## Step 4 — Identify the Root Cause
 
 Determine why the defect occurs.
 
@@ -141,7 +153,7 @@ Fix the inconsistency—not the symptom.
 
 ---
 
-# Step 5 — Inspect Existing Code
+## Step 5 — Inspect Existing Code
 
 Read all related code before editing.
 
@@ -159,7 +171,7 @@ Look for an existing solution before creating a new one.
 
 ---
 
-# Step 6 — Plan the Fix
+## Step 6 — Plan the Fix
 
 Document:
 
@@ -179,7 +191,7 @@ Planning reduces accidental changes.
 
 ---
 
-# Step 7 — Implement
+## Step 7 — Implement
 
 During implementation:
 
@@ -194,7 +206,7 @@ Every change should have a clear purpose.
 
 ---
 
-# Step 8 — Verify
+## Step 8 — Verify
 
 Verify the original scenario.
 
@@ -211,7 +223,7 @@ Verification should be broader than the original bug.
 
 ---
 
-# Step 9 — Prevent Regression
+## Step 9 — Prevent Regression
 
 When appropriate:
 
@@ -225,7 +237,7 @@ The same defect should become less likely to occur again.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -285,7 +297,7 @@ The same defect should become less likely to occur again.
 
 ---
 
-# Manual Verification
+## Manual Verification
 
 Before completing the task:
 
@@ -298,7 +310,7 @@ Before completing the task:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -318,7 +330,7 @@ Skipping regression testing.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 The workflow is complete only if:
 
@@ -332,7 +344,7 @@ The workflow is complete only if:
 
 ---
 
-# Expected AI Output
+## Expected AI Output
 
 After completing this workflow, the AI should be able to explain:
 
@@ -346,7 +358,7 @@ After completing this workflow, the AI should be able to explain:
 
 ---
 
-# Summary
+## Summary
 
 A professional bug fix is the result of investigation, not intuition.
 

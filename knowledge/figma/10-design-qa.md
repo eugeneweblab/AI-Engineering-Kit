@@ -1,3 +1,15 @@
+---
+id: figma/10-design-qa
+topic: figma
+slug: design-qa
+title: "Design QA"
+type: doc
+order: 10
+status: ready
+tags: [figma, design-qa]
+related: []
+when_to_use: ""
+---
 # Design QA
 
 ## Purpose
@@ -12,7 +24,7 @@ It is not another implementation phase.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Never assume the implementation matches the design.
 
@@ -22,7 +34,7 @@ Every completed page must pass a Design QA review before it is considered produc
 
 ---
 
-# AI Mindset
+## AI Mindset
 
 When reviewing an implementation, behave like a Senior Frontend QA Engineer rather than the original developer.
 
@@ -34,7 +46,7 @@ Assume mistakes exist until proven otherwise.
 
 ---
 
-# Design QA Workflow
+## Design QA Workflow
 
 Every page should be reviewed in the following order:
 
@@ -68,7 +80,7 @@ Start from the entire page.
 
 ---
 
-# Step 1 — Overall Layout
+## Step 1 — Overall Layout
 
 Compare:
 
@@ -83,7 +95,7 @@ The first visual impression should closely match the design.
 
 ---
 
-# Step 2 — Page Structure
+## Step 2 — Page Structure
 
 Verify:
 
@@ -96,7 +108,7 @@ Unexpected structural differences usually indicate implementation problems.
 
 ---
 
-# Step 3 — Section Review
+## Step 3 — Section Review
 
 Review every section independently.
 
@@ -114,7 +126,7 @@ Sections should be visually independent.
 
 ---
 
-# Step 4 — Component Review
+## Step 4 — Component Review
 
 Review every reusable component.
 
@@ -133,7 +145,7 @@ Verify that all instances remain consistent.
 
 ---
 
-# Step 5 — Typography
+## Step 5 — Typography
 
 Review:
 
@@ -149,7 +161,7 @@ Typography inconsistencies are among the most common implementation issues.
 
 ---
 
-# Step 6 — Spacing
+## Step 6 — Spacing
 
 Review:
 
@@ -165,7 +177,7 @@ Avoid visual approximations.
 
 ---
 
-# Step 7 — Colors
+## Step 7 — Colors
 
 Verify:
 
@@ -181,7 +193,7 @@ Compare against design tokens rather than screenshots whenever possible.
 
 ---
 
-# Step 8 — Responsive Review
+## Step 8 — Responsive Review
 
 Review:
 
@@ -212,7 +224,7 @@ Responsive behavior should be intentional.
 
 ---
 
-# Step 9 — Interaction Review
+## Step 9 — Interaction Review
 
 Verify every interactive element.
 
@@ -230,7 +242,7 @@ Review keyboard navigation in addition to pointer interactions.
 
 ---
 
-# Step 10 — Accessibility Review
+## Step 10 — Accessibility Review
 
 Verify:
 
@@ -246,7 +258,7 @@ Accessibility is part of design quality.
 
 ---
 
-# Step 11 — Performance Review
+## Step 11 — Performance Review
 
 Verify:
 
@@ -261,7 +273,7 @@ Visual quality should not compromise performance.
 
 ---
 
-# Severity Levels
+## Severity Levels
 
 Every issue should receive a severity.
 
@@ -316,7 +328,7 @@ May be addressed later.
 
 ---
 
-# QA Report Format
+## QA Report Format
 
 Every review should include:
 
@@ -369,7 +381,7 @@ Choose one:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -405,7 +417,7 @@ Choose one:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -427,7 +439,7 @@ Reviewing implementation without the Figma design.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A Design QA review is complete when:
 
@@ -440,7 +452,7 @@ A Design QA review is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Design QA is the final engineering safeguard between implementation and production.
 

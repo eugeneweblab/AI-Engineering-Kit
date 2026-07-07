@@ -1,3 +1,15 @@
+---
+id: figma/14-figma-inspection-checklist
+topic: figma
+slug: figma-inspection-checklist
+title: "Figma Inspection Checklist"
+type: doc
+order: 14
+status: ready
+tags: [figma, figma-inspection-checklist]
+related: []
+when_to_use: ""
+---
 # Figma Inspection Checklist
 
 ## Purpose
@@ -10,7 +22,7 @@ This checklist should be completed for every new page, section, or significant r
 
 ---
 
-# Core Principle
+## Core Principle
 
 Inspect first.
 
@@ -20,7 +32,7 @@ Every minute spent analyzing the design saves significantly more time during imp
 
 ---
 
-# Inspection Workflow
+## Inspection Workflow
 
 Complete every phase before beginning development.
 
@@ -48,7 +60,7 @@ Implementation Plan
 
 ---
 
-# Phase 1 — Project Overview
+## Phase 1 — Project Overview
 
 Verify:
 
@@ -64,7 +76,7 @@ Verify:
 
 ---
 
-# Phase 2 — Layout
+## Phase 2 — Layout
 
 Verify:
 
@@ -86,7 +98,7 @@ Verify:
 
 ---
 
-# Phase 3 — Components
+## Phase 3 — Components
 
 Verify:
 
@@ -116,7 +128,7 @@ Verify:
 
 ---
 
-# Phase 4 — Typography
+## Phase 4 — Typography
 
 Verify:
 
@@ -136,7 +148,7 @@ Verify:
 
 ---
 
-# Phase 5 — Design Tokens
+## Phase 5 — Design Tokens
 
 Verify:
 
@@ -158,7 +170,7 @@ Verify:
 
 ---
 
-# Phase 6 — Responsive Design
+## Phase 6 — Responsive Design
 
 Verify:
 
@@ -182,7 +194,7 @@ Verify:
 
 ---
 
-# Phase 7 — Interactions
+## Phase 7 — Interactions
 
 Verify:
 
@@ -206,7 +218,7 @@ Verify:
 
 ---
 
-# Phase 8 — Dynamic Content
+## Phase 8 — Dynamic Content
 
 Identify:
 
@@ -232,7 +244,7 @@ Nothing that should be dynamic may be hardcoded.
 
 ---
 
-# Phase 9 — Assets
+## Phase 9 — Assets
 
 Verify:
 
@@ -256,7 +268,7 @@ Verify:
 
 ---
 
-# Phase 10 — Existing Project Review
+## Phase 10 — Existing Project Review
 
 Before implementation search for:
 
@@ -278,7 +290,7 @@ Reuse existing implementations whenever possible.
 
 ---
 
-# Phase 11 — Architecture
+## Phase 11 — Architecture
 
 Determine:
 
@@ -298,7 +310,7 @@ Determine:
 
 ---
 
-# Phase 12 — Implementation Plan
+## Phase 12 — Implementation Plan
 
 Before coding define:
 
@@ -318,7 +330,7 @@ No implementation should begin without a clear plan.
 
 ---
 
-# Final Readiness Checklist
+## Final Readiness Checklist
 
 Before implementation confirm:
 
@@ -340,7 +352,7 @@ Before implementation confirm:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -360,7 +372,7 @@ Starting implementation before planning.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Figma inspection is complete only when:
 
@@ -372,7 +384,7 @@ Figma inspection is complete only when:
 
 ---
 
-# Summary
+## Summary
 
 Thorough inspection is the foundation of successful implementation.
 

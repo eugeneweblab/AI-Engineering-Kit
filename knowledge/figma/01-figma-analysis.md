@@ -1,3 +1,15 @@
+---
+id: figma/01-figma-analysis
+topic: figma
+slug: figma-analysis
+title: "Figma Analysis"
+type: doc
+order: 1
+status: ready
+tags: [figma, figma-analysis]
+related: []
+when_to_use: ""
+---
 # Figma Analysis
 
 ## Purpose
@@ -10,7 +22,7 @@ No code should be written until the design has been completely analyzed.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Figma is a specification, not an image.
 
@@ -20,7 +32,7 @@ The goal is to understand the design rather than reproduce pixels.
 
 ---
 
-# Design Analysis Workflow
+## Design Analysis Workflow
 
 Every implementation should follow this sequence:
 
@@ -48,7 +60,7 @@ Skipping analysis usually results in unnecessary refactoring.
 
 ---
 
-# Step 1 — Understand the Page
+## Step 1 — Understand the Page
 
 Before examining individual elements, determine:
 
@@ -62,7 +74,7 @@ The layout should support the user journey.
 
 ---
 
-# Step 2 — Identify Layout Structure
+## Step 2 — Identify Layout Structure
 
 Identify the major sections.
 
@@ -82,7 +94,7 @@ Each section should be treated as an independent module.
 
 ---
 
-# Step 3 — Identify Reusable Components
+## Step 3 — Identify Reusable Components
 
 Search for repeated UI elements.
 
@@ -103,7 +115,7 @@ A repeated element should usually become a reusable component.
 
 ---
 
-# Step 4 — Identify Design Tokens
+## Step 4 — Identify Design Tokens
 
 Document the design system before implementation.
 
@@ -123,7 +135,7 @@ Avoid hardcoding visual values.
 
 ---
 
-# Step 5 — Analyze Alignment
+## Step 5 — Analyze Alignment
 
 Review:
 
@@ -139,7 +151,7 @@ Spacing should follow a consistent system rather than visual approximation.
 
 ---
 
-# Step 6 — Analyze Responsive Behavior
+## Step 6 — Analyze Responsive Behavior
 
 Determine how the layout changes between:
 
@@ -160,7 +172,7 @@ Do not invent responsive behavior unless the design requires interpretation.
 
 ---
 
-# Step 7 — Analyze States
+## Step 7 — Analyze States
 
 Review every interactive element.
 
@@ -179,7 +191,7 @@ All visual states should be implemented.
 
 ---
 
-# Step 8 — Identify Dynamic Content
+## Step 8 — Identify Dynamic Content
 
 Determine which elements are expected to change.
 
@@ -197,7 +209,7 @@ Dynamic content should never be hardcoded.
 
 ---
 
-# Step 9 — Identify Existing Components
+## Step 9 — Identify Existing Components
 
 Before creating new UI, review the existing project.
 
@@ -215,7 +227,7 @@ Reuse before creating.
 
 ---
 
-# Step 10 — Plan the Implementation
+## Step 10 — Plan the Implementation
 
 Before writing code define:
 
@@ -230,7 +242,7 @@ A written implementation plan reduces unnecessary iterations.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -272,7 +284,7 @@ A written implementation plan reduces unnecessary iterations.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -294,7 +306,7 @@ Ignoring dynamic content.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 The design analysis is complete only when:
 
@@ -306,7 +318,7 @@ The design analysis is complete only when:
 
 ---
 
-# Summary
+## Summary
 
 Successful implementation begins with understanding the design rather than writing code.
 

@@ -1,3 +1,15 @@
+---
+id: figma/08-figma-to-wordpress
+topic: figma
+slug: figma-to-wordpress
+title: "Figma to WordPress"
+type: doc
+order: 8
+status: ready
+tags: [figma, figma-to-wordpress]
+related: []
+when_to_use: ""
+---
 # Figma to WordPress
 
 ## Purpose
@@ -10,7 +22,7 @@ The final result should allow content editors to manage the website without modi
 
 ---
 
-# Core Principle
+## Core Principle
 
 Design the editing experience first.
 
@@ -23,7 +35,7 @@ A successful WordPress implementation is both visually accurate and editor-frien
 
 ---
 
-# AI Mindset
+## AI Mindset
 
 Before writing code, ask:
 
@@ -40,7 +52,7 @@ Optimize for content editors as well.
 
 ---
 
-# Implementation Workflow
+## Implementation Workflow
 
 Every page should follow this sequence:
 
@@ -64,7 +76,7 @@ Verify Editor Workflow
 
 ---
 
-# Step 1 — Identify Dynamic Content
+## Step 1 — Identify Dynamic Content
 
 Every visible element should be classified.
 
@@ -94,7 +106,7 @@ Dynamic content should never be hardcoded.
 
 ---
 
-# Step 2 — Identify Reusable Sections
+## Step 2 — Identify Reusable Sections
 
 Review the page.
 
@@ -114,7 +126,7 @@ Repeated sections should become reusable editor components.
 
 ---
 
-# Step 3 — Determine Data Source
+## Step 3 — Determine Data Source
 
 For every piece of content determine its source.
 
@@ -135,7 +147,7 @@ Never hardcode content that already exists inside WordPress.
 
 ---
 
-# Step 4 — Plan Editor Experience
+## Step 4 — Plan Editor Experience
 
 Every editable field should answer:
 
@@ -181,7 +193,7 @@ The editing experience should be intuitive.
 
 ---
 
-# Step 5 — Reuse Existing Components
+## Step 5 — Reuse Existing Components
 
 Before building anything search for:
 
@@ -197,7 +209,7 @@ Reuse before creating.
 
 ---
 
-# Step 6 — Preserve Design System
+## Step 6 — Preserve Design System
 
 Do not recreate styles per page.
 
@@ -215,7 +227,7 @@ A design system should grow, not fragment.
 
 ---
 
-# Step 7 — Separate Responsibilities
+## Step 7 — Separate Responsibilities
 
 Recommended architecture:
 
@@ -243,7 +255,7 @@ Templates should not contain business logic.
 
 ---
 
-# Step 8 — Accessibility
+## Step 8 — Accessibility
 
 Verify:
 
@@ -258,7 +270,7 @@ Accessibility should not depend on WordPress.
 
 ---
 
-# Step 9 — Performance
+## Step 9 — Performance
 
 Review:
 
@@ -273,7 +285,7 @@ The CMS should not become a performance bottleneck.
 
 ---
 
-# Step 10 — Verify Editor Workflow
+## Step 10 — Verify Editor Workflow
 
 Before completing implementation ask:
 
@@ -289,7 +301,7 @@ If not, improve the editor experience.
 
 ---
 
-# WordPress Mapping
+## WordPress Mapping
 
 Typical mapping:
 
@@ -377,7 +389,7 @@ Choose the simplest structure that satisfies the requirements.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -421,7 +433,7 @@ Choose the simplest structure that satisfies the requirements.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -443,7 +455,7 @@ Building layouts that only developers can maintain.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A Figma-to-WordPress implementation is complete when:
 
@@ -456,7 +468,7 @@ A Figma-to-WordPress implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Professional WordPress development is not about converting pixels into HTML.
 

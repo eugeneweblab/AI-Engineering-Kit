@@ -1,3 +1,15 @@
+---
+id: nestjs/17-database
+topic: nestjs
+slug: database
+title: "NestJS Database"
+type: doc
+order: 17
+status: ready
+tags: [nestjs, database]
+related: []
+when_to_use: ""
+---
 # NestJS Database
 
 ## Purpose
@@ -12,7 +24,7 @@ Business logic remains inside services.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Treat the database as infrastructure.
 
@@ -20,7 +32,7 @@ Application architecture should not depend on a specific ORM or database engine.
 
 ---
 
-# Database Goals
+## Database Goals
 
 Every persistence layer should provide:
 
@@ -35,7 +47,7 @@ Database code should remain isolated behind repositories.
 
 ---
 
-# Architecture
+## Architecture
 
 Typical flow:
 
@@ -63,7 +75,7 @@ Business logic should never bypass repositories.
 
 ---
 
-# Database Technologies
+## Database Technologies
 
 NestJS supports many persistence technologies.
 
@@ -82,7 +94,7 @@ Technology selection should follow business requirements rather than framework p
 
 ---
 
-# ORM Selection
+## ORM Selection
 
 Common options:
 
@@ -140,7 +152,7 @@ Choose an ORM based on project requirements rather than popularity.
 
 ---
 
-# Repository Pattern
+## Repository Pattern
 
 Repositories isolate persistence.
 
@@ -150,7 +162,7 @@ Repositories should never contain business workflows.
 
 ---
 
-# Migrations
+## Migrations
 
 All schema changes should be versioned.
 
@@ -165,7 +177,7 @@ Never modify production schemas manually.
 
 ---
 
-# Transactions
+## Transactions
 
 Use transactions only when multiple operations must succeed or fail together.
 
@@ -180,7 +192,7 @@ Avoid long-running transactions.
 
 ---
 
-# Locking
+## Locking
 
 Choose an appropriate locking strategy.
 
@@ -203,7 +215,7 @@ Select the least restrictive strategy that guarantees consistency.
 
 ---
 
-# Indexing
+## Indexing
 
 Indexes should support:
 
@@ -219,7 +231,7 @@ Every index increases write cost.
 
 ---
 
-# Query Design
+## Query Design
 
 Queries should be:
 
@@ -232,7 +244,7 @@ Avoid unnecessary complexity.
 
 ---
 
-# N+1 Queries
+## N+1 Queries
 
 Prevent repeated database access.
 
@@ -268,7 +280,7 @@ Always review generated SQL.
 
 ---
 
-# Pagination
+## Pagination
 
 Never return unbounded collections.
 
@@ -283,7 +295,7 @@ Large datasets should always be paginated.
 
 ---
 
-# Bulk Operations
+## Bulk Operations
 
 Prefer bulk operations when processing many records.
 
@@ -297,7 +309,7 @@ Avoid unnecessary loops performing one query per record.
 
 ---
 
-# Soft Deletes
+## Soft Deletes
 
 Soft deletes should:
 
@@ -309,7 +321,7 @@ Use only when business requirements justify additional complexity.
 
 ---
 
-# Read and Write Separation
+## Read and Write Separation
 
 Large applications may separate:
 
@@ -337,7 +349,7 @@ Services should remain unaware of replication topology.
 
 ---
 
-# Connection Pooling
+## Connection Pooling
 
 Configure connection pools appropriately.
 
@@ -351,7 +363,7 @@ Connection management should remain transparent to business logic.
 
 ---
 
-# Database Constraints
+## Database Constraints
 
 Prefer enforcing integrity inside the database.
 
@@ -366,7 +378,7 @@ Database constraints complement—not replace—business validation.
 
 ---
 
-# Raw SQL
+## Raw SQL
 
 Use raw SQL only when necessary.
 
@@ -382,7 +394,7 @@ Never concatenate user input into SQL.
 
 ---
 
-# Observability
+## Observability
 
 Monitor:
 
@@ -397,7 +409,7 @@ Database behavior should be measurable.
 
 ---
 
-# Performance
+## Performance
 
 Review:
 
@@ -411,7 +423,7 @@ Optimize based on measurements—not assumptions.
 
 ---
 
-# Security
+## Security
 
 Always:
 
@@ -424,7 +436,7 @@ Never trust user input.
 
 ---
 
-# Testing
+## Testing
 
 Test:
 
@@ -438,7 +450,7 @@ Use realistic datasets whenever practical.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Use the database for:
 
@@ -464,7 +476,7 @@ Do **not** use the database for:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -506,7 +518,7 @@ Do **not** use the database for:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -528,7 +540,7 @@ Keeping long-running transactions open.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Database integration is complete when:
 
@@ -541,7 +553,7 @@ Database integration is complete when:
 
 ---
 
-# Summary
+## Summary
 
 The database is one of the most critical infrastructure components of a NestJS application.
 

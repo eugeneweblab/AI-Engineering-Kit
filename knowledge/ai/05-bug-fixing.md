@@ -1,3 +1,15 @@
+---
+id: ai/05-bug-fixing
+topic: ai
+slug: bug-fixing
+title: "Bug Fixing"
+type: doc
+order: 5
+status: ready
+tags: [ai, bug-fixing]
+related: []
+when_to_use: ""
+---
 # Bug Fixing
 
 ## Purpose
@@ -10,7 +22,7 @@ The objective is to identify the root cause, implement the smallest safe fix, ve
 
 ---
 
-# Core Principle
+## Core Principle
 
 Never fix a symptom.
 
@@ -20,7 +32,7 @@ A bug that appears solved but whose root cause remains is likely to return.
 
 ---
 
-# Bug Fix Workflow
+## Bug Fix Workflow
 
 Every bug investigation should follow the same sequence.
 
@@ -48,7 +60,7 @@ Skipping investigation usually produces unstable fixes.
 
 ---
 
-# Step 1 — Understand the Bug Report
+## Step 1 — Understand the Bug Report
 
 Before reading code, determine:
 
@@ -62,7 +74,7 @@ Clarify ambiguous reports before continuing.
 
 ---
 
-# Step 2 — Reproduce the Problem
+## Step 2 — Reproduce the Problem
 
 Never implement a fix without reproducing the issue whenever possible.
 
@@ -81,7 +93,7 @@ The shortest reliable reproduction is the best starting point.
 
 ---
 
-# Step 3 — Gather Evidence
+## Step 3 — Gather Evidence
 
 Collect evidence before changing code.
 
@@ -100,7 +112,7 @@ Evidence should explain the observed behavior.
 
 ---
 
-# Step 4 — Inspect Existing Code
+## Step 4 — Inspect Existing Code
 
 Read the complete implementation.
 
@@ -117,7 +129,7 @@ Never assume the first suspicious line is the cause.
 
 ---
 
-# Step 5 — Identify the Root Cause
+## Step 5 — Identify the Root Cause
 
 Continue investigating until the underlying reason is known.
 
@@ -145,7 +157,7 @@ Only the root cause should be fixed.
 
 ---
 
-# Step 6 — Design the Fix
+## Step 6 — Design the Fix
 
 Before editing code determine:
 
@@ -159,7 +171,7 @@ Prefer extending existing logic over replacing it.
 
 ---
 
-# Step 7 — Implement Carefully
+## Step 7 — Implement Carefully
 
 During implementation:
 
@@ -173,7 +185,7 @@ Every changed line should have a clear reason.
 
 ---
 
-# Step 8 — Verify the Fix
+## Step 8 — Verify the Fix
 
 Confirm:
 
@@ -186,7 +198,7 @@ Never assume a successful compilation means the bug is fixed.
 
 ---
 
-# Step 9 — Prevent Regression
+## Step 9 — Prevent Regression
 
 Whenever appropriate:
 
@@ -200,7 +212,7 @@ A good bug fix reduces the probability of the same defect returning.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -248,7 +260,7 @@ A good bug fix reduces the probability of the same defect returning.
 
 ---
 
-# Risk Assessment
+## Risk Assessment
 
 Before implementing, estimate the impact.
 
@@ -277,7 +289,7 @@ Higher-risk fixes require additional verification.
 
 ---
 
-# Common Anti-patterns
+## Common Anti-patterns
 
 Avoid:
 
@@ -297,7 +309,7 @@ Declaring the issue fixed without verification.
 
 ---
 
-# AI Responsibilities
+## AI Responsibilities
 
 When proposing a bug fix, AI should explain:
 
@@ -313,7 +325,7 @@ Engineering decisions should always be transparent.
 
 ---
 
-# Definition of Success
+## Definition of Success
 
 A bug fix is successful when:
 
@@ -326,7 +338,7 @@ A bug fix is successful when:
 
 ---
 
-# Summary
+## Summary
 
 Professional bug fixing is a structured investigation process.
 

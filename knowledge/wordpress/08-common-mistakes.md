@@ -1,3 +1,15 @@
+---
+id: wordpress/08-common-mistakes
+topic: wordpress
+slug: common-mistakes
+title: "Common WordPress Mistakes"
+type: doc
+order: 8
+status: ready
+tags: [wordpress, common-mistakes]
+related: []
+when_to_use: ""
+---
 # Common WordPress Mistakes
 
 ## Purpose
@@ -12,7 +24,7 @@ Avoiding these mistakes improves maintainability, security, performance, and lon
 
 ---
 
-# Core Principle
+## Core Principle
 
 Most problems are not caused by writing incorrect code.
 
@@ -22,7 +34,7 @@ Always understand the existing system before introducing new code.
 
 ---
 
-# Mistake 1 — Creating Instead of Reusing
+## Mistake 1 — Creating Instead of Reusing
 
 Before writing new code, search the project.
 
@@ -42,7 +54,7 @@ Duplicate functionality increases maintenance costs.
 
 ---
 
-# Mistake 2 — Business Logic Inside Templates
+## Mistake 2 — Business Logic Inside Templates
 
 Templates should display data.
 
@@ -68,7 +80,7 @@ WordPress API
 
 ---
 
-# Mistake 3 — Ignoring Existing Architecture
+## Mistake 3 — Ignoring Existing Architecture
 
 Projects already have conventions.
 
@@ -84,7 +96,7 @@ Consistency is more valuable than personal preference.
 
 ---
 
-# Mistake 4 — Using Direct SQL Unnecessarily
+## Mistake 4 — Using Direct SQL Unnecessarily
 
 Prefer WordPress APIs.
 
@@ -103,7 +115,7 @@ Always use prepared statements.
 
 ---
 
-# Mistake 5 — Missing Capability Checks
+## Mistake 5 — Missing Capability Checks
 
 Never assume that hiding a button is sufficient.
 
@@ -121,7 +133,7 @@ Authorization must be enforced on the server.
 
 ---
 
-# Mistake 6 — Skipping Validation
+## Mistake 6 — Skipping Validation
 
 Every external input should be validated.
 
@@ -138,7 +150,7 @@ Reject invalid input immediately.
 
 ---
 
-# Mistake 7 — Forgetting Sanitization and Escaping
+## Mistake 7 — Forgetting Sanitization and Escaping
 
 Remember the lifecycle:
 
@@ -162,7 +174,7 @@ Never confuse sanitization with escaping.
 
 ---
 
-# Mistake 8 — Large Hook Callbacks
+## Mistake 8 — Large Hook Callbacks
 
 Hook callbacks should remain small.
 
@@ -182,7 +194,7 @@ Avoid placing business logic directly inside hooks.
 
 ---
 
-# Mistake 9 — Monolithic Classes
+## Mistake 9 — Monolithic Classes
 
 Large classes often violate the Single Responsibility Principle.
 
@@ -197,7 +209,7 @@ Avoid classes that manage unrelated concerns.
 
 ---
 
-# Mistake 10 — Ignoring Existing Components
+## Mistake 10 — Ignoring Existing Components
 
 Before creating UI:
 
@@ -215,7 +227,7 @@ Reuse existing UI whenever possible.
 
 ---
 
-# Mistake 11 — Hardcoded Values
+## Mistake 11 — Hardcoded Values
 
 Avoid hardcoding:
 
@@ -231,7 +243,7 @@ Prefer centralized configuration and design tokens.
 
 ---
 
-# Mistake 12 — Premature Optimization
+## Mistake 12 — Premature Optimization
 
 Do not optimize code before identifying the bottleneck.
 
@@ -243,7 +255,7 @@ Keep the implementation readable.
 
 ---
 
-# Mistake 13 — Ignoring Performance
+## Mistake 13 — Ignoring Performance
 
 Review:
 
@@ -258,7 +270,7 @@ Performance should be considered throughout development.
 
 ---
 
-# Mistake 14 — Weak Naming
+## Mistake 14 — Weak Naming
 
 Names should describe responsibility.
 
@@ -290,7 +302,7 @@ Good names reduce documentation requirements.
 
 ---
 
-# Mistake 15 — Mixing Responsibilities
+## Mistake 15 — Mixing Responsibilities
 
 Avoid files that:
 
@@ -304,7 +316,7 @@ Separate concerns into dedicated layers.
 
 ---
 
-# AI Self-Review Checklist
+## AI Self-Review Checklist
 
 Before finishing implementation verify:
 
@@ -328,7 +340,7 @@ Before finishing implementation verify:
 
 ---
 
-# Red Flags
+## Red Flags
 
 Stop and review the implementation if you notice:
 
@@ -347,7 +359,7 @@ These usually indicate architectural issues.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 An implementation is considered free of common engineering mistakes when:
 
@@ -360,7 +372,7 @@ An implementation is considered free of common engineering mistakes when:
 
 ---
 
-# Summary
+## Summary
 
 Professional WordPress development is largely about avoiding predictable mistakes.
 

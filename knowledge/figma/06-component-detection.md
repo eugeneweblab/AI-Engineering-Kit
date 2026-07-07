@@ -1,3 +1,15 @@
+---
+id: figma/06-component-detection
+topic: figma
+slug: component-detection
+title: "Component Detection"
+type: doc
+order: 6
+status: ready
+tags: [figma, component-detection]
+related: []
+when_to_use: ""
+---
 # Component Detection
 
 ## Purpose
@@ -10,7 +22,7 @@ Professional frontend development is based on reusable components rather than pa
 
 ---
 
-# Core Principle
+## Core Principle
 
 Never build pages.
 
@@ -20,7 +32,7 @@ A page should be viewed as a composition of independent UI building blocks.
 
 ---
 
-# AI Mindset
+## AI Mindset
 
 When analyzing a design, ask:
 
@@ -35,7 +47,7 @@ If the answer is yes, create a reusable component instead of duplicating markup.
 
 ---
 
-# Component Detection Workflow
+## Component Detection Workflow
 
 Analyze the design using the following sequence:
 
@@ -61,7 +73,7 @@ Always identify components before writing HTML.
 
 ---
 
-# Step 1 — Detect Repeated Elements
+## Step 1 — Detect Repeated Elements
 
 Search the entire project rather than a single page.
 
@@ -86,7 +98,7 @@ Frequency is the strongest indicator of reusability.
 
 ---
 
-# Step 2 — Detect Variants
+## Step 2 — Detect Variants
 
 A component rarely exists in only one version.
 
@@ -118,7 +130,7 @@ Variants belong to one component rather than separate implementations.
 
 ---
 
-# Step 3 — Detect States
+## Step 3 — Detect States
 
 Every interactive component has multiple states.
 
@@ -137,7 +149,7 @@ State changes should be implemented through properties rather than duplicated ma
 
 ---
 
-# Step 4 — Detect Properties
+## Step 4 — Detect Properties
 
 Determine which values should be configurable.
 
@@ -171,7 +183,7 @@ Reusable components expose configuration rather than fixed content.
 
 ---
 
-# Step 5 — Detect Composition
+## Step 5 — Detect Composition
 
 Components are frequently built from smaller components.
 
@@ -197,7 +209,7 @@ Prefer composition over inheritance.
 
 ---
 
-# Step 6 — Detect Shared Patterns
+## Step 6 — Detect Shared Patterns
 
 Different sections often reuse the same layout.
 
@@ -217,7 +229,7 @@ Avoid creating separate components when a single configurable component is suffi
 
 ---
 
-# Step 7 — Detect Dynamic Content
+## Step 7 — Detect Dynamic Content
 
 Determine which content originates from:
 
@@ -234,7 +246,7 @@ Never hardcode business data.
 
 ---
 
-# Step 8 — Detect Existing Components
+## Step 8 — Detect Existing Components
 
 Before creating a new component, search the project.
 
@@ -252,7 +264,7 @@ Reuse before creating.
 
 ---
 
-# Component Hierarchy
+## Component Hierarchy
 
 Build from simple to complex.
 
@@ -280,7 +292,7 @@ Lower-level components should remain independent.
 
 ---
 
-# Naming Components
+## Naming Components
 
 Component names should describe business meaning.
 
@@ -320,7 +332,7 @@ Names should communicate purpose.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -366,7 +378,7 @@ Names should communicate purpose.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -388,7 +400,7 @@ Ignoring composition.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Component detection is complete when:
 
@@ -400,7 +412,7 @@ Component detection is complete when:
 
 ---
 
-# Summary
+## Summary
 
 The quality of a frontend architecture depends largely on component design.
 

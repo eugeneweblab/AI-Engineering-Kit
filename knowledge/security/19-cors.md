@@ -1,0 +1,3 @@
+# Cors
+
+> TODO: Document pending.

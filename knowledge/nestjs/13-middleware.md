@@ -1,3 +1,15 @@
+---
+id: nestjs/13-middleware
+topic: nestjs
+slug: middleware
+title: "NestJS Middleware"
+type: doc
+order: 13
+status: ready
+tags: [nestjs, middleware]
+related: []
+when_to_use: ""
+---
 # NestJS Middleware
 
 ## Purpose
@@ -12,7 +24,7 @@ It should never implement business rules.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Middleware runs before NestJS evaluates authentication, validation, or business logic.
 
@@ -20,7 +32,7 @@ Its responsibility is to prepare the request context.
 
 ---
 
-# Middleware Goals
+## Middleware Goals
 
 Every middleware should provide:
 
@@ -34,7 +46,7 @@ Middleware should remain lightweight.
 
 ---
 
-# Request Lifecycle
+## Request Lifecycle
 
 ```
 Incoming Request
@@ -88,7 +100,7 @@ Middleware is always the earliest application-level execution point.
 
 ---
 
-# Responsibilities
+## Responsibilities
 
 Middleware is appropriate for:
 
@@ -112,7 +124,7 @@ Middleware should not:
 
 ---
 
-# Middleware vs Guards
+## Middleware vs Guards
 
 Use Middleware when answering:
 
@@ -126,7 +138,7 @@ Authentication belongs in Guards.
 
 ---
 
-# Middleware vs Pipes
+## Middleware vs Pipes
 
 Middleware prepares the request.
 
@@ -136,7 +148,7 @@ They solve different problems.
 
 ---
 
-# Middleware vs Interceptors
+## Middleware vs Interceptors
 
 Middleware executes before NestJS routing.
 
@@ -146,7 +158,7 @@ Use each according to its lifecycle position.
 
 ---
 
-# Middleware vs Exception Filters
+## Middleware vs Exception Filters
 
 Middleware should not format application errors.
 
@@ -154,7 +166,7 @@ Unhandled exceptions should propagate to Exception Filters.
 
 ---
 
-# Correlation ID
+## Correlation ID
 
 Generate a unique identifier for every request.
 
@@ -188,7 +200,7 @@ Every log entry related to a request should include this identifier.
 
 ---
 
-# Request Context
+## Request Context
 
 Initialize request-scoped context.
 
@@ -205,7 +217,7 @@ Context should remain immutable whenever possible.
 
 ---
 
-# AsyncLocalStorage
+## AsyncLocalStorage
 
 For request-scoped context, prefer AsyncLocalStorage.
 
@@ -220,7 +232,7 @@ Avoid passing context manually through every method.
 
 ---
 
-# Request Logging
+## Request Logging
 
 Middleware may log:
 
@@ -234,7 +246,7 @@ Avoid logging sensitive request bodies.
 
 ---
 
-# Security Headers
+## Security Headers
 
 Configure security headers centrally.
 
@@ -251,7 +263,7 @@ Security headers should remain consistent.
 
 ---
 
-# CORS
+## CORS
 
 Configure CORS globally.
 
@@ -266,7 +278,7 @@ Avoid permissive production configurations.
 
 ---
 
-# Rate Limiting
+## Rate Limiting
 
 Middleware may integrate with rate limiting.
 
@@ -281,7 +293,7 @@ Rate limiting should protect application resources.
 
 ---
 
-# Tenant Resolution
+## Tenant Resolution
 
 Multi-tenant applications may resolve tenant information in middleware.
 
@@ -296,7 +308,7 @@ Never trust client input without verification.
 
 ---
 
-# Request Size Limits
+## Request Size Limits
 
 Reject oversized payloads early.
 
@@ -306,7 +318,7 @@ Avoid unnecessarily large request bodies.
 
 ---
 
-# Compression
+## Compression
 
 Enable compression for appropriate response types.
 
@@ -314,7 +326,7 @@ Avoid compressing already compressed assets.
 
 ---
 
-# Performance
+## Performance
 
 Middleware executes for every request.
 
@@ -329,7 +341,7 @@ Keep execution fast.
 
 ---
 
-# Error Handling
+## Error Handling
 
 Middleware may reject malformed requests.
 
@@ -339,7 +351,7 @@ Allow Exception Filters to produce consistent responses.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -354,7 +366,7 @@ Middleware should be independently testable.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Use Middleware for:
 
@@ -384,7 +396,7 @@ Do **not** use Middleware for:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -426,7 +438,7 @@ Do **not** use Middleware for:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -446,7 +458,7 @@ Duplicating functionality already provided by Guards or Interceptors.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Middleware implementation is complete when:
 
@@ -459,7 +471,7 @@ Middleware implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Middleware is the application's first processing layer.
 

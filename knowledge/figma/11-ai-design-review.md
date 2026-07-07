@@ -1,3 +1,15 @@
+---
+id: figma/11-ai-design-review
+topic: figma
+slug: ai-design-review
+title: "AI Design Review Protocol"
+type: doc
+order: 11
+status: ready
+tags: [figma, ai-design-review]
+related: []
+when_to_use: ""
+---
 # AI Design Review Protocol
 
 ## Purpose
@@ -10,7 +22,7 @@ Implementation without analysis is considered incomplete.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Think before writing code.
 
@@ -20,7 +32,7 @@ The first response should always be analysis.
 
 ---
 
-# Primary Rule
+## Primary Rule
 
 When receiving a Figma task:
 
@@ -32,7 +44,7 @@ Only after every phase has been completed may implementation begin.
 
 ---
 
-# Mandatory Review Pipeline
+## Mandatory Review Pipeline
 
 Every implementation must follow this exact order.
 
@@ -108,7 +120,7 @@ Skipping any phase is considered an implementation failure.
 
 ---
 
-# Phase 1 — Understand Requirements
+## Phase 1 — Understand Requirements
 
 Determine:
 
@@ -123,7 +135,7 @@ Never implement assumptions.
 
 ---
 
-# Phase 2 — Analyze the Entire Design
+## Phase 2 — Analyze the Entire Design
 
 Review the complete page before inspecting individual components.
 
@@ -140,7 +152,7 @@ Never begin implementation after reviewing only one section.
 
 ---
 
-# Phase 3 — Detect Existing Components
+## Phase 3 — Detect Existing Components
 
 Search the project for:
 
@@ -156,7 +168,7 @@ The preferred solution is almost always reuse.
 
 ---
 
-# Phase 4 — Detect Dynamic Content
+## Phase 4 — Detect Dynamic Content
 
 Classify every visible element.
 
@@ -173,7 +185,7 @@ Never hardcode data that belongs to a CMS or API.
 
 ---
 
-# Phase 5 — Detect Design Tokens
+## Phase 5 — Detect Design Tokens
 
 Extract:
 
@@ -189,7 +201,7 @@ Always search for existing tokens before creating new ones.
 
 ---
 
-# Phase 6 — Analyze Layout
+## Phase 6 — Analyze Layout
 
 Review:
 
@@ -204,7 +216,7 @@ Reproduce behavior instead of appearance.
 
 ---
 
-# Phase 7 — Analyze Responsive Behavior
+## Phase 7 — Analyze Responsive Behavior
 
 Review:
 
@@ -234,7 +246,7 @@ Never invent responsive behavior unnecessarily.
 
 ---
 
-# Phase 8 — Select Architecture
+## Phase 8 — Select Architecture
 
 Choose:
 
@@ -249,7 +261,7 @@ Architecture decisions should precede implementation.
 
 ---
 
-# Phase 9 — Create an Implementation Plan
+## Phase 9 — Create an Implementation Plan
 
 Before writing code define:
 
@@ -264,7 +276,7 @@ Implementation should never be improvised.
 
 ---
 
-# Phase 10 — Search Existing Code
+## Phase 10 — Search Existing Code
 
 Before creating anything new search for:
 
@@ -279,7 +291,7 @@ Avoid duplicate implementations.
 
 ---
 
-# Phase 11 — Implement
+## Phase 11 — Implement
 
 Only after all previous phases have been completed.
 
@@ -295,7 +307,7 @@ Speed is never the primary objective.
 
 ---
 
-# Phase 12 — Self Review
+## Phase 12 — Self Review
 
 After implementation review:
 
@@ -311,7 +323,7 @@ Review your own work before presenting it.
 
 ---
 
-# Phase 13 — Compare With Figma
+## Phase 13 — Compare With Figma
 
 Review:
 
@@ -326,7 +338,7 @@ Every visual difference should have a justification.
 
 ---
 
-# Phase 14 — Fix Differences
+## Phase 14 — Fix Differences
 
 Before completing the task:
 
@@ -343,7 +355,7 @@ Do not leave known problems unresolved.
 
 ---
 
-# Phase 15 — Final Verification
+## Phase 15 — Final Verification
 
 Confirm:
 
@@ -365,7 +377,7 @@ Only then is the task complete.
 
 ---
 
-# Expected AI Output
+## Expected AI Output
 
 Before implementation, provide a concise summary covering:
 
@@ -394,7 +406,7 @@ This creates transparency and reduces unnecessary revisions.
 
 ---
 
-# AI Self-Questions
+## AI Self-Questions
 
 Before writing code ask:
 
@@ -410,7 +422,7 @@ If any answer is uncertain, continue analysis.
 
 ---
 
-# Common Failures
+## Common Failures
 
 Never:
 
@@ -432,7 +444,7 @@ Implement before planning.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 The protocol has been successfully followed when:
 
@@ -445,7 +457,7 @@ The protocol has been successfully followed when:
 
 ---
 
-# Summary
+## Summary
 
 Professional engineering is defined not by how quickly code is written, but by how systematically problems are analyzed before implementation.
 

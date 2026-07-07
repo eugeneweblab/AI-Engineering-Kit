@@ -1,3 +1,15 @@
+---
+id: nestjs/09-guards
+topic: nestjs
+slug: guards
+title: "NestJS Guards"
+type: doc
+order: 9
+status: ready
+tags: [nestjs, guards]
+related: []
+when_to_use: ""
+---
 # NestJS Guards
 
 ## Purpose
@@ -12,7 +24,7 @@ They should not implement business workflows.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Authenticate first.
 
@@ -22,7 +34,7 @@ Execute business logic last.
 
 ---
 
-# Guard Goals
+## Guard Goals
 
 Every Guard implementation should provide:
 
@@ -35,7 +47,7 @@ Every Guard implementation should provide:
 
 ---
 
-# Authentication vs Authorization
+## Authentication vs Authorization
 
 Authentication answers:
 
@@ -49,7 +61,7 @@ These concerns should always remain separate.
 
 ---
 
-# Request Lifecycle
+## Request Lifecycle
 
 Typical request flow:
 
@@ -89,7 +101,7 @@ Authentication should complete before authorization begins.
 
 ---
 
-# Authentication Guards
+## Authentication Guards
 
 Authentication Guards verify identity.
 
@@ -104,7 +116,7 @@ Authentication Guards should not verify business permissions.
 
 ---
 
-# Authorization Guards
+## Authorization Guards
 
 Authorization Guards verify permissions.
 
@@ -120,7 +132,7 @@ Authorization decisions should remain centralized.
 
 ---
 
-# RBAC
+## RBAC
 
 Role-Based Access Control assigns permissions through roles.
 
@@ -142,7 +154,7 @@ RBAC is appropriate when permissions are relatively stable.
 
 ---
 
-# ABAC
+## ABAC
 
 Attribute-Based Access Control evaluates attributes.
 
@@ -158,7 +170,7 @@ ABAC provides more flexibility than RBAC.
 
 ---
 
-# Ownership Validation
+## Ownership Validation
 
 Ownership determines whether a user may access a resource.
 
@@ -192,7 +204,7 @@ Ownership checks belong in authorization logic—not controllers.
 
 ---
 
-# Layer Responsibilities
+## Layer Responsibilities
 
 Authentication Guard
 
@@ -220,7 +232,7 @@ Keep responsibilities separate.
 
 ---
 
-# Composite Guards
+## Composite Guards
 
 Multiple Guards may be combined.
 
@@ -246,7 +258,7 @@ Each Guard should solve one problem.
 
 ---
 
-# Policies
+## Policies
 
 Complex authorization should use reusable policy objects.
 
@@ -260,7 +272,7 @@ Avoid embedding complex permission logic directly inside Guards.
 
 ---
 
-# Resource Protection
+## Resource Protection
 
 Protect:
 
@@ -273,7 +285,7 @@ Every public entry point should be evaluated.
 
 ---
 
-# Public Endpoints
+## Public Endpoints
 
 Explicitly mark public routes.
 
@@ -283,7 +295,7 @@ Public access should always be intentional.
 
 ---
 
-# Error Responses
+## Error Responses
 
 Unauthorized identity:
 
@@ -301,7 +313,7 @@ Use status codes consistently.
 
 ---
 
-# Performance
+## Performance
 
 Permission evaluation should remain efficient.
 
@@ -315,7 +327,7 @@ Cache authorization data when appropriate.
 
 ---
 
-# Multi-Tenant Applications
+## Multi-Tenant Applications
 
 Authorization should verify:
 
@@ -327,7 +339,7 @@ Never trust client-provided tenant identifiers.
 
 ---
 
-# External Identity Providers
+## External Identity Providers
 
 Authentication may integrate with:
 
@@ -340,7 +352,7 @@ Business authorization should remain independent of identity provider implementa
 
 ---
 
-# Security
+## Security
 
 Always verify:
 
@@ -354,7 +366,7 @@ Never trust client-provided roles or permissions.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -369,7 +381,7 @@ Authorization should remain deterministic.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -411,7 +423,7 @@ Authorization should remain deterministic.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -431,7 +443,7 @@ Returning incorrect HTTP status codes.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A Guard implementation is complete when:
 
@@ -444,7 +456,7 @@ A Guard implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Guards provide the primary security boundary for NestJS applications.
 

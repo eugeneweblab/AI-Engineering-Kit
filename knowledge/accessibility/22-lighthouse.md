@@ -1,0 +1,3 @@
+# Lighthouse
+
+> TODO: Document pending.

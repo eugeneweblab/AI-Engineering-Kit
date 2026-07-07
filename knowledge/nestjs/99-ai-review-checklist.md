@@ -1,3 +1,15 @@
+---
+id: nestjs/99-ai-review-checklist
+topic: nestjs
+slug: ai-review-checklist
+title: "AI Engineering Review Checklist"
+type: doc
+order: 99
+status: ready
+tags: [nestjs, ai-review-checklist]
+related: []
+when_to_use: ""
+---
 # AI Engineering Review Checklist
 
 ## Purpose
@@ -10,7 +22,7 @@ Every generated solution should be reviewed before delivery.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Do not assume the first solution is the best solution.
 
@@ -20,7 +32,7 @@ Improve it before presenting it.
 
 ---
 
-# Review Workflow
+## Review Workflow
 
 ```
 Understand Problem
@@ -50,7 +62,7 @@ Never skip the review phase.
 
 ---
 
-# 1. Requirement Review
+## 1. Requirement Review
 
 Verify:
 
@@ -66,7 +78,7 @@ Never solve the wrong problem.
 
 ---
 
-# 2. Architecture Review
+## 2. Architecture Review
 
 Verify:
 
@@ -84,7 +96,7 @@ Verify:
 
 ---
 
-# 3. Simplicity Review
+## 3. Simplicity Review
 
 Verify:
 
@@ -100,7 +112,7 @@ Respect KISS and YAGNI.
 
 ---
 
-# 4. Code Quality Review
+## 4. Code Quality Review
 
 Verify:
 
@@ -118,7 +130,7 @@ Code should be optimized for future maintainers.
 
 ---
 
-# 5. Security Review
+## 5. Security Review
 
 Verify:
 
@@ -138,7 +150,7 @@ Security is mandatory.
 
 ---
 
-# 6. Performance Review
+## 6. Performance Review
 
 Verify:
 
@@ -156,7 +168,7 @@ Performance should be evidence-driven.
 
 ---
 
-# 7. Reliability Review
+## 7. Reliability Review
 
 Verify:
 
@@ -174,7 +186,7 @@ Systems should fail predictably.
 
 ---
 
-# 8. Testing Review
+## 8. Testing Review
 
 Verify:
 
@@ -192,7 +204,7 @@ Every feature should be testable.
 
 ---
 
-# 9. Maintainability Review
+## 9. Maintainability Review
 
 Verify:
 
@@ -208,7 +220,7 @@ Maintainability is a long-term requirement.
 
 ---
 
-# 10. Observability Review
+## 10. Observability Review
 
 Verify:
 
@@ -224,7 +236,7 @@ Production behavior should remain observable.
 
 ---
 
-# 11. Deployment Review
+## 11. Deployment Review
 
 Verify:
 
@@ -240,7 +252,7 @@ Deployment should not introduce unnecessary risk.
 
 ---
 
-# 12. Documentation Review
+## 12. Documentation Review
 
 Verify:
 
@@ -256,7 +268,7 @@ Good documentation prevents future confusion.
 
 ---
 
-# 13. AI Self-Review
+## 13. AI Self-Review
 
 Before presenting the answer, ask:
 
@@ -276,7 +288,7 @@ If any answer is uncertain, improve the solution before presenting it.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Before delivering a solution, ensure it is:
 
@@ -312,7 +324,7 @@ Never knowingly deliver a solution that is:
 
 ---
 
-# Common Review Failures
+## Common Review Failures
 
 Avoid:
 
@@ -338,7 +350,7 @@ Ignoring operational concerns.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 An engineering review is complete when:
 
@@ -353,7 +365,7 @@ An engineering review is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Engineering review is a mandatory quality gate between solution generation and delivery.
 

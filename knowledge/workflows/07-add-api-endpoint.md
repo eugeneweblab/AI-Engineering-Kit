@@ -1,3 +1,15 @@
+---
+id: workflows/07-add-api-endpoint
+topic: workflows
+slug: add-api-endpoint
+title: "Workflow — Add an API Endpoint"
+type: doc
+order: 7
+status: ready
+tags: [workflows, add-api-endpoint]
+related: []
+when_to_use: ""
+---
 # Workflow — Add an API Endpoint
 
 ## Purpose
@@ -12,7 +24,7 @@ Changes should be deliberate and backward compatible whenever possible.
 
 ---
 
-# Goal
+## Goal
 
 Implement an endpoint that:
 
@@ -26,7 +38,7 @@ Implement an endpoint that:
 
 ---
 
-# Workflow Overview
+## Workflow Overview
 
 ```
 Understand Requirements
@@ -52,7 +64,7 @@ Complete
 
 ---
 
-# Step 1 — Understand the Requirements
+## Step 1 — Understand the Requirements
 
 Determine:
 
@@ -68,7 +80,7 @@ Do not implement an endpoint based on assumptions.
 
 ---
 
-# Step 2 — Analyze Existing APIs
+## Step 2 — Analyze Existing APIs
 
 Inspect similar endpoints.
 
@@ -88,7 +100,7 @@ New endpoints should look like existing endpoints.
 
 ---
 
-# Step 3 — Design the API Contract
+## Step 3 — Design the API Contract
 
 Define the endpoint before writing code.
 
@@ -120,7 +132,7 @@ The contract should remain stable.
 
 ---
 
-# Step 4 — Validate Input
+## Step 4 — Validate Input
 
 Validate every external input.
 
@@ -139,7 +151,7 @@ Never trust client input.
 
 ---
 
-# Step 5 — Implement Business Logic
+## Step 5 — Implement Business Logic
 
 Business rules belong in the business layer.
 
@@ -153,7 +165,7 @@ Controllers should coordinate work, not perform it.
 
 ---
 
-# Step 6 — Implement the Endpoint
+## Step 6 — Implement the Endpoint
 
 The endpoint should:
 
@@ -167,7 +179,7 @@ Keep controllers small.
 
 ---
 
-# Step 7 — Handle Errors
+## Step 7 — Handle Errors
 
 Return predictable error responses.
 
@@ -184,7 +196,7 @@ Never expose internal implementation details.
 
 ---
 
-# Step 8 — Test the Endpoint
+## Step 8 — Test the Endpoint
 
 Verify:
 
@@ -200,7 +212,7 @@ Every public endpoint should be tested.
 
 ---
 
-# Step 9 — Update Documentation
+## Step 9 — Update Documentation
 
 Update documentation when required.
 
@@ -217,7 +229,7 @@ Documentation is part of the API.
 
 ---
 
-# API Design Principles
+## API Design Principles
 
 Prefer:
 
@@ -247,7 +259,7 @@ Breaking existing consumers
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -305,7 +317,7 @@ Breaking existing consumers
 
 ---
 
-# Security Checklist
+## Security Checklist
 
 Before completion verify:
 
@@ -325,7 +337,7 @@ Before completion verify:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -347,7 +359,7 @@ Forgetting documentation.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 The workflow is complete only if:
 
@@ -361,7 +373,7 @@ The workflow is complete only if:
 
 ---
 
-# Expected AI Output
+## Expected AI Output
 
 After completing this workflow, the AI should explain:
 
@@ -376,7 +388,7 @@ After completing this workflow, the AI should explain:
 
 ---
 
-# Summary
+## Summary
 
 A well-designed API endpoint is predictable, secure, and easy to maintain.
 

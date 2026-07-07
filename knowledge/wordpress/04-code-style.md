@@ -1,3 +1,15 @@
+---
+id: wordpress/04-code-style
+topic: wordpress
+slug: code-style
+title: "WordPress Code Style"
+type: doc
+order: 4
+status: ready
+tags: [wordpress, code-style]
+related: []
+when_to_use: ""
+---
 # WordPress Code Style
 
 ## Purpose
@@ -12,7 +24,7 @@ It is about reducing cognitive load for every engineer who works on the project.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Optimize code for readability.
 
@@ -22,7 +34,7 @@ Choose clarity over cleverness.
 
 ---
 
-# General Rules
+## General Rules
 
 Every piece of code should be:
 
@@ -36,7 +48,7 @@ Avoid writing code that requires additional explanation.
 
 ---
 
-# Follow Existing Conventions
+## Follow Existing Conventions
 
 Before writing code:
 
@@ -49,7 +61,7 @@ Match the existing project instead of introducing a personal style.
 
 ---
 
-# Naming
+## Naming
 
 Names should describe intent.
 
@@ -87,7 +99,7 @@ If a name needs a comment to explain it, choose a better name.
 
 ---
 
-# Functions
+## Functions
 
 Functions should:
 
@@ -122,7 +134,7 @@ handleEverything()
 
 ---
 
-# Classes
+## Classes
 
 Each class should have a single responsibility.
 
@@ -144,7 +156,7 @@ Avoid classes that combine unrelated responsibilities.
 
 ---
 
-# Methods
+## Methods
 
 Methods should be:
 
@@ -157,7 +169,7 @@ Large methods usually indicate missing abstractions.
 
 ---
 
-# Conditionals
+## Conditionals
 
 Prefer:
 
@@ -179,7 +191,7 @@ Use early returns to reduce nesting.
 
 ---
 
-# Nesting
+## Nesting
 
 Avoid deeply nested code.
 
@@ -201,7 +213,7 @@ Instead of multiple nested `if` statements.
 
 ---
 
-# Comments
+## Comments
 
 Write comments only when they explain **why**, not **what**.
 
@@ -222,7 +234,7 @@ Well-written code should explain itself.
 
 ---
 
-# Constants
+## Constants
 
 Avoid magic values.
 
@@ -242,7 +254,7 @@ Named constants improve readability.
 
 ---
 
-# Arrays
+## Arrays
 
 Prefer meaningful keys.
 
@@ -260,7 +272,7 @@ Avoid arrays whose meaning depends on element order.
 
 ---
 
-# Hooks
+## Hooks
 
 Keep callbacks lightweight.
 
@@ -286,7 +298,7 @@ Business logic belongs in services.
 
 ---
 
-# Templates
+## Templates
 
 Templates should:
 
@@ -302,7 +314,7 @@ Templates should not:
 
 ---
 
-# REST Controllers
+## REST Controllers
 
 Controllers should:
 
@@ -315,7 +327,7 @@ Avoid embedding business logic inside controllers.
 
 ---
 
-# Error Handling
+## Error Handling
 
 Handle expected failures explicitly.
 
@@ -330,7 +342,7 @@ Avoid silent failures.
 
 ---
 
-# Formatting
+## Formatting
 
 Maintain consistency.
 
@@ -345,7 +357,7 @@ Formatting should never distract from the code.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -389,7 +401,7 @@ Formatting should never distract from the code.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -413,7 +425,7 @@ Excessive comments.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Code style is considered successful when:
 
@@ -426,7 +438,7 @@ Code style is considered successful when:
 
 ---
 
-# Summary
+## Summary
 
 Good code style is invisible.
 

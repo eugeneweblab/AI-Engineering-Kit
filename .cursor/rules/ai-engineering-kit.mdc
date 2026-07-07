@@ -1,0 +1,17 @@
+---
+description: How to use the AI Engineering Kit knowledge base
+alwaysApply: true
+---
+
+Full guidance: `AGENTS.md` (repo root).
+
+Before writing code:
+- Find relevant knowledge via `knowledge/INDEX.json`; use only `status: "ready"` docs,
+  matched by `topic` / `tags` / `when_to_use`, then read the doc `path`.
+- Follow the matching guide in `knowledge/workflows/` and principles in
+  `knowledge/engineering/` and `knowledge/ai/`.
+- Reuse existing patterns, stay in scope, prefer consistency over cleverness.
+- Self-verify with the topic's `98`/`99`/`100` checklists.
+
+Never treat a `draft` stub (`status: draft`) as an authoritative source.
+Order docs by the `order` frontmatter field, not by filename.

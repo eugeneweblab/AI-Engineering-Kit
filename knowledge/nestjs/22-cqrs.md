@@ -1,3 +1,15 @@
+---
+id: nestjs/22-cqrs
+topic: nestjs
+slug: cqrs
+title: "CQRS (Command Query Responsibility Segregation)"
+type: doc
+order: 22
+status: ready
+tags: [nestjs, cqrs]
+related: []
+when_to_use: ""
+---
 # CQRS (Command Query Responsibility Segregation)
 
 ## Purpose
@@ -12,7 +24,7 @@ It is not a requirement for every application.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Commands change state.
 
@@ -22,7 +34,7 @@ Never confuse the two.
 
 ---
 
-# CQRS Goals
+## CQRS Goals
 
 A CQRS architecture should provide:
 
@@ -38,7 +50,7 @@ Use it only when its benefits outweigh its costs.
 
 ---
 
-# Basic Architecture
+## Basic Architecture
 
 ```
                 Request
@@ -72,7 +84,7 @@ Commands and queries should remain independent.
 
 ---
 
-# Commands
+## Commands
 
 Commands represent business intentions.
 
@@ -99,7 +111,7 @@ Avoid returning full entities from commands.
 
 ---
 
-# Queries
+## Queries
 
 Queries retrieve information.
 
@@ -125,7 +137,7 @@ Queries should remain side-effect free.
 
 ---
 
-# Command Handler
+## Command Handler
 
 Responsibilities:
 
@@ -138,7 +150,7 @@ Command handlers should remain focused on one use case.
 
 ---
 
-# Query Handler
+## Query Handler
 
 Responsibilities:
 
@@ -151,7 +163,7 @@ Query handlers should not modify application state.
 
 ---
 
-# Read Model
+## Read Model
 
 The read model exists to optimize queries.
 
@@ -166,7 +178,7 @@ Read models are optimized for consumers—not persistence.
 
 ---
 
-# Write Model
+## Write Model
 
 The write model preserves business consistency.
 
@@ -180,7 +192,7 @@ Write models prioritize correctness over query performance.
 
 ---
 
-# Eventual Consistency
+## Eventual Consistency
 
 Read models may lag behind writes.
 
@@ -210,7 +222,7 @@ Applications should tolerate temporary inconsistency where appropriate.
 
 ---
 
-# Domain Events
+## Domain Events
 
 Command handlers may publish domain events.
 
@@ -236,7 +248,7 @@ Events should represent completed business facts.
 
 ---
 
-# Outbox Pattern
+## Outbox Pattern
 
 When publishing events:
 
@@ -264,7 +276,7 @@ Never publish events before commit.
 
 ---
 
-# Event Sourcing
+## Event Sourcing
 
 CQRS does not require Event Sourcing.
 
@@ -276,7 +288,7 @@ These patterns may be combined but remain independent.
 
 ---
 
-# Aggregates
+## Aggregates
 
 Aggregates protect business invariants.
 
@@ -296,7 +308,7 @@ Aggregates should expose business behaviors—not database operations.
 
 ---
 
-# Validation
+## Validation
 
 Separate validation into:
 
@@ -313,7 +325,7 @@ Business validation:
 
 ---
 
-# Transactions
+## Transactions
 
 Commands may use transactions.
 
@@ -323,7 +335,7 @@ Keep transaction boundaries inside the write model.
 
 ---
 
-# Read Optimization
+## Read Optimization
 
 Optimize queries independently.
 
@@ -338,7 +350,7 @@ Read optimization should not affect business rules.
 
 ---
 
-# Scaling
+## Scaling
 
 CQRS allows independent scaling.
 
@@ -370,7 +382,7 @@ Read-heavy systems benefit significantly.
 
 ---
 
-# Monitoring
+## Monitoring
 
 Measure:
 
@@ -384,7 +396,7 @@ CQRS should remain observable.
 
 ---
 
-# Security
+## Security
 
 Authorization rules apply equally to:
 
@@ -397,7 +409,7 @@ Protect both sides independently.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -412,7 +424,7 @@ Commands and queries should be tested independently.
 
 ---
 
-# When to Use CQRS
+## When to Use CQRS
 
 Suitable for:
 
@@ -424,7 +436,7 @@ Suitable for:
 
 ---
 
-# When NOT to Use CQRS
+## When NOT to Use CQRS
 
 Avoid CQRS for:
 
@@ -437,7 +449,7 @@ Do not introduce CQRS without measurable benefit.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Use CQRS when:
 
@@ -461,7 +473,7 @@ Do **not** use CQRS when:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -503,7 +515,7 @@ Do **not** use CQRS when:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -523,7 +535,7 @@ Creating unnecessary complexity.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 A CQRS implementation is complete when:
 
@@ -536,7 +548,7 @@ A CQRS implementation is complete when:
 
 ---
 
-# Summary
+## Summary
 
 CQRS separates state modification from data retrieval to improve scalability, maintainability, and architectural clarity.
 

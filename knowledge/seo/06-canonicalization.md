@@ -1,0 +1,3 @@
+# Canonicalization
+
+> TODO: Document pending.

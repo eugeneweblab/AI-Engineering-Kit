@@ -1,3 +1,15 @@
+---
+id: nestjs/28-deployment
+topic: nestjs
+slug: deployment
+title: "Deployment"
+type: doc
+order: 28
+status: ready
+tags: [nestjs, deployment]
+related: []
+when_to_use: ""
+---
 # Deployment
 
 ## Purpose
@@ -12,7 +24,7 @@ It should never depend on manual steps.
 
 ---
 
-# Core Principle
+## Core Principle
 
 Every deployment should be:
 
@@ -25,7 +37,7 @@ Manual production changes should be avoided whenever possible.
 
 ---
 
-# Deployment Goals
+## Deployment Goals
 
 Every deployment pipeline should provide:
 
@@ -40,7 +52,7 @@ Deployments should produce identical results regardless of who initiates them.
 
 ---
 
-# Deployment Lifecycle
+## Deployment Lifecycle
 
 ```
 Developer
@@ -86,7 +98,7 @@ Every deployment should follow the same pipeline.
 
 ---
 
-# Build Artifacts
+## Build Artifacts
 
 Applications should be built once.
 
@@ -101,7 +113,7 @@ Avoid rebuilding the application for each environment.
 
 ---
 
-# Infrastructure
+## Infrastructure
 
 Infrastructure should be defined as code.
 
@@ -115,7 +127,7 @@ Infrastructure changes should follow the same review process as application code
 
 ---
 
-# Containers
+## Containers
 
 Prefer containerized deployments.
 
@@ -130,7 +142,7 @@ Avoid installing unnecessary software inside runtime images.
 
 ---
 
-# Docker Images
+## Docker Images
 
 Images should:
 
@@ -144,7 +156,7 @@ Smaller images deploy faster and reduce security risks.
 
 ---
 
-# Environment Configuration
+## Environment Configuration
 
 Separate configuration from code.
 
@@ -160,7 +172,7 @@ Never hardcode environment-specific values.
 
 ---
 
-# Secrets
+## Secrets
 
 Secrets should be injected securely during deployment.
 
@@ -174,7 +186,7 @@ Rotate secrets regularly.
 
 ---
 
-# Database Migrations
+## Database Migrations
 
 Migration strategy should be defined before deployment.
 
@@ -200,7 +212,7 @@ Backward-compatible migrations reduce deployment risk.
 
 ---
 
-# Blue-Green Deployment
+## Blue-Green Deployment
 
 Maintain two production environments.
 
@@ -220,7 +232,7 @@ Rollback becomes immediate.
 
 ---
 
-# Canary Deployment
+## Canary Deployment
 
 Gradually expose new versions.
 
@@ -246,7 +258,7 @@ Monitor system behavior before full rollout.
 
 ---
 
-# Rolling Deployment
+## Rolling Deployment
 
 Replace instances incrementally.
 
@@ -260,7 +272,7 @@ Monitor each deployment stage.
 
 ---
 
-# Rollback
+## Rollback
 
 Every deployment must define a rollback strategy.
 
@@ -274,7 +286,7 @@ Recovery should not depend on manual debugging.
 
 ---
 
-# Health Checks
+## Health Checks
 
 Verify:
 
@@ -287,7 +299,7 @@ Traffic should reach only healthy instances.
 
 ---
 
-# CI/CD
+## CI/CD
 
 Deployment pipelines should include:
 
@@ -302,7 +314,7 @@ No production deployment should bypass CI/CD.
 
 ---
 
-# Feature Flags
+## Feature Flags
 
 Separate deployment from feature release.
 
@@ -316,7 +328,7 @@ Deploying code should not automatically expose new functionality.
 
 ---
 
-# Versioning
+## Versioning
 
 Every deployment should include:
 
@@ -329,7 +341,7 @@ Production systems should always identify the running version.
 
 ---
 
-# Monitoring
+## Monitoring
 
 Monitor immediately after deployment.
 
@@ -346,7 +358,7 @@ Deployments should remain observable.
 
 ---
 
-# Security
+## Security
 
 Verify:
 
@@ -359,7 +371,7 @@ Deployment pipelines are part of the application's security boundary.
 
 ---
 
-# Disaster Recovery
+## Disaster Recovery
 
 Prepare procedures for:
 
@@ -372,7 +384,7 @@ Recovery procedures should be rehearsed regularly.
 
 ---
 
-# Documentation
+## Documentation
 
 Every deployment process should document:
 
@@ -386,7 +398,7 @@ Documentation should remain current.
 
 ---
 
-# Testing
+## Testing
 
 Verify:
 
@@ -401,7 +413,7 @@ Deployment procedures should be validated before production use.
 
 ---
 
-# AI Decision Matrix
+## AI Decision Matrix
 
 Always automate:
 
@@ -427,7 +439,7 @@ Never rely on:
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -469,7 +481,7 @@ Never rely on:
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -489,7 +501,7 @@ Ignoring deployment verification.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 Deployment is complete when:
 
@@ -502,7 +514,7 @@ Deployment is complete when:
 
 ---
 
-# Summary
+## Summary
 
 Deployment is the controlled delivery of software into production.
 

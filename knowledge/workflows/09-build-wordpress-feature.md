@@ -1,3 +1,15 @@
+---
+id: workflows/09-build-wordpress-feature
+topic: workflows
+slug: build-wordpress-feature
+title: "Workflow — Build a WordPress Feature"
+type: doc
+order: 9
+status: ready
+tags: [workflows, build-wordpress-feature]
+related: []
+when_to_use: ""
+---
 # Workflow — Build a WordPress Feature
 
 ## Purpose
@@ -10,7 +22,7 @@ The objective is to build features that follow WordPress best practices while re
 
 ---
 
-# Goal
+## Goal
 
 Deliver a feature that:
 
@@ -23,7 +35,7 @@ Deliver a feature that:
 
 ---
 
-# Workflow Overview
+## Workflow Overview
 
 ```
 Understand Requirements
@@ -49,7 +61,7 @@ Complete
 
 ---
 
-# Step 1 — Understand the Requirements
+## Step 1 — Understand the Requirements
 
 Before writing code determine:
 
@@ -67,7 +79,7 @@ Determine whether functionality belongs in WordPress or another system.
 
 ---
 
-# Step 2 — Analyze the Existing Project
+## Step 2 — Analyze the Existing Project
 
 Identify the project architecture.
 
@@ -94,7 +106,7 @@ The implementation should match the existing architecture.
 
 ---
 
-# Step 3 — Identify Integration Points
+## Step 3 — Identify Integration Points
 
 Determine where the feature belongs.
 
@@ -128,7 +140,7 @@ The chosen integration point should match the feature's responsibility.
 
 ---
 
-# Step 4 — Search Before Creating
+## Step 4 — Search Before Creating
 
 Search for existing:
 
@@ -146,7 +158,7 @@ Never duplicate existing functionality.
 
 ---
 
-# Step 5 — Follow WordPress Architecture
+## Step 5 — Follow WordPress Architecture
 
 Respect WordPress conventions.
 
@@ -176,7 +188,7 @@ Avoid bypassing the WordPress ecosystem unless the project architecture explicit
 
 ---
 
-# Step 6 — Implement the Feature
+## Step 6 — Implement the Feature
 
 During implementation:
 
@@ -190,7 +202,7 @@ Business logic should not be embedded inside templates.
 
 ---
 
-# Step 7 — Security Review
+## Step 7 — Security Review
 
 Verify:
 
@@ -207,7 +219,7 @@ Security should be part of implementation from the beginning.
 
 ---
 
-# Step 8 — Performance Review
+## Step 8 — Performance Review
 
 Review:
 
@@ -224,7 +236,7 @@ Performance should scale with content growth.
 
 ---
 
-# Step 9 — Compatibility Review
+## Step 9 — Compatibility Review
 
 Verify compatibility with:
 
@@ -241,7 +253,7 @@ Avoid assumptions about the production environment.
 
 ---
 
-# AI Execution Checklist
+## AI Execution Checklist
 
 ## Investigation
 
@@ -303,7 +315,7 @@ Avoid assumptions about the production environment.
 
 ---
 
-# WordPress Engineering Principles
+## WordPress Engineering Principles
 
 Prefer:
 
@@ -337,7 +349,7 @@ Large template files containing business logic.
 
 ---
 
-# Common Mistakes
+## Common Mistakes
 
 Avoid:
 
@@ -359,7 +371,7 @@ Creating duplicate REST endpoints.
 
 ---
 
-# Completion Criteria
+## Completion Criteria
 
 The workflow is complete only if:
 
@@ -373,7 +385,7 @@ The workflow is complete only if:
 
 ---
 
-# Expected AI Output
+## Expected AI Output
 
 After completing this workflow, the AI should explain:
 
@@ -387,7 +399,7 @@ After completing this workflow, the AI should explain:
 
 ---
 
-# Summary
+## Summary
 
 A high-quality WordPress feature integrates seamlessly into both the WordPress ecosystem and the existing project architecture.
 
