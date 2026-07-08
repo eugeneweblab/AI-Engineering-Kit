@@ -81,7 +81,7 @@ next feature flat instead of exponential.
 ```tsx
 // Server state owned by the query cache; UI derives from it, stores nothing extra.
 function Cart() {
-  const { data, status } = useQuery(["cart"], fetchCart);
+  const { data, status } = useQuery({ queryKey: ["cart"], queryFn: fetchCart });
 
   if (status === "pending") return <Spinner />;      // loading is a real state
   if (status === "error") return <RetryPanel />;     // so is failure

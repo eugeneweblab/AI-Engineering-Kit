@@ -48,7 +48,7 @@ between tests that pay compound interest and tests that are technical debt.
 
 ## Best Practices
 
-- Structure every test as **Arrange-Act-Act-Assert**: set up state, perform the one
+- Structure every test as **Arrange-Act-Assert**: set up state, perform the one
   action under test, assert the outcome. Keep the "Act" to a single call so the cause of
   a failure is unambiguous.
 - Name tests for behavior, not method names: `rejects transfer when balance is

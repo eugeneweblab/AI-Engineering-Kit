@@ -82,7 +82,7 @@ containers:
     image: registry.example.com/api@sha256:9f2a...   # immutable digest, reproducible
     resources:
       requests: { cpu: "250m", memory: "256Mi" }      # scheduler reserves this
-      limits:   { cpu: "500m", memory: "256Mi" }      # mem limit == request → Guaranteed QoS
+      limits:   { cpu: "500m", memory: "256Mi" }      # mem pinned (limit == request); cpu bursts → Burstable QoS
     readinessProbe:                                    # gates traffic, not just liveness
       httpGet: { path: /healthz/ready, port: 8080 }    # checks DB/deps, returns 200 only when serving
       periodSeconds: 5

@@ -58,7 +58,7 @@ that stay valuable for years instead of tests that pass review and rot.
   (inject dependencies, split responsibilities) rather than reaching for elaborate mocks.
 - **One reason to fail per test.** A test that asserts many unrelated things gives a
   vague signal when it breaks. Prefer several focused tests over one that checks everything.
-- **Follow Arrange-Act-Act-Assert with a single Act.** Multiple actions in one test hide
+- **Follow Arrange-Act-Assert with a single Act.** Multiple actions in one test hide
   which step failed and usually means you are testing a workflow that belongs in E2E.
 - **Prefer real objects over doubles; prefer fakes over mocks.** Every double is an
   assumption about a collaborator that can drift from reality. Use the lightest double

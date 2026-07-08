@@ -56,7 +56,7 @@ as a blocker, not a nice-to-have.
 
 - [ ] Every release is marked with an **annotated** tag (`git tag -a vX.Y.Z`), not lightweight.
 - [ ] Tags follow a documented scheme (e.g. SemVer `vMAJOR.MINOR.PATCH`) and are immutable once pushed.
-- [ ] Tags are pushed to the remote (`git push --tags`) and visible in the platform's releases.
+- [ ] Tags are pushed to the remote explicitly (`git push origin vX.Y.Z`, or `git push --follow-tags`; never bulk `--tags`) and visible in the platform's releases.
 - [ ] The tagged commit builds and passes the full test suite in CI before the tag is published.
 - [ ] A changelog or release notes map each tag to its user-facing changes.
 

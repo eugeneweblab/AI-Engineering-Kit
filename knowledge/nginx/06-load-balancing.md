@@ -45,7 +45,9 @@ they come and go, and make the config say exactly what happens when they do.
   draining. Externalize session state instead where you can.
 - **Drain, don't kill.** Mark a node `down` (or weight it out) and let in-flight requests
   finish before you remove it. Yanking a node mid-request drops live connections.
-- **Retry idempotent requests only.** `proxy_next_upstream` retrying a failed POST can
+- **Never add `non_idempotent` to `proxy_next_upstream`.** Since nginx 1.9.13 the default
+  already refuses to retry a non-idempotent request (POST/LOCK/PATCH) once it has been sent
+  to an upstream. Adding the `non_idempotent` flag overrides that safety and can
   double-charge a customer. Constrain retries to safe methods and conditions.
 
 ## Best Practices
@@ -108,8 +110,9 @@ upstream app_pool {
 server {
     location / {
         proxy_pass http://app_pool;
-        # Default proxy_next_upstream retries timeouts on ANY method, so a slow POST
-        # can be replayed on a second backend -> duplicate side effects.
+        # non_idempotent overrides nginx's default safety: a slow POST that already
+        # reached one backend gets replayed on a second -> duplicate side effects.
+        proxy_next_upstream error timeout http_502 non_idempotent;
         # No keepalive + HTTP/1.0 -> new TCP handshake per request under load.
     }
 }
@@ -121,8 +124,8 @@ server {
 - Forgetting `proxy_http_version 1.1` and `Connection ""`, silently disabling `keepalive`.
 - Using `ip_hash` for affinity, then wondering why load is lopsided behind a corporate NAT
   (many users share one IP and land on one node).
-- Retrying non-idempotent requests via the default `proxy_next_upstream`, causing
-  duplicate writes.
+- Adding `non_idempotent` to `proxy_next_upstream`, overriding nginx's default and
+  retrying POSTs on the next upstream, causing duplicate writes.
 - Assuming open-source nginx does active health checks — it only reacts to failed real
   requests unless you add a module.
 - Hard-removing a node instead of marking it `down` and draining, dropping live requests.

@@ -89,7 +89,7 @@ assembled by different teams. The token layer is where consistency is enforced o
 
 ```html
 <!-- Consumes intent tokens; a rebrand touches only theme.css. -->
-<article class="bg-surface rounded-[--radius-card] p-4">
+<article class="bg-surface rounded-(--radius-card) p-4">
   <button class="bg-primary text-white">Save</button>
   <button class="bg-danger text-white">Delete</button>
 </article>

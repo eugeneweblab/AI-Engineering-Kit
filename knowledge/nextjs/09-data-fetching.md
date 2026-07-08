@@ -130,9 +130,11 @@ Use the built-in `fetch()` API whenever possible.
 Benefits:
 
 - automatic request memoization;
-- built-in caching;
+- opt-in caching and revalidation;
 - integration with Next.js rendering;
-- support for revalidation.
+- support for tag- and time-based revalidation.
+
+In Next.js 15+, `fetch()` is uncached by default. Opt into caching explicitly with `cache: "force-cache"` or `next: { revalidate }`.
 
 Avoid introducing alternative HTTP clients unless required by the project.
 
@@ -172,12 +174,14 @@ Avoid implementing manual request deduplication for identical server-side reques
 
 Choose a cache strategy intentionally.
 
+In Next.js 15+, `fetch()` defaults to uncached (`no-store`). Caching is opt-in.
+
 Common options include:
 
-- `force-cache`
-- `no-store`
-- time-based revalidation
-- tag-based revalidation
+- `no-store` (the default; fetches fresh on every request)
+- `force-cache` (opt in to indefinite caching)
+- time-based revalidation via `next: { revalidate }`
+- tag-based revalidation via `next: { tags }`
 
 The selected strategy should reflect business requirements.
 

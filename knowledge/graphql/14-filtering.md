@@ -91,7 +91,7 @@ async function posts(_: unknown, { filter, sort, first }: Args) {
   // Each branch maps a known field to a bound predicate — no string building.
   if (filter?.status) where.status = filter.status;
   if (filter?.authorId) where.authorId = filter.authorId;
-  if (filter?.createdAfter) where.createdAt = { gt: filter.createdAt };
+  if (filter?.createdAfter) where.createdAt = { gt: filter.createdAfter };
 
   // Sort field is an enum, resolved through a fixed map → only indexed columns.
   const orderBy = SORT_MAP[sort?.field ?? "CREATED_AT"](sort?.direction ?? "DESC");

@@ -68,7 +68,7 @@ they exist and keeps re-renders localized, which is also a performance win.
 ```tsx
 function Cart() {
   // Server state: owned by the backend, cached and revalidated by the query lib.
-  const { data: items } = useQuery(["cart"], fetchCart);
+  const { data: items } = useQuery({ queryKey: ["cart"], queryFn: fetchCart });
 
   // URL state: the coupon is shareable and must survive reload.
   const [params] = useSearchParams();

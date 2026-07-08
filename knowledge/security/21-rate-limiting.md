@@ -70,15 +70,38 @@ instances, and keyed on something the attacker cannot trivially rotate.
 **Good Example** — atomic sliding window in shared Redis, keyed by account and IP
 
 ```ts
-// Redis Lua-backed sliding window; the increment + expiry are atomic, so concurrent
-// requests across all app instances share one accurate count.
+// Redis Lua-backed sliding window (sorted-set log). Prune-old + count + add + set-TTL run
+// as ONE atomic script per request, so concurrent requests across all app instances share
+// one accurate count and the key always gets a TTL — no request can leave it un-expired.
+// Returns -1 when allowed, else the seconds until the oldest hit leaves the window.
+const SLIDING_WINDOW = `
+  local now    = tonumber(ARGV[1])
+  local window = tonumber(ARGV[2])
+  local limit  = tonumber(ARGV[3])
+  redis.call('ZREMRANGEBYSCORE', KEYS[1], 0, now - window)  -- drop hits older than the window
+  local count = redis.call('ZCARD', KEYS[1])
+  if count < limit then
+    redis.call('ZADD', KEYS[1], now, ARGV[4])               -- record this request
+    redis.call('PEXPIRE', KEYS[1], window)                  -- TTL always set; key can't leak
+    return -1                                               -- allowed
+  end
+  redis.call('PEXPIRE', KEYS[1], window)
+  local oldest = redis.call('ZRANGE', KEYS[1], 0, 0, 'WITHSCORES')
+  return math.ceil(((tonumber(oldest[2]) + window) - now) / 1000)  -- deny; retry-after (s)
+`;
+
 async function checkLoginLimit(email: string, ip: string): Promise<void> {
-  const key = `rl:login:${email}:${ip}`;      // identity + IP, not IP alone
-  const count = await redis.incr(key);
-  if (count === 1) await redis.expire(key, 900); // 15-minute window
-  if (count > 10) {
+  const key = `rl:login:${email}:${ip}`;          // identity + IP, not IP alone
+  const now = Date.now();
+  const windowMs = 15 * 60 * 1000;                // 15-minute sliding window
+  const limit = 10;
+  const member = `${now}:${crypto.randomUUID()}`; // unique so same-ms hits don't collide
+  const retryAfter = (await redis.eval(
+    SLIDING_WINDOW, 1, key, String(now), String(windowMs), String(limit), member,
+  )) as number;
+  if (retryAfter >= 0) {
     // Fail CLOSED: deny the sensitive action and tell the client when to retry.
-    throw new RateLimitError(429, { retryAfter: await redis.ttl(key) });
+    throw new RateLimitError(429, { retryAfter });
   }
 }
 ```

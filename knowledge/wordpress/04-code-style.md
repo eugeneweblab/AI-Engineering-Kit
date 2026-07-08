@@ -65,18 +65,20 @@ Match the existing project instead of introducing a personal style.
 
 Names should describe intent.
 
+The WordPress Coding Standards (WPCS, enforced by PHPCS) require `snake_case` for all variable names. Use lowercase words separated by underscores.
+
 Good examples:
 
 ```php
-$productService
+$product_service
 
-$userRepository
+$user_repository
 
-$newsletterSettings
+$newsletter_settings
 
-$isUserAuthorized
+$is_user_authorized
 
-$shouldDisplayBanner
+$should_display_banner
 ```
 
 Bad examples:
@@ -108,16 +110,18 @@ Functions should:
 - minimize side effects;
 - return predictable values.
 
+The WordPress Coding Standards (WPCS, enforced by PHPCS) require `snake_case` for function names. Use lowercase words separated by underscores.
+
 Prefer:
 
 ```php
-getUserProfile()
+get_user_profile()
 
-updateProductPrice()
+update_product_price()
 
-calculateDiscount()
+calculate_discount()
 
-sendNewsletter()
+send_newsletter()
 ```
 
 Avoid:
@@ -137,6 +141,8 @@ handleEverything()
 ## Classes
 
 Each class should have a single responsibility.
+
+The following `PascalCase` names apply to namespaced, PSR-style OOP code (e.g. autoloaded plugin classes). Legacy procedural WordPress core still uses `Class_Name` (capitalized words joined by underscores) per WPCS. Procedural functions, template code, and variables remain `snake_case`.
 
 Examples:
 

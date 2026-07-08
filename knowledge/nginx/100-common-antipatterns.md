@@ -117,12 +117,15 @@ proxy_cache_bypass  $http_authorization $cookie_sessionid;
 - **The fix:** Treat config as code — change it in the repo, review, `nginx -t` in CI, and
   roll it to every node.
 
-### 10. Blanket `proxy_next_upstream` retrying non-idempotent requests
+### 10. Enabling `non_idempotent` retries on `proxy_next_upstream`
 
-- **Why it is wrong:** The default/blanket retry behavior can resend a `POST` to another
-  upstream after a timeout, causing duplicate charges, duplicate emails, or double writes.
-- **The fix:** Scope `proxy_next_upstream` to safe conditions (`error timeout http_502`) and
-  exclude non-idempotent methods, or set `proxy_next_upstream off;` for write endpoints.
+- **Why it is wrong:** Since nginx 1.9.13 the default will not retry a request already sent
+  upstream when the method is non-idempotent (POST/LOCK/PATCH). Adding the `non_idempotent`
+  flag overrides that safety, so a `POST` that timed out after reaching one backend gets
+  resent to another, causing duplicate charges, duplicate emails, or double writes.
+- **The fix:** Do not add `non_idempotent`. Keep `proxy_next_upstream` scoped to safe
+  conditions (`error timeout http_502`); the default already excludes non-idempotent methods.
+  Use `proxy_next_upstream off;` for write endpoints to disable retries entirely.
 
 ## AI Review Checklist
 

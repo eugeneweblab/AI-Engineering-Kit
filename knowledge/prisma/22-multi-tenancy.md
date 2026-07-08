@@ -72,10 +72,28 @@ function forTenant(tenantId: string) {
   return prisma.$extends({
     query: {
       $allModels: {
-        async $allOperations({ args, query }) {
-          // Inject tenant scoping into every read; stamp it onto every write.
-          (args as any).where = { ...(args as any).where, tenantId };
-          if ((args as any).data) (args as any).data.tenantId = tenantId;
+        async $allOperations({ operation, args, query }) {
+          // Filter by tenant on ops that take a `where`...
+          if (
+            [
+              'findMany', 'findFirst', 'findUnique', 'findUniqueOrThrow',
+              'findFirstOrThrow', 'count', 'aggregate', 'groupBy',
+              'updateMany', 'deleteMany',
+            ].includes(operation)
+          ) {
+            (args as any).where = { ...(args as any).where, tenantId };
+          }
+          // ...and stamp the tenant onto ops that write rows (no `where`).
+          if (operation === 'create' || operation === 'createMany') {
+            const data = (args as any).data;
+            (args as any).data = Array.isArray(data)
+              ? data.map((row: any) => ({ ...row, tenantId }))
+              : { ...data, tenantId };
+          }
+          if (operation === 'upsert') {
+            (args as any).where = { ...(args as any).where, tenantId };
+            (args as any).create = { ...(args as any).create, tenantId };
+          }
           return query(args);
         },
       },

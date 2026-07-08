@@ -70,10 +70,16 @@ or empty tags that quietly suppress rankings while the page looks fine.
 **Good Example** — one owner for metadata, valid JSON-LD once
 
 ```php
-// functions.php (child theme): remove Divi's title output so the SEO plugin is
-// the single source of truth. Prevents duplicate/empty <title> tags.
-remove_action( 'wp_head', 'et_add_viewport_meta' ); // keep viewport if plugin omits it — verify first
-// Let Rank Math/Yoast manage <title>, meta description, canonical, OG, and schema.
+// Make the SEO plugin the single source of truth for metadata.
+// Modern Divi exposes no removable wp_head "SEO" action: its ePanel SEO tab writes
+// meta inline, and <title> comes from WordPress title-tag support — so you disable
+// Divi's output by configuration, not remove_action().
+//   1. Divi > Theme Options > SEO: leave the Homepage/Single-post SEO fields blank
+//      (or disable the tab) so Divi emits no title/description/keywords.
+//   2. Ensure the theme declares title-tag support so the plugin can filter <title>:
+add_theme_support( 'title-tag' ); // functions.php (child theme)
+// Rank Math/Yoast then own <title>, meta description, canonical, OG, and schema
+// via the document_title / wp_head filters — no duplicate or empty tags.
 ```
 
 ```html

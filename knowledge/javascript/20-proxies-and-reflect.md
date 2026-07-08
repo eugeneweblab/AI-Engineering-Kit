@@ -111,10 +111,10 @@ const handler = {
     target[prop] = value;   // ignores setters and receiver; may violate invariants
     return true;
   },
-  has() { return "yes"; },  // WRONG type: `has` must return boolean → TypeError on `in`
+  ownKeys() { return "nope"; }, // WRONG type: `ownKeys` must return an array-like object
 };
 const p = new Proxy({}, handler);
-"age" in p;                 // throws TypeError: trap returned non-boolean
+Object.keys(p);             // throws TypeError: ownKeys trap must return an array-like object
 ```
 
 ## Common Mistakes

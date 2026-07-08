@@ -43,15 +43,19 @@ Observe
     ↓
 Reproduce
     ↓
-Understand
+Define Expected Behavior
     ↓
-Locate
+Isolate the Problem
     ↓
-Verify
+Collect Evidence
     ↓
-Fix
+Identify the Root Cause
     ↓
-Validate
+Design the Fix
+    ↓
+Verify the Fix
+    ↓
+Prevent Regression
 ```
 
 Never skip steps.

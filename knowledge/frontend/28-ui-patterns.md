@@ -69,7 +69,7 @@ reusable, reviewed decision.
 
 ```tsx
 function Users() {
-  const { data, status, error } = useQuery(["users"], fetchUsers);
+  const { data, status, error } = useQuery({ queryKey: ["users"], queryFn: fetchUsers });
   if (status === "pending") return <Spinner aria-label="Loading users" />;
   if (status === "error")   return <ErrorState error={error} onRetry={/* refetch */} />;
   if (data.length === 0)    return <EmptyState message="No users yet" />;
@@ -87,7 +87,7 @@ function Users() {
 
 ```tsx
 function Users() {
-  const { data } = useQuery(["users"], fetchUsers);
+  const { data } = useQuery({ queryKey: ["users"], queryFn: fetchUsers });
   return <UserList users={data ?? []} />; // no loading/error/empty: blank flash, silent failures
 }
 

@@ -24,9 +24,11 @@ Caching should be considered during application architecture rather than added a
 
 ## Core Principle
 
-Cache by default.
+Cache intentionally.
 
-Invalidate intentionally.
+In Next.js 15+, server-side `fetch()` is uncached by default. Caching is opt-in.
+
+Enable caching deliberately with `cache: "force-cache"`, `next: { revalidate }`, or the `use cache` directive.
 
 Every cached resource should have a clearly defined invalidation strategy.
 
@@ -106,16 +108,16 @@ Never publicly cache personalized content.
 
 ## Data Cache
 
-Next.js automatically caches eligible server-side `fetch()` requests.
+In Next.js 15+, server-side `fetch()` requests are uncached by default. Opt into the Data Cache explicitly with `cache: "force-cache"` or `next: { revalidate }`, or use the `use cache` directive.
 
-Benefits include:
+Benefits of caching eligible requests include:
 
 - reduced network traffic;
 - improved response times;
-- automatic request reuse;
+- request reuse across renders;
 - lower infrastructure costs.
 
-Avoid bypassing the Data Cache unless the business requirements demand fresh data.
+Enable the Data Cache whenever data can tolerate staleness, and leave requests uncached only when fresh data is required on every request.
 
 ---
 

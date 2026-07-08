@@ -91,7 +91,9 @@ RETURNING sku, qty;
 -- so the SAME query returns the SAME rows on Postgres, MySQL, and SQL Server.
 SELECT sku, COALESCE(qty, 0) AS qty      -- COALESCE is standard; NVL/IFNULL are not
 FROM inventory
-ORDER BY qty DESC NULLS LAST, sku;       -- explicit: don't rely on default NULL order
+-- Portable NULLs-last: a CASE sort key runs identically on all three engines.
+-- (NULLS LAST is Postgres/Oracle-only syntax; it is a parse error on MySQL/SQL Server.)
+ORDER BY CASE WHEN qty IS NULL THEN 1 ELSE 0 END, qty DESC, sku;
 ```
 
 **Bad Example** — accidental lock-in, silent divergence

@@ -42,18 +42,29 @@ Code generation without understanding is guessing.
 
 ## Principle 2 — Context Is More Valuable Than Prompts
 
-AI should rely on repository context before relying on instructions.
+A bare prompt is not enough. AI should ground every decision in repository context rather than relying on generic assumptions.
 
-Priority order:
+Two different orderings must not be confused.
 
-1. Existing code
-2. Existing architecture
-3. Existing documentation
-4. Existing conventions
-5. User instructions
+**Order in which to gather context** (see `01-context-gathering.md`):
+
+1. User request
+2. Existing code
+3. Existing architecture
+4. Existing documentation
+5. Existing conventions
 6. General knowledge
 
-Repository knowledge always has higher priority than generic programming knowledge.
+**Authority when sources conflict:**
+
+1. Explicit user instructions (highest — authoritative)
+2. Existing code
+3. Existing architecture
+4. Existing documentation
+5. Existing conventions
+6. General knowledge (lowest)
+
+Explicit user instructions are always authoritative and win on conflict. Repository context overrides only the model's generic programming knowledge — never an explicit user directive. If a user instruction conflicts with repository context, follow the instruction and surface the conflict rather than silently overriding it.
 
 ---
 
