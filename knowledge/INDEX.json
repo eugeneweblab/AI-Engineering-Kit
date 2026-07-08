@@ -4,8 +4,8 @@
   "stats": {
     "topics": 49,
     "docs": 1354,
-    "ready": 1354,
-    "draft": 0
+    "ready": 1347,
+    "draft": 7
   },
   "topics": {
     "accessibility": {
@@ -2105,8 +2105,8 @@
     "checklists": {
       "path": "knowledge/checklists",
       "doc_count": 1,
-      "ready": 1,
-      "draft": 0,
+      "ready": 0,
+      "draft": 1,
       "docs": [
         {
           "id": "checklists/readme",
@@ -2114,7 +2114,7 @@
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "ready",
+          "status": "draft",
           "tags": [
             "checklists"
           ],
@@ -5214,8 +5214,8 @@
     "examples": {
       "path": "knowledge/examples",
       "doc_count": 1,
-      "ready": 1,
-      "draft": 0,
+      "ready": 0,
+      "draft": 1,
       "docs": [
         {
           "id": "examples/readme",
@@ -5223,7 +5223,7 @@
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "ready",
+          "status": "draft",
           "tags": [
             "examples"
           ],
@@ -12978,8 +12978,8 @@
     "playbooks": {
       "path": "knowledge/playbooks",
       "doc_count": 1,
-      "ready": 1,
-      "draft": 0,
+      "ready": 0,
+      "draft": 1,
       "docs": [
         {
           "id": "playbooks/readme",
@@ -12987,7 +12987,7 @@
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "ready",
+          "status": "draft",
           "tags": [
             "playbooks"
           ],
@@ -13993,8 +13993,8 @@
     "prompts": {
       "path": "knowledge/prompts",
       "doc_count": 1,
-      "ready": 1,
-      "draft": 0,
+      "ready": 0,
+      "draft": 1,
       "docs": [
         {
           "id": "prompts/readme",
@@ -14002,7 +14002,7 @@
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "ready",
+          "status": "draft",
           "tags": [
             "prompts"
           ],
@@ -16473,8 +16473,8 @@
     "snippets": {
       "path": "knowledge/snippets",
       "doc_count": 1,
-      "ready": 1,
-      "draft": 0,
+      "ready": 0,
+      "draft": 1,
       "docs": [
         {
           "id": "snippets/readme",
@@ -16482,7 +16482,7 @@
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "ready",
+          "status": "draft",
           "tags": [
             "snippets"
           ],
@@ -17475,8 +17475,8 @@
     "templates": {
       "path": "knowledge/templates",
       "doc_count": 1,
-      "ready": 1,
-      "draft": 0,
+      "ready": 0,
+      "draft": 1,
       "docs": [
         {
           "id": "templates/readme",
@@ -17484,7 +17484,7 @@
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "ready",
+          "status": "draft",
           "tags": [
             "templates"
           ],
@@ -17980,8 +17980,8 @@
     "tools": {
       "path": "knowledge/tools",
       "doc_count": 1,
-      "ready": 1,
-      "draft": 0,
+      "ready": 0,
+      "draft": 1,
       "docs": [
         {
           "id": "tools/readme",
@@ -17989,7 +17989,7 @@
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "ready",
+          "status": "draft",
           "tags": [
             "tools"
           ],

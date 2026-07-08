@@ -5,7 +5,7 @@ slug: readme
 title: "Templates"
 type: index
 order: -1
-status: ready
+status: draft
 tags: [templates]
 related: []
 when_to_use: "Read first to find the right document or code template before creating a new file."

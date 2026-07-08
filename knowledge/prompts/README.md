@@ -5,7 +5,7 @@ slug: readme
 title: "Prompts"
 type: index
 order: -1
-status: ready
+status: draft
 tags: [prompts]
 related: []
 when_to_use: "Read first to find a reusable prompt for an AI-assisted task."

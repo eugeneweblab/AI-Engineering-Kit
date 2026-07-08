@@ -5,7 +5,7 @@ slug: readme
 title: "Checklists"
 type: index
 order: -1
-status: ready
+status: draft
 tags: [checklists]
 related: []
 when_to_use: "Read first to find the right checklist before completing or reviewing work."

@@ -5,7 +5,7 @@ slug: readme
 title: "Playbooks"
 type: index
 order: -1
-status: ready
+status: draft
 tags: [playbooks]
 related: []
 when_to_use: "Read first to find the right operational playbook for the task at hand."
