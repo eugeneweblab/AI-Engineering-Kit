@@ -1,0 +1,38 @@
+name: knowledge-guardrails
+
+# Protects the knowledge base from the two regression classes the quality audit found:
+#   1. empty/stub docs marked `status: ready` (agents filter INDEX.json for ready docs)
+#   2. INDEX.json / INDEX.md drifting out of sync with the docs' frontmatter
+on:
+  push:
+    paths:
+      - "knowledge/**"
+      - "scripts/**"
+      - ".github/workflows/knowledge-guardrails.yml"
+  pull_request:
+    paths:
+      - "knowledge/**"
+      - "scripts/**"
+
+jobs:
+  guardrails:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: No stub marked ready
+        run: python3 scripts/check-ready-not-stub.py knowledge
+
+      - name: INDEX is in sync with frontmatter
+        run: |
+          python3 scripts/build-index.py
+          if ! git diff --quiet -- knowledge/INDEX.json knowledge/INDEX.md; then
+            echo "::error::INDEX.json/INDEX.md are stale. Run 'python3 scripts/build-index.py' and commit the result."
+            git --no-pager diff --stat -- knowledge/INDEX.json knowledge/INDEX.md
+            exit 1
+          fi
+          echo "INDEX is up to date."
