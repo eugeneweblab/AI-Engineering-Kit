@@ -131,6 +131,42 @@ Examples include:
 
 Custom Pipes should follow the same design principles.
 
+Bind built-in pipes at the parameter level. `DefaultValuePipe` runs before the
+parse pipe, so an absent query string is filled before it is coerced:
+
+```ts
+import {
+  Controller,
+  Get,
+  Param,
+  Query,
+  ParseUUIDPipe,
+  ParseIntPipe,
+  ParseBoolPipe,
+  DefaultValuePipe,
+} from '@nestjs/common';
+
+@Controller('users')
+export class UsersController {
+  constructor(private readonly users: UsersService) {}
+
+  @Get(':id')
+  findOne(@Param('id', ParseUUIDPipe) id: string) {
+    // id is a validated UUID string; a malformed value fails with 400 here
+    return this.users.findByIdOrFail(id);
+  }
+
+  @Get()
+  list(
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
+    @Query('active', new DefaultValuePipe(false), ParseBoolPipe) active: boolean,
+  ) {
+    // page is a number, active is a boolean — no manual parsing in the handler
+    return this.users.list({ page, active });
+  }
+}
+```
+
 ---
 
 ## Transformation
@@ -195,6 +231,38 @@ Examples:
 
 Normalization should remain predictable.
 
+A custom Pipe implements the `PipeTransform` interface and is decorated with
+`@Injectable`. The two type parameters are the input and output types; the
+`ArgumentMetadata` argument tells you which parameter is being processed:
+
+```ts
+import {
+  PipeTransform,
+  Injectable,
+  ArgumentMetadata,
+  BadRequestException,
+} from '@nestjs/common';
+
+@Injectable()
+export class TrimPipe implements PipeTransform<unknown, string> {
+  transform(value: unknown, metadata: ArgumentMetadata): string {
+    if (typeof value !== 'string') {
+      throw new BadRequestException(`${metadata.data ?? 'value'} must be a string`);
+    }
+    return value.trim(); // deterministic, no side effects, no I/O
+  }
+}
+```
+
+Bind it exactly like a built-in pipe:
+
+```ts
+@Get()
+search(@Query('q', TrimPipe) q: string) {
+  return this.users.search(q);
+}
+```
+
 ---
 
 ## Pipes vs DTO Validation
@@ -204,6 +272,54 @@ DTO validation verifies object structure.
 Pipes transform or validate individual values before business execution.
 
 Use both together when appropriate.
+
+`ValidationPipe` is the bridge between the two: it reads the `class-validator`
+decorators on a DTO and, with `transform: true`, hands the controller a real
+instance of the DTO class. Register it globally so every `@Body` is checked:
+
+```ts
+// main.ts
+import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,            // strip properties with no decorator
+      forbidNonWhitelisted: true, // reject payloads with unknown properties
+      transform: true,            // instantiate the DTO class and coerce primitives
+    }),
+  );
+  await app.listen(3000);
+}
+bootstrap();
+```
+
+```ts
+// create-user.dto.ts
+import { IsEmail, IsString, MinLength } from 'class-validator';
+import { Transform } from 'class-transformer';
+
+export class CreateUserDto {
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim().toLowerCase() : value))
+  @IsEmail()
+  email: string;
+
+  @IsString()
+  @MinLength(12)
+  password: string;
+}
+```
+
+```ts
+// The handler receives a validated, normalized CreateUserDto instance.
+@Post()
+create(@Body() dto: CreateUserDto) {
+  return this.users.create(dto);
+}
+```
 
 ---
 
@@ -273,6 +389,38 @@ Repository
 ↓
 
 Database
+```
+
+Bad — the Pipe reaches into persistence and runs business validation on every
+request. Existence ("does this user exist?") is a business question, not a
+transport one:
+
+```ts
+// Bad: a pipe that queries the database
+@Injectable()
+export class UserExistsPipe implements PipeTransform<string, string> {
+  constructor(
+    @InjectRepository(UserEntity)
+    private readonly repo: Repository<UserEntity>,
+  ) {}
+
+  async transform(id: string): Promise<string> {
+    const user = await this.repo.findOne({ where: { id } });
+    if (!user) throw new NotFoundException('User not found'); // business rule in a pipe
+    return id;
+  }
+}
+```
+
+Good — the Pipe validates only the transport format; the service owns the
+existence check and the not-found error:
+
+```ts
+// Good: pipe validates shape, service owns the business question
+@Get(':id')
+findOne(@Param('id', ParseUUIDPipe) id: string) {
+  return this.users.findByIdOrFail(id);
+}
 ```
 
 Correct:

@@ -30,6 +30,55 @@ Middleware runs before NestJS evaluates authentication, validation, or business 
 
 Its responsibility is to prepare the request context.
 
+NestJS supports two forms. A **functional middleware** is a plain
+`(req, res, next)` function — ideal for dependency-free concerns registered
+globally in `main.ts`. A **class middleware** is a class annotated with
+`@Injectable()` that implements the `NestMiddleware` interface, so it can
+receive providers through constructor injection and be wired per-route through
+a module's `configure(consumer: MiddlewareConsumer)` method.
+
+```typescript
+// correlation-id.middleware.ts — functional form, no dependencies.
+import { randomUUID } from 'node:crypto';
+import { Request, Response, NextFunction } from 'express';
+import { requestContextStorage } from './request-context';
+
+export function correlationIdMiddleware(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): void {
+  const incoming = req.headers['x-correlation-id'];
+  const correlationId =
+    typeof incoming === 'string' && incoming.length > 0
+      ? incoming
+      : randomUUID();
+
+  // Echo the id back so clients and downstream services can correlate logs.
+  res.setHeader('x-correlation-id', correlationId);
+
+  // Run the remainder of the request inside an isolated async context.
+  requestContextStorage.run({ correlationId }, () => next());
+}
+```
+
+```typescript
+// main.ts — register truly global middleware before the app listens.
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { correlationIdMiddleware } from './correlation-id.middleware';
+
+async function bootstrap(): Promise<void> {
+  const app = await NestFactory.create(AppModule);
+  // Global middleware runs before Nest's router, so the correlation id is
+  // available to every guard, interceptor, and handler that follows.
+  app.use(correlationIdMiddleware);
+  await app.listen(3000);
+}
+
+void bootstrap();
+```
+
 ---
 
 ## Middleware Goals
@@ -230,6 +279,45 @@ Possible use cases:
 
 Avoid passing context manually through every method.
 
+Define a single `AsyncLocalStorage` instance and the shape of the store, then
+expose an injectable service so any provider can read the current context
+without prop-drilling it through every method signature:
+
+```typescript
+// request-context.ts — one storage instance shared across the process.
+import { AsyncLocalStorage } from 'node:async_hooks';
+
+export interface RequestContext {
+  correlationId: string;
+  tenantId?: string;
+}
+
+export const requestContextStorage =
+  new AsyncLocalStorage<RequestContext>();
+```
+
+```typescript
+// request-context.service.ts — inject this wherever context is needed.
+import { Injectable } from '@nestjs/common';
+import { requestContextStorage } from './request-context';
+
+@Injectable()
+export class RequestContextService {
+  getCorrelationId(): string | undefined {
+    return requestContextStorage.getStore()?.correlationId;
+  }
+
+  getTenantId(): string | undefined {
+    return requestContextStorage.getStore()?.tenantId;
+  }
+}
+```
+
+Because the correlation-id middleware wraps `next()` in
+`requestContextStorage.run(...)`, every asynchronous continuation of that
+request — services, repositories, and even `res.on('finish')` callbacks —
+observes the same store.
+
 ---
 
 ## Request Logging
@@ -243,6 +331,67 @@ Middleware may log:
 - request start time.
 
 Avoid logging sensitive request bodies.
+
+A class middleware implements `NestMiddleware` and can inject providers. Here a
+logger measures request duration and reads the correlation id from the context
+service established earlier:
+
+```typescript
+// request-logger.middleware.ts
+import { Injectable, Logger, NestMiddleware } from '@nestjs/common';
+import { Request, Response, NextFunction } from 'express';
+import { RequestContextService } from './request-context.service';
+
+@Injectable()
+export class RequestLoggerMiddleware implements NestMiddleware {
+  private readonly logger = new Logger('HTTP');
+
+  constructor(private readonly context: RequestContextService) {}
+
+  use(req: Request, res: Response, next: NextFunction): void {
+    const startedAt = process.hrtime.bigint();
+    const { method, originalUrl } = req;
+
+    // Log once the response is fully sent, not before the handler runs.
+    res.on('finish', () => {
+      const durationMs =
+        Number(process.hrtime.bigint() - startedAt) / 1_000_000;
+      this.logger.log(
+        `${method} ${originalUrl} ${res.statusCode} ` +
+          `${durationMs.toFixed(1)}ms ` +
+          `correlationId=${this.context.getCorrelationId() ?? '-'}`,
+      );
+    });
+
+    next();
+  }
+}
+```
+
+Because a class middleware participates in dependency injection, it is wired
+through the owning module's `configure` method — not with `app.use()`. The
+module implements `NestModule` and receives a `MiddlewareConsumer`:
+
+```typescript
+// app.module.ts
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { RequestContextService } from './request-context.service';
+import { RequestLoggerMiddleware } from './request-logger.middleware';
+import { UsersController } from './users.controller';
+
+@Module({
+  controllers: [UsersController],
+  providers: [RequestContextService],
+})
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer): void {
+    consumer
+      .apply(RequestLoggerMiddleware)
+      // Scope to a controller, specific paths, or use '*' for every route.
+      .forRoutes(UsersController);
+  }
+}
+```
 
 ---
 
@@ -455,6 +604,72 @@ Creating request-scoped business objects.
 Logging passwords or tokens.
 
 Duplicating functionality already provided by Guards or Interceptors.
+
+The most common failure is pulling authorization and database access into
+middleware. That runs a query on every request, formats errors in the wrong
+layer, and hides the security decision from the guard pipeline:
+
+```typescript
+// BAD: middleware performing authentication, a DB lookup, and authorization.
+import { Injectable, NestMiddleware } from '@nestjs/common';
+import { Request, Response, NextFunction } from 'express';
+import { UserRepository } from './user.repository';
+
+@Injectable()
+export class AuthMiddleware implements NestMiddleware {
+  constructor(private readonly users: UserRepository) {}
+
+  async use(req: Request, res: Response, next: NextFunction): Promise<void> {
+    const token = req.headers.authorization?.split(' ')[1];
+    const user = await this.users.findByToken(token); // DB call per request
+    if (!user || user.role !== 'admin') {
+      res.status(403).json({ message: 'Forbidden' }); // wrong layer for errors
+      return;
+    }
+    req['user'] = user;
+    next();
+  }
+}
+```
+
+The middleware should only prepare context. Identity and permission checks
+belong in guards (see `09-guards.md`), which return the correct status codes
+and let exception filters format the response:
+
+```typescript
+// GOOD: middleware prepares context only; the guard authorizes.
+import {
+  CanActivate,
+  ExecutionContext,
+  Injectable,
+  NestMiddleware,
+} from '@nestjs/common';
+import { randomUUID } from 'node:crypto';
+import { Request, Response, NextFunction } from 'express';
+import { requestContextStorage } from './request-context';
+
+@Injectable()
+export class CorrelationIdMiddleware implements NestMiddleware {
+  use(req: Request, res: Response, next: NextFunction): void {
+    const incoming = req.headers['x-correlation-id'];
+    const correlationId =
+      typeof incoming === 'string' && incoming.length > 0
+        ? incoming
+        : randomUUID();
+    res.setHeader('x-correlation-id', correlationId);
+    requestContextStorage.run({ correlationId }, () => next());
+  }
+}
+
+@Injectable()
+export class AdminGuard implements CanActivate {
+  canActivate(context: ExecutionContext): boolean {
+    const req = context.switchToHttp().getRequest<Request>();
+    const user = req['user'] as { roles: string[] } | undefined;
+    return user?.roles.includes('admin') ?? false;
+  }
+}
+```
 
 ---
 

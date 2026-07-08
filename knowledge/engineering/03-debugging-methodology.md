@@ -149,6 +149,25 @@ Instead:
 
 Evidence should explain the behavior.
 
+Observe without changing behavior. Temporary logging that you remove afterward is evidence collection. Editing business logic mid-investigation is not—it hides the original bug behind a second change and makes root cause verification impossible.
+
+### Good Example
+
+```js
+// Observe the actual values without altering control flow.
+console.debug('checkout.user', { userId: user?.id, cartId: cart.id });
+```
+
+### Bad Example
+
+```js
+// A "fix" added during investigation. Now the guest branch masks
+// the real defect: you can no longer tell why user was missing.
+if (!user) {
+  user = await createGuestUser();
+}
+```
+
 ---
 
 ## Step 6 — Identify the Root Cause
@@ -157,23 +176,25 @@ Ask repeatedly:
 
 Why did this happen?
 
-Continue until the underlying cause becomes clear.
+Continue until the underlying cause becomes clear. Each answer should be an observed fact, not a guess.
 
-Examples:
+### Bad Example — a symptom described as a cause
 
-Bad diagnosis
+"The button doesn't work." This is the report, not a diagnosis. It names no component, no line, and no verifiable fact. Any fix based on it is a guess.
 
-"The button doesn't work."
+### Good Example — a chain of observed facts
 
-Better diagnosis
+Keep asking "why" until the answer is a specific, verifiable statement:
 
-"The click handler never executes."
+1. The button does nothing when clicked.
+2. Why? The click handler never runs (no log line fires).
+3. Why? The button is never rendered—its container returns `null`.
+4. Why? The container renders only when `isReady === true`.
+5. Why? `isReady` is derived from `data?.status`, and the API now returns `state` instead of `status`, so `isReady` is always `false`.
 
-Root cause
+Root cause: a renamed API field. Fix the field mapping—not the button.
 
-"The component is conditionally rendered and the condition is always false."
-
-Fix the root cause—not the symptom.
+Fix the root cause, not the symptom.
 
 ---
 
@@ -277,6 +298,25 @@ Changing random code until something appears to work.
 
 Masking the visible issue while leaving the underlying cause unchanged.
 
+The bug returns the moment the input changes, and the masking code becomes a permanent source of confusion for the next reader.
+
+### Bad Example
+
+```js
+// The total renders as a concatenated string like "09.9912.00".
+// This clamps the display but the total is still wrong.
+const displayTotal = Number.isNaN(Number(total)) ? '0.00' : total;
+```
+
+### Good Example
+
+```js
+// Fix where the wrong type enters the system: coerce once, at the boundary.
+function normalizeItems(apiItems) {
+  return apiItems.map((item) => ({ ...item, price: Number(item.price) }));
+}
+```
+
 ---
 
 ## Rewrite Instead of Investigate
@@ -312,6 +352,74 @@ When debugging, AI coding agents should:
 7. Suggest verification steps after implementation.
 
 AI should never present hypotheses as facts.
+
+---
+
+## Worked Example
+
+This example applies every step to one concrete defect.
+
+**Report:** "The cart total is wrong."
+
+### Step 1–3 — Observe, Reproduce, Define Expected
+
+- Observe: the total renders as `09.9912.00` instead of `21.99`.
+- Reproduce: happens on every cart with two or more items. The shortest reproduction is a cart with two items.
+- Expected: the total is the numeric sum of item prices.
+
+### Step 4–5 — Isolate and Collect Evidence
+
+Isolate to the summing function. Add one temporary log to inspect the values without changing behavior:
+
+```js
+function calculateTotal(items) {
+  console.debug('calculateTotal.items', items);
+  return items.reduce((sum, item) => sum + item.price, 0);
+}
+```
+
+The log shows `price` arrives as a string: `[{ price: "9.99" }, { price: "12.00" }]`.
+
+### Step 6 — Identify the Root Cause
+
+With string operands, `sum + item.price` concatenates instead of adding: `0 + "9.99"` yields `"09.99"`. The prices are strings because the API response is used without type coercion. That is the root cause—not the display.
+
+### Step 7 — Design the Fix
+
+The smallest safe change is to coerce prices to numbers once, at the boundary where the API data enters the system. Leave `calculateTotal` untouched so it keeps a single responsibility.
+
+### Bad Example — patch the symptom at the render site
+
+```js
+// Hides the bug for two-item carts, breaks differently for three items,
+// and leaves every other consumer of the data still broken.
+const displayTotal = String(total).replace(/^0/, '');
+```
+
+### Good Example — fix the type at the boundary
+
+```js
+function normalizeItems(apiItems) {
+  return apiItems.map((item) => ({ ...item, price: Number(item.price) }));
+}
+
+function calculateTotal(items) {
+  return items.reduce((sum, item) => sum + item.price, 0);
+}
+```
+
+### Step 8–9 — Verify and Prevent Regression
+
+Verify the total is now `21.99`, and lock the behavior in with a test that fails against the old code:
+
+```js
+test('calculateTotal sums numeric prices', () => {
+  const items = normalizeItems([{ price: '9.99' }, { price: '12.00' }]);
+  expect(calculateTotal(items)).toBeCloseTo(21.99);
+});
+```
+
+Remove the temporary `console.debug` line before finishing.
 
 ---
 

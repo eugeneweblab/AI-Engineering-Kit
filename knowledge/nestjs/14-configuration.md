@@ -126,6 +126,36 @@ config/
 
 Avoid one large configuration file.
 
+Use `registerAs` from `@nestjs/config` to define a namespaced, strongly typed
+configuration factory per domain. The exported token (`.KEY`) and
+`ConfigType<typeof factory>` give you fully typed injection later:
+
+```typescript
+// config/database.config.ts
+import { registerAs } from '@nestjs/config';
+
+export default registerAs('database', () => ({
+  url: process.env.DATABASE_URL as string,
+  poolSize: parseInt(process.env.DATABASE_POOL_SIZE ?? '10', 10),
+  ssl: process.env.DATABASE_SSL === 'true',
+}));
+```
+
+```typescript
+// config/app.config.ts
+import { registerAs } from '@nestjs/config';
+
+export default registerAs('app', () => ({
+  env: process.env.NODE_ENV ?? 'development',
+  port: parseInt(process.env.PORT ?? '3000', 10),
+  version: process.env.APP_VERSION ?? '0.0.0',
+  apiKey: process.env.API_KEY as string,
+}));
+```
+
+Each factory owns exactly one domain, so modules load only the configuration
+they need.
+
 ---
 
 ## Environment Variables
@@ -160,25 +190,100 @@ Typical validation includes:
 
 Applications should terminate immediately if configuration is invalid.
 
+Register the configuration factories with `ConfigModule.forRoot` and attach a
+validation schema. `@nestjs/config` runs the schema against `process.env`
+during module initialization, so a missing or malformed variable throws before
+the application accepts a single request:
+
+```typescript
+// app.module.ts
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import * as Joi from 'joi';
+import appConfig from './config/app.config';
+import databaseConfig from './config/database.config';
+
+@Module({
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true, // ConfigService is available everywhere without re-importing
+      cache: true, // read process.env once, then serve from memory
+      expandVariables: true, // allow ${VAR} references inside .env
+      load: [appConfig, databaseConfig],
+      validationSchema: Joi.object({
+        NODE_ENV: Joi.string()
+          .valid('development', 'test', 'staging', 'production')
+          .default('development'),
+        PORT: Joi.number().port().default(3000),
+        DATABASE_URL: Joi.string().uri().required(),
+        DATABASE_POOL_SIZE: Joi.number().integer().min(1).default(10),
+        DATABASE_SSL: Joi.boolean().default(false),
+        JWT_SECRET: Joi.string().min(32).required(),
+      }),
+      validationOptions: {
+        abortEarly: false, // report every invalid variable, not just the first
+      },
+    }),
+  ],
+})
+export class AppModule {}
+```
+
 ---
 
 ## Type Safety
 
-Configuration should expose strongly typed values.
+Configuration should expose strongly typed values. Reading raw string keys
+through `ConfigService.get('DATABASE_URL')` returns `string | undefined` and
+loses all IDE support. Inject the namespaced factory token instead and let
+`ConfigType` infer the shape.
 
-Avoid:
+**Bad — untyped, stringly-keyed lookups scattered through a service:**
 
+```typescript
+import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+
+@Injectable()
+export class BadDatabaseProvider {
+  constructor(private readonly config: ConfigService) {}
+
+  connect() {
+    // Return type is `string | undefined`; a typo in the key fails silently.
+    const url = this.config.get('DATABASE_URL');
+    const poolSize = Number(this.config.get('DATABASE_POOL_SIZE'));
+    return { url, poolSize };
+  }
+}
 ```
-config.get('DATABASE_URL')
+
+**Good — inject the typed, namespaced configuration object:**
+
+```typescript
+import { Inject, Injectable } from '@nestjs/common';
+import { ConfigType } from '@nestjs/config';
+import databaseConfig from '../config/database.config';
+
+@Injectable()
+export class DatabaseProvider {
+  constructor(
+    @Inject(databaseConfig.KEY)
+    private readonly config: ConfigType<typeof databaseConfig>,
+  ) {}
+
+  connect() {
+    // `config.url` is `string`, `config.poolSize` is `number`, `config.ssl` is `boolean`.
+    return {
+      url: this.config.url,
+      poolSize: this.config.poolSize,
+      ssl: this.config.ssl,
+    };
+  }
+}
 ```
 
-Prefer:
-
-```
-config.database.url
-```
-
-Typed configuration improves maintainability and IDE support.
+Typed configuration improves maintainability and IDE support, and a renamed
+field becomes a compile error instead of a runtime `undefined`.
 
 ---
 
@@ -254,6 +359,51 @@ Avoid reading `process.env` inside:
 - interceptors.
 
 Configuration access should remain centralized.
+
+**Bad — reading `process.env` directly inside a guard:**
+
+```typescript
+import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+
+@Injectable()
+export class ApiKeyGuard implements CanActivate {
+  canActivate(context: ExecutionContext): boolean {
+    const request = context.switchToHttp().getRequest();
+    // Unvalidated, untyped, and impossible to override in tests.
+    return request.headers['x-api-key'] === process.env.API_KEY;
+  }
+}
+```
+
+**Good — inject validated configuration through the constructor:**
+
+```typescript
+import {
+  CanActivate,
+  ExecutionContext,
+  Inject,
+  Injectable,
+} from '@nestjs/common';
+import { ConfigType } from '@nestjs/config';
+import appConfig from '../config/app.config';
+
+@Injectable()
+export class ApiKeyGuard implements CanActivate {
+  constructor(
+    @Inject(appConfig.KEY)
+    private readonly config: ConfigType<typeof appConfig>,
+  ) {}
+
+  canActivate(context: ExecutionContext): boolean {
+    const request = context.switchToHttp().getRequest();
+    return request.headers['x-api-key'] === this.config.apiKey;
+  }
+}
+```
+
+The injected variant is validated at startup and can be swapped with a test
+double through the DI container, whereas `process.env` reads are global,
+untyped, and unmockable.
 
 ---
 

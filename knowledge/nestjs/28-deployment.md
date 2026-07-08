@@ -154,6 +154,41 @@ Images should:
 
 Smaller images deploy faster and reduce security risks.
 
+A multi-stage build for a NestJS application compiles TypeScript in a throwaway
+build stage, installs only production dependencies in a separate stage, and
+copies just `dist/` and `node_modules` into a minimal runtime image. The image
+is built once and promoted unchanged through every environment.
+
+```dockerfile
+# ---- build stage: compile TypeScript to dist/ ----
+FROM node:22-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci                      # reproducible install pinned by package-lock.json
+COPY . .
+RUN npm run build               # runs `nest build` -> dist/main.js
+
+# ---- deps stage: runtime dependencies only ----
+FROM node:22-alpine AS deps
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --omit=dev           # no devDependencies in the runtime image
+
+# ---- runtime stage: minimal, non-root ----
+FROM node:22-alpine AS runtime
+ENV NODE_ENV=production
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
+COPY package.json ./
+USER node                       # never run the application as root
+EXPOSE 3000
+CMD ["node", "dist/main.js"]
+```
+
+Run the compiled entrypoint directly with `node dist/main.js`. Do not ship
+`nest start`, `ts-node`, or the Nest CLI into the runtime image.
+
 ---
 
 ## Environment Configuration
@@ -270,6 +305,64 @@ Benefits:
 
 Monitor each deployment stage.
 
+Rolling, blue-green, and canary strategies all send `SIGTERM` to the outgoing
+instances. Without graceful shutdown, the process exits immediately and drops
+in-flight requests, unfinished jobs, and open connections. Call
+`enableShutdownHooks()` so NestJS routes `SIGTERM`/`SIGINT` through its
+lifecycle: built-in modules (TypeORM, BullMQ, Terminus) drain automatically, and
+your own providers can implement `OnApplicationShutdown` for custom resources.
+
+```typescript
+// main.ts
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+
+  // BAD (omitting this): SIGTERM kills the process instantly during a rolling
+  // deploy, aborting active requests and leaking connections.
+  // GOOD: wire OS signals into Nest's shutdown lifecycle so providers drain.
+  app.enableShutdownHooks();
+
+  await app.listen(process.env.PORT ?? 3000);
+}
+bootstrap();
+```
+
+```typescript
+// metrics/metrics-flusher.service.ts
+import {
+  Injectable,
+  OnApplicationBootstrap,
+  OnApplicationShutdown,
+} from '@nestjs/common';
+
+@Injectable()
+export class MetricsFlusher
+  implements OnApplicationBootstrap, OnApplicationShutdown
+{
+  private timer?: NodeJS.Timeout;
+
+  onApplicationBootstrap(): void {
+    this.timer = setInterval(() => this.flush(), 5000);
+  }
+
+  // Runs after enableShutdownHooks() receives the signal, before the process
+  // exits. Stop background work and flush once more so nothing buffered is lost.
+  async onApplicationShutdown(signal?: string): Promise<void> {
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
+    await this.flush();
+  }
+
+  private async flush(): Promise<void> {
+    // push buffered metrics to the collector
+  }
+}
+```
+
 ---
 
 ## Rollback
@@ -296,6 +389,66 @@ Verify:
 - queue connectivity.
 
 Traffic should reach only healthy instances.
+
+NestJS exposes health endpoints through `@nestjs/terminus`. Separate
+**liveness** (is the process alive? — a failure tells the orchestrator to
+restart the pod) from **readiness** (can it serve traffic? — a failure tells the
+load balancer to stop routing to this instance). Liveness must stay cheap and
+must not call downstream dependencies; readiness is where you verify them.
+
+```typescript
+// health/health.controller.ts
+import { Controller, Get } from '@nestjs/common';
+import {
+  HealthCheck,
+  HealthCheckService,
+  MemoryHealthIndicator,
+  TypeOrmHealthIndicator,
+} from '@nestjs/terminus';
+
+@Controller('health')
+export class HealthController {
+  constructor(
+    private readonly health: HealthCheckService,
+    private readonly db: TypeOrmHealthIndicator,
+    private readonly memory: MemoryHealthIndicator,
+  ) {}
+
+  // Liveness: process-local only. Restarting fixes it; a DB outage must not.
+  @Get('live')
+  @HealthCheck()
+  liveness() {
+    return this.health.check([
+      () => this.memory.checkHeap('memory_heap', 300 * 1024 * 1024),
+    ]);
+  }
+
+  // Readiness: verify dependencies. Failing here drains traffic, not the pod.
+  @Get('ready')
+  @HealthCheck()
+  readiness() {
+    return this.health.check([
+      () => this.db.pingCheck('database', { timeout: 1500 }),
+    ]);
+  }
+}
+```
+
+```typescript
+// health/health.module.ts
+import { Module } from '@nestjs/common';
+import { TerminusModule } from '@nestjs/terminus';
+import { HealthController } from './health.controller';
+
+@Module({
+  imports: [TerminusModule], // TypeOrmModule must be available for TypeOrmHealthIndicator
+  controllers: [HealthController],
+})
+export class HealthModule {}
+```
+
+Point the orchestrator's liveness probe at `/health/live` and its readiness
+probe at `/health/ready`.
 
 ---
 
@@ -338,6 +491,38 @@ Every deployment should include:
 - deployment timestamp.
 
 Production systems should always identify the running version.
+
+Inject build metadata as environment variables at build time (from CI: the Git
+SHA, semantic version, build id) and expose them through a small controller so
+any running instance can report exactly which artifact it is. Read them through
+`ConfigService`, never `process.env` scattered across the codebase.
+
+```typescript
+// info/info.controller.ts
+import { Controller, Get } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+
+@Controller('info')
+export class InfoController {
+  // captured once when the module is instantiated, i.e. at process start
+  private static readonly startedAt = new Date().toISOString();
+
+  constructor(private readonly config: ConfigService) {}
+
+  @Get()
+  version() {
+    return {
+      version: this.config.get<string>('APP_VERSION', '0.0.0'),
+      commit: this.config.get<string>('GIT_SHA', 'unknown'),
+      buildId: this.config.get<string>('BUILD_ID', 'unknown'),
+      startedAt: InfoController.startedAt,
+    };
+  }
+}
+```
+
+A `GET /info` response now uniquely identifies the deployed build, which makes
+rollbacks and incident triage unambiguous.
 
 ---
 

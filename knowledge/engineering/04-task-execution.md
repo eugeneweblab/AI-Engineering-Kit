@@ -128,6 +128,22 @@ A good implementation plan should answer:
 
 Planning reduces unnecessary changes.
 
+A plan is useful only when it names files, risks, and boundaries. Write the plan down before touching code.
+
+**Good Example** — task: "Users can place a duplicate order by double-clicking Place order."
+
+> - **Change:** ignore the second submit while the first request is in flight, and send an idempotency key so a retried request cannot create a second order.
+> - **Files:** `checkout/OrderForm.tsx` (guard the submit), `api/orders.ts` (attach the key).
+> - **Reuse:** the server already deduplicates by idempotency key — verified in `orders.service.ts`, so no server change is needed.
+> - **Risk:** if the request fails, the button must re-enable or the user is stuck. Cover this with a test.
+> - **Do not touch:** pricing logic, unrelated form fields.
+
+**Bad Example**
+
+> Fix the double-order bug. Make the checkout more robust and clean up the form while I'm in there.
+
+The bad plan names no files, no reuse, no risk, and no boundary. "Clean up the form while I'm in there" invites unrelated changes that make review and rollback harder.
+
 ---
 
 ## Phase 5 — Implement
@@ -143,6 +159,52 @@ Guidelines:
 - keep commits focused.
 
 Every change should have a clear purpose.
+
+Continuing the duplicate-order task, the implementation should make the smallest change that fixes the root cause — a submit that fires more than once.
+
+**Bad Example**
+
+```tsx
+// Bad: does not fix the cause, no failure handling, and "cleans up" unrelated code
+function OrderForm() {
+  const submit = async () => {
+    await createOrder(cart); // still fires again on every click
+  };
+  // ...also reordered every field and renamed local variables while here
+  return <button onClick={submit}>Place order</button>;
+}
+```
+
+Why it fails: the guard is missing, so the bug remains. The unrelated field reordering and renames enlarge the diff, hide the one line that matters, and create regression risk in code the task never asked you to change.
+
+**Good Example**
+
+```tsx
+import { useState } from "react";
+
+// Good: smallest change that fixes the root cause; re-enables on failure
+function OrderForm() {
+  const [submitting, setSubmitting] = useState(false);
+
+  const submit = async () => {
+    if (submitting) return; // ignore repeat clicks while a request is in flight
+    setSubmitting(true);
+    try {
+      await createOrder(cart, { idempotencyKey: cart.id });
+    } finally {
+      setSubmitting(false); // always re-enable, even when the request throws
+    }
+  };
+
+  return (
+    <button onClick={submit} disabled={submitting}>
+      Place order
+    </button>
+  );
+}
+```
+
+Why it works: it changes one component, addresses the root cause (repeat submits and retried requests), handles the failure path in `finally`, and leaves every unrelated line untouched.
 
 ---
 
@@ -160,6 +222,29 @@ Check:
 - security has not been weakened.
 
 Verification is part of implementation.
+
+Prefer verification you can repeat. An automated test that covers both the requirement and the edge case that motivated the task turns "I checked it once" into "it stays checked."
+
+**Good Example** — a test that covers the happy path *and* the failure path:
+
+```ts
+import { test, expect } from "vitest";
+import { applyCoupon } from "./checkout";
+
+test("applies a valid percentage coupon", () => {
+  expect(applyCoupon(10000, "SAVE10")).toBe(9000);
+});
+
+test("rejects an expired coupon instead of silently discounting", () => {
+  expect(() => applyCoupon(10000, "EXPIRED2023")).toThrow(/expired/i);
+});
+```
+
+**Bad Example**
+
+> "Ran the app, clicked the button once, the discount showed up. Looks good."
+
+Why it fails: it exercises only the happy path, cannot be repeated by the next engineer, and never checks the edge case (an expired coupon) that the task was likely reported to fix.
 
 ---
 
@@ -288,6 +373,16 @@ AI should distinguish clearly between:
 - uncertainty.
 
 When uncertainty exists, AI should state it explicitly instead of presenting speculation as fact.
+
+**Good Example**
+
+> I disabled the button while the request is in flight and added an idempotency key (`checkout/OrderForm.tsx`, `api/orders.ts`). I confirmed the server already deduplicates by that key in `orders.service.ts`, so no server change was needed. **Assumption:** `cart.id` is stable across retries — if the cart id is regenerated per render, the key will not deduplicate and we need a persisted key instead. I verified the fix with a unit test that double-submits and asserts `createOrder` is called once.
+
+**Bad Example**
+
+> Fixed the duplicate order bug. It works now.
+
+Why it fails: it hides what was changed, states no evidence, buries a real assumption (`cart.id` stability), and claims success with no verification a reviewer can check.
 
 ---
 

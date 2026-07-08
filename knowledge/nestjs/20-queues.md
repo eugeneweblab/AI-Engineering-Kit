@@ -144,6 +144,80 @@ Every job should have:
 
 Jobs should contain only the data required for execution.
 
+The idiomatic NestJS integration is `@nestjs/bullmq` (BullMQ over Redis). Register the connection once, declare each queue, and set safe default job options — retries, exponential backoff, and retention — in one place so producers stay simple.
+
+```typescript
+// email.module.ts
+import { Module } from '@nestjs/common';
+import { BullModule } from '@nestjs/bullmq';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { EmailService } from './email.service';
+import { EmailProcessor } from './email.processor';
+
+@Module({
+  imports: [
+    // Register the Redis connection once for the whole application.
+    BullModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => ({
+        connection: {
+          host: config.getOrThrow<string>('REDIS_HOST'),
+          port: config.getOrThrow<number>('REDIS_PORT'),
+        },
+      }),
+    }),
+    // Declare the queues this module produces to and consumes from.
+    BullModule.registerQueue(
+      {
+        name: 'email',
+        defaultJobOptions: {
+          attempts: 5,
+          backoff: { type: 'exponential', delay: 5000 },
+          removeOnComplete: 1000,
+          removeOnFail: false, // keep failed jobs for inspection and DLQ routing
+        },
+      },
+      { name: 'email-dlq' },
+    ),
+  ],
+  providers: [EmailService, EmailProcessor],
+})
+export class EmailModule {}
+```
+
+The producer enqueues **after** the business state is committed, and uses a
+stable `jobId` so re-enqueueing the same unit of work is a no-op:
+
+```typescript
+// email.service.ts
+import { Injectable } from '@nestjs/common';
+import { InjectQueue } from '@nestjs/bullmq';
+import { Queue } from 'bullmq';
+
+export interface WelcomeEmailJob {
+  userId: string;
+  email: string;
+  correlationId: string;
+}
+
+@Injectable()
+export class EmailService {
+  constructor(
+    @InjectQueue('email') private readonly emailQueue: Queue<WelcomeEmailJob>,
+  ) {}
+
+  async enqueueWelcomeEmail(job: WelcomeEmailJob): Promise<void> {
+    // Call this only once the user has been persisted and committed.
+    await this.emailQueue.add('send-welcome', job, {
+      // A stable jobId makes enqueueing idempotent: a second add with the
+      // same id is ignored while that job is still in the queue.
+      jobId: `welcome:${job.userId}`,
+    });
+  }
+}
+```
+
 ---
 
 ## Idempotency
@@ -177,6 +251,38 @@ Do not retry:
 - validation failures;
 - authorization failures;
 - permanent business rule violations.
+
+In BullMQ, a processor that throws a normal error is retried until `attempts`
+is exhausted. Throw `UnrecoverableError` to fail a job **immediately** with no
+further retries — use it for permanent failures.
+
+```typescript
+// Bad — every failure consumes all 5 attempts, including permanent ones.
+// A malformed payload burns retries and delays reaching the DLQ.
+async process(job: Job<WelcomeEmailJob>): Promise<void> {
+  const dto = await this.validate(job.data); // throws on invalid data
+  await this.mailer.sendWelcome(dto);        // throws on network error
+}
+```
+
+```typescript
+// Good — classify failures. Transient errors bubble up so BullMQ retries
+// with backoff; permanent errors throw UnrecoverableError to fail at once.
+import { UnrecoverableError } from 'bullmq';
+
+async process(job: Job<WelcomeEmailJob>): Promise<void> {
+  let dto: WelcomeEmailJob;
+  try {
+    dto = await this.validate(job.data);
+  } catch {
+    // Validation never succeeds on retry — do not waste attempts.
+    throw new UnrecoverableError('Invalid email job payload');
+  }
+
+  // Network/SMTP errors are transient — let them bubble up to be retried.
+  await this.mailer.sendWelcome(dto);
+}
+```
 
 ---
 
@@ -285,6 +391,87 @@ Workers should:
 - produce structured logs.
 
 Avoid large, multi-purpose workers.
+
+A NestJS worker is a `@Processor` class extending `WorkerHost`. The single
+`process` method handles one job type; concurrency is configured on the
+decorator, and `@OnWorkerEvent` hooks handle lifecycle events. Even though the
+payload came from our own queue, it is untrusted input and is validated before
+use. The `failed` handler routes exhausted or unrecoverable jobs to the DLQ —
+BullMQ has no native dead-letter queue, so this is done explicitly.
+
+```typescript
+// email.processor.ts
+import {
+  Processor,
+  WorkerHost,
+  OnWorkerEvent,
+  InjectQueue,
+} from '@nestjs/bullmq';
+import { Logger } from '@nestjs/common';
+import { Job, Queue, UnrecoverableError } from 'bullmq';
+import { plainToInstance } from 'class-transformer';
+import { validateOrReject, IsEmail, IsString } from 'class-validator';
+// Your application's own mail sender (declared as a Nest provider).
+import { MailerService } from './mailer.service';
+
+class WelcomeEmailPayload {
+  @IsString() userId!: string;
+  @IsEmail() email!: string;
+  @IsString() correlationId!: string;
+}
+
+@Processor('email', { concurrency: 5 })
+export class EmailProcessor extends WorkerHost {
+  private readonly logger = new Logger(EmailProcessor.name);
+
+  constructor(
+    private readonly mailer: MailerService,
+    @InjectQueue('email-dlq') private readonly dlq: Queue,
+  ) {
+    super();
+  }
+
+  async process(job: Job<unknown>): Promise<void> {
+    const payload = plainToInstance(WelcomeEmailPayload, job.data);
+    try {
+      await validateOrReject(payload);
+    } catch {
+      // Schema violations are permanent — fail fast, do not retry.
+      throw new UnrecoverableError('Invalid email job payload');
+    }
+
+    // Idempotency guard: sending the same welcome email twice is a business
+    // bug, so short-circuit if delivery was already recorded.
+    if (await this.mailer.alreadySent(payload.userId)) {
+      this.logger.log(`Skipping duplicate welcome email for ${payload.userId}`);
+      return;
+    }
+
+    // Transient SMTP/network errors bubble up and are retried with backoff.
+    await this.mailer.sendWelcome(payload);
+  }
+
+  @OnWorkerEvent('failed')
+  async onFailed(job: Job, err: Error): Promise<void> {
+    this.logger.error(
+      `Job ${job.id} failed on attempt ${job.attemptsMade}: ${err.message}`,
+    );
+
+    const exhausted = job.attemptsMade >= (job.opts.attempts ?? 1);
+    if (exhausted || err instanceof UnrecoverableError) {
+      await this.dlq.add('dead-letter', {
+        originalName: job.name,
+        data: job.data,
+        reason: err.message,
+      });
+    }
+  }
+}
+```
+
+`WorkerHost` closes its BullMQ worker on application shutdown, so enable Nest's
+shutdown hooks in `main.ts` (`app.enableShutdownHooks()`) to let in-flight jobs
+finish before the process exits.
 
 ---
 

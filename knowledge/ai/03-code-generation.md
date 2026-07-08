@@ -69,24 +69,63 @@ Generate code that follows the existing project.
 
 Never generate code based only on generic framework examples.
 
+### Technique: mirror the nearest sibling
+
+The most reliable way to generate code that belongs is not to write from a mental template — it is to open the closest existing file that solves the same *category* of problem and copy its skeleton, then swap the domain-specific parts. A sibling file answers, in one read, every convention question you would otherwise guess at: how classes are decorated, how dependencies arrive, where errors are thrown, what gets logged, and what the file exports.
+
+Concretely, when asked to add a `findByEmail` method to a service, first read a sibling method in the same repo:
+
+```ts
+// EXISTING sibling in the repo — read this before writing anything.
+@Injectable()
+export class UsersService {
+  constructor(private readonly prisma: PrismaService) {}
+
+  async findById(id: string): Promise<User> {
+    const user = await this.prisma.user.findUnique({ where: { id } });
+    if (!user) {
+      throw new NotFoundException(`User ${id} not found`);
+    }
+    return user;
+  }
+}
+```
+
+Now generate the new method as a structural clone of the sibling — same injected client, same lookup-then-guard shape, same exception type and message format:
+
+```ts
+async findByEmail(email: string): Promise<User> {
+  const user = await this.prisma.user.findUnique({ where: { email } });
+  if (!user) {
+    throw new NotFoundException(`User ${email} not found`);
+  }
+  return user;
+}
+```
+
+The new method requires no design decisions because the sibling already made them. This is the difference between generating code that *works* and generating code that *belongs*.
+
 ---
 
 ## Reuse Before Creation
 
-Before creating any new implementation, search for:
+Before creating any new implementation, search for an existing one. Duplicate logic is the last option, not the first.
 
-- components;
-- services;
-- utilities;
-- hooks;
-- helpers;
-- validation logic;
-- middleware;
-- API clients;
-- constants;
-- types.
+Run the search before you write, and let the result decide whether you generate at all:
 
-Creating duplicate logic should always be the last option.
+```bash
+# About to write a slug/formatter/date helper? Prove it does not already exist.
+rg -n "export (function|const) (slugify|formatDate|toCurrency)" src/ shared/ lib/
+
+# About to add validation? Find the project's validation convention first.
+rg -l "z\.object\(|class \w+Dto|@IsString\(" src/
+```
+
+If a helper already exists, import it. If a *convention* exists (for example, the repo validates every DTO with `zod`), generate the new code inside that convention rather than introducing a parallel one. State the outcome of the search explicitly:
+
+> "`src/shared/text.ts` already exports `slugify`, so the new route imports it instead of defining a local copy."
+
+Categories worth searching before generating: components, services, utilities, hooks, helpers, validation logic, middleware, API clients, constants, and types.
 
 ---
 
@@ -106,6 +145,41 @@ Respect:
 - error handling patterns.
 
 The generated code should not reveal which AI model produced it.
+
+### Worked example: generic output vs repository-matched output
+
+The failure mode is generating a plausible framework tutorial answer instead of code shaped like the repository. Suppose the repo consistently uses constructor-injected dependencies, a `Logger` instance, typed returns, and domain exceptions. The generic answer ignores all of that.
+
+Bad — reads like a copied framework snippet, not like the repo:
+
+```ts
+// Untyped, raw Error, console logging, default export — none of which the repo uses.
+export default async function createOrder(data: any) {
+  console.log("creating order", data);
+  const order = await db.orders.insert(data);
+  if (!order) throw new Error("failed");
+  return order;
+}
+```
+
+Good — matches the conventions an adjacent service already established:
+
+```ts
+@Injectable()
+export class OrdersService {
+  private readonly logger = new Logger(OrdersService.name);
+
+  constructor(private readonly prisma: PrismaService) {}
+
+  async create(input: CreateOrderDto): Promise<Order> {
+    this.logger.log(`Creating order for customer ${input.customerId}`);
+    const order = await this.prisma.order.create({ data: input });
+    return order;
+  }
+}
+```
+
+The two blocks are functionally similar. Only the second one integrates: it is injectable, typed with the repo's DTO, logs through the repo's logger, and throws through the repo's exception layer (via Prisma/Nest, not a bare `Error`). Match the layer, not just the behavior.
 
 ---
 
@@ -244,6 +318,25 @@ Never invent:
 - business rules.
 
 When information cannot be verified, state the uncertainty.
+
+### Technique: verify every referenced symbol before you emit it
+
+The highest-frequency hallucination is a reference to something that *sounds* right — a config key, a helper name, an env var, a column. Before generating a line that depends on such a symbol, confirm it exists in the repo:
+
+```bash
+# Before writing this.config.get('STRIPE_WEBHOOK_SECRET'), prove the key is defined.
+rg -n "STRIPE_WEBHOOK_SECRET" .env.example src/config/
+
+# Before calling formatMoney(...), prove it is exported somewhere.
+rg -n "export .*formatMoney" src/ shared/ lib/
+
+# Before referencing a Prisma column, prove it is in the schema.
+rg -n "customerId" prisma/schema.prisma
+```
+
+If a search returns nothing, do not invent the symbol to make the code compile in your head. Either use the real name the search *does* reveal, or surface the gap:
+
+> "I could not find a `STRIPE_WEBHOOK_SECRET` in `.env.example`; the webhook handler needs one added before this code runs."
 
 ---
 

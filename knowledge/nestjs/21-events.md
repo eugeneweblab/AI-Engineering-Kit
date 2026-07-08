@@ -93,6 +93,57 @@ Business Actions
 
 Events should only be published after successful persistence.
 
+In NestJS the in-process bus is `@nestjs/event-emitter`. The lesson below is timing: emit **after** the transaction commits, never inside it. A handler that runs while the transaction is still open can read state that never becomes durable if the commit later fails.
+
+```ts
+// orders/orders.service.ts
+import { Injectable } from '@nestjs/common';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { DataSource } from 'typeorm';
+import { Order } from './entities/order.entity';
+import { CreateOrderDto } from './dto/create-order.dto';
+import { OrderCreatedEvent } from './events/order-created.event';
+
+@Injectable()
+export class OrdersService {
+  constructor(
+    private readonly dataSource: DataSource,
+    private readonly events: EventEmitter2,
+  ) {}
+
+  // GOOD — persist inside a transaction, publish only after it commits.
+  async placeOrder(dto: CreateOrderDto): Promise<Order> {
+    const order = await this.dataSource.transaction(async (manager) => {
+      const created = manager.create(Order, {
+        productId: dto.productId,
+        quantity: dto.quantity,
+        status: 'pending',
+      });
+      return manager.save(created);
+    });
+
+    // The commit already succeeded, so the fact is now durable.
+    this.events.emit(
+      'order.created',
+      new OrderCreatedEvent(order.id, order.productId, order.quantity),
+    );
+    return order;
+  }
+
+  // BAD — emitting inside the transaction. Consumers may react to an order
+  // that never commits if the transaction rolls back after this line.
+  async placeOrderWrong(dto: CreateOrderDto): Promise<Order> {
+    return this.dataSource.transaction(async (manager) => {
+      const created = await manager.save(
+        manager.create(Order, { productId: dto.productId, quantity: dto.quantity }),
+      );
+      this.events.emit('order.created', new OrderCreatedEvent(created.id, created.productId, created.quantity));
+      return created; // if a later step throws, the event was still delivered
+    });
+  }
+}
+```
+
 ---
 
 ## Event Categories
@@ -183,6 +234,28 @@ Responsibilities:
 
 Business logic should remain independent of the Event Bus implementation.
 
+Register the bus once at the root. Enabling `wildcard` lets consumers subscribe to patterns such as `order.*`, and `maxListeners` guards against silent listener leaks.
+
+```ts
+// app.module.ts
+import { Module } from '@nestjs/common';
+import { EventEmitterModule } from '@nestjs/event-emitter';
+
+@Module({
+  imports: [
+    EventEmitterModule.forRoot({
+      wildcard: true, // allows @OnEvent('order.*')
+      delimiter: '.', // namespace separator used for wildcards
+      maxListeners: 20,
+      verboseMemoryLeak: true,
+    }),
+  ],
+})
+export class AppModule {}
+```
+
+`@nestjs/event-emitter` is **in-process only** — events live and die inside a single Node.js process. For cross-service or cross-instance delivery, publish to a broker (BullMQ, Kafka, RabbitMQ, SNS/SQS) instead; see the queues and distributed-systems docs. Keep business services depending on your own typed event classes so the transport can be swapped without touching domain code.
+
 ---
 
 ## Synchronous Events
@@ -226,6 +299,27 @@ Every event should include:
 - payload.
 
 Avoid oversized payloads.
+
+Model the event as an immutable class so every emit carries the same envelope. Prefer identifiers over full entities — send `aggregateId`, not the hydrated order with its relations.
+
+```ts
+// orders/events/order-created.event.ts
+import { randomUUID } from 'node:crypto';
+
+export class OrderCreatedEvent {
+  readonly eventId: string = randomUUID();       // unique per emit — used for idempotency
+  readonly type = 'order.created' as const;      // stable event type
+  readonly version = 1;                          // bump on breaking payload changes
+  readonly occurredAt: string = new Date().toISOString();
+
+  constructor(
+    readonly aggregateId: string, // the order id — not the whole entity
+    readonly productId: string,
+    readonly quantity: number,
+    readonly correlationId: string = randomUUID(), // propagate from the inbound request
+  ) {}
+}
+```
 
 ---
 
@@ -292,6 +386,61 @@ Every event handler should be idempotent.
 Receiving the same event multiple times should not produce duplicate business effects.
 
 Duplicate delivery is expected in distributed systems.
+
+Guard the handler with a persisted record of processed `eventId`s. A unique constraint makes the guard safe even under concurrent redelivery. `@OnEvent('...', { async: true })` marks the listener asynchronous so a rejected promise surfaces instead of being swallowed.
+
+```ts
+// notifications/processed-event.entity.ts
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
+
+@Entity('processed_events')
+export class ProcessedEvent {
+  @PrimaryColumn('uuid')
+  eventId: string; // the event's eventId — a duplicate insert throws
+
+  @CreateDateColumn()
+  processedAt: Date;
+}
+```
+
+```ts
+// notifications/order-created.listener.ts
+import { Injectable, Logger } from '@nestjs/common';
+import { OnEvent } from '@nestjs/event-emitter';
+import { InjectRepository } from '@nestjs/typeorm';
+import { QueryFailedError, Repository } from 'typeorm';
+import { ProcessedEvent } from './processed-event.entity';
+import { OrderCreatedEvent } from '../orders/events/order-created.event';
+import { MailerService } from './mailer.service';
+
+@Injectable()
+export class OrderCreatedListener {
+  private readonly logger = new Logger(OrderCreatedListener.name);
+
+  constructor(
+    @InjectRepository(ProcessedEvent)
+    private readonly processed: Repository<ProcessedEvent>,
+    private readonly mailer: MailerService,
+  ) {}
+
+  @OnEvent('order.created', { async: true })
+  async handle(event: OrderCreatedEvent): Promise<void> {
+    try {
+      // Claim the event first; the PK conflict rejects a duplicate.
+      await this.processed.insert({ eventId: event.eventId });
+    } catch (err) {
+      if (err instanceof QueryFailedError) {
+        this.logger.debug(`Skipping duplicate event ${event.eventId}`);
+        return;
+      }
+      throw err;
+    }
+
+    // Runs at most once per eventId, even under redelivery.
+    await this.mailer.sendOrderConfirmation(event.aggregateId);
+  }
+}
+```
 
 ---
 

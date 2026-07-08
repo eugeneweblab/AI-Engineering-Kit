@@ -191,6 +191,41 @@ Plugins should primarily contain:
 
 Features that may outlive the active theme generally belong in plugins.
 
+Custom post types are the clearest example: they represent structured content that must survive a theme switch, so they belong in a plugin and must be registered on the `init` hook.
+
+Good — a custom post type registered in a plugin, on the correct hook:
+
+```php
+add_action( 'init', 'acme_register_review_cpt' );
+
+function acme_register_review_cpt() {
+	register_post_type(
+		'acme_review',
+		array(
+			'labels'       => array(
+				'name'          => __( 'Reviews', 'acme' ),
+				'singular_name' => __( 'Review', 'acme' ),
+			),
+			'public'       => true,
+			'has_archive'  => true,
+			'show_in_rest' => true, // Required for the block editor and REST API.
+			'menu_icon'    => 'dashicons-star-filled',
+			'supports'     => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+			'rewrite'      => array( 'slug' => 'reviews' ),
+		)
+	);
+}
+```
+
+Bad — registering content types from the theme's `functions.php`. The content becomes inaccessible the moment the theme is switched:
+
+```php
+// In theme functions.php — content disappears when the theme changes.
+add_action( 'after_setup_theme', 'acme_register_review_cpt' ); // Wrong hook, wrong layer.
+```
+
+Use `after_setup_theme` for theme concerns (menus, image sizes, `add_theme_support()`), and `init` for content registration in plugins.
+
 ---
 
 ## Hooks First
@@ -211,6 +246,45 @@ Core APIs
 
 Prefer extension over modification.
 
+Actions let you run side effects at a defined point; filters let you transform a value that core is about to use. Both require a real, existing hook name and the correct number of accepted arguments.
+
+Good — extend behavior through documented hooks:
+
+```php
+// Action: enqueue front-end assets at the standard point.
+add_action( 'wp_enqueue_scripts', 'acme_enqueue_assets' );
+
+function acme_enqueue_assets() {
+	wp_enqueue_style(
+		'acme-main',
+		plugins_url( 'assets/main.css', __FILE__ ),
+		array(),
+		'1.2.0'
+	);
+}
+
+// Filter: append content only on the single view of our post type.
+add_filter( 'the_content', 'acme_append_disclaimer' );
+
+function acme_append_disclaimer( $content ) {
+	if ( is_singular( 'acme_review' ) && in_the_loop() && is_main_query() ) {
+		$content .= '<p class="acme-disclaimer">' . esc_html__( 'Sponsored review.', 'acme' ) . '</p>';
+	}
+
+	return $content; // A filter callback must always return the value.
+}
+```
+
+Bad — editing core or theme output directly, or a filter that forgets to return:
+
+```php
+add_filter( 'the_content', 'acme_append_disclaimer' );
+
+function acme_append_disclaimer( $content ) {
+	echo '<p>Sponsored review.</p>'; // Echoing inside a filter, and no return — breaks the content.
+}
+```
+
 ---
 
 ## REST API
@@ -228,6 +302,75 @@ Controllers should remain thin.
 
 Business logic belongs in services.
 
+Register endpoints with `register_rest_route` on the `rest_api_init` hook. A `permission_callback` is mandatory — omitting it triggers a `_doing_it_wrong()` notice and, on WordPress 5.5+, blocks the route.
+
+Good — a thin controller that validates arguments, checks capability, and delegates to a service:
+
+```php
+add_action( 'rest_api_init', 'acme_register_review_routes' );
+
+function acme_register_review_routes() {
+	register_rest_route(
+		'acme/v1',
+		'/reviews',
+		array(
+			'methods'             => WP_REST_Server::CREATABLE, // POST
+			'callback'            => 'acme_create_review',
+			'permission_callback' => function () {
+				return current_user_can( 'edit_posts' );
+			},
+			'args'                => array(
+				'title'  => array(
+					'required'          => true,
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_text_field',
+				),
+				'rating' => array(
+					'required'          => true,
+					'type'              => 'integer',
+					'validate_callback' => function ( $value ) {
+						return is_numeric( $value ) && $value >= 1 && $value <= 5;
+					},
+				),
+			),
+		)
+	);
+}
+
+function acme_create_review( WP_REST_Request $request ) {
+	// Input is already sanitized/validated by the args schema above.
+	$post_id = acme_reviews_service()->create(
+		$request->get_param( 'title' ),
+		(int) $request->get_param( 'rating' )
+	);
+
+	if ( is_wp_error( $post_id ) ) {
+		return $post_id; // WP_Error is serialized to a proper HTTP error response.
+	}
+
+	return new WP_REST_Response( array( 'id' => $post_id ), 201 );
+}
+```
+
+Bad — no permission callback, business logic and raw SQL inlined in the controller:
+
+```php
+register_rest_route(
+	'acme/v1',
+	'/reviews',
+	array(
+		'methods'  => 'POST',
+		'callback' => function ( $request ) {
+			global $wpdb;
+			// Public write access + unsanitized input + string-built SQL.
+			$wpdb->query( "INSERT INTO wp_reviews (title) VALUES ('" . $request['title'] . "')" );
+			return 'ok';
+		},
+		// permission_callback omitted — route is rejected on modern WordPress.
+	)
+);
+```
+
 ---
 
 ## Database Strategy
@@ -244,11 +387,78 @@ Prefer:
 
 Avoid direct SQL unless necessary.
 
+Retrieve content through `WP_Query` (or `get_posts`) rather than querying `wp_posts` yourself — it applies the correct joins, statuses, caching, and hooks. Store singleton settings in the Options API and expensive computed results in transients.
+
+Good — query posts and cache a derived result:
+
+```php
+$reviews = new WP_Query(
+	array(
+		'post_type'      => 'acme_review',
+		'post_status'    => 'publish',
+		'posts_per_page' => 10,
+		'meta_key'       => 'acme_rating',
+		'orderby'        => 'meta_value_num',
+		'order'          => 'DESC',
+		'no_found_rows'  => true, // Skip the SQL_CALC_FOUND_ROWS count when pagination is not needed.
+	)
+);
+
+if ( $reviews->have_posts() ) {
+	while ( $reviews->have_posts() ) {
+		$reviews->the_post();
+		the_title( '<h2>', '</h2>' );
+	}
+	wp_reset_postdata(); // Always restore the global $post after a custom loop.
+}
+```
+
+```php
+// Settings: read once, write with autoload control.
+$settings = get_option( 'acme_settings', array() );
+update_option( 'acme_settings', $settings, false ); // false = do not autoload large/rarely used options.
+
+// Expensive aggregate cached for one hour.
+function acme_get_average_rating() {
+	$average = get_transient( 'acme_average_rating' );
+
+	if ( false === $average ) {
+		$average = acme_reviews_service()->calculate_average(); // Expensive computation.
+		set_transient( 'acme_average_rating', $average, HOUR_IN_SECONDS );
+	}
+
+	return $average;
+}
+```
+
 When SQL is required:
 
 - prepare queries;
 - minimize complexity;
 - document assumptions.
+
+Good — a prepared statement using `$wpdb->prepare`, with the correct table prefix:
+
+```php
+global $wpdb;
+
+$rating = 4;
+
+$post_ids = $wpdb->get_col(
+	$wpdb->prepare(
+		"SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = %s AND meta_value >= %d",
+		'acme_rating',
+		$rating
+	)
+);
+```
+
+Bad — a hardcoded prefix and interpolated input (SQL injection):
+
+```php
+$rating   = $_GET['rating']; // Untrusted, unsanitized.
+$post_ids = $wpdb->get_col( "SELECT post_id FROM wp_postmeta WHERE meta_value >= $rating" );
+```
 
 ---
 
@@ -283,6 +493,59 @@ Every feature should include:
 - secure file handling.
 
 Security is an architectural concern.
+
+A state-changing admin form demonstrates the full flow: emit a nonce on render, then verify the nonce, verify the capability, sanitize on input, and escape on output.
+
+Good — the complete round trip:
+
+```php
+// Render: output the nonce field inside the form.
+function acme_render_settings_form() {
+	?>
+	<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+		<input type="hidden" name="action" value="acme_save_settings">
+		<?php wp_nonce_field( 'acme_save_settings', 'acme_settings_nonce' ); ?>
+		<input type="text" name="acme_label" value="<?php echo esc_attr( get_option( 'acme_label', '' ) ); ?>">
+		<?php submit_button( __( 'Save', 'acme' ) ); ?>
+	</form>
+	<?php
+}
+
+// Handle: verify, authorize, sanitize, store.
+add_action( 'admin_post_acme_save_settings', 'acme_handle_settings' );
+
+function acme_handle_settings() {
+	if ( ! isset( $_POST['acme_settings_nonce'] )
+		|| ! wp_verify_nonce( sanitize_key( $_POST['acme_settings_nonce'] ), 'acme_save_settings' )
+	) {
+		wp_die( esc_html__( 'Invalid request.', 'acme' ), 403 );
+	}
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'Insufficient permissions.', 'acme' ), 403 );
+	}
+
+	$label = isset( $_POST['acme_label'] ) ? sanitize_text_field( wp_unslash( $_POST['acme_label'] ) ) : '';
+	update_option( 'acme_label', $label );
+
+	wp_safe_redirect( admin_url( 'admin.php?page=acme-settings&updated=1' ) );
+	exit;
+}
+```
+
+Bad — trusting the request and storing raw input:
+
+```php
+add_action( 'admin_post_acme_save_settings', 'acme_handle_settings' );
+
+function acme_handle_settings() {
+	// No nonce check, no capability check, no sanitization, no wp_unslash.
+	update_option( 'acme_label', $_POST['acme_label'] );
+	wp_redirect( $_SERVER['HTTP_REFERER'] ); // Unvalidated redirect.
+}
+```
+
+Note the ordering rule reinforced across this project: sanitize when data enters the system, and escape (`esc_html`, `esc_attr`, `esc_url`) at the moment of output — never the reverse.
 
 ---
 

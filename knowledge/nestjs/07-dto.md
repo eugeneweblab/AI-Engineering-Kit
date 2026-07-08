@@ -149,6 +149,79 @@ Examples:
 
 Every public endpoint accepting a request body should use a dedicated Request DTO.
 
+A Request DTO is a plain class annotated with `class-validator` decorators. These decorators are the machine-readable API contract:
+
+```typescript
+// users/dto/create-user.dto.ts
+import { IsEmail, IsEnum, IsString, MaxLength, MinLength } from 'class-validator';
+
+export enum UserRole {
+  Admin = 'admin',
+  Member = 'member',
+}
+
+export class CreateUserDto {
+  @IsEmail()
+  email: string;
+
+  @IsString()
+  @MinLength(2)
+  @MaxLength(80)
+  name: string;
+
+  @IsString()
+  @MinLength(12)
+  @MaxLength(128)
+  password: string;
+
+  @IsEnum(UserRole)
+  role: UserRole;
+}
+```
+
+The controller declares the DTO as the `@Body()` type. Once a global `ValidationPipe` is registered, NestJS validates and instantiates the DTO before the handler runs:
+
+```typescript
+// users/users.controller.ts
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UserResponseDto } from './dto/user-response.dto';
+import { UsersService } from './users.service';
+
+@Controller('users')
+export class UsersController {
+  constructor(private readonly usersService: UsersService) {}
+
+  @Post()
+  async create(@Body() dto: CreateUserDto): Promise<UserResponseDto> {
+    const user = await this.usersService.create(dto);
+    return UserResponseDto.fromEntity(user);
+  }
+}
+```
+
+Register the pipe once, at bootstrap, so every DTO is enforced consistently:
+
+```typescript
+// main.ts
+import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true, // strip properties that have no validation decorator
+      forbidNonWhitelisted: true, // 400 when unexpected properties are sent
+      transform: true, // instantiate the DTO class and coerce primitive types
+    }),
+  );
+  await app.listen(3000);
+}
+bootstrap();
+```
+
 ---
 
 ## Response DTOs
@@ -167,17 +240,30 @@ Never return ORM entities directly.
 
 ## Why Entities Must Not Be Returned
 
-Avoid:
+Returning the persistence model directly leaks whatever the ORM happens to load, including columns added later.
 
+Bad — the entity (with `passwordHash`, internal flags, ORM metadata) becomes the public contract:
+
+```typescript
+// Bad: every column of UserEntity is now part of the API response.
+@Get(':id')
+async findOne(@Param('id') id: string) {
+  return this.usersService.findById(id); // returns UserEntity
+}
 ```
-Controller
 
-↓
+Good — the handler returns an explicit Response DTO, so only mapped fields leave the boundary:
 
-return prisma.user.findUnique(...)
+```typescript
+// Good: the response shape is fixed and reviewable.
+@Get(':id')
+async findOne(@Param('id') id: string): Promise<UserResponseDto> {
+  const user = await this.usersService.findById(id);
+  return UserResponseDto.fromEntity(user);
+}
 ```
 
-Problems include:
+Problems with returning entities include:
 
 - leaking internal fields;
 - accidental password exposure;
@@ -205,6 +291,34 @@ UserMapper
 ↓
 
 UserResponseDto
+```
+
+A Response DTO owns its own mapping through a static factory. This keeps the entity-to-DTO translation in one place and guarantees only whitelisted fields are ever assigned:
+
+```typescript
+// users/dto/user-response.dto.ts
+import { UserEntity } from '../entities/user.entity';
+
+export class UserResponseDto {
+  id: string;
+  email: string;
+  name: string;
+  createdAt: Date;
+
+  // Explicit whitelist: passwordHash and internal columns are never copied.
+  static fromEntity(user: UserEntity): UserResponseDto {
+    const dto = new UserResponseDto();
+    dto.id = user.id;
+    dto.email = user.email;
+    dto.name = user.name;
+    dto.createdAt = user.createdAt;
+    return dto;
+  }
+
+  static fromEntities(users: UserEntity[]): UserResponseDto[] {
+    return users.map((user) => UserResponseDto.fromEntity(user));
+  }
+}
 ```
 
 Mapping should remain centralized.
@@ -246,6 +360,53 @@ CustomerDto
 AddressDto
 ```
 
+Nested objects require `@ValidateNested()` plus `@Type()` from `class-transformer` — without `@Type()`, the validator cannot instantiate the nested class and the rules are silently skipped:
+
+```typescript
+// orders/dto/create-order.dto.ts
+import { Type } from 'class-transformer';
+import {
+  ArrayMinSize,
+  IsArray,
+  IsInt,
+  IsString,
+  Min,
+  ValidateNested,
+} from 'class-validator';
+
+export class AddressDto {
+  @IsString()
+  street: string;
+
+  @IsString()
+  city: string;
+
+  @IsString()
+  postalCode: string;
+}
+
+export class OrderItemDto {
+  @IsString()
+  sku: string;
+
+  @IsInt()
+  @Min(1)
+  quantity: number;
+}
+
+export class CreateOrderDto {
+  @ValidateNested()
+  @Type(() => AddressDto)
+  shippingAddress: AddressDto;
+
+  @IsArray()
+  @ArrayMinSize(1)
+  @ValidateNested({ each: true }) // validate every element of the array
+  @Type(() => OrderItemDto)
+  items: OrderItemDto[];
+}
+```
+
 Avoid anonymous nested object definitions.
 
 ---
@@ -264,6 +425,21 @@ CreateUserDto
 UpdateUserDto
 ```
 
+Derive the update DTO from the create DTO with `PartialType` so validation rules stay in one place and every field becomes optional. Compose with `OmitType` to drop fields that must not be updated through this endpoint (for example, `password`, which belongs to a dedicated change-password flow):
+
+```typescript
+// users/dto/update-user.dto.ts
+import { OmitType, PartialType } from '@nestjs/mapped-types';
+import { CreateUserDto } from './create-user.dto';
+
+// All remaining fields become optional; password is excluded entirely.
+export class UpdateUserDto extends PartialType(
+  OmitType(CreateUserDto, ['password'] as const),
+) {}
+```
+
+Use `@nestjs/mapped-types` for plain APIs, or the identically named helpers from `@nestjs/swagger` when you also generate OpenAPI documentation.
+
 Update DTOs should clearly express optional fields.
 
 ---
@@ -278,6 +454,38 @@ Typical responsibilities:
 - rename properties;
 - transform values;
 - expose computed values.
+
+The static-mapper pattern above is the safest default because it never copies a sensitive field in the first place. When you instead return class instances and let NestJS serialize them, use `ClassSerializerInterceptor` with `class-transformer` decorators. Mark the class `@Exclude()` and opt fields in with `@Expose()`, so new columns are hidden by default:
+
+```typescript
+// users/dto/user-response.dto.ts
+import { Exclude, Expose } from 'class-transformer';
+
+@Exclude() // opt-in serialization: only @Expose()-d members are emitted
+export class UserResponseDto {
+  @Expose() id: string;
+  @Expose() email: string;
+  @Expose() name: string;
+
+  // Assigned internally, but excluded by the class-level @Exclude().
+  passwordHash: string;
+
+  @Expose()
+  get displayName(): string {
+    return this.name ?? this.email;
+  }
+}
+```
+
+```typescript
+// main.ts
+import { ClassSerializerInterceptor } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
+
+app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
+```
+
+`ClassSerializerInterceptor` only applies these rules when the controller returns an **instance** of the DTO class. Returning a plain object or a raw ORM entity bypasses the decorators entirely, so always return `plainToInstance(UserResponseDto, ...)` or a real DTO instance.
 
 Serialization rules should remain predictable.
 
@@ -324,6 +532,64 @@ total
 page
 
 limit
+```
+
+Query parameters arrive as strings, so a pagination query DTO must coerce them with `@Type(() => Number)` (honored by `ValidationPipe`'s `transform: true`) and bound the values. Defaults protect the database from unbounded scans:
+
+```typescript
+// common/dto/pagination-query.dto.ts
+import { Type } from 'class-transformer';
+import { IsInt, IsOptional, Max, Min } from 'class-validator';
+
+export class PaginationQueryDto {
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  page: number = 1;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  @Max(100) // never let a client request an unbounded page
+  limit: number = 20;
+}
+```
+
+Return a stable, reusable envelope for every collection endpoint:
+
+```typescript
+// common/dto/paginated-response.dto.ts
+export class PaginatedResponseDto<T> {
+  items: T[];
+  total: number;
+  page: number;
+  limit: number;
+
+  constructor(items: T[], total: number, query: { page: number; limit: number }) {
+    this.items = items;
+    this.total = total;
+    this.page = query.page;
+    this.limit = query.limit;
+  }
+}
+```
+
+Consume both in the controller with `@Query()`:
+
+```typescript
+@Get()
+async list(
+  @Query() query: PaginationQueryDto,
+): Promise<PaginatedResponseDto<UserResponseDto>> {
+  const [users, total] = await this.usersService.findPage(query);
+  return new PaginatedResponseDto(
+    UserResponseDto.fromEntities(users),
+    total,
+    query,
+  );
+}
 ```
 
 Maintain a consistent pagination contract.

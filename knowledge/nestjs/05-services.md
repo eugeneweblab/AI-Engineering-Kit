@@ -125,6 +125,144 @@ Business logic includes:
 
 Business logic should not be duplicated across controllers.
 
+### Shared domain model
+
+The examples in this document use one small domain. DTO shape and validation
+belong to the transport layer (see `07-dto` and `08-validation`); the service
+owns rules that DTO validation cannot express.
+
+```typescript
+// order.entity.ts
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
+export enum OrderStatus {
+  Pending = 'PENDING',
+  Paid = 'PAID',
+}
+
+@Entity('orders')
+export class Order {
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
+
+  @Column('jsonb')
+  items!: Array<{ unitPrice: number; quantity: number }>;
+
+  @Column('int')
+  total!: number;
+
+  @Column({ type: 'enum', enum: OrderStatus, default: OrderStatus.Pending })
+  status!: OrderStatus;
+}
+```
+
+```typescript
+// create-order.dto.ts
+import { Type } from 'class-transformer';
+import { ArrayNotEmpty, IsInt, Min, ValidateNested } from 'class-validator';
+
+class OrderItemDto {
+  @IsInt()
+  @Min(0)
+  unitPrice!: number;
+
+  @IsInt()
+  @Min(1)
+  quantity!: number;
+}
+
+export class CreateOrderDto {
+  @ArrayNotEmpty()
+  @ValidateNested({ each: true })
+  @Type(() => OrderItemDto)
+  items!: OrderItemDto[];
+}
+```
+
+### Good / Bad: where business logic lives
+
+The controller must stay thin. Rules, calculations, and consistency checks
+belong in the service so they can be reused and tested in isolation.
+
+```typescript
+// ❌ Bad — rules, calculations, and queries jammed into the controller
+@Controller('orders')
+export class OrdersController {
+  constructor(private readonly dataSource: DataSource) {}
+
+  @Post()
+  async create(@Body() dto: CreateOrderDto): Promise<Order> {
+    const repo = this.dataSource.getRepository(Order);
+    const total = dto.items.reduce((s, i) => s + i.unitPrice * i.quantity, 0);
+    if (total > 10_000) {
+      throw new BadRequestException('Order too large'); // HTTP leaks into logic
+    }
+    return repo.save(repo.create({ items: dto.items, total, status: OrderStatus.Pending }));
+  }
+}
+```
+
+```typescript
+// ✅ Good — controller delegates; the service owns the business capability
+@Controller('orders')
+export class OrdersController {
+  constructor(private readonly orders: OrdersService) {}
+
+  @Post()
+  create(@Body() dto: CreateOrderDto): Promise<Order> {
+    return this.orders.placeOrder(dto);
+  }
+}
+```
+
+```typescript
+// order-too-large.error.ts — a framework-independent domain exception
+export class DomainError extends Error {}
+
+export class OrderTooLargeError extends DomainError {
+  constructor(
+    readonly total: number,
+    readonly limit: number,
+  ) {
+    super(`Order total ${total} exceeds the limit ${limit}`);
+    this.name = 'OrderTooLargeError';
+  }
+}
+```
+
+```typescript
+// orders.service.ts
+import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+
+@Injectable()
+export class OrdersService {
+  constructor(
+    private readonly orders: OrdersRepository,
+    private readonly config: ConfigService,
+  ) {}
+
+  async placeOrder(dto: CreateOrderDto): Promise<Order> {
+    // DTO validation already guaranteed non-empty items and valid numbers.
+    // This is a *business* rule the DTO cannot express.
+    const total = dto.items.reduce((sum, i) => sum + i.unitPrice * i.quantity, 0);
+    const limit = this.config.get<number>('orders.maxTotal', 10_000);
+    if (total > limit) {
+      throw new OrderTooLargeError(total, limit);
+    }
+
+    return this.orders.create({
+      items: dto.items,
+      total,
+      status: OrderStatus.Pending,
+    });
+  }
+}
+```
+
+A `DomainError` keeps the service transport-agnostic; an `ExceptionFilter`
+(see `11-exception-filters`) maps it to the correct HTTP status at the edge.
+
 ---
 
 ## Collaboration
@@ -160,6 +298,47 @@ Database
 
 Avoid embedding SQL or ORM queries directly inside services.
 
+The repository is a thin persistence adapter. It exposes intent-revealing
+methods and hides the ORM; the service depends on it, not on `Repository<T>`
+or raw query builders.
+
+```typescript
+// orders.repository.ts
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { DeepPartial, Repository } from 'typeorm';
+
+@Injectable()
+export class OrdersRepository {
+  constructor(
+    @InjectRepository(Order)
+    private readonly repo: Repository<Order>,
+  ) {}
+
+  create(data: DeepPartial<Order>): Promise<Order> {
+    return this.repo.save(this.repo.create(data));
+  }
+
+  findById(id: string): Promise<Order | null> {
+    return this.repo.findOne({ where: { id } });
+  }
+}
+```
+
+```typescript
+// orders.module.ts — wiring the entity, repository, and service together
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Order])],
+  controllers: [OrdersController],
+  providers: [OrdersService, OrdersRepository],
+  exports: [OrdersService],
+})
+export class OrdersModule {}
+```
+
 ---
 
 ## Transactions
@@ -173,6 +352,59 @@ Transactions should remain:
 - consistent.
 
 Avoid unnecessarily long-running transactions.
+
+A service coordinates the transactional boundary while keeping the unit of work
+small. Here the payment provider is reached through an injected port
+(`PaymentGateway`) so business logic never depends on a vendor SDK, and the
+early return makes a retried call idempotent.
+
+```typescript
+// payment.gateway.ts — the port the service depends on
+export abstract class PaymentGateway {
+  abstract charge(amountCents: number, reference: string): Promise<void>;
+}
+
+// order-not-found.error.ts — another DomainError subclass
+export class OrderNotFoundError extends DomainError {
+  constructor(readonly orderId: string) {
+    super(`Order ${orderId} was not found`);
+    this.name = 'OrderNotFoundError';
+  }
+}
+```
+
+```typescript
+// checkout.service.ts
+import { Injectable } from '@nestjs/common';
+import { DataSource } from 'typeorm';
+
+@Injectable()
+export class CheckoutService {
+  constructor(
+    private readonly dataSource: DataSource,
+    private readonly payments: PaymentGateway,
+  ) {}
+
+  async pay(orderId: string): Promise<void> {
+    await this.dataSource.transaction(async (manager) => {
+      const order = await manager.findOne(Order, {
+        where: { id: orderId },
+        lock: { mode: 'pessimistic_write' },
+      });
+      if (!order) {
+        throw new OrderNotFoundError(orderId);
+      }
+      if (order.status === OrderStatus.Paid) {
+        return; // already paid — safe to retry
+      }
+
+      await this.payments.charge(order.total, order.id);
+      order.status = OrderStatus.Paid;
+      await manager.save(order);
+    });
+  }
+}
+```
 
 ---
 
@@ -323,6 +555,49 @@ Verify:
 - interaction with dependencies.
 
 Replace external dependencies with mocks or fakes.
+
+Because dependencies are injected through the constructor, a service can be
+tested by plain instantiation — no `Test.createTestingModule` or database
+required. This is the payoff of explicit dependencies.
+
+```typescript
+// orders.service.spec.ts
+import { ConfigService } from '@nestjs/config';
+
+describe('OrdersService', () => {
+  const orders = { create: jest.fn() } as unknown as OrdersRepository;
+  const config = {
+    get: jest.fn().mockReturnValue(10_000),
+  } as unknown as ConfigService;
+  let service: OrdersService;
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+    service = new OrdersService(orders, config);
+  });
+
+  it('persists an order within the limit', async () => {
+    const saved = { id: 'o1', total: 300, status: OrderStatus.Pending } as Order;
+    (orders.create as jest.Mock).mockResolvedValue(saved);
+
+    const result = await service.placeOrder({
+      items: [{ unitPrice: 100, quantity: 3 }],
+    });
+
+    expect(result).toBe(saved);
+    expect(orders.create).toHaveBeenCalledWith(
+      expect.objectContaining({ total: 300, status: OrderStatus.Pending }),
+    );
+  });
+
+  it('rejects an order above the configured limit', async () => {
+    await expect(
+      service.placeOrder({ items: [{ unitPrice: 6_000, quantity: 2 }] }),
+    ).rejects.toBeInstanceOf(OrderTooLargeError);
+    expect(orders.create).not.toHaveBeenCalled();
+  });
+});
+```
 
 ---
 

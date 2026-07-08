@@ -95,24 +95,54 @@ Reuse whenever practical.
 
 Duplication increases maintenance cost.
 
+A single filename search is not a search. Search by *behavior* and by *convention*, using several spellings of the same idea, before concluding nothing exists.
+
+**Worked example — before creating a `formatCurrency` helper:**
+
+```bash
+# 1. Behavior: the underlying API this helper would wrap
+rg -n -i 'Intl\.NumberFormat|toLocaleString' src/
+
+# 2. Naming: several plausible spellings, not just the one you'd pick
+rg -n -i --type ts 'formatCurrency|currencyFormat|formatMoney|formatPrice|toCurrency' src/
+
+# 3. Convention: where formatting helpers already live in THIS repo
+rg -n --type ts 'export (function|const) format' src/utils src/lib src/helpers
+```
+
+Only after all three come back empty is creating a new helper justified — and it should live wherever step 3 showed existing `format*` helpers live, not in a new folder. If step 2 finds `formatPrice(cents: number)`, reuse or extend it; introducing a second currency formatter is the duplication this principle exists to prevent.
+
 ---
 
 ## Principle 5 — Explain Decisions
 
 AI should explain engineering decisions.
 
-Instead of saying:
+A useful explanation is not prose about the diff — it is a compact decision record that a reviewer can accept or reject without re-deriving your reasoning.
 
-> Updated the component.
+**Bad — describes the mechanics, teaches the reviewer nothing:**
 
-Explain:
+> Updated the component. Added a debounce and moved some code into a hook.
 
-- why the change was necessary;
-- why this approach was selected;
-- alternatives considered;
-- possible risks.
+**Good — a decision record the reviewer can act on:**
 
-Engineering decisions should be transparent.
+```
+Change:       Extracted the 300ms debounce from SearchBar into
+              hooks/useDebouncedValue.ts and reused it in SearchBar.
+Why:          FilterPanel and TagInput each reimplement the same debounce
+              inline (src/FilterPanel.tsx:41, src/TagInput.tsx:58) — three
+              copies drifting apart (TagInput was 250ms, the others 300ms).
+Approach:     One hook, default 300ms, delay configurable via argument.
+              Named useDebouncedValue to match existing hooks/useX naming.
+Alternatives: lodash.debounce — rejected, not a current dependency; adding a
+              package for one wrapper contradicts Principle 2 (reuse first).
+Risk:         TagInput's debounce goes 250ms -> 300ms. Confirmed acceptable;
+              all three inputs now standardize on 300ms.
+Scope:        This change only extracts and standardizes. FilterPanel and
+              TagInput are NOT migrated in this diff (see Principle 6).
+```
+
+Each line answers a question a reviewer would otherwise have to ask. Engineering decisions should be transparent enough to reject on their merits.
 
 ---
 
@@ -167,7 +197,28 @@ Unknowns
 
 Information that cannot be determined.
 
-Never present assumptions as facts.
+Never present assumptions as facts. The cheapest way to keep them separate is to *label them explicitly* in the response, each fact anchored to the evidence that makes it a fact.
+
+**Worked example — emitting a status block before implementing a new API route:**
+
+```
+FACTS (verified in the repo):
+- Auth is NextAuth with a Prisma adapter        (src/lib/auth.ts:12)
+- Every /api/admin/* route calls requireSession  (src/api/admin/users.ts:8)
+
+ASSUMPTIONS (reasonable, not yet verified):
+- The new /api/admin/reports route should also call requireSession,
+  because it lives under /api/admin/*.
+
+UNKNOWNS (cannot determine from the repo):
+- Whether reports must be restricted to a specific role, or any
+  authenticated admin is sufficient — no role check pattern found.
+
+DECISION: Proceeding on the assumption above (mirrors sibling routes).
+          Flagging the role UNKNOWN for confirmation before merge.
+```
+
+A fact carries a file-and-line anchor. An assumption carries the reasoning that makes it plausible. An unknown names what evidence is missing. Collapsing these three into confident prose is exactly how a hallucinated requirement reaches production.
 
 ---
 

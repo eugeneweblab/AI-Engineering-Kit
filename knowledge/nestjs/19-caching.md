@@ -233,6 +233,64 @@ Response
 
 Applications remain functional even if the cache becomes unavailable.
 
+Inject `CACHE_MANAGER`, read-through, and wrap cache calls so a cache outage
+degrades to a plain database read instead of a failed request.
+
+```typescript
+// product.service.ts
+import { Inject, Injectable, Logger } from '@nestjs/common';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import { Cache } from 'cache-manager';
+import { ProductRepository } from './product.repository';
+
+// A plain, serializable view. Never cache the ORM entity itself.
+export interface ProductView {
+  id: string;
+  name: string;
+  priceCents: number;
+}
+
+@Injectable()
+export class ProductService {
+  private readonly logger = new Logger(ProductService.name);
+  private readonly ttlMs = 60_000; // 60s; TTL is milliseconds in cache-manager v5+
+
+  constructor(
+    @Inject(CACHE_MANAGER) private readonly cache: Cache,
+    private readonly products: ProductRepository,
+  ) {}
+
+  async findById(id: string): Promise<ProductView | null> {
+    const key = `products:${id}`;
+
+    try {
+      const cached = await this.cache.get<ProductView>(key);
+      if (cached) return cached;
+    } catch (err) {
+      // The cache is an optimization: log and fall through to the source of truth.
+      this.logger.warn(`Cache read failed for ${key}: ${(err as Error).message}`);
+    }
+
+    const entity = await this.products.findById(id);
+    if (!entity) return null;
+
+    const view: ProductView = {
+      id: entity.id,
+      name: entity.name,
+      priceCents: entity.priceCents,
+    };
+
+    try {
+      await this.cache.set(key, view, this.ttlMs);
+    } catch (err) {
+      this.logger.warn(`Cache write failed for ${key}: ${(err as Error).message}`);
+    }
+
+    return view;
+  }
+}
+```
+
 ---
 
 ## Write Strategy
@@ -257,6 +315,30 @@ Future Requests Rebuild Cache
 
 Avoid updating cache before successful persistence.
 
+Persist first, then invalidate. Let the next read rebuild the entry through the
+cache-aside path above.
+
+```typescript
+// GOOD: commit to the source of truth, then invalidate. Never pre-populate.
+async rename(id: string, name: string): Promise<void> {
+  await this.products.update(id, { name }); // committed to the database
+  await this.cache.del(`products:${id}`);   // next read rebuilds from the DB
+}
+```
+
+```typescript
+// BAD: writes the cache before persisting AND caches the ORM entity with no TTL.
+async rename(id: string, name: string): Promise<void> {
+  const entity = await this.products.findById(id);
+  entity.name = name;
+  // Omitting the TTL leaves the entry with no expiry, and the value is a live
+  // ORM entity, not a serializable view.
+  await this.cache.set(`products:${id}`, entity);
+  // If this throws, the cache already advertises data that was never committed.
+  await this.products.save(entity);
+}
+```
+
 ---
 
 ## Distributed Cache
@@ -269,6 +351,45 @@ Typical technologies:
 - Memcached.
 
 Application behavior should remain independent of cache implementation.
+
+On NestJS 10/11 use `@nestjs/cache-manager` (v3+, built on `cache-manager`
+v6 / Keyv). Register a fast in-memory tier backed by a shared Redis tier so a
+single node hit is served locally while all nodes share the same invalidation.
+
+```typescript
+// app.module.ts
+import { Module } from '@nestjs/common';
+import { CacheModule } from '@nestjs/cache-manager';
+import { createKeyv } from '@keyv/redis';
+import { Keyv } from 'keyv';
+import { CacheableMemory } from 'cacheable';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+
+@Module({
+  imports: [
+    CacheModule.registerAsync({
+      isGlobal: true,
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => ({
+        // Read tiers front-to-back; writes fan out to every store.
+        stores: [
+          // L1: process-local LRU. ttl is milliseconds in cache-manager v5+.
+          new Keyv({
+            store: new CacheableMemory({ ttl: 30_000, lruSize: 5_000 }),
+          }),
+          // L2: shared Redis so every instance sees the same data.
+          createKeyv(config.getOrThrow<string>('REDIS_URL')),
+        ],
+      }),
+    }),
+  ],
+})
+export class AppModule {}
+```
+
+`isGlobal: true` exposes the `CACHE_MANAGER` provider to every module without
+re-importing `CacheModule`.
 
 ---
 

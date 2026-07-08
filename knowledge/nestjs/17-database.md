@@ -160,6 +160,95 @@ Services should communicate only with repositories.
 
 Repositories should never contain business workflows.
 
+Wire up the entity, register it with the feature module, and inject the repository into the service. The service holds business logic; the repository only persists.
+
+```typescript
+// user.entity.ts
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  Index,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+
+@Entity('users')
+export class User {
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
+
+  @Index({ unique: true })
+  @Column({ type: 'varchar', length: 320 })
+  email!: string;
+
+  @Column({ type: 'varchar', length: 200 })
+  name!: string;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt!: Date;
+}
+```
+
+```typescript
+// users.module.ts
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './user.entity';
+import { UsersService } from './users.service';
+import { UsersController } from './users.controller';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([User])],
+  controllers: [UsersController],
+  providers: [UsersService],
+  exports: [UsersService],
+})
+export class UsersModule {}
+```
+
+```typescript
+// ✅ Good — service depends on the injected repository, not on the ORM globally
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { User } from './user.entity';
+
+@Injectable()
+export class UsersService {
+  constructor(
+    @InjectRepository(User)
+    private readonly users: Repository<User>,
+  ) {}
+
+  async findById(id: string): Promise<User> {
+    const user = await this.users.findOne({ where: { id } });
+    if (!user) {
+      throw new NotFoundException(`User ${id} not found`);
+    }
+    return user;
+  }
+
+  async create(email: string, name: string): Promise<User> {
+    const user = this.users.create({ email, name });
+    return this.users.save(user);
+  }
+}
+```
+
+```typescript
+// ❌ Bad — controller reads the ORM directly, bypassing the service and repository
+@Controller('users')
+export class UsersController {
+  constructor(private readonly dataSource: DataSource) {}
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    // Persistence detail leaks into transport; nothing is reusable or testable.
+    return this.dataSource.getRepository(User).findOneBy({ id });
+  }
+}
+```
+
 ---
 
 ## Migrations
@@ -189,6 +278,42 @@ Transactions should remain:
 - consistent.
 
 Avoid long-running transactions.
+
+Use the injected `DataSource` to run a transaction. `dataSource.transaction` acquires a connection, commits on success, and rolls back if the callback throws. Do all writes through the supplied `EntityManager` so they share the same transaction.
+
+```typescript
+// transfers.service.ts
+import { Injectable, BadRequestException } from '@nestjs/common';
+import { InjectDataSource } from '@nestjs/typeorm';
+import { DataSource } from 'typeorm';
+import { Account } from './account.entity';
+
+@Injectable()
+export class TransfersService {
+  constructor(
+    @InjectDataSource()
+    private readonly dataSource: DataSource,
+  ) {}
+
+  async transfer(fromId: string, toId: string, amount: number): Promise<void> {
+    await this.dataSource.transaction(async (manager) => {
+      // Pessimistic write lock prevents concurrent transfers on the same row.
+      const from = await manager.findOne(Account, {
+        where: { id: fromId },
+        lock: { mode: 'pessimistic_write' },
+      });
+
+      if (!from || from.balance < amount) {
+        // Throwing rolls the whole transaction back atomically.
+        throw new BadRequestException('Insufficient funds');
+      }
+
+      await manager.decrement(Account, { id: fromId }, 'balance', amount);
+      await manager.increment(Account, { id: toId }, 'balance', amount);
+    });
+  }
+}
+```
 
 ---
 
@@ -278,6 +403,33 @@ Load orders using JOIN or batching
 
 Always review generated SQL.
 
+```typescript
+// ❌ Bad — one extra query per user (the N+1 problem)
+async listWithOrders(): Promise<User[]> {
+  const users = await this.users.find();
+  for (const user of users) {
+    // Fires a separate SELECT for every single user.
+    user.orders = await this.orders.find({ where: { userId: user.id } });
+  }
+  return users;
+}
+```
+
+```typescript
+// ✅ Good — a single joined query loads users and their orders together
+async listWithOrders(): Promise<User[]> {
+  return this.users
+    .createQueryBuilder('user')
+    .leftJoinAndSelect('user.orders', 'order')
+    .getMany();
+}
+
+// ✅ Also good — declarative relation loading, resolved in one round trip
+async listWithOrdersRelations(): Promise<User[]> {
+  return this.users.find({ relations: { orders: true } });
+}
+```
+
 ---
 
 ## Pagination
@@ -292,6 +444,43 @@ Support:
 - filtering.
 
 Large datasets should always be paginated.
+
+Validate and bound the page parameters with a DTO, then translate them into `skip`/`take`. Return the total count so clients can render pagination.
+
+```typescript
+// pagination-query.dto.ts
+import { Type } from 'class-transformer';
+import { IsInt, Max, Min } from 'class-validator';
+
+export class PaginationQueryDto {
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  page = 1;
+
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  @Max(100) // Hard upper bound so a client can never request an unbounded page.
+  limit = 20;
+}
+```
+
+```typescript
+// users.service.ts (excerpt)
+async paginate(
+  query: PaginationQueryDto,
+): Promise<{ data: User[]; total: number }> {
+  const [data, total] = await this.users.findAndCount({
+    skip: (query.page - 1) * query.limit,
+    take: query.limit,
+    order: { createdAt: 'DESC' },
+  });
+  return { data, total };
+}
+```
+
+The DTO requires `ValidationPipe` with transform enabled (typically `app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }))`) so query strings are coerced to numbers and bounded before they reach the repository.
 
 ---
 

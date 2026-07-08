@@ -122,6 +122,59 @@ Recommended production configuration:
 
 Validation should be centralized.
 
+Register the pipe globally in `main.ts`:
+
+```typescript
+// main.ts
+import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true, // strip any property that has no validation decorator
+      forbidNonWhitelisted: true, // reject requests that carry unknown properties
+      transform: true, // instantiate the DTO class and coerce primitive types
+      transformOptions: {
+        // prefer explicit @Type() over guessing types from the route metadata
+        enableImplicitConversion: false,
+      },
+    }),
+  );
+
+  await app.listen(3000);
+}
+bootstrap();
+```
+
+Prefer registering the pipe as an `APP_PIPE` provider when it needs
+dependency injection (for example, async constraints that read from a
+repository). This keeps the configuration testable and available inside the
+DI container:
+
+```typescript
+// app.module.ts
+import { Module, ValidationPipe } from '@nestjs/common';
+import { APP_PIPE } from '@nestjs/core';
+
+@Module({
+  providers: [
+    {
+      provide: APP_PIPE,
+      useValue: new ValidationPipe({
+        whitelist: true,
+        forbidNonWhitelisted: true,
+        transform: true,
+      }),
+    },
+  ],
+})
+export class AppModule {}
+```
+
 ---
 
 ## DTO Validation
@@ -138,6 +191,47 @@ Typical examples:
 - nested DTO validation.
 
 Every public endpoint accepting request data should use DTO validation.
+
+A DTO is a plain class annotated with `class-validator` decorators. The
+global `ValidationPipe` reads those decorators to validate and (with
+`transform: true`) instantiate the class:
+
+```typescript
+// create-user.dto.ts
+import { IsEmail, IsInt, IsOptional, Length, Max, Min } from 'class-validator';
+
+export class CreateUserDto {
+  @IsEmail()
+  email: string;
+
+  @Length(2, 60)
+  name: string;
+
+  @IsOptional()
+  @IsInt()
+  @Min(18)
+  @Max(120)
+  age?: number;
+}
+```
+
+```typescript
+// users.controller.ts
+import { Body, Controller, Post } from '@nestjs/common';
+import { CreateUserDto } from './create-user.dto';
+import { UsersService } from './users.service';
+
+@Controller('users')
+export class UsersController {
+  constructor(private readonly usersService: UsersService) {}
+
+  @Post()
+  create(@Body() dto: CreateUserDto) {
+    // `dto` is already validated and typed by the time it reaches here.
+    return this.usersService.create(dto);
+  }
+}
+```
 
 ---
 
@@ -161,6 +255,79 @@ AddressDto
 
 Every nested object should have its own DTO.
 
+Nested objects require both `@ValidateNested()` and `@Type()` from
+`class-transformer`. Without `@Type()`, the pipe cannot know which class to
+instantiate and validation of the nested payload is silently skipped:
+
+```typescript
+// create-order.dto.ts
+import { Type } from 'class-transformer';
+import {
+  ArrayMaxSize,
+  ArrayMinSize,
+  IsArray,
+  IsEmail,
+  IsEnum,
+  IsInt,
+  IsOptional,
+  IsUUID,
+  Length,
+  Max,
+  Min,
+  ValidateNested,
+} from 'class-validator';
+
+export enum ShippingSpeed {
+  Standard = 'standard',
+  Express = 'express',
+}
+
+export class AddressDto {
+  @Length(1, 120)
+  street: string;
+
+  @Length(2, 2)
+  countryCode: string;
+}
+
+export class CustomerDto {
+  @IsEmail()
+  email: string;
+
+  @ValidateNested()
+  @Type(() => AddressDto)
+  address: AddressDto;
+}
+
+export class OrderItemDto {
+  @IsUUID()
+  productId: string;
+
+  @IsInt()
+  @Min(1)
+  @Max(100)
+  quantity: number;
+}
+
+export class CreateOrderDto {
+  @ValidateNested()
+  @Type(() => CustomerDto)
+  customer: CustomerDto;
+
+  // Validate every element of the array against OrderItemDto.
+  @IsArray()
+  @ArrayMinSize(1)
+  @ArrayMaxSize(50)
+  @ValidateNested({ each: true })
+  @Type(() => OrderItemDto)
+  items: OrderItemDto[];
+
+  @IsOptional()
+  @IsEnum(ShippingSpeed)
+  shippingSpeed?: ShippingSpeed;
+}
+```
+
 ---
 
 ## Array Validation
@@ -173,6 +340,24 @@ Arrays should validate:
 - uniqueness when required.
 
 Avoid accepting arbitrary arrays.
+
+For arrays of primitives, combine `@IsArray()` with the `each: true` option so
+the item constraint applies to every element:
+
+```typescript
+import { ArrayMaxSize, ArrayUnique, IsArray, IsUUID } from 'class-validator';
+
+export class AssignTagsDto {
+  @IsArray()
+  @ArrayMaxSize(20)
+  @ArrayUnique()
+  @IsUUID('4', { each: true })
+  tagIds: string[];
+}
+```
+
+For arrays of nested objects, use `@ValidateNested({ each: true })` together
+with `@Type()` as shown in `CreateOrderDto` above.
 
 ---
 
@@ -188,6 +373,64 @@ Examples:
 - country code validation.
 
 Keep custom validators focused and reusable.
+
+Implement a reusable rule as a `ValidatorConstraintInterface` and expose it as
+a decorator with `registerDecorator`. This one is synchronous and
+dependency-free, so it stays at the transport boundary:
+
+```typescript
+// is-strong-password.validator.ts
+import {
+  registerDecorator,
+  ValidationOptions,
+  ValidatorConstraint,
+  ValidatorConstraintInterface,
+} from 'class-validator';
+
+@ValidatorConstraint({ name: 'isStrongPassword', async: false })
+export class IsStrongPasswordConstraint
+  implements ValidatorConstraintInterface
+{
+  validate(value: unknown): boolean {
+    return (
+      typeof value === 'string' &&
+      value.length >= 12 &&
+      /[a-z]/.test(value) &&
+      /[A-Z]/.test(value) &&
+      /[0-9]/.test(value)
+    );
+  }
+
+  defaultMessage(): string {
+    return 'password must be at least 12 characters and include upper, lower, and numeric characters';
+  }
+}
+
+export function IsStrongPassword(options?: ValidationOptions) {
+  return function (object: object, propertyName: string): void {
+    registerDecorator({
+      target: object.constructor,
+      propertyName,
+      options,
+      validator: IsStrongPasswordConstraint,
+    });
+  };
+}
+```
+
+```typescript
+// register.dto.ts
+import { IsEmail } from 'class-validator';
+import { IsStrongPassword } from './is-strong-password.validator';
+
+export class RegisterDto {
+  @IsEmail()
+  email: string;
+
+  @IsStrongPassword()
+  password: string;
+}
+```
 
 ---
 
@@ -208,6 +451,68 @@ UsersService
 ```
 
 Validation attributes cannot replace business logic.
+
+A business rule such as email uniqueness needs the database, so it must not
+live in a DTO validator.
+
+Bad — uniqueness enforced with a database query at the transport boundary:
+
+```typescript
+// BAD: an async constraint that queries the database inside validation.
+import { Injectable } from '@nestjs/common';
+import {
+  ValidatorConstraint,
+  ValidatorConstraintInterface,
+} from 'class-validator';
+import { UsersRepository } from './users.repository';
+
+@ValidatorConstraint({ name: 'isEmailUnique', async: true })
+@Injectable()
+export class IsEmailUniqueConstraint implements ValidatorConstraintInterface {
+  constructor(private readonly users: UsersRepository) {}
+
+  async validate(email: string): Promise<boolean> {
+    // A DB round-trip on every request, racy, and hard to test in isolation.
+    return !(await this.users.findByEmail(email));
+  }
+}
+```
+
+Good — the DTO stays structural and the service owns the business rule:
+
+```typescript
+// create-user.dto.ts — transport concerns only.
+import { IsEmail } from 'class-validator';
+
+export class CreateUserDto {
+  @IsEmail()
+  email: string;
+}
+```
+
+```typescript
+// users.service.ts — business rule lives here.
+import { ConflictException, Injectable } from '@nestjs/common';
+import { CreateUserDto } from './create-user.dto';
+import { UsersRepository } from './users.repository';
+import { User } from './user.entity';
+
+@Injectable()
+export class UsersService {
+  constructor(private readonly users: UsersRepository) {}
+
+  async create(dto: CreateUserDto): Promise<User> {
+    const existing = await this.users.findByEmail(dto.email);
+    if (existing) {
+      throw new ConflictException('Email already registered');
+    }
+    return this.users.save(dto);
+  }
+}
+```
+
+The `Good` version also lets the database enforce a unique constraint as the
+final authority, closing the race window the validator approach leaves open.
 
 ---
 
@@ -244,6 +549,23 @@ Examples:
 - converting numeric strings.
 
 Sanitization should be deterministic.
+
+Use `@Transform` from `class-transformer` to normalize a value before the
+validation decorators run. The pipe applies the transform, then validates the
+result:
+
+```typescript
+import { Transform } from 'class-transformer';
+import { IsEmail } from 'class-validator';
+
+export class SignInDto {
+  @Transform(({ value }) =>
+    typeof value === 'string' ? value.trim().toLowerCase() : value,
+  )
+  @IsEmail()
+  email: string;
+}
+```
 
 ---
 

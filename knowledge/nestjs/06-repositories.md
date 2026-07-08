@@ -30,6 +30,51 @@ Services implement business logic.
 
 Never mix these responsibilities.
 
+**Bad — the repository hashes passwords, enforces rules, and sends email:**
+
+```ts
+@Injectable()
+export class UserRepository {
+  constructor(
+    @InjectRepository(UserEntity)
+    private readonly repo: Repository<UserEntity>,
+    private readonly mailer: MailerService,
+  ) {}
+
+  async register(email: string, password: string): Promise<UserEntity> {
+    if (await this.repo.findOne({ where: { email } })) {
+      throw new ConflictException('Email taken'); // HTTP concern in persistence
+    }
+    const passwordHash = await bcrypt.hash(password, 12); // business rule
+    const user = await this.repo.save(this.repo.create({ email, passwordHash }));
+    await this.mailer.sendWelcome(email); // side effect that is not persistence
+    return user; // leaks the raw ORM entity, including passwordHash
+  }
+}
+```
+
+**Good — the service orchestrates; the repository only persists:**
+
+```ts
+@Injectable()
+export class UsersService {
+  constructor(
+    @Inject(USER_REPOSITORY) private readonly users: UserRepository,
+    private readonly mailer: MailerService,
+  ) {}
+
+  async register(email: string, password: string): Promise<User> {
+    if (await this.users.findByEmail(email)) {
+      throw new ConflictException('Email taken');
+    }
+    const passwordHash = await bcrypt.hash(password, 12);
+    const user = await this.users.create({ email, passwordHash });
+    await this.mailer.sendWelcome(user.email);
+    return user;
+  }
+}
+```
+
 ---
 
 ## Repository Goals
@@ -145,6 +190,204 @@ runSql()
 ```
 
 Repositories should express intent.
+
+### Worked example: a port + a TypeORM implementation
+
+Define the repository as an interface (a *port*) owned by the domain, plus a token
+so Nest can inject it. Higher layers depend on the interface, never on TypeORM.
+
+```ts
+// user.model.ts — the domain object returned to services (no ORM types)
+export interface User {
+  id: string;
+  email: string;
+  isActive: boolean;
+  createdAt: Date;
+}
+
+export interface CreateUserData {
+  email: string;
+  passwordHash: string;
+}
+
+export interface PageQuery {
+  page: number; // 1-based
+  size: number;
+}
+
+export interface Page<T> {
+  items: T[];
+  total: number;
+  page: number;
+  size: number;
+}
+```
+
+```ts
+// user.repository.ts — the port and its injection token
+export const USER_REPOSITORY = Symbol('USER_REPOSITORY');
+
+export interface UserRepository {
+  findById(id: string): Promise<User | null>;
+  findByEmail(email: string): Promise<User | null>;
+  findActiveUsers(query: PageQuery): Promise<Page<User>>;
+  create(data: CreateUserData): Promise<User>;
+  update(id: string, changes: Partial<CreateUserData>): Promise<User>;
+  softDelete(id: string): Promise<void>;
+}
+```
+
+```ts
+// user.entity.ts — the persistence model; stays inside the repository layer
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+} from 'typeorm';
+
+@Entity('users')
+export class UserEntity {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column({ unique: true })
+  email: string;
+
+  @Column()
+  passwordHash: string;
+
+  @Column({ default: true })
+  isActive: boolean;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @DeleteDateColumn()
+  deletedAt: Date | null;
+}
+```
+
+```ts
+// typeorm-user.repository.ts — the concrete adapter
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository, QueryFailedError } from 'typeorm';
+
+export class EmailAlreadyExistsError extends Error {
+  constructor(email: string) {
+    super(`A user with email "${email}" already exists`);
+    this.name = 'EmailAlreadyExistsError';
+  }
+}
+
+@Injectable()
+export class TypeOrmUserRepository implements UserRepository {
+  constructor(
+    @InjectRepository(UserEntity)
+    private readonly repo: Repository<UserEntity>,
+  ) {}
+
+  async findById(id: string): Promise<User | null> {
+    const row = await this.repo.findOne({ where: { id } });
+    return row ? this.toDomain(row) : null;
+  }
+
+  async findByEmail(email: string): Promise<User | null> {
+    const row = await this.repo.findOne({ where: { email } });
+    return row ? this.toDomain(row) : null;
+  }
+
+  async findActiveUsers({ page, size }: PageQuery): Promise<Page<User>> {
+    // Rows soft-deleted via @DeleteDateColumn are excluded automatically.
+    const [rows, total] = await this.repo
+      .createQueryBuilder('user')
+      .where('user.isActive = :active', { active: true })
+      .orderBy('user.createdAt', 'DESC')
+      .skip((page - 1) * size)
+      .take(size)
+      .getManyAndCount();
+
+    return { items: rows.map((r) => this.toDomain(r)), total, page, size };
+  }
+
+  async create(data: CreateUserData): Promise<User> {
+    try {
+      const row = this.repo.create(data);
+      return this.toDomain(await this.repo.save(row));
+    } catch (err) {
+      // Translate the driver-specific error into a domain error so callers
+      // never depend on Postgres error codes or TypeORM classes.
+      if (
+        err instanceof QueryFailedError &&
+        (err.driverError as { code?: string }).code === '23505'
+      ) {
+        throw new EmailAlreadyExistsError(data.email);
+      }
+      throw err;
+    }
+  }
+
+  async update(id: string, changes: Partial<CreateUserData>): Promise<User> {
+    await this.repo.update({ id }, changes);
+    const row = await this.repo.findOneByOrFail({ id });
+    return this.toDomain(row);
+  }
+
+  async softDelete(id: string): Promise<void> {
+    await this.repo.softDelete(id);
+  }
+
+  private toDomain(row: UserEntity): User {
+    // Map to the domain shape; never leak passwordHash or ORM metadata.
+    return {
+      id: row.id,
+      email: row.email,
+      isActive: row.isActive,
+      createdAt: row.createdAt,
+    };
+  }
+}
+```
+
+Bind the token to the implementation and register the entity in the module:
+
+```ts
+// users.module.ts
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([UserEntity])],
+  controllers: [UsersController],
+  providers: [
+    UsersService,
+    { provide: USER_REPOSITORY, useClass: TypeOrmUserRepository },
+  ],
+})
+export class UsersModule {}
+```
+
+The service depends only on the port. Swapping TypeORM for Prisma later means
+writing a new adapter and rebinding the token — no service changes:
+
+```ts
+// users.service.ts
+import { Inject, Injectable } from '@nestjs/common';
+
+@Injectable()
+export class UsersService {
+  constructor(
+    @Inject(USER_REPOSITORY)
+    private readonly users: UserRepository,
+  ) {}
+
+  listActive(query: PageQuery): Promise<Page<User>> {
+    return this.users.findActiveUsers(query);
+  }
+}
+```
 
 ---
 
@@ -298,7 +541,40 @@ Repositories should be tested with:
 - database fixtures;
 - realistic queries.
 
-Mock repositories when testing services.
+Mock repositories when testing services. Because the service depends on the
+`USER_REPOSITORY` port, the test binds a fake to that token — no database, no ORM:
+
+```ts
+import { Test } from '@nestjs/testing';
+
+describe('UsersService', () => {
+  it('rejects a duplicate email', async () => {
+    const fake: jest.Mocked<UserRepository> = {
+      findById: jest.fn(),
+      findByEmail: jest.fn().mockResolvedValue({ id: 'u1' } as User),
+      findActiveUsers: jest.fn(),
+      create: jest.fn(),
+      update: jest.fn(),
+      softDelete: jest.fn(),
+    };
+
+    const moduleRef = await Test.createTestingModule({
+      providers: [
+        UsersService,
+        { provide: USER_REPOSITORY, useValue: fake },
+        { provide: MailerService, useValue: { sendWelcome: jest.fn() } },
+      ],
+    }).compile();
+
+    const service = moduleRef.get(UsersService);
+
+    await expect(service.register('taken@example.com', 'pw')).rejects.toThrow(
+      'Email taken',
+    );
+    expect(fake.create).not.toHaveBeenCalled();
+  });
+});
+```
 
 ---
 

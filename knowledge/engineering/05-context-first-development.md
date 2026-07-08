@@ -22,6 +22,32 @@ The quality of engineering decisions depends directly on the quality of the avai
 
 Adding more code without understanding the existing system usually increases technical debt.
 
+### Good Example
+
+A ticket says "add a discount field to the checkout total." Before writing code, the engineer searches the repository and finds an existing `calculateOrderTotal` service that already handles tax and shipping. The discount is added inside that service, so every caller stays consistent.
+
+```ts
+// Existing service found by searching for "OrderTotal" before writing anything.
+export function calculateOrderTotal(order: Order): Money {
+  const subtotal = sumLineItems(order.items);
+  const discount = applyDiscounts(subtotal, order.coupons); // reused existing helper
+  const taxed = applyTax(subtotal.minus(discount), order.taxRegion);
+  return taxed.plus(order.shippingCost);
+}
+```
+
+### Bad Example
+
+The same ticket is implemented by subtracting a discount in the React component that renders the total. Tax and shipping still calculate from the pre-discount subtotal, and the mobile app (a second caller of the API) never gets the discount at all.
+
+```ts
+// Discount bolted onto the view. The server-side total is now wrong,
+// and only this one screen shows the discounted price.
+const displayTotal = order.total - order.couponAmount;
+```
+
+The failure is not a syntax error. It is a missing-context error: the engineer never checked *where* the total is authoritative before changing it.
+
 ---
 
 ## Core Principle
@@ -162,6 +188,26 @@ Before writing code, inspect:
 
 Engineering is often about discovering existing solutions rather than creating new ones.
 
+### Worked Example
+
+Task: "Add rate limiting to the public API." Investigation happens before any code is written.
+
+```bash
+# 1. Is rate limiting already implemented somewhere?
+grep -ri "rate.limit\|throttle\|too.many.requests\|429" src/
+
+# 2. What middleware pattern does the project already use?
+ls src/middleware/ && grep -rl "export function.*Middleware" src/
+
+# 3. Is there a shared store (Redis/cache) the limiter should use?
+grep -ri "redis\|createClient\|cache" src/config/
+
+# 4. Are limits already defined in config rather than hard-coded?
+grep -ri "RATE_LIMIT\|MAX_REQUESTS" .env.example src/config/
+```
+
+If step 1 finds an existing throttle guard, the task becomes "apply the existing guard to these new routes," not "build a rate limiter." The investigation changed the size of the task and prevented a duplicate implementation. That is the entire point of context-first work.
+
 ---
 
 ## Context Before Creation
@@ -185,6 +231,32 @@ Search for:
 - helper functions;
 - existing abstractions;
 - framework capabilities.
+
+Run a search across the codebase before writing a helper. Use the concept, not the exact name you have in mind, because the existing helper is often named differently.
+
+### Bad Example
+
+Needing to show prices, the engineer writes a fresh formatter that hard-codes the currency and rounding.
+
+```ts
+// Reinvented, locale-unaware, and wrong for currencies with no decimals (JPY).
+function formatPrice(amount: number): string {
+  return "$" + amount.toFixed(2);
+}
+```
+
+### Good Example
+
+A quick search (`grep -ri "NumberFormat\|formatMoney\|formatCurrency" src/`) shows the platform already offers this, and the team wraps it in one shared helper. Reuse it instead of adding a competing version.
+
+```ts
+// One shared helper, driven by the standard Intl API. Correct across locales.
+export function formatCurrency(amount: number, currency: string, locale = "en-US"): string {
+  return new Intl.NumberFormat(locale, { style: "currency", currency }).format(amount);
+}
+```
+
+Trade-off: reusing a shared helper couples your feature to its interface, so a breaking change there affects you too. That coupling is almost always cheaper than maintaining a second formatter that silently drifts out of sync.
 
 ---
 
@@ -246,6 +318,18 @@ Before generating code, AI coding agents should explicitly determine:
 - likely integration points.
 
 If important context is missing, AI should explain what information is required instead of making assumptions.
+
+### Bad Example
+
+> The user asked for a `sendEmail` function, so here is one using `nodemailer` with an SMTP config.
+
+This ignores whether the project already sends email, which provider it uses, and where credentials live. It is a plausible answer to the wrong question.
+
+### Good Example
+
+> Before adding email sending, I searched the repo and found `src/services/notification.ts`, which already sends transactional email through the existing provider client. I will add your new message type there and reuse the configured client rather than introducing a second email dependency. If you instead want a different provider, tell me and I will adjust.
+
+The second response states what context was gathered, what it implies, and where the change belongs. It also surfaces the one open question instead of guessing.
 
 ---
 

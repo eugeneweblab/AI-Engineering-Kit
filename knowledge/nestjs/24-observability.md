@@ -133,6 +133,79 @@ Include:
 
 Avoid free-form logging.
 
+Implement structured logging by replacing the default logger with a class that
+implements the `LoggerService` interface and emits one JSON object per line.
+Machine-readable logs can be indexed, filtered, and correlated by a log platform;
+interpolated strings cannot.
+
+```typescript
+// observability/structured-logger.ts
+import { Injectable, LoggerService } from '@nestjs/common';
+import { getCorrelationId } from './request-context';
+
+@Injectable()
+export class StructuredLogger implements LoggerService {
+  private write(level: string, message: unknown, context?: string): void {
+    process.stdout.write(
+      JSON.stringify({
+        timestamp: new Date().toISOString(),
+        level,
+        service: process.env.SERVICE_NAME ?? 'orders-service',
+        correlationId: getCorrelationId(),
+        context,
+        message,
+      }) + '\n',
+    );
+  }
+
+  log(message: unknown, context?: string): void {
+    this.write('info', message, context);
+  }
+
+  error(message: unknown, stack?: string, context?: string): void {
+    this.write('error', message, context);
+  }
+
+  warn(message: unknown, context?: string): void {
+    this.write('warn', message, context);
+  }
+
+  debug(message: unknown, context?: string): void {
+    this.write('debug', message, context);
+  }
+
+  verbose(message: unknown, context?: string): void {
+    this.write('verbose', message, context);
+  }
+}
+```
+
+Install it globally in `main.ts`. `bufferLogs: true` holds startup logs until the
+custom logger is registered so nothing is emitted in the wrong format:
+
+```typescript
+// main.ts
+const app = await NestFactory.create(AppModule, { bufferLogs: true });
+app.useLogger(new StructuredLogger());
+```
+
+Good — a structured record with a stable schema and no secrets:
+
+```typescript
+// inside a service (context is the class name)
+this.logger.log(
+  { event: 'order.created', orderId: order.id, userId: order.userId },
+  OrdersService.name,
+);
+// => {"timestamp":"…","level":"info","correlationId":"…","message":{"event":"order.created", …}}
+```
+
+Bad — a free-form string that cannot be queried and leaks a token:
+
+```typescript
+console.log(`Order ${order.id} created by ${order.userId}, token=${jwt}`);
+```
+
 ---
 
 ## Log Levels
@@ -170,6 +243,48 @@ Propagate it through:
 - scheduled tasks.
 
 A single business operation should be traceable end-to-end.
+
+Store the correlation ID in an `AsyncLocalStorage` so any provider — a service,
+a repository, or the logger above — can read it without threading it through
+every method signature:
+
+```typescript
+// observability/request-context.ts
+import { AsyncLocalStorage } from 'node:async_hooks';
+
+interface RequestContext {
+  correlationId: string;
+}
+
+export const requestContext = new AsyncLocalStorage<RequestContext>();
+
+export function getCorrelationId(): string | undefined {
+  return requestContext.getStore()?.correlationId;
+}
+```
+
+Populate the store once at the edge. A global middleware reuses an inbound
+`x-correlation-id` (so the ID survives across service hops) or mints a new one,
+echoes it back on the response, and wraps the rest of the request in
+`requestContext.run(...)`:
+
+```typescript
+// main.ts (registered before app.listen)
+import { randomUUID } from 'node:crypto';
+import type { Request, Response, NextFunction } from 'express';
+import { requestContext } from './observability/request-context';
+
+app.use((req: Request, res: Response, next: NextFunction) => {
+  const correlationId =
+    (req.headers['x-correlation-id'] as string | undefined) ?? randomUUID();
+  res.setHeader('x-correlation-id', correlationId);
+  requestContext.run({ correlationId }, next);
+});
+```
+
+Registering it with `app.use` applies it globally and works identically on
+NestJS 10 (Express 4) and NestJS 11 (Express 5), avoiding the named-wildcard
+route changes that affect `MiddlewareConsumer.forRoutes('*')` on v11.
 
 ---
 
@@ -221,6 +336,67 @@ Separate:
 - liveness;
 - readiness.
 
+Use `@nestjs/terminus`, which provides ready-made health indicators and a
+`@HealthCheck()` decorator that formats the aggregate result. Import
+`TerminusModule` and expose a controller:
+
+```typescript
+// health/health.module.ts
+import { Module } from '@nestjs/common';
+import { TerminusModule } from '@nestjs/terminus';
+import { HealthController } from './health.controller';
+
+@Module({
+  imports: [TerminusModule],
+  controllers: [HealthController],
+})
+export class HealthModule {}
+```
+
+Liveness answers "is the process alive?" and must stay cheap — checking a
+dependency here can crash-loop a healthy pod. Readiness answers "can it serve
+traffic?" and checks the dependencies the service actually needs:
+
+```typescript
+// health/health.controller.ts
+import { Controller, Get } from '@nestjs/common';
+import {
+  HealthCheck,
+  HealthCheckService,
+  MemoryHealthIndicator,
+  TypeOrmHealthIndicator,
+} from '@nestjs/terminus';
+
+@Controller('health')
+export class HealthController {
+  constructor(
+    private readonly health: HealthCheckService,
+    private readonly db: TypeOrmHealthIndicator,
+    private readonly memory: MemoryHealthIndicator,
+  ) {}
+
+  // Liveness: no external dependencies — only the process itself.
+  @Get('live')
+  @HealthCheck()
+  liveness() {
+    return this.health.check([
+      () => this.memory.checkHeap('memory_heap', 512 * 1024 * 1024),
+    ]);
+  }
+
+  // Readiness: the DB the service cannot serve requests without.
+  @Get('ready')
+  @HealthCheck()
+  readiness() {
+    return this.health.check([() => this.db.pingCheck('database')]);
+  }
+}
+```
+
+Each indicator returns a `503 Service Unavailable` with a per-check status when
+it fails, so orchestrators (Kubernetes probes, load balancers) can route around
+an unready instance.
+
 ---
 
 ## Audit Logs
@@ -264,6 +440,53 @@ Benefits:
 - broad ecosystem support.
 
 Application code should remain independent of monitoring vendors.
+
+Initialize the OpenTelemetry SDK in its own module and import it **first**, before
+`NestFactory` or any instrumented library is loaded — the auto-instrumentations
+patch modules (`http`, `pg`, `ioredis`, `express`) at require time, so a late
+start captures nothing:
+
+```typescript
+// observability/tracing.ts
+import { NodeSDK } from '@opentelemetry/sdk-node';
+import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
+import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
+import { resourceFromAttributes } from '@opentelemetry/resources';
+import {
+  ATTR_SERVICE_NAME,
+  ATTR_SERVICE_VERSION,
+} from '@opentelemetry/semantic-conventions';
+
+const sdk = new NodeSDK({
+  resource: resourceFromAttributes({
+    [ATTR_SERVICE_NAME]: process.env.SERVICE_NAME ?? 'orders-service',
+    [ATTR_SERVICE_VERSION]: process.env.APP_VERSION ?? '0.0.0',
+  }),
+  traceExporter: new OTLPTraceExporter({
+    url: process.env.OTEL_EXPORTER_OTLP_ENDPOINT, // e.g. http://collector:4318/v1/traces
+  }),
+  instrumentations: [getNodeAutoInstrumentations()],
+});
+
+sdk.start();
+
+// Flush spans on shutdown so the last requests are not lost.
+process.on('SIGTERM', () => {
+  sdk.shutdown().finally(() => process.exit(0));
+});
+```
+
+```typescript
+// main.ts — the FIRST import in the file
+import './observability/tracing';
+import { NestFactory } from '@nestjs/core';
+// … remaining imports and bootstrap()
+```
+
+With auto-instrumentation active, incoming HTTP requests, outgoing calls, and DB
+queries become spans automatically. Correlate them with the logs above by adding
+the active `traceId` to each log line via
+`trace.getActiveSpan()?.spanContext().traceId`.
 
 ---
 

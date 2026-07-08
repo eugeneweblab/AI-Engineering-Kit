@@ -124,6 +124,101 @@ DELETE  /users/:id
 
 Avoid action-oriented URLs.
 
+A thin, idiomatic controller declares routes with decorators, extracts data with
+parameter decorators, and delegates every decision to a service. It holds no
+business logic and reaches for no database.
+
+```typescript
+// users.controller.ts
+import {
+  Controller,
+  Get,
+  Post,
+  Patch,
+  Delete,
+  Param,
+  Query,
+  Body,
+  HttpCode,
+  HttpStatus,
+  ParseIntPipe,
+  UseGuards,
+} from '@nestjs/common';
+import { UsersService } from './users.service';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { PaginationQueryDto } from './dto/pagination-query.dto';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+
+@UseGuards(JwtAuthGuard) // authentication enforced for every route below
+@Controller('users')
+export class UsersController {
+  constructor(private readonly usersService: UsersService) {}
+
+  @Get()
+  findAll(@Query() query: PaginationQueryDto) {
+    return this.usersService.findAll(query);
+  }
+
+  @Get(':id')
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.usersService.findOne(id);
+  }
+
+  @Post() // Nest returns 201 for POST by default
+  create(@Body() dto: CreateUserDto) {
+    return this.usersService.create(dto);
+  }
+
+  @Patch(':id')
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() dto: UpdateUserDto,
+  ) {
+    return this.usersService.update(id, dto);
+  }
+
+  @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT) // 204: no body on success
+  async remove(@Param('id', ParseIntPipe) id: number): Promise<void> {
+    await this.usersService.remove(id);
+  }
+}
+```
+
+The anti-pattern below inlines validation, database access, password hashing, and
+manual response formatting. It also uses `@Res()`, which opts out of Nest's
+response pipeline and breaks interceptors and exception filters.
+
+```typescript
+// BAD: fat controller — business logic, DB access, and manual responses
+import { Controller, Post, Req, Res } from '@nestjs/common';
+import { Request, Response } from 'express';
+import { DataSource } from 'typeorm';
+import * as bcrypt from 'bcrypt';
+import { User } from './user.entity';
+
+@Controller('users')
+export class UsersController {
+  constructor(private readonly dataSource: DataSource) {}
+
+  @Post()
+  async create(@Req() req: Request, @Res() res: Response) {
+    const body = req.body;
+    if (!body.email) {
+      return res.status(400).json({ error: 'email required' }); // manual validation
+    }
+    const repo = this.dataSource.getRepository(User);
+    if (await repo.findOne({ where: { email: body.email } })) {
+      return res.status(409).json({ error: 'exists' }); // business rule in controller
+    }
+    const password = await bcrypt.hash(body.password, 10); // business logic
+    const user = await repo.save(repo.create({ ...body, password }));
+    return res.status(201).json(user); // leaks the password hash to the client
+  }
+}
+```
+
 ---
 
 ## Resource Naming
@@ -201,6 +296,53 @@ DTOs should define:
 
 Avoid accepting untyped objects.
 
+Define the create DTO with `class-validator` decorators, then derive the update
+DTO with `PartialType` so its fields become optional without duplication.
+
+```typescript
+// dto/create-user.dto.ts
+import {
+  IsEmail,
+  IsEnum,
+  IsOptional,
+  IsString,
+  MaxLength,
+  MinLength,
+} from 'class-validator';
+
+export enum UserRole {
+  Admin = 'admin',
+  Member = 'member',
+}
+
+export class CreateUserDto {
+  @IsEmail()
+  email: string;
+
+  @IsString()
+  @MinLength(2)
+  @MaxLength(80)
+  name: string;
+
+  @IsString()
+  @MinLength(8)
+  password: string;
+
+  @IsOptional()
+  @IsEnum(UserRole)
+  role?: UserRole;
+}
+```
+
+```typescript
+// dto/update-user.dto.ts
+import { PartialType } from '@nestjs/mapped-types';
+import { CreateUserDto } from './create-user.dto';
+
+// Every field of CreateUserDto, now optional and still validated.
+export class UpdateUserDto extends PartialType(CreateUserDto) {}
+```
+
 ---
 
 ## Validation
@@ -216,6 +358,30 @@ Examples:
 - nested objects.
 
 Invalid requests should fail early.
+
+Register `ValidationPipe` globally so DTO rules run on every request before any
+handler executes. `whitelist` strips unknown properties, `forbidNonWhitelisted`
+rejects them with a 400, and `transform` produces real DTO class instances.
+
+```typescript
+// main.ts
+import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true, // remove properties without a DTO decorator
+      forbidNonWhitelisted: true, // 400 when unexpected properties are sent
+      transform: true, // instantiate the DTO class and coerce primitive types
+    }),
+  );
+  await app.listen(3000);
+}
+bootstrap();
+```
 
 ---
 
@@ -294,6 +460,31 @@ Typical parameters:
 
 Avoid returning unbounded collections.
 
+Query strings arrive as text, so a pagination DTO must coerce and bound them.
+`@Type(() => Number)` (with `transform: true` on the pipe) converts the raw
+string, and `@Max` caps the page size to protect the database.
+
+```typescript
+// dto/pagination-query.dto.ts
+import { Type } from 'class-transformer';
+import { IsInt, IsOptional, Max, Min } from 'class-validator';
+
+export class PaginationQueryDto {
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  page: number = 1;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  @Max(100) // never let a client request an unbounded page
+  limit: number = 20;
+}
+```
+
 ---
 
 ## Filtering
@@ -326,6 +517,31 @@ Example:
 
 Versioning strategy should remain consistent throughout the application.
 
+Enable URI versioning once at bootstrap, then declare the version per controller.
+
+```typescript
+// main.ts
+import { VersioningType } from '@nestjs/common';
+
+app.enableVersioning({
+  type: VersioningType.URI, // routes are prefixed with /v1, /v2, ...
+  defaultVersion: '1',
+});
+```
+
+```typescript
+// users.v2.controller.ts
+import { Controller, Get } from '@nestjs/common';
+
+@Controller({ path: 'users', version: '2' }) // serves GET /v2/users
+export class UsersV2Controller {
+  @Get()
+  findAll() {
+    return { data: [], version: 2 };
+  }
+}
+```
+
 ---
 
 ## File Uploads
@@ -338,6 +554,45 @@ Controllers handling uploads should:
 - delegate storage to dedicated services.
 
 Avoid embedding storage logic inside controllers.
+
+Use `FileInterceptor` to receive the upload and `ParseFilePipe` to enforce size
+and type before the handler runs. Storage itself is delegated to a service.
+
+```typescript
+// avatars.controller.ts
+import {
+  Controller,
+  Post,
+  UploadedFile,
+  UseInterceptors,
+  ParseFilePipe,
+  MaxFileSizeValidator,
+  FileTypeValidator,
+} from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { AvatarsService } from './avatars.service';
+
+@Controller('avatars')
+export class AvatarsController {
+  constructor(private readonly avatarsService: AvatarsService) {}
+
+  @Post()
+  @UseInterceptors(FileInterceptor('file'))
+  upload(
+    @UploadedFile(
+      new ParseFilePipe({
+        validators: [
+          new MaxFileSizeValidator({ maxSize: 5 * 1024 * 1024 }), // 5 MB
+          new FileTypeValidator({ fileType: /(jpe?g|png|webp)$/ }),
+        ],
+      }),
+    )
+    file: Express.Multer.File, // ambient type from @types/multer
+  ) {
+    return this.avatarsService.store(file);
+  }
+}
+```
 
 ---
 
@@ -364,6 +619,43 @@ Controllers should verify:
 - interaction with services.
 
 Business rules should be tested within services rather than controllers.
+
+A controller test provides a mock service and verifies delegation, not business
+logic. Guards are replaced with `overrideGuard` so routing can be tested in
+isolation.
+
+```typescript
+// users.controller.spec.ts
+import { Test, TestingModule } from '@nestjs/testing';
+import { UsersController } from './users.controller';
+import { UsersService } from './users.service';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+
+describe('UsersController', () => {
+  let controller: UsersController;
+  const usersService = { findOne: jest.fn() };
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      controllers: [UsersController],
+      providers: [{ provide: UsersService, useValue: usersService }],
+    })
+      .overrideGuard(JwtAuthGuard)
+      .useValue({ canActivate: () => true })
+      .compile();
+
+    controller = module.get(UsersController);
+  });
+
+  it('delegates findOne to the service', async () => {
+    const user = { id: 1, email: 'a@b.com' };
+    usersService.findOne.mockResolvedValue(user);
+
+    await expect(controller.findOne(1)).resolves.toEqual(user);
+    expect(usersService.findOne).toHaveBeenCalledWith(1);
+  });
+});
+```
 
 ---
 

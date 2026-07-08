@@ -126,18 +126,25 @@ A module should expose only what other modules require.
 
 Export only stable providers.
 
-Example:
+A feature module declares its controllers and providers, and exports only the
+service that forms its stable public contract. The repository stays private.
 
-```
-UsersModule
+```typescript
+// users/users.module.ts
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersController } from './users.controller';
+import { UsersService } from './users.service';
+import { UsersRepository } from './users.repository';
+import { User } from './entities/user.entity';
 
-↓
-
-exports
-
-↓
-
-UsersService
+@Module({
+  imports: [TypeOrmModule.forFeature([User])],
+  controllers: [UsersController],
+  providers: [UsersService, UsersRepository],
+  exports: [UsersService], // only the stable public API leaves the module
+})
+export class UsersModule {}
 ```
 
 Do not expose internal implementation details.
@@ -161,6 +168,29 @@ Export providers intentionally.
 If another module does not require a provider, it should remain private.
 
 Avoid exporting everything by default.
+
+Good — export only the provider that other modules consume:
+
+```typescript
+@Module({
+  controllers: [UsersController],
+  providers: [UsersService, UsersRepository, UserPasswordHasher],
+  exports: [UsersService], // consumers depend on the service, not the internals
+})
+export class UsersModule {}
+```
+
+Bad — leaking every internal provider couples other modules to implementation
+details and makes the repository and hasher impossible to change safely:
+
+```typescript
+@Module({
+  controllers: [UsersController],
+  providers: [UsersService, UsersRepository, UserPasswordHasher],
+  exports: [UsersService, UsersRepository, UserPasswordHasher], // over-exposed
+})
+export class UsersModule {}
+```
 
 ---
 
@@ -198,6 +228,23 @@ Suitable examples include:
 - logging;
 - metrics.
 
+Mark the module with `@Global()` so its exports are available everywhere without
+re-importing. It must still be imported once (typically in the root module) for
+its providers to be instantiated.
+
+```typescript
+// logger/logger.module.ts
+import { Global, Module } from '@nestjs/common';
+import { LoggerService } from './logger.service';
+
+@Global()
+@Module({
+  providers: [LoggerService],
+  exports: [LoggerService],
+})
+export class LoggerModule {}
+```
+
 Business modules should not normally be global.
 
 ---
@@ -213,6 +260,71 @@ Typical examples:
 - caching;
 - third-party integrations.
 
+Expose static `forRoot`/`forRootAsync` methods that return a `DynamicModule`.
+Pass options through an injection token so services can consume them, and use the
+async variant when options depend on other providers such as `ConfigService`.
+
+```typescript
+// storage/storage.module.ts
+import { DynamicModule, Module, Provider } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { StorageService } from './storage.service';
+
+export interface StorageOptions {
+  bucket: string;
+  region: string;
+}
+
+// A unique token that both providers and services reference.
+export const STORAGE_OPTIONS = Symbol('STORAGE_OPTIONS');
+
+@Module({})
+export class StorageModule {
+  static forRoot(options: StorageOptions): DynamicModule {
+    return {
+      module: StorageModule,
+      providers: [
+        { provide: STORAGE_OPTIONS, useValue: options },
+        StorageService,
+      ],
+      exports: [StorageService],
+    };
+  }
+
+  static forRootAsync(): DynamicModule {
+    const optionsProvider: Provider = {
+      provide: STORAGE_OPTIONS,
+      useFactory: (config: ConfigService): StorageOptions => ({
+        bucket: config.getOrThrow<string>('STORAGE_BUCKET'),
+        region: config.getOrThrow<string>('STORAGE_REGION'),
+      }),
+      inject: [ConfigService],
+    };
+
+    return {
+      module: StorageModule,
+      providers: [optionsProvider, StorageService],
+      exports: [StorageService],
+    };
+  }
+}
+```
+
+The service injects the resolved options through the same token:
+
+```typescript
+// storage/storage.service.ts
+import { Inject, Injectable } from '@nestjs/common';
+import { STORAGE_OPTIONS, StorageOptions } from './storage.module';
+
+@Injectable()
+export class StorageService {
+  constructor(
+    @Inject(STORAGE_OPTIONS) private readonly options: StorageOptions,
+  ) {}
+}
+```
+
 Keep dynamic configuration centralized.
 
 ---
@@ -226,6 +338,38 @@ Instead:
 - extract shared functionality;
 - introduce interfaces;
 - redesign ownership.
+
+When two modules genuinely reference each other and the cycle cannot be removed
+immediately, break it with `forwardRef()` on both the module import and the
+provider injection. Treat this as a temporary measure, not a design goal.
+
+```typescript
+// orders/orders.module.ts
+import { Module, forwardRef } from '@nestjs/common';
+import { PaymentsModule } from '../payments/payments.module';
+import { OrdersService } from './orders.service';
+
+@Module({
+  imports: [forwardRef(() => PaymentsModule)],
+  providers: [OrdersService],
+  exports: [OrdersService],
+})
+export class OrdersModule {}
+```
+
+```typescript
+// orders/orders.service.ts
+import { Inject, Injectable, forwardRef } from '@nestjs/common';
+import { PaymentsService } from '../payments/payments.service';
+
+@Injectable()
+export class OrdersService {
+  constructor(
+    @Inject(forwardRef(() => PaymentsService))
+    private readonly paymentsService: PaymentsService,
+  ) {}
+}
+```
 
 Circular dependencies often indicate architectural problems.
 

@@ -80,17 +80,44 @@ Authentication does not imply authorization.
 
 Always verify permissions before allowing operations.
 
-Examples:
+Use `current_user_can()` with the most specific capability available. For actions
+that target a single object, pass the object ID so WordPress can apply meta
+capabilities (for example `edit_post`, `delete_user`) rather than a broad
+primitive capability.
 
 ```php
 current_user_can( 'edit_posts' );
 
 current_user_can( 'manage_options' );
 
-current_user_can( 'edit_user', $user_id );
+current_user_can( 'edit_post', $post_id );
 ```
 
 Every privileged action should perform an explicit capability check.
+
+Bad — checks only that the user is logged in, so any subscriber can trash any post:
+
+```php
+function my_plugin_trash_post( $post_id ) {
+	if ( is_user_logged_in() ) {
+		wp_trash_post( $post_id );
+	}
+}
+```
+
+Good — checks the meta capability for this specific post:
+
+```php
+function my_plugin_trash_post( $post_id ) {
+	$post_id = absint( $post_id );
+
+	if ( ! current_user_can( 'delete_post', $post_id ) ) {
+		wp_die( esc_html__( 'You are not allowed to delete this post.', 'my-plugin' ), 403 );
+	}
+
+	wp_trash_post( $post_id );
+}
+```
 
 ---
 
@@ -98,14 +125,66 @@ Every privileged action should perform an explicit capability check.
 
 Protect state-changing requests with nonces.
 
-Examples:
+A nonce proves the request came from a page WordPress rendered for this user, not
+from a forged cross-site request. Emit it with `wp_nonce_field()` and verify it on
+submission. A nonce is never a substitute for a capability check — always do both.
 
-- form submissions;
-- AJAX requests;
-- admin actions;
-- REST requests when applicable.
+Good — admin form protected by a nonce and a capability check:
 
-Never rely solely on hidden form fields.
+```php
+function my_plugin_settings_form() {
+	?>
+	<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+		<input type="hidden" name="action" value="my_plugin_save_settings">
+		<?php wp_nonce_field( 'my_plugin_save_settings', 'my_plugin_nonce' ); ?>
+		<input type="text" name="api_endpoint" value="<?php echo esc_attr( get_option( 'my_plugin_api_endpoint', '' ) ); ?>">
+		<?php submit_button(); ?>
+	</form>
+	<?php
+}
+
+add_action( 'admin_post_my_plugin_save_settings', 'my_plugin_save_settings' );
+
+function my_plugin_save_settings() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'Insufficient permissions.', 'my-plugin' ), 403 );
+	}
+
+	// Dies with a 403 if the nonce is missing or invalid.
+	check_admin_referer( 'my_plugin_save_settings', 'my_plugin_nonce' );
+
+	$endpoint = isset( $_POST['api_endpoint'] )
+		? esc_url_raw( wp_unslash( $_POST['api_endpoint'] ) )
+		: '';
+
+	update_option( 'my_plugin_api_endpoint', $endpoint );
+
+	wp_safe_redirect( add_query_arg( 'updated', 'true', wp_get_referer() ) );
+	exit;
+}
+```
+
+For AJAX handlers, use `check_ajax_referer()`, which reads the nonce from the
+request and dies on failure:
+
+```php
+add_action( 'wp_ajax_my_plugin_action', 'my_plugin_ajax_handler' );
+
+function my_plugin_ajax_handler() {
+	// Verifies the 'my_plugin_action' nonce sent as the '_ajax_nonce' or 'nonce' field.
+	check_ajax_referer( 'my_plugin_action' );
+
+	if ( ! current_user_can( 'edit_posts' ) ) {
+		wp_send_json_error( array( 'message' => 'Forbidden' ), 403 );
+	}
+
+	wp_send_json_success();
+}
+```
+
+Never rely solely on hidden form fields. Always unslash superglobals with
+`wp_unslash()` before sanitizing — WordPress adds slashes to `$_POST`, `$_GET`,
+`$_REQUEST`, and `$_COOKIE`.
 
 ---
 
@@ -123,6 +202,32 @@ Examples:
 - UUIDs;
 - enum values;
 - dates.
+
+Validation confirms a value is acceptable; sanitization coerces a value into a
+safe shape. They are complementary, not interchangeable — validate the meaning,
+then sanitize the format.
+
+Bad — casts a status without checking it is one of the allowed values:
+
+```php
+$status = sanitize_text_field( wp_unslash( $_POST['status'] ) );
+update_post_meta( $post_id, 'order_status', $status );
+```
+
+Good — rejects anything outside a known set before storing:
+
+```php
+$allowed_statuses = array( 'pending', 'processing', 'complete', 'cancelled' );
+$status           = isset( $_POST['status'] )
+	? sanitize_key( wp_unslash( $_POST['status'] ) )
+	: '';
+
+if ( ! in_array( $status, $allowed_statuses, true ) ) {
+	wp_die( esc_html__( 'Invalid status.', 'my-plugin' ), 400 );
+}
+
+update_post_meta( $post_id, 'order_status', $status );
+```
 
 Reject invalid input as early as possible.
 
@@ -166,7 +271,30 @@ esc_url()
 wp_kses_post()
 ```
 
-The escaping function depends on the output context.
+The escaping function depends on the output context. Escape as late as possible,
+at the point of output, and match the function to the context.
+
+Bad — trusts stored values and mixes contexts, allowing stored XSS:
+
+```php
+echo '<a href="' . get_post_meta( $post_id, 'homepage', true ) . '" title="'
+	. get_post_meta( $post_id, 'bio', true ) . '">' . get_the_title() . '</a>';
+```
+
+Good — each value is escaped for its exact context:
+
+```php
+printf(
+	'<a href="%1$s" title="%2$s">%3$s</a>',
+	esc_url( get_post_meta( $post_id, 'homepage', true ) ),
+	esc_attr( get_post_meta( $post_id, 'bio', true ) ),
+	esc_html( get_the_title( $post_id ) )
+);
+```
+
+When a value may contain a limited set of HTML tags (for example post content),
+filter it with `wp_kses_post()` or a custom allowlist via `wp_kses()` rather than
+echoing it raw.
 
 Never escape data when storing it.
 
@@ -183,6 +311,51 @@ When direct SQL is necessary:
 - avoid dynamic SQL generation;
 - minimize privileges.
 
+`$wpdb->prepare()` only placeholders values, not table or column names. Build
+identifiers from a hardcoded allowlist and interpolate values exclusively through
+`%s`, `%d`, `%f`, or the `%i` identifier placeholder (WordPress 6.2+).
+
+Bad — untrusted input concatenated straight into the query:
+
+```php
+global $wpdb;
+
+$email   = $_GET['email'];
+$results = $wpdb->get_results( "SELECT * FROM {$wpdb->users} WHERE user_email = '$email'" );
+```
+
+Good — value passed through a placeholder in `prepare()`:
+
+```php
+global $wpdb;
+
+$email = isset( $_GET['email'] )
+	? sanitize_email( wp_unslash( $_GET['email'] ) )
+	: '';
+
+$results = $wpdb->get_results(
+	$wpdb->prepare(
+		"SELECT ID, user_login FROM {$wpdb->users} WHERE user_email = %s",
+		$email
+	)
+);
+```
+
+Use `%i` for a dynamic column name that has been validated against an allowlist:
+
+```php
+global $wpdb;
+
+$allowed_columns = array( 'user_login', 'user_email', 'user_registered' );
+$order_by        = in_array( $requested_column, $allowed_columns, true )
+	? $requested_column
+	: 'user_login';
+
+$results = $wpdb->get_results(
+	$wpdb->prepare( "SELECT ID FROM {$wpdb->users} ORDER BY %i ASC", $order_by )
+);
+```
+
 Never concatenate untrusted input into SQL queries.
 
 ---
@@ -198,6 +371,66 @@ Every endpoint should verify:
 
 Permission callbacks are mandatory.
 
+Bad — `permission_callback` returns `true`, exposing the route to everyone:
+
+```php
+register_rest_route(
+	'my-plugin/v1',
+	'/orders/(?P<id>\d+)',
+	array(
+		'methods'             => 'POST',
+		'callback'            => 'my_plugin_update_order',
+		'permission_callback' => '__return_true',
+	)
+);
+```
+
+Good — the route validates its arguments and enforces a capability. WordPress
+verifies the REST nonce automatically for cookie-authenticated requests, so a
+capability check is the correct authorization gate here:
+
+```php
+add_action( 'rest_api_init', 'my_plugin_register_routes' );
+
+function my_plugin_register_routes() {
+	register_rest_route(
+		'my-plugin/v1',
+		'/orders/(?P<id>\d+)',
+		array(
+			'methods'             => WP_REST_Server::EDITABLE,
+			'callback'            => 'my_plugin_update_order',
+			'permission_callback' => function () {
+				return current_user_can( 'edit_others_posts' );
+			},
+			'args'                => array(
+				'id'     => array(
+					'required'          => true,
+					'validate_callback' => function ( $value ) {
+						return is_numeric( $value ) && (int) $value > 0;
+					},
+					'sanitize_callback' => 'absint',
+				),
+				'status' => array(
+					'required'          => true,
+					'type'              => 'string',
+					'enum'              => array( 'pending', 'processing', 'complete' ),
+					'sanitize_callback' => 'sanitize_key',
+				),
+			),
+		)
+	);
+}
+
+function my_plugin_update_order( WP_REST_Request $request ) {
+	$order_id = $request['id'];     // Already sanitized by absint.
+	$status   = $request['status']; // Already validated against the enum.
+
+	update_post_meta( $order_id, 'order_status', $status );
+
+	return rest_ensure_response( array( 'id' => $order_id, 'status' => $status ) );
+}
+```
+
 Sensitive fields should never be returned unless explicitly required.
 
 ---
@@ -212,7 +445,50 @@ Before accepting uploads verify:
 - upload permissions;
 - destination directory.
 
-Never trust the client-provided filename or extension.
+Route uploads through `wp_handle_upload()`, which moves the file safely and
+returns an error for disallowed types. Restrict the accepted MIME types explicitly
+and check the capability first.
+
+Good — capability check, nonce, MIME allowlist, and core upload handling:
+
+```php
+function my_plugin_handle_upload() {
+	if ( ! current_user_can( 'upload_files' ) ) {
+		wp_die( esc_html__( 'Insufficient permissions.', 'my-plugin' ), 403 );
+	}
+
+	check_admin_referer( 'my_plugin_upload' );
+
+	if ( ! function_exists( 'wp_handle_upload' ) ) {
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+	}
+
+	$allowed_mimes = array(
+		'jpg|jpeg' => 'image/jpeg',
+		'png'      => 'image/png',
+		'pdf'      => 'application/pdf',
+	);
+
+	$result = wp_handle_upload(
+		$_FILES['my_plugin_file'],
+		array(
+			'test_form' => false,
+			'mimes'     => $allowed_mimes,
+		)
+	);
+
+	if ( isset( $result['error'] ) ) {
+		wp_die( esc_html( $result['error'] ), 400 );
+	}
+
+	// $result['file'], $result['url'], and $result['type'] are now safe to use.
+	return $result;
+}
+```
+
+Never trust the client-provided filename or extension. `wp_handle_upload()`
+verifies the real file type with `wp_check_filetype_and_ext()`, which inspects the
+file contents rather than relying on the submitted name.
 
 ---
 

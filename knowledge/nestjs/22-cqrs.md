@@ -82,6 +82,39 @@ Command Handler       Query Handler
 
 Commands and queries should remain independent.
 
+In NestJS the pattern is provided by the `@nestjs/cqrs` package. `CommandBus`,
+`QueryBus`, and `EventBus` are injectable providers exposed once you import
+`CqrsModule`. Handlers are ordinary providers annotated with
+`@CommandHandler`, `@QueryHandler`, or `@EventsHandler` and registered in the
+module's `providers` array:
+
+```typescript
+// orders.module.ts
+import { Module } from '@nestjs/common';
+import { CqrsModule } from '@nestjs/cqrs';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { OrderEntity } from './order.entity';
+import { OrderSummaryView } from './order-summary.view';
+import { OrdersController } from './orders.controller';
+import { CreateOrderHandler } from './commands/create-order.handler';
+import { GetOrderHandler } from './queries/get-order.handler';
+import { OrderCreatedHandler } from './events/order-created.handler';
+
+const CommandHandlers = [CreateOrderHandler];
+const QueryHandlers = [GetOrderHandler];
+const EventHandlers = [OrderCreatedHandler];
+
+@Module({
+  imports: [
+    CqrsModule,
+    TypeOrmModule.forFeature([OrderEntity, OrderSummaryView]),
+  ],
+  controllers: [OrdersController],
+  providers: [...CommandHandlers, ...QueryHandlers, ...EventHandlers],
+})
+export class OrdersModule {}
+```
+
 ---
 
 ## Commands
@@ -148,6 +181,146 @@ Responsibilities:
 
 Command handlers should remain focused on one use case.
 
+A command is a plain, immutable class describing an intention. The transport
+layer validates a DTO, constructs the command, and dispatches it through the
+`CommandBus`. The handler owns the business logic and returns the minimum the
+caller needs—typically an identifier.
+
+```typescript
+// commands/create-order.command.ts
+export class CreateOrderCommand {
+  constructor(
+    public readonly customerId: string,
+    public readonly items: ReadonlyArray<{ sku: string; quantity: number }>,
+  ) {}
+}
+```
+
+```typescript
+// dto/create-order.dto.ts
+import { Type } from 'class-transformer';
+import {
+  ArrayNotEmpty,
+  IsInt,
+  IsPositive,
+  IsString,
+  IsUUID,
+  ValidateNested,
+} from 'class-validator';
+
+class OrderItemDto {
+  @IsString()
+  sku: string;
+
+  @IsInt()
+  @IsPositive()
+  quantity: number;
+}
+
+export class CreateOrderDto {
+  @IsUUID()
+  customerId: string;
+
+  @ArrayNotEmpty()
+  @ValidateNested({ each: true })
+  @Type(() => OrderItemDto)
+  items: OrderItemDto[];
+}
+```
+
+```typescript
+// orders.controller.ts
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { CommandBus, QueryBus } from '@nestjs/cqrs';
+import { CreateOrderCommand } from './commands/create-order.command';
+import { GetOrderQuery } from './queries/get-order.query';
+import { CreateOrderDto } from './dto/create-order.dto';
+import type { OrderSummary } from './queries/get-order.handler';
+
+@Controller('orders')
+export class OrdersController {
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
+
+  @Post()
+  async create(@Body() dto: CreateOrderDto): Promise<{ id: string }> {
+    const id = await this.commandBus.execute<CreateOrderCommand, string>(
+      new CreateOrderCommand(dto.customerId, dto.items),
+    );
+    return { id };
+  }
+
+  @Get(':id')
+  getOne(@Param('id') id: string): Promise<OrderSummary> {
+    return this.queryBus.execute<GetOrderQuery, OrderSummary>(
+      new GetOrderQuery(id),
+    );
+  }
+}
+```
+
+The DTO is validated by the global `ValidationPipe` (see the validation
+document); the command class is the internal contract and stays free of
+transport decorators.
+
+```typescript
+// commands/create-order.handler.ts
+import { CommandHandler, EventBus, ICommandHandler } from '@nestjs/cqrs';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { OrderEntity } from '../order.entity';
+import { CreateOrderCommand } from './create-order.command';
+import { OrderCreatedEvent } from '../events/order-created.event';
+
+@CommandHandler(CreateOrderCommand)
+export class CreateOrderHandler
+  implements ICommandHandler<CreateOrderCommand, string>
+{
+  constructor(
+    @InjectRepository(OrderEntity)
+    private readonly orders: Repository<OrderEntity>,
+    private readonly eventBus: EventBus,
+  ) {}
+
+  async execute(command: CreateOrderCommand): Promise<string> {
+    const order = this.orders.create({
+      customerId: command.customerId,
+      status: 'PENDING',
+      items: command.items.map((i) => ({ sku: i.sku, quantity: i.quantity })),
+    });
+
+    const saved = await this.orders.save(order);
+
+    // Publish ONLY after the write has committed.
+    this.eventBus.publish(
+      new OrderCreatedEvent(saved.id, saved.customerId, saved.items.length),
+    );
+
+    return saved.id;
+  }
+}
+```
+
+Good — the command returns the identifier:
+
+```typescript
+async execute(command: CreateOrderCommand): Promise<string> {
+  const saved = await this.orders.save(order);
+  return saved.id; // caller re-reads through a query if it needs detail
+}
+```
+
+Bad — the command leaks the full write-model entity, coupling callers to the
+persistence shape and blurring the read/write boundary:
+
+```typescript
+async execute(command: CreateOrderCommand): Promise<OrderEntity> {
+  return this.orders.save(order); // avoid: entity escapes the write model
+}
+```
+
 ---
 
 ## Query Handler
@@ -160,6 +333,62 @@ Responsibilities:
 - avoid unnecessary domain logic.
 
 Query handlers should not modify application state.
+
+A query is a plain class describing the requested data. The handler reads from
+a projection—here a denormalized `OrderSummaryView`—and returns a read model
+shaped for the consumer, not the persistence layer. No `save`, no domain
+logic, no transactions.
+
+```typescript
+// queries/get-order.query.ts
+export class GetOrderQuery {
+  constructor(public readonly orderId: string) {}
+}
+```
+
+```typescript
+// queries/get-order.handler.ts
+import { NotFoundException } from '@nestjs/common';
+import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { OrderSummaryView } from '../order-summary.view';
+import { GetOrderQuery } from './get-order.query';
+
+export interface OrderSummary {
+  orderId: string;
+  customerId: string;
+  status: string;
+  itemCount: number;
+}
+
+@QueryHandler(GetOrderQuery)
+export class GetOrderHandler
+  implements IQueryHandler<GetOrderQuery, OrderSummary>
+{
+  constructor(
+    @InjectRepository(OrderSummaryView)
+    private readonly summaries: Repository<OrderSummaryView>,
+  ) {}
+
+  async execute(query: GetOrderQuery): Promise<OrderSummary> {
+    const view = await this.summaries.findOne({
+      where: { orderId: query.orderId },
+    });
+
+    if (!view) {
+      throw new NotFoundException(`Order ${query.orderId} not found`);
+    }
+
+    return {
+      orderId: view.orderId,
+      customerId: view.customerId,
+      status: view.status,
+      itemCount: view.itemCount,
+    };
+  }
+}
+```
 
 ---
 
@@ -245,6 +474,115 @@ Notify Customer
 ```
 
 Events should represent completed business facts.
+
+An event is a plain class named in the past tense. An `@EventsHandler` reacts
+to it—typically to update a projection, keeping the read model eventually
+consistent with the write model:
+
+```typescript
+// events/order-created.event.ts
+export class OrderCreatedEvent {
+  constructor(
+    public readonly orderId: string,
+    public readonly customerId: string,
+    public readonly itemCount: number,
+  ) {}
+}
+```
+
+```typescript
+// events/order-created.handler.ts
+import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { OrderSummaryView } from '../order-summary.view';
+import { OrderCreatedEvent } from './order-created.event';
+
+@EventsHandler(OrderCreatedEvent)
+export class OrderCreatedHandler implements IEventHandler<OrderCreatedEvent> {
+  constructor(
+    @InjectRepository(OrderSummaryView)
+    private readonly summaries: Repository<OrderSummaryView>,
+  ) {}
+
+  async handle(event: OrderCreatedEvent): Promise<void> {
+    // Build the denormalized read model (projection).
+    await this.summaries.save({
+      orderId: event.orderId,
+      customerId: event.customerId,
+      status: 'PENDING',
+      itemCount: event.itemCount,
+      createdAt: new Date(),
+    });
+  }
+}
+```
+
+When events belong to an aggregate, extend `AggregateRoot` and buffer them with
+`apply()`. `EventPublisher.mergeObjectContext` attaches the publisher, and
+`commit()` dispatches the buffered events—call it only after persistence
+succeeds, so events never fire for a write that rolled back:
+
+```typescript
+// order.aggregate.ts
+import { AggregateRoot } from '@nestjs/cqrs';
+import { OrderCreatedEvent } from './events/order-created.event';
+
+export class Order extends AggregateRoot {
+  private constructor(
+    public readonly id: string,
+    private readonly customerId: string,
+    private readonly itemCount: number,
+  ) {
+    super();
+  }
+
+  static place(id: string, customerId: string, itemCount: number): Order {
+    const order = new Order(id, customerId, itemCount);
+    // Recorded now, dispatched only when commit() runs.
+    order.apply(new OrderCreatedEvent(id, customerId, itemCount));
+    return order;
+  }
+}
+```
+
+```typescript
+// commands/place-order.handler.ts (aggregate variant)
+import { randomUUID } from 'node:crypto';
+import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { OrderEntity } from '../order.entity';
+import { Order } from '../order.aggregate';
+import { CreateOrderCommand } from './create-order.command';
+
+@CommandHandler(CreateOrderCommand)
+export class PlaceOrderHandler
+  implements ICommandHandler<CreateOrderCommand, string>
+{
+  constructor(
+    @InjectRepository(OrderEntity)
+    private readonly orders: Repository<OrderEntity>,
+    private readonly publisher: EventPublisher,
+  ) {}
+
+  async execute(command: CreateOrderCommand): Promise<string> {
+    const order = this.publisher.mergeObjectContext(
+      Order.place(randomUUID(), command.customerId, command.items.length),
+    );
+
+    await this.orders.save({
+      id: order.id,
+      customerId: command.customerId,
+      status: 'PENDING',
+      items: command.items.map((i) => ({ sku: i.sku, quantity: i.quantity })),
+    });
+
+    order.commit(); // flush events to their @EventsHandler after the write
+    return order.id;
+  }
+}
+```
 
 ---
 

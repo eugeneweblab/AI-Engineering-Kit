@@ -16,9 +16,13 @@ when_to_use: "Read before planning an AI-assisted task and prior to making any c
 
 This document defines how an AI coding agent should plan work before making any modifications to a project.
 
+Context gathering (the previous step) answers *what exists*. Planning answers *what will change, in what order, and how each change will be proven correct*. The output of this step is a concrete, reviewable artifact: a numbered, file-scoped plan — not a vague intention.
+
 Planning reduces unnecessary changes, improves implementation quality, and minimizes the risk of regressions.
 
 Implementation should always be the result of a plan—not the beginning of one.
+
+For a non-trivial task, present the plan to the user for approval *before* editing any file. A plan is cheap to revise; a wrong implementation is expensive to unwind.
 
 ---
 
@@ -78,27 +82,40 @@ Do not assume hidden requirements.
 
 Large tasks should never be implemented as one large change.
 
-Instead, divide them into logical units.
+Decompose by **vertical slice**, not by horizontal layer. A layer-first breakdown ("do all the DB, then all the API, then all the UI") produces long-lived broken states where nothing works until the last step. A slice-first breakdown produces a sequence of independently verifiable, shippable increments.
 
-Example:
-
-Feature:
+Bad decomposition — horizontal, nothing works until the end:
 
 ```
-Implement user profile editing
+1. Add every column to every table
+2. Write every backend service method
+3. Wire up every API route
+4. Build every UI screen
+5. Write all the tests at the end
 ```
 
-Possible subtasks:
+Good decomposition — vertical, each slice is demonstrable on its own:
 
-- API endpoint
-- Validation
-- Database update
-- UI form
-- Error handling
-- Tests
-- Documentation
+```
+Feature: "Implement user profile editing"
 
-Smaller tasks reduce complexity.
+Slice 1 — Edit display name (thinnest end-to-end path)
+  DB: no change (column exists)
+  API: PATCH /users/:id accepts { displayName }
+  UI: inline edit field on profile page
+  Test: PATCH persists; page reflects new name
+  → Demoable. Ship or checkpoint here.
+
+Slice 2 — Edit email (adds a new validation concern)
+  API: reuse PATCH /users/:id, add email format + uniqueness check
+  UI: reuse the inline edit field component from Slice 1
+  Test: duplicate email rejected with 409
+
+Slice 3 — Avatar upload (adds a new subsystem: storage)
+  ...
+```
+
+Order the slices so the **thinnest end-to-end path ships first**. Each later slice adds exactly one new concern (a validation rule, a subsystem, a new field), which keeps every review small and every regression easy to localize.
 
 ---
 
@@ -122,21 +139,19 @@ Understanding impact reduces unexpected regressions.
 
 ---
 
-## Step 4 — Search Before Creating
+## Step 4 — Record the Reuse Decision
 
-For every planned change determine whether existing code can be reused.
+The searching itself belongs to context gathering. Planning's job is to *commit the decision in writing* so the implementation cannot silently drift into a greenfield rewrite.
 
-Search for:
+For each planned unit, the plan must resolve to one of three verdicts, and name the concrete artifact:
 
-- components;
-- utilities;
-- hooks;
-- services;
-- validation;
-- layouts;
-- configuration.
+| Unit | Verdict | Artifact |
+|------|---------|----------|
+| Inline edit field | Reuse | `src/components/InlineEdit.tsx` |
+| Email uniqueness check | Extend | add rule to `validators/user.ts` |
+| Storage adapter | Create | none exists — new `services/storage.ts` |
 
-The implementation plan should identify reusable code before writing new code.
+A `Create` verdict is a claim that *no existing artifact fits*, and it should be justified in the plan, because "Create" is the verdict most likely to be wrong. If you cannot name the file you searched and rejected, you have not searched hard enough to justify creating a new one.
 
 ---
 
@@ -179,18 +194,28 @@ Avoid constantly switching between unrelated parts of the project.
 
 ## Step 7 — Define Verification
 
-Every plan should define how success will be verified.
+Every plan should attach a **runnable check to each step**, not a single vague "test at the end". The strongest plans pair each change with the exact command or observation that proves it, so verification is mechanical rather than a judgment call.
 
-Verification may include:
+Bad — verification deferred and unspecified:
 
-- manual testing;
-- automated tests;
-- visual comparison;
-- API verification;
-- performance measurement;
-- accessibility validation.
+```
+Step 5: Test everything works.
+```
 
-A task without a verification plan is incomplete.
+Good — verification is per-step and executable:
+
+```
+Step 2: PATCH /users/:id accepts { email }
+  Verify: npx jest users.controller.spec -t "updates email"
+          curl -X PATCH localhost:3000/users/1 -d '{"email":"dup@x.com"}'
+          → expect 409
+
+Step 3: Existing avatars unchanged after migration
+  Verify: SELECT count(*) FROM users WHERE avatar_url IS NOT NULL;
+          → same count before and after
+```
+
+Prefer checks that a machine can run and read the result of. A verification step you cannot execute is a hope, not a plan.
 
 ---
 
@@ -296,37 +321,40 @@ Planning should be transparent.
 
 ## Example Planning Output
 
+A good plan is file-scoped and step-ordered, and every step carries its reuse verdict and its verification. This is the artifact to present for approval before touching code — copy this shape:
+
 Good:
 
 ```
+## Plan: Add profile avatar upload
+
 Goal
+  Users can upload a profile image (≤2 MB, jpeg/png). Existing avatars unchanged.
+Out of scope
+  Image cropping, CDN resizing.
 
-Add profile image upload.
+Affected files
+  services/storage.ts        (create)
+  validators/image.ts        (reuse — already validates mime + size)
+  users.controller.ts        (extend — add POST /users/:id/avatar)
+  ProfilePage.tsx            (extend — add <FileUpload/>, reuse existing component)
 
-Affected Areas
-
-- User API
-- Storage Service
-- Profile Page
-- Validation
-- Tests
-
-Reusable Code
-
-- Existing file upload utility
-- Existing image validator
+Steps (in dependency order)
+  1. storage.ts: putObject() wrapping the existing S3 client in lib/s3.ts
+       Verify: npx jest storage.spec -t "putObject uploads"
+  2. users.controller.ts: POST /users/:id/avatar → validators/image.ts → storage
+       Verify: curl upload of 3 MB file → 413; valid png → 200 + url
+  3. ProfilePage.tsx: wire <FileUpload/> to the new endpoint
+       Verify: manual — upload shows new avatar; reload persists
+  4. Migration check: existing users retain avatar_url
+       Verify: row count with avatar_url unchanged before/after
 
 Risks
+  - Auth: endpoint must reject uploads for other users' :id (add ownership guard).
+  - Storage: bucket write permission required in staging env.
 
-- File size limits
-- Authentication
-- Storage permissions
-
-Verification
-
-- Upload succeeds
-- Invalid files rejected
-- Existing avatars remain unchanged
+Rollback
+  Endpoint is additive; revert the 3 files. No schema change to undo.
 ```
 
 Poor:
@@ -335,7 +363,7 @@ Poor:
 I'll add avatar upload.
 ```
 
-The second example contains no engineering thinking.
+The second example contains no engineering thinking: no file scope, no ordering, no reuse verdicts, no per-step verification, and no rollback — nothing a reviewer can approve or a future agent can resume.
 
 ---
 

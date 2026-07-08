@@ -73,23 +73,53 @@ Lower layers must never depend on higher layers.
 
 Prefer constructor injection for all dependencies.
 
-Example:
+The `@Injectable()` decorator marks a class as a provider that the IoC
+container can instantiate and inject. Declare each dependency as a
+`private readonly` constructor parameter so it is explicit and immutable
+after construction.
 
+Good — dependencies are injected and the container owns their lifecycle:
+
+```typescript
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class UsersService {
+  constructor(
+    private readonly usersRepository: UsersRepository,
+    private readonly mailer: MailerService,
+  ) {}
+
+  async register(email: string): Promise<User> {
+    const user = await this.usersRepository.create({ email });
+    await this.mailer.sendWelcome(user.email);
+    return user;
+  }
+}
 ```
-Controller
 
-↓
+Bad — dependencies are created with `new`, so they cannot be swapped,
+mocked, or configured, and the container never manages their scope:
 
-Service
+```typescript
+@Injectable()
+export class UsersService {
+  // Anti-pattern: hard-wired construction defeats DI entirely.
+  private readonly usersRepository = new UsersRepository();
+  private readonly mailer = new MailerService({ apiKey: process.env.MAIL_KEY });
 
-↓
-
-Repository
+  async register(email: string): Promise<User> {
+    const user = await this.usersRepository.create({ email });
+    await this.mailer.sendWelcome(user.email);
+    return user;
+  }
+}
 ```
 
 Dependencies should be explicit and immutable after object creation.
 
-Avoid property injection.
+Avoid property injection (`@Inject()` on a field) — it hides dependencies
+and breaks the guarantee that an object is fully constructed once created.
 
 ---
 
@@ -112,23 +142,24 @@ Providers should encapsulate a single responsibility.
 
 ## Provider Registration
 
-Register providers inside the owning module.
+Register providers inside the owning module. Export only what other
+modules legitimately need; keep everything else private to the module.
 
-Example:
+```typescript
+import { Module } from '@nestjs/common';
 
-```
 @Module({
-
-    providers: [
-
-        UsersService,
-
-        UsersRepository
-
-    ]
-
+  controllers: [UsersController],
+  providers: [UsersService, UsersRepository],
+  exports: [UsersService], // UsersRepository stays private to this module
 })
+export class UsersModule {}
 ```
+
+A provider is only injectable where it is visible: either declared in the
+consuming module's `providers`, or exported by an imported module. Adding a
+class to another module's `providers` creates a second, independent
+instance — import the owning module instead.
 
 Avoid registering unrelated providers in the same module.
 
@@ -142,6 +173,59 @@ Use injection tokens when:
 - supporting multiple implementations;
 - building reusable libraries;
 - decoupling infrastructure.
+
+TypeScript interfaces do not exist at runtime, so they cannot be used as
+injection tokens directly. Define an abstraction as an abstract class (or a
+`string`/`Symbol` token) and bind a concrete implementation to it. Consumers
+depend on the abstraction; the module decides the implementation.
+
+```typescript
+// payment.gateway.ts — the abstraction consumers depend on.
+export abstract class PaymentGateway {
+  abstract charge(amountCents: number, token: string): Promise<string>;
+}
+
+// stripe.gateway.ts — one concrete implementation.
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class StripeGateway extends PaymentGateway {
+  async charge(amountCents: number, token: string): Promise<string> {
+    // ...call Stripe SDK, return the charge id
+    return 'ch_123';
+  }
+}
+```
+
+```typescript
+// payments.module.ts — bind the abstraction to an implementation.
+import { Module } from '@nestjs/common';
+
+@Module({
+  providers: [{ provide: PaymentGateway, useClass: StripeGateway }],
+  exports: [PaymentGateway],
+})
+export class PaymentsModule {}
+```
+
+```typescript
+// checkout.service.ts — depends only on the abstraction.
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class CheckoutService {
+  constructor(private readonly gateway: PaymentGateway) {}
+
+  pay(amountCents: number, token: string): Promise<string> {
+    return this.gateway.charge(amountCents, token);
+  }
+}
+```
+
+Swapping to a different provider (a fake in tests, a different vendor in
+another environment) only changes the `useClass` binding — no consumer
+changes. For `string`/`Symbol` tokens, inject with
+`@Inject('PAYMENT_GATEWAY')` on the constructor parameter.
 
 Prefer descriptive token names.
 
@@ -169,7 +253,54 @@ Use factory providers when object creation requires:
 - conditional behavior;
 - dependency composition.
 
-Factory logic should remain simple and predictable.
+A factory provider runs a `useFactory` function to build the value. Declare
+its own dependencies in `inject` — they are passed to the factory in order.
+Use `async` when initialization must await a connection or handshake.
+
+```typescript
+import { Module } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { createClient, RedisClientType } from 'redis';
+
+export const REDIS_CLIENT = 'REDIS_CLIENT';
+
+@Module({
+  providers: [
+    {
+      provide: REDIS_CLIENT,
+      inject: [ConfigService],
+      useFactory: async (config: ConfigService): Promise<RedisClientType> => {
+        const client = createClient({ url: config.getOrThrow<string>('REDIS_URL') });
+        await client.connect();
+        return client;
+      },
+    },
+  ],
+  exports: [REDIS_CLIENT],
+})
+export class RedisModule {}
+```
+
+Inject the resulting client by its token:
+
+```typescript
+import { Inject, Injectable } from '@nestjs/common';
+import type { RedisClientType } from 'redis';
+
+@Injectable()
+export class SessionStore {
+  constructor(@Inject(REDIS_CLIENT) private readonly redis: RedisClientType) {}
+
+  // redis.set resolves to `string | null` (null when using GET/NX/XX modes),
+  // so the return type must include null under strictNullChecks.
+  save(id: string, data: string): Promise<string | null> {
+    return this.redis.set(`session:${id}`, data);
+  }
+}
+```
+
+Factory logic should remain simple and predictable — build and return the
+object; keep business rules out of the factory.
 
 ---
 
@@ -222,6 +353,33 @@ If encountered:
 - extract shared logic;
 - redesign ownership;
 - introduce abstractions.
+
+When two providers genuinely must reference each other and the design cannot
+be untangled, `forwardRef()` breaks the resolution cycle. It is a workaround,
+not a fix — it must be applied on **both** sides.
+
+```typescript
+import { Injectable, Inject, forwardRef } from '@nestjs/common';
+
+@Injectable()
+export class OrdersService {
+  constructor(
+    @Inject(forwardRef(() => InvoicesService))
+    private readonly invoices: InvoicesService,
+  ) {}
+}
+
+@Injectable()
+export class InvoicesService {
+  constructor(
+    @Inject(forwardRef(() => OrdersService))
+    private readonly orders: OrdersService,
+  ) {}
+}
+```
+
+Modules that depend on each other use the same helper:
+`imports: [forwardRef(() => OtherModule)]`.
 
 Using circular dependency workarounds should be a last resort.
 
@@ -279,6 +437,41 @@ Replace dependencies with:
 - stubs;
 - fakes;
 - test providers.
+
+Because dependencies are injected, a test can supply a substitute for each
+one. `Test.createTestingModule` builds an isolated container; override any
+provider by re-binding its token with `useValue`, `useClass`, or `useFactory`.
+
+```typescript
+import { Test, TestingModule } from '@nestjs/testing';
+
+describe('UsersService', () => {
+  let service: UsersService;
+  const usersRepository = { create: jest.fn() };
+  const mailer = { sendWelcome: jest.fn() };
+
+  beforeEach(async () => {
+    const moduleRef: TestingModule = await Test.createTestingModule({
+      providers: [
+        UsersService,
+        { provide: UsersRepository, useValue: usersRepository },
+        { provide: MailerService, useValue: mailer },
+      ],
+    }).compile();
+
+    service = moduleRef.get(UsersService);
+  });
+
+  it('creates a user and sends a welcome email', async () => {
+    usersRepository.create.mockResolvedValue({ email: 'a@b.com' });
+
+    await service.register('a@b.com');
+
+    expect(usersRepository.create).toHaveBeenCalledWith({ email: 'a@b.com' });
+    expect(mailer.sendWelcome).toHaveBeenCalledWith('a@b.com');
+  });
+});
+```
 
 Tests should isolate the component under verification.
 

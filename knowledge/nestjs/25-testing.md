@@ -32,6 +32,38 @@ Not implementation.
 
 Tests should verify what the system does—not how it is implemented internally.
 
+Assert on observable outcomes—return values, thrown exceptions, HTTP status
+codes, emitted events—rather than on internal collaborators.
+
+Bad—coupled to implementation. Renaming the private helper or reordering the
+internal calls breaks the test even though behavior is unchanged:
+
+```typescript
+it('creates a user', async () => {
+  const spy = jest.spyOn(service as any, 'hashPassword');
+  await service.create({ email: 'a@b.com', password: 'secret' });
+  // Asserts HOW the method works, not WHAT it produces.
+  expect(spy).toHaveBeenCalledTimes(1);
+});
+```
+
+Good—asserts the observable result and the persisted side effect:
+
+```typescript
+it('should_persist_a_user_without_leaking_the_raw_password', async () => {
+  const created = await service.create({
+    email: 'a@b.com',
+    password: 'secret',
+  });
+
+  expect(created.email).toBe('a@b.com');
+  expect(created).not.toHaveProperty('password');
+  await expect(service.findById(created.id)).resolves.toMatchObject({
+    email: 'a@b.com',
+  });
+});
+```
+
 ---
 
 ## Goals
@@ -86,6 +118,84 @@ Verify:
 
 Unit tests should execute quickly.
 
+Build the unit under test with `Test.createTestingModule` and replace its
+dependencies with test doubles. For a service that depends on a TypeORM
+repository, provide the mock under `getRepositoryToken(Entity)`—the same token
+`@InjectRepository` resolves at runtime:
+
+```typescript
+// users.service.ts (the unit under test)
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { User } from './user.entity';
+
+@Injectable()
+export class UsersService {
+  constructor(
+    @InjectRepository(User)
+    private readonly users: Repository<User>,
+  ) {}
+
+  async findById(id: string): Promise<User> {
+    const user = await this.users.findOne({ where: { id } });
+    if (!user) {
+      throw new NotFoundException(`User ${id} not found`);
+    }
+    return user;
+  }
+}
+```
+
+```typescript
+// users.service.spec.ts
+import { Test, TestingModule } from '@nestjs/testing';
+import { NotFoundException } from '@nestjs/common';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { UsersService } from './users.service';
+import { User } from './user.entity';
+
+describe('UsersService', () => {
+  let service: UsersService;
+  let repository: jest.Mocked<Pick<Repository<User>, 'findOne'>>;
+
+  beforeEach(async () => {
+    // Arrange: swap the real repository for a mock double.
+    const moduleRef: TestingModule = await Test.createTestingModule({
+      providers: [
+        UsersService,
+        {
+          provide: getRepositoryToken(User),
+          useValue: { findOne: jest.fn() },
+        },
+      ],
+    }).compile();
+
+    service = moduleRef.get(UsersService);
+    repository = moduleRef.get(getRepositoryToken(User));
+  });
+
+  it('should_return_user_when_it_exists', async () => {
+    const user = { id: '1', email: 'a@b.com' } as User;
+    repository.findOne.mockResolvedValue(user);
+
+    const result = await service.findById('1');
+
+    expect(result).toBe(user);
+    expect(repository.findOne).toHaveBeenCalledWith({ where: { id: '1' } });
+  });
+
+  it('should_throw_not_found_when_user_does_not_exist', async () => {
+    repository.findOne.mockResolvedValue(null);
+
+    await expect(service.findById('missing')).rejects.toBeInstanceOf(
+      NotFoundException,
+    );
+  });
+});
+```
+
 ---
 
 ## Integration Tests
@@ -130,6 +240,51 @@ Response
 ```
 
 E2E tests should resemble production behavior.
+
+Boot the real application through `Test.createTestingModule`, apply the same
+global configuration used in `main.ts` (pipes, filters, prefixes), and drive it
+with `supertest`. Always `close()` the app so the HTTP server and connection
+pools are released:
+
+```typescript
+// test/users.e2e-spec.ts
+import { INestApplication, ValidationPipe } from '@nestjs/common';
+import { Test } from '@nestjs/testing';
+import request from 'supertest';
+import { AppModule } from '../src/app.module';
+
+describe('Users (e2e)', () => {
+  let app: INestApplication;
+
+  beforeAll(async () => {
+    const moduleRef = await Test.createTestingModule({
+      imports: [AppModule],
+    }).compile();
+
+    app = moduleRef.createNestApplication();
+    // Mirror the production bootstrap so the test exercises the real pipeline.
+    app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
+    await app.init();
+  });
+
+  afterAll(async () => {
+    await app.close();
+  });
+
+  it('should_return_404_when_user_does_not_exist', () => {
+    return request(app.getHttpServer())
+      .get('/users/does-not-exist')
+      .expect(404);
+  });
+
+  it('should_reject_invalid_payload_with_400', () => {
+    return request(app.getHttpServer())
+      .post('/users')
+      .send({ email: 'not-an-email' })
+      .expect(400);
+  });
+});
+```
 
 ---
 
@@ -264,6 +419,27 @@ Examples:
 - email providers;
 - cloud storage;
 - third-party APIs.
+
+In an integration or E2E test that boots the whole module, replace only the
+external collaborator with `overrideProvider(...).useValue(...)`. Everything
+else runs for real, so the test still exercises routing, guards, pipes, and
+persistence:
+
+```typescript
+// test/checkout.e2e-spec.ts
+import { PaymentGateway } from '../src/payments/payment.gateway';
+
+const paymentGatewayMock = {
+  charge: jest.fn().mockResolvedValue({ status: 'paid', id: 'ch_123' }),
+};
+
+const moduleRef = await Test.createTestingModule({
+  imports: [AppModule],
+})
+  .overrideProvider(PaymentGateway)
+  .useValue(paymentGatewayMock)
+  .compile();
+```
 
 ---
 

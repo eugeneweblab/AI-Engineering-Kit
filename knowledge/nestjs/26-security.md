@@ -129,6 +129,64 @@ Examples:
 
 Reject invalid data immediately.
 
+In NestJS, model every request body as a `class-validator` DTO and enable a
+strict global `ValidationPipe`. `whitelist` strips unknown properties and
+`forbidNonWhitelisted` rejects them, which is what closes mass-assignment /
+over-posting holes (a client cannot smuggle an `isAdmin` field into a user
+you persist).
+
+```typescript
+// create-user.dto.ts
+import { IsBoolean, IsEmail, IsOptional, Length } from 'class-validator';
+
+export class CreateUserDto {
+  @IsEmail()
+  email: string;
+
+  @Length(12, 128)
+  password: string;
+
+  @IsOptional()
+  @IsBoolean()
+  marketingOptIn?: boolean;
+
+  // Note: there is deliberately no `isAdmin` / `roles` field here.
+  // Privilege is assigned by the server, never accepted from the client.
+}
+```
+
+```typescript
+// main.ts
+import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true, // strip properties without a validation decorator
+      forbidNonWhitelisted: true, // 400 when unknown properties are sent
+      transform: true, // instantiate the DTO class, coerce declared types
+      transformOptions: { enableImplicitConversion: false },
+    }),
+  );
+
+  await app.listen(3000);
+}
+bootstrap();
+```
+
+```typescript
+// GOOD: server owns privilege; DTO cannot carry it.
+const user = this.repo.create({ ...createUserDto, roles: ['user'] });
+
+// BAD: spreading a raw request body lets a client set any column,
+// including roles/isAdmin, because nothing was whitelisted.
+const user = this.repo.create({ ...request.body });
+```
+
 ---
 
 ## Output Encoding
@@ -193,6 +251,65 @@ Apply:
 
 Default to deny access.
 
+Enforce authorization inside a `CanActivate` guard, not scattered through
+controllers. The guard resolves an ownership/tenant decision and denies by
+default: any path that is not explicitly permitted throws
+`ForbiddenException`. This assumes an upstream authentication guard has already
+attached `request.user`.
+
+```typescript
+// resource-owner.guard.ts
+import {
+  CanActivate,
+  ExecutionContext,
+  ForbiddenException,
+  Injectable,
+} from '@nestjs/common';
+import { OrdersService } from './orders.service';
+
+@Injectable()
+export class ResourceOwnerGuard implements CanActivate {
+  constructor(private readonly orders: OrdersService) {}
+
+  async canActivate(context: ExecutionContext): Promise<boolean> {
+    const request = context.switchToHttp().getRequest();
+    const user = request.user; // set by the auth guard
+    const orderId = request.params.id;
+
+    if (!user) {
+      throw new ForbiddenException();
+    }
+
+    const order = await this.orders.findById(orderId);
+
+    // Scope the lookup to the caller's tenant AND ownership.
+    // Anything that is not explicitly the owner is denied.
+    if (!order || order.tenantId !== user.tenantId || order.userId !== user.id) {
+      throw new ForbiddenException();
+    }
+
+    return true;
+  }
+}
+```
+
+```typescript
+// orders.controller.ts
+import { Controller, Delete, Param, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { ResourceOwnerGuard } from './resource-owner.guard';
+
+@Controller('orders')
+@UseGuards(JwtAuthGuard) // authenticate first
+export class OrdersController {
+  @Delete(':id')
+  @UseGuards(ResourceOwnerGuard) // then authorize ownership
+  remove(@Param('id') id: string) {
+    // Reaching here means the caller provably owns this order.
+  }
+}
+```
+
 ---
 
 ## OWASP Top 10
@@ -228,6 +345,28 @@ Never concatenate user input into:
 - SQL;
 - shell commands;
 - file paths.
+
+With TypeORM, pass user input as bound parameters, never as an interpolated
+string. The parameterized form sends the value separately from the SQL text,
+so it can never be parsed as SQL.
+
+```typescript
+// GOOD: parameterized — `:email` is bound, never parsed as SQL.
+const user = await this.repo
+  .createQueryBuilder('user')
+  .where('user.email = :email', { email })
+  .getOne();
+
+// GOOD: raw query with positional parameters.
+await this.repo.query('SELECT * FROM users WHERE email = $1', [email]);
+
+// BAD: string interpolation — a crafted email such as
+// "' OR '1'='1" is now executable SQL (injection).
+const user = await this.repo
+  .createQueryBuilder('user')
+  .where(`user.email = '${email}'`)
+  .getOne();
+```
 
 ---
 
@@ -376,6 +515,55 @@ Examples:
 - X-Content-Type-Options;
 - Referrer-Policy;
 - Permissions-Policy.
+
+Apply `helmet` as global middleware to set these headers, and register
+`@nestjs/throttler` as a global guard so security-sensitive endpoints are
+rate limited by default. In `@nestjs/throttler` v6, `ttl` is expressed in
+milliseconds and named throttlers are passed as an array.
+
+```typescript
+// main.ts (add to the existing bootstrap)
+import helmet from 'helmet';
+// ...
+const app = await NestFactory.create(AppModule);
+app.use(helmet()); // CSP, HSTS, X-Content-Type-Options, etc.
+```
+
+```typescript
+// app.module.ts
+import { Module } from '@nestjs/common';
+import { APP_GUARD } from '@nestjs/core';
+import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
+
+@Module({
+  imports: [
+    ThrottlerModule.forRoot([
+      { ttl: 60_000, limit: 100 }, // 100 requests / minute per client
+    ]),
+  ],
+  providers: [
+    { provide: APP_GUARD, useClass: ThrottlerGuard }, // rate-limit by default
+  ],
+})
+export class AppModule {}
+```
+
+Tighten specific endpoints (login, password reset) with `@Throttle`:
+
+```typescript
+// auth.controller.ts
+import { Controller, Post } from '@nestjs/common';
+import { Throttle } from '@nestjs/throttler';
+
+@Controller('auth')
+export class AuthController {
+  @Throttle({ default: { ttl: 60_000, limit: 5 } }) // 5 attempts / minute
+  @Post('login')
+  login() {
+    // brute-force surface is now bounded
+  }
+}
+```
 
 ---
 

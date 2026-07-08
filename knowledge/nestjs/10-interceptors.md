@@ -117,19 +117,84 @@ Interceptors should never implement business rules.
 
 Interceptors may normalize responses.
 
-Example:
+An interceptor is a class annotated with `@Injectable()` that implements the
+`NestInterceptor` interface. Its single `intercept(context, next)` method wraps
+handler execution: `next.handle()` returns an RxJS `Observable` of the value the
+controller returned, and RxJS operators piped onto it run *after* the handler
+completes. To reshape every response, `map` the emitted value into an envelope:
 
-```
-{
-    "data": ...,
-    "meta": ...,
-    "timestamp": ...
+```typescript
+// transform.interceptor.ts
+import {
+  CallHandler,
+  ExecutionContext,
+  Injectable,
+  NestInterceptor,
+} from '@nestjs/common';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+export interface ApiResponse<T> {
+  data: T;
+  meta: { timestamp: string };
 }
+
+@Injectable()
+export class TransformInterceptor<T>
+  implements NestInterceptor<T, ApiResponse<T>>
+{
+  intercept(
+    context: ExecutionContext,
+    next: CallHandler<T>,
+  ): Observable<ApiResponse<T>> {
+    return next.handle().pipe(
+      map((data) => ({
+        data,
+        meta: { timestamp: new Date().toISOString() },
+      })),
+    );
+  }
+}
+```
+
+Register it once, globally, using the `APP_INTERCEPTOR` token so it applies to
+every route without touching controllers. Because it is provided through the DI
+container, it can inject other providers:
+
+```typescript
+// app.module.ts
+import { Module } from '@nestjs/common';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { TransformInterceptor } from './transform.interceptor';
+
+@Module({
+  providers: [{ provide: APP_INTERCEPTOR, useClass: TransformInterceptor }],
+})
+export class AppModule {}
 ```
 
 Response structure should remain consistent across the application.
 
 Avoid formatting responses individually inside controllers.
+
+Good — the controller returns a domain value and the interceptor wraps it:
+
+```typescript
+@Get(':id')
+async findOne(@Param('id') id: string): Promise<User> {
+  return this.usersService.findOne(id); // interceptor adds { data, meta }
+}
+```
+
+Bad — the controller hand-builds the envelope, so the shape drifts per route:
+
+```typescript
+@Get(':id')
+async findOne(@Param('id') id: string) {
+  const user = await this.usersService.findOne(id);
+  return { data: user, meta: { timestamp: Date.now() } }; // duplicated everywhere
+}
+```
 
 ---
 
@@ -148,6 +213,53 @@ Typical information:
 - client IP.
 
 Avoid logging sensitive information.
+
+Use the `tap` operator to observe the stream without altering the response, and
+supply both `next` and `error` callbacks so timing is recorded whether the
+handler succeeds or throws. `tap` never suppresses the error—it flows on to the
+Exception Filters:
+
+```typescript
+// logging.interceptor.ts
+import {
+  CallHandler,
+  ExecutionContext,
+  Injectable,
+  Logger,
+  NestInterceptor,
+} from '@nestjs/common';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { Request, Response } from 'express';
+
+@Injectable()
+export class LoggingInterceptor implements NestInterceptor {
+  private readonly logger = new Logger(LoggingInterceptor.name);
+
+  intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
+    const http = context.switchToHttp();
+    const request = http.getRequest<Request>();
+    const { method, originalUrl } = request;
+    const startedAt = Date.now();
+
+    return next.handle().pipe(
+      tap({
+        next: () => {
+          const status = http.getResponse<Response>().statusCode;
+          this.logger.log(
+            `${method} ${originalUrl} ${status} +${Date.now() - startedAt}ms`,
+          );
+        },
+        error: (err: Error) => {
+          this.logger.error(
+            `${method} ${originalUrl} failed +${Date.now() - startedAt}ms: ${err.message}`,
+          );
+        },
+      }),
+    );
+  }
+}
+```
 
 ---
 
@@ -238,6 +350,42 @@ Timeout interceptors should:
 - log timeout events.
 
 Avoid allowing requests to run indefinitely.
+
+The RxJS `timeout` operator aborts the stream after a deadline and emits a
+`TimeoutError`. Translate only that error into a `408 Request Timeout` and
+re-throw everything else unchanged so real errors still reach the Exception
+Filters:
+
+```typescript
+// timeout.interceptor.ts
+import {
+  CallHandler,
+  ExecutionContext,
+  Injectable,
+  NestInterceptor,
+  RequestTimeoutException,
+} from '@nestjs/common';
+import { Observable, TimeoutError, throwError } from 'rxjs';
+import { catchError, timeout } from 'rxjs/operators';
+
+@Injectable()
+export class TimeoutInterceptor implements NestInterceptor {
+  private readonly timeoutMs = 5000;
+
+  intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
+    return next.handle().pipe(
+      timeout(this.timeoutMs),
+      catchError((error) => {
+        if (error instanceof TimeoutError) {
+          return throwError(() => new RequestTimeoutException());
+        }
+        // Not a timeout — propagate to the Exception Filters untouched.
+        return throwError(() => error);
+      }),
+    );
+  }
+}
+```
 
 ---
 

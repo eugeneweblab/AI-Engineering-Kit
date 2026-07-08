@@ -162,6 +162,37 @@ What assumptions may change?
 
 Every modification should consider downstream consumers.
 
+### Worked example — impact analysis before editing
+
+Suppose you are asked to change `formatPrice`. Do not open the file and edit
+it. First build the full caller set, because the type checker will not catch
+dynamic or string-based usage.
+
+```bash
+# 1. Every direct reference to the symbol (word-boundary anchored)
+#    ripgrep's built-in `ts` type already covers .ts, .tsx, .mts, .cts
+rg -n '\bformatPrice\b' --type ts
+
+# 2. Re-exports that hide callers behind a barrel file
+rg -n "export .*formatPrice" --type ts
+
+# 3. Dynamic / string usage the compiler cannot follow
+#    (template rendering, event names, feature-flag lookups)
+rg -n "formatPrice" --type html --type vue --glob '*.stories.*'
+```
+
+When the language server is available, prefer semantic references over text
+search — they resolve aliases and imports correctly:
+
+```
+find_referencing_symbols(name_path="formatPrice", relative_path="src/lib/pricing.ts")
+```
+
+Only after the caller set is known can you judge whether a change is local or a
+public-contract change (Rule 4). An empty search result is itself a signal:
+either the symbol is dead code, or your query missed a usage pattern —
+investigate before assuming it is safe to change freely.
+
 ---
 
 ## Rule 7 — Separate Refactoring From Functional Changes
@@ -188,6 +219,35 @@ It should remain identical.
 
 Regression prevention is a primary engineering responsibility.
 
+### Worked example — lock behavior before refactoring
+
+Before refactoring code you do not fully understand, pin its current output in
+a *characterization test*. It asserts what the code does today — not what it
+should do — so any behavioral drift during the refactor surfaces immediately.
+
+```ts
+// characterization test: written BEFORE touching legacy discount logic.
+// The expected values are captured from the current implementation's output,
+// including any quirks. If a "cleanup" changes any row, the diff is now visible.
+describe('applyDiscount (characterization)', () => {
+  it.each([
+    [100, 'GOLD', 80],
+    [100, 'SILVER', 90],
+    [100, 'NONE', 100],
+    [0, 'GOLD', 0],
+    [-50, 'GOLD', -50], // yes, it currently allows negatives — preserve until proven wrong
+  ])('applyDiscount(%i, %s) === %i', (price, tier, expected) => {
+    expect(applyDiscount(price, tier)).toBe(expected);
+  });
+});
+```
+
+Run this suite green, refactor, then run it again. If a row flips, you have
+either found the intended change or an unintended regression — both are now
+explicit rather than silent. Never delete a surprising row (like the negative
+case) as part of a refactor; that is a functional change and belongs in a
+separate task (Rule 7).
+
 ---
 
 ## Rule 9 — Extend Before Replacing
@@ -199,6 +259,36 @@ Extend it.
 Avoid replacing mature implementations simply because a new approach appears cleaner.
 
 Engineering history has value.
+
+### Worked example — extend a contract instead of breaking it
+
+Requirement: `formatPrice` must support currencies other than USD. The tempting
+move is to add a required parameter. That silently breaks every caller found in
+the Rule 6 impact analysis.
+
+Bad — a required parameter turns a local change into a breaking change:
+
+```ts
+// Every existing call site — formatPrice(amount) — now fails to compile,
+// or worse, passes undefined at runtime in loosely-typed callers.
+export function formatPrice(amount: number, currency: string): string {
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(amount);
+}
+```
+
+Good — an optional parameter with a default preserves the existing contract:
+
+```ts
+// formatPrice(9.99) keeps working unchanged; formatPrice(9.99, 'EUR') is the
+// new capability. No caller in the impact set needs to be touched.
+export function formatPrice(amount: number, currency = 'USD'): string {
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(amount);
+}
+```
+
+The extension adds behavior at the edge without disturbing the center. Reserve
+a true signature change for when the impact analysis shows every caller must
+change anyway — and when it does, that is a separate, clearly-scoped task.
 
 ---
 

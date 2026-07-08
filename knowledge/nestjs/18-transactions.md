@@ -164,6 +164,104 @@ Avoid starting transactions inside controllers.
 
 Avoid repositories creating independent transactions automatically.
 
+The idiomatic tool is TypeORM's `DataSource`. The callback form of
+`dataSource.transaction()` opens a transaction, hands you a scoped
+`EntityManager`, commits when the callback resolves, and rolls back
+automatically if it throws. Every write inside the boundary must go through
+that `manager` — a plain injected `Repository` uses its own connection and
+would **not** participate in the transaction.
+
+Good — the boundary lives in the service, and every write uses the scoped
+manager:
+
+```ts
+// orders.service.ts
+import { Injectable } from '@nestjs/common';
+import { InjectDataSource } from '@nestjs/typeorm';
+import { DataSource } from 'typeorm';
+
+import { OrderEntity } from './order.entity';
+import { InventoryEntity } from './inventory.entity';
+import { OutboxEntity } from './outbox.entity';
+import { PlaceOrderDto } from './dto/place-order.dto';
+
+export class InsufficientStockError extends Error {
+  constructor(productId: string) {
+    super(`Insufficient stock for product "${productId}"`);
+    this.name = 'InsufficientStockError';
+  }
+}
+
+@Injectable()
+export class OrdersService {
+  constructor(
+    @InjectDataSource() private readonly dataSource: DataSource,
+  ) {}
+
+  async placeOrder(dto: PlaceOrderDto): Promise<string> {
+    // Resolves -> COMMIT. Throws -> ROLLBACK. No manual commit/rollback needed.
+    return this.dataSource.transaction(async (manager) => {
+      // Pessimistic write lock: valid only inside a transaction. It blocks
+      // concurrent buyers from overselling the same row.
+      const stock = await manager.findOne(InventoryEntity, {
+        where: { productId: dto.productId },
+        lock: { mode: 'pessimistic_write' },
+      });
+
+      if (!stock || stock.available < dto.quantity) {
+        // A business exception -> automatic rollback, DB left unchanged.
+        throw new InsufficientStockError(dto.productId);
+      }
+
+      stock.available -= dto.quantity;
+      await manager.save(stock);
+
+      const order = manager.create(OrderEntity, {
+        productId: dto.productId,
+        quantity: dto.quantity,
+        status: 'CONFIRMED',
+      });
+      await manager.save(order);
+
+      // Outbox row committed atomically with the order (see Outbox Pattern).
+      await manager.save(OutboxEntity, {
+        type: 'order.placed',
+        payload: { orderId: order.id },
+      });
+
+      return order.id;
+    });
+  }
+}
+```
+
+Bad — the transaction is opened in a controller, spans a network call, and
+leaks its connection because nothing releases the `QueryRunner` on failure:
+
+```ts
+// ❌ orders.controller.ts — do NOT do this
+@Controller('orders')
+export class OrdersController {
+  constructor(
+    @InjectDataSource() private readonly dataSource: DataSource,
+    private readonly mailer: MailerService,
+  ) {}
+
+  @Post()
+  async place(@Body() dto: PlaceOrderDto) {
+    const runner = this.dataSource.createQueryRunner();
+    await runner.connect();
+    await runner.startTransaction();
+
+    const order = await runner.manager.save(OrderEntity, dto);
+    await this.mailer.sendConfirmation(order); // holds DB locks during I/O
+    await runner.commitTransaction();          // a throw above never rolls back
+    // runner.release() is never reached on error -> connection pool leak
+    return order;
+  }
+}
+```
+
 ---
 
 ## Unit of Work
@@ -218,6 +316,41 @@ Never keep a database transaction open while calling:
 
 External systems are not part of the database transaction.
 
+Bad — the payment provider is called while the transaction (and its row locks)
+is still open; a slow or failing provider holds locks and can exhaust the pool:
+
+```ts
+// ❌ external I/O inside the transaction boundary
+await this.dataSource.transaction(async (manager) => {
+  const order = await manager.save(OrderEntity, dto);
+  await this.paymentApi.charge(order.total); // network call holds locks open
+  order.status = 'PAID';
+  await manager.save(order);
+});
+```
+
+Good — the database work commits first, then the external call happens outside
+the boundary; the external result is persisted in its own short transaction:
+
+```ts
+async payForOrder(dto: PlaceOrderDto): Promise<void> {
+  const orderId = await this.dataSource.transaction(async (manager) => {
+    const order = await manager.save(OrderEntity, { ...dto, status: 'PENDING' });
+    return order.id;
+  });
+
+  // No DB locks held during the network call.
+  const receipt = await this.paymentApi.charge(orderId);
+
+  await this.dataSource.transaction(async (manager) => {
+    await manager.update(OrderEntity, orderId, {
+      status: 'PAID',
+      receiptId: receipt.id,
+    });
+  });
+}
+```
+
 ---
 
 ## Outbox Pattern
@@ -249,6 +382,74 @@ Publish Event
 ```
 
 This guarantees reliable event delivery.
+
+The outbox row is written inside the same transaction as the state change (see
+`OrdersService.placeOrder` above), so it is impossible to commit the business
+data without also recording the intent to publish. A separate worker drains
+unpublished rows and marks them sent:
+
+```ts
+// outbox.entity.ts
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+} from 'typeorm';
+
+@Entity('outbox')
+export class OutboxEntity {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  type: string;
+
+  @Column({ type: 'jsonb' })
+  payload: Record<string, unknown>;
+
+  @Column({ type: 'timestamptz', nullable: true })
+  publishedAt: Date | null;
+
+  @CreateDateColumn()
+  createdAt: Date;
+}
+```
+
+```ts
+// outbox.worker.ts
+import { Injectable } from '@nestjs/common';
+import { Cron } from '@nestjs/schedule';
+import { InjectDataSource } from '@nestjs/typeorm';
+import { DataSource, IsNull } from 'typeorm';
+
+import { OutboxEntity } from './outbox.entity';
+
+@Injectable()
+export class OutboxWorker {
+  constructor(
+    @InjectDataSource() private readonly dataSource: DataSource,
+    private readonly broker: MessageBroker,
+  ) {}
+
+  @Cron('*/5 * * * * *')
+  async drain(): Promise<void> {
+    const repo = this.dataSource.getRepository(OutboxEntity);
+    const pending = await repo.find({
+      where: { publishedAt: IsNull() },
+      order: { createdAt: 'ASC' },
+      take: 100,
+    });
+
+    for (const message of pending) {
+      // Publish is idempotent on the consumer side (dedupe by message.id),
+      // so re-delivery after a crash is safe.
+      await this.broker.publish(message.type, message.payload);
+      await repo.update(message.id, { publishedAt: new Date() });
+    }
+  }
+}
+```
 
 ---
 
@@ -340,6 +541,58 @@ Examples:
 
 Do not retry business validation failures.
 
+A retry helper inspects the driver error code and only retries genuinely
+transient failures — serialization conflicts (`40001`) and deadlocks (`40P01`
+on Postgres) — with a small backoff. Business exceptions like
+`InsufficientStockError` are never caught here, so they surface immediately:
+
+```ts
+import { QueryFailedError } from 'typeorm';
+
+const TRANSIENT_CODES = new Set(['40001', '40P01']); // serialization, deadlock
+
+export async function withTransactionRetry<T>(
+  fn: () => Promise<T>,
+  maxAttempts = 3,
+): Promise<T> {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      return await fn();
+    } catch (err) {
+      const code =
+        err instanceof QueryFailedError
+          ? (err.driverError as { code?: string }).code
+          : undefined;
+
+      if (!code || !TRANSIENT_CODES.has(code) || attempt >= maxAttempts) {
+        throw err;
+      }
+      await new Promise((resolve) => setTimeout(resolve, 50 * attempt));
+    }
+  }
+}
+```
+
+Usage — note the isolation level is passed as the first argument to
+`transaction()`; the whole unit re-runs cleanly on a transient conflict because
+a rolled-back transaction leaves no partial state:
+
+```ts
+async transfer(fromId: string, toId: string, amount: bigint): Promise<void> {
+  await withTransactionRetry(() =>
+    this.dataSource.transaction('SERIALIZABLE', async (manager) => {
+      const from = await manager.findOneByOrFail(AccountEntity, { id: fromId });
+      const to = await manager.findOneByOrFail(AccountEntity, { id: toId });
+
+      from.balance = (BigInt(from.balance) - amount).toString();
+      to.balance = (BigInt(to.balance) + amount).toString();
+
+      await manager.save([from, to]);
+    }),
+  );
+}
+```
+
 ---
 
 ## Long Transactions
@@ -374,6 +627,63 @@ Pessimistic locking:
 Suitable when conflicts are expensive.
 
 Choose according to business requirements.
+
+Optimistic locking with TypeORM uses a `@VersionColumn`. TypeORM adds the
+loaded version to the `WHERE` clause on update and throws
+`OptimisticLockVersionMismatchError` when another transaction changed the row
+first — no locks are held between read and write:
+
+```ts
+// account.entity.ts
+import { Entity, PrimaryGeneratedColumn, Column, VersionColumn } from 'typeorm';
+
+@Entity('accounts')
+export class AccountEntity {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column({ type: 'bigint' })
+  balance: string;
+
+  @VersionColumn()
+  version: number; // incremented automatically on every save()
+}
+```
+
+```ts
+// accounts.service.ts
+import { ConflictException, Injectable } from '@nestjs/common';
+import { InjectDataSource } from '@nestjs/typeorm';
+import { DataSource, OptimisticLockVersionMismatchError } from 'typeorm';
+
+import { AccountEntity } from './account.entity';
+
+@Injectable()
+export class AccountsService {
+  constructor(@InjectDataSource() private readonly dataSource: DataSource) {}
+
+  async debit(id: string, amount: bigint): Promise<void> {
+    try {
+      await this.dataSource.transaction(async (manager) => {
+        const account = await manager.findOneByOrFail(AccountEntity, { id });
+        account.balance = (BigInt(account.balance) - amount).toString();
+        // save() emits: UPDATE ... SET balance=?, version=version+1
+        //               WHERE id=? AND version=? -> throws if 0 rows matched.
+        await manager.save(account);
+      });
+    } catch (err) {
+      if (err instanceof OptimisticLockVersionMismatchError) {
+        throw new ConflictException('Account was modified concurrently; retry.');
+      }
+      throw err;
+    }
+  }
+}
+```
+
+The `pessimistic_write` lock shown in `OrdersService.placeOrder` is the
+opposite trade-off: it blocks competing writers up front instead of failing
+late, which fits high-contention rows like inventory counters.
 
 ---
 

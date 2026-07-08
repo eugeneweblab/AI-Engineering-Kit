@@ -89,6 +89,65 @@ Examples:
 
 Using established APIs improves compatibility and future upgrades.
 
+Register content with the core APIs instead of writing to the database directly. A custom post type belongs on the `init` hook so it is available for every request:
+
+```php
+add_action( 'init', 'acme_register_book_post_type' );
+
+function acme_register_book_post_type() {
+	register_post_type(
+		'acme_book',
+		array(
+			'labels'       => array(
+				'name'          => __( 'Books', 'acme' ),
+				'singular_name' => __( 'Book', 'acme' ),
+			),
+			'public'       => true,
+			'has_archive'  => true,
+			'show_in_rest' => true, // Required for the block editor and REST API.
+			'supports'     => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+			'rewrite'      => array( 'slug' => 'books' ),
+		)
+	);
+}
+```
+
+Query content with `WP_Query` rather than raw SQL. Always reset global post state after a custom loop:
+
+```php
+function acme_get_recent_books( $limit = 5 ) {
+	$query = new WP_Query(
+		array(
+			'post_type'              => 'acme_book',
+			'post_status'            => 'publish',
+			'posts_per_page'         => $limit,
+			'no_found_rows'          => true,  // Skip the SQL_CALC_FOUND_ROWS pagination count.
+			'update_post_meta_cache' => false, // Skip meta cache when meta is not used.
+		)
+	);
+
+	return $query->posts;
+}
+```
+
+When you must query the database directly, always use `$wpdb->prepare` to parameterize values. Never concatenate variables into SQL.
+
+```php
+// Bad: variable interpolated straight into the query (SQL injection risk).
+global $wpdb;
+$results = $wpdb->get_results( "SELECT * FROM {$wpdb->posts} WHERE post_author = $author_id" );
+
+// Good: %d placeholder bound through prepare().
+global $wpdb;
+$results = $wpdb->get_results(
+	$wpdb->prepare(
+		"SELECT ID, post_title FROM {$wpdb->posts} WHERE post_author = %d AND post_status = %s",
+		$author_id,
+		'publish'
+	)
+);
+```
+
 ---
 
 ## Keep Business Logic Separate
@@ -102,6 +161,45 @@ Business logic should never be embedded inside:
 - hook callbacks.
 
 Business rules belong inside dedicated services.
+
+The hook callback should stay thin: parse the request, delegate to a service, shape the response.
+
+```php
+// Bad: business logic, persistence, and formatting crammed into the callback.
+add_action( 'save_post_acme_book', 'acme_on_save_book' );
+
+function acme_on_save_book( $post_id ) {
+	$isbn = $_POST['isbn'];
+	if ( strlen( $isbn ) === 13 && ctype_digit( $isbn ) ) {
+		update_post_meta( $post_id, 'isbn', $isbn );
+		wp_remote_post( 'https://api.example.com/index', array( 'body' => array( 'isbn' => $isbn ) ) );
+	}
+}
+```
+
+```php
+// Good: the callback validates and delegates; the service owns the rules.
+add_action( 'save_post_acme_book', 'acme_on_save_book', 10, 2 );
+
+function acme_on_save_book( $post_id, $post ) {
+	if ( wp_is_post_autosave( $post_id ) || wp_is_post_revision( $post_id ) ) {
+		return;
+	}
+
+	if ( ! isset( $_POST['acme_book_nonce'] )
+		|| ! wp_verify_nonce( sanitize_key( $_POST['acme_book_nonce'] ), 'acme_save_book' ) ) {
+		return;
+	}
+
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+
+	$isbn = isset( $_POST['isbn'] ) ? sanitize_text_field( wp_unslash( $_POST['isbn'] ) ) : '';
+
+	( new Acme_Book_Service() )->update_isbn( $post_id, $isbn );
+}
+```
 
 ---
 
@@ -167,6 +265,42 @@ Escape rendered output.
 
 Never assume external data is safe.
 
+Sanitize on the way in with the `sanitize_*` family; escape on the way out with the `esc_*` family. Unslash superglobals first, because WordPress adds slashes to `$_POST`, `$_GET`, and `$_REQUEST`.
+
+```php
+// Bad: raw request data stored and echoed without sanitization or escaping.
+update_option( 'acme_contact_email', $_POST['contact_email'] );
+echo '<a href="' . get_option( 'acme_contact_email' ) . '">Email us</a>';
+```
+
+```php
+// Good: sanitize before storing, escape at the point of output.
+$email = sanitize_email( wp_unslash( $_POST['contact_email'] ) );
+
+if ( is_email( $email ) ) {
+	update_option( 'acme_contact_email', $email );
+}
+
+printf(
+	'<a href="%s">%s</a>',
+	esc_url( 'mailto:' . get_option( 'acme_contact_email' ) ),
+	esc_html__( 'Email us', 'acme' )
+);
+```
+
+Match the escaping function to the output context: `esc_html()` inside element text, `esc_attr()` inside HTML attributes, `esc_url()` for URLs, and `wp_kses_post()` when a limited set of HTML must survive.
+
+```php
+$classes = 'card card--' . sanitize_html_class( $variant );
+
+printf(
+	'<div class="%s"><h2>%s</h2>%s</div>',
+	esc_attr( $classes ),
+	esc_html( $title ),
+	wp_kses_post( $rich_text )
+);
+```
+
 ---
 
 ## Capability Checks
@@ -180,6 +314,76 @@ Examples:
 - REST permission callbacks
 
 Never rely solely on hidden UI elements.
+
+Every custom REST route needs a `permission_callback`. Registering a route without one is a hard error in WordPress 5.5+ and leaves the endpoint open. Combine capability checks with argument validation and sanitization.
+
+```php
+add_action( 'rest_api_init', 'acme_register_book_routes' );
+
+function acme_register_book_routes() {
+	register_rest_route(
+		'acme/v1',
+		'/books/(?P<id>\d+)',
+		array(
+			'methods'             => WP_REST_Server::EDITABLE, // POST, PUT, PATCH.
+			'callback'            => 'acme_update_book_rating',
+			'permission_callback' => function ( WP_REST_Request $request ) {
+				return current_user_can( 'edit_post', (int) $request['id'] );
+			},
+			'args'                => array(
+				'id'     => array(
+					'required'          => true,
+					'validate_callback' => static function ( $value ) {
+						return is_numeric( $value );
+					},
+				),
+				'rating' => array(
+					'required'          => true,
+					'type'              => 'integer',
+					'sanitize_callback' => 'absint',
+					'validate_callback' => static function ( $value ) {
+						return $value >= 1 && $value <= 5;
+					},
+				),
+			),
+		)
+	);
+}
+
+function acme_update_book_rating( WP_REST_Request $request ) {
+	$post_id = (int) $request['id'];
+	$rating  = (int) $request['rating'];
+
+	if ( 'acme_book' !== get_post_type( $post_id ) ) {
+		return new WP_Error( 'acme_not_found', __( 'Book not found.', 'acme' ), array( 'status' => 404 ) );
+	}
+
+	update_post_meta( $post_id, 'rating', $rating );
+
+	return rest_ensure_response( array( 'id' => $post_id, 'rating' => $rating ) );
+}
+```
+
+For admin form submissions, pair a capability check with a nonce. The nonce proves intent; the capability check proves authorization. Both are required.
+
+```php
+// In the form:
+wp_nonce_field( 'acme_save_settings', 'acme_settings_nonce' );
+
+// In the handler:
+function acme_handle_settings_submit() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'You are not allowed to do this.', 'acme' ), 403 );
+	}
+
+	if ( ! isset( $_POST['acme_settings_nonce'] )
+		|| ! wp_verify_nonce( sanitize_key( $_POST['acme_settings_nonce'] ), 'acme_save_settings' ) ) {
+		wp_die( esc_html__( 'Security check failed.', 'acme' ), 403 );
+	}
+
+	// Safe to process the request.
+}
+```
 
 ---
 
@@ -216,6 +420,41 @@ Return Result
 ```
 
 Avoid placing large amounts of business logic directly inside hook callbacks.
+
+Register assets on the correct hook using the enqueue API. Never hardcode `<script>` or `<link>` tags into templates, and always version assets so caches invalidate on deploy.
+
+```php
+add_action( 'wp_enqueue_scripts', 'acme_enqueue_frontend_assets' );
+
+function acme_enqueue_frontend_assets() {
+	$version = wp_get_theme()->get( 'Version' );
+
+	wp_enqueue_style(
+		'acme-main',
+		get_theme_file_uri( 'assets/css/main.css' ),
+		array(),
+		$version
+	);
+
+	wp_enqueue_script(
+		'acme-app',
+		get_theme_file_uri( 'assets/js/app.js' ),
+		array( 'wp-element' ),
+		$version,
+		array( 'in_footer' => true ) // WP 6.3+ signature; an array here also enables 'strategy'.
+	);
+
+	// Pass server data to JS safely instead of inlining unescaped values.
+	wp_localize_script(
+		'acme-app',
+		'acmeSettings',
+		array(
+			'restUrl' => esc_url_raw( rest_url( 'acme/v1/books' ) ),
+			'nonce'   => wp_create_nonce( 'wp_rest' ),
+		)
+	);
+}
+```
 
 ---
 
@@ -261,6 +500,47 @@ Before adding new code consider:
 - unnecessary rendering.
 
 Performance should be part of implementation—not an afterthought.
+
+Cache the results of expensive work with the Transients API. A transient stores a value with an expiry and is backed by a persistent object cache when one is available.
+
+```php
+function acme_get_bestseller_ids() {
+	$cache_key = 'acme_bestseller_ids';
+	$ids       = get_transient( $cache_key );
+
+	if ( false !== $ids ) {
+		return $ids; // Cache hit.
+	}
+
+	$query = new WP_Query(
+		array(
+			'post_type'      => 'acme_book',
+			'posts_per_page' => 10,
+			'meta_key'       => 'sales_count',
+			'orderby'        => 'meta_value_num',
+			'order'          => 'DESC',
+			'fields'         => 'ids',    // Return IDs only; skips hydrating full post objects.
+			'no_found_rows'  => true,
+		)
+	);
+
+	$ids = $query->posts;
+
+	set_transient( $cache_key, $ids, HOUR_IN_SECONDS );
+
+	return $ids;
+}
+```
+
+Invalidate the cache when the underlying data changes rather than relying only on the expiry:
+
+```php
+add_action( 'save_post_acme_book', 'acme_flush_bestseller_cache' );
+
+function acme_flush_bestseller_cache() {
+	delete_transient( 'acme_bestseller_ids' );
+}
+```
 
 ---
 

@@ -105,6 +105,38 @@ Avoid blocking operations such as:
 
 Long-running CPU work should be moved to worker threads or background processing.
 
+A synchronous CPU-bound call inside a request handler freezes the single event
+loop thread, so every other in-flight request stalls until it returns. Prefer
+the async variants that run on the libuv thread pool (or a worker thread).
+
+```typescript
+// report.controller.ts
+import { Controller, Get } from '@nestjs/common';
+import { promisify } from 'node:util';
+import { pbkdf2, pbkdf2Sync } from 'node:crypto';
+
+const pbkdf2Async = promisify(pbkdf2);
+
+@Controller('reports')
+export class ReportController {
+  // BAD: pbkdf2Sync blocks the event loop for the whole computation. While it
+  // runs, this Node process cannot accept or complete ANY other request.
+  @Get('token-blocking')
+  blocking(): { token: string } {
+    const derived = pbkdf2Sync('seed', 'salt', 600_000, 64, 'sha512');
+    return { token: derived.toString('hex') };
+  }
+
+  // GOOD: the async variant runs on the libuv thread pool, so the event loop
+  // stays free to serve other requests while the hash is being derived.
+  @Get('token')
+  async nonBlocking(): Promise<{ token: string }> {
+    const derived = await pbkdf2Async('seed', 'salt', 600_000, 64, 'sha512');
+    return { token: derived.toString('hex') };
+  }
+}
+```
+
 ---
 
 ## Database Performance
@@ -124,6 +156,53 @@ Prevent:
 - unnecessary joins.
 
 Always inspect execution plans for slow queries.
+
+The most common NestJS database bottleneck is the N+1 query: one query loads a
+list, then one extra query fires per row to load its relation. Collapse it into
+a single joined query, and page results with a bounded `take`.
+
+```typescript
+// order.service.ts
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Order } from './order.entity';
+import { OrderLine } from './order-line.entity';
+
+@Injectable()
+export class OrderService {
+  constructor(
+    @InjectRepository(Order) private readonly orders: Repository<Order>,
+    @InjectRepository(OrderLine) private readonly lines: Repository<OrderLine>,
+  ) {}
+
+  // BAD: 1 query for the orders + 1 query PER order for its lines (N+1). With
+  // 500 orders this is 501 round trips to the database.
+  async listBad(): Promise<Order[]> {
+    const orders = await this.orders.find();
+    for (const order of orders) {
+      order.lines = await this.lines.find({ where: { orderId: order.id } });
+    }
+    return orders;
+  }
+
+  // GOOD: a single joined query, bounded by `take`, with keyset pagination so
+  // later pages stay fast instead of paying an OFFSET scan.
+  async listGood(limit = 50, cursor?: string): Promise<Order[]> {
+    const qb = this.orders
+      .createQueryBuilder('order')
+      .leftJoinAndSelect('order.lines', 'line')
+      .orderBy('order.id', 'ASC')
+      .take(limit);
+
+    if (cursor) {
+      qb.andWhere('order.id > :cursor', { cursor });
+    }
+
+    return qb.getMany();
+  }
+}
+```
 
 ---
 
@@ -280,6 +359,55 @@ Monitor:
 - error rate.
 
 Performance must remain observable.
+
+Measure server-side latency at the framework boundary with a `NestInterceptor`.
+Use a monotonic clock (`process.hrtime.bigint`), emit a structured measurement,
+and forward it to a metrics backend that computes p95/p99 — do not eyeball
+individual log lines.
+
+```typescript
+// latency.interceptor.ts
+import {
+  CallHandler,
+  ExecutionContext,
+  Injectable,
+  Logger,
+  NestInterceptor,
+} from '@nestjs/common';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
+@Injectable()
+export class LatencyInterceptor implements NestInterceptor {
+  private readonly logger = new Logger(LatencyInterceptor.name);
+
+  intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
+    const start = process.hrtime.bigint(); // monotonic; unaffected by clock drift
+    const req = context.switchToHttp().getRequest<{ method: string; url: string }>();
+
+    return next.handle().pipe(
+      tap(() => {
+        const elapsedMs = Number(process.hrtime.bigint() - start) / 1_000_000;
+        this.logger.log(`${req.method} ${req.url} ${elapsedMs.toFixed(1)}ms`);
+      }),
+    );
+  }
+}
+```
+
+Register it globally so every route is measured:
+
+```typescript
+// app.module.ts
+import { Module } from '@nestjs/common';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { LatencyInterceptor } from './latency.interceptor';
+
+@Module({
+  providers: [{ provide: APP_INTERCEPTOR, useClass: LatencyInterceptor }],
+})
+export class AppModule {}
+```
 
 ---
 

@@ -59,7 +59,109 @@ Symptoms:
 
 Solution:
 
-Move business logic into services or domain components.
+Move business logic into services or domain components. The controller should only translate HTTP into a service call and back.
+
+Bad — validation, persistence, and business rules live in the handler:
+
+```ts
+import { Controller, Post, Body, BadRequestException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { User } from './user.entity';
+
+@Controller('users')
+export class UsersController {
+  constructor(
+    @InjectRepository(User) private readonly repo: Repository<User>,
+  ) {}
+
+  @Post()
+  async create(@Body() body: any) {
+    // manual validation
+    if (!body.email || !body.email.includes('@')) {
+      throw new BadRequestException('Invalid email');
+    }
+    // business rule + direct database access in the controller
+    const existing = await this.repo.findOne({ where: { email: body.email } });
+    if (existing) {
+      throw new BadRequestException('Email already taken');
+    }
+    return this.repo.save(this.repo.create({ email: body.email }));
+  }
+}
+```
+
+Good — a validated DTO handles input, the service owns the rule, the controller stays thin:
+
+```ts
+// create-user.dto.ts
+import { IsEmail } from 'class-validator';
+
+export class CreateUserDto {
+  @IsEmail()
+  email: string;
+}
+```
+
+```ts
+// users.controller.ts
+import { Controller, Post, Body } from '@nestjs/common';
+import { CreateUserDto } from './create-user.dto';
+import { UsersService } from './users.service';
+
+@Controller('users')
+export class UsersController {
+  constructor(private readonly users: UsersService) {}
+
+  @Post()
+  create(@Body() dto: CreateUserDto) {
+    // no logic here — just delegate; a global ValidationPipe already ran
+    return this.users.register(dto);
+  }
+}
+```
+
+```ts
+// users.service.ts
+import { Injectable, ConflictException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { User } from './user.entity';
+import { CreateUserDto } from './create-user.dto';
+
+@Injectable()
+export class UsersService {
+  constructor(
+    @InjectRepository(User) private readonly repo: Repository<User>,
+  ) {}
+
+  async register(dto: CreateUserDto): Promise<User> {
+    const existing = await this.repo.findOne({ where: { email: dto.email } });
+    if (existing) {
+      throw new ConflictException('Email already taken');
+    }
+    return this.repo.save(this.repo.create(dto));
+  }
+}
+```
+
+Enable the DTO validation once, globally, in `main.ts`:
+
+```ts
+// main.ts
+import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(
+    new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),
+  );
+  await app.listen(3000);
+}
+bootstrap();
+```
 
 ---
 
@@ -103,7 +205,39 @@ Consequences:
 
 Solution:
 
-Introduce abstractions or redesign module boundaries.
+Introduce abstractions or redesign module boundaries. In NestJS a true cycle surfaces at boot as `Nest can't resolve dependencies ... (?)` or `A circular dependency has been detected`.
+
+`forwardRef` is the escape hatch when two providers genuinely need each other, but treat it as a smell to remove, not a pattern to reach for:
+
+```ts
+// users.service.ts — depends on AuthService, which depends back on UsersService
+import { Injectable, Inject, forwardRef } from '@nestjs/common';
+import { AuthService } from '../auth/auth.service';
+
+@Injectable()
+export class UsersService {
+  constructor(
+    @Inject(forwardRef(() => AuthService))
+    private readonly auth: AuthService,
+  ) {}
+}
+```
+
+```ts
+// users.module.ts — the module import needs forwardRef on both sides too
+import { Module, forwardRef } from '@nestjs/common';
+import { AuthModule } from '../auth/auth.module';
+import { UsersService } from './users.service';
+
+@Module({
+  imports: [forwardRef(() => AuthModule)],
+  providers: [UsersService],
+  exports: [UsersService],
+})
+export class UsersModule {}
+```
+
+The better fix is usually to break the cycle: extract the shared logic into a third provider (e.g. a `TokenService`) that both modules import in one direction only, so no `forwardRef` is needed.
 
 ---
 
@@ -268,6 +402,57 @@ Applications repeatedly execute similar database queries.
 Solution:
 
 Use joins, eager loading, batching, or query optimization.
+
+Bad — one query for the list, then one more query per row to load its author (the classic N+1):
+
+```ts
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Post } from './post.entity';
+import { Author } from './author.entity';
+
+@Injectable()
+export class PostsService {
+  constructor(
+    @InjectRepository(Post) private readonly posts: Repository<Post>,
+    @InjectRepository(Author) private readonly authors: Repository<Author>,
+  ) {}
+
+  async listWithAuthors() {
+    const posts = await this.posts.find(); // 1 query
+    for (const post of posts) {
+      // N extra queries — one round trip per post
+      post.author = await this.authors.findOneBy({ id: post.authorId });
+    }
+    return posts;
+  }
+}
+```
+
+Good — load the relation in a single joined query with `relations` (or a query builder):
+
+```ts
+@Injectable()
+export class PostsService {
+  constructor(
+    @InjectRepository(Post) private readonly posts: Repository<Post>,
+  ) {}
+
+  listWithAuthors() {
+    // one query, author joined in via LEFT JOIN
+    return this.posts.find({ relations: { author: true } });
+  }
+
+  // equivalent with the query builder when you need finer control
+  listWithAuthorsQb() {
+    return this.posts
+      .createQueryBuilder('post')
+      .leftJoinAndSelect('post.author', 'author')
+      .getMany();
+  }
+}
+```
 
 ---
 

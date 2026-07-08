@@ -118,6 +118,61 @@ Prefer:
 
 Breaking changes should be planned.
 
+NestJS has first-class API versioning. Enable it once during bootstrap, then run
+`v1` and `v2` side by side so existing clients keep working while new clients
+adopt the improved contract.
+
+```ts
+// main.ts
+import { NestFactory } from '@nestjs/core';
+import { VersioningType } from '@nestjs/common';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+
+  // Routes become /v1/users, /v2/users, ...
+  app.enableVersioning({
+    type: VersioningType.URI,
+    defaultVersion: '1',
+  });
+
+  await app.listen(3000);
+}
+bootstrap();
+```
+
+```ts
+// users.controller.ts
+import { Controller, Get, Version } from '@nestjs/common';
+import { UsersService } from './users.service';
+
+@Controller({ path: 'users', version: '1' })
+export class UsersControllerV1 {
+  constructor(private readonly users: UsersService) {}
+
+  // GET /v1/users -> stable legacy shape, kept for existing clients
+  @Get()
+  findAll() {
+    return this.users.findAllLegacy();
+  }
+}
+
+@Controller({ path: 'users', version: '2' })
+export class UsersControllerV2 {
+  constructor(private readonly users: UsersService) {}
+
+  // GET /v2/users -> new paginated shape
+  @Get()
+  findAll() {
+    return this.users.findAllPaginated();
+  }
+}
+```
+
+A single method can also opt into multiple versions with `@Version(['1', '2'])`
+when the behavior is genuinely shared, avoiding duplicated handlers.
+
 ---
 
 ## Deprecation Policy
@@ -130,6 +185,71 @@ Every deprecated feature should define:
 - removal date.
 
 Deprecation should never surprise consumers.
+
+Signal deprecation in-band so clients can detect it programmatically. The
+standard mechanism is the `Deprecation` and `Sunset` HTTP headers (RFC 8594)
+plus a `Link` to the migration guide. Encapsulate this in an interceptor rather
+than sprinkling `res.setHeader` calls through controllers.
+
+**Good — deprecation is announced through headers and documented:**
+
+```ts
+// deprecation.interceptor.ts
+import {
+  CallHandler,
+  ExecutionContext,
+  Injectable,
+  NestInterceptor,
+} from '@nestjs/common';
+import { Response } from 'express';
+import { Observable } from 'rxjs';
+
+@Injectable()
+export class DeprecationInterceptor implements NestInterceptor {
+  constructor(
+    private readonly sunset: string, // e.g. 'Wed, 31 Dec 2026 23:59:59 GMT'
+    private readonly migrationUrl: string,
+  ) {}
+
+  intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
+    const res = context.switchToHttp().getResponse<Response>();
+    res.setHeader('Deprecation', 'true');
+    res.setHeader('Sunset', this.sunset);
+    res.setHeader('Link', `<${this.migrationUrl}>; rel="deprecation"`);
+    return next.handle();
+  }
+}
+```
+
+```ts
+// legacy-reports.controller.ts
+import { Controller, Get, UseInterceptors } from '@nestjs/common';
+import { DeprecationInterceptor } from './deprecation.interceptor';
+
+@Controller({ path: 'reports', version: '1' })
+@UseInterceptors(
+  new DeprecationInterceptor(
+    'Wed, 31 Dec 2026 23:59:59 GMT',
+    'https://docs.example.com/migrations/reports-v2',
+  ),
+)
+export class LegacyReportsController {
+  @Get()
+  findAll() {
+    return { data: [] };
+  }
+}
+```
+
+**Bad — the endpoint is simply deleted, breaking clients with no warning:**
+
+```ts
+// The v1 handler is removed in a patch release. Clients that still call
+// GET /v1/reports now get 404s with no Deprecation header, no Sunset date,
+// and no migration path. This is exactly the surprise the policy forbids.
+@Controller({ path: 'reports', version: '1' })
+export class LegacyReportsController {}
+```
 
 ---
 
@@ -298,6 +418,44 @@ Prepare for:
 - credential compromise.
 
 Recovery procedures should be tested regularly.
+
+Safe recovery and zero-downtime rolling deploys both depend on the application
+shutting down cleanly: draining in-flight requests, closing database pools, and
+disconnecting from brokers before the process exits. NestJS exposes lifecycle
+hooks for this, but they only fire when shutdown hooks are explicitly enabled.
+
+```ts
+// main.ts
+const app = await NestFactory.create(AppModule);
+
+// Required — without this, OnApplicationShutdown never runs on SIGTERM/SIGINT.
+app.enableShutdownHooks();
+
+await app.listen(3000);
+```
+
+```ts
+// database.service.ts
+import { Injectable, Logger, OnApplicationShutdown } from '@nestjs/common';
+import { DataSource } from 'typeorm';
+
+@Injectable()
+export class DatabaseService implements OnApplicationShutdown {
+  private readonly logger = new Logger(DatabaseService.name);
+
+  constructor(private readonly dataSource: DataSource) {}
+
+  async onApplicationShutdown(signal?: string): Promise<void> {
+    this.logger.log(`Shutting down on ${signal}; closing DB connections`);
+    if (this.dataSource.isInitialized) {
+      await this.dataSource.destroy();
+    }
+  }
+}
+```
+
+The orchestrator (Kubernetes, systemd, etc.) sends `SIGTERM`; the hook receives
+the signal name so cleanup can be logged and correlated during an incident.
 
 ---
 
