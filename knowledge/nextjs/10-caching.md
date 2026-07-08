@@ -8,7 +8,7 @@ order: 10
 status: ready
 tags: [nextjs, caching]
 related: []
-when_to_use: ""
+when_to_use: "Read before configuring caching or revalidation for data and routes in Next.js."
 ---
 # Next.js Caching
 

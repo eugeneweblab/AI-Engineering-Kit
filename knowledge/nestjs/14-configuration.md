@@ -8,7 +8,7 @@ order: 14
 status: ready
 tags: [nestjs, configuration]
 related: []
-when_to_use: ""
+when_to_use: "Read before adding or reviewing configuration, environment variables, or secrets handling in a NestJS application."
 ---
 # NestJS Configuration
 

@@ -8,7 +8,7 @@ order: 5
 status: ready
 tags: [nestjs, services]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing or reviewing any service or business-logic class."
 ---
 # NestJS Services
 

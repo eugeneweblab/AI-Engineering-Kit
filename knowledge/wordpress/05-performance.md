@@ -8,7 +8,7 @@ order: 5
 status: ready
 tags: [wordpress, performance]
 related: []
-when_to_use: ""
+when_to_use: "Read before optimizing or building performance-sensitive WordPress features."
 ---
 # WordPress Performance
 

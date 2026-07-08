@@ -8,7 +8,7 @@ order: 19
 status: ready
 tags: [figma, design-handoff]
 related: []
-when_to_use: ""
+when_to_use: "Read when handing off a Figma design to engineering, to align designers, developers, and QA before implementation."
 ---
 # Design Handoff
 

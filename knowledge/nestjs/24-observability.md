@@ -8,7 +8,7 @@ order: 24
 status: ready
 tags: [nestjs, observability]
 related: []
-when_to_use: ""
+when_to_use: "Read before adding or reviewing logging, metrics, tracing, or health checks for a NestJS service."
 ---
 # Observability
 

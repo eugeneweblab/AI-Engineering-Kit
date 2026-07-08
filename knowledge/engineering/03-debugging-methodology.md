@@ -8,7 +8,7 @@ order: 3
 status: ready
 tags: [engineering, debugging-methodology]
 related: []
-when_to_use: ""
+when_to_use: "Read before debugging a defect to investigate the root cause systematically."
 ---
 # Debugging Methodology
 

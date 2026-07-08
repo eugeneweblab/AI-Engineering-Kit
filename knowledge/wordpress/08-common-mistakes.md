@@ -8,7 +8,7 @@ order: 8
 status: ready
 tags: [wordpress, common-mistakes]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing WordPress code to avoid common implementation mistakes."
 ---
 # Common WordPress Mistakes
 

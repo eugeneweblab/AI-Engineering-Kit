@@ -8,7 +8,7 @@ order: 3
 status: ready
 tags: [workflows, create-new-feature]
 related: []
-when_to_use: ""
+when_to_use: "Follow this workflow when implementing a new feature in an existing project."
 ---
 # Workflow — Create a New Feature
 

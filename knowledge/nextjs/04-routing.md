@@ -8,7 +8,7 @@ order: 4
 status: ready
 tags: [nextjs, routing]
 related: []
-when_to_use: ""
+when_to_use: "Read before implementing navigation and links between pages in a Next.js app."
 ---
 # Next.js Routing
 

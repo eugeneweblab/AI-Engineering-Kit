@@ -8,7 +8,7 @@ order: 8
 status: ready
 tags: [nextjs, rendering-strategies]
 related: []
-when_to_use: ""
+when_to_use: "Read before choosing a rendering strategy for a Next.js route."
 ---
 # Next.js Rendering Strategies
 

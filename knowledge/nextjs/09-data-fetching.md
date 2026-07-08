@@ -8,7 +8,7 @@ order: 9
 status: ready
 tags: [nextjs, data-fetching]
 related: []
-when_to_use: ""
+when_to_use: "Read before fetching data from a database or API in a Next.js app."
 ---
 # Next.js Data Fetching
 

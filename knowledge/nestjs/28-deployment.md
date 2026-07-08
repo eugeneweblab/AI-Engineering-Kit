@@ -8,7 +8,7 @@ order: 28
 status: ready
 tags: [nestjs, deployment]
 related: []
-when_to_use: ""
+when_to_use: "Read before setting up or reviewing build, containerization, CI/CD, or release processes for a NestJS application."
 ---
 # Deployment
 

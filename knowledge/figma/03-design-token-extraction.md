@@ -8,7 +8,7 @@ order: 3
 status: ready
 tags: [figma, design-token-extraction]
 related: []
-when_to_use: ""
+when_to_use: "Read before extracting design tokens (colors, spacing, typography) from a Figma file instead of hardcoding values."
 ---
 # Design Token Extraction
 

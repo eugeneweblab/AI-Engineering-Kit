@@ -8,7 +8,7 @@ order: 1
 status: ready
 tags: [engineering, decision-framework]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing or modifying code to work through engineering decisions systematically."
 ---
 # Engineering Decision Framework
 

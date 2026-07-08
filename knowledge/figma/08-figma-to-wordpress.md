@@ -8,7 +8,7 @@ order: 8
 status: ready
 tags: [figma, figma-to-wordpress]
 related: []
-when_to_use: ""
+when_to_use: "Read before converting a Figma design into a maintainable, editable WordPress implementation."
 ---
 # Figma to WordPress
 

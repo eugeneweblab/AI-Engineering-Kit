@@ -8,7 +8,7 @@ order: 5
 status: ready
 tags: [workflows, review-pull-request]
 related: []
-when_to_use: ""
+when_to_use: "Follow this workflow when reviewing a pull request before merging."
 ---
 # Workflow — Review a Pull Request
 

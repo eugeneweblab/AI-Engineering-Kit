@@ -8,7 +8,7 @@ order: -1
 status: ready
 tags: [checklists]
 related: []
-when_to_use: ""
+when_to_use: "Read first to find the right checklist before completing or reviewing work."
 ---
 # Checklists
 

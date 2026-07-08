@@ -8,7 +8,7 @@ order: 8
 status: ready
 tags: [nestjs, validation]
 related: []
-when_to_use: ""
+when_to_use: "Read before adding or reviewing validation of incoming request data at the application boundary."
 ---
 # NestJS Validation
 

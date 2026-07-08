@@ -8,7 +8,7 @@ order: 15
 status: ready
 tags: [react, forms]
 related: []
-when_to_use: ""
+when_to_use: "Read before building or reviewing React forms, inputs, and validation."
 ---
 # React Forms
 

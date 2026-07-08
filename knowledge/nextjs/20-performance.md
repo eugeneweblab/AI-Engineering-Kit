@@ -8,7 +8,7 @@ order: 20
 status: ready
 tags: [nextjs, performance]
 related: []
-when_to_use: ""
+when_to_use: "Read before diagnosing or optimizing performance and Core Web Vitals in a Next.js app."
 ---
 # Next.js Performance
 

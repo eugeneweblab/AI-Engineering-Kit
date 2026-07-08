@@ -8,7 +8,7 @@ order: 7
 status: ready
 tags: [nestjs, dto]
 related: []
-when_to_use: ""
+when_to_use: "Read before defining or reviewing request and response DTOs and API contracts."
 ---
 # NestJS Data Transfer Objects (DTO)
 

@@ -8,7 +8,7 @@ order: 4
 status: ready
 tags: [workflows, refactor-existing-code]
 related: []
-when_to_use: ""
+when_to_use: "Follow this workflow when refactoring existing code without changing its behavior."
 ---
 # Workflow — Refactor Existing Code
 

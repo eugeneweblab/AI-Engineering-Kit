@@ -8,7 +8,7 @@ order: 10
 status: ready
 tags: [figma, design-qa]
 related: []
-when_to_use: ""
+when_to_use: "Read after development, to validate the implementation against the Figma design before code review or acceptance."
 ---
 # Design QA
 

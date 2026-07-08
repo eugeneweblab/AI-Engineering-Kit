@@ -8,7 +8,7 @@ order: 2
 status: ready
 tags: [figma, layout-analysis]
 related: []
-when_to_use: ""
+when_to_use: "Read before implementing a Figma screen, to understand how its layout structure is built rather than how it looks."
 ---
 # Figma Layout Analysis
 

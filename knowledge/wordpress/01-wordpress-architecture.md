@@ -8,7 +8,7 @@ order: 1
 status: ready
 tags: [wordpress, wordpress-architecture]
 related: []
-when_to_use: ""
+when_to_use: "Read before designing or extending the architecture of a WordPress application."
 ---
 # WordPress Architecture
 

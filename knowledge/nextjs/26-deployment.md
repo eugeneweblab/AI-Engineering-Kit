@@ -8,7 +8,7 @@ order: 26
 status: ready
 tags: [nextjs, deployment]
 related: []
-when_to_use: ""
+when_to_use: "Read before deploying a Next.js app to a hosting platform or production environment."
 ---
 # Next.js Deployment
 

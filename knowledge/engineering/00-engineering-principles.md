@@ -8,7 +8,7 @@ order: 0
 status: ready
 tags: [engineering, engineering-principles]
 related: []
-when_to_use: ""
+when_to_use: "Read before making any engineering decision to apply the kit's foundational principles."
 ---
 # Engineering Principles
 

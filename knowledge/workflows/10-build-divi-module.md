@@ -8,7 +8,7 @@ order: 10
 status: ready
 tags: [workflows, build-divi-module]
 related: []
-when_to_use: ""
+when_to_use: "Follow this workflow when creating or modifying a custom Divi module."
 ---
 # Workflow — Build a Divi Module
 

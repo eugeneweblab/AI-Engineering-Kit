@@ -8,7 +8,7 @@ order: 13
 status: ready
 tags: [nextjs, middleware]
 related: []
-when_to_use: ""
+when_to_use: "Read before adding middleware for redirects, rewrites, or request processing in Next.js."
 ---
 # Next.js Middleware
 

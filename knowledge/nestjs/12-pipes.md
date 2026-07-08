@@ -8,7 +8,7 @@ order: 12
 status: ready
 tags: [nestjs, pipes]
 related: []
-when_to_use: ""
+when_to_use: "Read before building or reviewing pipes that transform or validate incoming request data."
 ---
 # NestJS Pipes
 

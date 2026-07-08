@@ -8,7 +8,7 @@ order: 28
 status: ready
 tags: [nextjs, best-practices]
 related: []
-when_to_use: ""
+when_to_use: "Read for a concise reference of engineering best practices when building a Next.js app."
 ---
 # Next.js Best Practices
 

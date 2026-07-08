@@ -8,7 +8,7 @@ order: 4
 status: ready
 tags: [wordpress, code-style]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing or formatting WordPress code to match the project's coding style."
 ---
 # WordPress Code Style
 

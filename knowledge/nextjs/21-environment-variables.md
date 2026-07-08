@@ -8,7 +8,7 @@ order: 21
 status: ready
 tags: [nextjs, environment-variables]
 related: []
-when_to_use: ""
+when_to_use: "Read before managing environment variables or secrets across Next.js environments."
 ---
 # Next.js Environment Variables
 

@@ -8,7 +8,7 @@ order: 8
 status: ready
 tags: [workflows, build-react-component]
 related: []
-when_to_use: ""
+when_to_use: "Follow this workflow when building or extending a React component."
 ---
 # Workflow — Build a React Component
 

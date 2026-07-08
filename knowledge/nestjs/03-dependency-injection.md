@@ -8,7 +8,7 @@ order: 3
 status: ready
 tags: [nestjs, dependency-injection]
 related: []
-when_to_use: ""
+when_to_use: "Read before wiring providers, tokens, scopes, or custom factories, or when debugging DI resolution errors."
 ---
 # NestJS Dependency Injection
 

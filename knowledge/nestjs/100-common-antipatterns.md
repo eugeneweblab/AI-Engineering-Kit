@@ -8,7 +8,7 @@ order: 100
 status: ready
 tags: [nestjs, common-antipatterns]
 related: []
-when_to_use: ""
+when_to_use: "Read when reviewing NestJS code to catch common antipatterns and design smells before they become technical debt."
 ---
 # Common Engineering Antipatterns
 

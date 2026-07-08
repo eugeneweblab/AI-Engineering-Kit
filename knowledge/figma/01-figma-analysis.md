@@ -8,7 +8,7 @@ order: 1
 status: ready
 tags: [figma, figma-analysis]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing any code from a Figma design, to fully analyze the design and plan implementation first."
 ---
 # Figma Analysis
 

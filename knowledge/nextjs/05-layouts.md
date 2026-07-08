@@ -8,7 +8,7 @@ order: 5
 status: ready
 tags: [nextjs, layouts]
 related: []
-when_to_use: ""
+when_to_use: "Read before building shared layouts or persistent UI across Next.js routes."
 ---
 # Next.js Layouts
 

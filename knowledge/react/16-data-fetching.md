@@ -8,7 +8,7 @@ order: 16
 status: ready
 tags: [react, data-fetching]
 related: []
-when_to_use: ""
+when_to_use: "Read before implementing or reviewing remote data fetching, caching, or synchronization in React."
 ---
 # React Data Fetching
 

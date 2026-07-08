@@ -8,7 +8,7 @@ order: 22
 status: ready
 tags: [nestjs, cqrs]
 related: []
-when_to_use: ""
+when_to_use: "Read before deciding on or reviewing a CQRS design that separates read and write operations."
 ---
 # CQRS (Command Query Responsibility Segregation)
 

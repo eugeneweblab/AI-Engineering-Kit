@@ -8,7 +8,7 @@ order: 14
 status: ready
 tags: [figma, figma-inspection-checklist]
 related: []
-when_to_use: ""
+when_to_use: "Read before implementing any new page or section, to complete the mandatory Figma inspection checklist first."
 ---
 # Figma Inspection Checklist
 

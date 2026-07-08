@@ -8,7 +8,7 @@ order: 1
 status: ready
 tags: [ai, context-gathering]
 related: []
-when_to_use: ""
+when_to_use: "Read before gathering context for any AI-assisted coding task."
 ---
 # Context Gathering
 

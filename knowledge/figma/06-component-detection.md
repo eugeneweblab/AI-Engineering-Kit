@@ -8,7 +8,7 @@ order: 6
 status: ready
 tags: [figma, component-detection]
 related: []
-when_to_use: ""
+when_to_use: "Read before coding, to identify reusable UI components and repeated patterns in a Figma design."
 ---
 # Component Detection
 

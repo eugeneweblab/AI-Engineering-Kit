@@ -8,7 +8,7 @@ order: 10
 status: ready
 tags: [nestjs, interceptors]
 related: []
-when_to_use: ""
+when_to_use: "Read before building or reviewing interceptors for logging, response shaping, tracing, or other cross-cutting request concerns."
 ---
 # NestJS Interceptors
 

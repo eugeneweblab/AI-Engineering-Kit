@@ -8,7 +8,7 @@ order: 20
 status: ready
 tags: [react, accessibility]
 related: []
-when_to_use: ""
+when_to_use: "Read before building or reviewing React UI to ensure it is accessible to all users and assistive technologies."
 ---
 # React Accessibility
 

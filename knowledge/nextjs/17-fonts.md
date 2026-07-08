@@ -8,7 +8,7 @@ order: 17
 status: ready
 tags: [nextjs, fonts]
 related: []
-when_to_use: ""
+when_to_use: "Read before loading or optimizing web fonts in a Next.js app."
 ---
 # Next.js Fonts
 

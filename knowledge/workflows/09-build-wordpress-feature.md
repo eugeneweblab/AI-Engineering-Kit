@@ -8,7 +8,7 @@ order: 9
 status: ready
 tags: [workflows, build-wordpress-feature]
 related: []
-when_to_use: ""
+when_to_use: "Follow this workflow when implementing a new feature in a WordPress project."
 ---
 # Workflow — Build a WordPress Feature
 

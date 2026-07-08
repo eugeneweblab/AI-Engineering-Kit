@@ -8,7 +8,7 @@ order: 1
 status: ready
 tags: [workflows, implement-figma-design]
 related: []
-when_to_use: ""
+when_to_use: "Follow this workflow when implementing a Figma design into production code."
 ---
 # Workflow — Implement a Figma Design
 

@@ -8,7 +8,7 @@ order: 100
 status: ready
 tags: [react, common-antipatterns]
 related: []
-when_to_use: ""
+when_to_use: "Read during React implementation, code review, or refactoring to detect and avoid common anti-patterns."
 ---
 # React Anti-Patterns
 

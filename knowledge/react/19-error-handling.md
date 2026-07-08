@@ -8,7 +8,7 @@ order: 19
 status: ready
 tags: [react, error-handling]
 related: []
-when_to_use: ""
+when_to_use: "Read before implementing or reviewing error boundaries, fallbacks, and failure handling in React."
 ---
 # React Error Handling
 

@@ -8,7 +8,7 @@ order: 11
 status: ready
 tags: [nestjs, exception-filters]
 related: []
-when_to_use: ""
+when_to_use: "Read before building or reviewing exception filters and application-wide error handling."
 ---
 # NestJS Exception Filters
 

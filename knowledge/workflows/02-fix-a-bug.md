@@ -8,7 +8,7 @@ order: 2
 status: ready
 tags: [workflows, fix-a-bug]
 related: []
-when_to_use: ""
+when_to_use: "Follow this workflow when investigating and fixing a bug end-to-end."
 ---
 # Workflow — Fix a Bug
 

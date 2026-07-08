@@ -8,7 +8,7 @@ order: 26
 status: ready
 tags: [nestjs, security]
 related: []
-when_to_use: ""
+when_to_use: "Read before building or reviewing any code with security implications, or when hardening a NestJS application."
 ---
 # Security
 

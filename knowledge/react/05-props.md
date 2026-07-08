@@ -8,7 +8,7 @@ order: 5
 status: ready
 tags: [react, props]
 related: []
-when_to_use: ""
+when_to_use: "Read before designing or reviewing a React component's props and public API."
 ---
 # Props and Component API Design
 

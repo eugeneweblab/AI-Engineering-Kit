@@ -8,7 +8,7 @@ order: 6
 status: ready
 tags: [nestjs, repositories]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing or reviewing any data-access or repository layer that reads from or writes to persistent storage."
 ---
 # NestJS Repositories
 

@@ -8,7 +8,7 @@ order: -1
 status: ready
 tags: [templates]
 related: []
-when_to_use: ""
+when_to_use: "Read first to find the right document or code template before creating a new file."
 ---
 # Templates
 

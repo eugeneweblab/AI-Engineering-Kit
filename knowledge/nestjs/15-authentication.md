@@ -8,7 +8,7 @@ order: 15
 status: ready
 tags: [nestjs, authentication]
 related: []
-when_to_use: ""
+when_to_use: "Read before building or reviewing any login, signup, session, token, or credential-handling code."
 ---
 # NestJS Authentication
 

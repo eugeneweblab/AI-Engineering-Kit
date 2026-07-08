@@ -8,7 +8,7 @@ order: -1
 status: ready
 tags: [snippets]
 related: []
-when_to_use: ""
+when_to_use: "Read first to find a reusable code snippet in this collection."
 ---
 # Snippets
 

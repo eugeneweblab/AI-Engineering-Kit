@@ -8,7 +8,7 @@ order: 11
 status: ready
 tags: [react, rendering]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing or reviewing React rendering and re-render logic."
 ---
 # React Rendering Patterns
 

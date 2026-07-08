@@ -8,7 +8,7 @@ order: 20
 status: ready
 tags: [nestjs, queues]
 related: []
-when_to_use: ""
+when_to_use: "Read before building or reviewing background jobs, queues, or asynchronous work moved outside the request lifecycle."
 ---
 # NestJS Queues
 

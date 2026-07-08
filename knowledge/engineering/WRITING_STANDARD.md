@@ -8,7 +8,7 @@ order: 999
 status: ready
 tags: [engineering, writing-standard]
 related: []
-when_to_use: ""
+when_to_use: "Read before authoring or editing knowledge base documents to follow the repository's writing standard."
 ---
 # Writing Standard
 

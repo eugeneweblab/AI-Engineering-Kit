@@ -8,7 +8,7 @@ order: 5
 status: ready
 tags: [figma, responsive-analysis]
 related: []
-when_to_use: ""
+when_to_use: "Read before implementing responsive behavior from a Figma design across breakpoints and viewport sizes."
 ---
 # Responsive Design Analysis
 

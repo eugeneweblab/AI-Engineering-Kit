@@ -8,7 +8,7 @@ order: 21
 status: ready
 tags: [nestjs, events]
 related: []
-when_to_use: ""
+when_to_use: "Read before designing or reviewing event-driven flows that decouple components through emitted domain events."
 ---
 # Event-Driven Architecture
 

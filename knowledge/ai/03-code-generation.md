@@ -8,7 +8,7 @@ order: 3
 status: ready
 tags: [ai, code-generation]
 related: []
-when_to_use: ""
+when_to_use: "Read before generating new code so it integrates naturally with the existing project."
 ---
 # Code Generation
 

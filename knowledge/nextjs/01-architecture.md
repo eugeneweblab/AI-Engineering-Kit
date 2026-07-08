@@ -8,7 +8,7 @@ order: 1
 status: ready
 tags: [nextjs, architecture]
 related: []
-when_to_use: ""
+when_to_use: "Read before establishing the overall architecture of a new Next.js application."
 ---
 # Next.js Architecture
 

@@ -8,7 +8,7 @@ order: 2
 status: ready
 tags: [nestjs, modules]
 related: []
-when_to_use: ""
+when_to_use: "Read before creating, splitting, or reviewing NestJS modules and their imports and exports."
 ---
 # NestJS Modules
 

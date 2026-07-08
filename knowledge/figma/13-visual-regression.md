@@ -8,7 +8,7 @@ order: 13
 status: ready
 tags: [figma, visual-regression]
 related: []
-when_to_use: ""
+when_to_use: "Read before approving frontend changes, to check that new work has not visually regressed existing pages."
 ---
 # Visual Regression
 

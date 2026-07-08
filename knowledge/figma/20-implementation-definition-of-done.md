@@ -8,7 +8,7 @@ order: 20
 status: ready
 tags: [figma, implementation-definition-of-done]
 related: []
-when_to_use: ""
+when_to_use: "Read before marking a Figma implementation complete, to confirm it meets the mandatory Definition of Done."
 ---
 # Implementation Definition of Done
 

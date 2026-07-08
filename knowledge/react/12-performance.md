@@ -8,7 +8,7 @@ order: 12
 status: ready
 tags: [react, performance]
 related: []
-when_to_use: ""
+when_to_use: "Read before optimizing or reviewing React performance and memoization decisions."
 ---
 # React Performance
 

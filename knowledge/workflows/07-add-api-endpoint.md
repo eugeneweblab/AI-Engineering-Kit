@@ -8,7 +8,7 @@ order: 7
 status: ready
 tags: [workflows, add-api-endpoint]
 related: []
-when_to_use: ""
+when_to_use: "Follow this workflow when adding a new API endpoint to an existing project."
 ---
 # Workflow — Add an API Endpoint
 

@@ -8,7 +8,7 @@ order: 23
 status: ready
 tags: [nestjs, distributed-systems]
 related: []
-when_to_use: ""
+when_to_use: "Read before designing or reviewing microservices, inter-service communication, or other distributed-system concerns."
 ---
 # Distributed Systems
 

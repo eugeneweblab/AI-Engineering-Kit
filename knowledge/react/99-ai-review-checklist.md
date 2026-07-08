@@ -8,7 +8,7 @@ order: 99
 status: ready
 tags: [react, ai-review-checklist]
 related: []
-when_to_use: ""
+when_to_use: "Read before reviewing a React pull request or AI-generated React, or to confirm an implementation is done."
 ---
 # React Definition of Done
 

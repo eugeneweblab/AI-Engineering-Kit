@@ -8,7 +8,7 @@ order: 15
 status: ready
 tags: [figma, screenshot-comparison]
 related: []
-when_to_use: ""
+when_to_use: "Read when comparing an implemented page against its Figma design using screenshots to detect visual differences."
 ---
 # Screenshot Comparison
 

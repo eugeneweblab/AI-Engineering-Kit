@@ -8,7 +8,7 @@ order: 16
 status: ready
 tags: [figma, accessibility-from-figma]
 related: []
-when_to_use: ""
+when_to_use: "Read while inspecting a Figma design, to identify accessibility requirements before implementation begins."
 ---
 # Accessibility from Figma
 

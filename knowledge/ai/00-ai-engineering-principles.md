@@ -8,7 +8,7 @@ order: 0
 status: ready
 tags: [ai, ai-engineering-principles]
 related: []
-when_to_use: ""
+when_to_use: "Read before starting any AI-assisted coding task to apply model-agnostic AI engineering principles."
 ---
 # AI Engineering Principles
 

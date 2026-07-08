@@ -8,7 +8,7 @@ order: 2
 status: ready
 tags: [react, component-architecture]
 related: []
-when_to_use: ""
+when_to_use: "Read before designing, splitting, or reviewing React component structure and composition."
 ---
 # React Component Architecture
 

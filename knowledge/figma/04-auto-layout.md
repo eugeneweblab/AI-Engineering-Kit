@@ -8,7 +8,7 @@ order: 4
 status: ready
 tags: [figma, auto-layout]
 related: []
-when_to_use: ""
+when_to_use: "Read before translating Figma Auto Layout into flexbox/grid, to correctly reproduce growth, alignment, and spacing behavior."
 ---
 # Figma Auto Layout
 

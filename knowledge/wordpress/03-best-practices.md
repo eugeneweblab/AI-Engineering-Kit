@@ -8,7 +8,7 @@ order: 3
 status: ready
 tags: [wordpress, best-practices]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing WordPress code to follow professional engineering best practices."
 ---
 # WordPress Best Practices
 

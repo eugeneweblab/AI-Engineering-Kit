@@ -8,7 +8,7 @@ order: 17
 status: ready
 tags: [nestjs, database]
 related: []
-when_to_use: ""
+when_to_use: "Read before integrating or reviewing database access, ORM setup, entities, or migrations in a NestJS application."
 ---
 # NestJS Database
 

@@ -8,7 +8,7 @@ order: 6
 status: ready
 tags: [nextjs, server-components]
 related: []
-when_to_use: ""
+when_to_use: "Read before building server-rendered components or moving logic to the server in Next.js."
 ---
 # Next.js Server Components
 

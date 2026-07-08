@@ -8,7 +8,7 @@ order: 7
 status: ready
 tags: [nextjs, client-components]
 related: []
-when_to_use: ""
+when_to_use: "Read before adding interactivity or client-side state with a Next.js Client Component."
 ---
 # Next.js Client Components
 

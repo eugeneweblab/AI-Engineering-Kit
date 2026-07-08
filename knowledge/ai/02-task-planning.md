@@ -8,7 +8,7 @@ order: 2
 status: ready
 tags: [ai, task-planning]
 related: []
-when_to_use: ""
+when_to_use: "Read before planning an AI-assisted task and prior to making any code changes."
 ---
 # Task Planning
 

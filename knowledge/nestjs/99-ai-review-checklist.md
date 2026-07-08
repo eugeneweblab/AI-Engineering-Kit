@@ -8,7 +8,7 @@ order: 99
 status: ready
 tags: [nestjs, ai-review-checklist]
 related: []
-when_to_use: ""
+when_to_use: "Read before reviewing a NestJS pull request or AI-generated NestJS code."
 ---
 # AI Engineering Review Checklist
 

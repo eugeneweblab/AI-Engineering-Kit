@@ -8,7 +8,7 @@ order: 6
 status: ready
 tags: [wordpress, security]
 related: []
-when_to_use: ""
+when_to_use: "Read before handling input, endpoints, or authentication in a WordPress project."
 ---
 # WordPress Security
 

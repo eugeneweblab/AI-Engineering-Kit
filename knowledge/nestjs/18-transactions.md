@@ -8,7 +8,7 @@ order: 18
 status: ready
 tags: [nestjs, transactions]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing or reviewing any operation that must update multiple pieces of state atomically."
 ---
 # NestJS Transactions
 

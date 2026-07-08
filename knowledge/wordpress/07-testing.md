@@ -8,7 +8,7 @@ order: 7
 status: ready
 tags: [wordpress, testing]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing tests or defining a testing strategy for a WordPress project."
 ---
 # WordPress Testing
 

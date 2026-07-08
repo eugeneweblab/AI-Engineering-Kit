@@ -8,7 +8,7 @@ order: 23
 status: ready
 tags: [nextjs, observability]
 related: []
-when_to_use: ""
+when_to_use: "Read before adding logging, tracing, monitoring, or alerting to a Next.js app."
 ---
 # Next.js Observability
 

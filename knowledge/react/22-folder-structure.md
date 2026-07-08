@@ -8,7 +8,7 @@ order: 22
 status: ready
 tags: [react, folder-structure]
 related: []
-when_to_use: ""
+when_to_use: "Read before creating new files or organizing the folder and directory structure of a React project."
 ---
 # React Folder Structure
 

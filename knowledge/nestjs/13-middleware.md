@@ -8,7 +8,7 @@ order: 13
 status: ready
 tags: [nestjs, middleware]
 related: []
-when_to_use: ""
+when_to_use: "Read before adding or reviewing middleware that preprocesses requests before they reach the NestJS pipeline."
 ---
 # NestJS Middleware
 

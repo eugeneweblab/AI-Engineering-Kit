@@ -8,7 +8,7 @@ order: 16
 status: ready
 tags: [nextjs, images]
 related: []
-when_to_use: ""
+when_to_use: "Read before adding or optimizing images in a Next.js app."
 ---
 # Next.js Images
 

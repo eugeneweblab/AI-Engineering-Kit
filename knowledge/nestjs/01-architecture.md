@@ -8,7 +8,7 @@ order: 1
 status: ready
 tags: [nestjs, architecture]
 related: []
-when_to_use: ""
+when_to_use: "Read before designing or reviewing the layer boundaries, dependencies, or overall structure of a NestJS application."
 ---
 # NestJS Architecture
 

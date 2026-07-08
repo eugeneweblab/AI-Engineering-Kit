@@ -8,7 +8,7 @@ order: 4
 status: ready
 tags: [nestjs, controllers]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing or reviewing any controller, route handler, or HTTP endpoint."
 ---
 # NestJS Controllers
 

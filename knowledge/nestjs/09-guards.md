@@ -8,7 +8,7 @@ order: 9
 status: ready
 tags: [nestjs, guards]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing or reviewing any guard that enforces authentication or access control on a route."
 ---
 # NestJS Guards
 

@@ -8,7 +8,7 @@ order: 98
 status: ready
 tags: [nextjs, production-checklist]
 related: []
-when_to_use: ""
+when_to_use: "Read before shipping a Next.js app to production."
 ---
 # Next.js Production Checklist
 

@@ -8,7 +8,7 @@ order: 22
 status: ready
 tags: [nextjs, testing]
 related: []
-when_to_use: ""
+when_to_use: "Read before setting up or writing automated tests for a Next.js app."
 ---
 # Next.js Testing
 

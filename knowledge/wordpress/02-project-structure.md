@@ -8,7 +8,7 @@ order: 2
 status: ready
 tags: [wordpress, project-structure]
 related: []
-when_to_use: ""
+when_to_use: "Read before organizing files or deciding where new code belongs in a WordPress project."
 ---
 # WordPress Project Structure
 

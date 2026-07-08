@@ -8,7 +8,7 @@ order: 17
 status: ready
 tags: [figma, animation-analysis]
 related: []
-when_to_use: ""
+when_to_use: "Read before implementing animations or motion from a Figma design, to understand their intent and reuse patterns."
 ---
 # Animation Analysis
 

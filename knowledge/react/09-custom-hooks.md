@@ -8,7 +8,7 @@ order: 9
 status: ready
 tags: [react, custom-hooks]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing or reviewing a custom React hook or extracting logic out of a component."
 ---
 # Custom Hooks
 

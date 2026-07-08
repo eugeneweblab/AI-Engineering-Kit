@@ -8,7 +8,7 @@ order: 19
 status: ready
 tags: [nextjs, seo]
 related: []
-when_to_use: ""
+when_to_use: "Read before optimizing a Next.js app for search engine discoverability and indexing."
 ---
 # Next.js SEO
 

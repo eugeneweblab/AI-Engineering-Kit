@@ -8,7 +8,7 @@ order: 2
 status: ready
 tags: [engineering, code-review]
 related: []
-when_to_use: ""
+when_to_use: "Read before reviewing a pull request or self-reviewing changes for correctness and consistency."
 ---
 # Engineering Code Review
 

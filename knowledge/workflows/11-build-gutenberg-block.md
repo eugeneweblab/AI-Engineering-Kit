@@ -8,7 +8,7 @@ order: 11
 status: ready
 tags: [workflows, build-gutenberg-block]
 related: []
-when_to_use: ""
+when_to_use: "Follow this workflow when creating or extending a Gutenberg block."
 ---
 # Workflow — Build a Gutenberg Block
 

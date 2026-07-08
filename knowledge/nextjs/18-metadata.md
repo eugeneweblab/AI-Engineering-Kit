@@ -8,7 +8,7 @@ order: 18
 status: ready
 tags: [nextjs, metadata]
 related: []
-when_to_use: ""
+when_to_use: "Read before configuring page metadata or Open Graph tags in a Next.js app."
 ---
 # Next.js Metadata
 

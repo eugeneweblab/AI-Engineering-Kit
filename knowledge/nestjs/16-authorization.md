@@ -8,7 +8,7 @@ order: 16
 status: ready
 tags: [nestjs, authorization]
 related: []
-when_to_use: ""
+when_to_use: "Read before building or reviewing roles, permissions, or any code that decides what an authenticated user may do."
 ---
 # NestJS Authorization
 

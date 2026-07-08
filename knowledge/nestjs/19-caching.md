@@ -8,7 +8,7 @@ order: 19
 status: ready
 tags: [nestjs, caching]
 related: []
-when_to_use: ""
+when_to_use: "Read before adding or reviewing caching to improve performance, and when reasoning about cache invalidation and consistency."
 ---
 # NestJS Caching
 

@@ -8,7 +8,7 @@ order: 3
 status: ready
 tags: [nextjs, app-router]
 related: []
-when_to_use: ""
+when_to_use: "Read before structuring routes and directories with the Next.js App Router."
 ---
 # Next.js App Router
 

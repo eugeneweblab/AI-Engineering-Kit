@@ -8,7 +8,7 @@ order: 5
 status: ready
 tags: [ai, bug-fixing]
 related: []
-when_to_use: ""
+when_to_use: "Read before investigating and fixing a bug to find the root cause and avoid regressions."
 ---
 # Bug Fixing
 

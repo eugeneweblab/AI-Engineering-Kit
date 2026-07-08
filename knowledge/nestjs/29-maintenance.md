@@ -8,7 +8,7 @@ order: 29
 status: ready
 tags: [nestjs, maintenance]
 related: []
-when_to_use: ""
+when_to_use: "Read when maintaining, upgrading, or managing technical debt in a NestJS application after deployment."
 ---
 # Maintenance
 

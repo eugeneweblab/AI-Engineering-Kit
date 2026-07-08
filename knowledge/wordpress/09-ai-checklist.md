@@ -8,7 +8,7 @@ order: 9
 status: ready
 tags: [wordpress, ai-checklist]
 related: []
-when_to_use: ""
+when_to_use: "Read before considering a WordPress task complete to verify all mandatory checks."
 ---
 # WordPress AI Checklist
 

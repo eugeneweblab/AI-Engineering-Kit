@@ -8,7 +8,7 @@ order: -1
 status: ready
 tags: [prompts]
 related: []
-when_to_use: ""
+when_to_use: "Read first to find a reusable prompt for an AI-assisted task."
 ---
 # Prompts
 

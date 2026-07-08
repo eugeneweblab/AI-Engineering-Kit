@@ -8,7 +8,7 @@ order: 21
 status: ready
 tags: [react, testing]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing or reviewing tests for React components and hooks."
 ---
 # React Testing
 

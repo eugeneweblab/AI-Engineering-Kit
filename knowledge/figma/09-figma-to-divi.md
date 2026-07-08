@@ -8,7 +8,7 @@ order: 9
 status: ready
 tags: [figma, figma-to-divi]
 related: []
-when_to_use: ""
+when_to_use: "Read before building a Figma design as an editable layout in the Divi Builder."
 ---
 # Figma to Divi Builder
 

@@ -8,7 +8,7 @@ order: 6
 status: ready
 tags: [ai, self-verification]
 related: []
-when_to_use: ""
+when_to_use: "Read before marking any AI-assisted task complete to self-verify the implementation."
 ---
 # Self Verification
 

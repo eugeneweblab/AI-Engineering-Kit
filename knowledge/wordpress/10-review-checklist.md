@@ -8,7 +8,7 @@ order: 10
 status: ready
 tags: [wordpress, review-checklist]
 related: []
-when_to_use: ""
+when_to_use: "Read before reviewing or merging WordPress code changes."
 ---
 # WordPress Code Review Checklist
 

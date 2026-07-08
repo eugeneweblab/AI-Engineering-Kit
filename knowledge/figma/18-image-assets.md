@@ -8,7 +8,7 @@ order: 18
 status: ready
 tags: [figma, image-assets]
 related: []
-when_to_use: ""
+when_to_use: "Read before exporting and implementing image assets from Figma, to keep them optimized, responsive, and production-ready."
 ---
 # Image Assets
 

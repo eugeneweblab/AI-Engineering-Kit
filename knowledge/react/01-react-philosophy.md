@@ -8,7 +8,7 @@ order: 1
 status: ready
 tags: [react, react-philosophy]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing or reviewing any React code to align with the project's core React engineering principles."
 ---
 # React Philosophy
 

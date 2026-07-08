@@ -8,7 +8,7 @@ order: 14
 status: ready
 tags: [nextjs, authentication]
 related: []
-when_to_use: ""
+when_to_use: "Read before implementing authentication or authorization in a Next.js app."
 ---
 # Next.js Authentication
 

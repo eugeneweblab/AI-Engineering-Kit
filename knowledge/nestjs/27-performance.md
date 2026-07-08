@@ -8,7 +8,7 @@ order: 27
 status: ready
 tags: [nestjs, performance]
 related: []
-when_to_use: ""
+when_to_use: "Read before profiling, optimizing, or reviewing the performance and scalability of a NestJS application."
 ---
 # Performance Engineering
 

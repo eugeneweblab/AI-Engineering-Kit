@@ -8,7 +8,7 @@ order: 11
 status: ready
 tags: [figma, ai-design-review]
 related: []
-when_to_use: ""
+when_to_use: "Read as an AI assistant before implementing a Figma design, to follow the mandatory analyze-plan-reuse-verify reasoning process."
 ---
 # AI Design Review Protocol
 

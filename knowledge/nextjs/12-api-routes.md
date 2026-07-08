@@ -8,7 +8,7 @@ order: 12
 status: ready
 tags: [nextjs, api-routes]
 related: []
-when_to_use: ""
+when_to_use: "Read before building HTTP endpoints or Route Handlers in a Next.js app."
 ---
 # Next.js API Routes
 

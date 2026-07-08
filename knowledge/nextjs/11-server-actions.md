@@ -8,7 +8,7 @@ order: 11
 status: ready
 tags: [nextjs, server-actions]
 related: []
-when_to_use: ""
+when_to_use: "Read before implementing form submissions or data mutations with Next.js Server Actions."
 ---
 # Next.js Server Actions
 

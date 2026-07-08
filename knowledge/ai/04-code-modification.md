@@ -8,7 +8,7 @@ order: 4
 status: ready
 tags: [ai, code-modification]
 related: []
-when_to_use: ""
+when_to_use: "Read before modifying existing code to make the smallest safe change without breaking behavior."
 ---
 # Code Modification
 

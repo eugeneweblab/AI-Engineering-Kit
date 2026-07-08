@@ -8,7 +8,7 @@ order: 6
 status: ready
 tags: [workflows, investigate-production-bug]
 related: []
-when_to_use: ""
+when_to_use: "Follow this workflow when investigating an incident occurring in a production environment."
 ---
 # Workflow — Investigate a Production Bug
 

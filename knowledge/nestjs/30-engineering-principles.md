@@ -8,7 +8,7 @@ order: 30
 status: ready
 tags: [nestjs, engineering-principles]
 related: []
-when_to_use: ""
+when_to_use: "Read for the universal engineering principles that should guide any NestJS design or implementation decision."
 ---
 # Engineering Principles
 

@@ -8,7 +8,7 @@ order: 25
 status: ready
 tags: [nestjs, testing]
 related: []
-when_to_use: ""
+when_to_use: "Read before writing or reviewing unit, integration, or end-to-end tests for NestJS code."
 ---
 # Testing
 

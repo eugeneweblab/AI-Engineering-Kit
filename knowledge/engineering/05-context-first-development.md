@@ -8,7 +8,7 @@ order: 5
 status: ready
 tags: [engineering, context-first-development]
 related: []
-when_to_use: ""
+when_to_use: "Read before modifying an unfamiliar codebase to gather context before making changes."
 ---
 # Context-First Development
 

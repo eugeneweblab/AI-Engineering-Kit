@@ -8,7 +8,7 @@ order: 18
 status: ready
 tags: [react, state-management]
 related: []
-when_to_use: ""
+when_to_use: "Read before adding or reviewing React state, whether local, shared, or global."
 ---
 # React State Management
 
