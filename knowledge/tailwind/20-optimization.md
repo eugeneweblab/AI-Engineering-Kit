@@ -6,7 +6,7 @@ title: "Optimization"
 type: doc
 order: 20
 status: ready
-tags: [tailwind, optimization]
+tags: [tailwind, optimization, tailwindcss, Button, twMerge, clsx, px-2, prettier-plugin-tailwindcss]
 related: [tailwind/19-performance, tailwind/27-production, tailwind/17-components, tailwind/03-utility-first, tailwind/26-best-practices]
 when_to_use: "Read before shrinking CSS output, deduplicating class recipes, or resolving class conflicts."
 ---

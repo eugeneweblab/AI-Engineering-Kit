@@ -6,7 +6,7 @@ title: "CI/CD AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [cicd, ai-review-checklist]
+tags: [cicd, ai-review-checklist, needs, continue-on-error]
 related: [cicd/02-pipeline-design, cicd/05-quality-gates, cicd/06-security-scanning, cicd/15-secrets, cicd/30-engineering-principles]
 when_to_use: "Read when reviewing a pull request that adds or changes CI/CD pipeline configuration."
 ---

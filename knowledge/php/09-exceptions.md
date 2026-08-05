@@ -6,7 +6,7 @@ title: "Exceptions"
 type: doc
 order: 9
 status: ready
-tags: [php, exceptions]
+tags: [php, exceptions, UserNotFoundException, fetchOne, TypeError, RuntimeException, Exception, http_response_code]
 related: [php/08-error-handling, php/04-oop, php/11-http, php/26-best-practices]
 when_to_use: "Read before throwing, catching, or designing exception types for a component or API boundary."
 ---

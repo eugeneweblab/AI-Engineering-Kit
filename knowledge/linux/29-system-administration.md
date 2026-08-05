@@ -6,7 +6,7 @@ title: "System Administration"
 type: doc
 order: 29
 status: ready
-tags: [linux, system-administration]
+tags: [linux, system-administration, sudo, visudo, unattended-upgrades]
 related: [linux/04-users-and-groups, linux/12-package-management, linux/08-systemd, linux/23-automation, linux/17-security]
 when_to_use: "Read before performing or reviewing host administration — user management, packages, updates, and configuration changes across servers."
 ---

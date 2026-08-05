@@ -6,7 +6,7 @@ title: "Parameter Store"
 type: doc
 order: 17
 status: ready
-tags: [aws, parameter-store]
+tags: [aws, parameter-store, client, lru_cache, "@lru", connect]
 related: [aws/16-secrets-manager, aws/02-iam, aws/12-lambda, aws/14-cloudwatch, aws/28-best-practices]
 when_to_use: "Read before storing application configuration or non-rotating secrets in AWS Systems Manager Parameter Store."
 ---

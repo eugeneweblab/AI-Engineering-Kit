@@ -6,7 +6,7 @@ title: "Nginx Authentication"
 type: doc
 order: 15
 status: ready
-tags: [nginx, authentication]
+tags: [nginx, authentication, optional, location, WWW-Authenticate]
 related: [nginx/12-ssl-tls, nginx/13-security, nginx/05-reverse-proxy, nginx/14-rate-limiting]
 when_to_use: "Read before adding basic auth, client-certificate, or forward/subrequest auth in nginx."
 ---

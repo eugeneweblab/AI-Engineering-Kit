@@ -6,7 +6,7 @@ title: "Database"
 type: doc
 order: 12
 status: ready
-tags: [php, database]
+tags: [php, database, PDO, transfer, prepare, execute, commit, EXPLAIN]
 related: [php/13-security, php/09-exceptions, php/14-performance, php/08-error-handling]
 when_to_use: "Read before writing or reviewing any PHP code that queries, writes to, or opens a connection to a database."
 ---

@@ -6,7 +6,7 @@ title: "Swagger"
 type: doc
 order: 22
 status: ready
-tags: [rest-api, swagger]
+tags: [rest-api, swagger, readFileSync, securitySchemes, operationId, parse]
 related: [rest-api/21-openapi, rest-api/24-security, rest-api/14-versioning, rest-api/23-testing, rest-api/27-best-practices]
 when_to_use: "Read before serving interactive API docs or wiring Swagger UI / Codegen tooling around an OpenAPI spec."
 ---

@@ -6,7 +6,7 @@ title: "Registry"
 type: doc
 order: 19
 status: ready
-tags: [docker, registry]
+tags: [docker, registry, GIT_SHA, "@sha", sha256, RepoDigests]
 related: [docker/03-images, docker/18-security, docker/29-ci-integration, docker/22-production, docker/09-image-optimization]
 when_to_use: "Read before pushing, pulling, tagging, or configuring authentication for a container registry."
 ---

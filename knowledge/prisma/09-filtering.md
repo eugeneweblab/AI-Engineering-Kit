@@ -6,7 +6,7 @@ title: "Prisma Filtering"
 type: doc
 order: 9
 status: ready
-tags: [prisma, filtering]
+tags: [prisma, filtering, contains, every, some, none, findMany, includes]
 related: [prisma/07-crud, prisma/10-pagination, prisma/11-relations-loading, prisma/16-indexes, prisma/15-performance]
 when_to_use: "Read before building any query with a where clause, search, or dynamic filter."
 ---

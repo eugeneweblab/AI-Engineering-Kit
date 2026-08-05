@@ -6,7 +6,7 @@ title: "Database Soft Delete"
 type: doc
 order: 24
 status: ready
-tags: [databases, soft-delete]
+tags: [databases, soft-delete, deleted_at]
 related: [databases/23-data-integrity, databases/07-indexing, databases/26-auditing, databases/19-security, databases/08-query-optimization]
 when_to_use: "Read before adding a deleted_at flag or any 'don't really delete it' requirement to a table."
 ---

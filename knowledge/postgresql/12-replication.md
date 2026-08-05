@@ -6,7 +6,7 @@ title: "PostgreSQL Replication"
 type: doc
 order: 12
 status: ready
-tags: [postgresql, replication]
+tags: [postgresql, replication, sent, pg_stat_replication]
 related: [postgresql/13-high-availability, postgresql/14-backups, postgresql/17-monitoring, postgresql/02-configuration]
 when_to_use: "Read before setting up read replicas, streaming standbys, or logical replication between PostgreSQL clusters."
 ---

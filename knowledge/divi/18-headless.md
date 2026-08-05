@@ -6,7 +6,7 @@ title: "Divi Headless"
 type: doc
 order: 18
 status: ready
-tags: [divi, headless]
+tags: [divi, headless, getPage, post_content, register_rest_field, save_post]
 related: [divi/17-rest-api, divi/01-architecture, divi/10-performance, divi/15-custom-fields, divi/13-seo]
 when_to_use: "Read before decoupling a Divi site's front-end (Next.js, Nuxt, etc.) from WordPress."
 ---

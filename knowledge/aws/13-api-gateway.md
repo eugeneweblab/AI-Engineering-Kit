@@ -6,7 +6,7 @@ title: "API Gateway"
 type: doc
 order: 13
 status: ready
-tags: [aws, api-gateway]
+tags: [aws, api-gateway, prod, Throttle, GetAtt]
 related: [aws/12-lambda, aws/02-iam, aws/14-cloudwatch, aws/09-acm, aws/25-security]
 when_to_use: "Read before exposing any HTTP or WebSocket API through Amazon API Gateway."
 ---

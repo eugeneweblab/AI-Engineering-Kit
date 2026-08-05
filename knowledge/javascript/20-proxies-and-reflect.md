@@ -6,7 +6,7 @@ title: "Proxies And Reflect"
 type: doc
 order: 20
 status: ready
-tags: [javascript, proxies-and-reflect]
+tags: [javascript, proxies-and-reflect, TypeError, isInteger, check]
 related: [javascript/19-symbols, javascript/05-objects-and-prototypes, javascript/16-this-keyword, javascript/25-performance, javascript/06-classes]
 when_to_use: "Read before intercepting object operations for validation, reactivity, virtualization, or access control."
 ---

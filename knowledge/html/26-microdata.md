@@ -6,7 +6,7 @@ title: "Microdata"
 type: doc
 order: 26
 status: ready
-tags: [html, microdata]
+tags: [html, microdata, content, datetime, href, InStock]
 related: [html/13-structured-data, html/12-seo, html/14-custom-data-attributes, html/02-semantic-html]
 when_to_use: "Read before annotating page content with inline schema.org markup for search engines."
 ---

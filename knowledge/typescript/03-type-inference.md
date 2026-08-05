@@ -6,7 +6,7 @@ title: "Type Inference"
 type: doc
 order: 3
 status: ready
-tags: [typescript, type-inference]
+tags: [typescript, type-inference, entries]
 related: [typescript/02-type-system, typescript/04-functions, typescript/10-enums-and-literals, typescript/28-best-practices]
 when_to_use: "Read before deciding whether to annotate a value or let the compiler infer its type."
 ---

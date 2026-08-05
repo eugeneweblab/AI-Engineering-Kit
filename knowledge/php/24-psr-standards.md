@@ -6,7 +6,7 @@ title: "PSR Standards"
 type: doc
 order: 24
 status: ready
-tags: [php, psr-standards]
+tags: [php, psr-standards, __construct, autoload.psr-4, LoggerInterface, issue, Redis]
 related: [php/07-composer, php/06-autoloading, php/28-tooling, php/22-clean-code, php/20-dependency-injection]
 when_to_use: "Read before naming files, wiring interfaces between libraries, or configuring a formatter/autoloader."
 ---

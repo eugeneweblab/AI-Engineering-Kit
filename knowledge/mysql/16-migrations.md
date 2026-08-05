@@ -6,7 +6,7 @@ title: "MySQL Migrations"
 type: doc
 order: 16
 status: ready
-tags: [mysql, migrations]
+tags: [mysql, migrations, CHAR, migrator, pt-online-schema-change, gh-ost, down, MySQL]
 related: [mysql/13-users-and-roles, mysql/06-transactions, mysql/11-backups, mysql/17-testing]
 when_to_use: "Read before writing or reviewing any schema-change migration against a live MySQL database."
 ---

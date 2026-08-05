@@ -6,7 +6,7 @@ title: "WooCommerce Security"
 type: doc
 order: 16
 status: ready
-tags: [woocommerce, security]
+tags: [woocommerce, security, current_user_can, esc_html, check_admin_referer, wc_clean, sanitize_text_field, absint]
 related: [woocommerce/13-rest-api, woocommerce/08-payments, woocommerce/07-checkout, woocommerce/12-hooks, woocommerce/100-common-antipatterns]
 when_to_use: "Read before handling any user input, form, AJAX handler, or database query in a WooCommerce store."
 ---

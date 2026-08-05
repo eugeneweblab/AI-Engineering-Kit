@@ -6,7 +6,7 @@ title: "PHP Types"
 type: doc
 order: 2
 status: ready
-tags: [php, types]
+tags: [php, types, mixed, never, __construct, float, declare, self]
 related: [php/01-language-fundamentals, php/03-functions, php/04-oop, php/19-enums, php/23-modern-php]
 when_to_use: "Read before declaring any parameter, property, or return type, or when a TypeError appears."
 ---

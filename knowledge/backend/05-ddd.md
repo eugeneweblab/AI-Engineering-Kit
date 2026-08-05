@@ -6,7 +6,7 @@ title: "DDD"
 type: doc
 order: 5
 status: ready
-tags: [backend, ddd]
+tags: [backend, ddd, DomainError, OrderLine, OrderPlaced, Email, addLine, place]
 related: [backend/03-clean-architecture, backend/04-hexagonal-architecture, backend/07-business-logic, backend/08-domain-modeling]
 when_to_use: "Read before modeling a non-trivial business domain, or when logic is scattering across services instead of living on the model."
 ---

@@ -6,7 +6,7 @@ title: "CI/CD"
 type: doc
 order: 21
 status: ready
-tags: [testing, cicd]
+tags: [testing, cicd, runs-on, upload, failure, GitHub]
 related: [testing/22-flaky-tests, testing/27-quality-gates, testing/19-test-coverage, testing/28-testing-strategy, testing/25-production-testing]
 when_to_use: "Read before wiring a test suite into a CI pipeline or configuring merge gates for a repository."
 ---

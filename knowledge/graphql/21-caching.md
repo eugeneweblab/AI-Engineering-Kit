@@ -6,7 +6,7 @@ title: "GraphQL Caching"
 type: doc
 order: 21
 status: ready
-tags: [graphql, caching]
+tags: [graphql, caching, DataLoader, context, mget, byId, findMany]
 related: [graphql/16-dataloader, graphql/22-performance, graphql/15-n1-problem, graphql/13-pagination, graphql/19-authorization]
 when_to_use: "Read before adding any caching layer to a GraphQL API, from DataLoader to a CDN."
 ---

@@ -6,7 +6,7 @@ title: "Jenkins"
 type: doc
 order: 20
 status: ready
-tags: [cicd, jenkins]
+tags: [cicd, jenkins, stage, DEPLOY_TOKEN, timeout, input, always]
 related: [cicd/02-pipeline-design, cicd/15-secrets, cicd/18-gitlab-ci, cicd/21-docker-integration]
 when_to_use: "Read before writing or reviewing a Jenkinsfile or Jenkins pipeline job."
 ---

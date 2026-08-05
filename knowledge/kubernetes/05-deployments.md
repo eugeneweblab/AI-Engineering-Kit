@@ -6,7 +6,7 @@ title: "Deployments"
 type: doc
 order: 5
 status: ready
-tags: [kubernetes, deployments]
+tags: [kubernetes, deployments, maxUnavailable, maxSurge, PodDisruptionBudget, replicas, RollingUpdate, minReplicas]
 related: [kubernetes/04-pods, kubernetes/06-replicasets, kubernetes/07-services, kubernetes/13-statefulsets, kubernetes/20-autoscaling]
 when_to_use: "Read before creating or changing a stateless workload's rollout, replica count, or update strategy."
 ---

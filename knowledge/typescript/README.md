@@ -6,7 +6,7 @@ title: "TypeScript Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [typescript]
+tags: [typescript, readme, strict, unknown, readonly]
 related: []
 when_to_use: "Read first when starting any TypeScript work, to see how this section's docs fit together."
 ---

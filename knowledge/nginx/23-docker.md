@@ -6,7 +6,7 @@ title: "Docker"
 type: doc
 order: 23
 status: ready
-tags: [nginx, docker]
+tags: [nginx, docker, resolver, proxy_pass, location, SIGTERM, stop_grace_period, stdout]
 related: [nginx/19-proxying-applications, nginx/05-reverse-proxy, nginx/12-ssl-tls, nginx/16-logging, nginx/25-production]
 when_to_use: "Read before building an nginx container image or wiring nginx into a docker-compose or Kubernetes deployment."
 ---

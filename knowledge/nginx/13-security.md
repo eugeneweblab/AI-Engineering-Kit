@@ -6,7 +6,7 @@ title: "Nginx Security"
 type: doc
 order: 13
 status: ready
-tags: [nginx, security]
+tags: [nginx, security, client_max_body_size, X-Real-IP, X-Forwarded-For, location, set_real_ip_from, always]
 related: [nginx/12-ssl-tls, nginx/14-rate-limiting, nginx/15-authentication, nginx/05-reverse-proxy, nginx/16-logging]
 when_to_use: "Read before exposing any nginx server to the internet or reviewing its hardening and header configuration."
 ---

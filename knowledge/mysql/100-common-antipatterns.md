@@ -6,7 +6,7 @@ title: "MySQL Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [mysql, common-antipatterns]
+tags: [mysql, common-antipatterns, utf8, utf8mb4, OFFSET, DATE, pt-online-schema-change, gh-ost]
 related: [mysql/04-indexes, mysql/05-query-optimization, mysql/06-transactions, mysql/16-migrations, mysql/30-engineering-principles]
 when_to_use: "Read when writing or reviewing MySQL code to recognize and avoid the recurring failure patterns below."
 ---

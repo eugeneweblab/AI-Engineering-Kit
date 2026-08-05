@@ -6,7 +6,7 @@ title: "Node.js Runtime"
 type: doc
 order: 1
 status: ready
-tags: [nodejs, nodejs-runtime]
+tags: [nodejs, nodejs-runtime, uncaughtException, unhandledRejection, engines, isInteger, "node:20"]
 related: [nodejs/02-event-loop, nodejs/00-overview, nodejs/12-worker-threads, nodejs/14-environment, nodejs/10-process]
 when_to_use: "Read before choosing a Node version, structuring startup code, or reasoning about how JavaScript actually executes in Node."
 ---

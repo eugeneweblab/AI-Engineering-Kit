@@ -6,7 +6,7 @@ title: "Nginx Monitoring"
 type: doc
 order: 17
 status: ready
-tags: [nginx, monitoring]
+tags: [nginx, monitoring, stub_status, request_time, worker_connections]
 related: [nginx/16-logging, nginx/14-rate-limiting, nginx/25-production, nginx/27-high-availability]
 when_to_use: "Read before wiring nginx metrics, health checks, or alerts, or reviewing observability for the edge tier."
 ---

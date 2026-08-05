@@ -6,7 +6,7 @@ title: "GitHub Security"
 type: doc
 order: 13
 status: ready
-tags: [github, security]
+tags: [github, security, SECURITY.md, "permissions:", GITHUB_TOKEN, "@main", runs-on]
 related: [github/14-codeql, github/15-dependabot, github/16-secret-scanning, github/17-branch-protection, github/21-permissions]
 when_to_use: "Read before configuring repository security or hardening a CI/CD supply chain on GitHub."
 ---

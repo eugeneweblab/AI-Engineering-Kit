@@ -6,7 +6,7 @@ title: "Data Modeling"
 type: doc
 order: 3
 status: ready
-tags: [databases, data-modeling]
+tags: [databases, data-modeling, author, CHECK]
 related: [databases/04-normalization, databases/05-denormalization, databases/06-schema-design, databases/01-database-fundamentals, databases/23-data-integrity]
 when_to_use: "Read before designing the tables and relationships for a new feature or service, before writing any DDL."
 ---

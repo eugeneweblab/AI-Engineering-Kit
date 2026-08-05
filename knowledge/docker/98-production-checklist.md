@@ -6,7 +6,7 @@ title: "Docker Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [docker, production-checklist]
+tags: [docker, production-checklist, unless-stopped, stop_grace_period, on-failure, no-new-privileges, tmpfs, Dockerfile]
 related: [docker/18-security, docker/15-healthchecks, docker/17-resource-limits, docker/22-production, docker/14-secrets]
 when_to_use: "Read before promoting a container image or Compose stack to production, or when reviewing a deployment PR."
 ---

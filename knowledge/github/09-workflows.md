@@ -6,7 +6,7 @@ title: "Workflows"
 type: doc
 order: 9
 status: ready
-tags: [github, workflows]
+tags: [github, workflows, timeout-minutes, cancel-in-progress, paths, continue-on-error, concurrency, runs-on]
 related: [github/08-actions, github/06-pull-requests, github/11-releases, github/17-branch-protection, github/26-automation]
 when_to_use: "Read before writing or changing a GitHub Actions workflow file under .github/workflows."
 ---

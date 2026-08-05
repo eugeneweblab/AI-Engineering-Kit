@@ -6,7 +6,7 @@ title: "GraphQL Error Handling"
 type: doc
 order: 20
 status: ready
-tags: [graphql, error-handling]
+tags: [graphql, error-handling, INTERNAL_SERVER_ERROR, extensions.code, errors, UNAUTHENTICATED, FORBIDDEN, EmailTakenError]
 related: [graphql/18-authentication, graphql/19-authorization, graphql/07-resolvers, graphql/17-security, graphql/25-monitoring]
 when_to_use: "Read before designing how a GraphQL API reports failures to clients or logs them internally."
 ---

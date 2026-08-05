@@ -6,7 +6,7 @@ title: "Frontend Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [frontend]
+tags: [frontend, readme]
 related: []
 when_to_use: "Read first when starting any frontend work, to see how this section's docs fit together."
 ---

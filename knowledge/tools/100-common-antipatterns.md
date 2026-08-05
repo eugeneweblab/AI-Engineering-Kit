@@ -6,7 +6,7 @@ title: "Tools Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [tools, common-antipatterns]
+tags: [tools, common-antipatterns, package.json, engine-strict, eslint-config-prettier, VITE_, packageManager, engines]
 related: [tools/30-engineering-principles, tools/99-ai-review-checklist, tools/01-package-managers, tools/16-git-hooks, tools/19-task-runners, tools/98-production-checklist]
 when_to_use: "Read when setting up or reviewing project tooling, to recognize the recurring failure modes and their fixes."
 ---

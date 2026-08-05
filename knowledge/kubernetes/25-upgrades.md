@@ -6,7 +6,7 @@ title: "Upgrades"
 type: doc
 order: 25
 status: ready
-tags: [kubernetes, upgrades]
+tags: [kubernetes, upgrades, drain, only, PodDisruptionBudgets, NotReady, Ready, kubectl]
 related: [kubernetes/26-production, kubernetes/28-disaster-recovery, kubernetes/05-deployments, kubernetes/03-nodes, kubernetes/13-statefulsets]
 when_to_use: "Read before upgrading a cluster control plane, node pool, or any API-version-sensitive workload."
 ---

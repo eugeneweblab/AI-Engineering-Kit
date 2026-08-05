@@ -6,7 +6,7 @@ title: "Figma-to-Code Standards"
 type: index
 order: -1
 status: ready
-tags: [figma]
+tags: [figma, readme]
 related: []
 when_to_use: "Read first when translating a Figma design into code — analysis, token extraction, implementation targets, and design QA."
 ---

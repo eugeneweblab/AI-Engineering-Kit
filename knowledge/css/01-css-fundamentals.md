@@ -6,7 +6,7 @@ title: "CSS Fundamentals"
 type: doc
 order: 1
 status: ready
-tags: [css, css-fundamentals]
+tags: [css, css-fundamentals, border, background, color, line-height, color-scheme, unset]
 related: [css/02-selectors, css/03-specificity, css/04-box-model, css/20-css-variables, css/28-best-practices]
 when_to_use: "Read before writing any CSS, to ground yourself in the cascade, inheritance, and value model."
 ---

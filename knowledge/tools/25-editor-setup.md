@@ -6,7 +6,7 @@ title: "Editor Setup"
 type: doc
 order: 25
 status: ready
-tags: [tools, editor-setup]
+tags: [tools, editor-setup, "@github", TypeScript, WordPress]
 related: [tools/05-prettier, tools/04-eslint, tools/21-debuggers, tools/26-ai-coding-tools, tools/30-engineering-principles, tools/16-git-hooks]
 when_to_use: "Read before committing editor configuration — deciding what to enforce for the whole team, what to recommend, and what to leave personal."
 ---

@@ -6,7 +6,7 @@ title: "Redis Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [redis, engineering-principles]
+tags: [redis, engineering-principles, WATCH, MULTI, SCAN, maxmemory, HGETALL, SMEMBERS]
 related: [redis/13-caching, redis/12-expiration, redis/17-distributed-locks, redis/23-performance, redis/10-transactions]
 when_to_use: "Read before designing any feature that stores or coordinates state in Redis."
 ---

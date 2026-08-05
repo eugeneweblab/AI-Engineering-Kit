@@ -6,7 +6,7 @@ title: "Network"
 type: doc
 order: 5
 status: ready
-tags: [performance, network]
+tags: [performance, network, asyncio.gather, ETag, Cache-Control, Promise.all]
 related: [performance/01-performance-fundamentals, performance/14-api-performance, performance/08-caching, performance/13-database-performance, performance/07-loading]
 when_to_use: "Read when a profile shows the process is waiting on I/O — round-trips, payload size, or connection setup dominate."
 ---

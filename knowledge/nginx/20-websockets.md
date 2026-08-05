@@ -6,7 +6,7 @@ title: "Websockets"
 type: doc
 order: 20
 status: ready
-tags: [nginx, websockets]
+tags: [nginx, websockets, proxy_read_timeout, Connection, ip_hash, proxy_send_timeout, Upgrade, close]
 related: [nginx/19-proxying-applications, nginx/05-reverse-proxy, nginx/18-performance, nginx/06-load-balancing, nginx/17-monitoring]
 when_to_use: "Read before proxying a WebSocket, Socket.IO, or SSE connection through nginx."
 ---

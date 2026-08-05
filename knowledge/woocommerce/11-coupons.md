@@ -6,7 +6,7 @@ title: "Coupons"
 type: doc
 order: 11
 status: ready
-tags: [woocommerce, coupons]
+tags: [woocommerce, coupons, Exception, get_total, apply_coupon, set_total, strtotime, get_current_user_id]
 related: [woocommerce/07-checkout, woocommerce/08-payments, woocommerce/05-orders, woocommerce/04-product-management]
 when_to_use: "Read before creating coupons programmatically or writing custom discount/validation logic."
 ---

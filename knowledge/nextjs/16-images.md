@@ -6,7 +6,7 @@ title: "Next.js Images"
 type: doc
 order: 16
 status: ready
-tags: [nextjs, images]
+tags: [nextjs, images, Image, Hero, ProductCard, NextConfig, fill, sizes]
 related: [nextjs/20-performance, performance/11-images, accessibility/09-images]
 when_to_use: "Read before adding or optimizing images in a Next.js app."
 ---

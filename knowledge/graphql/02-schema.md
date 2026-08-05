@@ -6,7 +6,7 @@ title: "GraphQL Schema"
 type: doc
 order: 2
 status: ready
-tags: [graphql, schema]
+tags: [graphql, schema, publishPost, PublishPostInput, comments, CommentConnection, PublishPostPayload, Mutation]
 related: [graphql/03-types, graphql/10-input-types, graphql/29-schema-evolution, graphql/04-queries, graphql/05-mutations]
 when_to_use: "Read before writing or changing any SDL, so the schema is designed around the domain and stays evolvable."
 ---

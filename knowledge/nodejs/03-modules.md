@@ -6,7 +6,7 @@ title: "Node.js Modules"
 type: doc
 order: 3
 status: ready
-tags: [nodejs, modules]
+tags: [nodejs, modules, exports, package.json, import.meta.url, __filename, __dirname, "node:"]
 related: [nodejs/04-package-management, nodejs/01-nodejs-runtime, nodejs/00-overview, nodejs/18-security, nodejs/15-configuration]
 when_to_use: "Read before creating a new project, adding imports/exports, or debugging 'cannot use import statement' or ESM/CommonJS interop errors."
 ---

@@ -6,7 +6,7 @@ title: "CSS AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [css, ai-review-checklist]
+tags: [css, ai-review-checklist, will-change, min-width, opacity, max-width, transform, prefers-reduced-motion]
 related: [css/03-specificity, css/30-engineering-principles, css/100-common-antipatterns, css/23-accessibility, css/22-performance]
 when_to_use: "Read when reviewing a CSS diff or pull request before approving it."
 ---

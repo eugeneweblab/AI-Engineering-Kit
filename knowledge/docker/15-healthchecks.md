@@ -6,7 +6,7 @@ title: "Healthchecks"
 type: doc
 order: 15
 status: ready
-tags: [docker, healthchecks]
+tags: [docker, healthchecks, retries, interval, depends_on, HEALTHCHECK, curl, CMD]
 related: [docker/12-docker-compose, docker/16-logging, docker/22-production, docker/23-orchestration, docker/04-containers]
 when_to_use: "Read before adding a HEALTHCHECK to an image or gating one service on another's readiness."
 ---

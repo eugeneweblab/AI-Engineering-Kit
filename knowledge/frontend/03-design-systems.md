@@ -6,7 +6,7 @@ title: "Design Systems"
 type: doc
 order: 3
 status: ready
-tags: [frontend, design-systems]
+tags: [frontend, design-systems, Button, "--color-text", "--color-surface", data-theme, color-surface, Input]
 related: [frontend/02-component-driven-development, frontend/15-styling, frontend/16-css-architecture, frontend/09-accessibility, frontend/10-responsive-design]
 when_to_use: "Read before creating shared UI primitives, defining design tokens, or building a component library."
 ---

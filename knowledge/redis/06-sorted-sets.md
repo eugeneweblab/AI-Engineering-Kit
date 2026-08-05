@@ -6,7 +6,7 @@ title: "Sorted Sets"
 type: doc
 order: 6
 status: ready
-tags: [redis, sorted-sets]
+tags: [redis, sorted-sets, EXPIRE, LIMIT, ZREMRANGEBYSCORE, ZADD, zset-max-listpack-entries, ZRANGEBYSCORE]
 related: [redis/05-sets, redis/07-hashes, redis/14-rate-limiting, redis/23-performance, redis/100-common-antipatterns]
 when_to_use: "Read before building leaderboards, priority queues, rate limiters, or any range-by-rank/score query in Redis."
 ---

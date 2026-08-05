@@ -6,7 +6,7 @@ title: "Test Review"
 type: doc
 order: 29
 status: ready
-tags: [testing, test-review]
+tags: [testing, test-review, toBeTruthy, not.toThrow, checkout, toHaveBeenCalledWith, mockResolvedValue, toHaveBeenCalled]
 related: [testing/24-best-practices, testing/09-assertions, testing/22-flaky-tests, testing/20-test-maintenance, testing/19-test-coverage]
 when_to_use: "Read before reviewing a pull request's tests, or when your own tests are about to be reviewed."
 ---

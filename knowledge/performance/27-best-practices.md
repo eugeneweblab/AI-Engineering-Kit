@@ -6,7 +6,7 @@ title: "Performance Best Practices"
 type: doc
 order: 27
 status: ready
-tags: [performance, best-practices]
+tags: [performance, best-practices, fetch_one, list, append, LIMIT]
 related: [performance/24-optimization-workflow, performance/08-caching, performance/13-database-performance, performance/23-performance-budget, performance/100-common-antipatterns]
 when_to_use: "Read before writing performance-sensitive code to apply the defaults that prevent most slowdowns."
 ---

@@ -6,7 +6,7 @@ title: "Product Management"
 type: doc
 order: 4
 status: ready
-tags: [woocommerce, product-management]
+tags: [woocommerce, product-management, update_post_meta, WC_Product_Simple, set_regular_price, set_name, set_stock_quantity, set_manage_stock]
 related: [woocommerce/00-overview, woocommerce/01-architecture, woocommerce/03-product-types, woocommerce/05-orders, woocommerce/13-rest-api]
 when_to_use: "Read before writing code that creates, updates, imports, or manages stock for products."
 ---

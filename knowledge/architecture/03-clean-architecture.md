@@ -6,7 +6,7 @@ title: "Architecture Clean Architecture"
 type: doc
 order: 3
 status: ready
-tags: [architecture, clean-architecture]
+tags: [architecture, clean-architecture, OrderRepository, save, detail, placeOrder, stringify, Repository]
 related: [architecture/04-hexagonal-architecture, architecture/05-layered-architecture, architecture/06-domain-driven-design, architecture/01-software-architecture, architecture/100-common-antipatterns]
 when_to_use: "Read before structuring a service whose business rules must outlive its framework, database, or delivery mechanism."
 ---

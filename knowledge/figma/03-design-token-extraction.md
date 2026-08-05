@@ -6,7 +6,7 @@ title: "Design Token Extraction"
 type: doc
 order: 3
 status: ready
-tags: [figma, design-token-extraction]
+tags: [figma, design-token-extraction, border-radius, FILE_KEY, "--color-accent", FIGMA_TOKEN, "--color-surface"]
 related: [figma/01-figma-analysis, figma/19-design-handoff, tailwind/16-theme, css/20-css-variables]
 when_to_use: "Read before extracting design tokens (colors, spacing, typography) from a Figma file instead of hardcoding values."
 ---

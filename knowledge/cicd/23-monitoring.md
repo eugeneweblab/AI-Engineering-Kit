@@ -6,7 +6,7 @@ title: "CI/CD Monitoring"
 type: doc
 order: 23
 status: ready
-tags: [cicd, monitoring]
+tags: [cicd, monitoring, rate, version, GIT_SHA]
 related: [cicd/10-deployment, cicd/12-canary-deployment, cicd/14-rollbacks, cicd/24-notifications]
 when_to_use: "Read before wiring deployment health signals, DORA metrics, or post-deploy verification into a pipeline."
 ---

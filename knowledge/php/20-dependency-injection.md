@@ -6,7 +6,7 @@ title: "Dependency Injection"
 type: doc
 order: 20
 status: ready
-tags: [php, dependency-injection]
+tags: [php, dependency-injection, DateTimeImmutable, isExpired, __construct, PDO, getenv]
 related: [php/04-oop, php/21-design-patterns, php/15-testing, php/29-architecture]
 when_to_use: "Read before wiring services together, adding a container, or refactoring code that news up its own collaborators."
 ---

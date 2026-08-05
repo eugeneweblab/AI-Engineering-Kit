@@ -6,7 +6,7 @@ title: "Database Multi Tenancy"
 type: doc
 order: 25
 status: ready
-tags: [databases, multi-tenancy]
+tags: [databases, multi-tenancy, tenant_id, invoices, current_setting, USING]
 related: [databases/19-security, databases/15-sharding, databases/06-schema-design, databases/24-soft-delete, databases/23-data-integrity]
 when_to_use: "Read before designing how one database serves multiple customers/organizations without leaking data between them."
 ---

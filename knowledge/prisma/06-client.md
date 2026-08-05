@@ -6,7 +6,7 @@ title: "Client"
 type: doc
 order: 6
 status: ready
-tags: [prisma, client]
+tags: [prisma, client, PrismaClient, connection_limit, globalThis, disconnect, getUser, findUnique]
 related: [prisma/07-crud, prisma/08-transactions, prisma/15-performance, prisma/18-error-handling, prisma/19-testing]
 when_to_use: "Read before instantiating PrismaClient or wiring it into an application's lifecycle."
 ---

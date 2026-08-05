@@ -6,7 +6,7 @@ title: "SEO Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [seo, common-antipatterns]
+tags: [seo, common-antipatterns, noindex, robots.txt, X-Robots-Tag, Disallow, https, http]
 related: [seo/00-overview, seo/04-rendering, seo/06-canonicalization, seo/08-robots-txt, seo/19-javascript-seo]
 when_to_use: "Read when debugging a traffic drop or reviewing code, to recognize the failure patterns that silently harm search visibility."
 ---

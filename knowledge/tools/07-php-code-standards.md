@@ -6,7 +6,7 @@ title: "PHP Code Standards"
 type: doc
 order: 7
 status: ready
-tags: [tools, php-code-standards]
+tags: [tools, php-code-standards, WordPress, get_results]
 related: [tools/08-static-analysis, tools/16-git-hooks, tools/01-package-managers, tools/19-task-runners, tools/30-engineering-principles, php/24-psr-standards, wordpress/04-code-style]
 when_to_use: "Read before setting up PHP linting — configuring PHP_CodeSniffer or PHP-CS-Fixer, applying the WordPress standard, or automating fixes."
 ---

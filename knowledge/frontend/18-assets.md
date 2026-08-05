@@ -6,7 +6,7 @@ title: "Assets"
 type: doc
 order: 18
 status: ready
-tags: [frontend, assets]
+tags: [frontend, assets, immutable, height, width, aspect-ratio, "@font-face", loads]
 related: [frontend/08-performance, frontend/19-build-tools, frontend/20-bundling, frontend/15-styling]
 when_to_use: "Read before adding images, fonts, icons, or other static files to a frontend app, or reviewing how they are served."
 ---

@@ -6,7 +6,7 @@ title: "Expiration"
 type: doc
 order: 12
 status: ready
-tags: [redis, expiration]
+tags: [redis, expiration, TTL, EXPIRE, KEEPTTL, evicted_keys, maxmemory, random]
 related: [redis/13-caching, redis/15-session-storage, redis/03-strings, redis/20-persistence, redis/23-performance]
 when_to_use: "Read before setting TTLs, building caches, or debugging keys that vanish or never disappear."
 ---

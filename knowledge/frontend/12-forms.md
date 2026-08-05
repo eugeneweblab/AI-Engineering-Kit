@@ -6,7 +6,7 @@ title: "Frontend Forms"
 type: doc
 order: 12
 status: ready
-tags: [frontend, forms]
+tags: [frontend, forms, setEmail, onSubmit, setError, setPending, useState, aria-invalid]
 related: [frontend/09-accessibility, frontend/13-error-handling, frontend/14-security, frontend/06-data-fetching, frontend/04-state-management]
 when_to_use: "Read before building or reviewing any input, validation, or submission flow in a UI."
 ---

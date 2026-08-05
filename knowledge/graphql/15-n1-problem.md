@@ -6,7 +6,7 @@ title: "N+1 Problem"
 type: doc
 order: 15
 status: ready
-tags: [graphql, n1-problem]
+tags: [graphql, n1-problem, load, findUnique, findMany, DataLoader]
 related: [graphql/16-dataloader, graphql/07-resolvers, graphql/22-performance, graphql/13-pagination, graphql/25-monitoring]
 when_to_use: "Read before implementing resolvers that fetch related data per item, or when a list query issues far more database calls than expected."
 ---

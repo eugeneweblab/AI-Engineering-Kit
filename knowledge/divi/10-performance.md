@@ -6,7 +6,7 @@ title: "Divi Performance"
 type: doc
 order: 10
 status: ready
-tags: [divi, performance]
+tags: [divi, performance, JavaScript]
 related: [divi/09-custom-css, divi/06-global-elements, divi/11-responsive-design, divi/13-seo, divi/25-production]
 when_to_use: "Read before launching a Divi site or when Core Web Vitals / page weight are unacceptable."
 ---

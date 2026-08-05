@@ -6,7 +6,7 @@ title: "HTTP/2"
 type: doc
 order: 10
 status: ready
-tags: [nginx, http2]
+tags: [nginx, http2, server, Alt-Svc, listen]
 related: [nginx/11-http3, nginx/12-ssl-tls, nginx/09-compression, nginx/03-server-blocks, nginx/18-performance]
 when_to_use: "Read before enabling HTTP/2 on a TLS listener or debugging protocol negotiation."
 ---

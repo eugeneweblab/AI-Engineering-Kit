@@ -6,7 +6,7 @@ title: "GraphQL Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [graphql, engineering-principles]
+tags: [graphql, engineering-principles, comments, load, CommentConnection, DataLoader]
 related: [graphql/02-schema, graphql/07-resolvers, graphql/15-n1-problem, graphql/17-security, graphql/29-schema-evolution]
 when_to_use: "Read before designing a new GraphQL schema or service, or when reviewing whether an existing one follows sound engineering foundations."
 ---

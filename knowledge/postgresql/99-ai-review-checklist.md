@@ -6,7 +6,7 @@ title: "PostgreSQL AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [postgresql, ai-review-checklist]
+tags: [postgresql, ai-review-checklist, varchar, double, timestamp, timestamptz, lock_timeout, numeric]
 related: [postgresql/30-engineering-principles, postgresql/100-common-antipatterns, postgresql/06-transactions, postgresql/04-indexes, postgresql/22-migrations]
 when_to_use: "Read before reviewing or approving any change that touches schema, queries, transactions, or migrations."
 ---

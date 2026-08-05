@@ -6,7 +6,7 @@ title: "Custom Modules"
 type: doc
 order: 4
 status: ready
-tags: [divi, custom-modules]
+tags: [divi, custom-modules, esc_html__, ET_Builder_Module, get_fields, get_results, esc_url, init]
 related: [divi/03-modules, divi/01-architecture, divi/16-wordpress-hooks, divi/19-security, divi/10-performance]
 when_to_use: "Read before writing a custom Divi module in PHP/React when no built-in module fits."
 ---

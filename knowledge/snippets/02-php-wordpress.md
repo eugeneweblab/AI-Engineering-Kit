@@ -6,7 +6,7 @@ title: "PHP and WordPress Snippets"
 type: doc
 order: 2
 status: ready
-tags: [snippets, php-wordpress]
+tags: [snippets, php-wordpress, add_action, prepare, get_the_title, esc_html__, esc_like, enqueue_assets]
 related: [snippets/01-typescript-utilities, wordpress/06-security, wordpress/12-queries, wordpress/23-caching, php/13-security]
 when_to_use: "Copy when writing WordPress PHP — escaping output, guarding a request, querying, or caching."
 ---

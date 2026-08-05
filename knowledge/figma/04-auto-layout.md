@@ -6,7 +6,7 @@ title: "Figma Auto Layout"
 type: doc
 order: 4
 status: ready
-tags: [figma, auto-layout]
+tags: [figma, auto-layout, auto, margin-bottom, justify-content, margin-right, margin-left, align-items]
 related: [figma/02-layout-analysis, figma/05-responsive-analysis, css/06-flexbox]
 when_to_use: "Read before translating Figma Auto Layout into flexbox/grid, to correctly reproduce growth, alignment, and spacing behavior."
 ---

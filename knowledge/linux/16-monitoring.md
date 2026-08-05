@@ -6,7 +6,7 @@ title: "Linux Monitoring"
 type: doc
 order: 16
 status: ready
-tags: [linux, monitoring]
+tags: [linux, monitoring, rate, symptom, DB_HOST]
 related: [linux/15-logging, linux/18-performance, linux/06-processes, linux/25-production]
 when_to_use: "Read before adding health checks, metrics, or alerts to a Linux service or host."
 ---

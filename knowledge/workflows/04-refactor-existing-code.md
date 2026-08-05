@@ -6,7 +6,7 @@ title: "Workflow — Refactor Existing Code"
 type: doc
 order: 4
 status: ready
-tags: [workflows, refactor-existing-code]
+tags: [workflows, refactor-existing-code, toBe]
 related: [engineering/02-code-review, engineering/03-debugging-methodology, engineering/05-context-first-development, testing/98-production-checklist, testing/99-ai-review-checklist, testing/100-common-antipatterns, architecture/27-architecture-review, ai/04-code-modification, testing/20-test-maintenance]
 when_to_use: "Follow this workflow when refactoring existing code without changing its behavior."
 ---

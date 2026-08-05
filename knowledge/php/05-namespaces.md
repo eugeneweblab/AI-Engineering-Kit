@@ -6,7 +6,7 @@ title: "Namespaces"
 type: doc
 order: 5
 status: ready
-tags: [php, namespaces]
+tags: [php, namespaces, array_sum, InvoiceService, total, LoggerInterface, declare, composer.json]
 related: [php/04-oop, php/06-autoloading, php/07-composer, php/24-psr-standards, php/00-overview]
 when_to_use: "Read before creating a new class file, choosing a namespace, or wiring PSR-4 autoloading."
 ---

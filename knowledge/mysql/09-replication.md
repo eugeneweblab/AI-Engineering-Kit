@@ -6,7 +6,7 @@ title: "MySQL Replication"
 type: doc
 order: 9
 status: ready
-tags: [mysql, replication]
+tags: [mysql, replication, read_only, Seconds_Behind_Source, commit, comments, NOW]
 related: [mysql/10-clustering, mysql/11-backups, mysql/21-high-availability, mysql/06-transactions]
 when_to_use: "Read before setting up read replicas, planning failover, or debugging replica lag."
 ---

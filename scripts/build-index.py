@@ -24,7 +24,8 @@ def parse_frontmatter(text):
         key, val = m.group(1), m.group(2).strip()
         if val.startswith("[") and val.endswith("]"):
             inner = val[1:-1].strip()
-            meta[key] = [x.strip() for x in inner.split(",") if x.strip()] if inner else []
+            # strip surrounding quotes: a tag like "@layer" must be quoted in YAML
+            meta[key] = [x.strip().strip('"\'') for x in inner.split(",") if x.strip()] if inner else []
         elif val.startswith('"') and val.endswith('"'):
             meta[key] = val[1:-1]
         else:

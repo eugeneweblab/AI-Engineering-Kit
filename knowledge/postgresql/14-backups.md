@@ -6,7 +6,7 @@ title: "PostgreSQL Backups"
 type: doc
 order: 14
 status: ready
-tags: [postgresql, backups]
+tags: [postgresql, backups, pg_verifybackup, backup, pg_basebackup, postgresql.conf, pg_dump]
 related: [postgresql/12-replication, postgresql/13-high-availability, postgresql/22-migrations, postgresql/26-production]
 when_to_use: "Read before designing a backup strategy, choosing pg_dump vs physical backups, or setting up point-in-time recovery."
 ---

@@ -6,7 +6,7 @@ title: "Next.js Performance"
 type: doc
 order: 20
 status: ready
-tags: [nextjs, performance]
+tags: [nextjs, performance, DashboardPage, RevenueChart, AccountPage, AddToCartButton, ProductPage, setPending]
 related: [nextjs/10-caching, nextjs/16-images, nextjs/08-rendering-strategies, performance/18-web-vitals]
 when_to_use: "Read before diagnosing or optimizing performance and Core Web Vitals in a Next.js app."
 ---

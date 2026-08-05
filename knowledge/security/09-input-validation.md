@@ -6,7 +6,7 @@ title: "Input Validation"
 type: doc
 order: 9
 status: ready
-tags: [security, input-validation]
+tags: [security, input-validation, CreateUser, strict, email, object]
 related: [security/10-output-encoding, security/11-xss, security/13-sql-injection, security/14-command-injection]
 when_to_use: "Read before accepting any external data — request bodies, query params, headers, uploads, or webhooks."
 ---

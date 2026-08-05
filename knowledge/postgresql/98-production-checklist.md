@@ -6,7 +6,7 @@ title: "PostgreSQL Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [postgresql, production-checklist]
+tags: [postgresql, production-checklist, scram-sha-256, pg_stat_statements, pg_basebackup, idle_in_transaction, trust, password]
 related: [postgresql/14-backups, postgresql/12-replication, postgresql/17-monitoring, postgresql/18-security, postgresql/27-tuning]
 when_to_use: "Read before promoting a PostgreSQL database to production or signing off a go-live."
 ---

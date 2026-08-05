@@ -6,7 +6,7 @@ title: "Systemd"
 type: doc
 order: 8
 status: ready
-tags: [linux, systemd]
+tags: [linux, systemd, PrivateTmp, enable, ProtectSystem, NoNewPrivileges, ExecStart, StartLimitBurst]
 related: [linux/07-services, linux/06-processes, linux/14-cron, linux/15-logging, linux/25-production]
 when_to_use: "Read before writing, editing, or debugging a systemd unit, timer, or journal query."
 ---

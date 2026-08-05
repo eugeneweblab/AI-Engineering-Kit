@@ -6,7 +6,7 @@ title: "GraphQL Authentication"
 type: doc
 order: 18
 status: ready
-tags: [graphql, authentication]
+tags: [graphql, authentication, verifyAccessToken, onConnect, getStats, GraphQLError]
 related: [graphql/19-authorization, graphql/08-context, graphql/17-security, graphql/20-error-handling, graphql/07-resolvers]
 when_to_use: "Read before wiring login, tokens, or identity into a GraphQL server or gateway."
 ---

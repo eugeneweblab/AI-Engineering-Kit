@@ -6,7 +6,7 @@ title: "Tailwind CSS Tooling"
 type: doc
 order: 29
 status: ready
-tags: [tailwind, tooling]
+tags: [tailwind, tooling, clsx, tailwind-merge, class-variance-authority, ClassValue, eslint-plugin-tailwindcss]
 related: [tailwind/01-installation, tailwind/25-debugging, tailwind/27-production, tailwind/26-best-practices, tailwind/19-performance]
 when_to_use: "Read when setting up or reviewing the Tailwind toolchain: editor, linting, class sorting, and build plugins."
 ---

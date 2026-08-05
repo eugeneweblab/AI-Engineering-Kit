@@ -6,7 +6,7 @@ title: "Databases Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [databases]
+tags: [databases, readme]
 related: []
 when_to_use: "Read first when starting any databases work, to see how this section's docs fit together."
 ---

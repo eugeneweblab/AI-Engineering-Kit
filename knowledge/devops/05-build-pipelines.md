@@ -6,7 +6,7 @@ title: "Build Pipelines"
 type: doc
 order: 5
 status: ready
-tags: [devops, build-pipelines]
+tags: [devops, build-pipelines, logs, runs-on, GitHub]
 related: [devops/03-git-workflow, devops/04-branching-strategies, devops/23-quality-gates, devops/07-deployment-strategies, devops/17-secrets-management]
 when_to_use: "Read before writing or reviewing CI/CD pipeline configuration that builds, tests, or ships code."
 ---

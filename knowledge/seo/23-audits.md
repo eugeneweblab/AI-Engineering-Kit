@@ -6,7 +6,7 @@ title: "Audits"
 type: doc
 order: 23
 status: ready
-tags: [seo, audits]
+tags: [seo, audits, noindex, toBe, toBeGreaterThan, newPage, locator, launch]
 related: [seo/22-search-console, seo/24-monitoring, seo/27-production-checks, seo/29-seo-review]
 when_to_use: "Read before running a technical SEO audit, or wiring automated SEO checks into CI or a release gate."
 ---

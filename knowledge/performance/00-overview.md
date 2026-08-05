@@ -6,7 +6,7 @@ title: "Performance Overview"
 type: doc
 order: 0
 status: ready
-tags: [performance, overview]
+tags: [performance, overview, architecture, security]
 related: [performance/01-performance-fundamentals, performance/02-metrics, performance/16-profiling, performance/24-optimization-workflow, performance/23-performance-budget]
 when_to_use: "Read first when starting any performance work, to see which doc in this topic answers your question."
 ---

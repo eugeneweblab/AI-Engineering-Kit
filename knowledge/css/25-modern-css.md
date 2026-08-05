@@ -6,7 +6,7 @@ title: "Modern CSS"
 type: doc
 order: 25
 status: ready
-tags: [css, modern-css]
+tags: [css, modern-css, padding-block, margin-inline, aspect-ratio, container, "@layer", "@container"]
 related: [css/19-container-queries, css/20-css-variables, css/26-browser-compatibility, css/07-grid, css/28-best-practices]
 when_to_use: "Read before reaching for a preprocessor, a JS layout hack, or a utility library to do something CSS now does natively."
 ---

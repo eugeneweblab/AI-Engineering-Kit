@@ -6,7 +6,7 @@ title: "Plugin Development"
 type: doc
 order: 15
 status: ready
-tags: [wordpress, plugin-development]
+tags: [wordpress, plugin-development, add_action, flush_rewrite_rules, defined, define, delete_option, register_activation_hook]
 related: [wordpress/02-project-structure, wordpress/08-hooks, wordpress/09-custom-post-types, wordpress/27-deployment, wordpress/06-security, wordpress/04-code-style, wordpress/07-testing, wordpress/24-internationalization]
 when_to_use: "Read before building a plugin — structuring the entry file, handling activation and uninstall, loading classes, or declaring dependencies."
 ---

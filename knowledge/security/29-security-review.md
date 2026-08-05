@@ -6,7 +6,7 @@ title: "Security Review"
 type: doc
 order: 29
 status: ready
-tags: [security, security-review]
+tags: [security, security-review, getOrder, sendStatus, dangerouslySetInnerHTML, eval]
 related: [security/28-owasp-top10, security/27-best-practices, security/02-threat-modeling, security/09-input-validation, security/04-authorization]
 when_to_use: "Read before reviewing a pull request or design for security, or defining a review gate."
 ---

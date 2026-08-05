@@ -6,7 +6,7 @@ title: "Well Architected Framework"
 type: doc
 order: 29
 status: ready
-tags: [aws, well-architected-framework]
+tags: [aws, well-architected-framework, region]
 related: [aws/24-cost-optimization, aws/25-security, aws/26-monitoring, aws/27-production, aws/28-best-practices]
 when_to_use: "Read before an architecture review or major design decision, to evaluate a workload against AWS's six pillars and name the trade-offs you are making."
 ---

@@ -6,7 +6,7 @@ title: "PHP AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [php, ai-review-checklist]
+tags: [php, ai-review-checklist, strict_types, php-cs-fixer, psalm, phpstan, mixed, var_dump]
 related: [php/100-common-antipatterns, php/22-clean-code, php/13-security, php/15-testing, php/30-engineering-principles]
 when_to_use: "Read when reviewing any PHP diff before approving or merging it."
 ---

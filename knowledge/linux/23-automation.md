@@ -6,7 +6,7 @@ title: "Linux Automation"
 type: doc
 order: 23
 status: ready
-tags: [linux, automation]
+tags: [linux, automation, useradd, rsync, cron, flock]
 related: [linux/03-bash, linux/14-cron, linux/24-scripting, linux/20-backups, linux/25-production]
 when_to_use: "Read before automating a Linux task — scheduled jobs, provisioning, or config management scripts."
 ---

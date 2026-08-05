@@ -6,7 +6,7 @@ title: "Backend Transactions"
 type: doc
 order: 17
 status: ready
-tags: [backend, transactions]
+tags: [backend, transactions, InsufficientFundsError, transfer, transaction, send, findById, version]
 related: [backend/18-database-design, backend/12-error-handling, backend/14-events, backend/07-business-logic, backend/13-caching]
 when_to_use: "Read before writing code that changes more than one row, table, or system in a single logical operation."
 ---

@@ -6,7 +6,7 @@ title: "Git Workflow"
 type: doc
 order: 3
 status: ready
-tags: [devops, git-workflow]
+tags: [devops, git-workflow, "fix:", "feat:", revert, bisect, reset]
 related: [devops/04-branching-strategies, devops/02-development-lifecycle, devops/05-build-pipelines, devops/23-quality-gates, devops/00-overview]
 when_to_use: "Read before committing, opening a pull request, rewriting history, or reviewing someone else's Git changes."
 ---

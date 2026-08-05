@@ -6,7 +6,7 @@ title: "Divi AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [divi, ai-review-checklist]
+tags: [divi, ai-review-checklist, wp_kses, post_content, esc_url, esc_attr, esc_html]
 related: [divi/29-review, divi/24-best-practices, divi/30-engineering-principles, divi/04-custom-modules, divi/09-custom-css]
 when_to_use: "Read when reviewing Divi work — your own or another agent's — before it is committed, merged, or handed off."
 ---

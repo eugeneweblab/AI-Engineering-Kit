@@ -6,7 +6,7 @@ title: "CSS Methodologies"
 type: doc
 order: 29
 status: ready
-tags: [css, css-methodologies]
+tags: [css, css-methodologies, block__element--modifier]
 related: [css/21-architecture, css/28-best-practices, css/03-specificity, css/20-css-variables]
 when_to_use: "Read before choosing how a project will name, organize, and scope its CSS, or when joining a codebase with an unfamiliar convention."
 ---

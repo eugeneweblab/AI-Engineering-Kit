@@ -6,7 +6,7 @@ title: "Data Fetching"
 type: doc
 order: 6
 status: ready
-tags: [frontend, data-fetching]
+tags: [frontend, data-fetching, setState, useEffect, AbortController, setUser, reject, useUser]
 related: [frontend/04-state-management, frontend/07-rendering, frontend/08-performance, frontend/13-error-handling, frontend/14-security]
 when_to_use: "Read before writing any code that reads or mutates server data from the browser."
 ---

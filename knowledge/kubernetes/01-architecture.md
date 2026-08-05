@@ -6,7 +6,7 @@ title: "Kubernetes Architecture"
 type: doc
 order: 1
 status: ready
-tags: [kubernetes, architecture]
+tags: [kubernetes, architecture, side, nodeName, ReplicaSet]
 related: [kubernetes/00-overview, kubernetes/02-cluster, kubernetes/03-nodes, kubernetes/04-pods, kubernetes/18-rbac]
 when_to_use: "Read before reasoning about how the control plane reconciles state, or when debugging why an object is not converging."
 ---

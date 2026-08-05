@@ -6,7 +6,7 @@ title: "Figma Inspection Checklist"
 type: doc
 order: 14
 status: ready
-tags: [figma, figma-inspection-checklist]
+tags: [figma, figma-inspection-checklist, FIGMA_FILE_KEY, FIGMA_TOKEN, ComparisonTable, PlanCard, Desktop, style]
 related: [figma/01-figma-analysis, figma/03-design-token-extraction, figma/19-design-handoff]
   - figma/01-figma-analysis
   - figma/03-design-token-extraction

@@ -6,7 +6,7 @@ title: "Artifacts"
 type: doc
 order: 7
 status: ready
-tags: [cicd, artifacts]
+tags: [cicd, artifacts, stage, stable, GITHUB_SHA, GITHUB_OUTPUT, RepoDigests]
 related: [cicd/03-build-stage, cicd/06-security-scanning, cicd/08-versioning, cicd/10-deployment]
 when_to_use: "Read before designing how a pipeline builds, stores, or promotes build artifacts."
 ---

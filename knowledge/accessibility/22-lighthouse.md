@@ -6,7 +6,7 @@ title: "Lighthouse"
 type: doc
 order: 22
 status: ready
-tags: [accessibility, lighthouse]
+tags: [accessibility, lighthouse, lighthouse]
 related: [accessibility/21-axe, accessibility/20-testing-tools, accessibility/24-accessibility-testing, accessibility/23-wcag, accessibility/06-screen-readers]
 when_to_use: "Read before using a Lighthouse accessibility score in CI, reporting, or as an acceptance criterion."
 ---

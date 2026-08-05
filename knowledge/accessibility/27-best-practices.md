@@ -6,7 +6,7 @@ title: "Accessibility Best Practices"
 type: doc
 order: 27
 status: ready
-tags: [accessibility, best-practices]
+tags: [accessibility, best-practices, Modal, prefers-reduced-motion, close, eslint-plugin-jsx-a11y, tabindex, save]
 related: [accessibility/03-semantic-html, accessibility/07-aria, accessibility/04-keyboard-navigation, accessibility/24-accessibility-testing, accessibility/100-common-antipatterns]
 when_to_use: "Read before writing any user-facing markup or component so accessibility is built in rather than retrofitted."
 ---

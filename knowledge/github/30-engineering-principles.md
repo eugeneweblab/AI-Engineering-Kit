@@ -6,7 +6,7 @@ title: "GitHub Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [github, engineering-principles]
+tags: [github, engineering-principles, CODEOWNERS, "permissions:", "@main", runs-on, write-all, GITHUB_TOKEN]
 related: [github/17-branch-protection, github/06-pull-requests, github/08-actions, github/27-best-practices, github/13-security]
 when_to_use: "Read before designing a team's GitHub workflow, branch model, or CI/CD conventions."
 ---

@@ -6,7 +6,7 @@ title: "OAuth 2.0 and OpenID Connect"
 type: doc
 order: 8
 status: ready
-tags: [security, oauth]
+tags: [security, oauth, redirect, login]
 related: [security/03-authentication, security/07-jwt, security/06-session-management, security/12-csrf]
 when_to_use: "Read before integrating an OAuth 2.x / OIDC provider or building a 'Sign in with...' flow."
 ---

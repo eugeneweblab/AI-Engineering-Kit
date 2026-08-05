@@ -6,7 +6,7 @@ title: "Performance Review"
 type: doc
 order: 29
 status: ready
-tags: [performance, performance-review]
+tags: [performance, performance-review, append, transform, LIMIT]
 related: [performance/27-best-practices, performance/24-optimization-workflow, performance/99-ai-review-checklist, performance/23-performance-budget, performance/100-common-antipatterns]
 when_to_use: "Read before reviewing a pull request for performance impact so you catch regressions and unfounded optimizations."
 ---

@@ -6,7 +6,7 @@ title: "NestJS Interceptors"
 type: doc
 order: 10
 status: ready
-tags: [nestjs, interceptors]
+tags: [nestjs, interceptors, Injectable, NestInterceptor, pipe, intercept, CallHandler, ExecutionContext]
 related: [nestjs/09-guards, nestjs/11-exception-filters, nestjs/24-observability, nestjs/19-caching]
 when_to_use: "Read before building or reviewing interceptors for logging, response shaping, tracing, or other cross-cutting request concerns."
 ---

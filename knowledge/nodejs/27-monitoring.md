@@ -6,7 +6,7 @@ title: "Node.js Monitoring"
 type: doc
 order: 27
 status: ready
-tags: [nodejs, monitoring]
+tags: [nodejs, monitoring, gauge, enable, Histogram, labels]
 related: [nodejs/16-error-handling, nodejs/17-logging, nodejs/19-performance, nodejs/20-memory-management, nodejs/26-deployment]
 when_to_use: "Read before adding metrics, tracing, or health checks — or when a production issue is invisible in your telemetry."
 ---

@@ -6,7 +6,7 @@ title: "Browser API"
 type: doc
 order: 11
 status: ready
-tags: [javascript, browser-api]
+tags: [javascript, browser-api, IntersectionObserver, sessionStorage, localStorage, setInterval, setItem, URL]
 related: [javascript/12-dom, javascript/13-fetch-api, javascript/26-security, javascript/27-browser-performance]
 when_to_use: "Read before using Web Storage, timers, observers, Web Workers, or any global browser API."
 ---

@@ -6,7 +6,7 @@ title: "Divi Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [divi]
+tags: [divi, readme]
 related: []
 when_to_use: "Read first when starting work on a Divi site, to see how this section's docs fit together and where builder constraints apply."
 ---

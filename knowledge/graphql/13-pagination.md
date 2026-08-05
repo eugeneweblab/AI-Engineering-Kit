@@ -6,7 +6,7 @@ title: "GraphQL Pagination"
 type: doc
 order: 13
 status: ready
-tags: [graphql, pagination]
+tags: [graphql, pagination, hasNextPage, PostConnection, last, first, createdAt]
 related: [graphql/14-filtering, graphql/04-queries, graphql/15-n1-problem, graphql/22-performance, graphql/02-schema]
 when_to_use: "Read before exposing any list field that can grow unbounded, or when choosing between offset and cursor pagination."
 ---

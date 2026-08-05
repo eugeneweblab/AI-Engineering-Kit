@@ -6,7 +6,7 @@ title: "React"
 type: doc
 order: 24
 status: ready
-tags: [tailwind, react]
+tags: [tailwind, react, twMerge, className, Button, clsx, VariantProps, peer]
 related: [tailwind/17-components, tailwind/23-nextjs, tailwind/13-state-variants, tailwind/28-patterns, tailwind/26-best-practices]
 when_to_use: "Read before styling a React component with Tailwind or building a reusable, prop-driven component API."
 ---

@@ -6,7 +6,7 @@ title: "DDL"
 type: doc
 order: 12
 status: ready
-tags: [sql, ddl]
+tags: [sql, ddl, CHECK, timestamptz, numeric, float, varchar, UNIQUE]
 related: [sql/11-data-types, sql/13-dml, sql/15-indexes, sql/14-transactions, sql/100-common-antipatterns]
 when_to_use: "Read before writing any CREATE, ALTER, or DROP that changes a schema, or any migration."
 ---

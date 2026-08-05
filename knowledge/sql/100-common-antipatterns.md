@@ -6,7 +6,7 @@ title: "SQL Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [sql, common-antipatterns]
+tags: [sql, common-antipatterns, NUMERIC, date, CHECK, REAL, TIMESTAMPTZ, FLOAT]
 related: [sql/15-indexes, sql/17-query-optimization, sql/22-security, sql/14-transactions, sql/30-engineering-principles]
 when_to_use: "Read when writing or reviewing SQL to recognize and avoid the recurring mistakes that fail at scale."
 ---

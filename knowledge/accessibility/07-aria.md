@@ -6,7 +6,7 @@ title: "ARIA"
 type: doc
 order: 7
 status: ready
-tags: [accessibility, aria]
+tags: [accessibility, aria, aria-labelledby, role, aria-describedby, aria-expanded, getElementById, aria-checked]
 related: [accessibility/03-semantic-html, accessibility/06-screen-readers, accessibility/05-focus-management, accessibility/19-live-regions, accessibility/16-dialogs]
 when_to_use: "Read before adding any role, aria-* attribute, or building a custom widget that native HTML cannot express."
 ---

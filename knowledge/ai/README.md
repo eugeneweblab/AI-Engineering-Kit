@@ -6,7 +6,7 @@ title: "AI-Assisted Development Standards"
 type: index
 order: -1
 status: ready
-tags: [ai]
+tags: [ai, readme]
 related: []
 when_to_use: "Read first when an AI agent is doing the coding — how to gather context, plan, generate, modify, fix, and self-verify."
 ---

@@ -6,7 +6,7 @@ title: "Backend Error Handling"
 type: doc
 order: 12
 status: ready
-tags: [backend, error-handling]
+tags: [backend, error-handling, charge, cause, NotFoundError, begin, commit, super]
 related: [backend/09-validation, backend/17-transactions, backend/22-observability, backend/19-performance, backend/100-common-antipatterns]
 when_to_use: "Read before writing or reviewing any code that can fail — I/O, external calls, parsing, or business rules."
 ---

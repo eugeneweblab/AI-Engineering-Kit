@@ -6,7 +6,7 @@ title: "Profiling"
 type: doc
 order: 16
 status: ready
-tags: [performance, profiling]
+tags: [performance, profiling, save, load_fixture, Profile, transform]
 related: [performance/01-performance-fundamentals, performance/02-metrics, performance/17-monitoring, performance/03-cpu, performance/19-benchmarking]
 when_to_use: "Read before optimizing any code, to locate the real bottleneck instead of guessing at it."
 ---

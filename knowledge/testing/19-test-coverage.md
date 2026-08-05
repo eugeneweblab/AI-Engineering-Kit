@@ -6,7 +6,7 @@ title: "Test Coverage"
 type: doc
 order: 19
 status: ready
-tags: [testing, test-coverage]
+tags: [testing, test-coverage, applyDiscount, toBe, toThrow, describe]
 related: [testing/02-unit-testing, testing/27-quality-gates, testing/24-best-practices, testing/28-testing-strategy, testing/09-assertions]
 when_to_use: "Read before setting a coverage threshold, interpreting a coverage report, or reviewing a change that adds tests to hit a number."
 ---

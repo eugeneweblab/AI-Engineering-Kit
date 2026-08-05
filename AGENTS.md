@@ -20,6 +20,12 @@ Follow this loop for any coding task:
    (machine-readable) or [`knowledge/INDEX.md`](knowledge/INDEX.md) (human-readable).
    Filter to `status: "ready"`, match on `topic` / `tags` / `when_to_use`, then read
    the doc at its `path`.
+
+   **Match from the code, not only from the task description.** After the topic and
+   slug, `tags` lists the API names, directives, and configuration keys a document
+   governs — `revalidateTag`, `add_filter`, `DISABLE_WP_CRON`, `autovacuum_freeze_max_age`.
+   When a symbol in the diff appears in a doc's `tags`, that doc states the rules for
+   it, and it is a more reliable match than guessing the topic from the ticket.
 3. **Apply the process.** For end-to-end tasks, follow the matching guide in
    [`knowledge/workflows/`](knowledge/workflows/) and the principles in
    [`knowledge/engineering/`](knowledge/engineering/) and [`knowledge/ai/`](knowledge/ai/).
@@ -49,7 +55,8 @@ title: "Next.js App Router"   # human title (first H1)
 type: doc                     # doc | index
 order: 3                      # canonical ordering within the topic
 status: ready                 # ready | draft  ← authoritative only when "ready"
-tags: [nextjs, app-router]    # retrieval keywords
+tags: [nextjs, app-router,    # topic, slug, then the API names this doc governs
+       generateStaticParams, notFound]
 related: []                   # ids of related docs
 when_to_use: ""               # one line: when this doc applies (fill as content lands)
 ---

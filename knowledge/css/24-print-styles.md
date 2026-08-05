@@ -6,7 +6,7 @@ title: "Print Styles"
 type: doc
 order: 24
 status: ready
-tags: [css, print-styles]
+tags: [css, print-styles, "@media", font-size, prefers-color-scheme]
 related: [css/18-media-queries, css/17-responsive-design, css/23-accessibility, css/12-backgrounds]
 when_to_use: "Read before building an invoice, report, article, receipt, or any page a user is expected to print or save as PDF."
 ---

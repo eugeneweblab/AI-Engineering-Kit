@@ -6,7 +6,7 @@ title: "SEO Fundamentals"
 type: doc
 order: 1
 status: ready
-tags: [seo, seo-fundamentals]
+tags: [seo, seo-fundamentals, noindex]
 related: [seo/02-crawling, seo/03-indexing, seo/04-rendering, seo/05-metadata, seo/00-overview]
 when_to_use: "Read before any SEO task, to ground decisions in the crawl-render-index-rank pipeline."
 ---

@@ -6,7 +6,7 @@ title: "CSS Flexbox"
 type: doc
 order: 6
 status: ready
-tags: [css, flexbox]
+tags: [css, flexbox, flex-direction, align-items, justify-content, margin-right, flex]
 related: [css/07-grid, css/08-sizing, css/09-spacing, css/05-positioning, css/17-responsive-design]
 when_to_use: "Read before laying out a component's children in a single row or column, or centering content."
 ---

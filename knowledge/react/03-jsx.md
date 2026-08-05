@@ -6,7 +6,7 @@ title: "JSX"
 type: doc
 order: 3
 status: ready
-tags: [react, jsx]
+tags: [react, jsx, TodoList, htmlFor, dangerouslySetInnerHTML, className, jsx-a11y, style]
 related: [react/04-components, react/05-props, react/11-rendering, react/20-accessibility, react/25-security]
 when_to_use: "Read before writing or reviewing any JSX markup, lists, conditionals, or dangerouslySetInnerHTML."
 ---

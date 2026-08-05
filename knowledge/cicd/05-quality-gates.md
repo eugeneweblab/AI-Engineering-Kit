@@ -6,7 +6,7 @@ title: "CI/CD Quality Gates"
 type: doc
 order: 5
 status: ready
-tags: [cicd, quality-gates]
+tags: [cicd, quality-gates, quality-gate, continue-on-error, runs-on]
 related: [cicd/02-pipeline-design, cicd/04-test-stage, cicd/06-security-scanning, cicd/27-best-practices, cicd/100-common-antipatterns]
 when_to_use: "Read before defining or changing the thresholds that block a merge or deploy."
 ---

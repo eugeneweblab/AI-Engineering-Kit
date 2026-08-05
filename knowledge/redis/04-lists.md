@@ -6,7 +6,7 @@ title: "Redis Lists"
 type: doc
 order: 4
 status: ready
-tags: [redis, lists]
+tags: [redis, lists, RPOP, BLMOVE, LPOP, LREM, LRANGE, processing]
 related: [redis/02-data-types, redis/05-sets, redis/08-streams, redis/16-message-queues]
 when_to_use: "Read before using Redis lists for queues, stacks, or recent-item feeds, or when choosing between a list and a stream."
 ---

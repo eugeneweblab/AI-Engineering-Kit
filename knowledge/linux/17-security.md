@@ -6,7 +6,7 @@ title: "Linux Security"
 type: doc
 order: 17
 status: ready
-tags: [linux, security]
+tags: [linux, security, visudo, systemd, sudo, PrivateTmp, ProtectSystem, NoNewPrivileges]
 related: [linux/05-permissions, linux/10-ssh, linux/21-firewall, linux/04-users-and-groups]
 when_to_use: "Read before hardening a Linux host, granting privileges, or reviewing anything that runs as root."
 ---

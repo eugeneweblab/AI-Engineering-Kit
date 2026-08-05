@@ -6,7 +6,7 @@ title: "Rulesets"
 type: doc
 order: 18
 status: ready
-tags: [github, rulesets]
+tags: [github, rulesets, active, evaluate, disabled, DEFAULT_BRANCH, release, pull_request]
 related: [github/17-branch-protection, github/19-organizations, github/13-security, github/06-pull-requests, github/22-api]
 when_to_use: "Read before defining, migrating to, or reviewing repository or organization protection rules for branches and tags."
 ---

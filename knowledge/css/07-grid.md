@@ -6,7 +6,7 @@ title: "CSS Grid"
 type: doc
 order: 7
 status: ready
-tags: [css, grid]
+tags: [css, grid, grid-template-areas, grid-template-columns, auto-fit, auto-fill, minmax]
 related: [css/06-flexbox, css/08-sizing, css/09-spacing, css/17-responsive-design, css/19-container-queries]
 when_to_use: "Read before building any two-dimensional layout, page shell, or responsive card gallery."
 ---

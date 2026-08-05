@@ -6,7 +6,7 @@ title: "Node.js Testing"
 type: doc
 order: 21
 status: ready
-tags: [nodejs, testing]
+tags: [nodejs, testing, "node:test", rejects, beforeEach, setTimeout]
 related: [nodejs/16-error-handling, nodejs/22-debugging, nodejs/28-best-practices, nodejs/29-tooling, nodejs/15-configuration]
 when_to_use: "Read before writing or reviewing tests for a Node.js codebase, or when choosing a test strategy."
 ---

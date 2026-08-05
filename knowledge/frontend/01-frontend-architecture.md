@@ -6,7 +6,7 @@ title: "Frontend Architecture"
 type: doc
 order: 1
 status: ready
-tags: [frontend, frontend-architecture]
+tags: [frontend, frontend-architecture, PayButton, index.ts, eslint-plugin-boundaries]
 related: [frontend/02-component-driven-development, frontend/04-state-management, frontend/05-routing, frontend/03-design-systems, frontend/25-folder-structure, frontend/07-rendering]
 when_to_use: "Read before starting a new frontend app, adding a major feature area, or refactoring folder and module structure."
 ---

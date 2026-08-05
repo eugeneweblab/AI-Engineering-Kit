@@ -6,7 +6,7 @@ title: "Tailwind CSS Colors"
 type: doc
 order: 10
 status: ready
-tags: [tailwind, colors]
+tags: [tailwind, colors, alone, surface, primary, danger, bg-primary, "dark:"]
 related: [tailwind/16-theme, tailwind/12-dark-mode, tailwind/22-accessibility, tailwind/09-typography, tailwind/21-design-system]
 when_to_use: "Read before applying any color — backgrounds, text, borders, rings — or defining a palette or brand tokens."
 ---

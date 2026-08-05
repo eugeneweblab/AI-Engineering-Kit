@@ -6,7 +6,7 @@ title: "Frontend Performance"
 type: doc
 order: 8
 status: ready
-tags: [frontend, performance]
+tags: [frontend, performance, HeavyChart, memo, space, setOpen, lazy, preconnect]
 related: [frontend/07-rendering, frontend/21-code-splitting, frontend/18-assets, frontend/06-data-fetching, frontend/23-monitoring]
 when_to_use: "Read before adding a dependency, image, or animation, or when a page feels slow to load or respond."
 ---

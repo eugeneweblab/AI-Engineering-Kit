@@ -6,7 +6,7 @@ title: "Performance Scalability"
 type: doc
 order: 21
 status: ready
-tags: [performance, scalability]
+tags: [performance, scalability, here]
 related: [performance/20-capacity-planning, performance/22-load-testing, performance/08-caching, performance/13-database-performance, performance/05-network]
 when_to_use: "Read before designing a system to handle growth, or when a service stops getting faster as you add hardware."
 ---

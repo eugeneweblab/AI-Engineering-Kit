@@ -6,7 +6,7 @@ title: "PostgreSQL Security"
 type: doc
 order: 18
 status: ready
-tags: [postgresql, security]
+tags: [postgresql, security, pg_hba.conf, trust, scram-sha-256, listen_addresses, postgres]
 related: [postgresql/19-roles-and-permissions, postgresql/12-replication, postgresql/14-backups, postgresql/17-monitoring, postgresql/26-production]
 when_to_use: "Read before exposing a PostgreSQL instance to any network, wiring an app's database credentials, or reviewing connection, encryption, or data-access controls."
 ---

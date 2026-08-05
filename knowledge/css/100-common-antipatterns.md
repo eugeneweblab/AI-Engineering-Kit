@@ -6,7 +6,7 @@ title: "CSS Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [css, common-antipatterns]
+tags: [css, common-antipatterns, translateX, opacity, max-width, transform, padding, min-height]
 related: [css/03-specificity, css/20-css-variables, css/30-engineering-principles, css/22-performance, css/23-accessibility]
 when_to_use: "Read when writing new CSS or reviewing a diff, to recognize and reject the failure patterns below."
 ---

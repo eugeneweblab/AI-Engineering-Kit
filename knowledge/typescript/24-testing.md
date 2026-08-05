@@ -6,7 +6,7 @@ title: "TypeScript Testing"
 type: doc
 order: 24
 status: ready
-tags: [typescript, testing]
+tags: [typescript, testing, toHaveBeenCalledTimes, toBeDefined, toThrow, mockResolvedValue, describe]
 related: [typescript/17-error-handling, typescript/18-asynchronous-programming, typescript/29-tooling, typescript/08-generics]
 when_to_use: "Read before writing or reviewing unit, integration, or type-level tests for TypeScript code."
 ---

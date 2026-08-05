@@ -6,7 +6,7 @@ title: "Media Queries"
 type: doc
 order: 18
 status: ready
-tags: [css, media-queries]
+tags: [css, media-queries, min-width, "@media", media, max-width, repeat, prefers-reduced-motion]
 related: [css/17-responsive-design, css/19-container-queries, css/23-accessibility, css/22-performance, css/20-css-variables]
 when_to_use: "Read before writing any responsive breakpoint, adapting to device features, or honoring user preferences like reduced motion or dark mode."
 ---

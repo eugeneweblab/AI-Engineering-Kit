@@ -6,7 +6,7 @@ title: "Tailwind CSS AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [tailwind, ai-review-checklist]
+tags: [tailwind, ai-review-checklist, "focus-visible:", "dark:", w-full, justfy-center, gap-4, flexx]
 related: [tailwind/26-best-practices, tailwind/30-engineering-principles, tailwind/100-common-antipatterns, tailwind/22-accessibility, tailwind/98-production-checklist]
 when_to_use: "Read when reviewing a diff or PR that adds or changes Tailwind markup, before approving it."
 ---

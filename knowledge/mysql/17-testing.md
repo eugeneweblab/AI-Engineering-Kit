@@ -6,7 +6,7 @@ title: "MySQL Testing"
 type: doc
 order: 17
 status: ready
-tags: [mysql, testing]
+tags: [mysql, testing, execute, rollback, begin, "@pytest", connect, close]
 related: [mysql/16-migrations, mysql/06-transactions, mysql/05-query-optimization, mysql/14-performance]
 when_to_use: "Read before writing tests that touch MySQL, or reviewing a test suite's database setup, isolation, and teardown."
 ---

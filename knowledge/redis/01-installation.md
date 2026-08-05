@@ -6,7 +6,7 @@ title: "Redis Installation"
 type: doc
 order: 1
 status: ready
-tags: [redis, installation]
+tags: [redis, installation, createClient, maxmemory, connect, REDIS_URL, ping, rename-command]
 related: [redis/00-overview, redis/21-security, redis/24-testing, redis/27-production, redis/20-persistence]
 when_to_use: "Read before installing, containerizing, or connecting a client to Redis in dev, CI, or production."
 ---

@@ -6,7 +6,7 @@ title: "Tailwind CSS Components"
 type: doc
 order: 17
 status: ready
-tags: [tailwind, components]
+tags: [tailwind, components, className, tailwind-merge, "@apply", twMerge, color, VariantProps]
 related: [tailwind/03-utility-first, tailwind/24-react, tailwind/15-customization, tailwind/28-patterns, tailwind/21-design-system]
 when_to_use: "Read before extracting repeated utility markup into a reusable component or class."
 ---

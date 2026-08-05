@@ -6,7 +6,7 @@ title: "CloudFront"
 type: doc
 order: 8
 status: ready
-tags: [aws, cloudfront]
+tags: [aws, cloudfront, us-east-1, CloudFront, no-store, GetObject, X-Content-Type-Options]
 related: [aws/04-s3, aws/07-route53, aws/09-acm, aws/25-security, aws/26-monitoring]
 when_to_use: "Read before putting a CDN in front of S3, an ALB, or an API — configuring origins, caching, TLS, or access control."
 ---

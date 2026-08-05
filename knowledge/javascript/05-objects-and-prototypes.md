@@ -6,7 +6,7 @@ title: "Objects And Prototypes"
 type: doc
 order: 5
 status: ready
-tags: [javascript, objects-and-prototypes]
+tags: [javascript, objects-and-prototypes, for...in, Object.prototype, __proto__, Object.keys, constructor, prototype]
 related: [javascript/00-overview, javascript/01-language-fundamentals, javascript/04-functions, javascript/06-classes, javascript/16-this-keyword]
 when_to_use: "Read before creating objects, extending prototypes, or debugging inherited/missing properties."
 ---

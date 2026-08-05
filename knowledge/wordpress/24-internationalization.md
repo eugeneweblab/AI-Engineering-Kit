@@ -6,7 +6,7 @@ title: "Internationalization"
 type: doc
 order: 24
 status: ready
-tags: [wordpress, internationalization]
+tags: [wordpress, internationalization, esc_html__, esc_html, plugin_basename, add_action, init, load_theme_textdomain]
 related: [wordpress/14-theme-development, wordpress/15-plugin-development, wordpress/16-block-editor, wordpress/04-code-style, wordpress/26-wp-cli]
 when_to_use: "Read before writing user-facing strings — choosing a translation function, loading a text domain, or translating strings in JavaScript."
 ---

@@ -6,7 +6,7 @@ title: "Workflow — Add an API Endpoint"
 type: doc
 order: 7
 status: ready
-tags: [workflows, add-api-endpoint]
+tags: [workflows, add-api-endpoint, problem, signup, treeifyError, auth, safeParse, register]
 related: [rest-api/04-endpoints, nestjs/04-controllers, examples/01-rest-endpoint]
   - rest-api/03-resource-design
   - rest-api/06-request-response

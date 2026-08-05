@@ -6,7 +6,7 @@ title: "React Forms"
 type: doc
 order: 15
 status: ready
-tags: [react, forms]
+tags: [react, forms, SignUpForm, setPending, useState, FormData, setEmail, onSubmit]
 related: [react/06-state, react/19-error-handling, react/20-accessibility]
 when_to_use: "Read before building or reviewing React forms, inputs, and validation."
 ---

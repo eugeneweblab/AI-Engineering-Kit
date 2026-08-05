@@ -6,7 +6,7 @@ title: "SQL Injection"
 type: doc
 order: 13
 status: ready
-tags: [security, sql-injection]
+tags: [security, sql-injection, execute]
 related: [security/09-input-validation, security/10-output-encoding, security/14-command-injection, security/28-owasp-top10]
 when_to_use: "Read before writing or reviewing any code that builds a database query from data the caller can influence."
 ---

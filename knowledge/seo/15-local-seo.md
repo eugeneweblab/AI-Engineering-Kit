@@ -6,7 +6,7 @@ title: "Local SEO"
 type: doc
 order: 15
 status: ready
-tags: [seo, local-seo]
+tags: [seo, local-seo, "@type", LocalBusiness, "@context"]
 related: [seo/09-structured-data, seo/14-international-seo, seo/05-metadata, seo/25-content-quality, seo/07-sitemaps]
 when_to_use: "Read before building store locators, location pages, or any site whose customers search 'near me' with local intent."
 ---

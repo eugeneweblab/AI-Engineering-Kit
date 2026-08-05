@@ -6,7 +6,7 @@ title: "Real World Performance Patterns"
 type: doc
 order: 28
 status: ready
-tags: [performance, real-world-patterns]
+tags: [performance, real-world-patterns, OFFSET, get_product, fetch_one, append]
 related: [performance/08-caching, performance/14-api-performance, performance/09-lazy-loading, performance/21-scalability, performance/27-best-practices]
 when_to_use: "Read when designing a feature that must stay fast under real load and you need a proven pattern for it."
 ---

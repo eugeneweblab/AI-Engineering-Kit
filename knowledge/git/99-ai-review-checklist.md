@@ -6,7 +6,7 @@ title: "Git AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [git, ai-review-checklist]
+tags: [git, ai-review-checklist, GitHub, root, unknown]
 related: [git/04-commits, git/07-rebasing, git/09-reset, git/17-conflict-resolution, git/100-common-antipatterns]
 when_to_use: "Read before reviewing a pull request, a branch, or any proposed git operation for correctness and safety."
 ---

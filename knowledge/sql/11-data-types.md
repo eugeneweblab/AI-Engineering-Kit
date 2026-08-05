@@ -6,7 +6,7 @@ title: "SQL Data Types"
 type: doc
 order: 11
 status: ready
-tags: [sql, data-types]
+tags: [sql, data-types, UUID, JSONB, TIMESTAMP, BIGINT, invoices, NUMERIC]
 related: [sql/12-ddl, sql/10-functions, sql/09-aggregate-functions, sql/15-indexes, sql/27-portability]
 when_to_use: "Read before choosing a column type in a CREATE TABLE, or when money, dates, JSON, or text encoding are involved."
 ---

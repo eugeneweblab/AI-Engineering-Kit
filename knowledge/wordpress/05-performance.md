@@ -6,7 +6,7 @@ title: "WordPress Performance"
 type: doc
 order: 5
 status: ready
-tags: [wordpress, performance]
+tags: [wordpress, performance, WP_Query, add_action, plugins_url, get_col, wp_enqueue_script, get_the_title]
 related: [wordpress/12-queries, wordpress/23-caching, wordpress/19-database, wordpress/21-media-and-uploads, performance/13-database-performance]
 when_to_use: "Read before optimizing or building performance-sensitive WordPress features."
 ---

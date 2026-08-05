@@ -6,7 +6,7 @@ title: "Infrastructure As Code"
 type: doc
 order: 8
 status: ready
-tags: [devops, infrastructure-as-code]
+tags: [devops, infrastructure-as-code, apply, plan]
 related: [devops/09-configuration-management, devops/17-secrets-management, devops/11-orchestration, devops/24-change-management, devops/18-disaster-recovery]
 when_to_use: "Read before provisioning or modifying cloud infrastructure, or reviewing any Terraform/Pulumi/CloudFormation change."
 ---

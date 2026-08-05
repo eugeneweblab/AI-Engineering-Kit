@@ -6,7 +6,7 @@ title: "Child Process"
 type: doc
 order: 11
 status: ready
-tags: [nodejs, child-process]
+tags: [nodejs, child-process, exec, spawn, execFile, fork, signal, timeout]
 related: [nodejs/18-security, nodejs/12-worker-threads, nodejs/10-process, nodejs/06-streams, nodejs/16-error-handling]
 when_to_use: "Read before shelling out to an external command or spawning a subprocess from Node."
 ---

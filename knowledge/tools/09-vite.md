@@ -6,7 +6,7 @@ title: "Vite"
 type: doc
 order: 9
 status: ready
-tags: [tools, vite]
+tags: [tools, vite, VITE_, tsconfig.json, "@vitejs", react, Stripe]
 related: [tools/10-webpack, tools/11-esbuild-and-swc, tools/13-test-runners, tools/03-typescript-compiler, tools/30-engineering-principles, frontend/19-build-tools]
 when_to_use: "Read before configuring a Vite build — setting up dev server, environment variables, aliases, proxying, or optimizing the production bundle."
 ---

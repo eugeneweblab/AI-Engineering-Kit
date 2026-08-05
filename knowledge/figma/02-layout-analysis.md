@@ -6,7 +6,7 @@ title: "Figma Layout Analysis"
 type: doc
 order: 2
 status: ready
-tags: [figma, layout-analysis]
+tags: [figma, layout-analysis, align-self, align-items, flex-direction, aspect-ratio]
 related: [figma/04-auto-layout, figma/05-responsive-analysis, figma/07-figma-to-html, css/06-flexbox]
 when_to_use: "Read before implementing a Figma screen, to understand how its layout structure is built rather than how it looks."
 ---

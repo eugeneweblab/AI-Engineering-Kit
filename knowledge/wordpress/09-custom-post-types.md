@@ -6,7 +6,7 @@ title: "Custom Post Types"
 type: doc
 order: 9
 status: ready
-tags: [wordpress, custom-post-types]
+tags: [wordpress, custom-post-types, supports, show_in_rest, init, flush_rewrite_rules, register_post_type, WP_Query]
 related: [wordpress/10-taxonomies, wordpress/11-metadata, wordpress/12-queries, wordpress/18-rest-api, wordpress/20-users-and-capabilities, wordpress/13-template-hierarchy]
 when_to_use: "Read before registering a custom post type — deciding whether content needs one, choosing arguments, or fixing 404s and missing REST support."
 ---

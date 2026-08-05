@@ -6,7 +6,7 @@ title: "Browser Rendering"
 type: doc
 order: 20
 status: ready
-tags: [html, browser-rendering]
+tags: [html, browser-rendering, opacity, transform, defer, href, "@font-face"]
 related: [html/01-document-structure, html/18-performance, html/10-metadata, html/23-progressive-enhancement, html/17-canvas]
 when_to_use: "Read before ordering resources in the head, debugging flashes/reflows, or reasoning about how markup becomes pixels."
 ---

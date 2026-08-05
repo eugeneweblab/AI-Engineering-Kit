@@ -6,7 +6,7 @@ title: "CI/CD Tooling"
 type: doc
 order: 29
 status: ready
-tags: [cicd, tooling]
+tags: [cicd, tooling, "@main", runs-on]
 related: [cicd/17-github-actions, cicd/18-gitlab-ci, cicd/20-jenkins, cicd/21-docker-integration, cicd/27-best-practices]
 when_to_use: "Read before selecting a CI/CD platform or adding a new tool to the pipeline toolchain."
 ---

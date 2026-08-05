@@ -6,7 +6,7 @@ title: "Browser Compatibility"
 type: doc
 order: 26
 status: ready
-tags: [css, browser-compatibility]
+tags: [css, browser-compatibility, browserslist, supports, minmax, repeat, subgrid, grid-template-rows]
 related: [css/25-modern-css, css/18-media-queries, css/22-performance, css/27-debugging]
 when_to_use: "Read before shipping a CSS feature you are unsure is supported, or when a layout works in one browser and breaks in another."
 ---

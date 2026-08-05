@@ -6,7 +6,7 @@ title: "MySQL Data Types"
 type: doc
 order: 3
 status: ready
-tags: [mysql, data-types]
+tags: [mysql, data-types, VARCHAR, utf8mb4, FLOAT, payments, utf8, DOUBLE]
 related: [mysql/04-indexes, mysql/00-overview, mysql/24-json, mysql/16-migrations, mysql/05-query-optimization]
 when_to_use: "Read before designing a table schema or choosing a column type."
 ---

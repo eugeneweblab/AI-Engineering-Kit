@@ -6,7 +6,7 @@ title: "GitLab CI"
 type: doc
 order: 18
 status: ready
-tags: [cicd, gitlab-ci]
+tags: [cicd, gitlab-ci, cache, "image:", "default:", DEPLOY_TOKEN, only, needs]
 related: [cicd/02-pipeline-design, cicd/15-secrets, cicd/17-github-actions, cicd/21-docker-integration]
 when_to_use: "Read before writing or reviewing a .gitlab-ci.yml pipeline."
 ---

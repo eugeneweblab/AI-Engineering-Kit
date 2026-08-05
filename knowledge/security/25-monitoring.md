@@ -6,7 +6,7 @@ title: "Security Monitoring"
 type: doc
 order: 25
 status: ready
-tags: [security, monitoring]
+tags: [security, monitoring, sha256, toISOString, Date]
 related: [security/26-incident-response, security/03-authentication, security/21-rate-limiting, security/16-secrets-management, security/29-security-review]
 when_to_use: "Read before adding logging, audit trails, or alerting to any security-relevant flow."
 ---

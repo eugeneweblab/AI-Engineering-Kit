@@ -6,7 +6,7 @@ title: "Orders"
 type: doc
 order: 5
 status: ready
-tags: [woocommerce, orders]
+tags: [woocommerce, orders, processing, update_post_meta, WP_User, calculate_totals, add_product, update_status]
 related: [woocommerce/00-overview, woocommerce/01-architecture, woocommerce/04-product-management, woocommerce/08-payments, woocommerce/18-emails]
 when_to_use: "Read before writing code that creates, reads, updates, or transitions the status of orders."
 ---

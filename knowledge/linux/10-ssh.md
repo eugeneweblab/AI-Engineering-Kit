@@ -6,7 +6,7 @@ title: "SSH"
 type: doc
 order: 10
 status: ready
-tags: [linux, ssh]
+tags: [linux, ssh, sudo]
 related: [linux/09-networking, linux/17-security, linux/21-firewall, linux/04-users-and-groups, linux/23-automation]
 when_to_use: "Read before configuring SSH access, keys, or hardening a server's remote login."
 ---

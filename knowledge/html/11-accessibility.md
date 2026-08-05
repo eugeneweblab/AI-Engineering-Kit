@@ -6,7 +6,7 @@ title: "HTML Accessibility"
 type: doc
 order: 11
 status: ready
-tags: [html, accessibility]
+tags: [html, accessibility, aria-live, aria-label, toggle, aria-current, aria-checked, polite]
 related: [html/02-semantic-html, html/08-forms, html/07-tables, html/05-images]
 when_to_use: "Read before shipping any UI, and when reviewing markup for screen-reader or keyboard support."
 ---

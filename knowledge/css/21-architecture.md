@@ -6,7 +6,7 @@ title: "CSS Architecture"
 type: doc
 order: 21
 status: ready
-tags: [css, architecture]
+tags: [css, architecture, "@layer", block__element--modifier]
 related: [css/29-css-methodologies, css/03-specificity, css/20-css-variables, css/02-selectors, css/22-performance]
 when_to_use: "Read before structuring the CSS of a non-trivial project, choosing a methodology, or refactoring a stylesheet that has become an unmaintainable specificity war."
 ---

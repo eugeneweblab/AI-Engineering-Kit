@@ -6,7 +6,7 @@ title: "Divi Deployment"
 type: doc
 order: 22
 status: ready
-tags: [divi, deployment]
+tags: [divi, deployment, uploads, WP_ENV]
 related: [divi/21-testing, divi/23-maintenance, divi/10-performance, divi/19-security, divi/98-production-checklist]
 when_to_use: "Read before pushing a Divi site live or migrating it between staging, production, or hosts."
 ---

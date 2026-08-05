@@ -6,7 +6,7 @@ title: "Testing AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [testing, ai-review-checklist]
+tags: [testing, ai-review-checklist, only, skip]
 related: [testing/29-test-review, testing/02-unit-testing, testing/05-test-doubles, testing/09-assertions, testing/22-flaky-tests]
 when_to_use: "Read before reviewing or generating test code, to check it item by item."
 ---

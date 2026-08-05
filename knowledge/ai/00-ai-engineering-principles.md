@@ -6,7 +6,7 @@ title: "AI Engineering Principles"
 type: doc
 order: 0
 status: ready
-tags: [ai, ai-engineering-principles]
+tags: [ai, ai-engineering-principles, SearchBar, inline, formatCurrency, NumberFormat]
 related: [ai/01-context-gathering, ai/02-task-planning, ai/06-self-verification, engineering/00-engineering-principles]
 when_to_use: "Read before starting any AI-assisted coding task to apply model-agnostic AI engineering principles."
 ---

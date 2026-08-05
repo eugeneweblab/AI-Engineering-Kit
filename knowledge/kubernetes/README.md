@@ -6,7 +6,7 @@ title: "Kubernetes Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [kubernetes]
+tags: [kubernetes, readme]
 related: []
 when_to_use: "Read first when starting any kubernetes work, to see how this section's docs fit together."
 ---

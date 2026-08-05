@@ -6,7 +6,7 @@ title: "Memory"
 type: doc
 order: 4
 status: ready
-tags: [performance, memory]
+tags: [performance, memory, open]
 related: [performance/03-cpu, performance/16-profiling, performance/01-performance-fundamentals, performance/26-debugging, performance/09-lazy-loading]
 when_to_use: "Read when memory grows unbounded, GC pauses spike latency, or allocation shows up as a hot cost in a profile."
 ---

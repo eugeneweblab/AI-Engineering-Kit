@@ -6,7 +6,7 @@ title: "Scaling"
 type: doc
 order: 24
 status: ready
-tags: [woocommerce, scaling]
+tags: [woocommerce, scaling, add_action, wc_get_order, ERP_Client, WP_Query, as_enqueue_async_action, my-account]
 related: [woocommerce/15-performance, woocommerce/23-monitoring, woocommerce/13-rest-api, woocommerce/22-deployment, woocommerce/27-production]
 when_to_use: "Read before a store's traffic, catalog, or order volume grows past what a single tuned server handles."
 ---

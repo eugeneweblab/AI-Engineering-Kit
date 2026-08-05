@@ -6,7 +6,7 @@ title: "Environments"
 type: doc
 order: 16
 status: ready
-tags: [cicd, environments]
+tags: [cicd, environments, DATABASE_URL, LOG_LEVEL]
 related: [cicd/15-secrets, cicd/10-deployment, cicd/09-release-management, cicd/13-feature-flags, cicd/17-github-actions]
 when_to_use: "Read before creating or wiring up dev, staging, or production environments in a pipeline."
 ---

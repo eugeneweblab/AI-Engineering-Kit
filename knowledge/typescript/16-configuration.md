@@ -6,7 +6,7 @@ title: "TypeScript Configuration"
 type: doc
 order: 16
 status: ready
-tags: [typescript, configuration]
+tags: [typescript, configuration, target, module, tsconfig.json, strictNullChecks, typescript]
 related: [typescript/14-modules, typescript/29-tooling, typescript/15-decorators, typescript/28-best-practices]
 when_to_use: "Read before creating or editing a `tsconfig.json`, or when type errors differ between machines."
 ---

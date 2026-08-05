@@ -6,7 +6,7 @@ title: "Workflow — Build a Gutenberg Block"
 type: doc
 order: 11
 status: ready
-tags: [workflows, build-gutenberg-block]
+tags: [workflows, build-gutenberg-block, edit, esc_html, save, register_block_type, registerBlockType, get_block_wrapper_attributes]
 related: [wordpress/16-block-editor, wordpress/17-block-themes, figma/08-figma-to-wordpress]
   - wordpress/01-wordpress-architecture
   - wordpress/03-best-practices

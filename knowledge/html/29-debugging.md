@@ -6,7 +6,7 @@ title: "HTML Debugging"
 type: doc
 order: 29
 status: ready
-tags: [html, debugging]
+tags: [html, debugging, z-index, indexOf, querySelectorAll, querySelector, overflow, margin-top]
 related: [html/22-validation, html/11-accessibility, html/20-browser-rendering, html/18-performance, html/99-ai-review-checklist]
 when_to_use: "Read before diagnosing why a page renders, reflows, or behaves incorrectly."
 ---

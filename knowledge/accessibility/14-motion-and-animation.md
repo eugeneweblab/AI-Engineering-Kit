@@ -6,7 +6,7 @@ title: "Motion And Animation"
 type: doc
 order: 14
 status: ready
-tags: [accessibility, motion-and-animation]
+tags: [accessibility, motion-and-animation, translateX, prefers-reduced-motion, "@keyframes", translateY, "@media", media]
 related: [accessibility/13-responsive-accessibility, accessibility/15-media, accessibility/05-focus-management, accessibility/19-live-regions, accessibility/16-dialogs]
 when_to_use: "Read before adding any animation, transition, auto-scroll, parallax, carousel, or auto-playing motion."
 ---

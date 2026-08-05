@@ -6,7 +6,7 @@ title: "AWS Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [aws, production-checklist]
+tags: [aws, production-checklist, Resource, Action]
 related: [aws/27-production, aws/29-well-architected-framework, aws/25-security, aws/26-monitoring, aws/24-cost-optimization]
 when_to_use: "Read before promoting any AWS workload to production or signing off a go-live."
 ---

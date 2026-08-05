@@ -6,7 +6,7 @@ title: "DevOps Quality Gates"
 type: doc
 order: 23
 status: ready
-tags: [devops, quality-gates]
+tags: [devops, quality-gates, continue-on-error, merge, quality-gate]
 related: [devops/22-testing, devops/05-build-pipelines, devops/16-security, devops/07-deployment-strategies, devops/06-release-management]
 when_to_use: "Read before adding CI checks, merge requirements, or release gates to a pipeline."
 ---

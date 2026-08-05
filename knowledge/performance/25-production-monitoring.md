@@ -6,7 +6,7 @@ title: "Production Monitoring"
 type: doc
 order: 25
 status: ready
-tags: [performance, production-monitoring]
+tags: [performance, production-monitoring, time, handle, Histogram, labels]
 related: [performance/17-monitoring, performance/02-metrics, performance/18-web-vitals, performance/26-debugging, performance/23-performance-budget]
 when_to_use: "Read before shipping a service to production or when adding observability to catch performance regressions in the wild."
 ---

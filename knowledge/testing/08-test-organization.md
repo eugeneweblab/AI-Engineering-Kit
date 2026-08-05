@@ -6,7 +6,7 @@ title: "Test Organization"
 type: doc
 order: 8
 status: ready
-tags: [testing, test-organization]
+tags: [testing, test-organization, canRefund, toBe, describe, works, beforeEach]
 related: [testing/01-testing-fundamentals, testing/09-assertions, testing/07-test-data, testing/10-fixtures, testing/20-test-maintenance]
 when_to_use: "Read before naming a test, choosing where the test file lives, or structuring a growing test suite."
 ---

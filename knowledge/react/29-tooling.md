@@ -6,7 +6,7 @@ title: "React Tooling"
 type: doc
 order: 29
 status: ready
-tags: [react, tooling]
+tags: [react, tooling, strict, eslint-plugin-react-hooks, rollup-plugin-visualizer, tsconfig.json, unknown, runs-on]
 related: [react/23-code-style, react/21-testing, react/28-production, react/12-performance, react/22-folder-structure]
 when_to_use: "Read when setting up a React project's build, lint, format, type-check, or CI toolchain."
 ---

@@ -6,7 +6,7 @@ title: "HTML Links"
 type: doc
 order: 4
 status: ready
-tags: [html, links]
+tags: [html, links, noreferrer, href, "tel:", "mailto:", onclick]
 related: [html/02-semantic-html, html/03-text-elements, html/11-accessibility, html/19-security, html/12-seo]
 when_to_use: "Read before adding, reviewing, or refactoring any <a> element, navigation, or anchor target."
 ---

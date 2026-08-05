@@ -6,7 +6,7 @@ title: "Node.js AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [nodejs, ai-review-checklist]
+tags: [nodejs, ai-review-checklist, EventEmitter, AbortSignal, pipe, timeout, setImmediate, child_process.exec]
 related: [nodejs/30-engineering-principles, nodejs/100-common-antipatterns, nodejs/16-error-handling, nodejs/18-security, nodejs/06-streams]
 when_to_use: "Read when reviewing a Node.js pull request or auditing a Node.js file for correctness."
 ---

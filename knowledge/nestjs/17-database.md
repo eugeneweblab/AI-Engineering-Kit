@@ -6,7 +6,7 @@ title: "NestJS Database"
 type: doc
 order: 17
 status: ready
-tags: [nestjs, database]
+tags: [nestjs, database, Injectable, IsInt, InjectRepository, Column, InjectDataSource]
 related: [nestjs/06-repositories, nestjs/18-transactions, prisma/02-schema, databases/07-indexing]
 when_to_use: "Read before integrating or reviewing database access, ORM setup, entities, or migrations in a NestJS application."
 ---

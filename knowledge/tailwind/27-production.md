@@ -6,7 +6,7 @@ title: "Tailwind CSS Production"
 type: doc
 order: 27
 status: ready
-tags: [tailwind, production]
+tags: [tailwind, production, "@source", inline, tailwindcss, "@tailwindcss", "@import", node_modules]
 related: [tailwind/19-performance, tailwind/20-optimization, tailwind/01-installation, tailwind/29-tooling, tailwind/98-production-checklist]
 when_to_use: "Read before shipping a Tailwind build to production or setting up the production CSS pipeline."
 ---

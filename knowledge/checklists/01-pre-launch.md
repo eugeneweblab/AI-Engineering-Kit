@@ -6,7 +6,7 @@ title: "Pre-Launch Checklist"
 type: doc
 order: 1
 status: ready
-tags: [checklists, pre-launch]
+tags: [checklists, pre-launch, robots.txt, X-Content-Type-Options, Referrer-Policy, noindex]
 related: [checklists/03-new-project-setup, seo/98-production-checklist, accessibility/98-production-checklist, security/98-production-checklist, performance/98-production-checklist, playbooks/01-site-down]
 when_to_use: "Run a week before putting a site or application in front of real users, and again on launch day."
 ---

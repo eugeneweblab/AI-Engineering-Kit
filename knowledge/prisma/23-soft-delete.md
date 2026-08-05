@@ -6,7 +6,7 @@ title: "Prisma Soft Delete"
 type: doc
 order: 23
 status: ready
-tags: [prisma, soft-delete]
+tags: [prisma, soft-delete, findMany, Date, deleteMany, PrismaClient, listUsers, deleteUser]
 related: [prisma/14-extensions, prisma/09-filtering, prisma/16-indexes, prisma/22-multi-tenancy]
 when_to_use: "Read before implementing or reviewing soft delete (marking rows deleted instead of removing them) in Prisma."
 ---

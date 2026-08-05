@@ -6,7 +6,7 @@ title: "Test Maintenance"
 type: doc
 order: 20
 status: ready
-tags: [testing, test-maintenance]
+tags: [testing, test-maintenance, checkout, CheckoutService, toBe, spyOn, toHaveBeenCalledTimes, toEqual]
 related: [testing/08-test-organization, testing/06-mocking, testing/22-flaky-tests, testing/24-best-practices, testing/29-test-review]
 when_to_use: "Read before refactoring a test suite, deleting a test, or when tests break on every unrelated change."
 ---

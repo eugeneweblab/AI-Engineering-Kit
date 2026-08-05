@@ -6,7 +6,7 @@ title: "Divi Accessibility"
 type: doc
 order: 12
 status: ready
-tags: [divi, accessibility]
+tags: [divi, accessibility, aria-label, prefers-reduced-motion, outline, onclick]
 related: [divi/03-modules, divi/09-custom-css, divi/11-responsive-design, divi/29-review, divi/99-ai-review-checklist]
 when_to_use: "Read before shipping any Divi page or custom module that users navigate, read, or fill in."
 ---

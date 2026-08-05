@@ -6,7 +6,7 @@ title: "Event-Driven Architecture"
 type: doc
 order: 21
 status: ready
-tags: [nestjs, events]
+tags: [nestjs, events, Injectable, OrderCreatedEvent, emit, CreateDateColumn, OrderPlacedEvent, InjectRepository]
 related: [nestjs/20-queues, nestjs/22-cqrs, architecture/08-event-driven-architecture, backend/14-events]
 when_to_use: "Read before designing or reviewing event-driven flows that decouple components through emitted domain events."
 ---

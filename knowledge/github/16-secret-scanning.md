@@ -6,7 +6,7 @@ title: "Secret Scanning"
 type: doc
 order: 16
 status: ready
-tags: [github, secret-scanning]
+tags: [github, secret-scanning, API_TOKEN, gitleaks, STRIPE_KEY, runs-on]
 related: [github/13-security, github/14-codeql, github/15-dependabot, github/17-branch-protection, github/08-actions]
 when_to_use: "Read before enabling secret scanning or responding to a leaked-credential alert."
 ---

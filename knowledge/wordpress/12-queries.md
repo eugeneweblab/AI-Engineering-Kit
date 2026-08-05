@@ -6,7 +6,7 @@ title: "Queries and The Loop"
 type: doc
 order: 12
 status: ready
-tags: [wordpress, queries]
+tags: [wordpress, queries, WP_Query, have_posts, get_posts, the_post, pre_get_posts, posts_per_page]
 related: [wordpress/08-hooks, wordpress/11-metadata, wordpress/19-database, wordpress/23-caching, wordpress/05-performance, wordpress/09-custom-post-types]
 when_to_use: "Read before writing a WP_Query, altering the main query, or diagnosing a slow page caused by database queries."
 ---

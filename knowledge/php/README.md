@@ -6,7 +6,7 @@ title: "PHP Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [php]
+tags: [php, readme]
 related: []
 when_to_use: "Read first when starting any PHP work, to see how this section's docs fit together."
 ---

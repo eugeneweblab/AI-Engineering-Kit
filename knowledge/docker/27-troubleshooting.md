@@ -6,7 +6,7 @@ title: "Docker Troubleshooting"
 type: doc
 order: 27
 status: ready
-tags: [docker, troubleshooting]
+tags: [docker, troubleshooting, localhost, inspect, SIGKILL, arm64, ExitCode]
 related: [docker/20-container-debugging, docker/16-logging, docker/17-resource-limits, docker/15-healthchecks, docker/24-monitoring]
 when_to_use: "Read when a container will not build, will not start, exits unexpectedly, or misbehaves at runtime."
 ---

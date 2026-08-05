@@ -6,7 +6,7 @@ title: "Shell Script Snippets"
 type: doc
 order: 3
 status: ready
-tags: [snippets, shell-scripts]
+tags: [snippets, shell-scripts, DATABASE_URL, DB_NAME, environment, cleanup]
 related: [snippets/01-typescript-utilities, linux/00-overview, tools/19-task-runners, tools/20-local-environments, devops/00-overview]
 when_to_use: "Copy when writing a shell script that will run unattended — deploys, backups, CI steps, maintenance jobs."
 ---

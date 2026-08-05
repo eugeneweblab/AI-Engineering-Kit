@@ -6,7 +6,7 @@ title: "React Best Practices"
 type: doc
 order: 26
 status: ready
-tags: [react, best-practices]
+tags: [react, best-practices, toggle, Cart, useCallback, useMemo, useEffect, setTotal]
 related: [react/08-hooks, react/12-performance, react/06-state, react/100-common-antipatterns, react/23-code-style]
 when_to_use: "Read before writing or reviewing any React component to check it against the baseline rules."
 ---

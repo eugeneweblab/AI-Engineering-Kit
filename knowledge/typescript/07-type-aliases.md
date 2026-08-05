@@ -6,7 +6,7 @@ title: "Type Aliases"
 type: doc
 order: 7
 status: ready
-tags: [typescript, type-aliases]
+tags: [typescript, type-aliases, UserId, loadUser, PublicUser, unknown, Pick, Omit]
 related: [typescript/06-interfaces, typescript/11-unions-and-intersections, typescript/13-advanced-types, typescript/09-utility-types]
 when_to_use: "Read before naming a union, tuple, function type, or any composed/derived type, or when deciding between type alias and interface."
 ---

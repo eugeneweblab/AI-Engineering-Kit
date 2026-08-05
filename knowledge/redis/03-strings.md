@@ -6,7 +6,7 @@ title: "Strings"
 type: doc
 order: 3
 status: ready
-tags: [redis, strings]
+tags: [redis, strings, INCR, MGET, EXPIRE, KEEPTTL, INCRBYFLOAT, MSET]
 related: [redis/02-data-types, redis/07-hashes, redis/12-expiration, redis/13-caching, redis/17-distributed-locks]
 when_to_use: "Read before using Redis strings for counters, cached values, flags, or atomic set-if-absent locks."
 ---

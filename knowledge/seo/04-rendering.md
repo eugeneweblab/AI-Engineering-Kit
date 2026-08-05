@@ -6,7 +6,7 @@ title: "SEO Rendering"
 type: doc
 order: 4
 status: ready
-tags: [seo, rendering]
+tags: [seo, rendering, ProductPage, getProduct, AddToCartButton, useState, useEffect]
 related: [seo/19-javascript-seo, seo/03-indexing, seo/13-core-web-vitals, seo/20-headless-seo, seo/02-crawling]
 when_to_use: "Read before building or reviewing any page whose content is produced by client-side JavaScript."
 ---

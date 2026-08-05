@@ -6,7 +6,7 @@ title: "SEO Best Practices"
 type: doc
 order: 26
 status: ready
-tags: [seo, best-practices]
+tags: [seo, best-practices, noindex, onClick, robots, Disallow, aspect-ratio, height]
 related: [seo/01-seo-fundamentals, seo/03-indexing, seo/06-canonicalization, seo/27-production-checks, seo/29-seo-review]
 when_to_use: "Read before shipping any user-facing page or route change, as the cross-cutting SEO checklist that ties the topic together."
 ---

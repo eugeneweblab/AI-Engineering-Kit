@@ -6,7 +6,7 @@ title: "Fragments"
 type: doc
 order: 12
 status: ready
-tags: [graphql, fragments]
+tags: [graphql, fragments, ProfilePage, UserAvatar, UserCard]
 related: [graphql/04-queries, graphql/07-resolvers, graphql/03-types, graphql/22-performance, graphql/11-directives]
 when_to_use: "Read before defining reusable selection sets, co-locating data requirements with UI components, or reviewing client queries."
 ---

@@ -6,7 +6,7 @@ title: "Core Concepts"
 type: doc
 order: 2
 status: ready
-tags: [tailwind, core-concepts]
+tags: [tailwind, core-concepts, "hover:", variants, w-64, text-sm]
 related: [tailwind/03-utility-first, tailwind/11-responsive-design, tailwind/13-state-variants, tailwind/16-theme, tailwind/04-layout]
 when_to_use: "Read before writing Tailwind markup to understand utilities, variants, and the design token model."
 ---

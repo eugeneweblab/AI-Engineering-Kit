@@ -6,7 +6,7 @@ title: "Autoloading"
 type: doc
 order: 6
 status: ready
-tags: [php, autoloading]
+tags: [php, autoloading, UserService, files, composer.json, autoload, declare, autoload.psr-4]
 related: [php/05-namespaces, php/07-composer, php/24-psr-standards, php/04-oop]
 when_to_use: "Read before wiring up class loading, adding a package, or touching composer.json autoload config."
 ---

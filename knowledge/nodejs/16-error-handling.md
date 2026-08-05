@@ -6,7 +6,7 @@ title: "Node.js Error Handling"
 type: doc
 order: 16
 status: ready
-tags: [nodejs, error-handling]
+tags: [nodejs, error-handling, ValidationError, uncaughtException, unhandledRejection, createUser, validate, fatal]
 related: [nodejs/17-logging, nodejs/10-process, nodejs/08-events, nodejs/09-http, nodejs/06-streams]
 when_to_use: "Read before writing async error paths, process-level handlers, or deciding what to catch vs. crash on."
 ---

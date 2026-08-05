@@ -6,7 +6,7 @@ title: "Trunk Based Development"
 type: doc
 order: 23
 status: ready
-tags: [git, trunk-based-development]
+tags: [git, trunk-based-development, enabled, develop]
 related: [git/22-git-flow, git/05-branches, git/06-merging, git/16-push, git/27-best-practices]
 when_to_use: "Read before setting up a branching model for a continuously deployed service, or moving off Git Flow."
 ---

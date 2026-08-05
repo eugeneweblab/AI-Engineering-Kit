@@ -6,7 +6,7 @@ title: "Database Migrations"
 type: doc
 order: 17
 status: ready
-tags: [databases, migrations]
+tags: [databases, migrations, lock_timeout, CHECK, VALIDATE]
 related: [databases/06-schema-design, databases/09-transactions, databases/11-locking, databases/18-backup-and-recovery, databases/27-testing]
 when_to_use: "Read before writing, reviewing, or deploying any schema change against a database that has data or live traffic."
 ---

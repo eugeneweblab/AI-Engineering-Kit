@@ -6,7 +6,7 @@ title: "Endpoints"
 type: doc
 order: 4
 status: ready
-tags: [rest-api, endpoints]
+tags: [rest-api, endpoints, Location, action, PATCH]
 related: [rest-api/03-resource-design, rest-api/05-routing, rest-api/01-http, rest-api/07-status-codes, rest-api/10-pagination]
 when_to_use: "Read before adding or changing an endpoint's method, path, or response shape on a REST API."
 ---

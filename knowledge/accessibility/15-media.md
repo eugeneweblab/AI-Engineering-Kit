@@ -6,7 +6,7 @@ title: "Accessibility Media"
 type: doc
 order: 15
 status: ready
-tags: [accessibility, media]
+tags: [accessibility, media, readers, muted, aria-label]
 related: [accessibility/14-motion-and-animation, accessibility/09-images, accessibility/04-keyboard-navigation, accessibility/07-aria, accessibility/23-wcag]
 when_to_use: "Read before embedding audio, video, players, or auto-playing media."
 ---

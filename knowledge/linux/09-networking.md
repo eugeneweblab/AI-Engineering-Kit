@@ -6,7 +6,7 @@ title: "Networking"
 type: doc
 order: 9
 status: ready
-tags: [linux, networking]
+tags: [linux, networking, netstat, ifconfig, ping, route, after, curl]
 related: [linux/10-ssh, linux/21-firewall, linux/17-security, linux/19-debugging, linux/16-monitoring]
 when_to_use: "Read before binding a port, configuring interfaces, or diagnosing connectivity on a Linux host."
 ---

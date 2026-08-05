@@ -6,7 +6,7 @@ title: "Stash"
 type: doc
 order: 11
 status: ready
-tags: [git, stash]
+tags: [git, stash, apply]
 related: [git/09-reset, git/05-branches, git/04-commits, git/06-merging, git/19-reflog]
 when_to_use: "Read before shelving uncommitted work to switch branches, pull, or handle an interruption."
 ---

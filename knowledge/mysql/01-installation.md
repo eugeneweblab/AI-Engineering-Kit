@@ -6,7 +6,7 @@ title: "MySQL Installation"
 type: doc
 order: 1
 status: ready
-tags: [mysql, installation]
+tags: [mysql, installation, root, mysql_secure_installation, utf8mb4, utf8mb4_0900_ai_ci, docker-compose]
 related: [mysql/00-overview, mysql/02-configuration, mysql/12-security, mysql/20-production, mysql/13-users-and-roles]
 when_to_use: "Read before installing, upgrading, or pinning a MySQL server version in any environment."
 ---

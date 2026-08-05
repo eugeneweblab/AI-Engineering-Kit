@@ -6,7 +6,7 @@ title: "Command Injection"
 type: doc
 order: 14
 status: ready
-tags: [security, command-injection]
+tags: [security, command-injection, execFile, exec, system, child_process.exec, curl]
 related: [security/09-input-validation, security/13-sql-injection, security/15-file-upload-security, security/28-owasp-top10]
 when_to_use: "Read before writing or reviewing any code that shells out, spawns a process, or builds a command line from input."
 ---

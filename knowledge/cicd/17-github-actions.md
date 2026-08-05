@@ -6,7 +6,7 @@ title: "GitHub Actions"
 type: doc
 order: 17
 status: ready
-tags: [cicd, github-actions]
+tags: [cicd, github-actions, timeout-minutes, concurrency, "permissions:", cancel-in-progress, pull_request, pull_request_target]
 related: [cicd/15-secrets, cicd/16-environments, cicd/02-pipeline-design, cicd/06-security-scanning, cicd/07-artifacts]
 when_to_use: "Read before writing or reviewing a GitHub Actions workflow file."
 ---

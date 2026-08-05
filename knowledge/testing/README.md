@@ -6,7 +6,7 @@ title: "Testing Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [testing]
+tags: [testing, readme]
 related: []
 when_to_use: "Read first when starting testing work, to see how this section's docs fit together and which level of test fits the problem."
 ---

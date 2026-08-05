@@ -6,7 +6,7 @@ title: "PostgreSQL Extensions"
 type: doc
 order: 15
 status: ready
-tags: [postgresql, extensions]
+tags: [postgresql, extensions, USAGE, vector, search_path, pg_dump, pg_stat_statements]
 related: [postgresql/04-indexes, postgresql/17-monitoring, postgresql/22-migrations, postgresql/18-security]
 when_to_use: "Read before installing, upgrading, or reviewing a PostgreSQL extension such as pgvector, PostGIS, or pg_stat_statements."
 ---

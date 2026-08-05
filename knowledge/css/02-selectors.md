@@ -6,7 +6,7 @@ title: "Selectors"
 type: doc
 order: 2
 status: ready
-tags: [css, selectors]
+tags: [css, selectors, child, selector-max-specificity, selector-max-id]
 related: [css/01-css-fundamentals, css/03-specificity, css/21-architecture, css/29-css-methodologies, css/22-performance]
 when_to_use: "Read before writing or reviewing any selector, to target elements portably without over-coupling to the DOM."
 ---

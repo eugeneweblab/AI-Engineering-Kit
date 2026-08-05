@@ -6,7 +6,7 @@ title: "CLI Development"
 type: doc
 order: 23
 status: ready
-tags: [nodejs, cli-development]
+tags: [nodejs, cli-development, write, EPIPE, SIGINT, stringify, SIGTERM, package.json]
 related: [nodejs/10-process, nodejs/11-child-process, nodejs/16-error-handling, nodejs/14-environment, nodejs/04-package-management]
 when_to_use: "Read before building or reviewing a Node.js command-line tool intended for humans or scripts."
 ---

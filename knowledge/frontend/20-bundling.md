@@ -6,7 +6,7 @@ title: "Bundling"
 type: doc
 order: 20
 status: ready
-tags: [frontend, bundling]
+tags: [frontend, bundling, sideEffects, immutable, output, webpack-bundle-analyzer, rollup-plugin-visualizer]
 related: [frontend/21-code-splitting, frontend/19-build-tools, frontend/08-performance, frontend/18-assets]
 when_to_use: "Read before tuning how modules are combined into output files, or reviewing bundle size and caching."
 ---

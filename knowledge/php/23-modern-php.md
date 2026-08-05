@@ -6,7 +6,7 @@ title: "Modern PHP"
 type: doc
 order: 23
 status: ready
-tags: [php, modern-php]
+tags: [php, modern-php, __construct, readonly, declare, composer.json]
 related: [php/02-types, php/04-oop, php/19-enums, php/22-clean-code]
 when_to_use: "Read before writing new PHP or modernizing legacy code, to use current language features instead of outdated idioms."
 ---

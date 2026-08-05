@@ -6,7 +6,7 @@ title: "Transitions"
 type: doc
 order: 15
 status: ready
-tags: [css, transitions]
+tags: [css, transitions, scale, transform, background-color, transition, opacity]
 related: [css/14-transforms, css/16-animations, css/22-performance, css/23-accessibility]
 when_to_use: "Read before adding hover, focus, or state-change transitions that animate CSS property changes."
 ---

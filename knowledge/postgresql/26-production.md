@@ -6,7 +6,7 @@ title: "PostgreSQL Production"
 type: doc
 order: 26
 status: ready
-tags: [postgresql, production]
+tags: [postgresql, production, synchronous_commit, pg_dump, idle_in_transaction_session_timeout, fsync, lock_timeout, statement_timeout]
 related: [postgresql/13-high-availability, postgresql/14-backups, postgresql/17-monitoring, postgresql/12-replication, postgresql/98-production-checklist]
 when_to_use: "Read before deploying a PostgreSQL database to production or reviewing its operational readiness."
 ---

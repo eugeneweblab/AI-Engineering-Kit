@@ -6,7 +6,7 @@ title: "Redis Security"
 type: doc
 order: 21
 status: ready
-tags: [redis, security]
+tags: [redis, security, FLUSHALL, requirepass, rename-command]
 related: [redis/01-installation, redis/11-lua-scripting, redis/22-monitoring, redis/27-production]
 when_to_use: "Read before exposing Redis on any network, configuring auth, or reviewing a Redis deployment for hardening."
 ---

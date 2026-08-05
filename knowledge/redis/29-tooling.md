@@ -6,7 +6,7 @@ title: "Redis Tooling"
 type: doc
 order: 29
 status: ready
-tags: [redis, tooling]
+tags: [redis, tooling, redis-benchmark, MONITOR, Redis, SCAN, SLOWLOG, server]
 related: [redis/01-installation, redis/23-performance, redis/25-debugging, redis/28-observability, redis/26-best-practices]
 when_to_use: "Read when choosing a Redis client library, CLI, benchmark, or inspection tool for development or operations."
 ---

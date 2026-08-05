@@ -6,7 +6,7 @@ title: "JavaScript Memory Management"
 type: doc
 order: 15
 status: ready
-tags: [javascript, memory-management]
+tags: [javascript, memory-management, WeakMap, addEventListener, setInterval, AbortController, remove, WeakRef]
 related: [javascript/03-scope-and-closures, javascript/12-dom, javascript/10-event-loop, javascript/25-performance, javascript/19-symbols]
 when_to_use: "Read before writing long-lived code with listeners, timers, caches, or closures — or when diagnosing a memory leak."
 ---

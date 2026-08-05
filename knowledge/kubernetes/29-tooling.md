@@ -6,7 +6,7 @@ title: "Kubernetes Tooling"
 type: doc
 order: 29
 status: ready
-tags: [kubernetes, tooling]
+tags: [kubernetes, tooling, kubectl, audit, ConfigMap]
 related: [kubernetes/27-best-practices, kubernetes/24-debugging, kubernetes/22-security, kubernetes/26-production, kubernetes/21-observability]
 when_to_use: "Read before choosing how to template, apply, secure, or observe Kubernetes manifests in a project."
 ---

@@ -6,7 +6,7 @@ title: "GitHub Best Practices"
 type: doc
 order: 27
 status: ready
-tags: [github, best-practices]
+tags: [github, best-practices, merge, triage, maintain, permissions, write-all, admin]
 related: [github/17-branch-protection, github/07-code-review, github/13-security, github/08-actions, github/30-engineering-principles]
 when_to_use: "Read when setting up a new repository or auditing an existing one against GitHub hygiene standards."
 ---

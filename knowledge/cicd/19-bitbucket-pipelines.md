@@ -6,7 +6,7 @@ title: "Bitbucket Pipelines"
 type: doc
 order: 19
 status: ready
-tags: [cicd, bitbucket-pipelines]
+tags: [cicd, bitbucket-pipelines, "image:", "default:", "branches:", docker, "node:latest", image]
 related: [cicd/02-pipeline-design, cicd/15-secrets, cicd/18-gitlab-ci, cicd/21-docker-integration]
 when_to_use: "Read before writing or reviewing a bitbucket-pipelines.yml configuration."
 ---

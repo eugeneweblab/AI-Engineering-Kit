@@ -6,7 +6,7 @@ title: "Fonts"
 type: doc
 order: 12
 status: ready
-tags: [performance, fonts]
+tags: [performance, fonts, font-display, crossorigin, size-adjust, preconnect, "@font-face", font-family]
 related: [performance/11-images, performance/07-loading, performance/06-rendering, performance/18-web-vitals, performance/08-caching]
 when_to_use: "Read before adding, changing, or reviewing web font loading, @font-face, or Google Fonts usage."
 ---

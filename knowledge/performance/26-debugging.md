@@ -6,7 +6,7 @@ title: "Performance Debugging"
 type: doc
 order: 26
 status: ready
-tags: [performance, debugging]
+tags: [performance, debugging, append]
 related: [performance/16-profiling, performance/25-production-monitoring, performance/24-optimization-workflow, performance/13-database-performance, performance/14-api-performance]
 when_to_use: "Read when a system is slow and you need to find and confirm the root cause instead of guessing at fixes."
 ---

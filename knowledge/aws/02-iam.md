@@ -6,7 +6,7 @@ title: "IAM"
 type: doc
 order: 2
 status: ready
-tags: [aws, iam]
+tags: [aws, iam, Resource, "aws:PrincipalOrgID", PutObject, Action, SecureTransport, Condition]
 related: [aws/00-overview, aws/25-security, aws/16-secrets-manager, aws/15-cloudtrail, aws/04-s3]
 when_to_use: "Read before creating any user, role, policy, or granting a service access to another."
 ---

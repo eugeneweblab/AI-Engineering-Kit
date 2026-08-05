@@ -6,7 +6,7 @@ title: "Models"
 type: doc
 order: 3
 status: ready
-tags: [prisma, models]
+tags: [prisma, models, "@default", DateTime, Decimal, "@unique", cuid, Float]
 related: [prisma/02-schema, prisma/04-relations, prisma/05-migrations, prisma/16-indexes]
 when_to_use: "Read before defining or changing a model's fields, IDs, types, or constraints."
 ---

@@ -6,7 +6,7 @@ title: "Issues"
 type: doc
 order: 3
 status: ready
-tags: [github, issues]
+tags: [github, issues, logs, GitHub]
 related: [github/04-projects, github/05-discussions, github/06-pull-requests, github/26-automation, github/23-cli]
 when_to_use: "Read before opening, triaging, or automating Issues, so each one is actionable, deduplicated, and correctly linked to code."
 ---

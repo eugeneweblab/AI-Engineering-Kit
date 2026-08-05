@@ -6,7 +6,7 @@ title: "Commits"
 type: doc
 order: 4
 status: ready
-tags: [git, commits]
+tags: [git, commits, bisect, revert, "fix:", "feat:", "chore:"]
 related: [git/00-overview, git/01-version-control, git/05-branches, git/07-rebasing, git/27-best-practices]
 when_to_use: "Read before staging and writing commits, or when a diff bundles unrelated changes or has a vague message."
 ---

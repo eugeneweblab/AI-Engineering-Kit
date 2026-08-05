@@ -6,7 +6,7 @@ title: "MySQL AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [mysql, ai-review-checklist]
+tags: [mysql, ai-review-checklist, utf8mb4, InnoDB, FLOAT, DECIMAL, root, LIMIT]
 related: [mysql/04-indexes, mysql/05-query-optimization, mysql/06-transactions, mysql/12-security, mysql/100-common-antipatterns]
 when_to_use: "Read when reviewing any pull request that adds or changes MySQL schema, queries, or data-access code."
 ---

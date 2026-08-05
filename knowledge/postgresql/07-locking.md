@@ -6,7 +6,7 @@ title: "PostgreSQL Locking"
 type: doc
 order: 7
 status: ready
-tags: [postgresql, locking]
+tags: [postgresql, locking, lock_timeout, deadlock_timeout, CONCURRENTLY, random, pg_locks, VALIDATE]
 related: [postgresql/06-transactions, postgresql/22-migrations, postgresql/05-query-planner, postgresql/17-monitoring]
 when_to_use: "Read before writing SELECT ... FOR UPDATE, running a DDL migration on a live table, or diagnosing a deadlock or lock wait."
 ---

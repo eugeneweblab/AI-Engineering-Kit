@@ -6,7 +6,7 @@ title: "Blue Green Deployment"
 type: doc
 order: 11
 status: ready
-tags: [cicd, blue-green-deployment]
+tags: [cicd, blue-green-deployment, selector]
 related: [cicd/10-deployment, cicd/12-canary-deployment, cicd/14-rollbacks, cicd/16-environments]
 when_to_use: "Read before implementing blue-green deploys or choosing a zero-downtime strategy with instant rollback."
 ---

@@ -6,7 +6,7 @@ title: "Network Policies"
 type: doc
 order: 17
 status: ready
-tags: [kubernetes, network-policies]
+tags: [kubernetes, network-policies, except]
 related: [kubernetes/07-services, kubernetes/22-security, kubernetes/18-rbac, kubernetes/04-pods, kubernetes/26-production]
 when_to_use: "Read before securing pod-to-pod traffic, isolating a namespace, or reviewing any cluster's east-west network security."
 ---

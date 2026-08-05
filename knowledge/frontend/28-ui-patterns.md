@@ -6,7 +6,7 @@ title: "UI Patterns"
 type: doc
 order: 28
 status: ready
-tags: [frontend, ui-patterns]
+tags: [frontend, ui-patterns, Escape, useQuery, UserList, role, close, ErrorState]
 related: [frontend/09-accessibility, frontend/12-forms, frontend/13-error-handling, frontend/03-design-systems, frontend/27-best-practices]
 when_to_use: "Read before building a common UI surface — modal, form, list, async view, toast — to reuse the correct, accessible pattern."
 ---

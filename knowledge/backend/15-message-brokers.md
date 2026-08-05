@@ -6,7 +6,7 @@ title: "Backend Message Brokers"
 type: doc
 order: 15
 status: ready
-tags: [backend, message-brokers]
+tags: [backend, message-brokers, subscribe, nack, insertIfAbsent, transaction]
 related: [backend/14-events, backend/16-background-jobs, backend/17-transactions, backend/20-scalability, backend/12-error-handling]
 when_to_use: "Read before publishing to or consuming from a broker (Kafka, RabbitMQ, SQS, NATS) or choosing one."
 ---

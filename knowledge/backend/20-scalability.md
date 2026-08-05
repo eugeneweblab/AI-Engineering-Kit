@@ -6,7 +6,7 @@ title: "Backend Scalability"
 type: doc
 order: 20
 status: ready
-tags: [backend, scalability]
+tags: [backend, scalability, reserve, save]
 related: [backend/19-performance, backend/13-caching, backend/15-message-brokers, backend/16-background-jobs, backend/17-transactions]
 when_to_use: "Read before designing a service to run on multiple instances, adding horizontal scaling, or when a single node can no longer keep up."
 ---

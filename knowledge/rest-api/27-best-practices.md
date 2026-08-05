@@ -6,7 +6,7 @@ title: "REST API Best Practices"
 type: doc
 order: 27
 status: ready
-tags: [rest-api, best-practices]
+tags: [rest-api, best-practices, kebab-case, cursor, camelCase, Location, snake_case, PascalCase]
 related: [rest-api/02-rest-principles, rest-api/03-resource-design, rest-api/07-status-codes, rest-api/14-versioning, rest-api/24-security]
 when_to_use: "Read before designing a new REST API or reviewing one for consistency and long-term maintainability."
 ---

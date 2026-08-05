@@ -6,7 +6,7 @@ title: "Backend Events"
 type: doc
 order: 14
 status: ready
-tags: [backend, events]
+tags: [backend, events, onOrderPlaced, transaction, OrderPlaced, sent, insertIfAbsent, uuid]
 related: [backend/15-message-brokers, backend/16-background-jobs, backend/17-transactions, backend/05-ddd, backend/12-error-handling]
 when_to_use: "Read before designing domain events, an outbox, or any produce/consume flow that reacts to state changes."
 ---

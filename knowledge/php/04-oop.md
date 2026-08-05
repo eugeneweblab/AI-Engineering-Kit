@@ -6,7 +6,7 @@ title: "OOP"
 type: doc
 order: 4
 status: ready
-tags: [php, oop]
+tags: [php, oop, readonly, isActive, time, __construct, InvalidArgumentException]
 related: [php/02-types, php/05-namespaces, php/19-enums, php/20-dependency-injection, php/21-design-patterns]
 when_to_use: "Read before designing a class hierarchy, interface, or trait, or when reviewing OOP code."
 ---

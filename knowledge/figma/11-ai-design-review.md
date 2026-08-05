@@ -6,7 +6,7 @@ title: "AI Design Review Protocol"
 type: doc
 order: 11
 status: ready
-tags: [figma, ai-design-review]
+tags: [figma, ai-design-review, PlanCard, ComparisonTable, Button, PlanGrid, card, Desktop]
 related: [figma/10-design-qa, figma/16-accessibility-from-figma, ai/06-self-verification]
   - figma/01-figma-analysis
   - figma/03-design-token-extraction

@@ -6,7 +6,7 @@ title: "Common Engineering Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [nestjs, common-antipatterns]
+tags: [nestjs, common-antipatterns, InjectRepository, Injectable, UsersService, BadRequestException, Controller, constructor]
 related: [nestjs/01-architecture, nestjs/05-services, nestjs/99-ai-review-checklist, nestjs/30-engineering-principles]
 when_to_use: "Read when reviewing NestJS code to catch common antipatterns and design smells before they become technical debt."
 ---

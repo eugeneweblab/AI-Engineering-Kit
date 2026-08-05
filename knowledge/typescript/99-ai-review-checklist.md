@@ -6,7 +6,7 @@ title: "TypeScript AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [typescript, ai-review-checklist]
+tags: [typescript, ai-review-checklist, unknown, Pick, Partial, Omit, never, JSON.parse]
 related: [typescript/12-type-guards, typescript/17-error-handling, typescript/23-clean-code, typescript/28-best-practices, typescript/100-common-antipatterns]
 when_to_use: "Read before reviewing a TypeScript pull request or AI-generated TypeScript."
 ---

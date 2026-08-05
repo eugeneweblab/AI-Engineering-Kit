@@ -6,7 +6,7 @@ title: "HTML Semantic HTML"
 type: doc
 order: 2
 status: ready
-tags: [html, semantic-html]
+tags: [html, semantic-html, aria-label, subscribe]
 related: [html/01-document-structure, html/03-text-elements, html/11-accessibility, html/12-seo, html/04-links]
 when_to_use: "Read before choosing which element to wrap content in, or when reviewing div/span-heavy markup."
 ---

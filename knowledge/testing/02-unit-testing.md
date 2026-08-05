@@ -6,7 +6,7 @@ title: "Unit Testing"
 type: doc
 order: 2
 status: ready
-tags: [testing, unit-testing]
+tags: [testing, unit-testing, isExpired, each, spyOn, mockReturnValue, toHaveBeenCalled, toBe]
 related: [testing/01-testing-fundamentals, testing/03-integration-testing, testing/05-test-doubles, testing/09-assertions, testing/10-fixtures]
 when_to_use: "Read before writing or reviewing a test for a single function, class, or module."
 ---

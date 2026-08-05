@@ -6,7 +6,7 @@ title: "Server Blocks"
 type: doc
 order: 3
 status: ready
-tags: [nginx, server-blocks]
+tags: [nginx, server-blocks, server_name, Host, default_server, server, ssl_certificate, listen]
 related: [nginx/04-location-blocks, nginx/02-configuration, nginx/12-ssl-tls, nginx/05-reverse-proxy, nginx/13-security]
 when_to_use: "Read before defining a virtual host, adding a domain, or debugging which server block handled a request."
 ---

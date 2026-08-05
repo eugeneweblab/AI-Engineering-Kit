@@ -6,7 +6,7 @@ title: "Architecture Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [architecture]
+tags: [architecture, readme]
 related: []
 when_to_use: "Read first when starting any architecture work, to see how this section's docs fit together."
 ---

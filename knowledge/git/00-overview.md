@@ -6,7 +6,7 @@ title: "Git Overview"
 type: doc
 order: 0
 status: ready
-tags: [git, overview]
+tags: [git, overview, rebase, revert]
 related: [git/01-version-control, git/03-repository, git/04-commits, git/05-branches, git/27-best-practices]
 when_to_use: "Read first to understand how the git docs fit together and where to go next."
 ---

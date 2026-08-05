@@ -6,7 +6,7 @@ title: "HTML Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [html, engineering-principles]
+tags: [html, engineering-principles, html-validate, charset, eslint-plugin-jsx-a11y, autocomplete]
 related: [html/02-semantic-html, html/11-accessibility, html/23-progressive-enhancement, html/21-best-practices, html/19-security]
 when_to_use: "Read before authoring or reviewing any HTML, to ground decisions in durable principles rather than styling habits."
 ---

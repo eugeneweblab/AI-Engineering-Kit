@@ -6,7 +6,7 @@ title: "Distributed Locks"
 type: doc
 order: 17
 status: ready
-tags: [redis, distributed-locks]
+tags: [redis, distributed-locks, DEL, INCR, EXPIRE, eval, randomUUID]
 related: [redis/11-lua-scripting, redis/12-expiration, redis/10-transactions, redis/13-caching, redis/18-replication]
 when_to_use: "Read before using Redis to make sure only one process runs a critical section at a time."
 ---

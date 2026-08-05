@@ -6,7 +6,7 @@ title: "JavaScript Performance"
 type: doc
 order: 25
 status: ready
-tags: [javascript, performance]
+tags: [javascript, performance, Promise.all, worker_threads, indexOf, perf_hooks.monitorEventLoopDelay, JSON.parse]
 related: [javascript/10-event-loop, javascript/15-memory-management, javascript/08-asynchronous-javascript, javascript/27-browser-performance, javascript/24-testing]
 when_to_use: "Read before optimizing JavaScript execution speed, throughput, or memory in Node or the browser."
 ---

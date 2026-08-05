@@ -6,7 +6,7 @@ title: "Pipeline Design"
 type: doc
 order: 2
 status: ready
-tags: [cicd, pipeline-design]
+tags: [cicd, pipeline-design, runs-on, "@latest", timeout-minutes, needs, concurrency]
 related: [cicd/01-ci-cd-fundamentals, cicd/03-build-stage, cicd/04-test-stage, cicd/05-quality-gates, cicd/26-performance]
 when_to_use: "Read before creating or restructuring a pipeline's stages, ordering, or parallelism."
 ---

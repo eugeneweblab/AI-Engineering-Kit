@@ -6,7 +6,7 @@ title: "Legal Requirements"
 type: doc
 order: 26
 status: ready
-tags: [accessibility, legal-requirements]
+tags: [accessibility, legal-requirements, VoiceOver]
 related: [accessibility/23-wcag, accessibility/24-accessibility-testing, accessibility/25-remediation, accessibility/29-documentation, accessibility/02-pour-principles]
 when_to_use: "Read before deciding which conformance target to build to, scoping a compliance effort, or answering what standard a product legally owes."
 ---

@@ -6,7 +6,7 @@ title: "React Accessibility"
 type: doc
 order: 20
 status: ready
-tags: [react, accessibility]
+tags: [react, accessibility, showModal, focus, close, useEffect]
 related: [react/15-forms, accessibility/01-accessibility-fundamentals, accessibility/05-focus-management]
 when_to_use: "Read before building or reviewing React UI to ensure it is accessible to all users and assistive technologies."
 ---

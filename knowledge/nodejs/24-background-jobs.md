@@ -6,7 +6,7 @@ title: "Node.js Background Jobs"
 type: doc
 order: 24
 status: ready
-tags: [nodejs, background-jobs]
+tags: [nodejs, background-jobs, setTimeout, send, setInterval, alreadySent, Queue, Worker]
 related: [nodejs/12-worker-threads, nodejs/16-error-handling, nodejs/17-logging, nodejs/25-microservices, nodejs/27-monitoring]
 when_to_use: "Read before moving slow or unreliable work (email, image processing, webhooks, scheduled tasks) out of the request path."
 ---

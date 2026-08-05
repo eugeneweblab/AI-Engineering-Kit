@@ -6,7 +6,7 @@ title: "Rest Principles"
 type: doc
 order: 2
 status: ready
-tags: [rest-api, rest-principles]
+tags: [rest-api, rest-principles, action, Cache-Control, Content-Type]
 related: [rest-api/01-http, rest-api/03-resource-design, rest-api/04-endpoints, rest-api/14-versioning, rest-api/19-caching]
 when_to_use: "Read before deciding whether a design is actually RESTful, or when justifying resource/state-transfer choices in review."
 ---

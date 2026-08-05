@@ -6,7 +6,7 @@ title: "Nginx Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [nginx, common-antipatterns]
+tags: [nginx, common-antipatterns, location, Set-Cookie, add_header, non_idempotent, default_server, try_files]
 related: [nginx/30-engineering-principles, nginx/05-reverse-proxy, nginx/13-security, nginx/04-location-blocks, nginx/08-caching]
 when_to_use: "Read before writing or reviewing nginx config to recognize the failure patterns that pass nginx -t but break production."
 ---

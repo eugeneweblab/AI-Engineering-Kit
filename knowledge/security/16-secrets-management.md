@@ -6,7 +6,7 @@ title: "Security Secrets Management"
 type: doc
 order: 16
 status: ready
-tags: [security, secrets-management]
+tags: [security, secrets-management, SecretId, get_secret_value, DB_PASSWORD, client, loads, SecretString]
 related: [security/17-encryption, security/18-https, security/23-dependency-security, security/24-supply-chain-security]
 when_to_use: "Read before adding an API key, database password, token, or signing key to any code, config, or deploy pipeline."
 ---

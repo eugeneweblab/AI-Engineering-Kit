@@ -6,7 +6,7 @@ title: "Fixtures"
 type: doc
 order: 10
 status: ready
-tags: [testing, fixtures]
+tags: [testing, fixtures, session, "@pytest", connect, rollback, begin, close]
 related: [testing/07-test-data, testing/08-test-organization, testing/03-integration-testing, testing/22-flaky-tests, testing/20-test-maintenance]
 when_to_use: "Read before adding setup/teardown or shared state that more than one test depends on."
 ---

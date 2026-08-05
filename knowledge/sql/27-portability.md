@@ -6,7 +6,7 @@ title: "Portability"
 type: doc
 order: 27
 status: ready
-tags: [sql, portability]
+tags: [sql, portability, MySQL, COALESCE, CONFLICT, SUM, RETURNING, JSONB]
 related: [sql/11-data-types, sql/10-functions, sql/12-ddl, sql/26-best-practices, sql/28-architecture]
 when_to_use: "Read before choosing dialect-specific syntax, or when code must run on more than one database engine."
 ---

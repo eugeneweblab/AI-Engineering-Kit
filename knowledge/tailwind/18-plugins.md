@@ -6,7 +6,7 @@ title: "Plugins"
 type: doc
 order: 18
 status: ready
-tags: [tailwind, plugins]
+tags: [tailwind, plugins, "@tailwindcss", prose, "@utility", "@custom-variant", "@container", "@import"]
 related: [tailwind/15-customization, tailwind/16-theme, tailwind/17-components, tailwind/09-typography, tailwind/24-react]
 when_to_use: "Read before adding a Tailwind plugin or writing a custom utility/variant in v4."
 ---

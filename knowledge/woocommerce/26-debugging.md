@@ -6,7 +6,7 @@ title: "WooCommerce Debugging"
 type: doc
 order: 26
 status: ready
-tags: [woocommerce, debugging]
+tags: [woocommerce, debugging, var_dump, getMessage, debug.log, wc_get_logger, error_reporting, ini_set]
 related: [woocommerce/23-monitoring, woocommerce/21-testing, woocommerce/27-production, woocommerce/12-hooks, woocommerce/29-ai-review]
 when_to_use: "Read before diagnosing a broken checkout, a fatal error, a stuck background job, or an intermittent order bug."
 ---

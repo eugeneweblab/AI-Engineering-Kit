@@ -6,7 +6,7 @@ title: "GitHub Automation"
 type: doc
 order: 26
 status: ready
-tags: [github, automation]
+tags: [github, automation, GITHUB_TOKEN, Retry-After, schedule, concurrency, "@main", runs-on]
 related: [github/08-actions, github/09-workflows, github/22-api, github/23-cli, github/29-integrations]
 when_to_use: "Read before scripting GitHub with the API, CLI, webhooks, or scheduled workflows, or reviewing an automation."
 ---

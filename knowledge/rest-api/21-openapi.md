@@ -6,7 +6,7 @@ title: "OpenAPI"
 type: doc
 order: 21
 status: ready
-tags: [rest-api, openapi]
+tags: [rest-api, openapi, components, operationId, required, securitySchemes, NotFound, security]
 related: [rest-api/22-swagger, rest-api/08-validation, rest-api/14-versioning, rest-api/23-testing, rest-api/27-best-practices]
 when_to_use: "Read before writing or reviewing an API contract, generating clients/servers, or wiring request validation from a spec."
 ---

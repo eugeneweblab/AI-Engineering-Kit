@@ -6,7 +6,7 @@ title: "CI/CD Secrets"
 type: doc
 order: 15
 status: ready
-tags: [cicd, secrets]
+tags: [cicd, secrets, AWS_SECRET_ACCESS_KEY, aws-region, role-to-assume, AWS_ACCESS_KEY_ID, pull_request, pull_request_target]
 related: [cicd/16-environments, cicd/06-security-scanning, cicd/17-github-actions, cicd/03-build-stage, cicd/28-production]
 when_to_use: "Read before handling any credential, token, or key in a pipeline, build, or deployment."
 ---

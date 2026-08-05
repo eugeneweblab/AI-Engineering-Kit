@@ -6,7 +6,7 @@ title: "Security Rate Limiting"
 type: doc
 order: 21
 status: ready
-tags: [security, rate-limiting]
+tags: [security, rate-limiting, tonumber, Retry-After, window, ceil, after, eval]
 related: [security/03-authentication, security/22-security-headers, security/25-monitoring, security/26-incident-response]
 when_to_use: "Read before protecting login, signup, password-reset, or any expensive endpoint from abuse."
 ---

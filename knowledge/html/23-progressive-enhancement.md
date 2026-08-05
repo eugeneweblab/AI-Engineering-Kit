@@ -6,7 +6,7 @@ title: "Progressive Enhancement"
 type: doc
 order: 23
 status: ready
-tags: [html, progressive-enhancement]
+tags: [html, progressive-enhancement, method, action, toggle, querySelector, addEventListener, "display:none"]
 related: [html/08-forms, html/04-links, html/21-best-practices, html/11-accessibility, html/18-performance]
 when_to_use: "Read before building any interactive feature, to ensure the core experience works without JavaScript."
 ---

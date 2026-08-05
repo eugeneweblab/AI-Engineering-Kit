@@ -6,7 +6,7 @@ title: "React Testing"
 type: doc
 order: 21
 status: ready
-tags: [react, testing]
+tags: [react, testing, getByRole, toBeInTheDocument, HttpResponse, click, toHaveTextContent, getByLabelText]
 related: [react/09-custom-hooks, react/15-forms, react/16-data-fetching, react/20-accessibility, testing/13-ui-testing, testing/02-unit-testing]
 when_to_use: "Read before writing or reviewing tests for React components and hooks."
 ---

@@ -6,7 +6,7 @@ title: "WooCommerce Installation"
 type: doc
 order: 2
 status: ready
-tags: [woocommerce, installation]
+tags: [woocommerce, installation, WP_ENVIRONMENT_TYPE, wp-config.php, SITE_URL, production, staging, WooCommerce]
 related: [woocommerce/00-overview, woocommerce/01-architecture, woocommerce/22-deployment, woocommerce/15-performance, woocommerce/16-security]
 when_to_use: "Read before installing, upgrading, or provisioning an environment for a WooCommerce store."
 ---

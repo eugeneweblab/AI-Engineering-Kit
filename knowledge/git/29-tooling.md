@@ -6,7 +6,7 @@ title: "Git Tooling"
 type: doc
 order: 29
 status: ready
-tags: [git, tooling]
+tags: [git, tooling, core.autocrlf, pre-commit]
 related: [git/20-hooks, git/02-installation, git/27-best-practices, git/17-conflict-resolution, git/28-security]
 when_to_use: "Read before configuring Git aliases, hooks, diff/merge tools, or CI integrations for a repo or team."
 ---

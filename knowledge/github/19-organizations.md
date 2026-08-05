@@ -6,7 +6,7 @@ title: "Organizations"
 type: doc
 order: 19
 status: ready
-tags: [github, organizations]
+tags: [github, organizations, none, GITHUB_TOKEN, write]
 related: [github/20-teams, github/21-permissions, github/18-rulesets, github/28-enterprise, github/13-security]
 when_to_use: "Read before configuring an organization's membership, base permissions, SSO, or security policy."
 ---

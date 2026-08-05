@@ -6,7 +6,7 @@ title: "Next.js Environment Variables"
 type: doc
 order: 21
 status: ready
-tags: [nextjs, environment-variables]
+tags: [nextjs, environment-variables, NEXT_PUBLIC_API_URL, NEXT_PUBLIC_, STRIPE_SECRET_KEY, DATABASE_URL, object]
 related: [nextjs/26-deployment, nextjs/24-security, security/16-secrets-management]
 when_to_use: "Read before managing environment variables or secrets across Next.js environments."
 ---

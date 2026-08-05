@@ -6,7 +6,7 @@ title: "Architecture Performance"
 type: doc
 order: 14
 status: ready
-tags: [architecture, performance]
+tags: [architecture, performance, list, append, EXPLAIN]
 related: [architecture/13-scalability, architecture/19-caching-strategies, architecture/18-observability, architecture/21-distributed-systems, architecture/20-message-brokers]
 when_to_use: "Read before optimizing latency or throughput, or when a system feels slow and you need to find why."
 ---

@@ -6,7 +6,7 @@ title: "REST API Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [rest-api, common-antipatterns]
+tags: [rest-api, common-antipatterns, Sunset, Idempotency-Key, request_id, PATCH, PUT]
 related: [rest-api/02-rest-principles, rest-api/07-status-codes, rest-api/09-error-handling, rest-api/16-authorization, rest-api/18-idempotency]
 when_to_use: "Read when designing or reviewing a REST endpoint to catch the recurring mistakes before they ship."
 ---

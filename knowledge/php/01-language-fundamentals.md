@@ -6,7 +6,7 @@ title: "PHP Language Fundamentals"
 type: doc
 order: 1
 status: ready
-tags: [php, language-fundamentals]
+tags: [php, language-fundamentals, declare, header, strict, TypeError]
 related: [php/02-types, php/03-functions, php/08-error-handling, php/05-namespaces, php/22-clean-code]
 when_to_use: "Read before writing any PHP file to get the file layout, syntax, and evaluation rules right."
 ---

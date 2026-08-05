@@ -6,7 +6,7 @@ title: "Aggregate Functions"
 type: doc
 order: 9
 status: ready
-tags: [sql, aggregate-functions]
+tags: [sql, aggregate-functions, SUM, AVG, NUMERIC, COALESCE, HAVING, MAX]
 related: [sql/04-grouping, sql/08-window-functions, sql/06-subqueries, sql/11-data-types, sql/10-functions]
 when_to_use: "Read before using COUNT, SUM, AVG, MIN, MAX, or any GROUP BY aggregation, especially over nullable or money columns."
 ---

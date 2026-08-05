@@ -6,7 +6,7 @@ title: "Database Fundamentals"
 type: doc
 order: 1
 status: ready
-tags: [databases, database-fundamentals]
+tags: [databases, database-fundamentals, account, VARCHAR, FLOAT, CHECK, UNIQUE, TIMESTAMPTZ]
 related: [databases/02-relational-vs-nosql, databases/03-data-modeling, databases/07-indexing, databases/09-transactions, databases/12-acid]
 when_to_use: "Read before writing any code that reads from or writes to a database, to build the shared vocabulary the rest of this topic assumes."
 ---

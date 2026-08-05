@@ -6,7 +6,7 @@ title: "Users And Groups"
 type: doc
 order: 4
 status: ready
-tags: [linux, users-and-groups]
+tags: [linux, users-and-groups, root, sudo, visudo, chmod]
 related: [linux/05-permissions, linux/01-filesystem, linux/00-overview, linux/03-bash, linux/02-shell]
 when_to_use: "Read before creating accounts, running a process as a user, configuring sudo, or setting file ownership."
 ---

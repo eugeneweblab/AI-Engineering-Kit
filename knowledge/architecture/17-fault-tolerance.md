@@ -6,7 +6,7 @@ title: "Fault Tolerance"
 type: doc
 order: 17
 status: ready
-tags: [architecture, fault-tolerance]
+tags: [architecture, fault-tolerance, valid, Timeout, Retry, except]
 related: [architecture/16-high-availability, architecture/12-integration-patterns, architecture/21-distributed-systems, architecture/18-observability, architecture/20-message-brokers]
 when_to_use: "Read when a request depends on something that can fail — a network call, a database, a queue — and must degrade instead of crashing."
 ---

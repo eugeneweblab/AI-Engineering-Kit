@@ -6,7 +6,7 @@ title: "Event Driven Architecture"
 type: doc
 order: 8
 status: ready
-tags: [architecture, event-driven-architecture]
+tags: [architecture, event-driven-architecture, transaction, onOrderPlaced, OrderPlaced, exists, uuid, publish]
 related: [architecture/07-cqrs, architecture/09-microservices, architecture/20-message-brokers, architecture/17-fault-tolerance, architecture/06-domain-driven-design]
 when_to_use: "Read before designing asynchronous communication between services or components using events, queues, or a message broker."
 ---

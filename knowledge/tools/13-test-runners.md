@@ -6,7 +6,7 @@ title: "Test Runners"
 type: doc
 order: 13
 status: ready
-tags: [tools, test-runners]
+tags: [tools, test-runners, useRealTimers, cleanup, toBeInTheDocument, defineConfig, afterEach, getByRole]
 related: [tools/14-playwright, tools/09-vite, tools/11-esbuild-and-swc, tools/19-task-runners, tools/30-engineering-principles, testing/00-overview]
 when_to_use: "Read before choosing or configuring a test runner — Vitest, Jest, or PHPUnit — including coverage, watch mode, and CI parallelism."
 ---

@@ -6,7 +6,7 @@ title: "React Philosophy"
 type: doc
 order: 1
 status: ready
-tags: [react, react-philosophy]
+tags: [react, react-philosophy, useState, useEffect, Cart, round, CartItem, setTotal]
 related: [react/02-component-architecture, react/06-state, react/11-rendering, react/13-component-composition]
 when_to_use: "Read before writing or reviewing any React code to align with the project's core React engineering principles."
 ---

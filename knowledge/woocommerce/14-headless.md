@@ -6,7 +6,7 @@ title: "WooCommerce Headless"
 type: doc
 order: 14
 status: ready
-tags: [woocommerce, headless]
+tags: [woocommerce, headless, btoa, stringify, WooCommerce]
 related: [woocommerce/13-rest-api, woocommerce/16-security, woocommerce/08-payments, woocommerce/15-performance, woocommerce/07-checkout]
 when_to_use: "Read before building a decoupled storefront (Next.js, mobile, PWA) on top of WooCommerce."
 ---

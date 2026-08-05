@@ -6,7 +6,7 @@ title: "Iframes"
 type: doc
 order: 15
 status: ready
-tags: [html, iframes]
+tags: [html, iframes, sandbox, allow-scripts, allow-same-origin, frame-ancestors, X-Frame-Options, allow-forms]
 related: [html/19-security, html/09-media, html/18-performance, html/11-accessibility]
 when_to_use: "Read before embedding third-party content or untrusted HTML with an <iframe>."
 ---

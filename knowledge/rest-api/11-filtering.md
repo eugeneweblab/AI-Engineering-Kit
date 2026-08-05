@@ -6,7 +6,7 @@ title: "REST API Filtering"
 type: doc
 order: 11
 status: ready
-tags: [rest-api, filtering]
+tags: [rest-api, filtering, buildQuery, entries, BadRequest]
 related: [rest-api/10-pagination, rest-api/12-sorting, rest-api/13-search, rest-api/08-validation, rest-api/24-security]
 when_to_use: "Read before adding query-parameter filters to a collection endpoint."
 ---

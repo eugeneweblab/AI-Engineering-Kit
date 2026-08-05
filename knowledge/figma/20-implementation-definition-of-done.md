@@ -6,7 +6,7 @@ title: "Implementation Definition of Done"
 type: doc
 order: 20
 status: ready
-tags: [figma, implementation-definition-of-done]
+tags: [figma, implementation-definition-of-done, ComparisonTable, PlanCard, "@maria", Card, passes, PlanGrid]
 related: [figma/10-design-qa, figma/19-design-handoff, checklists/01-pre-launch]
   - figma/10-design-qa
   - figma/13-visual-regression

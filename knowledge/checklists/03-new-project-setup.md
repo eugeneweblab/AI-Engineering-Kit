@@ -6,7 +6,7 @@ title: "New Project Setup Checklist"
 type: doc
 order: 3
 status: ready
-tags: [checklists, new-project-setup]
+tags: [checklists, new-project-setup, "@github", CLAUDE.md, AGENTS.md, README.md, engine-strict, packageManager]
 related: [checklists/01-pre-launch, tools/98-production-checklist, tools/19-task-runners, tools/20-local-environments, tools/26-ai-coding-tools, templates/02-architecture-decision-record]
 when_to_use: "Run when starting a new repository, before writing the first feature."
 ---

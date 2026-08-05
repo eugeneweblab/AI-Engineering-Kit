@@ -6,7 +6,7 @@ title: "Load Balancing"
 type: doc
 order: 6
 status: ready
-tags: [nginx, load-balancing]
+tags: [nginx, load-balancing, max_fails, fail_timeout, down, non_idempotent, ip_hash, keepalive]
 related: [nginx/05-reverse-proxy, nginx/08-caching, nginx/17-monitoring, nginx/27-high-availability, nginx/12-ssl-tls]
 when_to_use: "Read before spreading traffic across two or more application instances behind nginx."
 ---

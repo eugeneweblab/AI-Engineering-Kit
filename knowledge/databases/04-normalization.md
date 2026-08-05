@@ -6,7 +6,7 @@ title: "Normalization"
 type: doc
 order: 4
 status: ready
-tags: [databases, normalization]
+tags: [databases, normalization, city, customer, total]
 related: [databases/05-denormalization, databases/03-data-modeling, databases/06-schema-design, databases/23-data-integrity, databases/01-database-fundamentals]
 when_to_use: "Read while designing a transactional (write-heavy) schema, to eliminate redundancy that would otherwise let data drift out of sync."
 ---

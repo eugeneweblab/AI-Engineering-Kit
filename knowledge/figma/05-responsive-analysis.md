@@ -6,7 +6,7 @@ title: "Responsive Design Analysis"
 type: doc
 order: 5
 status: ready
-tags: [figma, responsive-analysis]
+tags: [figma, responsive-analysis, repeat, "@media", media, grid-template-columns, margin-inline, max-width]
 related: [figma/02-layout-analysis, figma/04-auto-layout, css/17-responsive-design]
 when_to_use: "Read before implementing responsive behavior from a Figma design across breakpoints and viewport sizes."
 ---

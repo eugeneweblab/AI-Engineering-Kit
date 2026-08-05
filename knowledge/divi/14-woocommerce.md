@@ -6,7 +6,7 @@ title: "WooCommerce"
 type: doc
 order: 14
 status: ready
-tags: [divi, woocommerce]
+tags: [divi, woocommerce, WooCommerce, woocommerce_checkout_fields, add_filter]
 related: [divi/02-theme-builder, divi/07-dynamic-content, divi/03-modules, divi/10-performance, divi/19-security]
 when_to_use: "Read before building or reviewing a Divi store: product, shop, cart, or checkout templates."
 ---

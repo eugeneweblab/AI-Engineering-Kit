@@ -6,7 +6,7 @@ title: "NestJS Services"
 type: doc
 order: 5
 status: ready
-tags: [nestjs, services]
+tags: [nestjs, services, Injectable, OrderStatus, Column, OrdersService, IsInt, InjectRepository]
 related: [nestjs/06-repositories, nestjs/03-dependency-injection, nestjs/18-transactions, backend/07-business-logic]
 when_to_use: "Read before writing or reviewing any service or business-logic class."
 ---

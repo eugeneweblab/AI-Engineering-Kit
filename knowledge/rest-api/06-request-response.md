@@ -6,7 +6,7 @@ title: "Request Response"
 type: doc
 order: 6
 status: ready
-tags: [rest-api, request-response]
+tags: [rest-api, request-response, Content-Type, Content-Length, Accept, user_id, userId, gzip]
 related: [rest-api/07-status-codes, rest-api/08-validation, rest-api/09-error-handling, rest-api/19-caching, rest-api/03-resource-design]
 when_to_use: "Read before designing request or response bodies, headers, or content negotiation for any endpoint."
 ---

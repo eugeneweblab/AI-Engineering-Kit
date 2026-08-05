@@ -6,7 +6,7 @@ title: "Rollbacks"
 type: doc
 order: 14
 status: ready
-tags: [cicd, rollbacks]
+tags: [cicd, rollbacks, works]
 related: [cicd/10-deployment, cicd/11-blue-green-deployment, cicd/12-canary-deployment, cicd/13-feature-flags, cicd/08-versioning]
 when_to_use: "Read before shipping any deployment, so a fast, tested reversal path exists before you need it."
 ---

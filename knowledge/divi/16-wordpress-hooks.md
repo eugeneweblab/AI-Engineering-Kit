@@ -6,7 +6,7 @@ title: "WordPress Hooks"
 type: doc
 order: 16
 status: ready
-tags: [divi, wordpress-hooks]
+tags: [divi, wordpress-hooks, remove_filter, wp_enqueue_scripts, init, add_filter, remove_action, template_redirect]
 related: [divi/04-custom-modules, divi/15-custom-fields, divi/01-architecture, divi/10-performance, divi/19-security]
 when_to_use: "Read before adding any PHP that hooks into WordPress or Divi to change behavior or output."
 ---

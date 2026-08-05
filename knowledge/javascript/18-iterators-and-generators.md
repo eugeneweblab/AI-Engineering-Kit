@@ -6,7 +6,7 @@ title: "Iterators And Generators"
 type: doc
 order: 18
 status: ready
-tags: [javascript, iterators-and-generators]
+tags: [javascript, iterators-and-generators, for...of, take, yield, constructor, close, TypeError]
 related: [javascript/17-es6-features, javascript/09-promises, javascript/08-asynchronous-javascript, javascript/15-memory-management, javascript/19-symbols]
 when_to_use: "Read before building custom iterable data structures, lazy sequences, or streaming/async pipelines."
 ---

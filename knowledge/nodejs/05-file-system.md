@@ -6,7 +6,7 @@ title: "File System"
 type: doc
 order: 5
 status: ready
-tags: [nodejs, file-system]
+tags: [nodejs, file-system, rename, resolve, writeFileSync, ENOENT, EACCES, writeFile]
 related: [nodejs/06-streams, nodejs/02-event-loop, nodejs/07-buffers, nodejs/18-security, nodejs/16-error-handling]
 when_to_use: "Read before reading, writing, watching, or building paths to files — especially when any part of the path comes from user input."
 ---

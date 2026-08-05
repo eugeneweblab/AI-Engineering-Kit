@@ -6,7 +6,7 @@ title: "Crawling"
 type: doc
 order: 2
 status: ready
-tags: [seo, crawling]
+tags: [seo, crawling, Disallow, robots.txt, noindex, onClick]
 related: [seo/03-indexing, seo/08-robots-txt, seo/07-sitemaps, seo/17-links, seo/01-seo-fundamentals]
 when_to_use: "Read before changing routing, robots.txt, status codes, or how pages link to each other."
 ---

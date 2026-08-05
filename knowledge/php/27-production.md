@@ -6,7 +6,7 @@ title: "PHP Production"
 type: doc
 order: 27
 status: ready
-tags: [php, production]
+tags: [php, production, pm.max_children, log_errors, X-Powered-By, rsync, opcache.preload, memory_limit]
 related: [php/14-performance, php/13-security, php/08-error-handling, php/25-debugging, php/98-production-checklist]
 when_to_use: "Read before deploying a PHP app or reviewing its runtime, config, and deployment setup."
 ---

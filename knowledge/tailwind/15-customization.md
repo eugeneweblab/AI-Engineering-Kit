@@ -6,7 +6,7 @@ title: "Tailwind CSS Customization"
 type: doc
 order: 15
 status: ready
-tags: [tailwind, customization]
+tags: [tailwind, customization, tailwind.config.js, "hover:", "@utility", "@custom-variant", oklch]
 related: [tailwind/16-theme, tailwind/21-design-system, tailwind/10-colors, tailwind/18-plugins, tailwind/02-core-concepts]
 when_to_use: "Read before extending Tailwind — adding tokens, custom utilities, variants, or arbitrary values."
 ---

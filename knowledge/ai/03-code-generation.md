@@ -6,7 +6,7 @@ title: "Code Generation"
 type: doc
 order: 3
 status: ready
-tags: [ai, code-generation]
+tags: [ai, code-generation, Injectable, NotFoundException, PrismaClient, cancelOrder, IsString, findUnique]
 related: [ai/02-task-planning, ai/04-code-modification, ai/06-self-verification]
 when_to_use: "Read before generating new code so it integrates naturally with the existing project."
 ---

@@ -6,7 +6,7 @@ title: "Theme"
 type: doc
 order: 16
 status: ready
-tags: [tailwind, theme]
+tags: [tailwind, theme, "@theme", oklch, "--color-text", "--color-surface", "@import"]
 related: [tailwind/15-customization, tailwind/10-colors, tailwind/21-design-system, tailwind/12-dark-mode, tailwind/02-core-concepts]
 when_to_use: "Read before defining design tokens — colors, spacing, fonts, breakpoints — with the v4 @theme block."
 ---

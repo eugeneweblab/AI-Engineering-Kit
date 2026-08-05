@@ -6,7 +6,7 @@ title: "CSP"
 type: doc
 order: 20
 status: ready
-tags: [security, csp]
+tags: [security, csp, unsafe-inline, unsafe-eval, Content-Security-Policy-Report-Only, frame-ancestors, "https:", X-Frame-Options]
 related: [security/11-xss, security/22-security-headers, security/10-output-encoding, security/19-cors]
 when_to_use: "Read before adding or tightening a Content-Security-Policy header, or when hardening against XSS."
 ---

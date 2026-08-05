@@ -6,7 +6,7 @@ title: "EventBridge"
 type: doc
 order: 23
 status: ready
-tags: [aws, eventbridge]
+tags: [aws, eventbridge, EventPattern, OrderShipped, detail]
 related: [aws/22-sns, aws/21-sqs, aws/12-lambda, aws/15-cloudtrail, aws/02-iam]
 when_to_use: "Read before defining an EventBridge bus, rule, schedule, or event-driven integration."
 ---

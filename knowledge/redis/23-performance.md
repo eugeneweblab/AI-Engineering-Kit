@@ -6,7 +6,7 @@ title: "Redis Performance"
 type: doc
 order: 23
 status: ready
-tags: [redis, performance]
+tags: [redis, performance, MSET, MGET, SCAN, maxmemory, UNLINK]
 related: [redis/22-monitoring, redis/02-data-types, redis/13-caching, redis/12-expiration]
 when_to_use: "Read before optimizing Redis throughput or latency, or when a command is blocking the server."
 ---

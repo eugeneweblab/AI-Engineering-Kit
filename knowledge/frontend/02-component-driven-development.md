@@ -6,7 +6,7 @@ title: "Component Driven Development"
 type: doc
 order: 2
 status: ready
-tags: [frontend, component-driven-development]
+tags: [frontend, component-driven-development, Badge, OrderStatus, useEffect, track, InvoiceRow, useState]
 related: [frontend/01-frontend-architecture, frontend/03-design-systems, frontend/04-state-management, frontend/09-accessibility, frontend/22-testing]
 when_to_use: "Read before building or refactoring UI components, deciding component boundaries, or designing a props API."
 ---

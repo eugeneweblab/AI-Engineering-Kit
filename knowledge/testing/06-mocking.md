@@ -6,7 +6,7 @@ title: "Mocking"
 type: doc
 order: 6
 status: ready
-tags: [testing, mocking]
+tags: [testing, mocking, Checkout, mockReturnValue, mockResolvedValue, toHaveBeenCalledBefore, toHaveBeenCalledTimes]
 related: [testing/05-test-doubles, testing/03-integration-testing, testing/11-contract-testing, testing/22-flaky-tests, testing/29-test-review]
 when_to_use: "Read before replacing a real dependency with a mock, or when a test asserts on how a collaborator was called."
 ---

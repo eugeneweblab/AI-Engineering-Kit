@@ -6,7 +6,7 @@ title: "ECS"
 type: doc
 order: 18
 status: ready
-tags: [aws, ecs]
+tags: [aws, ecs, secrets, environment, DB_PASSWORD, "@sha", SIGTERM]
 related: [aws/20-ecr, aws/19-eks, aws/12-lambda, aws/10-elastic-load-balancer, aws/11-auto-scaling]
 when_to_use: "Read before defining an ECS task definition, service, or Fargate deployment."
 ---

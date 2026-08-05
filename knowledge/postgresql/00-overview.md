@@ -6,7 +6,7 @@ title: "PostgreSQL Overview"
 type: doc
 order: 0
 status: ready
-tags: [postgresql, overview]
+tags: [postgresql, overview, jsonb, uuid, timestamptz, numeric, CHECK, postgresql.conf]
 related: [postgresql/03-data-types, postgresql/04-indexes, postgresql/05-query-planner, postgresql/06-transactions, postgresql/16-performance]
 when_to_use: "Read first when starting any PostgreSQL work, to find which doc covers your problem."
 ---

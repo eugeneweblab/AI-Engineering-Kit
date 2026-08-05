@@ -6,7 +6,7 @@ title: "Sharding"
 type: doc
 order: 15
 status: ready
-tags: [databases, sharding]
+tags: [databases, sharding, hash, tenant_id, user_id, created_at]
 related: [databases/16-partitioning, databases/14-replication, databases/13-eventual-consistency, databases/07-indexing, databases/20-performance]
 when_to_use: "Read before splitting a dataset across multiple database servers, or when a single node can no longer hold the write load."
 ---

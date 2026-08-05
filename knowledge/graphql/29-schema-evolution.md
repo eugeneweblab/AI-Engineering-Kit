@@ -6,7 +6,7 @@ title: "Schema Evolution"
 type: doc
 order: 29
 status: ready
-tags: [graphql, schema-evolution]
+tags: [graphql, schema-evolution, reason, displayName, deprecated]
 related: [graphql/02-schema, graphql/26-best-practices, graphql/28-tooling, graphql/27-production, graphql/13-pagination]
 when_to_use: "Read before changing an existing GraphQL schema — renaming, removing, or retyping any field a client may use."
 ---

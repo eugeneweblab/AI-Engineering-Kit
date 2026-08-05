@@ -6,7 +6,7 @@ title: "Context Gathering"
 type: doc
 order: 1
 status: ready
-tags: [ai, context-gathering]
+tags: [ai, context-gathering, CurrentUser, UserRepository, CreateOrderDto, formatPrice, formatCurrency]
 related: [ai/02-task-planning, engineering/05-context-first-development, workflows/02-fix-a-bug]
 when_to_use: "Read before gathering context for any AI-assisted coding task."
 ---

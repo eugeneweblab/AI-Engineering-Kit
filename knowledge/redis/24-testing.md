@@ -6,7 +6,7 @@ title: "Redis Testing"
 type: doc
 order: 24
 status: ready
-tags: [redis, testing]
+tags: [redis, testing, WRONGTYPE, PTTL, TTL, FLUSHDB, FLUSHALL, Redis]
 related: [redis/25-debugging, redis/26-best-practices, redis/12-expiration, redis/13-caching, redis/17-distributed-locks]
 when_to_use: "Read before writing or reviewing tests for any code that reads from or writes to Redis."
 ---

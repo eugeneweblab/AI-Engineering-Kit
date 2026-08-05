@@ -6,7 +6,7 @@ title: "Devops Culture"
 type: doc
 order: 1
 status: ready
-tags: [devops, devops-culture]
+tags: [devops, devops-culture, "@ana"]
 related: [devops/00-overview, devops/02-development-lifecycle, devops/25-incident-management, devops/26-postmortems, devops/27-sre-principles]
 when_to_use: "Read before proposing team process, ownership, or on-call practices around how software is delivered and operated."
 ---

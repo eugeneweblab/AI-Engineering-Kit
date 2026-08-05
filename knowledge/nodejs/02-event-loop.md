@@ -6,7 +6,7 @@ title: "Node.js Event Loop"
 type: doc
 order: 2
 status: ready
-tags: [nodejs, event-loop]
+tags: [nodejs, event-loop, process.nextTick, once, setImmediate, JSON.parse, Worker, createHash]
 related: [nodejs/01-nodejs-runtime, nodejs/12-worker-threads, nodejs/06-streams, nodejs/19-performance, nodejs/16-error-handling]
 when_to_use: "Read before writing async code, doing any CPU-bound work, or diagnosing why a Node service is unresponsive under load."
 ---

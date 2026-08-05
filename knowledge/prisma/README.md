@@ -6,7 +6,7 @@ title: "Prisma Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [prisma]
+tags: [prisma, readme, schema.prisma, migrate, prisma, PrismaClient]
 related: []
 when_to_use: "Read first when starting any Prisma work, to see how this section's docs fit together."
 ---

@@ -6,7 +6,7 @@ title: "Next.js Authentication"
 type: doc
 order: 14
 status: ready
-tags: [nextjs, authentication]
+tags: [nextjs, authentication, cookies, redirect, NextResponse, getSession, logout, jwtVerify]
 related: [nextjs/15-authorization, nextjs/13-middleware, nextjs/11-server-actions, nextjs/06-server-components, nextjs/21-environment-variables, nextjs/24-security, security/03-authentication, security/07-jwt]
 when_to_use: "Read before implementing authentication or authorization in a Next.js app."
 ---

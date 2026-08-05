@@ -6,7 +6,7 @@ title: "PHP Clean Code"
 type: doc
 order: 22
 status: ready
-tags: [php, clean-code]
+tags: [php, clean-code, mixed, isExpired, declare, strict_types, DateTimeImmutable, readonly]
 related: [php/03-functions, php/04-oop, php/26-best-practices, php/24-psr-standards]
 when_to_use: "Read before writing or reviewing everyday PHP for readability, naming, and function/class structure."
 ---

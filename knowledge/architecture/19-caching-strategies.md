@@ -6,7 +6,7 @@ title: "Caching Strategies"
 type: doc
 order: 19
 status: ready
-tags: [architecture, caching-strategies]
+tags: [architecture, caching-strategies, get_product, save, random]
 related: [architecture/14-performance, architecture/13-scalability, architecture/21-distributed-systems, architecture/09-microservices, architecture/18-observability]
 when_to_use: "Read before adding a cache layer, or when reads are slow, the database is hot, or stale data is causing bugs."
 ---

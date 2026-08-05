@@ -6,7 +6,7 @@ title: "Pub Sub"
 type: doc
 order: 9
 status: ready
-tags: [redis, pub-sub]
+tags: [redis, pub-sub, PUBLISH, SUBSCRIBE]
 related: [redis/08-streams, redis/16-message-queues, redis/19-clustering, redis/23-performance, redis/100-common-antipatterns]
 when_to_use: "Read before using PUBLISH/SUBSCRIBE for notifications, and to decide whether you actually need a stream instead."
 ---

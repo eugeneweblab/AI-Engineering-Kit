@@ -6,7 +6,7 @@ title: "Debugging Methodology"
 type: doc
 order: 3
 status: ready
-tags: [engineering, debugging-methodology]
+tags: [engineering, debugging-methodology, toBeCloseTo, isNaN, console.debug, price]
 related: [engineering/04-task-execution, workflows/02-fix-a-bug, workflows/06-investigate-production-bug]
 when_to_use: "Read before debugging a defect to investigate the root cause systematically."
 ---

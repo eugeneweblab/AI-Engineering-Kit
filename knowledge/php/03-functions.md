@@ -6,7 +6,7 @@ title: "PHP Functions"
 type: doc
 order: 3
 status: ready
-tags: [php, functions]
+tags: [php, functions, ceil, round, array_sum, strlen, array_map, declare]
 related: [php/02-types, php/04-oop, php/18-generators, php/22-clean-code, php/01-language-fundamentals]
 when_to_use: "Read before writing or refactoring any function, closure, or callable."
 ---

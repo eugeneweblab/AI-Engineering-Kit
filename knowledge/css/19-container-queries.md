@@ -6,7 +6,7 @@ title: "Container Queries"
 type: doc
 order: 19
 status: ready
-tags: [css, container-queries]
+tags: [css, container-queries, container-type, "@container", card, container]
 related: [css/18-media-queries, css/17-responsive-design, css/21-architecture, css/20-css-variables, css/22-performance]
 when_to_use: "Read before building any reusable component that must adapt to the width of its parent, not the viewport — cards, sidebars, widgets placed in varying layouts."
 ---

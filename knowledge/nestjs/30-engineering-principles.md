@@ -6,7 +6,7 @@ title: "NestJS Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [nestjs, engineering-principles]
+tags: [nestjs, engineering-principles, BadRequestException, CurrentUser, OrderStatus, InjectRepository, place, Inject]
 related: [nestjs/01-architecture, nestjs/100-common-antipatterns, nestjs/99-ai-review-checklist, architecture/30-engineering-principles]
 when_to_use: "Read for the universal engineering principles that should guide any NestJS design or implementation decision."
 ---

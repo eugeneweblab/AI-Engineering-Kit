@@ -6,7 +6,7 @@ title: "Kubernetes Observability"
 type: doc
 order: 21
 status: ready
-tags: [kubernetes, observability]
+tags: [kubernetes, observability, trace_id, traceparent, level, timestamp]
 related: [kubernetes/23-monitoring, kubernetes/24-debugging, kubernetes/04-pods, kubernetes/26-production]
 when_to_use: "Read before instrumenting a workload with logs, metrics, or traces, or when an incident cannot be diagnosed from the data the cluster emits."
 ---

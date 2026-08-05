@@ -6,7 +6,7 @@ title: "JavaScript Event Loop"
 type: doc
 order: 10
 status: ready
-tags: [javascript, event-loop]
+tags: [javascript, event-loop, setTimeout, queueMicrotask, process.nextTick, resolve, first, Promise]
 related: [javascript/08-asynchronous-javascript, javascript/09-promises, javascript/02-execution-context, javascript/25-performance]
 when_to_use: "Read before reasoning about ordering, blocking, timers, or why async code runs in a surprising sequence."
 ---

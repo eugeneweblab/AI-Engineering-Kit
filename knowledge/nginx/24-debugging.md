@@ -6,7 +6,7 @@ title: "Nginx Debugging"
 type: doc
 order: 24
 status: ready
-tags: [nginx, debugging]
+tags: [nginx, debugging, rewrite, location, server, log_format, access_log, server_name]
 related: [nginx/16-logging, nginx/29-troubleshooting, nginx/05-reverse-proxy, nginx/17-monitoring, nginx/02-configuration]
 when_to_use: "Read before diagnosing a misbehaving nginx config — 502s, wrong routing, unexpected rewrites, or requests that never reach the backend."
 ---

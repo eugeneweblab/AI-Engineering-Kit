@@ -6,7 +6,7 @@ title: "WordPress Code Style"
 type: doc
 order: 4
 status: ready
-tags: [wordpress, code-style]
+tags: [wordpress, code-style, WP_Error, add_action, get_post_status, WP_Query, update_option, wp_insert_post]
 related: [wordpress/03-best-practices, wordpress/15-plugin-development, wordpress/07-testing, php/22-clean-code, php/24-psr-standards]
 when_to_use: "Read before writing or formatting WordPress code to match the project's coding style."
 ---

@@ -6,7 +6,7 @@ title: "Deployment Strategies"
 type: doc
 order: 7
 status: ready
-tags: [devops, deployment-strategies]
+tags: [devops, deployment-strategies, preStop, maxUnavailable, maxSurge, SIGTERM]
 related: [devops/06-release-management, devops/11-orchestration, devops/12-monitoring, devops/19-high-availability, devops/25-incident-management]
 when_to_use: "Read before choosing how a new version replaces the running one, or reviewing a rollout that risks downtime."
 ---

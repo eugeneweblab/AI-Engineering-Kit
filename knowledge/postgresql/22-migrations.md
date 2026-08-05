@@ -6,7 +6,7 @@ title: "PostgreSQL Migrations"
 type: doc
 order: 22
 status: ready
-tags: [postgresql, migrations]
+tags: [postgresql, migrations, lock_timeout, statement_timeout, works, CHECK, pg_locks, VALIDATE]
 related: [postgresql/23-testing, postgresql/07-locking, postgresql/19-roles-and-permissions, postgresql/06-transactions, postgresql/26-production]
 when_to_use: "Read before writing any schema-change migration, especially one that alters, locks, or backfills a large or high-traffic table."
 ---

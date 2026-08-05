@@ -6,7 +6,7 @@ title: "Production Checks"
 type: doc
 order: 27
 status: ready
-tags: [seo, production-checks]
+tags: [seo, production-checks, noindex, robots.txt, X-Robots-Tag, robots]
 related: [seo/98-production-checklist, seo/24-monitoring, seo/23-audits, seo/13-core-web-vitals, seo/03-indexing]
 when_to_use: "Read before promoting a build to production or wiring SEO gates into a CI/CD pipeline."
 ---

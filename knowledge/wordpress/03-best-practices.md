@@ -6,7 +6,7 @@ title: "WordPress Best Practices"
 type: doc
 order: 3
 status: ready
-tags: [wordpress, best-practices]
+tags: [wordpress, best-practices, add_action, WP_Query, update_option, get_option, esc_html__, current_user_can]
 related: [wordpress/04-code-style, wordpress/06-security, wordpress/05-performance, wordpress/100-common-antipatterns, wordpress/30-engineering-principles]
 when_to_use: "Read before writing WordPress code to follow professional engineering best practices."
 ---

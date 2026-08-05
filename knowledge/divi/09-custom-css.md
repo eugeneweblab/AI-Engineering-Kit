@@ -6,7 +6,7 @@ title: "Custom CSS"
 type: doc
 order: 9
 status: ready
-tags: [divi, custom-css]
+tags: [divi, custom-css, style.css, translateY, "@media", media]
 related: [divi/10-performance, divi/06-global-elements, divi/11-responsive-design, divi/03-modules, divi/24-best-practices]
 when_to_use: "Read before writing any custom CSS in Divi — a module CSS box, the Theme Options field, or a child theme stylesheet."
 ---

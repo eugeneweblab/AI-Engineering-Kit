@@ -6,7 +6,7 @@ title: "Fetch API"
 type: doc
 order: 13
 status: ready
-tags: [javascript, fetch-api]
+tags: [javascript, fetch-api, URL, HttpError, URLSearchParams, Content-Type, AbortSignal, timeout]
 related: [javascript/08-asynchronous-javascript, javascript/09-promises, javascript/14-error-handling, javascript/26-security, javascript/11-browser-api]
 when_to_use: "Read before writing or reviewing any code that makes HTTP requests with fetch()."
 ---

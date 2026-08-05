@@ -6,7 +6,7 @@ title: "Design Review"
 type: doc
 order: 29
 status: ready
-tags: [frontend, design-review]
+tags: [frontend, design-review, prefers-reduced-motion, focus-visible, Escape, EmptyState]
 related: [frontend/03-design-systems, frontend/09-accessibility, frontend/10-responsive-design, frontend/28-ui-patterns, frontend/99-ai-review-checklist]
 when_to_use: "Read before reviewing a UI change against its design, or before requesting review of your own visual work."
 ---

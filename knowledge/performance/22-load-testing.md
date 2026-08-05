@@ -6,7 +6,7 @@ title: "Performance Load Testing"
 type: doc
 order: 22
 status: ready
-tags: [performance, load-testing]
+tags: [performance, load-testing, load]
 related: [performance/20-capacity-planning, performance/21-scalability, performance/02-metrics, performance/19-benchmarking, performance/25-production-monitoring]
 when_to_use: "Read before running a load, stress, soak, or spike test against a service."
 ---

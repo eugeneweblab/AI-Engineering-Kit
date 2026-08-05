@@ -6,7 +6,7 @@ title: "Git Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [git]
+tags: [git, readme, rebase, revert, reset]
 related: []
 when_to_use: "Read first when starting any git work, to see how this section's docs fit together."
 ---

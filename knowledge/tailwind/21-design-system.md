@@ -6,7 +6,7 @@ title: "Design System"
 type: doc
 order: 21
 status: ready
-tags: [tailwind, design-system]
+tags: [tailwind, design-system, oklch, bg-primary, "@theme", "@import", surface, primary]
 related: [tailwind/16-theme, tailwind/15-customization, tailwind/10-colors, tailwind/17-components, tailwind/22-accessibility]
 when_to_use: "Read before defining shared design tokens, scales, or a component library on Tailwind."
 ---

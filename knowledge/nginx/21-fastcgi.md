@@ -6,7 +6,7 @@ title: "FastCGI"
 type: doc
 order: 21
 status: ready
-tags: [nginx, fastcgi]
+tags: [nginx, fastcgi, SCRIPT_FILENAME, fastcgi_cache, fastcgi_read_timeout, proxy_pass, proxy_set_header, try_files]
 related: [nginx/22-php-fpm, nginx/19-proxying-applications, nginx/07-static-files, nginx/13-security, nginx/04-location-blocks]
 when_to_use: "Read before wiring nginx to any FastCGI backend (PHP-FPM, Python flup, Perl) with fastcgi_pass."
 ---

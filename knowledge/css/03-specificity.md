@@ -6,7 +6,7 @@ title: "Specificity"
 type: doc
 order: 3
 status: ready
-tags: [css, specificity]
+tags: [css, specificity, "@layer", selector-max-specificity, selector-max-id]
 related: [css/02-selectors, css/01-css-fundamentals, css/21-architecture, css/29-css-methodologies, css/28-best-practices]
 when_to_use: "Read before writing a selector that overrides another, or when a rule isn't applying and you don't know why."
 ---

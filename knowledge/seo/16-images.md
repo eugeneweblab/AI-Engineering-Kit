@@ -6,7 +6,7 @@ title: "SEO Images"
 type: doc
 order: 16
 status: ready
-tags: [seo, images]
+tags: [seo, images, srcset, height, width, aspect-ratio, space]
 related: [seo/12-performance, seo/13-core-web-vitals, seo/09-structured-data, seo/05-metadata, seo/17-links]
 when_to_use: "Read before adding images to a page, building a gallery, or optimizing image weight and Image Search visibility."
 ---

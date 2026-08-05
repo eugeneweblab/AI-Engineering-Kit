@@ -6,7 +6,7 @@ title: "Output Encoding"
 type: doc
 order: 10
 status: ready
-tags: [security, output-encoding]
+tags: [security, output-encoding, v-html, "javascript:", https, dangerouslySetInnerHTML, http, steal]
 related: [security/11-xss, security/09-input-validation, security/13-sql-injection, security/20-csp]
 when_to_use: "Read before rendering any dynamic data into HTML, JS, SQL, shell, URLs, or other interpreted output."
 ---

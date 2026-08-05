@@ -6,7 +6,7 @@ title: "ESLint"
 type: doc
 order: 4
 status: ready
-tags: [tools, eslint]
+tags: [tools, eslint, eslint-config-prettier, prettier, eslint-plugin-prettier]
 related: [tools/05-prettier, tools/03-typescript-compiler, tools/16-git-hooks, tools/08-static-analysis, tools/30-engineering-principles]
 when_to_use: "Read before configuring ESLint or adding rules — writing flat config, integrating TypeScript rules, or deciding what belongs in a linter versus a formatter."
 ---

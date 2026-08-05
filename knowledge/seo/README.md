@@ -6,7 +6,7 @@ title: "SEO Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [seo]
+tags: [seo, readme, noindex, Disallow]
 related: []
 when_to_use: "Read first when starting SEO work, to see how this section's docs fit together and which technical concern applies."
 ---

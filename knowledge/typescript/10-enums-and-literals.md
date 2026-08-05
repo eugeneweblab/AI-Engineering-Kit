@@ -6,7 +6,7 @@ title: "Enums And Literals"
 type: doc
 order: 10
 status: ready
-tags: [typescript, enums-and-literals]
+tags: [typescript, enums-and-literals, assertNever, never, label, includes, isolatedModules]
 related: [typescript/11-unions-and-intersections, typescript/07-type-aliases, typescript/12-type-guards, typescript/06-interfaces]
 when_to_use: "Read before modeling a fixed set of named values — a status, a role, a mode, a variant tag — and when deciding between an enum and a literal union."
 ---

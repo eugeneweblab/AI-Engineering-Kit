@@ -6,7 +6,7 @@ title: "NestJS Authentication"
 type: doc
 order: 15
 status: ready
-tags: [nestjs, authentication]
+tags: [nestjs, authentication, Column, UnauthorizedException, Injectable, AuthService, HttpCode, hash]
 related: [nestjs/16-authorization, nestjs/09-guards, security/03-authentication, security/07-jwt]
 when_to_use: "Read before building or reviewing any login, signup, session, token, or credential-handling code."
 ---

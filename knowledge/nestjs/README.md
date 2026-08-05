@@ -6,7 +6,7 @@ title: "NestJS Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [nestjs]
+tags: [nestjs, readme]
 related: []
 when_to_use: "Read first when building, reviewing, or scaling a NestJS backend."
 ---

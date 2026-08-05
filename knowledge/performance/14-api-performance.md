@@ -6,7 +6,7 @@ title: "API Performance"
 type: doc
 order: 14
 status: ready
-tags: [performance, api-performance]
+tags: [performance, api-performance, withTimeout, getUser, ETag, Cache-Control, asyncio.gather]
 related: [performance/13-database-performance, performance/08-caching, performance/05-network, performance/17-monitoring, performance/02-metrics]
 when_to_use: "Read before designing or reviewing an HTTP/RPC endpoint's latency, payload, or concurrency behavior."
 ---

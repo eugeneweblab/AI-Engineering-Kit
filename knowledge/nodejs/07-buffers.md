@@ -6,7 +6,7 @@ title: "Buffers"
 type: doc
 order: 7
 status: ready
-tags: [nodejs, buffers]
+tags: [nodejs, buffers, Buffer, toString, equals, crypto.timingSafeEqual, timingSafeEqual, randomBytes]
 related: [nodejs/06-streams, nodejs/05-file-system, nodejs/18-security, nodejs/20-memory-management, nodejs/16-error-handling]
 when_to_use: "Read before allocating, slicing, encoding, or comparing raw binary data in Node.js."
 ---

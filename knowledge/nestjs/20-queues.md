@@ -6,7 +6,7 @@ title: "NestJS Queues"
 type: doc
 order: 20
 status: ready
-tags: [nestjs, queues]
+tags: [nestjs, queues, Processor, IsString, IsEmail, Injectable, sendWelcome, sendConfirmation]
 related: [nestjs/21-events, nestjs/23-distributed-systems, backend/16-background-jobs, redis/16-message-queues]
 when_to_use: "Read before building or reviewing background jobs, queues, or asynchronous work moved outside the request lifecycle."
 ---

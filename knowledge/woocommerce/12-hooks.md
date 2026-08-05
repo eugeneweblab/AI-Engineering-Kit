@@ -6,7 +6,7 @@ title: "WooCommerce Hooks"
 type: doc
 order: 12
 status: ready
-tags: [woocommerce, hooks]
+tags: [woocommerce, hooks, add_action, add_filter, round, remove_action, functions.php, is_admin]
 related: [woocommerce/01-architecture, woocommerce/17-customization, woocommerce/15-performance, woocommerce/16-security, woocommerce/100-common-antipatterns]
 when_to_use: "Read before adding, filtering, or overriding any WooCommerce behavior with actions or filters."
 ---

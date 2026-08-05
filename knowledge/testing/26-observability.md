@@ -6,7 +6,7 @@ title: "Testing Observability"
 type: doc
 order: 26
 status: ready
-tags: [testing, observability]
+tags: [testing, observability, increment, toContainEqual, objectContaining, label]
 related: [testing/25-production-testing, testing/23-debugging-tests, testing/15-performance-testing, testing/04-e2e-testing, testing/27-quality-gates]
 when_to_use: "Read before relying on production signals to test behavior, or when writing tests that assert on emitted telemetry."
 ---

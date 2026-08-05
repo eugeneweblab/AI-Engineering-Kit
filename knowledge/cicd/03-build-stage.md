@@ -6,7 +6,7 @@ title: "Build Stage"
 type: doc
 order: 3
 status: ready
-tags: [cicd, build-stage]
+tags: [cicd, build-stage, GIT_SHA, "node:latest"]
 related: [cicd/02-pipeline-design, cicd/04-test-stage, cicd/07-artifacts, cicd/08-versioning, cicd/21-docker-integration]
 when_to_use: "Read before writing or reviewing the build job that compiles/packages an app in CI."
 ---

@@ -6,7 +6,7 @@ title: "Sitemaps"
 type: doc
 order: 7
 status: ready
-tags: [seo, sitemaps]
+tags: [seo, sitemaps, lastmod, robots.txt, noindex, "Sitemap:", priority]
 related: [seo/02-crawling, seo/03-indexing, seo/08-robots-txt, seo/06-canonicalization]
 when_to_use: "Read before generating or changing an XML sitemap, especially for large, frequently-updated, or JavaScript-rendered sites."
 ---

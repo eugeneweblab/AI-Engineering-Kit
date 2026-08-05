@@ -6,7 +6,7 @@ title: "Scope And Closures"
 type: doc
 order: 3
 status: ready
-tags: [javascript, scope-and-closures]
+tags: [javascript, scope-and-closures, setTimeout]
 related: [javascript/00-overview, javascript/02-execution-context, javascript/04-functions, javascript/15-memory-management, javascript/21-functional-programming]
 when_to_use: "Read before writing loops that create callbacks, timers, or event handlers, or any factory function."
 ---

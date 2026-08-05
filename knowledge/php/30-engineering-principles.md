@@ -6,7 +6,7 @@ title: "PHP Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [php, engineering-principles]
+tags: [php, engineering-principles, capture, phpstan, StripeGateway, __construct, InvalidArgumentException, charge]
 related: [php/22-clean-code, php/26-best-practices, php/24-psr-standards, php/20-dependency-injection, php/28-tooling]
 when_to_use: "Read before designing a new PHP module, service, or package to set the engineering baseline."
 ---

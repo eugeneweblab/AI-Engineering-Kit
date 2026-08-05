@@ -6,7 +6,7 @@ title: "Frontend AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [frontend, ai-review-checklist]
+tags: [frontend, ai-review-checklist, loading, label, button, localStorage, prefers-reduced-motion]
 related: [frontend/30-engineering-principles, frontend/100-common-antipatterns, frontend/98-production-checklist, frontend/22-testing, frontend/27-best-practices]
 when_to_use: "Read before reviewing a frontend diff or pull request; run each group against the changed code."
 ---

@@ -6,7 +6,7 @@ title: "PHP Best Practices"
 type: doc
 order: 26
 status: ready
-tags: [php, best-practices]
+tags: [php, best-practices, DomainException, declare, InvalidArgumentException, final, self, readonly]
 related: [php/23-modern-php, php/22-clean-code, php/02-types, php/09-exceptions, php/13-security]
 when_to_use: "Read before writing or reviewing any non-trivial PHP class or function."
 ---

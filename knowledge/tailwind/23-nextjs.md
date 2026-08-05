@@ -6,7 +6,7 @@ title: "Next.js"
 type: doc
 order: 23
 status: ready
-tags: [tailwind, nextjs]
+tags: [tailwind, nextjs, postcss-import, autoprefixer, "@tailwindcss", RootLayout, className, Providers]
 related: [tailwind/01-installation, tailwind/24-react, tailwind/12-dark-mode, tailwind/16-theme, tailwind/19-performance]
 when_to_use: "Read before setting up or reviewing Tailwind in a Next.js App Router project."
 ---

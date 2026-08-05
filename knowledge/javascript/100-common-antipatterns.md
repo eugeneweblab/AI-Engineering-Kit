@@ -6,7 +6,7 @@ title: "JavaScript Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [javascript, common-antipatterns]
+tags: [javascript, common-antipatterns, res.ok, save, innerHTML, addEventListener, setTimeout]
 related: [javascript/30-engineering-principles, javascript/14-error-handling, javascript/08-asynchronous-javascript, javascript/16-this-keyword, javascript/26-security]
 when_to_use: "Read when writing or reviewing JavaScript to recognize and remove recurring failure patterns."
 ---

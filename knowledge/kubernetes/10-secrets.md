@@ -6,7 +6,7 @@ title: "Kubernetes Secrets"
 type: doc
 order: 10
 status: ready
-tags: [kubernetes, secrets]
+tags: [kubernetes, secrets, tmpfs, list, base64, password, DB_PASSWORD]
 related: [kubernetes/09-configmaps, kubernetes/18-rbac, kubernetes/22-security, kubernetes/11-volumes, kubernetes/08-ingress]
 when_to_use: "Read before handling any credential, token, key, or certificate in a cluster — creation, injection, or review."
 ---

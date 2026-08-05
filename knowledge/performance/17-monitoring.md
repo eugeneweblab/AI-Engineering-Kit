@@ -6,7 +6,7 @@ title: "Performance Monitoring"
 type: doc
 order: 17
 status: ready
-tags: [performance, monitoring]
+tags: [performance, monitoring, labels, REQUEST_DURATION, histogram_quantile, call_next, "@app", symptom]
 related: [performance/02-metrics, performance/16-profiling, performance/25-production-monitoring, performance/14-api-performance, performance/26-debugging]
 when_to_use: "Read before adding metrics, dashboards, or alerts, or when a production slowdown has no visibility."
 ---

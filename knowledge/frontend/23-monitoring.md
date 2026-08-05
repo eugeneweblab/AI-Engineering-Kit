@@ -6,7 +6,7 @@ title: "Frontend Monitoring"
 type: doc
 order: 23
 status: ready
-tags: [frontend, monitoring]
+tags: [frontend, monitoring, sendBeacon, beforeSend, stringify, keepalive, "@sentry", onLCP]
 related: [frontend/08-performance, frontend/13-error-handling, frontend/14-security, frontend/26-production]
 when_to_use: "Read before instrumenting a frontend app with error tracking, performance, or analytics — or reviewing existing telemetry."
 ---

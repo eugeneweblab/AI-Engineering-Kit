@@ -6,7 +6,7 @@ title: "SEO Real World Patterns"
 type: doc
 order: 28
 status: ready
-tags: [seo, real-world-patterns]
+tags: [seo, real-world-patterns, noindex, preventDefault, querySelector, addEventListener, onClick]
 related: [seo/19-javascript-seo, seo/20-headless-seo, seo/04-rendering, seo/06-canonicalization, seo/18-pagination]
 when_to_use: "Read before implementing a common SEO-sensitive feature — SPA routing, faceted navigation, infinite scroll, pagination, or migrations."
 ---

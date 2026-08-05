@@ -6,7 +6,7 @@ title: "Tailwind CSS Sizing"
 type: doc
 order: 8
 status: ready
-tags: [tailwind, sizing]
+tags: [tailwind, sizing, min-w-0, w-full, max-w-prose, w-64, flex-1, truncate]
 related: [tailwind/07-spacing, tailwind/06-grid, tailwind/05-flexbox, tailwind/11-responsive-design, tailwind/04-layout]
 when_to_use: "Read before setting widths, heights, or constraints — especially when content length is unknown or the element must stay responsive."
 ---

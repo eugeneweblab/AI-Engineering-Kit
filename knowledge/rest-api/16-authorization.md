@@ -6,7 +6,7 @@ title: "REST API Authorization"
 type: doc
 order: 16
 status: ready
-tags: [rest-api, authorization]
+tags: [rest-api, authorization, NotFound, getOrder, Forbidden, includes, findOne, findById]
 related: [rest-api/15-authentication, rest-api/24-security, rest-api/07-status-codes, rest-api/04-endpoints, rest-api/09-error-handling]
 when_to_use: "Read before adding or reviewing any check that decides whether a caller may access a resource or action."
 ---

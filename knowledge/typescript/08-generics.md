@@ -6,7 +6,7 @@ title: "Generics"
 type: doc
 order: 8
 status: ready
-tags: [typescript, generics]
+tags: [typescript, generics, unknown, expectTypeError]
 related: [typescript/06-interfaces, typescript/07-type-aliases, typescript/09-utility-types, typescript/13-advanced-types]
 when_to_use: "Read before writing a function, class, or type that must work over many types while preserving the relationship between input and output types."
 ---

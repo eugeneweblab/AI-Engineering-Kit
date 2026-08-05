@@ -6,7 +6,7 @@ title: "React Folder Structure"
 type: doc
 order: 22
 status: ready
-tags: [react, folder-structure]
+tags: [react, folder-structure, ProductCard, LoginForm, index.ts, checkout, useActionState, PascalCase]
 related: [react/02-component-architecture, react/23-code-style, react/30-engineering-principles, react/18-state-management, react/09-custom-hooks, nextjs/27-folder-structure]
 when_to_use: "Read before creating new files or organizing the folder and directory structure of a React project."
 ---

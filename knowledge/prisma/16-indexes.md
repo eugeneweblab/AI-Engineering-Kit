@@ -6,7 +6,7 @@ title: "Prisma Indexes"
 type: doc
 order: 16
 status: ready
-tags: [prisma, indexes]
+tags: [prisma, indexes, "@default", "@index", cuid, DateTime, orderBy]
 related: [prisma/15-performance, prisma/02-schema, prisma/05-migrations, prisma/09-filtering]
 when_to_use: "Read before adding indexes to a Prisma schema or diagnosing slow filters, sorts, or joins."
 ---

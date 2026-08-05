@@ -6,7 +6,7 @@ title: "Kubernetes Integration"
 type: doc
 order: 22
 status: ready
-tags: [cicd, kubernetes-integration]
+tags: [cicd, kubernetes-integration, readinessProbe, cluster-admin, RollingUpdate, requests, limits, livenessProbe]
 related: [cicd/10-deployment, cicd/14-rollbacks, cicd/16-environments, cicd/21-docker-integration]
 when_to_use: "Read before deploying to Kubernetes from a pipeline or reviewing a rollout config."
 ---

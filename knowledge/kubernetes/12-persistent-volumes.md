@@ -6,7 +6,7 @@ title: "Persistent Volumes"
 type: doc
 order: 12
 status: ready
-tags: [kubernetes, persistent-volumes]
+tags: [kubernetes, persistent-volumes, ReadWriteOnce, emptyDir, ReadWriteMany, volumeClaimTemplates, hostPath, Pending]
 related: [kubernetes/11-volumes, kubernetes/13-statefulsets, kubernetes/19-resource-management, kubernetes/28-disaster-recovery, kubernetes/26-production]
 when_to_use: "Read before requesting, provisioning, or reviewing durable storage that must survive pod restarts and rescheduling."
 ---

@@ -6,7 +6,7 @@ title: "Robots Txt"
 type: doc
 order: 8
 status: ready
-tags: [seo, robots-txt]
+tags: [seo, robots-txt, robots.txt, noindex, Disallow, "Sitemap:", Allow, X-Robots-Tag]
 related: [seo/02-crawling, seo/03-indexing, seo/07-sitemaps, seo/04-rendering]
 when_to_use: "Read before editing robots.txt or trying to keep a URL out of Google — the wrong tool here removes pages from the index or leaks private ones."
 ---

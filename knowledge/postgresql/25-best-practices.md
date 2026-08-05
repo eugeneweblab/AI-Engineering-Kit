@@ -6,7 +6,7 @@ title: "PostgreSQL Best Practices"
 type: doc
 order: 25
 status: ready
-tags: [postgresql, best-practices]
+tags: [postgresql, best-practices, invoice, numeric, timestamp, timestamptz, float, CHECK]
 related: [postgresql/04-indexes, postgresql/06-transactions, postgresql/22-migrations, postgresql/16-performance, postgresql/100-common-antipatterns]
 when_to_use: "Read before designing a schema, writing queries, or reviewing any PostgreSQL data-access code."
 ---

@@ -6,7 +6,7 @@ title: "Animation Analysis"
 type: doc
 order: 17
 status: ready
-tags: [figma, animation-analysis]
+tags: [figma, animation-analysis, prefers-reduced-motion, "@media", media, transform-origin, animation-iteration-count, animation-duration]
 related: [figma/02-layout-analysis, css/16-animations, accessibility/14-motion-and-animation]
 when_to_use: "Read before implementing animations or motion from a Figma design, to understand their intent and reuse patterns."
 ---

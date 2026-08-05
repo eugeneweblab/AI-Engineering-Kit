@@ -6,7 +6,7 @@ title: "SQL Architecture"
 type: doc
 order: 28
 status: ready
-tags: [sql, architecture]
+tags: [sql, architecture, CHECK, UNIQUE, customers, BIGINT, CONCURRENTLY]
 related: [sql/12-ddl, sql/18-views, sql/20-stored-procedures, sql/14-transactions, sql/23-performance]
 when_to_use: "Read before designing a schema, choosing where business logic lives, or planning how the database scales."
 ---

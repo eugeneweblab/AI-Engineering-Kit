@@ -6,7 +6,7 @@ title: "Code Modification"
 type: doc
 order: 4
 status: ready
-tags: [ai, code-modification]
+tags: [ai, code-modification, formatPrice, NumberFormat, applyDiscount, API_URL, HttpError, format]
 related: [ai/03-code-generation, ai/06-self-verification, workflows/04-refactor-existing-code]
 when_to_use: "Read before modifying existing code to make the smallest safe change without breaking behavior."
 ---

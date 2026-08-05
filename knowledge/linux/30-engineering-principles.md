@@ -6,7 +6,7 @@ title: "Linux Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [linux, engineering-principles]
+tags: [linux, engineering-principles, ProtectSystem, NoNewPrivileges, EnvironmentFile, nohup, WantedBy, RestartSec]
 related: [linux/26-best-practices, linux/05-permissions, linux/08-systemd, linux/24-scripting, linux/98-production-checklist]
 when_to_use: "Read before building, provisioning, or automating any Linux host or service you expect to run in production."
 ---

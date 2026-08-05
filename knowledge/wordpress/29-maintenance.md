@@ -6,7 +6,7 @@ title: "WordPress Maintenance"
 type: doc
 order: 29
 status: ready
-tags: [wordpress, maintenance]
+tags: [wordpress, maintenance, "@staging", "@production", define, only, in_array, add_filter]
 related: [wordpress/27-deployment, wordpress/26-wp-cli, wordpress/06-security, wordpress/23-caching, wordpress/98-production-checklist, wordpress/22-cron-and-background-tasks]
 when_to_use: "Read when planning ongoing care of a WordPress site — update strategy, backups, plugin audits, database hygiene, and monitoring."
 ---

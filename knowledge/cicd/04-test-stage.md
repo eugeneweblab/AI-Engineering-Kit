@@ -6,7 +6,7 @@ title: "Test Stage"
 type: doc
 order: 4
 status: ready
-tags: [cicd, test-stage]
+tags: [cicd, test-stage, isValid, toBe, setTimeout, useRealTimers, useFakeTimers, afterEach]
 related: [cicd/02-pipeline-design, cicd/03-build-stage, cicd/05-quality-gates, cicd/06-security-scanning, cicd/26-performance]
 when_to_use: "Read before adding, ordering, or debugging automated tests that run in a pipeline."
 ---

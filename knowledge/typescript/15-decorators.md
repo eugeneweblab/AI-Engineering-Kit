@@ -6,7 +6,7 @@ title: "Decorators"
 type: doc
 order: 15
 status: ready
-tags: [typescript, decorators]
+tags: [typescript, decorators, Injectable, target, metadata, apply, kind]
 related: [typescript/16-configuration, typescript/13-advanced-types, typescript/22-design-patterns, typescript/14-modules]
 when_to_use: "Read before writing a decorator, or picking between the standard and legacy `experimentalDecorators` modes."
 ---

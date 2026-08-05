@@ -6,7 +6,7 @@ title: "Node.js Configuration"
 type: doc
 order: 15
 status: ready
-tags: [nodejs, configuration]
+tags: [nodejs, configuration, process.env, JWT_SECRET, freeze, positive, DATABASE_URL]
 related: [nodejs/14-environment, nodejs/18-security, nodejs/16-error-handling, nodejs/26-deployment, nodejs/28-best-practices]
 when_to_use: "Read before designing how an application loads, validates, and exposes its configuration object."
 ---

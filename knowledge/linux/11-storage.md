@@ -6,7 +6,7 @@ title: "Storage"
 type: doc
 order: 11
 status: ready
-tags: [linux, storage]
+tags: [linux, storage, mkfs, disk, partition]
 related: [linux/01-filesystem, linux/20-backups, linux/16-monitoring, linux/19-debugging, linux/25-production]
 when_to_use: "Read before partitioning, mounting, resizing, or diagnosing disk and filesystem issues on Linux."
 ---

@@ -6,7 +6,7 @@ title: "SQL Tooling"
 type: doc
 order: 29
 status: ready
-tags: [sql, tooling]
+tags: [sql, tooling, pg_stat_statements, migrate, log_min_duration_statement, EXPLAIN]
 related: [sql/12-ddl, sql/16-query-planning, sql/24-testing, sql/25-debugging, sql/23-performance]
 when_to_use: "Read when setting up migrations, linting, or observability for a SQL codebase."
 ---

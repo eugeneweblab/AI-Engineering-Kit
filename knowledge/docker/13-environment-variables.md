@@ -6,7 +6,7 @@ title: "Environment Variables"
 type: doc
 order: 13
 status: ready
-tags: [docker, environment-variables]
+tags: [docker, environment-variables, ARG, DATABASE_URL, "@prod-db", JWT_SECRET, API_KEY, DB_PASSWORD]
 related: [docker/14-secrets, docker/12-docker-compose, docker/08-dockerfile, docker/18-security]
 when_to_use: "Read before passing configuration into a container or reviewing how a Dockerfile or compose file wires env vars."
 ---

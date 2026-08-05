@@ -6,7 +6,7 @@ title: "Utility Types"
 type: doc
 order: 9
 status: ready
-tags: [typescript, utility-types]
+tags: [typescript, utility-types, Pick, Omit, Required, Partial, PublicUser, Readonly]
 related: [typescript/07-type-aliases, typescript/08-generics, typescript/13-advanced-types, typescript/06-interfaces]
 when_to_use: "Read before deriving one type from another — a public view of a model, a partial update payload, a lookup map, or a function's return type."
 ---

@@ -6,7 +6,7 @@ title: "HTML Email"
 type: doc
 order: 24
 status: ready
-tags: [html, html-email]
+tags: [html, html-email, track, height, width, style, position]
 related: [html/05-images, html/10-metadata, html/11-accessibility, html/19-security, html/08-forms]
 when_to_use: "Read before building or reviewing any transactional or marketing email template."
 ---

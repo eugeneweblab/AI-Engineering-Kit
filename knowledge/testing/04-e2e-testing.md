@@ -6,7 +6,7 @@ title: "E2E Testing"
 type: doc
 order: 4
 status: ready
-tags: [testing, e2e-testing]
+tags: [testing, e2e-testing, getByRole, goto, waitForTimeout, click, toBeVisible, textContent]
 related: [testing/03-integration-testing, testing/13-ui-testing, testing/22-flaky-tests, testing/28-testing-strategy, testing/01-testing-fundamentals]
 when_to_use: "Read before writing or reviewing a test that drives the whole system through its real entry point."
 ---

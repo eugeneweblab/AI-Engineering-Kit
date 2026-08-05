@@ -6,7 +6,7 @@ title: "GraphQL Monitoring"
 type: doc
 order: 25
 status: ready
-tags: [graphql, monitoring]
+tags: [graphql, monitoring, observe, extensions.code, BAD_USER_INPUT, errors, increment]
 related: [graphql/20-error-handling, graphql/22-performance, graphql/15-n1-problem, graphql/27-production, graphql/24-testing]
 when_to_use: "Read before adding metrics, tracing, or logging to a GraphQL server, or when debugging why a query is slow in production."
 ---

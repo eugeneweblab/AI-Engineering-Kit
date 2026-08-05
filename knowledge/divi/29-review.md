@@ -6,7 +6,7 @@ title: "Review"
 type: doc
 order: 29
 status: ready
-tags: [divi, review]
+tags: [divi, review, preset, builder, unfiltered_html]
 related: [divi/28-ai-workflow, divi/99-ai-review-checklist, divi/10-performance, divi/12-accessibility, divi/19-security]
 when_to_use: "Read before reviewing a Divi build or an AI-generated Divi change, so nothing that corrupts structure, performance, or security ships."
 ---

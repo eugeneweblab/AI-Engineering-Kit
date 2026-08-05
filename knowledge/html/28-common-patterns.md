@@ -6,7 +6,7 @@ title: "Common Patterns"
 type: doc
 order: 28
 status: ready
-tags: [html, common-patterns]
+tags: [html, common-patterns, aria-current, aria-selected, aria-controls, aria-expanded, toggle]
 related: [html/02-semantic-html, html/08-forms, html/11-accessibility, html/21-best-practices, html/23-progressive-enhancement]
 when_to_use: "Read before hand-building a common UI widget (nav, accordion, tabs, modal, card) in HTML."
 ---

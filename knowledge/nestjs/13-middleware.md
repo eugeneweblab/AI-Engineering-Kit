@@ -6,7 +6,7 @@ title: "NestJS Middleware"
 type: doc
 order: 13
 status: ready
-tags: [nestjs, middleware]
+tags: [nestjs, middleware, Injectable, NextFunction, Module, configure, AsyncLocalStorage, setHeader]
 related: [nestjs/09-guards, nestjs/10-interceptors, nestjs/24-observability]
 when_to_use: "Read before adding or reviewing middleware that preprocesses requests before they reach the NestJS pipeline."
 ---

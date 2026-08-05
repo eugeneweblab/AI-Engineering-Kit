@@ -6,7 +6,7 @@ title: "Integrations"
 type: doc
 order: 29
 status: ready
-tags: [github, integrations]
+tags: [github, integrations, admin, write, timingSafeEqual, digest, github-actions]
 related: [github/22-api, github/21-permissions, github/16-secret-scanning, github/26-automation, github/08-actions]
 when_to_use: "Read before installing a GitHub App, issuing a token, or reviewing how a third party accesses your repos."
 ---

@@ -6,7 +6,7 @@ title: "Database Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [databases, production-checklist]
+tags: [databases, production-checklist, EXPLAIN, decimal, timestamptz, numeric, float, OFFSET]
 related: [databases/18-backup-and-recovery, databases/14-replication, databases/21-monitoring, databases/19-security, databases/17-migrations]
 when_to_use: "Read before promoting any database or data-access change to production, and during launch readiness reviews."
 ---

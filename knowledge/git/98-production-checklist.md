@@ -6,7 +6,7 @@ title: "Git Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [git, production-checklist]
+tags: [git, production-checklist, vMAJOR.MINOR.PATCH, README, user.email, pre-commit]
 related: [git/12-tags, git/16-push, git/20-hooks, git/28-security, git/27-best-practices]
 when_to_use: "Read before cutting a release, setting up branch protection, or hardening a repository for a team."
 ---

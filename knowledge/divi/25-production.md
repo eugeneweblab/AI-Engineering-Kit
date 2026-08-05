@@ -6,7 +6,7 @@ title: "Divi Production"
 type: doc
 order: 25
 status: ready
-tags: [divi, production]
+tags: [divi, production, define, DISALLOW_FILE_EDIT, noindex, wp-admin, WP_AUTO_UPDATE_CORE, FORCE_SSL_ADMIN]
 related: [divi/10-performance, divi/22-deployment, divi/19-security, divi/98-production-checklist, divi/13-seo]
 when_to_use: "Read before launching or hardening a Divi site so it ships fast, secure, and safe to update in production."
 ---

@@ -6,7 +6,7 @@ title: "History"
 type: doc
 order: 18
 status: ready
-tags: [git, history]
+tags: [git, history, lines]
 related: [git/04-commits, git/19-reflog, git/07-rebasing, git/26-debugging, git/27-best-practices]
 when_to_use: "Read before investigating how or when code changed — searching, blaming, or auditing commit history."
 ---

@@ -6,7 +6,7 @@ title: "NestJS Observability"
 type: doc
 order: 24
 status: ready
-tags: [nestjs, observability]
+tags: [nestjs, observability, HealthCheck, write, "@opentelemetry", Controller, Injectable, check]
 related: [nestjs/10-interceptors, nestjs/29-maintenance, architecture/18-observability, nodejs/17-logging]
 when_to_use: "Read before adding or reviewing logging, metrics, tracing, or health checks for a NestJS service."
 ---

@@ -6,7 +6,7 @@ title: "HTML Metadata"
 type: doc
 order: 10
 status: ready
-tags: [html, metadata]
+tags: [html, metadata, "og:image", charset, "og:title", "og:type", nofollow, "og:url"]
 related: [html/01-document-structure, html/12-seo, html/13-structured-data, html/11-accessibility]
 when_to_use: "Read before setting up a page's <head>, social previews, or viewport behaviour."
 ---

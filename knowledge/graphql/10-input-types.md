@@ -6,7 +6,7 @@ title: "Input Types"
 type: doc
 order: 10
 status: ready
-tags: [graphql, input-types]
+tags: [graphql, input-types, GraphQLError, input, createUser, CreateUserInput, EmailAddress, BAD_USER_INPUT]
 related: [graphql/05-mutations, graphql/09-scalars, graphql/03-types, graphql/17-security, graphql/29-schema-evolution]
 when_to_use: "Read before defining arguments for a mutation or query, especially any operation that takes structured or optional input."
 ---

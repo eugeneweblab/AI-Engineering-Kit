@@ -6,7 +6,7 @@ title: "Client Projects"
 type: doc
 order: 27
 status: ready
-tags: [divi, client-projects]
+tags: [divi, client-projects, remove_cap, get_role, add_action]
 related: [divi/24-best-practices, divi/23-maintenance, divi/06-global-elements, divi/22-deployment, divi/12-accessibility]
 when_to_use: "Read when building a Divi site that a non-technical client will own and edit after handoff."
 ---

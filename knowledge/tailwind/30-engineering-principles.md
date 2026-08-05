@@ -6,7 +6,7 @@ title: "Tailwind CSS Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [tailwind, engineering-principles]
+tags: [tailwind, engineering-principles, tailwind.config.js, Button, prettier-plugin-tailwindcss, tailwind-merge, oklch, "@theme"]
 related: [tailwind/03-utility-first, tailwind/21-design-system, tailwind/26-best-practices, tailwind/19-performance, tailwind/100-common-antipatterns]
 when_to_use: "Read before starting or reviewing any Tailwind codebase to set the design-system and utility conventions the rest of the work follows."
 ---

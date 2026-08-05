@@ -6,7 +6,7 @@ title: "GraphQL Fundamentals"
 type: doc
 order: 1
 status: ready
-tags: [graphql, graphql-fundamentals]
+tags: [graphql, graphql-fundamentals, subscription, mutation, errors]
 related: [graphql/02-schema, graphql/04-queries, graphql/05-mutations, graphql/07-resolvers, graphql/00-overview]
 when_to_use: "Read before designing or reviewing any GraphQL API, to ground decisions in how the execution model actually works."
 ---

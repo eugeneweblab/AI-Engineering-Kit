@@ -6,7 +6,7 @@ title: "Elastic Load Balancer"
 type: doc
 order: 10
 status: ready
-tags: [aws, elastic-load-balancer]
+tags: [aws, elastic-load-balancer, fast, interval]
 related: [aws/06-vpc, aws/09-acm, aws/11-auto-scaling, aws/31-high-availability, aws/03-ec2]
 when_to_use: "Read before putting a load balancer in front of a service — choosing ALB vs NLB, configuring listeners, health checks, or TLS termination."
 ---

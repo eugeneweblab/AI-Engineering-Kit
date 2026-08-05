@@ -6,7 +6,7 @@ title: "Linux Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [linux, common-antipatterns]
+tags: [linux, common-antipatterns, chown, shellcheck, nohup, enable]
 related: [linux/24-scripting, linux/05-permissions, linux/08-systemd, linux/17-security, linux/99-ai-review-checklist]
 when_to_use: "Read when writing or reviewing Linux scripts, permissions, or service config to recognize and avoid the classic mistakes."
 ---

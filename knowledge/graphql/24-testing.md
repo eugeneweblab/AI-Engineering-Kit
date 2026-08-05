@@ -6,7 +6,7 @@ title: "GraphQL Testing"
 type: doc
 order: 24
 status: ready
-tags: [graphql, testing]
+tags: [graphql, testing, errors, graphql, toBe, toEqual, serialize, parseValue]
 related: [graphql/07-resolvers, graphql/16-dataloader, graphql/20-error-handling, graphql/29-schema-evolution, graphql/25-monitoring]
 when_to_use: "Read before writing or reviewing tests for a GraphQL schema, resolvers, or client operations."
 ---

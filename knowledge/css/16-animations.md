@@ -6,7 +6,7 @@ title: "CSS Animations"
 type: doc
 order: 16
 status: ready
-tags: [css, animations]
+tags: [css, animations, "@keyframes", translateY, opacity, transform, transition, rotate]
 related: [css/15-transitions, css/14-transforms, css/22-performance, css/23-accessibility]
 when_to_use: "Read before building keyframe animations, loops, spinners, or multi-step motion."
 ---

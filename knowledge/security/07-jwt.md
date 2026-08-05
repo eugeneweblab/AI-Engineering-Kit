@@ -6,7 +6,7 @@ title: "JWT"
 type: doc
 order: 7
 status: ready
-tags: [security, jwt]
+tags: [security, jwt, verifyAccessToken, localStorage]
 related: [security/03-authentication, security/06-session-management, security/08-oauth, security/16-secrets-management]
 when_to_use: "Read before issuing, verifying, or storing JSON Web Tokens for auth or API access."
 ---

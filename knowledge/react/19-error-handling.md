@@ -6,7 +6,7 @@ title: "React Error Handling"
 type: doc
 order: 19
 status: ready
-tags: [react, error-handling]
+tags: [react, error-handling, ErrorBoundary, setError, DeleteButton, deleteItem, handleClick, reportError]
 related: [react/15-forms, react/16-data-fetching, react/20-accessibility, react/28-production, frontend/13-error-handling]
 when_to_use: "Read before implementing or reviewing error boundaries, fallbacks, and failure handling in React."
 ---

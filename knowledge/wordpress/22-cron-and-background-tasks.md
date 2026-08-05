@@ -6,7 +6,7 @@ title: "Cron and Background Tasks"
 type: doc
 order: 22
 status: ready
-tags: [wordpress, cron-and-background-tasks]
+tags: [wordpress, cron-and-background-tasks, time, add_action, MINUTE_IN_SECONDS, add_option, DISABLE_WP_CRON, get_posts]
 related: [wordpress/15-plugin-development, wordpress/26-wp-cli, wordpress/27-deployment, wordpress/28-debugging, wordpress/05-performance, wordpress/29-maintenance]
 when_to_use: "Read before scheduling recurring work — using WP-Cron, replacing it with a system cron, or processing a large job in batches."
 ---

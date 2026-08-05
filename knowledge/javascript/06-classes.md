@@ -6,7 +6,7 @@ title: "Classes"
 type: doc
 order: 6
 status: ready
-tags: [javascript, classes]
+tags: [javascript, classes, super, constructor, Counter, total, Cart, addEventListener]
 related: [javascript/05-objects-and-prototypes, javascript/16-this-keyword, javascript/04-functions, javascript/22-design-patterns]
 when_to_use: "Read before writing or reviewing any `class`, inheritance chain, or method that relies on `this`."
 ---

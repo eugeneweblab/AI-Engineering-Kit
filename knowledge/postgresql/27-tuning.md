@@ -6,7 +6,7 @@ title: "Tuning"
 type: doc
 order: 27
 status: ready
-tags: [postgresql, tuning]
+tags: [postgresql, tuning, work_mem, shared_buffers, max_connections, autovacuum_vacuum_scale_factor, effective_cache_size, EXPLAIN]
 related: [postgresql/02-configuration, postgresql/16-performance, postgresql/05-query-planner, postgresql/20-vacuum, postgresql/17-monitoring]
 when_to_use: "Read before changing PostgreSQL memory, planner, or autovacuum settings to improve performance."
 ---

@@ -6,7 +6,7 @@ title: "Interfaces"
 type: doc
 order: 6
 status: ready
-tags: [typescript, interfaces]
+tags: [typescript, interfaces, readonly, UserRepository, unknown, isAdmin, Repository, save]
 related: [typescript/07-type-aliases, typescript/05-objects, typescript/08-generics, typescript/11-unions-and-intersections]
 when_to_use: "Read before modeling the shape of an object, a public API contract, or a class you expect others to implement or extend."
 ---

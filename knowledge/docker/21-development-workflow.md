@@ -6,7 +6,7 @@ title: "Development Workflow"
 type: doc
 order: 21
 status: ready
-tags: [docker, development-workflow]
+tags: [docker, development-workflow, prod, node_modules, depends_on, compose.yaml, compose.override.yaml, DB_PASSWORD]
 related: [docker/12-docker-compose, docker/06-bind-mounts, docker/11-multi-stage-builds, docker/13-environment-variables, docker/22-production]
 when_to_use: "Read when setting up Docker for local development — compose files, live reload, and dev/prod parity."
 ---

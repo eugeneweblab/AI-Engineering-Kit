@@ -6,7 +6,7 @@ title: "WordPress Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [wordpress]
+tags: [wordpress, readme]
 related: []
 when_to_use: "Read first when building, reviewing, or maintaining a WordPress project (themes, plugins, or custom builds)."
 ---

@@ -6,7 +6,7 @@ title: "Hashes"
 type: doc
 order: 7
 status: ready
-tags: [redis, hashes]
+tags: [redis, hashes, HINCRBY, HGETALL, HSET, hash-max-listpack-entries, HMGET, HSCAN]
 related: [redis/03-strings, redis/06-sorted-sets, redis/12-expiration, redis/15-session-storage, redis/23-performance]
 when_to_use: "Read before modeling an object or record in Redis, or when choosing between a hash and many separate string keys."
 ---

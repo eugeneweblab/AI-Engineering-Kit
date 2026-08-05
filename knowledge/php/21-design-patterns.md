@@ -6,7 +6,7 @@ title: "PHP Design Patterns"
 type: doc
 order: 21
 status: ready
-tags: [php, design-patterns]
+tags: [php, design-patterns, InvalidArgumentException, plus, getInstance, self, total, __construct]
 related: [php/04-oop, php/20-dependency-injection, php/22-clean-code, php/100-common-antipatterns]
 when_to_use: "Read before reaching for a Gang-of-Four pattern, naming a class Manager/Factory/Strategy, or refactoring toward a known structure."
 ---

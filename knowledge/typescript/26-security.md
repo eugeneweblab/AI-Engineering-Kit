@@ -6,7 +6,7 @@ title: "TypeScript Security"
 type: doc
 order: 26
 status: ready
-tags: [typescript, security]
+tags: [typescript, security, CreateUser, noUncheckedIndexedAccess, JSON.parse, innerHTML, safeParse, email]
 related: [typescript/12-type-guards, typescript/17-error-handling, typescript/02-type-system, typescript/28-best-practices]
 when_to_use: "Read before handling untrusted input, parsing external data, or reviewing TypeScript code at a trust boundary."
 ---

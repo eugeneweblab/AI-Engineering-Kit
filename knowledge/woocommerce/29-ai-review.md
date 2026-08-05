@@ -6,7 +6,7 @@ title: "AI Review"
 type: doc
 order: 29
 status: ready
-tags: [woocommerce, ai-review]
+tags: [woocommerce, ai-review, WP_Query, get_posts, wc_get_orders, tables, wc_get_product, update_post_meta]
 related: [woocommerce/25-best-practices, woocommerce/16-security, woocommerce/05-orders, woocommerce/15-performance, woocommerce/100-common-antipatterns]
 when_to_use: "Read before reviewing, or asking an AI agent to review, any WooCommerce plugin, theme, or store customization."
 ---

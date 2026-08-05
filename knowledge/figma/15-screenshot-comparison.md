@@ -6,7 +6,7 @@ title: "Screenshot Comparison"
 type: doc
 order: 15
 status: ready
-tags: [figma, screenshot-comparison]
+tags: [figma, screenshot-comparison, goto, toHaveScreenshot, evaluate, readFileSync, FIGMA_FILE_KEY]
 related: [figma/13-visual-regression, figma/10-design-qa, testing/14-visual-regression]
   - figma/10-design-qa
   - figma/13-visual-regression

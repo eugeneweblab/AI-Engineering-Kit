@@ -6,7 +6,7 @@ title: "ACM"
 type: doc
 order: 9
 status: ready
-tags: [aws, acm]
+tags: [aws, acm, us-east-1, CloudFront]
 related: [aws/07-route53, aws/08-cloudfront, aws/10-elastic-load-balancer, aws/25-security]
 when_to_use: "Read before requesting, validating, or attaching a TLS certificate to CloudFront, an ALB, or API Gateway."
 ---

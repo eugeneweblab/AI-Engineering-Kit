@@ -6,7 +6,7 @@ title: "Styling"
 type: doc
 order: 15
 status: ready
-tags: [frontend, styling]
+tags: [frontend, styling, "--color-text", "--color-surface", prefers-color-scheme, prefers-reduced-motion, stylelint, padding-block]
 related: [frontend/16-css-architecture, frontend/03-design-systems, frontend/10-responsive-design, frontend/09-accessibility, frontend/17-animations]
 when_to_use: "Read before choosing a styling approach or writing component styles, tokens, or theming."
 ---

@@ -6,7 +6,7 @@ title: "Example — React Component"
 type: doc
 order: 2
 status: ready
-tags: [examples, react-component]
+tags: [examples, react-component, aProduct, button, findByRole, HttpResponse, ProductCard, toBeInTheDocument]
 related: [examples/01-rest-endpoint, workflows/08-build-react-component, react/13-component-composition, accessibility/04-keyboard-navigation, react/21-testing]
 when_to_use: "Read when building a React component end to end — props contract, every state, accessibility, and tests."
 ---

@@ -6,7 +6,7 @@ title: "JavaScript Clean Code"
 type: doc
 order: 23
 status: ready
-tags: [javascript, clean-code]
+tags: [javascript, clean-code, verifyPassword, authenticate, hasAccess, isValid]
 related: [javascript/21-functional-programming, javascript/22-design-patterns, javascript/14-error-handling, javascript/28-best-practices, javascript/30-engineering-principles]
 when_to_use: "Read before writing or reviewing everyday JavaScript for naming, function size, and readability."
 ---

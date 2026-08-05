@@ -6,7 +6,7 @@ title: "Tailwind CSS Typography"
 type: doc
 order: 9
 status: ready
-tags: [tailwind, typography]
+tags: [tailwind, typography, truncate, prose, min-w-0, font-sans, text-sm, text-lg]
 related: [tailwind/10-colors, tailwind/08-sizing, tailwind/16-theme, tailwind/22-accessibility, tailwind/11-responsive-design]
 when_to_use: "Read before styling any text — headings, body copy, labels, or long-form article content."
 ---

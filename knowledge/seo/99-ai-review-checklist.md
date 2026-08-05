@@ -6,7 +6,7 @@ title: "SEO AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [seo, ai-review-checklist]
+tags: [seo, ai-review-checklist, noindex, hreflang, X-Robots-Tag, robots.txt, robots]
 related: [seo/00-overview, seo/30-engineering-principles, seo/29-seo-review, seo/03-indexing, seo/06-canonicalization]
 when_to_use: "Read when reviewing a diff that touches routing, rendering, metadata, or any crawl/index signal."
 ---

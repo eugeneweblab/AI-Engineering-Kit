@@ -6,7 +6,7 @@ title: "Docker Secrets"
 type: doc
 order: 14
 status: ready
-tags: [docker, secrets]
+tags: [docker, secrets, ARG, NPM_TOKEN, POSTGRES_PASSWORD_FILE, COPY, "@github", "secrets:"]
 related: [docker/13-environment-variables, docker/12-docker-compose, docker/08-dockerfile, docker/18-security, docker/22-production]
 when_to_use: "Read before a container needs a password, token, API key, or private key at build or run time."
 ---

@@ -6,7 +6,7 @@ title: "Dynamic Content"
 type: doc
 order: 7
 status: ready
-tags: [divi, dynamic-content]
+tags: [divi, dynamic-content, get_post_meta, esc_html, get_post_field, Image, ceil, get_the_ID]
 related: [divi/02-theme-builder, divi/15-custom-fields, divi/14-woocommerce, divi/19-security, divi/06-global-elements]
 when_to_use: "Read before wiring a Divi module to post data, custom fields, or any value that must not be hard-coded."
 ---

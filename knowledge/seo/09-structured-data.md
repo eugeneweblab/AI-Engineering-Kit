@@ -6,7 +6,7 @@ title: "SEO Structured Data"
 type: doc
 order: 9
 status: ready
-tags: [seo, structured-data]
+tags: [seo, structured-data, "@type", "@context", InStock, Organization, LocalBusiness, Article]
 related: [seo/05-metadata, seo/10-open-graph, seo/03-indexing, seo/25-content-quality]
 when_to_use: "Read before adding schema.org / JSON-LD markup for rich results (products, articles, FAQs, breadcrumbs, reviews)."
 ---

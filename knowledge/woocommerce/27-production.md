@@ -6,7 +6,7 @@ title: "WooCommerce Production"
 type: doc
 order: 27
 status: ready
-tags: [woocommerce, production]
+tags: [woocommerce, production, define, WP_DEBUG_DISPLAY, STRIPE_SECRET_KEY, FORCE_SSL_ADMIN, DISALLOW_FILE_EDIT, WP_DEBUG]
 related: [woocommerce/22-deployment, woocommerce/23-monitoring, woocommerce/16-security, woocommerce/24-scaling, woocommerce/26-debugging]
 when_to_use: "Read before taking a WooCommerce store live or reviewing whether an existing one is production-ready."
 ---

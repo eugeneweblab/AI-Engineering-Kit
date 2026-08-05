@@ -6,7 +6,7 @@ title: "Global Infrastructure"
 type: doc
 order: 1
 status: ready
-tags: [aws, global-infrastructure]
+tags: [aws, global-infrastructure, us-east-1]
 related: [aws/00-overview, aws/06-vpc, aws/11-auto-scaling, aws/05-rds, aws/31-high-availability, aws/08-cloudfront]
 when_to_use: "Read before choosing a Region, laying out subnets, or designing for high availability."
 ---

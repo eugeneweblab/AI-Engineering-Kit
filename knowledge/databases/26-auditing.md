@@ -6,7 +6,7 @@ title: "Auditing"
 type: doc
 order: 26
 status: ready
-tags: [databases, auditing]
+tags: [databases, auditing, COALESCE, current_setting, tenant_id, Date, action]
 related: [databases/24-soft-delete, databases/09-transactions, databases/19-security, databases/25-multi-tenancy, databases/23-data-integrity]
 when_to_use: "Read before adding change history, an audit log, or 'who changed this and when' tracking to a database."
 ---

@@ -6,7 +6,7 @@ title: "Divi SEO"
 type: doc
 order: 13
 status: ready
-tags: [divi, seo]
+tags: [divi, seo, add_theme_support, remove_action, "@type", "@context", example.com]
 related: [divi/10-performance, divi/12-accessibility, divi/02-theme-builder, divi/07-dynamic-content, divi/25-production]
 when_to_use: "Read before launching a Divi site or building templates that need to rank and render correctly in search."
 ---

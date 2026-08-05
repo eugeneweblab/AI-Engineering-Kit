@@ -6,7 +6,7 @@ title: "Webpack"
 type: doc
 order: 10
 status: ready
-tags: [tools, webpack]
+tags: [tools, webpack, resolve, webpack-bundle-analyzer, production, tsconfig.json]
 related: [tools/09-vite, tools/11-esbuild-and-swc, tools/12-babel, tools/18-monorepo-tools, tools/30-engineering-principles, performance/10-code-splitting]
 when_to_use: "Read when working with a Webpack build — configuring loaders and plugins, splitting chunks, or deciding whether to migrate to a faster bundler."
 ---

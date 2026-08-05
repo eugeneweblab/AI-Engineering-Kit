@@ -6,7 +6,7 @@ title: "Mutations"
 type: doc
 order: 5
 status: ready
-tags: [graphql, mutations]
+tags: [graphql, mutations, publishPost, publish, UserError, PublishPostPayload, PublishPostInput, byId]
 related: [graphql/04-queries, graphql/10-input-types, graphql/20-error-handling, graphql/19-authorization, graphql/02-schema]
 when_to_use: "Read before designing or reviewing any write operation — create, update, delete, or state change."
 ---

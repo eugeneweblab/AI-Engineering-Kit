@@ -6,7 +6,7 @@ title: "Tailwind CSS Debugging"
 type: doc
 order: 25
 status: ready
-tags: [tailwind, debugging]
+tags: [tailwind, debugging, dark, tailwind-merge, bg-red-500, "dark:", media]
 related: [tailwind/29-tooling, tailwind/19-performance, tailwind/24-react, tailwind/11-responsive-design, tailwind/100-common-antipatterns]
 when_to_use: "Read when a Tailwind class is not applying, an override is losing, or styles differ between dev and production."
 ---

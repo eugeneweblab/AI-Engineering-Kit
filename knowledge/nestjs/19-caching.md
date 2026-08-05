@@ -6,7 +6,7 @@ title: "NestJS Caching"
 type: doc
 order: 19
 status: ready
-tags: [nestjs, caching]
+tags: [nestjs, caching, rename, Injectable, Inject, findById, CACHE_MANAGER]
 related: [nestjs/27-performance, nestjs/10-interceptors, redis/13-caching, architecture/19-caching-strategies]
 when_to_use: "Read before adding or reviewing caching to improve performance, and when reasoning about cache invalidation and consistency."
 ---

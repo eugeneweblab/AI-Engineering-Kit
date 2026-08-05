@@ -6,7 +6,7 @@ title: "File Upload"
 type: doc
 order: 20
 status: ready
-tags: [rest-api, file-upload]
+tags: [rest-api, file-upload, Content-Type, HttpError, single, writeFileSync, randomUUID]
 related: [rest-api/08-validation, rest-api/24-security, rest-api/09-error-handling, rest-api/16-authorization, rest-api/25-performance]
 when_to_use: "Read before building any endpoint that accepts user-uploaded files — avatars, documents, media, or imports."
 ---

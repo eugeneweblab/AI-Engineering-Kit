@@ -6,7 +6,7 @@ title: "Reverse Proxy"
 type: doc
 order: 5
 status: ready
-tags: [nginx, reverse-proxy]
+tags: [nginx, reverse-proxy, X-Forwarded-For, proxy_pass, Connection, X-Forwarded-Proto, real_ip, Upgrade]
 related: [nginx/06-load-balancing, nginx/04-location-blocks, nginx/20-websockets, nginx/19-proxying-applications, nginx/13-security]
 when_to_use: "Read before putting nginx in front of an application server or debugging proxied requests."
 ---

@@ -6,7 +6,7 @@ title: "PHP CLI"
 type: doc
 order: 16
 status: ready
-tags: [php, cli]
+tags: [php, cli, getMessage, reserve, handle, SIGTERM, SIGINT, Queue]
 related: [php/08-error-handling, php/14-performance, php/13-security, php/27-production]
 when_to_use: "Read before writing a PHP command-line script, console command, cron job, or queue worker."
 ---

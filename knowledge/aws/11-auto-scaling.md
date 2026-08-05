@@ -6,7 +6,7 @@ title: "Auto Scaling"
 type: doc
 order: 11
 status: ready
-tags: [aws, auto-scaling]
+tags: [aws, auto-scaling, max_size, ELB]
 related: [aws/03-ec2, aws/10-elastic-load-balancer, aws/31-high-availability, aws/14-cloudwatch, aws/24-cost-optimization]
 when_to_use: "Read before configuring an Auto Scaling Group — launch templates, scaling policies, health checks, or capacity for a fleet behind a load balancer."
 ---

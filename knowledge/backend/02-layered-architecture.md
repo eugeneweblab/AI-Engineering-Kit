@@ -6,7 +6,7 @@ title: "Backend Layered Architecture"
 type: doc
 order: 2
 status: ready
-tags: [backend, layered-architecture]
+tags: [backend, layered-architecture, send, ConflictError, register, CreateUserDto, existsByEmail, includes]
 related: [backend/01-backend-architecture, backend/03-clean-architecture, backend/07-business-logic, backend/18-database-design]
 when_to_use: "Read before structuring a typical CRUD service, or when logic is leaking across controller, service, and data layers."
 ---

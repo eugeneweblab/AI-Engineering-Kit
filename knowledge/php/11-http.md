@@ -6,7 +6,7 @@ title: "PHP HTTP"
 type: doc
 order: 11
 status: ready
-tags: [php, http]
+tags: [php, http, json_encode, header, htmlspecialchars, http_response_code, Strict-Transport-Security, Host]
 related: [php/13-security, php/08-error-handling, php/24-psr-standards, php/10-files]
 when_to_use: "Read before handling a request, building a response, or making an outbound HTTP call."
 ---

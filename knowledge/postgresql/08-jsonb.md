@@ -6,7 +6,7 @@ title: "JSONB"
 type: doc
 order: 8
 status: ready
-tags: [postgresql, jsonb]
+tags: [postgresql, jsonb, jsonb, CHECK, GIN, EXPLAIN]
 related: [postgresql/03-data-types, postgresql/04-indexes, postgresql/09-arrays, postgresql/05-query-planner]
 when_to_use: "Read before adding a JSONB column, querying inside JSON, or deciding whether data belongs in JSONB or in real columns."
 ---

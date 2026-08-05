@@ -6,7 +6,7 @@ title: "Advanced Types"
 type: doc
 order: 13
 status: ready
-tags: [typescript, advanced-types]
+tags: [typescript, advanced-types, PublicUser, ReturnType, Partial, Omit, loadUser, Parameters]
 related: [typescript/08-generics, typescript/09-utility-types, typescript/12-type-guards, typescript/11-unions-and-intersections]
 when_to_use: "Read before writing conditional, mapped, or template-literal types, or debugging a deeply nested generic."
 ---

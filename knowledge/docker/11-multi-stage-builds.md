@@ -6,7 +6,7 @@ title: "Multi Stage Builds"
 type: doc
 order: 11
 status: ready
-tags: [docker, multi-stage-builds]
+tags: [docker, multi-stage-builds, distroless, node_modules, lint, CGO_ENABLED]
 related: [docker/08-dockerfile, docker/09-image-optimization, docker/10-buildkit, docker/18-security, docker/03-images]
 when_to_use: "Read before building any image for a compiled or bundled app, so build tooling and source never ship to production."
 ---

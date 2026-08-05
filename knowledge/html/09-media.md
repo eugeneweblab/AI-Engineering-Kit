@@ -6,7 +6,7 @@ title: "HTML Media"
 type: doc
 order: 9
 status: ready
-tags: [html, media]
+tags: [html, media, muted, height, width, preload, prefers-reduced-motion, none]
 related: [html/05-images, html/11-accessibility, html/18-performance, html/16-svg]
 when_to_use: "Read before embedding audio, video, or captions on a page."
 ---

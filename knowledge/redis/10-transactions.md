@@ -6,7 +6,7 @@ title: "Redis Transactions"
 type: doc
 order: 10
 status: ready
-tags: [redis, transactions]
+tags: [redis, transactions, EXEC, WATCH, MULTI, INCR, ValueError, pipeline]
 related: [redis/11-lua-scripting, redis/17-distributed-locks, redis/06-sorted-sets, redis/23-performance, redis/100-common-antipatterns]
 when_to_use: "Read before using MULTI/EXEC or WATCH, or when you need several Redis commands to run without another client interleaving."
 ---

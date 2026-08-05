@@ -6,7 +6,7 @@ title: "Tools Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [tools, production-checklist]
+tags: [tools, production-checklist, config.platform, publint, packageManager]
 related: [tools/30-engineering-principles, tools/19-task-runners, tools/02-version-management, tools/28-release-tools, tools/29-observability-tools, tools/99-ai-review-checklist, tools/100-common-antipatterns, cicd/98-production-checklist]
 when_to_use: "Read before declaring a project's tooling ready — at setup, before onboarding contributors, or before the first production release."
 ---

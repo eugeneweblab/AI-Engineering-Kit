@@ -6,7 +6,7 @@ title: "Nginx Tooling"
 type: doc
 order: 28
 status: ready
-tags: [nginx, tooling]
+tags: [nginx, tooling, restart, gixy, stub_status, proxy_pass, add_header]
 related: [nginx/24-debugging, nginx/13-security, nginx/17-monitoring, nginx/26-best-practices, nginx/23-docker]
 when_to_use: "Read before choosing how to validate, lint, test, or observe an nginx config, or when setting up CI for nginx changes."
 ---

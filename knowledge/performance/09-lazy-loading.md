@@ -6,7 +6,7 @@ title: "Lazy Loading"
 type: doc
 order: 9
 status: ready
-tags: [performance, lazy-loading]
+tags: [performance, lazy-loading, IntersectionObserver, Panel, space, lazy, down, height]
 related: [performance/10-code-splitting, performance/07-loading, performance/11-images, performance/06-rendering, performance/18-web-vitals]
 when_to_use: "Read before deferring the load of any component, route, image, or module until it is actually needed."
 ---

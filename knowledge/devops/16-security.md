@@ -6,7 +6,7 @@ title: "DevOps Security"
 type: doc
 order: 16
 status: ready
-tags: [devops, security]
+tags: [devops, security, "@sha", role-to-assume, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, id-token, GitHub]
 related: [devops/17-secrets-management, devops/10-containerization, devops/05-build-pipelines, devops/08-infrastructure-as-code, devops/14-logging]
 when_to_use: "Read before designing or reviewing a CI/CD pipeline, container image, cloud IAM policy, or any deployment path for security."
 ---

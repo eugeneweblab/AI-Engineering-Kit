@@ -6,7 +6,7 @@ title: "Frontend Security"
 type: doc
 order: 14
 status: ready
-tags: [frontend, security]
+tags: [frontend, security, Comment, HttpOnly, "data:", localStorage, "javascript:", login]
 related: [frontend/12-forms, frontend/13-error-handling, frontend/06-data-fetching, frontend/07-rendering, frontend/19-build-tools]
 when_to_use: "Read before rendering user-controlled content, storing tokens, handling auth in the browser, or configuring headers."
 ---

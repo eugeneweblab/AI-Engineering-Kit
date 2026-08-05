@@ -6,7 +6,7 @@ title: "Redis Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [redis, production-checklist]
+tags: [redis, production-checklist, FLUSHALL, maxmemory, FLUSHDB, slowlog-log-slower-than, blocked_clients, requirepass]
 related: [redis/20-persistence, redis/18-replication, redis/21-security, redis/22-monitoring, redis/27-production]
 when_to_use: "Read before promoting any Redis instance or Redis-backed feature to production."
 ---

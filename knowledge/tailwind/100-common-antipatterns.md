@@ -6,7 +6,7 @@ title: "Tailwind CSS Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [tailwind, common-antipatterns]
+tags: [tailwind, common-antipatterns, tailwind-merge, "focus-visible:", "dark:", px-4, justfy-center, flexx]
 related: [tailwind/03-utility-first, tailwind/26-best-practices, tailwind/30-engineering-principles, tailwind/19-performance, tailwind/22-accessibility]
 when_to_use: "Read when writing or reviewing Tailwind markup to recognize and avoid the recurring failure patterns below."
 ---

@@ -6,7 +6,7 @@ title: "Dependency Security"
 type: doc
 order: 23
 status: ready
-tags: [security, dependency-security]
+tags: [security, dependency-security, poetry.lock, go.sum, package-lock.json, package.json]
 related: [security/24-supply-chain-security, security/16-secrets-management, security/28-owasp-top10, security/25-monitoring]
 when_to_use: "Read before adding a dependency, updating a lockfile, or setting up dependency scanning in CI."
 ---

@@ -6,7 +6,7 @@ title: "AWS Monitoring"
 type: doc
 order: 26
 status: ready
-tags: [aws, monitoring]
+tags: [aws, monitoring, GreaterThanThreshold, notBreaching, breaching]
 related: [aws/14-cloudwatch, aws/15-cloudtrail, aws/23-eventbridge, aws/27-production, aws/29-well-architected-framework]
 when_to_use: "Read before shipping a workload to production, defining alarms, or diagnosing an incident where you cannot tell what the system is doing."
 ---

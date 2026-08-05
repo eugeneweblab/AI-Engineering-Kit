@@ -6,7 +6,7 @@ title: "Remote Repositories"
 type: doc
 order: 13
 status: ready
-tags: [git, remote-repositories]
+tags: [git, remote-repositories, origin, "@github", upstream, URL]
 related: [git/14-fetch, git/15-pull, git/16-push, git/05-branches, git/28-security]
 when_to_use: "Read before adding, renaming, or authenticating to any remote, or when tracking branches misbehave."
 ---

@@ -6,7 +6,7 @@ title: "MySQL Full Text Search"
 type: doc
 order: 23
 status: ready
-tags: [mysql, full-text-search]
+tags: [mysql, full-text-search, FULLTEXT, articles, VARCHAR, AUTO_INCREMENT, InnoDB]
 related: [mysql/04-indexes, mysql/05-query-optimization, mysql/03-data-types, mysql/14-performance, mysql/24-json]
 when_to_use: "Read before adding text search to a MySQL table, or when reviewing a LIKE-based search that needs to scale."
 ---

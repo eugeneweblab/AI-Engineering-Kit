@@ -6,7 +6,7 @@ title: "Cronjobs"
 type: doc
 order: 16
 status: ready
-tags: [kubernetes, cronjobs]
+tags: [kubernetes, cronjobs, backoffLimit, activeDeadlineSeconds, ttlSecondsAfterFinished, Allow, OnFailure]
 related: [kubernetes/15-jobs, kubernetes/19-resource-management, kubernetes/21-observability, kubernetes/24-debugging, kubernetes/26-production]
 when_to_use: "Read before scheduling any recurring task — backups, report generation, cleanup, or periodic sync — on a cron schedule."
 ---

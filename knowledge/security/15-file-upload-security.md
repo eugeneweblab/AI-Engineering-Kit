@@ -6,7 +6,7 @@ title: "File Upload Security"
 type: doc
 order: 15
 status: ready
-tags: [security, file-upload-security]
+tags: [security, file-upload-security, ValueError, Content-Type, nosniff, save]
 related: [security/09-input-validation, security/11-xss, security/14-command-injection, security/28-owasp-top10]
 when_to_use: "Read before building or reviewing any endpoint that accepts files from users — avatars, documents, imports, or media."
 ---

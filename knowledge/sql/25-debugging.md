@@ -6,7 +6,7 @@ title: "SQL Debugging"
 type: doc
 order: 25
 status: ready
-tags: [sql, debugging]
+tags: [sql, debugging, ANALYZE, EXPLAIN, first, auto_explain, work_mem, pg_locks]
 related: [sql/16-query-planning, sql/17-query-optimization, sql/23-performance, sql/14-transactions, sql/24-testing]
 when_to_use: "Read when a query returns wrong rows, runs slowly, deadlocks, or a migration fails."
 ---

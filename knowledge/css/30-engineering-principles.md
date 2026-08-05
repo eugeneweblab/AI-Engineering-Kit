@@ -6,7 +6,7 @@ title: "CSS Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [css, engineering-principles]
+tags: [css, engineering-principles, box-shadow, border-radius, min-width, max-width, rgba]
 related: [css/21-architecture, css/29-css-methodologies, css/20-css-variables, css/22-performance, css/23-accessibility]
 when_to_use: "Read before writing or reviewing any non-trivial stylesheet, design system, or component styling strategy."
 ---

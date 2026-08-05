@@ -6,7 +6,7 @@ title: "Database Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [databases, engineering-principles]
+tags: [databases, engineering-principles, execute, CHECK, timestamptz, numeric, float, fetchone]
 related: [databases/09-transactions, databases/23-data-integrity, databases/17-migrations, databases/07-indexing, databases/28-best-practices]
 when_to_use: "Read before designing a schema, writing data-access code, or reviewing any change that touches the database."
 ---

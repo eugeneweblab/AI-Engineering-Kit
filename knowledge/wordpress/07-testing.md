@@ -6,7 +6,7 @@ title: "WordPress Testing"
 type: doc
 order: 7
 status: ready
-tags: [wordpress, testing]
+tags: [wordpress, testing, factory, assertSame, WP_UnitTestCase, WP_REST_Request, WP_REST_Server, assertTrue]
 related: [wordpress/04-code-style, wordpress/15-plugin-development, wordpress/28-debugging, php/15-testing, testing/02-unit-testing]
 when_to_use: "Read before writing tests or defining a testing strategy for a WordPress project."
 ---

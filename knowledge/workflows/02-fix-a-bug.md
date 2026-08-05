@@ -6,7 +6,7 @@ title: "Workflow — Fix a Bug"
 type: doc
 order: 2
 status: ready
-tags: [workflows, fix-a-bug]
+tags: [workflows, fix-a-bug, IsInt, InvoiceRow, getHttpServer, send, CreateOrderItemDto]
 related: [engineering/03-debugging-methodology, ai/05-bug-fixing, workflows/06-investigate-production-bug]
   - engineering/03-debugging-methodology
   - engineering/02-code-review

@@ -6,7 +6,7 @@ title: "Dialogs"
 type: doc
 order: 16
 status: ready
-tags: [accessibility, dialogs]
+tags: [accessibility, dialogs, Escape, showModal, inert, getElementById, aria-labelledby]
 related: [accessibility/05-focus-management, accessibility/04-keyboard-navigation, accessibility/07-aria, accessibility/19-live-regions, accessibility/08-forms]
 when_to_use: "Read before building any modal, dialog, popover, drawer, or overlay that takes over the screen."
 ---

@@ -6,7 +6,7 @@ title: "NestJS Deployment"
 type: doc
 order: 28
 status: ready
-tags: [nestjs, deployment]
+tags: [nestjs, deployment, HealthCheck, Controller, enableShutdownHooks, TypeOrmHealthIndicator, OnApplicationShutdown, HealthController]
 related: [nestjs/14-configuration, nestjs/29-maintenance, docker/11-multi-stage-builds, cicd/10-deployment]
 when_to_use: "Read before setting up or reviewing build, containerization, CI/CD, or release processes for a NestJS application."
 ---

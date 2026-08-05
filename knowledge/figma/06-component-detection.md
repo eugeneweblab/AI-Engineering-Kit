@@ -6,7 +6,7 @@ title: "Component Detection"
 type: doc
 order: 6
 status: ready
-tags: [figma, component-detection]
+tags: [figma, component-detection, PrimaryButton, SecondaryButton, Button, ButtonProps, PricingTable, ComponentPropsWithoutRef]
 related: [figma/01-figma-analysis, figma/19-design-handoff, react/13-component-composition]
 when_to_use: "Read before coding, to identify reusable UI components and repeated patterns in a Figma design."
 ---

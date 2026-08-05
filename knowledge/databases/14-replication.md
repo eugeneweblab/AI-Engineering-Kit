@@ -6,7 +6,7 @@ title: "Database Replication"
 type: doc
 order: 14
 status: ready
-tags: [databases, replication]
+tags: [databases, replication, COMMIT, write, synchronous_commit]
 related: [databases/13-eventual-consistency, databases/22-high-availability, databases/12-acid, databases/18-backup-and-recovery, databases/15-sharding]
 when_to_use: "Read before adding read replicas, configuring failover, or routing reads and writes across database nodes."
 ---

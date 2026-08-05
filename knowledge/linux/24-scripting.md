@@ -6,7 +6,7 @@ title: "Scripting"
 type: doc
 order: 24
 status: ready
-tags: [linux, scripting]
+tags: [linux, scripting, shellcheck, mktemp, expr, root]
 related: [linux/03-bash, linux/02-shell, linux/23-automation, linux/14-cron, linux/19-debugging]
 when_to_use: "Read before writing or reviewing any shell script that runs unattended, in CI, or on production hosts."
 ---

@@ -6,7 +6,7 @@ title: "Design Handoff"
 type: doc
 order: 19
 status: ready
-tags: [figma, design-handoff]
+tags: [figma, design-handoff, PlanCard, ComparisonTable, "@sam", "@maria", "@dev"]
 related: [figma/03-design-token-extraction, figma/06-component-detection, figma/20-implementation-definition-of-done]
   - figma/14-figma-inspection-checklist
   - figma/01-figma-analysis

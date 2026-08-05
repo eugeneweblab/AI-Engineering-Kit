@@ -6,7 +6,7 @@ title: "Redis Observability"
 type: doc
 order: 28
 status: ready
-tags: [redis, observability]
+tags: [redis, observability, maxmemory, slowlog, used_memory, rdb_last_bgsave_status, aof_last_write_status, rejected_connections]
 related: [redis/22-monitoring, redis/23-performance, redis/25-debugging, redis/27-production, redis/29-tooling]
 when_to_use: "Read when setting up metrics, dashboards, or alerts for a Redis deployment, or defining what to watch."
 ---

@@ -6,7 +6,7 @@ title: "Security Scanning"
 type: doc
 order: 6
 status: ready
-tags: [cicd, security-scanning]
+tags: [cicd, security-scanning, runs-on]
 related: [cicd/05-quality-gates, cicd/07-artifacts, cicd/15-secrets, cicd/21-docker-integration]
 when_to_use: "Read before adding or reviewing any automated security scan in a CI/CD pipeline."
 ---

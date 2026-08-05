@@ -6,7 +6,7 @@ title: "CodeQL"
 type: doc
 order: 14
 status: ready
-tags: [github, codeql]
+tags: [github, codeql, pull_request, runs-on, schedule, write-all]
 related: [github/13-security, github/09-workflows, github/17-branch-protection, github/07-code-review, github/15-dependabot]
 when_to_use: "Read before enabling code scanning or writing a CodeQL workflow for a repository."
 ---

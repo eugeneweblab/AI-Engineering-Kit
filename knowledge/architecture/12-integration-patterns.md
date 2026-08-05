@@ -6,7 +6,7 @@ title: "Integration Patterns"
 type: doc
 order: 12
 status: ready
-tags: [architecture, integration-patterns]
+tags: [architecture, integration-patterns, charge, Timeout, Retry]
 related: [architecture/08-event-driven-architecture, architecture/11-api-first, architecture/20-message-brokers, architecture/17-fault-tolerance, architecture/09-microservices]
 when_to_use: "Read before connecting two services, calling a third-party API, or choosing between synchronous calls and messaging."
 ---

@@ -6,7 +6,7 @@ title: "SEO Review"
 type: doc
 order: 29
 status: ready
-tags: [seo, seo-review]
+tags: [seo, seo-review, noindex, Disallow, comment, canonical]
 related: [seo/99-ai-review-checklist, seo/26-best-practices, seo/27-production-checks, seo/23-audits, seo/100-common-antipatterns]
 when_to_use: "Read before reviewing a pull request or change that touches routing, rendering, metadata, redirects, or page content."
 ---

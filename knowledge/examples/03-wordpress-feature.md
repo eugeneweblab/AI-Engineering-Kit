@@ -6,7 +6,7 @@ title: "Example — WordPress Feature"
 type: doc
 order: 3
 status: ready
-tags: [examples, wordpress-feature]
+tags: [examples, wordpress-feature, WP_Error, defined, esc_html_e, ACME_EVENTS_PATH, add_action, get_post_meta]
 related: [examples/01-rest-endpoint, workflows/09-build-wordpress-feature, wordpress/09-custom-post-types, wordpress/11-metadata, wordpress/06-security]
 when_to_use: "Read when building a WordPress feature end to end — post type, metadata, admin UI, front end, and security."
 ---

@@ -6,7 +6,7 @@ title: "Next.js SEO"
 type: doc
 order: 19
 status: ready
-tags: [nextjs, seo]
+tags: [nextjs, seo, MetadataRoute, "@type", generateMetadata, EventPage, cache, robots]
 related: [nextjs/18-metadata, nextjs/08-rendering-strategies, seo/01-seo-fundamentals]
 when_to_use: "Read before optimizing a Next.js app for search engine discoverability and indexing."
 ---

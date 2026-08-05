@@ -6,7 +6,7 @@ title: "Dependabot"
 type: doc
 order: 15
 status: ready
-tags: [github, dependabot]
+tags: [github, dependabot, github-actions, open-pull-requests-limit, pull_request_target, update-types, ignore, runs-on]
 related: [github/13-security, github/14-codeql, github/09-workflows, github/06-pull-requests, github/17-branch-protection]
 when_to_use: "Read before configuring dependency updates or triaging a vulnerable-dependency alert."
 ---

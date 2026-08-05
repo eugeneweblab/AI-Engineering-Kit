@@ -6,7 +6,7 @@ title: "CSS Spacing"
 type: doc
 order: 9
 status: ready
-tags: [css, spacing]
+tags: [css, spacing, margin, padding, margin-top, margin-bottom, margin-inline]
 related: [css/04-box-model, css/08-sizing, css/06-flexbox, css/07-grid, css/20-css-variables]
 when_to_use: "Read before choosing margin, padding, or gap to separate elements."
 ---

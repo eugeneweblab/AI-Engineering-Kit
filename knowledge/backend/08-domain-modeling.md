@@ -6,7 +6,7 @@ title: "Domain Modeling"
 type: doc
 order: 8
 status: ready
-tags: [backend, domain-modeling]
+tags: [backend, domain-modeling, Money, Email, isInteger, applyDiscount, Quantity, constructor]
 related: [backend/05-ddd, backend/07-business-logic, backend/09-validation, backend/18-database-design, backend/03-clean-architecture]
 when_to_use: "Read before defining entities, value objects, or aggregates, or when a bug traces back to invalid in-memory state."
 ---

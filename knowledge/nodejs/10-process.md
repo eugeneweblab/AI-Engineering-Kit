@@ -6,7 +6,7 @@ title: "Process"
 type: doc
 order: 10
 status: ready
-tags: [nodejs, process]
+tags: [nodejs, process, process.env, uncaughtException, SIGTERM, unhandledRejection, shutdown, SIGKILL]
 related: [nodejs/14-environment, nodejs/16-error-handling, nodejs/26-deployment, nodejs/11-child-process, nodejs/17-logging]
 when_to_use: "Read before reading env vars, handling signals, setting exit codes, or catching unhandled errors at the process level."
 ---

@@ -6,7 +6,7 @@ title: "Discussions"
 type: doc
 order: 5
 status: ready
-tags: [github, discussions]
+tags: [github, discussions, SECURITY.md, GitHub]
 related: [github/03-issues, github/04-projects, github/02-repositories, github/13-security, github/19-organizations]
 when_to_use: "Read before deciding where open-ended Q&A, proposals, or announcements should live, versus filing an Issue."
 ---

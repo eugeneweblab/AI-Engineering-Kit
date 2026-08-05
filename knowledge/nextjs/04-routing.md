@@ -6,7 +6,7 @@ title: "Next.js Routing"
 type: doc
 order: 4
 status: ready
-tags: [nextjs, routing]
+tags: [nextjs, routing, PostPage, Link, getAllPostSlugs, notFound, getPost, generateStaticParams]
 related: [nextjs/03-app-router, nextjs/05-layouts, nextjs/13-middleware, react/17-routing]
 when_to_use: "Read before implementing navigation and links between pages in a Next.js app."
 ---

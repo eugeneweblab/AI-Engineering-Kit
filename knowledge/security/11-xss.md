@@ -6,7 +6,7 @@ title: "XSS (Cross-Site Scripting)"
 type: doc
 order: 11
 status: ready
-tags: [security, xss]
+tags: [security, xss, "javascript:", innerHTML, postMessage, Comment, v-html, localStorage]
 related: [security/10-output-encoding, security/09-input-validation, security/20-csp, security/12-csrf]
 when_to_use: "Read before rendering user-controlled data in a browser or building any HTML/DOM output."
 ---

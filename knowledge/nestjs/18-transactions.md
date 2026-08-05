@@ -6,7 +6,7 @@ title: "NestJS Transactions"
 type: doc
 order: 18
 status: ready
-tags: [nestjs, transactions]
+tags: [nestjs, transactions, InjectDataSource, Column, save, Injectable, PrimaryGeneratedColumn, transaction]
 related: [nestjs/17-database, nestjs/06-repositories, databases/09-transactions, prisma/08-transactions]
 when_to_use: "Read before writing or reviewing any operation that must update multiple pieces of state atomically."
 ---

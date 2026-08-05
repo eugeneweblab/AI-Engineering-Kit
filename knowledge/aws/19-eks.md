@@ -6,7 +6,7 @@ title: "EKS"
 type: doc
 order: 19
 status: ready
-tags: [aws, eks]
+tags: [aws, eks, cluster-admin, "@sha", ServiceAccount, Role, ClusterRole, resources.requests]
 related: [aws/18-ecs, aws/20-ecr, aws/02-iam, aws/06-vpc, aws/11-auto-scaling]
 when_to_use: "Read before provisioning an EKS cluster, node group, or workload IAM binding."
 ---

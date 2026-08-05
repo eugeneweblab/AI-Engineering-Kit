@@ -6,7 +6,7 @@ title: "WCAG"
 type: doc
 order: 23
 status: ready
-tags: [accessibility, wcag]
+tags: [accessibility, wcag, alone, button]
 related: [accessibility/02-pour-principles, accessibility/26-legal-requirements, accessibility/20-testing-tools, accessibility/21-axe, accessibility/27-best-practices]
 when_to_use: "Read before citing a conformance level, agreeing to an accessibility acceptance criterion, or scoping a compliance target."
 ---

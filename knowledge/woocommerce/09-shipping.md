@@ -6,7 +6,7 @@ title: "Shipping"
 type: doc
 order: 9
 status: ready
-tags: [woocommerce, shipping]
+tags: [woocommerce, shipping, quote, get_cart, wp_list_pluck, in_array]
 related: [woocommerce/07-checkout, woocommerce/10-taxes, woocommerce/04-product-management, woocommerce/05-orders]
 when_to_use: "Read before configuring shipping zones/methods or writing a custom shipping-rate calculation."
 ---

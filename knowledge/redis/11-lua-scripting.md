@@ -6,7 +6,7 @@ title: "Lua Scripting"
 type: doc
 order: 11
 status: ready
-tags: [redis, lua-scripting]
+tags: [redis, lua-scripting, EVALSHA, tonumber, EXEC, MULTI]
 related: [redis/10-transactions, redis/17-distributed-locks, redis/14-rate-limiting, redis/19-clustering, redis/100-common-antipatterns]
 when_to_use: "Read before writing an EVAL/EVALSHA script, or when you need read-decide-write logic to run atomically on the server."
 ---

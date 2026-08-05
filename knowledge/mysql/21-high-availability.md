@@ -6,7 +6,7 @@ title: "MySQL High Availability"
 type: doc
 order: 21
 status: ready
-tags: [mysql, high-availability]
+tags: [mysql, high-availability, MySQL]
 related: [mysql/09-replication, mysql/10-clustering, mysql/20-production, mysql/11-backups, mysql/15-monitoring]
 when_to_use: "Read before designing failover, choosing a replication topology, or reviewing a MySQL deployment's availability guarantees."
 ---

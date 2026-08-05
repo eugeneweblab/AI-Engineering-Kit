@@ -6,7 +6,7 @@ title: "PostgreSQL Indexes"
 type: doc
 order: 4
 status: ready
-tags: [postgresql, indexes]
+tags: [postgresql, indexes, lower, jsonb, pg_stat_user_indexes, ANALYZE, last, first]
 related: [postgresql/05-query-planner, postgresql/03-data-types, postgresql/16-performance, postgresql/08-jsonb, postgresql/20-vacuum]
 when_to_use: "Read before adding, removing, or diagnosing an index, or when a query is slow."
 ---

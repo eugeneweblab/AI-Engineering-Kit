@@ -6,7 +6,7 @@ title: "REST API Authentication"
 type: doc
 order: 15
 status: ready
-tags: [rest-api, authentication]
+tags: [rest-api, authentication, Authorization, authenticate, URL]
 related: [rest-api/16-authorization, rest-api/17-rate-limiting, rest-api/24-security, rest-api/07-status-codes, rest-api/09-error-handling]
 when_to_use: "Read before adding, changing, or reviewing how a REST API identifies the caller of a request."
 ---

@@ -6,7 +6,7 @@ title: "GraphQL Subscriptions"
 type: doc
 order: 6
 status: ready
-tags: [graphql, subscriptions]
+tags: [graphql, subscriptions, GraphQLError, mutation, postMessage, publish, onConnect, resolve]
 related: [graphql/05-mutations, graphql/07-resolvers, graphql/08-context, graphql/17-security, graphql/22-performance]
 when_to_use: "Read before adding or reviewing any real-time GraphQL feature that pushes server events to clients over a subscription."
 ---

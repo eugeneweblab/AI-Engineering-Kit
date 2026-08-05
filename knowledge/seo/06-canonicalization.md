@@ -6,7 +6,7 @@ title: "Canonicalization"
 type: doc
 order: 6
 status: ready
-tags: [seo, canonicalization]
+tags: [seo, canonicalization, https, noindex, robots.txt, http]
 related: [seo/03-indexing, seo/07-sitemaps, seo/17-links, seo/18-pagination, seo/14-international-seo]
 when_to_use: "Read before shipping any page reachable at more than one URL — filters, tracking params, trailing slashes, pagination, or syndicated content."
 ---

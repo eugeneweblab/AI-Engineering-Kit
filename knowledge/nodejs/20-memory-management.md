@@ -6,7 +6,7 @@ title: "Node.js Memory Management"
 type: doc
 order: 20
 status: ready
-tags: [nodejs, memory-management]
+tags: [nodejs, memory-management, readFile, external, WeakRef, WeakMap, pipeline, Buffer]
 related: [nodejs/19-performance, nodejs/06-streams, nodejs/07-buffers, nodejs/22-debugging, nodejs/27-monitoring]
 when_to_use: "Read when a Node.js process grows in memory over time, OOM-crashes, or before handling large payloads."
 ---

@@ -6,7 +6,7 @@ title: "Build Tools"
 type: doc
 order: 19
 status: ready
-tags: [frontend, build-tools]
+tags: [frontend, build-tools, browserslist, STRIPE_SECRET, "@vitejs", react, defineConfig]
 related: [frontend/20-bundling, frontend/21-code-splitting, frontend/18-assets, frontend/22-testing]
 when_to_use: "Read before configuring or reviewing the toolchain that compiles, bundles, and serves a frontend app."
 ---

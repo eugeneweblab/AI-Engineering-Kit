@@ -6,7 +6,7 @@ title: "Common Table Expressions"
 type: doc
 order: 7
 status: ready
-tags: [sql, common-table-expressions]
+tags: [sql, common-table-expressions, UNION, statement_timeout, EXPLAIN]
 related: [sql/06-subqueries, sql/08-window-functions, sql/17-query-optimization, sql/16-query-planning, sql/18-views]
 when_to_use: "Read before using WITH, refactoring a nested subquery for readability, or writing a recursive/hierarchical query."
 ---

@@ -6,7 +6,7 @@ title: "Test Data"
 type: doc
 order: 7
 status: ready
-tags: [testing, test-data]
+tags: [testing, test-data, canRefund, toBe, faker, Date]
 related: [testing/10-fixtures, testing/05-test-doubles, testing/03-integration-testing, testing/22-flaky-tests, testing/08-test-organization]
 when_to_use: "Read before writing the setup that builds the objects, rows, or payloads a test operates on."
 ---

@@ -6,7 +6,7 @@ title: "Security Best Practices"
 type: doc
 order: 27
 status: ready
-tags: [security, best-practices]
+tags: [security, best-practices, sendStatus, comments, schema, action, send]
 related: [security/28-owasp-top10, security/30-engineering-principles, security/09-input-validation, security/16-secrets-management, security/29-security-review]
 when_to_use: "Read when you need a cross-cutting checklist of the security habits every change should honor."
 ---

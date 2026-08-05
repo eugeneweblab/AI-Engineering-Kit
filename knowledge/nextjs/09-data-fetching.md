@@ -6,7 +6,7 @@ title: "Next.js Data Fetching"
 type: doc
 order: 9
 status: ready
-tags: [nextjs, data-fetching]
+tags: [nextjs, data-fetching, ProfilePage, getUser, getOrders, ProductsPage, no-store, API_URL]
 related: [nextjs/06-server-components, nextjs/10-caching, nextjs/12-api-routes, react/16-data-fetching]
 when_to_use: "Read before fetching data from a database or API in a Next.js app."
 ---

@@ -6,7 +6,7 @@ title: "Frontend Routing"
 type: doc
 order: 5
 status: ready
-tags: [frontend, routing]
+tags: [frontend, routing, useOrders, useAuth, setParams, useSearchParams, lazy, RouteError]
 related: [frontend/04-state-management, frontend/01-frontend-architecture, frontend/21-code-splitting, frontend/13-error-handling, frontend/06-data-fetching]
 when_to_use: "Read before adding routes, building nested layouts, guarding pages, or wiring URL state and code-splitting."
 ---

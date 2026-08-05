@@ -6,7 +6,7 @@ title: "Code Style"
 type: doc
 order: 23
 status: ready
-tags: [react, code-style]
+tags: [react, code-style, PascalCase, onSelect, flag, eslint-plugin-react-hooks, handleClick]
 related: [react/26-best-practices, react/22-folder-structure, react/29-tooling, react/30-engineering-principles, react/14-patterns]
 when_to_use: "Read before writing or reviewing React components so naming, structure, and formatting stay consistent."
 ---

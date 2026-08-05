@@ -6,7 +6,7 @@ title: "React Design Patterns"
 type: doc
 order: 24
 status: ready
-tags: [react, design-patterns]
+tags: [react, design-patterns, useSyncExternalStore, capture, useReducer, Profile, useState, useMemo]
 related: [react/14-patterns, react/13-component-composition, react/09-custom-hooks, react/10-context-api, react/02-component-architecture]
 when_to_use: "Read before applying a classic design pattern (provider, factory, reducer, observer) in React code."
 ---

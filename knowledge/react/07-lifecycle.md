@@ -6,7 +6,7 @@ title: "Lifecycle"
 type: doc
 order: 7
 status: ready
-tags: [react, lifecycle]
+tags: [react, lifecycle, useEffect, useSyncExternalStore, useLayoutEffect, useState, removeEventListener, addEventListener]
 related: [react/08-hooks, react/06-state, react/11-rendering, react/16-data-fetching, react/19-error-handling]
 when_to_use: "Read before writing effects for mount/update/unmount behavior, subscriptions, or cleanup."
 ---

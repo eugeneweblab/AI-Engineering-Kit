@@ -6,7 +6,7 @@ title: "Backend Architecture"
 type: doc
 order: 1
 status: ready
-tags: [backend, backend-architecture]
+tags: [backend, backend-architecture, send, OrderRepository, OrderId, save, execute, PlaceOrderCommand]
 related: [backend/00-overview, backend/02-layered-architecture, backend/03-clean-architecture, backend/04-hexagonal-architecture, backend/05-ddd]
 when_to_use: "Read before designing a new service or choosing how to structure an existing one."
 ---

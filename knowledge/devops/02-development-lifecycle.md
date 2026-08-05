@@ -6,7 +6,7 @@ title: "Development Lifecycle"
 type: doc
 order: 2
 status: ready
-tags: [devops, development-lifecycle]
+tags: [devops, development-lifecycle, GIT_SHA]
 related: [devops/00-overview, devops/03-git-workflow, devops/05-build-pipelines, devops/22-testing, devops/24-change-management]
 when_to_use: "Read before designing or reviewing how work moves from idea to running software across environments."
 ---

@@ -6,7 +6,7 @@ title: "Live Regions"
 type: doc
 order: 19
 status: ready
-tags: [accessibility, live-regions]
+tags: [accessibility, live-regions, assertive, search, polite, "display:none", appendChild, createElement]
 related: [accessibility/18-error-messages, accessibility/07-aria, accessibility/06-screen-readers, accessibility/16-dialogs, accessibility/08-forms]
 when_to_use: "Read before building any UI that updates content without a page reload — toasts, async status, search results, cart counts, or form-level errors."
 ---

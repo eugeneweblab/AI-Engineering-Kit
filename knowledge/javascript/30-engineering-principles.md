@@ -6,7 +6,7 @@ title: "JavaScript Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [javascript, engineering-principles]
+tags: [javascript, engineering-principles, window, res.ok, configure, assign, Promise.all, load]
 related: [javascript/23-clean-code, javascript/14-error-handling, javascript/08-asynchronous-javascript, javascript/28-best-practices, javascript/24-testing]
 when_to_use: "Read before making a JavaScript design decision or reviewing code for long-term maintainability."
 ---

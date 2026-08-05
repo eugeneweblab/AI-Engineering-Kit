@@ -6,7 +6,7 @@ title: "Linux Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [linux]
+tags: [linux, readme, sudo]
 related: []
 when_to_use: "Read first when starting any linux work, to see how this section's docs fit together."
 ---

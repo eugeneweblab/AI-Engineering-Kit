@@ -6,7 +6,7 @@ title: "CQRS (Command Query Responsibility Segregation)"
 type: doc
 order: 22
 status: ready
-tags: [nestjs, cqrs]
+tags: [nestjs, cqrs, InjectRepository, OrderCreatedEvent, constructor, execute, PlaceOrderCommand, OrderEntity]
 related: [nestjs/21-events, nestjs/01-architecture, architecture/07-cqrs, architecture/06-domain-driven-design]
 when_to_use: "Read before deciding on or reviewing a CQRS design that separates read and write operations."
 ---

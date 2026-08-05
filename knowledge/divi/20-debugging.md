@@ -6,7 +6,7 @@ title: "Divi Debugging"
 type: doc
 order: 20
 status: ready
-tags: [divi, debugging]
+tags: [divi, debugging, WP_DEBUG_LOG, WP_DEBUG_DISPLAY, define, WP_DEBUG, DevTools, wp-config.php]
 related: [divi/09-custom-css, divi/04-custom-modules, divi/10-performance, divi/21-testing, divi/19-security]
 when_to_use: "Read when the Visual Builder fails to load, styles don't apply, or custom code misbehaves."
 ---

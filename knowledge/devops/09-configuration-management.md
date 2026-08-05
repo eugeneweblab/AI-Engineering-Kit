@@ -6,7 +6,7 @@ title: "Configuration Management"
 type: doc
 order: 9
 status: ready
-tags: [devops, configuration-management]
+tags: [devops, configuration-management, Pool, NODE_ENV, object, parse]
 related: [devops/08-infrastructure-as-code, devops/17-secrets-management, devops/10-containerization, devops/11-orchestration, devops/06-release-management]
 when_to_use: "Read before adding a config value, wiring environment variables, or reviewing how an app reads its settings across environments."
 ---

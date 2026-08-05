@@ -6,7 +6,7 @@ title: "PHP Debugging"
 type: doc
 order: 25
 status: ready
-tags: [php, debugging]
+tags: [php, debugging, total, print_r, var_dump, display_errors, Coupon, assertSame]
 related: [php/08-error-handling, php/09-exceptions, php/15-testing, php/27-production, php/28-tooling]
 when_to_use: "Read before diagnosing a bug, a slow request, or a failure that only appears in production."
 ---

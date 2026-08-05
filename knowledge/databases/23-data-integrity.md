@@ -6,7 +6,7 @@ title: "Data Integrity"
 type: doc
 order: 23
 status: ready
-tags: [databases, data-integrity]
+tags: [databases, data-integrity, CHECK, UNIQUE, customers, RESTRICT, CASCADE, psql]
 related: [databases/12-acid, databases/09-transactions, databases/04-normalization, databases/06-schema-design, databases/10-concurrency]
 when_to_use: "Read before designing a schema, adding a constraint, or reviewing any code that assumes the data it reads is valid."
 ---

@@ -6,7 +6,7 @@ title: "Figma to WordPress"
 type: doc
 order: 8
 status: ready
-tags: [figma, figma-to-wordpress]
+tags: [figma, figma-to-wordpress, theme.json, register_block_pattern, WordPress, WooCommerce]
 related: [figma/07-figma-to-html, wordpress/14-theme-development, wordpress/16-block-editor, workflows/09-build-wordpress-feature]
 when_to_use: "Read before converting a Figma design into a maintainable, editable WordPress implementation."
 ---

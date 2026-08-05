@@ -6,7 +6,7 @@ title: "Next.js Engineering Principles"
 type: doc
 order: 29
 status: ready
-tags: [nextjs, engineering-principles]
+tags: [nextjs, engineering-principles, AddToCart, searchParams, Component, getProducts, useReportWebVitals, useState]
 related: [nextjs/06-server-components, nextjs/07-client-components, nextjs/10-caching, nextjs/11-server-actions, nextjs/28-best-practices]
 when_to_use: "Read before designing a new Next.js feature or reviewing an architectural decision in an App Router codebase."
 ---

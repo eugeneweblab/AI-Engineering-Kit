@@ -6,7 +6,7 @@ title: "Box Model"
 type: doc
 order: 4
 status: ready
-tags: [css, box-model]
+tags: [css, box-model, padding, box-sizing, padding-inline, content-box, border]
 related: [css/05-positioning, css/08-sizing, css/09-spacing, css/01-css-fundamentals, css/06-flexbox]
 when_to_use: "Read before laying out any element, to control its dimensions, spacing, and how padding and border affect size."
 ---

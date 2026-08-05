@@ -6,7 +6,7 @@ title: "MySQL Overview"
 type: doc
 order: 0
 status: ready
-tags: [mysql, overview]
+tags: [mysql, overview, EXPLAIN, VARCHAR, my.cnf, CURRENT_TIMESTAMP, utf8mb4, DOUBLE]
 related: [mysql/01-installation, mysql/03-data-types, mysql/04-indexes, mysql/05-query-optimization, mysql/02-configuration]
 when_to_use: "Read first when starting any MySQL work to learn how this topic's docs fit together."
 ---

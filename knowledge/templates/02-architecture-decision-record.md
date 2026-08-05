@@ -6,7 +6,7 @@ title: "Architecture Decision Record Template"
 type: doc
 order: 2
 status: ready
-tags: [templates, architecture-decision-record]
+tags: [templates, architecture-decision-record, "@dev", "@maria", DECIMAL, Accepted, JavaScript]
 related: [templates/01-pull-request, architecture/26-architecture-decision-records, architecture/25-documentation, engineering/01-decision-framework, templates/03-incident-report]
 when_to_use: "Copy when recording a decision that is expensive to reverse or will be questioned later."
 ---

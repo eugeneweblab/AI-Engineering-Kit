@@ -6,7 +6,7 @@ title: "Security Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [security]
+tags: [security, readme]
 related: []
 when_to_use: "Read first when starting security work, to see how this section's docs fit together and which one covers your problem."
 ---

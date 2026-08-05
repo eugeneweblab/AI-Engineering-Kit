@@ -6,7 +6,7 @@ title: "Dockerfile"
 type: doc
 order: 8
 status: ready
-tags: [docker, dockerfile]
+tags: [docker, dockerfile, CMD, ENTRYPOINT, EXPOSE, ARG, COPY, HEALTHCHECK]
 related: [docker/03-images, docker/11-multi-stage-builds, docker/09-image-optimization, docker/10-buildkit, docker/18-security]
 when_to_use: "Read before writing or reviewing any Dockerfile — the instruction order, base image, and user are all correctness concerns."
 ---

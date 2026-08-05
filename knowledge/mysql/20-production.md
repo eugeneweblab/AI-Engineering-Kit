@@ -6,7 +6,7 @@ title: "MySQL Production"
 type: doc
 order: 20
 status: ready
-tags: [mysql, production]
+tags: [mysql, production, innodb_buffer_pool_size, innodb_flush_log_at_trx_commit, sync_binlog, binlog_expire_logs_seconds, mysqldump, mydumper]
 related: [mysql/02-configuration, mysql/11-backups, mysql/15-monitoring, mysql/21-high-availability, mysql/09-replication]
 when_to_use: "Read before deploying MySQL to production or reviewing a production database's configuration and operational readiness."
 ---

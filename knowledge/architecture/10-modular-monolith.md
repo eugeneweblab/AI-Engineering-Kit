@@ -6,7 +6,7 @@ title: "Modular Monolith"
 type: doc
 order: 10
 status: ready
-tags: [architecture, modular-monolith]
+tags: [architecture, modular-monolith, handle, PlaceOrderHandler, OrderPlaced, PlaceOrder, publish, EventBus]
 related: [architecture/09-microservices, architecture/06-domain-driven-design, architecture/03-clean-architecture, architecture/05-layered-architecture, architecture/08-event-driven-architecture]
 when_to_use: "Read before starting a new system, or when tempted to reach for microservices without a proven scaling or team-autonomy driver."
 ---

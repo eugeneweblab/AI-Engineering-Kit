@@ -6,7 +6,7 @@ title: "Payments"
 type: doc
 order: 8
 status: ready
-tags: [woocommerce, payments]
+tags: [woocommerce, payments, payment_complete, wc_get_order, process_payment, WC_Payment_Gateway, charge, get_total]
 related: [woocommerce/07-checkout, woocommerce/05-orders, woocommerce/16-security, woocommerce/11-coupons]
 when_to_use: "Read before building or reviewing a payment gateway, webhook handler, or refund flow."
 ---

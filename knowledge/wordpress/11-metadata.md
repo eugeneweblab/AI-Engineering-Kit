@@ -6,7 +6,7 @@ title: "WordPress Metadata"
 type: doc
 order: 11
 status: ready
-tags: [wordpress, metadata]
+tags: [wordpress, metadata, WP_Query, update_post_meta, meta_query, get_post_meta, register_post_meta, gmdate]
 related: [wordpress/10-taxonomies, wordpress/12-queries, wordpress/16-block-editor, wordpress/19-database, wordpress/06-security, wordpress/09-custom-post-types]
 when_to_use: "Read before storing custom fields — registering post meta, exposing it to the block editor or REST, or querying by meta value."
 ---

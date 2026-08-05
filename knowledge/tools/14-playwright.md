@@ -6,7 +6,7 @@ title: "Playwright"
 type: doc
 order: 14
 status: ready
-tags: [tools, playwright]
+tags: [tools, playwright, click, getByRole, waitForTimeout, fill, getByLabel, goto]
 related: [tools/13-test-runners, tools/15-storybook, tools/21-debuggers, tools/29-observability-tools, tools/30-engineering-principles, testing/04-e2e-testing, testing/22-flaky-tests, figma/13-visual-regression]
 when_to_use: "Read before writing or configuring browser tests — setting up Playwright, choosing selectors, handling authentication, or fixing flaky E2E runs."
 ---

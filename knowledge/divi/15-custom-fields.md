@@ -6,7 +6,7 @@ title: "Custom Fields"
 type: doc
 order: 15
 status: ready
-tags: [divi, custom-fields]
+tags: [divi, custom-fields, wp_kses_post, editor, get_the_ID, get_post_meta, esc_attr, esc_html]
 related: [divi/07-dynamic-content, divi/02-theme-builder, divi/16-wordpress-hooks, divi/04-custom-modules, divi/19-security]
 when_to_use: "Read before wiring ACF/meta-box data into Divi via dynamic content or custom modules."
 ---

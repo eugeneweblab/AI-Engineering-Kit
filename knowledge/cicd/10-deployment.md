@@ -6,7 +6,7 @@ title: "CI/CD Deployment"
 type: doc
 order: 10
 status: ready
-tags: [cicd, deployment]
+tags: [cicd, deployment, "@sha", ReplicaSet, RollingUpdate]
 related: [cicd/07-artifacts, cicd/11-blue-green-deployment, cicd/14-rollbacks, cicd/16-environments]
 when_to_use: "Read before building or reviewing any automated deployment to a live environment."
 ---

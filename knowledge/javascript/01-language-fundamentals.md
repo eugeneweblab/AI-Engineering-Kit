@@ -6,7 +6,7 @@ title: "JavaScript Language Fundamentals"
 type: doc
 order: 1
 status: ready
-tags: [javascript, language-fundamentals]
+tags: [javascript, language-fundamentals, isNaN, TypeError, symbol, Array.isArray, bigint]
 related: [javascript/00-overview, javascript/02-execution-context, javascript/03-scope-and-closures, javascript/05-objects-and-prototypes, javascript/14-error-handling]
 when_to_use: "Read before writing or reviewing any code that compares, coerces, or defaults values."
 ---

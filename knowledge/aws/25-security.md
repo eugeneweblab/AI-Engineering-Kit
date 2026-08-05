@@ -6,7 +6,7 @@ title: "AWS Security"
 type: doc
 order: 25
 status: ready
-tags: [aws, security]
+tags: [aws, security, jsonencode, SecureTransport, Condition, AWS_ACCESS_KEY_ID, GetObject, AWS_SECRET_ACCESS_KEY]
 related: [aws/02-iam, aws/06-vpc, aws/15-cloudtrail, aws/16-secrets-manager, aws/29-well-architected-framework]
 when_to_use: "Read before granting permissions, opening a security group, storing a secret, or reviewing any AWS resource that touches data or the network."
 ---

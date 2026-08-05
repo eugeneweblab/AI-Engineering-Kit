@@ -6,7 +6,7 @@ title: "NestJS Authorization"
 type: doc
 order: 16
 status: ready
-tags: [nestjs, authorization]
+tags: [nestjs, authorization, UseGuards, Param, Controller, Injectable, ForbiddenException, Roles]
 related: [nestjs/15-authentication, nestjs/09-guards, security/04-authorization, backend/11-authorization]
 when_to_use: "Read before building or reviewing roles, permissions, or any code that decides what an authenticated user may do."
 ---

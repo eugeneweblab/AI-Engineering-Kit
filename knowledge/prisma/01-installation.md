@@ -6,7 +6,7 @@ title: "Prisma Installation"
 type: doc
 order: 1
 status: ready
-tags: [prisma, installation]
+tags: [prisma, installation, prisma, DATABASE_URL, postinstall, schema.prisma, "@prod-db", "@localhost"]
 related: [prisma/00-overview, prisma/02-schema, prisma/05-migrations, prisma/06-client]
 when_to_use: "Read before adding Prisma to a project or setting up DATABASE_URL and the Client."
 ---

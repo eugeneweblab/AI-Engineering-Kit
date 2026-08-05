@@ -6,7 +6,7 @@ title: "Nginx Performance"
 type: doc
 order: 18
 status: ready
-tags: [nginx, performance]
+tags: [nginx, performance, sendfile, worker_connections, keepalive, tcp_nopush, worker_rlimit_nofile, upstream]
 related: [nginx/08-caching, nginx/09-compression, nginx/10-http2, nginx/05-reverse-proxy, nginx/17-monitoring]
 when_to_use: "Read before tuning nginx worker, connection, buffer, or keepalive settings for throughput or latency."
 ---

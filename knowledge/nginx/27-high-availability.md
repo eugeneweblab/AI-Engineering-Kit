@@ -6,7 +6,7 @@ title: "Nginx High Availability"
 type: doc
 order: 27
 status: ready
-tags: [nginx, high-availability]
+tags: [nginx, high-availability, max_fails, proxy_next_upstream_tries, fail_timeout, upstream, proxy_next_upstream, backup]
 related: [nginx/06-load-balancing, nginx/25-production, nginx/05-reverse-proxy, nginx/17-monitoring, nginx/08-caching]
 when_to_use: "Read before designing an nginx tier that must survive a node failure, or when reviewing whether a single nginx instance is a hidden single point of failure."
 ---

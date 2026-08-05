@@ -6,7 +6,7 @@ title: "Stored Procedures"
 type: doc
 order: 20
 status: ready
-tags: [sql, stored-procedures]
+tags: [sql, stored-procedures, search_path, DEFINER]
 related: [sql/21-triggers, sql/14-transactions, sql/22-security, sql/13-dml, sql/24-testing]
 when_to_use: "Read before writing a stored procedure or function, or when deciding whether logic belongs in the database or the application."
 ---

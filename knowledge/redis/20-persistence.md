@@ -6,7 +6,7 @@ title: "Persistence"
 type: doc
 order: 20
 status: ready
-tags: [redis, persistence]
+tags: [redis, persistence, fsync, "rdb_last_bgsave_status:err", bgsave, "aof_last_write_status:err", rdb_last_bgsave_status, aof_last_write_status]
 related: [redis/18-replication, redis/13-caching, redis/22-monitoring, redis/27-production]
 when_to_use: "Read before choosing RDB vs AOF, or when Redis holds data you cannot afford to lose on restart."
 ---

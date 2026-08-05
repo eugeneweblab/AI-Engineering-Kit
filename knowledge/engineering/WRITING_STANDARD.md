@@ -6,7 +6,7 @@ title: "Writing Standard"
 type: doc
 order: 999
 status: ready
-tags: [engineering, writing-standard]
+tags: [engineering, writing-standard, notes]
 related: [engineering/00-engineering-principles, engineering/02-code-review, ai/06-self-verification]
 when_to_use: "Read before authoring or editing knowledge base documents to follow the repository's writing standard."
 ---

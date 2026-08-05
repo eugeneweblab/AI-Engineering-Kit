@@ -6,7 +6,7 @@ title: "Accessibility Tables"
 type: doc
 order: 17
 status: ready
-tags: [accessibility, tables]
+tags: [accessibility, tables, scope, rowspan, colspan, region, grid]
 related: [accessibility/03-semantic-html, accessibility/12-layout, accessibility/07-aria, accessibility/13-responsive-accessibility, accessibility/06-screen-readers]
 when_to_use: "Read before building any data table, grid of tabular data, or when tempted to use a table for layout."
 ---

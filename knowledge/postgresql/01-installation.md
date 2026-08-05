@@ -6,7 +6,7 @@ title: "PostgreSQL Installation"
 type: doc
 order: 1
 status: ready
-tags: [postgresql, installation]
+tags: [postgresql, installation, postgres, pg_dump, pg_hba.conf, POSTGRES_PASSWORD, listen_addresses, POSTGRES_DB]
 related: [postgresql/02-configuration, postgresql/18-security, postgresql/19-roles-and-permissions, postgresql/26-production]
 when_to_use: "Read before installing PostgreSQL for a new project, environment, or CI pipeline."
 ---

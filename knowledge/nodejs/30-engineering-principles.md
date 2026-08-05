@@ -6,7 +6,7 @@ title: "Node.js Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [nodejs, engineering-principles]
+tags: [nodejs, engineering-principles, pipeline, abort, AbortSignal, EventEmitter, AbortController, uncaughtException]
 related: [nodejs/02-event-loop, nodejs/16-error-handling, nodejs/28-best-practices, nodejs/06-streams, nodejs/19-performance]
 when_to_use: "Read before designing a new Node.js service or reviewing how existing Node code is structured."
 ---

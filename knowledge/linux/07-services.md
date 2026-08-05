@@ -6,7 +6,7 @@ title: "Linux Services"
 type: doc
 order: 7
 status: ready
-tags: [linux, services]
+tags: [linux, services, RestartSec, ExecStart, StartLimitBurst, StartLimit, WantedBy]
 related: [linux/06-processes, linux/08-systemd, linux/15-logging, linux/16-monitoring, linux/25-production]
 when_to_use: "Read before turning a program into a long-running, self-restarting Linux service."
 ---

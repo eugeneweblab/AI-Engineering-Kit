@@ -6,7 +6,7 @@ title: "Prisma AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [prisma, ai-review-checklist]
+tags: [prisma, ai-review-checklist, findMany, PrismaClient, Prisma.validator, onUpdate, onDelete, Unsafe]
 related: [prisma/30-engineering-principles, prisma/11-relations-loading, prisma/08-transactions, prisma/17-raw-sql, prisma/18-error-handling]
 when_to_use: "Read before reviewing or generating any Prisma query, schema, or migration code."
 ---

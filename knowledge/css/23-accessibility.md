@@ -6,7 +6,7 @@ title: "CSS Accessibility"
 type: doc
 order: 23
 status: ready
-tags: [css, accessibility]
+tags: [css, accessibility, prefers-reduced-motion, readers, inset, "@media", media, clip-path]
 related: [css/18-media-queries, css/11-colors, css/10-typography, css/16-animations, css/22-performance]
 when_to_use: "Read before styling focus, color, motion, text sizing, or anything that hides or reorders content — i.e. before shipping almost any CSS."
 ---

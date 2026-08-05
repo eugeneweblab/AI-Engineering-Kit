@@ -6,7 +6,7 @@ title: "Database and $wpdb"
 type: doc
 order: 19
 status: ready
-tags: [wordpress, database]
+tags: [wordpress, database, prepare, get_results, bigint, esc_like, get_col, RuntimeException]
 related: [wordpress/12-queries, wordpress/11-metadata, wordpress/06-security, wordpress/15-plugin-development, wordpress/05-performance, wordpress/25-multisite, security/13-sql-injection]
 when_to_use: "Read before writing direct SQL in WordPress — using $wpdb, deciding whether a custom table is justified, or creating and migrating schema."
 ---

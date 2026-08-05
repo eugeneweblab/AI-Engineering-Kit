@@ -6,7 +6,7 @@ title: "CI CD Fundamentals"
 type: doc
 order: 1
 status: ready
-tags: [cicd, ci-cd-fundamentals]
+tags: [cicd, ci-cd-fundamentals, runs-on]
 related: [cicd/00-overview, cicd/02-pipeline-design, cicd/05-quality-gates, cicd/08-versioning, cicd/10-deployment]
 when_to_use: "Read before setting up a repo's pipeline or when deciding what CI vs CD should do for a project."
 ---

@@ -6,7 +6,7 @@ title: "SEO Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [seo, engineering-principles]
+tags: [seo, engineering-principles, noindex, robots, X-Robots-Tag, Indexed, APP_ENV]
 related: [seo/00-overview, seo/03-indexing, seo/06-canonicalization, seo/04-rendering, seo/29-seo-review]
 when_to_use: "Read before making any architectural or infrastructure decision that affects how a site is crawled, rendered, or indexed."
 ---

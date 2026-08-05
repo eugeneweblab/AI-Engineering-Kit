@@ -6,7 +6,7 @@ title: "Docker Best Practices"
 type: doc
 order: 26
 status: ready
-tags: [docker, best-practices]
+tags: [docker, best-practices, CMD, "@sha", ENTRYPOINT, API_KEY, COPY, node_modules]
 related: [docker/08-dockerfile, docker/18-security, docker/11-multi-stage-builds, docker/15-healthchecks, docker/100-common-antipatterns]
 when_to_use: "Read before authoring or reviewing any Dockerfile or container run configuration."
 ---

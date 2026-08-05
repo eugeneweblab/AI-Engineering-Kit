@@ -6,7 +6,7 @@ title: "Taxes"
 type: doc
 order: 10
 status: ready
-tags: [woocommerce, taxes]
+tags: [woocommerce, taxes, get_price, round]
 related: [woocommerce/09-shipping, woocommerce/07-checkout, woocommerce/04-product-management, woocommerce/05-orders]
 when_to_use: "Read before configuring tax rates/classes or writing code that computes or displays tax."
 ---

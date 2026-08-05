@@ -6,7 +6,7 @@ title: "Docker Security"
 type: doc
 order: 18
 status: ready
-tags: [docker, security]
+tags: [docker, security, COPY, "@sha", no-new-privileges, ubuntu, tmpfs, DB_PASSWORD]
 related: [docker/14-secrets, docker/03-images, docker/17-resource-limits, docker/22-production, docker/09-image-optimization]
 when_to_use: "Read before writing a Dockerfile or running any container that will reach staging or production."
 ---

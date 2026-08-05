@@ -6,7 +6,7 @@ title: "Headless SEO"
 type: doc
 order: 20
 status: ready
-tags: [seo, headless-seo]
+tags: [seo, headless-seo, getPage, noindex, robots.txt, notFound, generateMetadata, useState]
 related: [seo/19-javascript-seo, seo/04-rendering, seo/05-metadata, seo/09-structured-data]
 when_to_use: "Read before building or reviewing a decoupled front end backed by a headless CMS or API-first architecture."
 ---

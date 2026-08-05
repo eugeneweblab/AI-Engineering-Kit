@@ -6,7 +6,7 @@ title: "MySQL Tooling"
 type: doc
 order: 29
 status: ready
-tags: [mysql, tooling]
+tags: [mysql, tooling, VARCHAR, mysqldump, sys.statements_with_full_table_scans, mysqlpump, mydumper, sys.schema_unused_indexes]
 related: [mysql/16-migrations, mysql/11-backups, mysql/15-monitoring, mysql/14-performance]
 when_to_use: "Read before choosing tools for migrations, backups, online schema changes, or diagnosing a slow production database."
 ---

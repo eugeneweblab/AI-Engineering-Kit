@@ -6,7 +6,7 @@ title: "Props and Component API Design"
 type: doc
 order: 5
 status: ready
-tags: [react, props]
+tags: [react, props, CardHeader, ReactNode, UserAvatar, ButtonProps, Layout, Card]
 related: [react/04-components, react/13-component-composition, react/06-state]
 when_to_use: "Read before designing or reviewing a React component's props and public API."
 ---

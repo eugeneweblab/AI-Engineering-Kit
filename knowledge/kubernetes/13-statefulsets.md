@@ -6,7 +6,7 @@ title: "Statefulsets"
 type: doc
 order: 13
 status: ready
-tags: [kubernetes, statefulsets]
+tags: [kubernetes, statefulsets, volumeClaimTemplates, PodDisruptionBudget, partition, terminationGracePeriodSeconds, StatefulSet, Ready]
 related: [kubernetes/05-deployments, kubernetes/12-persistent-volumes, kubernetes/07-services, kubernetes/14-daemonsets, kubernetes/28-disaster-recovery]
 when_to_use: "Read before deploying databases, queues, or any workload where pods need stable identity and per-pod durable storage."
 ---

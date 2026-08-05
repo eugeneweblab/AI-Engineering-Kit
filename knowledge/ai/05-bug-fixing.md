@@ -6,7 +6,7 @@ title: "Bug Fixing"
 type: doc
 order: 5
 status: ready
-tags: [ai, bug-fixing]
+tags: [ai, bug-fixing, IsInt, applyCoupon, InvoiceRow, round, toBe]
 related: [ai/01-context-gathering, engineering/03-debugging-methodology, workflows/02-fix-a-bug]
 when_to_use: "Read before investigating and fixing a bug to find the root cause and avoid regressions."
 ---

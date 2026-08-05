@@ -6,7 +6,7 @@ title: "TypeScript Tooling"
 type: doc
 order: 29
 status: ready
-tags: [typescript, tooling]
+tags: [typescript, tooling, typescript-eslint, publint, target, module, tsconfig]
 related: [typescript/16-configuration, typescript/24-testing, typescript/28-best-practices, typescript/14-modules]
 when_to_use: "Read before setting up or reviewing a TypeScript project's compiler, linter, formatter, and build pipeline."
 ---

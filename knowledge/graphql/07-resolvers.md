@@ -6,7 +6,7 @@ title: "Resolvers"
 type: doc
 order: 7
 status: ready
-tags: [graphql, resolvers]
+tags: [graphql, resolvers, GraphQLError, parent, context, extensions.code, load]
 related: [graphql/08-context, graphql/15-n1-problem, graphql/16-dataloader, graphql/19-authorization, graphql/20-error-handling]
 when_to_use: "Read before writing or reviewing any resolver function that fetches or mutates data behind a GraphQL field."
 ---

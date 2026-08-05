@@ -6,7 +6,7 @@ title: "Actions"
 type: doc
 order: 8
 status: ready
-tags: [github, actions]
+tags: [github, actions, pull_request_target, GITHUB_TOKEN, "@main", runs-on, ubuntu-latest, "run:"]
 related: [github/09-workflows, github/16-secret-scanning, github/21-permissions, github/11-releases, github/26-automation]
 when_to_use: "Read before adding, pinning, or auditing any GitHub Action in a workflow."
 ---

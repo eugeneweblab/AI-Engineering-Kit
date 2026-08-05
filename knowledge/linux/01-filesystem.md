@@ -6,7 +6,7 @@ title: "Filesystem"
 type: doc
 order: 1
 status: ready
-tags: [linux, filesystem]
+tags: [linux, filesystem, mktemp, unlink, chown, chmod, install]
 related: [linux/00-overview, linux/05-permissions, linux/04-users-and-groups, linux/03-bash, linux/02-shell]
 when_to_use: "Read before reading, writing, or deleting files by path, or deciding where an app's data, config, and logs belong."
 ---

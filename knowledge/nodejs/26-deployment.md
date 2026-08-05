@@ -6,7 +6,7 @@ title: "Node.js Deployment"
 type: doc
 order: 26
 status: ready
-tags: [nodejs, deployment]
+tags: [nodejs, deployment, SIGTERM, "node:latest", unref, close, tini]
 related: [nodejs/13-cluster, nodejs/14-environment, nodejs/15-configuration, nodejs/27-monitoring, nodejs/29-tooling]
 when_to_use: "Read before containerizing, shipping, or scaling a Node.js service to production."
 ---

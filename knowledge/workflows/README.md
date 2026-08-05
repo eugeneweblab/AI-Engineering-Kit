@@ -6,7 +6,7 @@ title: "Development Workflows"
 type: index
 order: -1
 status: ready
-tags: [workflows]
+tags: [workflows, readme]
 related: []
 when_to_use: "Read first when starting a concrete task (fix a bug, add an endpoint, build a component) — pick the matching step-by-step workflow."
 ---

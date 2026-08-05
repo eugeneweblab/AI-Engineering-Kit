@@ -6,7 +6,7 @@ title: "PostgreSQL Performance"
 type: doc
 order: 16
 status: ready
-tags: [postgresql, performance]
+tags: [postgresql, performance, pg_stat_statements, OFFSET, EXPLAIN, auto_explain, pg_stat_activity, CONCURRENTLY]
 related: [postgresql/04-indexes, postgresql/05-query-planner, postgresql/17-monitoring, postgresql/20-vacuum, postgresql/27-tuning]
 when_to_use: "Read before optimizing a slow query, adding an index, or diagnosing high database load in PostgreSQL."
 ---

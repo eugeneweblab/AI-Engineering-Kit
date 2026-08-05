@@ -6,7 +6,7 @@ title: "Next.js AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [nextjs, ai-review-checklist]
+tags: [nextjs, ai-review-checklist, remotePatterns, fill, revalidatePath, error.tsx, revalidateTag, loading.tsx]
 related: [nextjs/06-server-components, nextjs/10-caching, nextjs/11-server-actions, nextjs/24-security, nextjs/100-common-antipatterns]
 when_to_use: "Read when reviewing or self-reviewing any Next.js App Router pull request before it merges."
 ---

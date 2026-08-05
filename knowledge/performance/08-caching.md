@@ -6,7 +6,7 @@ title: "Performance Caching"
 type: doc
 order: 8
 status: ready
-tags: [performance, caching]
+tags: [performance, caching, getProduct, stale-while-revalidate, stringify, parse, no-store, ETag]
 related: [performance/07-loading, performance/05-network, performance/14-api-performance, performance/13-database-performance, performance/11-images]
 when_to_use: "Read before adding, configuring, or reviewing any cache — HTTP headers, CDN, application, or database layer."
 ---

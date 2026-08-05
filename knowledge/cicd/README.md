@@ -6,7 +6,7 @@ title: "CI/CD Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [cicd]
+tags: [cicd, readme]
 related: []
 when_to_use: "Read first when starting any CI/CD work, to see how this section's docs fit together."
 ---

@@ -6,7 +6,7 @@ title: "CSRF (Cross-Site Request Forgery)"
 type: doc
 order: 12
 status: ready
-tags: [security, csrf]
+tags: [security, csrf, Origin, Referer, sendStatus, Strict, SameSite, HttpOnly]
 related: [security/06-session-management, security/11-xss, security/03-authentication, security/19-cors]
 when_to_use: "Read before building state-changing endpoints that rely on cookies, or any form/POST handler."
 ---

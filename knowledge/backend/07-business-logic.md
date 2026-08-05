@@ -6,7 +6,7 @@ title: "Business Logic"
 type: doc
 order: 7
 status: ready
-tags: [backend, business-logic]
+tags: [backend, business-logic, load, OrderRepo, send, save, object]
 related: [backend/08-domain-modeling, backend/03-clean-architecture, backend/17-transactions, backend/09-validation, backend/06-api-design]
 when_to_use: "Read before writing or reviewing any code that enforces a business rule, workflow, or use case."
 ---

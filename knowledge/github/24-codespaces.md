@@ -6,7 +6,7 @@ title: "Codespaces"
 type: doc
 order: 24
 status: ready
-tags: [github, codespaces]
+tags: [github, codespaces, GITHUB_TOKEN, DATABASE_URL, features, Dockerfile]
 related: [github/16-secret-scanning, github/21-permissions, github/23-cli, github/02-repositories, github/27-best-practices]
 when_to_use: "Read before defining a devcontainer, adding Codespaces secrets, or reviewing a cloud dev-environment setup."
 ---

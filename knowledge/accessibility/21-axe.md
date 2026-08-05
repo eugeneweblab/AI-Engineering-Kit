@@ -6,7 +6,7 @@ title: "Axe"
 type: doc
 order: 21
 status: ready
-tags: [accessibility, axe]
+tags: [accessibility, axe, AxeBuilder, analyze, toBeLessThan, withTags, "@axe-core", toEqual]
 related: [accessibility/20-testing-tools, accessibility/22-lighthouse, accessibility/24-accessibility-testing, accessibility/07-aria, accessibility/23-wcag]
 when_to_use: "Read before wiring accessibility checks into tests or CI, or when interpreting axe-core results."
 ---

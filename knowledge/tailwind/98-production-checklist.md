@@ -6,7 +6,7 @@ title: "Tailwind CSS Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [tailwind, production-checklist]
+tags: [tailwind, production-checklist, "motion-reduce:", optional, prettier-plugin-tailwindcss, "focus-visible:"]
 related: [tailwind/27-production, tailwind/19-performance, tailwind/20-optimization, tailwind/22-accessibility, tailwind/99-ai-review-checklist]
 when_to_use: "Read before shipping a Tailwind build to production or cutting a release that changes styling."
 ---

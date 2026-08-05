@@ -6,7 +6,7 @@ title: "JavaScript Modules"
 type: doc
 order: 7
 status: ready
-tags: [javascript, modules]
+tags: [javascript, modules, Analytics, module.exports, renderInvoice, package.json, format, import.meta.url]
 related: [javascript/03-scope-and-closures, javascript/17-es6-features, javascript/29-tooling, javascript/15-memory-management]
 when_to_use: "Read before creating, importing, or refactoring module files, or configuring ESM/CommonJS interop."
 ---

@@ -6,7 +6,7 @@ title: "Linux Environment"
 type: doc
 order: 13
 status: ready
-tags: [linux, environment]
+tags: [linux, environment, systemd, cron, DATABASE_URL, EnvironmentFile, child, bash]
 related: [linux/02-shell, linux/03-bash, linux/08-systemd, linux/24-scripting]
 when_to_use: "Read before passing configuration or secrets to a process, or debugging why a variable is unset at runtime."
 ---

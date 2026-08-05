@@ -6,7 +6,7 @@ title: "AWS Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [aws, common-antipatterns]
+tags: [aws, common-antipatterns, plan]
 related: [aws/02-iam, aws/04-s3, aws/25-security, aws/24-cost-optimization, aws/30-engineering-principles]
 when_to_use: "Read when designing or reviewing AWS infrastructure to recognize and avoid the recurring failure modes."
 ---

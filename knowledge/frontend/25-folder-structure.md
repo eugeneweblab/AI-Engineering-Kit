@@ -6,7 +6,7 @@ title: "Frontend Folder Structure"
 type: doc
 order: 25
 status: ready
-tags: [frontend, folder-structure]
+tags: [frontend, folder-structure, SearchBar, Button.tsx, dependencies, no-restricted-imports, index.ts, eslint-plugin-boundaries]
 related: [frontend/01-frontend-architecture, frontend/02-component-driven-development, frontend/21-code-splitting, frontend/24-documentation, frontend/19-build-tools]
 when_to_use: "Read before creating a new frontend project or adding a feature that needs new directories."
 ---

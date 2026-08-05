@@ -6,7 +6,7 @@ title: "Divi Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [divi, engineering-principles]
+tags: [divi, engineering-principles, wp_enqueue_style, wp_get_theme, get_stylesheet_directory_uri, add_action, post_content, wp_enqueue_script]
 related: [divi/24-best-practices, divi/01-architecture, divi/10-performance, divi/16-wordpress-hooks, divi/09-custom-css]
 when_to_use: "Read before making any non-trivial Divi decision to apply the durable principles that keep a build correct, fast, and update-safe."
 ---

@@ -6,7 +6,7 @@ title: "TypeScript Design Patterns"
 type: doc
 order: 22
 status: ready
-tags: [typescript, design-patterns]
+tags: [typescript, design-patterns, rate, never, toISOString, describe, kind]
 related: [typescript/06-interfaces, typescript/08-generics, typescript/11-unions-and-intersections, typescript/21-functional-programming, typescript/30-engineering-principles]
 when_to_use: "Read before introducing a factory, strategy, adapter, or other pattern, or when reviewing an abstraction that may be over-engineered."
 ---

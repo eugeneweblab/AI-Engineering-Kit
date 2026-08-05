@@ -6,7 +6,7 @@ title: "HTML Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [html, production-checklist]
+tags: [html, production-checklist, html-validate, autocomplete, defer]
 related: [html/30-engineering-principles, html/11-accessibility, html/18-performance, html/12-seo, html/19-security]
 when_to_use: "Read before shipping any HTML page or template to production, as the final gate on markup quality."
 ---

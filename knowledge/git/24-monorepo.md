@@ -6,7 +6,7 @@ title: "Monorepo"
 type: doc
 order: 24
 status: ready
-tags: [git, monorepo]
+tags: [git, monorepo, CODEOWNERS]
 related: [git/25-lfs, git/23-trunk-based-development, git/21-submodules, git/20-hooks, git/18-history]
 when_to_use: "Read before setting up, scaling, or committing to a single repository that holds many projects."
 ---

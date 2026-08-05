@@ -6,7 +6,7 @@ title: "WordPress Project Structure"
 type: doc
 order: 2
 status: ready
-tags: [wordpress, project-structure]
+tags: [wordpress, project-structure, register, add_action, wp_unslash, WP_REST_Response, sanitize_text_field, WP_Query]
 related: [wordpress/01-wordpress-architecture, wordpress/14-theme-development, wordpress/15-plugin-development, wordpress/04-code-style, wordpress/27-deployment]
 when_to_use: "Read before organizing files or deciding where new code belongs in a WordPress project."
 ---

@@ -6,7 +6,7 @@ title: "Incident Response"
 type: doc
 order: 26
 status: ready
-tags: [security, incident-response]
+tags: [security, incident-response, clearCookie, logout, send]
 related: [security/25-monitoring, security/16-secrets-management, security/03-authentication, security/23-dependency-security, security/29-security-review]
 when_to_use: "Read before writing runbooks, break-glass procedures, or breach-handling code paths."
 ---

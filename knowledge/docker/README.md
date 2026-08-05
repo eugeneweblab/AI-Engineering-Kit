@@ -6,7 +6,7 @@ title: "Docker Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [docker]
+tags: [docker, readme]
 related: []
 when_to_use: "Read first when starting any Docker work, to see how this section's docs fit together."
 ---

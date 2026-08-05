@@ -6,7 +6,7 @@ title: "MySQL Performance"
 type: doc
 order: 14
 status: ready
-tags: [mysql, performance]
+tags: [mysql, performance, pt-query-digest, performance_schema, long_query_time, rows, innodb_buffer_pool_size, max_connections]
 related: [mysql/04-indexes, mysql/05-query-optimization, mysql/02-configuration, mysql/15-monitoring]
 when_to_use: "Read before tuning a slow MySQL workload, sizing server memory, or reviewing schema and query changes for scale."
 ---

@@ -6,7 +6,7 @@ title: "CI/CD Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [cicd, common-antipatterns]
+tags: [cicd, common-antipatterns, continue-on-error]
 related: [cicd/04-test-stage, cicd/05-quality-gates, cicd/14-rollbacks, cicd/15-secrets, cicd/30-engineering-principles]
 when_to_use: "Read when a pipeline is slow, flaky, or untrusted, or before reviewing CI/CD changes for known traps."
 ---

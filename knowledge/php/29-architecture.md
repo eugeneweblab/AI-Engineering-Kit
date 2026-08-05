@@ -6,7 +6,7 @@ title: "PHP Architecture"
 type: doc
 order: 29
 status: ready
-tags: [php, architecture]
+tags: [php, architecture, UserRepository, existsByEmail, exists, store, __construct, declare]
 related: [php/20-dependency-injection, php/21-design-patterns, php/04-oop, php/26-best-practices, php/09-exceptions]
 when_to_use: "Read before structuring a new PHP application or a significant refactor of its layers."
 ---

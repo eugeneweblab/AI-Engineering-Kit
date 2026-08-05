@@ -6,7 +6,7 @@ title: "MySQL Monitoring"
 type: doc
 order: 15
 status: ready
-tags: [mysql, monitoring]
+tags: [mysql, monitoring, Seconds_Behind_Source, NOW, sys.statements_with_full_table_scans, performance_schema.events_statements_summary_by_digest, sys.schema_unused_indexes, pt-query-digest]
 related: [mysql/14-performance, mysql/05-query-optimization, mysql/09-replication, mysql/20-production]
 when_to_use: "Read before shipping a MySQL server to production, setting up alerting, or diagnosing a live performance or availability incident."
 ---

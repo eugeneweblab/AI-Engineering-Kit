@@ -6,7 +6,7 @@ title: "Redis Monitoring"
 type: doc
 order: 22
 status: ready
-tags: [redis, monitoring]
+tags: [redis, monitoring, gauge, maxmemory, keyspace_misses, keyspace_hits, rejected_connections, latency-monitor-threshold]
 related: [redis/23-performance, redis/28-observability, redis/20-persistence, redis/18-replication]
 when_to_use: "Read before shipping Redis to production or when diagnosing latency, memory, or eviction issues."
 ---

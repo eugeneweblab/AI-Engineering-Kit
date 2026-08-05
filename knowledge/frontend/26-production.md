@@ -6,7 +6,7 @@ title: "Frontend Production"
 type: doc
 order: 26
 status: ready
-tags: [frontend, production]
+tags: [frontend, production, ErrorBoundary, reportError, reload, console.debug, addEventListener, STRIPE_SECRET]
 related: [frontend/08-performance, frontend/13-error-handling, frontend/23-monitoring, frontend/20-bundling, frontend/98-production-checklist]
 when_to_use: "Read before shipping a frontend build to real users or promoting it to a production environment."
 ---

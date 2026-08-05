@@ -6,7 +6,7 @@ title: "TypeScript Best Practices"
 type: doc
 order: 28
 status: ready
-tags: [typescript, best-practices]
+tags: [typescript, best-practices, unknown, strict, area, never, TypeError, noUncheckedIndexedAccess]
 related: [typescript/02-type-system, typescript/12-type-guards, typescript/17-error-handling, typescript/23-clean-code, typescript/16-configuration]
 when_to_use: "Read before writing or reviewing everyday TypeScript to apply the type-safety practices that prevent whole classes of bugs."
 ---

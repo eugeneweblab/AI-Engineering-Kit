@@ -6,7 +6,7 @@ title: "Docker Performance"
 type: doc
 order: 25
 status: ready
-tags: [docker, performance]
+tags: [docker, performance, COPY, alpine, container_cpu_cfs_throttled_seconds_total, node_modules]
 related: [docker/09-image-optimization, docker/10-buildkit, docker/17-resource-limits, docker/11-multi-stage-builds, docker/24-monitoring]
 when_to_use: "Read when builds are slow, images are bloated, or containers run slower than the same process on the host."
 ---

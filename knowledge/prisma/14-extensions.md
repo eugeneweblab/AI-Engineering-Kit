@@ -6,7 +6,7 @@ title: "Prisma Extensions"
 type: doc
 order: 14
 status: ready
-tags: [prisma, extensions]
+tags: [prisma, extensions, PrismaClient, needs, model, findMany, args.where, compute]
 related: [prisma/13-middleware, prisma/23-soft-delete, prisma/06-client, prisma/22-multi-tenancy]
 when_to_use: "Read before adding computed fields, custom model methods, query interception, or result shaping with Prisma Client Extensions."
 ---

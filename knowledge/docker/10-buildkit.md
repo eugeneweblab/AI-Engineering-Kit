@@ -6,7 +6,7 @@ title: "BuildKit"
 type: doc
 order: 10
 status: ready
-tags: [docker, buildkit]
+tags: [docker, buildkit, ARG, NPM_TOKEN, buildx]
 related: [docker/08-dockerfile, docker/09-image-optimization, docker/11-multi-stage-builds, docker/14-secrets, docker/29-ci-integration]
 when_to_use: "Read before optimizing build speed, caching dependencies, or passing secrets into a build without leaking them into layers."
 ---

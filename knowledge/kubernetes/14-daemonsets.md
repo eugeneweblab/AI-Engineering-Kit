@@ -6,7 +6,7 @@ title: "Daemonsets"
 type: doc
 order: 14
 status: ready
-tags: [kubernetes, daemonsets]
+tags: [kubernetes, daemonsets, maxUnavailable, RollingUpdate, hostPath, resources.requests, limits, nodeSelector]
 related: [kubernetes/05-deployments, kubernetes/03-nodes, kubernetes/19-resource-management, kubernetes/21-observability, kubernetes/22-security]
 when_to_use: "Read before deploying a node-level agent — log shipper, metrics exporter, CNI, or storage plugin — that must run one copy per node."
 ---

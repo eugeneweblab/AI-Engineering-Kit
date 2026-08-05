@@ -6,7 +6,7 @@ title: "Immutability"
 type: doc
 order: 20
 status: ready
-tags: [typescript, immutability]
+tags: [typescript, immutability, readonly, splice, Object.freeze, reverse, localeCompare, method]
 related: [typescript/19-collections, typescript/21-functional-programming, typescript/05-objects, typescript/09-utility-types, typescript/28-best-practices]
 when_to_use: "Read before modeling state, passing objects across module boundaries, or reviewing code that mutates shared data."
 ---

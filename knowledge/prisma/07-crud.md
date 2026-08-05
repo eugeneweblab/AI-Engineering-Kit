@@ -6,7 +6,7 @@ title: "CRUD"
 type: doc
 order: 7
 status: ready
-tags: [prisma, crud]
+tags: [prisma, crud, upsert, findFirst, findUnique, updateMany, deleteMany, P2025]
 related: [prisma/06-client, prisma/08-transactions, prisma/09-filtering, prisma/11-relations-loading, prisma/18-error-handling]
 when_to_use: "Read before writing create, read, update, or delete queries with the Prisma Client."
 ---

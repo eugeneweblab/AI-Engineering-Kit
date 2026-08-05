@@ -6,7 +6,7 @@ title: "GitHub Platform"
 type: doc
 order: 1
 status: ready
-tags: [github, github-platform]
+tags: [github, github-platform, GITHUB_TOKEN, GitHub, handle, X-RateLimit-Remaining, X-Hub-Signature-256, If-None-Match]
 related: [github/02-repositories, github/19-organizations, github/21-permissions, github/22-api, github/23-cli]
 when_to_use: "Read before writing any GitHub automation, to understand the object model, hosting tiers, and auth surfaces you are targeting."
 ---

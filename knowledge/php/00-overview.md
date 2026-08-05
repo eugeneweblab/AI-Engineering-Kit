@@ -6,7 +6,7 @@ title: "PHP Overview"
 type: doc
 order: 0
 status: ready
-tags: [php, overview]
+tags: [php, overview, strict_types, readonly]
 related: [php/01-language-fundamentals, php/02-types, php/04-oop, php/23-modern-php, php/24-psr-standards]
 when_to_use: "Read first when starting or reviewing any PHP work to orient yourself among the topic's docs."
 ---

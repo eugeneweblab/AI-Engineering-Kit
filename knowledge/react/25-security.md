@@ -6,7 +6,7 @@ title: "React Security"
 type: doc
 order: 25
 status: ready
-tags: [react, security]
+tags: [react, security, dangerouslySetInnerHTML, localStorage, href, Comment, HttpOnly, VITE_]
 related: [react/16-data-fetching, react/15-forms, react/19-error-handling, react/28-production, react/26-best-practices]
 when_to_use: "Read before rendering user-supplied content, handling tokens, or shipping a React app to production."
 ---

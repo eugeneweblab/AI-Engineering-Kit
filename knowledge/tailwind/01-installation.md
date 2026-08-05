@@ -6,7 +6,7 @@ title: "Tailwind CSS Installation"
 type: doc
 order: 1
 status: ready
-tags: [tailwind, installation]
+tags: [tailwind, installation, content, tailwindcss, postcss-import, autoprefixer, tailwind.config.js, "@tailwindcss"]
 related: [tailwind/00-overview, tailwind/02-core-concepts, tailwind/15-customization, tailwind/16-theme, tailwind/23-nextjs]
 when_to_use: "Read before setting up Tailwind in a new project or upgrading an existing build."
 ---

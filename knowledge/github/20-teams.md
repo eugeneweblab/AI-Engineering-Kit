@@ -6,7 +6,7 @@ title: "Teams"
 type: doc
 order: 20
 status: ready
-tags: [github, teams]
+tags: [github, teams, CODEOWNERS, payments, platform, security, write]
 related: [github/19-organizations, github/21-permissions, github/07-code-review, github/17-branch-protection, github/18-rulesets]
 when_to_use: "Read before designing an organization's team hierarchy, code-owner routing, or IdP team sync."
 ---

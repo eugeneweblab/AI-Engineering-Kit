@@ -6,7 +6,7 @@ title: "Users and Capabilities"
 type: doc
 order: 20
 status: ready
-tags: [wordpress, users-and-capabilities]
+tags: [wordpress, users-and-capabilities, current_user_can, get_role, wp_die, esc_html__, absint, wp_update_post]
 related: [wordpress/06-security, wordpress/18-rest-api, wordpress/09-custom-post-types, wordpress/25-multisite, wordpress/15-plugin-development, security/04-authorization]
 when_to_use: "Read before implementing permission checks — choosing a capability, adding a custom role, or restricting access to a post type or admin screen."
 ---

@@ -6,7 +6,7 @@ title: "HTML AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [html, ai-review-checklist]
+tags: [html, ai-review-checklist, pattern, onclick, autocomplete, defer, aria-labelledby]
 related: [html/30-engineering-principles, html/100-common-antipatterns, html/02-semantic-html, html/11-accessibility, html/22-validation]
 when_to_use: "Read when reviewing HTML in a pull request or generated output, to check the markup against objective criteria."
 ---

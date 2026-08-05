@@ -6,7 +6,7 @@ title: "JavaScript Overview"
 type: doc
 order: 0
 status: ready
-tags: [javascript, overview]
+tags: [javascript, overview, arguments]
 related: [javascript/01-language-fundamentals, javascript/02-execution-context, javascript/03-scope-and-closures, javascript/04-functions, javascript/05-objects-and-prototypes]
 when_to_use: "Read first when starting any JavaScript work to see how the topic's docs fit together."
 ---

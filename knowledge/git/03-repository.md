@@ -6,7 +6,7 @@ title: "Repository"
 type: doc
 order: 3
 status: ready
-tags: [git, repository]
+tags: [git, repository, node_modules, gitleaks, clone, README, init]
 related: [git/00-overview, git/01-version-control, git/04-commits, git/13-remote-repositories, git/28-security]
 when_to_use: "Read before initializing or cloning a repo, choosing what to track, or wiring up .gitignore."
 ---

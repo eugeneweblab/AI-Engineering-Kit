@@ -6,7 +6,7 @@ title: "Project Structure"
 type: doc
 order: 2
 status: ready
-tags: [nextjs, project-structure]
+tags: [nextjs, project-structure, Pool, DATABASE_URL, page.tsx, next.config.ts, process.env.X, server-only]
 related: [nextjs/27-folder-structure, nextjs/01-architecture, nextjs/06-server-components, nextjs/24-security, nextjs/28-best-practices]
 when_to_use: "Read before scaffolding a new Next.js repo or deciding where a module, component, or helper belongs."
 ---

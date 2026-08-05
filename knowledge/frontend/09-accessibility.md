@@ -6,7 +6,7 @@ title: "Frontend Accessibility"
 type: doc
 order: 9
 status: ready
-tags: [frontend, accessibility]
+tags: [frontend, accessibility, DeleteButton, aria-label, focus, useEffect, prefers-reduced-motion]
 related: [frontend/12-forms, frontend/02-component-driven-development, frontend/10-responsive-design, frontend/07-rendering, frontend/28-ui-patterns]
 when_to_use: "Read before building any interactive component, form, modal, or custom control."
 ---

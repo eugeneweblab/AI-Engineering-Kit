@@ -6,7 +6,7 @@ title: "Incident Report Template"
 type: doc
 order: 3
 status: ready
-tags: [templates, incident-report]
+tags: [templates, incident-report, "@ana", "@dev", CheckoutErrorRateHigh, TypeScript]
 related: [templates/02-architecture-decision-record, playbooks/01-site-down, security/26-incident-response, workflows/06-investigate-production-bug, tools/29-observability-tools]
 when_to_use: "Copy after a user-visible failure, once service is restored and the timeline is still accurate."
 ---

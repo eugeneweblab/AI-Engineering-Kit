@@ -6,7 +6,7 @@ title: "State"
 type: doc
 order: 6
 status: ready
-tags: [react, state]
+tags: [react, state, useState, dispatch, useOptimistic, setState, setItems, useReducer]
 related: [react/08-hooks, react/05-props, react/11-rendering, react/18-state-management, react/04-components]
 when_to_use: "Read before adding, updating, or lifting component state, or debugging a stale/lost-state bug."
 ---

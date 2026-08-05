@@ -6,7 +6,7 @@ title: "Architecture Layered Architecture"
 type: doc
 order: 5
 status: ready
-tags: [architecture, layered-architecture]
+tags: [architecture, layered-architecture, OrderRepository, placeOrder, ValidationError, send, PlaceOrderInput, OrderService]
 related: [architecture/03-clean-architecture, architecture/04-hexagonal-architecture, architecture/10-modular-monolith, architecture/01-software-architecture, architecture/100-common-antipatterns]
 when_to_use: "Read before structuring a straightforward service where a simple presentation/logic/data split fits and full clean/hexagonal ceremony would be overkill."
 ---

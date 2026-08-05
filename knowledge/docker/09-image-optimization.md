@@ -6,7 +6,7 @@ title: "Image Optimization"
 type: doc
 order: 9
 status: ready
-tags: [docker, image-optimization]
+tags: [docker, image-optimization, distroless, node_modules, dive, ubuntu]
 related: [docker/08-dockerfile, docker/11-multi-stage-builds, docker/10-buildkit, docker/03-images, docker/18-security]
 when_to_use: "Read when an image is too large, slow to pull, or carries needless attack surface, and you need to shrink it safely."
 ---

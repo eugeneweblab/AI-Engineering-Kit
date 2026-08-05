@@ -6,7 +6,7 @@ title: "Capacity Planning"
 type: doc
 order: 20
 status: ready
-tags: [performance, capacity-planning]
+tags: [performance, capacity-planning, ceil]
 related: [performance/21-scalability, performance/22-load-testing, performance/02-metrics, performance/17-monitoring, performance/23-performance-budget]
 when_to_use: "Read before sizing infrastructure, setting autoscaling limits, or preparing for a traffic event."
 ---

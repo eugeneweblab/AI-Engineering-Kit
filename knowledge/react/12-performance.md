@@ -6,7 +6,7 @@ title: "React Performance"
 type: doc
 order: 12
 status: ready
-tags: [react, performance]
+tags: [react, performance, useMemo, React.memo, useCallback, lazy, onSelect, memo]
 related: [react/11-rendering, react/08-hooks, react/10-context-api, performance/06-rendering]
 when_to_use: "Read before optimizing or reviewing React performance and memoization decisions."
 ---

@@ -6,7 +6,7 @@ title: "API Testing"
 type: doc
 order: 12
 status: ready
-tags: [testing, api-testing]
+tags: [testing, api-testing, send, toBe, toMatch, toBeDefined, toMatchObject, toEqual]
 related: [testing/03-integration-testing, testing/11-contract-testing, testing/04-e2e-testing, testing/17-security-testing, testing/09-assertions]
 when_to_use: "Read before writing or reviewing tests that exercise an HTTP, GraphQL, or RPC endpoint through its real contract."
 ---

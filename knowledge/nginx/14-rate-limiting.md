@@ -6,7 +6,7 @@ title: "Nginx Rate Limiting"
 type: doc
 order: 14
 status: ready
-tags: [nginx, rate-limiting]
+tags: [nginx, rate-limiting, limit_conn, limit_req, location, real_ip_header, set_real_ip_from]
 related: [nginx/13-security, nginx/15-authentication, nginx/05-reverse-proxy, nginx/17-monitoring]
 when_to_use: "Read before adding `limit_req` / `limit_conn` throttling in nginx or reviewing abuse-protection config."
 ---

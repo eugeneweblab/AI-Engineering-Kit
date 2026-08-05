@@ -6,7 +6,7 @@ title: "Node.js Cluster"
 type: doc
 order: 13
 status: ready
-tags: [nodejs, cluster]
+tags: [nodejs, cluster, fork, cpus, cluster, availableParallelism, SIGTERM, close]
 related: [nodejs/10-process, nodejs/12-worker-threads, nodejs/09-http, nodejs/26-deployment, nodejs/27-monitoring]
 when_to_use: "Read before scaling a Node.js HTTP server across CPU cores with the cluster module or a process manager."
 ---

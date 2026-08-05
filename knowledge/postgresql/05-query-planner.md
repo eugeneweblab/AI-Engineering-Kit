@@ -6,7 +6,7 @@ title: "Query Planner"
 type: doc
 order: 5
 status: ready
-tags: [postgresql, query-planner]
+tags: [postgresql, query-planner, ANALYZE, EXPLAIN, BUFFERS, pg_stat_statements, auto_explain]
 related: [postgresql/04-indexes, postgresql/21-analyze, postgresql/16-performance, postgresql/24-debugging, postgresql/27-tuning]
 when_to_use: "Read before diagnosing a slow query or interpreting an EXPLAIN plan."
 ---

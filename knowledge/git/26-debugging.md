@@ -6,7 +6,7 @@ title: "Git Debugging"
 type: doc
 order: 26
 status: ready
-tags: [git, debugging]
+tags: [git, debugging, reflog, rebase, bisect]
 related: [git/19-reflog, git/18-history, git/09-reset, git/10-revert, git/17-conflict-resolution]
 when_to_use: "Read before hunting down which commit introduced a bug or recovering from a bad Git operation."
 ---

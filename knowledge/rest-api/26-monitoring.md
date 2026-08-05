@@ -6,7 +6,7 @@ title: "REST API Monitoring"
 type: doc
 order: 26
 status: ready
-tags: [rest-api, monitoring]
+tags: [rest-api, monitoring, storage, observe, header, round, randomUUID]
 related: [rest-api/09-error-handling, rest-api/07-status-codes, rest-api/28-production, rest-api/25-performance, rest-api/24-security]
 when_to_use: "Read before shipping an API to production or when an incident can't be diagnosed because the signals aren't there."
 ---

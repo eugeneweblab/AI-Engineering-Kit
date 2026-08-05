@@ -6,7 +6,7 @@ title: "Context API"
 type: doc
 order: 10
 status: ready
-tags: [react, context-api]
+tags: [react, context-api, useContext, ThemeProvider, dispatch, ReactNode, useState, useReducer]
 related: [react/06-state, react/08-hooks, react/09-custom-hooks, react/18-state-management, react/12-performance]
 when_to_use: "Read before sharing state across the tree with Context or when a Provider is causing re-render problems."
 ---

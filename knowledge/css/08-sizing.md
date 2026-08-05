@@ -6,7 +6,7 @@ title: "CSS Sizing"
 type: doc
 order: 8
 status: ready
-tags: [css, sizing]
+tags: [css, sizing, min-height, height, max-width, width, box-sizing]
 related: [css/04-box-model, css/09-spacing, css/06-flexbox, css/07-grid, css/17-responsive-design]
 when_to_use: "Read before setting any width, height, or min/max dimension on an element."
 ---

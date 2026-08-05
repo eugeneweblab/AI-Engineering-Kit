@@ -6,7 +6,7 @@ title: "Nginx Caching"
 type: doc
 order: 8
 status: ready
-tags: [nginx, caching]
+tags: [nginx, caching, max_size, Authorization, Cache-Control, proxy_no_cache, proxy_cache_bypass, Vary]
 related: [nginx/05-reverse-proxy, nginx/07-static-files, nginx/09-compression, nginx/06-load-balancing, nginx/17-monitoring]
 when_to_use: "Read before enabling proxy_cache or setting Cache-Control on responses served through nginx."
 ---

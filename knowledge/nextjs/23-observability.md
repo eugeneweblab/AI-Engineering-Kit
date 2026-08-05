@@ -6,7 +6,7 @@ title: "Next.js Observability"
 type: doc
 order: 23
 status: ready
-tags: [nextjs, observability]
+tags: [nextjs, observability, NextResponse, useReportWebVitals, stringify, register, sendBeacon, charge]
 related: [nextjs/26-deployment, nextjs/20-performance, architecture/18-observability]
 when_to_use: "Read before adding logging, tracing, monitoring, or alerting to a Next.js app."
 ---

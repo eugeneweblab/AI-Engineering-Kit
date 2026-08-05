@@ -6,7 +6,7 @@ title: "MySQL Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [mysql, engineering-principles]
+tags: [mysql, engineering-principles, VARCHAR, InnoDB, utf8, utf8mb4, DOUBLE, EXPLAIN]
 related: [mysql/04-indexes, mysql/06-transactions, mysql/05-query-optimization, mysql/19-best-practices, mysql/16-migrations]
 when_to_use: "Read before designing a schema, writing queries, or reviewing any MySQL data-access code."
 ---

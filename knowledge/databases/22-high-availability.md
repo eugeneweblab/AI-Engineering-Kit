@@ -6,7 +6,7 @@ title: "Database High Availability"
 type: doc
 order: 22
 status: ready
-tags: [databases, high-availability]
+tags: [databases, high-availability, store, PostgreSQL]
 related: [databases/14-replication, databases/18-backup-and-recovery, databases/13-eventual-consistency, databases/15-sharding, databases/21-monitoring]
 when_to_use: "Read before designing failover, choosing sync vs async replication, or reviewing whether a database survives the loss of a node or a region."
 ---

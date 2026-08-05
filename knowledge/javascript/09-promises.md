@@ -6,7 +6,7 @@ title: "Promises"
 type: doc
 order: 9
 status: ready
-tags: [javascript, promises]
+tags: [javascript, promises, allSettled, fetchUser, resolve, reject, fetchOrders, readFile]
 related: [javascript/08-asynchronous-javascript, javascript/10-event-loop, javascript/14-error-handling, javascript/13-fetch-api]
 when_to_use: "Read before creating a Promise, chaining `.then`, or using `Promise.all/race/allSettled/any`."
 ---

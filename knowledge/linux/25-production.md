@@ -6,7 +6,7 @@ title: "Linux Production"
 type: doc
 order: 25
 status: ready
-tags: [linux, production]
+tags: [linux, production, MemoryMax, RestartSec, LimitNOFILE, ProtectSystem, NoNewPrivileges]
 related: [linux/08-systemd, linux/16-monitoring, linux/15-logging, linux/17-security, linux/98-production-checklist]
 when_to_use: "Read before promoting a Linux host or service to production, or reviewing a deployment for operational readiness."
 ---

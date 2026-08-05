@@ -6,7 +6,7 @@ title: "CI/CD Best Practices"
 type: doc
 order: 27
 status: ready
-tags: [cicd, best-practices]
+tags: [cicd, best-practices, "@latest", runs-on, first, timeout-minutes]
 related: [cicd/02-pipeline-design, cicd/05-quality-gates, cicd/15-secrets, cicd/26-performance, cicd/100-common-antipatterns]
 when_to_use: "Read before designing a new pipeline or reviewing an existing one for structural soundness."
 ---

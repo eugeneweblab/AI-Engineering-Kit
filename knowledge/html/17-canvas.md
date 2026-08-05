@@ -6,7 +6,7 @@ title: "Canvas"
 type: doc
 order: 17
 status: ready
-tags: [html, canvas]
+tags: [html, canvas, requestAnimationFrame, setInterval, getElementById, scale, aria-label]
 related: [html/16-svg, html/11-accessibility, html/18-performance, html/27-html-apis]
 when_to_use: "Read before rendering pixel graphics, charts, or animation with the <canvas> element."
 ---

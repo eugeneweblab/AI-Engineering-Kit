@@ -6,7 +6,7 @@ title: "DevOps Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [devops]
+tags: [devops, readme]
 related: []
 when_to_use: "Read first when starting any devops work, to see how this section's docs fit together."
 ---

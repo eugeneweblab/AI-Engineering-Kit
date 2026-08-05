@@ -6,7 +6,7 @@ title: "Firewall"
 type: doc
 order: 21
 status: ready
-tags: [linux, firewall]
+tags: [linux, firewall, iptables]
 related: [linux/09-networking, linux/10-ssh, linux/17-security, linux/22-containers, linux/25-production]
 when_to_use: "Read before configuring or reviewing packet filtering, port exposure, or network access rules on a Linux host."
 ---

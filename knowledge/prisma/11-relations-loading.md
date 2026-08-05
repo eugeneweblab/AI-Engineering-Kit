@@ -6,7 +6,7 @@ title: "Relations Loading"
 type: doc
 order: 11
 status: ready
-tags: [prisma, relations-loading]
+tags: [prisma, relations-loading, take, findMany, orderBy]
 related: [prisma/04-relations, prisma/07-crud, prisma/09-filtering, prisma/10-pagination, prisma/15-performance]
 when_to_use: "Read before loading related records with include or select, or when a query fans out into many round-trips."
 ---

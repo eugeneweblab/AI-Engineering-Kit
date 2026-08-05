@@ -6,7 +6,7 @@ title: "Users And Roles"
 type: doc
 order: 13
 status: ready
-tags: [mysql, users-and-roles]
+tags: [mysql, users-and-roles, migrator, SUPER, app_readwrite, app_readonly, REVOKE, ALL]
 related: [mysql/12-security, mysql/02-configuration, mysql/16-migrations, mysql/15-monitoring]
 when_to_use: "Read before creating a MySQL account, granting privileges, or reviewing who can do what in the database."
 ---

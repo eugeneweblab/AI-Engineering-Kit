@@ -6,7 +6,7 @@ title: "Debugging Tests"
 type: doc
 order: 23
 status: ready
-tags: [testing, debugging-tests]
+tags: [testing, debugging-tests, normalize, console.log, toBeTruthy, toEqual, toThrow, toBe]
 related: [testing/22-flaky-tests, testing/09-assertions, testing/06-mocking, testing/20-test-maintenance, testing/04-e2e-testing]
 when_to_use: "Read when a test fails and the cause is not obvious, or a test passes locally but fails in CI."
 ---

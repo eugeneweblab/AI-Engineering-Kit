@@ -6,7 +6,7 @@ title: "Tailwind CSS Flexbox"
 type: doc
 order: 5
 status: ready
-tags: [tailwind, flexbox]
+tags: [tailwind, flexbox, flex-wrap, flex-1, min-w-0, truncate, overflow-hidden]
 related: [tailwind/04-layout, tailwind/06-grid, tailwind/07-spacing, tailwind/11-responsive-design, tailwind/02-core-concepts]
 when_to_use: "Read before laying out a one-dimensional row or column of items with flex utilities."
 ---

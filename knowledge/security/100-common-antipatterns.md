@@ -6,7 +6,7 @@ title: "Security Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [security, common-antipatterns]
+tags: [security, common-antipatterns, Forbidden, send, price, isAdmin, userId, unsafe-inline]
 related: [security/13-sql-injection, security/04-authorization, security/16-secrets-management, security/11-xss, security/28-owasp-top10]
 when_to_use: "Read when writing or reviewing security-sensitive code, to recognize a dangerous pattern before it ships."
 ---

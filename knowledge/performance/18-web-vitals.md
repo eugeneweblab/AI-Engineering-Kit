@@ -6,7 +6,7 @@ title: "Web Vitals"
 type: doc
 order: 18
 status: ready
-tags: [performance, web-vitals]
+tags: [performance, web-vitals, web-vitals, shift, onLCP, onINP, onCLS, sendBeacon]
 related: [performance/02-metrics, performance/06-rendering, performance/07-loading, performance/11-images, performance/23-performance-budget]
 when_to_use: "Read before measuring or optimizing the perceived loading and responsiveness of a web page."
 ---

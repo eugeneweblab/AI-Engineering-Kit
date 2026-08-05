@@ -6,7 +6,7 @@ title: "Analytics"
 type: doc
 order: 21
 status: ready
-tags: [seo, analytics]
+tags: [seo, analytics, Disallow, requestIdleCallback, robots.txt, remove, getElementById, addEventListener]
 related: [seo/22-search-console, seo/24-monitoring, seo/12-performance, seo/13-core-web-vitals]
 when_to_use: "Read before adding, changing, or reviewing analytics/tag code that could affect indexing, consent, or page performance."
 ---

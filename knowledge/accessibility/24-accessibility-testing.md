@@ -6,7 +6,7 @@ title: "Accessibility Testing"
 type: doc
 order: 24
 status: ready
-tags: [accessibility, accessibility-testing]
+tags: [accessibility, accessibility-testing, toHaveNoViolations, cypress-axe, jest-axe, toBe]
 related: [accessibility/20-testing-tools, accessibility/21-axe, accessibility/22-lighthouse, accessibility/04-keyboard-navigation, accessibility/06-screen-readers]
 when_to_use: "Read before adding accessibility checks to a test suite or a CI pipeline, or when deciding what to test manually versus automatically."
 ---

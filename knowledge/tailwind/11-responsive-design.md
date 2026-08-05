@@ -6,7 +6,7 @@ title: "Tailwind CSS Responsive Design"
 type: doc
 order: 11
 status: ready
-tags: [tailwind, responsive-design]
+tags: [tailwind, responsive-design, "@container"]
 related: [tailwind/04-layout, tailwind/06-grid, tailwind/05-flexbox, tailwind/08-sizing, tailwind/13-state-variants]
 when_to_use: "Read before making any layout adapt across screen sizes, or when a component must work on both phones and desktops."
 ---

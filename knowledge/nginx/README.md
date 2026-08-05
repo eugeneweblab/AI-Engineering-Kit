@@ -6,7 +6,7 @@ title: "Nginx Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [nginx]
+tags: [nginx, readme, Host]
 related: []
 when_to_use: "Read first when starting any nginx work, to see how this section's docs fit together."
 ---

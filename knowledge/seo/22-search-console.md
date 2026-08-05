@@ -6,7 +6,7 @@ title: "Search Console"
 type: doc
 order: 22
 status: ready
-tags: [seo, search-console]
+tags: [seo, search-console, noindex, alert, list, execute]
 related: [seo/03-indexing, seo/07-sitemaps, seo/24-monitoring, seo/23-audits]
 when_to_use: "Read before verifying a property, diagnosing an indexing problem, or wiring Search Console data into monitoring."
 ---

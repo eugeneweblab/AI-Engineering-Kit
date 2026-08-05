@@ -6,7 +6,7 @@ title: "WooCommerce Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [woocommerce, engineering-principles]
+tags: [woocommerce, engineering-principles, get_id, round, update_post_meta, get_post_meta, add_filter, payment_intent.succeeded]
 related: [woocommerce/01-architecture, woocommerce/12-hooks, woocommerce/25-best-practices, woocommerce/16-security, woocommerce/100-common-antipatterns]
 when_to_use: "Read before making any non-trivial WooCommerce design decision, so choices are reasoned against the platform's conventions rather than guessed."
 ---

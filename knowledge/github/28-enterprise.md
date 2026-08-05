@@ -6,7 +6,7 @@ title: "Enterprise"
 type: doc
 order: 28
 status: ready
-tags: [github, enterprise]
+tags: [github, enterprise, features, GITHUB_TOKEN, DEFAULT_BRANCH]
 related: [github/19-organizations, github/20-teams, github/21-permissions, github/18-rulesets, github/13-security]
 when_to_use: "Read before configuring enterprise-level SSO, policies, or rulesets, or auditing an enterprise account."
 ---

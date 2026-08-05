@@ -6,7 +6,7 @@ title: "Tailwind CSS Accessibility"
 type: doc
 order: 22
 status: ready
-tags: [tailwind, accessibility]
+tags: [tailwind, accessibility, outline-none, "focus-visible:", aria-label, "motion-reduce:", "focus:", prefers-reduced-motion]
 related: [tailwind/13-state-variants, tailwind/14-pseudo-classes, tailwind/12-dark-mode, tailwind/10-colors, tailwind/21-design-system]
 when_to_use: "Read before shipping interactive UI: focus states, contrast, motion, and screen-reader support."
 ---

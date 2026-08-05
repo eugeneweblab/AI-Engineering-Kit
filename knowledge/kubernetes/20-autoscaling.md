@@ -6,7 +6,7 @@ title: "Autoscaling"
 type: doc
 order: 20
 status: ready
-tags: [kubernetes, autoscaling]
+tags: [kubernetes, autoscaling, minReplicas, PodDisruptionBudgets]
 related: [kubernetes/19-resource-management, kubernetes/05-deployments, kubernetes/23-monitoring, kubernetes/26-production]
 when_to_use: "Read before adding an HPA, VPA, or cluster/node autoscaler, or when a workload flaps, thrashes, or fails to scale under load."
 ---

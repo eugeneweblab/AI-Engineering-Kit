@@ -6,7 +6,7 @@ title: "Color and Contrast"
 type: doc
 order: 10
 status: ready
-tags: [accessibility, color-and-contrast]
+tags: [accessibility, color-and-contrast, outline, forced-colors, currentColor]
 related: [accessibility/11-typography, accessibility/02-pour-principles, accessibility/08-forms, accessibility/09-images, accessibility/23-wcag]
 when_to_use: "Read before choosing colors, defining themes, or building any UI where color conveys meaning or state."
 ---

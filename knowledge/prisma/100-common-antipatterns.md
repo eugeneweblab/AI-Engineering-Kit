@@ -6,7 +6,7 @@ title: "Prisma Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [prisma, common-antipatterns]
+tags: [prisma, common-antipatterns, findMany, PrismaClient, take, upsert, findUnique, P2002]
 related: [prisma/30-engineering-principles, prisma/11-relations-loading, prisma/08-transactions, prisma/15-performance, prisma/17-raw-sql]
 when_to_use: "Read before writing Prisma code, or when a query is slow, leaks connections, or corrupts data."
 ---

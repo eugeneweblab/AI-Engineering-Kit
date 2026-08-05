@@ -6,7 +6,7 @@ title: "HTML Tables"
 type: doc
 order: 7
 status: ready
-tags: [html, tables]
+tags: [html, tables, rowspan, colspan, scope, region, aria-label]
 related: [html/11-accessibility, html/02-semantic-html, html/08-forms, html/06-lists]
 when_to_use: "Read before rendering any tabular data grid or reviewing a data table's markup."
 ---

@@ -6,7 +6,7 @@ title: "Commit Conventions"
 type: doc
 order: 17
 status: ready
-tags: [tools, commit-conventions]
+tags: [tools, commit-conventions, feat, perf, docs, chore, commit-msg]
 related: [tools/16-git-hooks, tools/28-release-tools, tools/27-dependency-management, tools/19-task-runners, tools/30-engineering-principles, git/04-commits, git/27-best-practices]
 when_to_use: "Read before adopting a commit message convention — configuring commitlint, choosing types and scopes, or wiring commits to automated versioning."
 ---

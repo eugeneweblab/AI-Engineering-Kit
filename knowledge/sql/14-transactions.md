@@ -6,7 +6,7 @@ title: "SQL Transactions"
 type: doc
 order: 14
 status: ready
-tags: [sql, transactions]
+tags: [sql, transactions, COMMIT, BEGIN, SERIALIZABLE, ROLLBACK, change, idle_in_transaction]
 related: [sql/13-dml, sql/15-indexes, sql/12-ddl, sql/23-performance, sql/100-common-antipatterns]
 when_to_use: "Read before writing multi-statement writes, choosing an isolation level, or debugging deadlocks and lost updates."
 ---

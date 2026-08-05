@@ -6,7 +6,7 @@ title: "Performance Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [performance, engineering-principles]
+tags: [performance, engineering-principles, build_report, cache]
 related: [performance/01-performance-fundamentals, performance/27-best-practices, performance/24-optimization-workflow, performance/23-performance-budget, performance/100-common-antipatterns]
 when_to_use: "Read before making any decision that trades speed against complexity, correctness, or cost."
 ---

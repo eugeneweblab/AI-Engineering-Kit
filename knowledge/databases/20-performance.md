@@ -6,7 +6,7 @@ title: "Database Performance"
 type: doc
 order: 20
 status: ready
-tags: [databases, performance]
+tags: [databases, performance, trip, OFFSET, log_min_duration_statement, ANALYZE, pg_stat_statements]
 related: [databases/07-indexing, databases/08-query-optimization, databases/21-monitoring, databases/16-partitioning, databases/14-replication]
 when_to_use: "Read before diagnosing a slow query, sizing a connection pool, or reviewing a data-access path for latency or scale."
 ---

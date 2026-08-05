@@ -6,7 +6,7 @@ title: "NestJS Dependency Injection"
 type: doc
 order: 3
 status: ready
-tags: [nestjs, dependency-injection]
+tags: [nestjs, dependency-injection, Injectable, Inject, Module, UsersRepository, charge, UsersService]
 related: [nestjs/02-modules, nestjs/05-services, nestjs/25-testing, nestjs/01-architecture]
 when_to_use: "Read before wiring providers, tokens, scopes, or custom factories, or when debugging DI resolution errors."
 ---

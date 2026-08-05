@@ -6,7 +6,7 @@ title: "Figma to Semantic HTML"
 type: doc
 order: 7
 status: ready
-tags: [figma, figma-to-html]
+tags: [figma, figma-to-html, addToBasket, button]
 related: [figma/02-layout-analysis, figma/03-design-token-extraction, html/02-semantic-html, css/17-responsive-design]
 when_to_use: "Read before converting a Figma design into clean, accessible, semantic HTML markup."
 ---

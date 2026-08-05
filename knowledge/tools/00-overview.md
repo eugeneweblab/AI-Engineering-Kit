@@ -6,7 +6,7 @@ title: "Tooling Overview"
 type: doc
 order: 0
 status: ready
-tags: [tools, overview]
+tags: [tools, overview, editor, commit]
 related: [tools/01-package-managers, tools/04-eslint, tools/16-git-hooks, tools/19-task-runners, tools/30-engineering-principles]
 when_to_use: "Read first when setting up tooling for a project, to understand which categories of tool are needed and how they fit together."
 ---

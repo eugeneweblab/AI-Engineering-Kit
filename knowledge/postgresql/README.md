@@ -6,7 +6,7 @@ title: "PostgreSQL Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [postgresql]
+tags: [postgresql, readme, jsonb, uuid, bigint, timestamptz, numeric, pg_stat_statements]
 related: []
 when_to_use: "Read first when starting any PostgreSQL work, to see how this section's docs fit together."
 ---

@@ -6,7 +6,7 @@ title: "Frontend SEO"
 type: doc
 order: 11
 status: ready
-tags: [frontend, seo]
+tags: [frontend, seo, noindex, robots.txt, "@type", "@context", generateMetadata, lastmod]
 related: [frontend/07-rendering, frontend/08-performance, frontend/10-responsive-design, frontend/09-accessibility, frontend/05-routing]
 when_to_use: "Read before building public, indexable pages or changing routing, rendering, or page metadata."
 ---

@@ -6,7 +6,7 @@ title: "CSS Variables"
 type: doc
 order: 20
 status: ready
-tags: [css, css-variables]
+tags: [css, css-variables, "@media", media, "--color-accent", unset, prefers-color-scheme]
 related: [css/21-architecture, css/11-colors, css/18-media-queries, css/23-accessibility, css/29-css-methodologies]
 when_to_use: "Read before defining design tokens, building a theme system (dark mode), or reaching for a preprocessor variable where a runtime custom property fits better."
 ---

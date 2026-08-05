@@ -6,7 +6,7 @@ title: "OWASP Top 10"
 type: doc
 order: 28
 status: ready
-tags: [security, owasp-top10]
+tags: [security, owasp-top10, getInvoice, ForbiddenError, findById]
 related: [security/27-best-practices, security/04-authorization, security/13-sql-injection, security/24-supply-chain-security, security/29-security-review]
 when_to_use: "Read when triaging a design or PR against the industry-standard list of the most common web risks."
 ---

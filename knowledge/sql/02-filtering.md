@@ -6,7 +6,7 @@ title: "SQL Filtering"
 type: doc
 order: 2
 status: ready
-tags: [sql, filtering]
+tags: [sql, filtering, UNKNOWN, BETWEEN, EXTRACT, EXISTS, HAVING]
 related: [sql/01-select, sql/03-sorting, sql/04-grouping, sql/15-indexes, sql/17-query-optimization]
 when_to_use: "Read before writing any WHERE clause, especially one involving NULL, IN/NOT IN, or a column that should use an index."
 ---

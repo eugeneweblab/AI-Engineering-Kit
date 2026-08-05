@@ -6,7 +6,7 @@ title: "Next.js Deployment"
 type: doc
 order: 26
 status: ready
-tags: [nextjs, deployment]
+tags: [nextjs, deployment, NextConfig, NextResponse, DATABASE_URL, connect, NODE_ENV]
 related: [nextjs/21-environment-variables, nextjs/23-observability, nextjs/10-caching, cicd/10-deployment]
 when_to_use: "Read before deploying a Next.js app to a hosting platform or production environment."
 ---

@@ -6,7 +6,7 @@ title: "Accessibility Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [accessibility, engineering-principles]
+tags: [accessibility, engineering-principles, prefers-contrast, eslint-plugin-jsx-a11y, grid, tabindex, role, aria-label]
 related: [accessibility/03-semantic-html, accessibility/07-aria, accessibility/05-focus-management, accessibility/24-accessibility-testing, accessibility/27-best-practices]
 when_to_use: "Read before building any UI component or feature, to internalize the engineering habits that make accessibility a default rather than a retrofit."
 ---

@@ -6,7 +6,7 @@ title: "Utility First"
 type: doc
 order: 3
 status: ready
-tags: [tailwind, utility-first]
+tags: [tailwind, utility-first, "@apply", Button, tailwind-variants, prose, prettier-plugin-tailwindcss]
 related: [tailwind/02-core-concepts, tailwind/17-components, tailwind/24-react, tailwind/26-best-practices, tailwind/28-patterns]
 when_to_use: "Read before deciding whether to inline utilities, extract a component, or use @apply."
 ---

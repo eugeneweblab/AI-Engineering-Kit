@@ -6,7 +6,7 @@ title: "Database AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [databases, ai-review-checklist]
+tags: [databases, ai-review-checklist, BEGIN, COMMIT, timestamptz, numeric, OFFSET]
 related: [databases/09-transactions, databases/08-query-optimization, databases/17-migrations, databases/19-security, databases/23-data-integrity]
 when_to_use: "Read when reviewing any diff that adds or changes SQL, schema, migrations, or data-access code."
 ---

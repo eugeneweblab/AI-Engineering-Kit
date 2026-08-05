@@ -6,7 +6,7 @@ title: "ECR"
 type: doc
 order: 20
 status: ready
-tags: [aws, ecr]
+tags: [aws, ecr, jsonencode, "@sha"]
 related: [aws/18-ecs, aws/19-eks, aws/02-iam, aws/25-security, aws/15-cloudtrail]
 when_to_use: "Read before creating an ECR repository, push/pull pipeline, or image policy."
 ---

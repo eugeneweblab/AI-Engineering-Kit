@@ -6,7 +6,7 @@ title: "Engineering Decision Framework"
 type: doc
 order: 1
 status: ready
-tags: [engineering, decision-framework]
+tags: [engineering, decision-framework, findMany, formatCurrency, applyDiscount, apply, DiscountStrategy]
 related: [engineering/00-engineering-principles, architecture/26-architecture-decision-records, templates/02-architecture-decision-record]
 when_to_use: "Read before writing or modifying code to work through engineering decisions systematically."
 ---

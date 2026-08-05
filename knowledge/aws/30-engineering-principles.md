@@ -6,7 +6,7 @@ title: "AWS Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [aws, engineering-principles]
+tags: [aws, engineering-principles, disk, credentials]
 related: [aws/29-well-architected-framework, aws/02-iam, aws/28-best-practices, aws/24-cost-optimization, aws/25-security]
 when_to_use: "Read before designing any new AWS workload or making an architectural decision on AWS."
 ---

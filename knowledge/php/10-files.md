@@ -6,7 +6,7 @@ title: "Files"
 type: doc
 order: 10
 status: ready
-tags: [php, files]
+tags: [php, files, file_get_contents, RuntimeException, rename, fopen, unlink, move_uploaded_file]
 related: [php/08-error-handling, php/13-security, php/11-http, php/18-generators]
 when_to_use: "Read before reading, writing, uploading, or building any path from user-influenced input."
 ---

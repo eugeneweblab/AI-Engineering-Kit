@@ -6,7 +6,7 @@ title: "Node.js Streams"
 type: doc
 order: 6
 status: ready
-tags: [nodejs, streams]
+tags: [nodejs, streams, pipeline, createWriteStream, createReadStream, pipe, Transform, Buffer]
 related: [nodejs/07-buffers, nodejs/05-file-system, nodejs/09-http, nodejs/16-error-handling, nodejs/20-memory-management]
 when_to_use: "Read before moving large files, HTTP bodies, or any dataset too big to hold in memory at once."
 ---

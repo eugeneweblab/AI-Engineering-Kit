@@ -6,7 +6,7 @@ title: "SEO Metadata"
 type: doc
 order: 5
 status: ready
-tags: [seo, metadata]
+tags: [seo, metadata, description, canonical, ProductPage, generateMetadata, viewport, noindex]
 related: [seo/06-canonicalization, seo/10-open-graph, seo/09-structured-data, seo/04-rendering, seo/03-indexing]
 when_to_use: "Read before adding or reviewing any <head> tags: titles, descriptions, canonicals, or robots meta."
 ---

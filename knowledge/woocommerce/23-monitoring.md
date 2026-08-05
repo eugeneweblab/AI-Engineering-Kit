@@ -6,7 +6,7 @@ title: "WooCommerce Monitoring"
 type: doc
 order: 23
 status: ready
-tags: [woocommerce, monitoring]
+tags: [woocommerce, monitoring, add_action, wc_get_order, wc_get_logger, warning, print_r, wc_get_orders]
 related: [woocommerce/22-deployment, woocommerce/08-payments, woocommerce/15-performance, woocommerce/05-orders]
 when_to_use: "Read before shipping a store to production or when deciding what to log, measure, and alert on for WooCommerce."
 ---

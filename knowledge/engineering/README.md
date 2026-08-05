@@ -6,7 +6,7 @@ title: "Engineering Principles & Practices"
 type: index
 order: -1
 status: ready
-tags: [engineering]
+tags: [engineering, readme, nodejs, react]
 related: []
 when_to_use: "Read first for cross-cutting engineering discipline: how to decide, review, debug, and execute tasks regardless of technology."
 ---

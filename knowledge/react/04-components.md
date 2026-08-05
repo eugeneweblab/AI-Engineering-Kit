@@ -6,7 +6,7 @@ title: "React Components"
 type: doc
 order: 4
 status: ready
-tags: [react, components]
+tags: [react, components, NumberFormat, PascalCase, format, Date.now, UserCard, Math.random]
 related: [react/05-props, react/06-state, react/08-hooks, react/13-component-composition, react/11-rendering]
 when_to_use: "Read before creating a new component or refactoring how one is structured."
 ---

@@ -6,7 +6,7 @@ title: "Tailwind CSS Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [tailwind]
+tags: [tailwind, readme, "focus-visible:", "hover:", "dark:"]
 related: []
 when_to_use: "Read first when starting Tailwind work, to see how this section's docs fit together and how the utility model should be applied."
 ---

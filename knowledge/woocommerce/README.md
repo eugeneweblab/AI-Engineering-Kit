@@ -6,7 +6,7 @@ title: "WooCommerce Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [woocommerce]
+tags: [woocommerce, readme, WC_Customer, WC_Product, WC_Order]
 related: []
 when_to_use: "Read first when starting work on a WooCommerce store, to see how this section's docs fit together and which extension point applies."
 ---

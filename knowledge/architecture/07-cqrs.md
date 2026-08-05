@@ -6,7 +6,7 @@ title: "CQRS"
 type: doc
 order: 7
 status: ready
-tags: [architecture, cqrs]
+tags: [architecture, cqrs, OrderPlaced, OrderId, PlaceOrder, save, onOrderPlaced, cancelOrder]
 related: [architecture/06-domain-driven-design, architecture/08-event-driven-architecture, architecture/14-performance, architecture/13-scalability, architecture/03-clean-architecture]
 when_to_use: "Read before splitting read and write models, or when reads and writes have very different scaling or shape requirements."
 ---

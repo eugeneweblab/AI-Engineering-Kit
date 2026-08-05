@@ -6,7 +6,7 @@ title: "REST API Pagination"
 type: doc
 order: 10
 status: ready
-tags: [rest-api, pagination]
+tags: [rest-api, pagination, limit, per_page, offset, Link]
 related: [rest-api/11-filtering, rest-api/12-sorting, rest-api/06-request-response, rest-api/25-performance, rest-api/19-caching]
 when_to_use: "Read before building or reviewing any endpoint that returns a list or collection."
 ---

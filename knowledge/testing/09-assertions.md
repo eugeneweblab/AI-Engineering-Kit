@@ -6,7 +6,7 @@ title: "Assertions"
 type: doc
 order: 9
 status: ready
-tags: [testing, assertions]
+tags: [testing, assertions, price, toBeTruthy, toBe, toEqual, toBeInstanceOf, toThrow]
 related: [testing/08-test-organization, testing/01-testing-fundamentals, testing/22-flaky-tests, testing/06-mocking, testing/29-test-review]
 when_to_use: "Read before writing the checks that decide whether a test passes or fails."
 ---

@@ -6,7 +6,7 @@ title: "Document Structure"
 type: doc
 order: 1
 status: ready
-tags: [html, document-structure]
+tags: [html, document-structure, lang, defer]
 related: [html/02-semantic-html, html/10-metadata, html/11-accessibility, html/18-performance, html/22-validation]
 when_to_use: "Read before creating a new HTML page or reviewing the top-level skeleton, doctype, or <head>."
 ---

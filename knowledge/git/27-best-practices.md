@@ -6,7 +6,7 @@ title: "Git Best Practices"
 type: doc
 order: 27
 status: ready
-tags: [git, best-practices]
+tags: [git, best-practices, "fix:", "feat:", "chore:", CODEOWNERS]
 related: [git/04-commits, git/05-branches, git/07-rebasing, git/23-trunk-based-development, git/28-security]
 when_to_use: "Read before establishing or reviewing a team's day-to-day Git workflow and commit conventions."
 ---

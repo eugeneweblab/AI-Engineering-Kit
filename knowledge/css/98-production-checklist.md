@@ -6,7 +6,7 @@ title: "CSS Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [css, production-checklist]
+tags: [css, production-checklist, optional, will-change, left, opacity, prefers-color-scheme]
 related: [css/22-performance, css/23-accessibility, css/26-browser-compatibility, css/17-responsive-design, css/30-engineering-principles]
 when_to_use: "Read before shipping a stylesheet, design system, or styled feature to production."
 ---

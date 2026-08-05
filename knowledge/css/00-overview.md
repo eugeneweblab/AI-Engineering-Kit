@@ -6,7 +6,7 @@ title: "CSS Overview"
 type: doc
 order: 0
 status: ready
-tags: [css, overview]
+tags: [css, overview, position, box-sizing]
 related: [css/01-css-fundamentals, css/03-specificity, css/04-box-model, css/21-architecture, css/28-best-practices]
 when_to_use: "Read first when starting any CSS work, to orient yourself in this topic and find the right doc."
 ---

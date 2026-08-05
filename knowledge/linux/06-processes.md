@@ -6,7 +6,7 @@ title: "Processes"
 type: doc
 order: 6
 status: ready
-tags: [linux, processes]
+tags: [linux, processes, SIGTERM, SIGKILL, SIGINT, tini, pgrep, nohup]
 related: [linux/07-services, linux/08-systemd, linux/16-monitoring, linux/18-performance, linux/19-debugging]
 when_to_use: "Read before starting, supervising, signalling, or debugging any long-running Linux process."
 ---

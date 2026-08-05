@@ -6,7 +6,7 @@ title: "Rebasing"
 type: doc
 order: 7
 status: ready
-tags: [git, rebasing]
+tags: [git, rebasing, origin, develop]
 related: [git/06-merging, git/09-reset, git/19-reflog, git/17-conflict-resolution, git/05-branches]
 when_to_use: "Read before running git rebase, cleaning up a feature branch, or deciding whether to rebase or merge."
 ---

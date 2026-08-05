@@ -6,7 +6,7 @@ title: "Generators"
 type: doc
 order: 18
 status: ready
-tags: [php, generators]
+tags: [php, generators, Generator, fopen, RuntimeException, yield, fclose]
 related: [php/03-functions, php/14-performance, php/10-files, php/12-database]
 when_to_use: "Read before iterating over large datasets, streaming files, or building lazy pipelines in PHP."
 ---

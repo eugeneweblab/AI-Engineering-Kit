@@ -6,7 +6,7 @@ title: "Packages"
 type: doc
 order: 10
 status: ready
-tags: [github, packages]
+tags: [github, packages, GITHUB_TOKEN, runs-on, GITHUB_REF_NAME]
 related: [github/11-releases, github/08-actions, github/21-permissions, github/15-dependabot, github/13-security]
 when_to_use: "Read before publishing, consuming, or versioning artifacts through GitHub Packages."
 ---

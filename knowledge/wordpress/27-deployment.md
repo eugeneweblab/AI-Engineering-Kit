@@ -6,7 +6,7 @@ title: "WordPress Deployment"
 type: doc
 order: 27
 status: ready
-tags: [wordpress, deployment]
+tags: [wordpress, deployment, define, getenv, DISALLOW_FILE_MODS, "@staging", "@production", WP_DEBUG_DISPLAY]
 related: [wordpress/26-wp-cli, wordpress/29-maintenance, wordpress/02-project-structure, wordpress/06-security, wordpress/23-caching]
 when_to_use: "Read before setting up or changing a WordPress deployment — choosing what belongs in version control, managing configuration per environment, or moving content between environments."
 ---

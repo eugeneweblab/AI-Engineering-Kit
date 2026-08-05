@@ -6,7 +6,7 @@ title: "React Debugging"
 type: doc
 order: 27
 status: ready
-tags: [react, debugging]
+tags: [react, debugging, useUser, AbortController, useEffect, useMemo, abort, AbortError]
 related: [react/08-hooks, react/11-rendering, react/19-error-handling, react/12-performance, react/21-testing]
 when_to_use: "Read when a React component renders the wrong thing, re-renders too often, crashes, or leaks."
 ---

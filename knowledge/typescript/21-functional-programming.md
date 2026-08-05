@@ -6,7 +6,7 @@ title: "TypeScript Functional Programming"
 type: doc
 order: 21
 status: ready
-tags: [typescript, functional-programming]
+tags: [typescript, functional-programming, applyDiscount, BadRequest, readonly, checkout, load, save]
 related: [typescript/20-immutability, typescript/19-collections, typescript/04-functions, typescript/08-generics, typescript/17-error-handling]
 when_to_use: "Read before structuring business logic as data transformations, composing functions, or reviewing code for hidden side effects."
 ---

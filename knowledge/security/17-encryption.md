@@ -6,7 +6,7 @@ title: "Encryption"
 type: doc
 order: 17
 status: ready
-tags: [security, encryption]
+tags: [security, encryption, Math.random, random]
 related: [security/16-secrets-management, security/18-https, security/05-password-security, security/01-security-fundamentals]
 when_to_use: "Read before encrypting data at rest, hashing values, or choosing any cryptographic algorithm or key length."
 ---

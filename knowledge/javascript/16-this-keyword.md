@@ -6,7 +6,7 @@ title: "This Keyword"
 type: doc
 order: 16
 status: ready
-tags: [javascript, this-keyword]
+tags: [javascript, this-keyword, apply, addEventListener, obj.method, increment, eslint]
 related: [javascript/04-functions, javascript/06-classes, javascript/03-scope-and-closures, javascript/02-execution-context, javascript/05-objects-and-prototypes]
 when_to_use: "Read before writing or reviewing code where a method, callback, or class handler references `this`."
 ---

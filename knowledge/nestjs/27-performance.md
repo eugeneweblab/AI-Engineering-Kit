@@ -6,7 +6,7 @@ title: "Performance Engineering"
 type: doc
 order: 27
 status: ready
-tags: [nestjs, performance]
+tags: [nestjs, performance, Injectable, InjectRepository, OrderLine, summary, NestInterceptor, Inject]
 related: [nestjs/19-caching, nestjs/17-database, performance/14-api-performance, nodejs/19-performance]
 when_to_use: "Read before profiling, optimizing, or reviewing the performance and scalability of a NestJS application."
 ---

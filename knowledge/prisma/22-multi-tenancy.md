@@ -6,7 +6,7 @@ title: "Prisma Multi Tenancy"
 type: doc
 order: 22
 status: ready
-tags: [prisma, multi-tenancy]
+tags: [prisma, multi-tenancy, tenantId, findMany, listUsers, isArray, rows, includes]
 related: [prisma/21-security, prisma/14-extensions, prisma/23-soft-delete, prisma/06-client]
 when_to_use: "Read before designing or reviewing any Prisma schema and queries where one database serves multiple customers."
 ---

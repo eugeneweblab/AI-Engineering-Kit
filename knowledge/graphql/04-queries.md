@@ -6,7 +6,7 @@ title: "Queries"
 type: doc
 order: 4
 status: ready
-tags: [graphql, queries]
+tags: [graphql, queries, after, first]
 related: [graphql/05-mutations, graphql/13-pagination, graphql/15-n1-problem, graphql/17-security, graphql/07-resolvers]
 when_to_use: "Read before designing or reviewing any read operation, list field, or query-side resolver."
 ---

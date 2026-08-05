@@ -6,7 +6,7 @@ title: "Workflow — Review a Pull Request"
 type: doc
 order: 5
 status: ready
-tags: [workflows, review-pull-request]
+tags: [workflows, review-pull-request, IsInt, userId]
 related: [engineering/02-code-review, checklists/02-pull-request-author, templates/01-pull-request]
   - engineering/02-code-review
   - github/07-code-review

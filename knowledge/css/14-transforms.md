@@ -6,7 +6,7 @@ title: "Transforms"
 type: doc
 order: 14
 status: ready
-tags: [css, transforms]
+tags: [css, transforms, transform, transform-origin, rotate, left, translate, translateX]
 related: [css/15-transitions, css/16-animations, css/22-performance, css/05-positioning]
 when_to_use: "Read before translating, scaling, rotating, or 3D-transforming elements, or animating position."
 ---

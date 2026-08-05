@@ -6,7 +6,7 @@ title: "Responsive Accessibility"
 type: doc
 order: 13
 status: ready
-tags: [accessibility, responsive-accessibility]
+tags: [accessibility, responsive-accessibility, repeat, grid-template-columns, minmax, min-width]
 related: [accessibility/12-layout, accessibility/11-typography, accessibility/14-motion-and-animation, accessibility/10-color-and-contrast, accessibility/04-keyboard-navigation]
 when_to_use: "Read before setting viewport meta, breakpoints, units, or any zoom/reflow behavior."
 ---

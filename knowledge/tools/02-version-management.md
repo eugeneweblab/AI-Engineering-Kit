@@ -6,7 +6,7 @@ title: "Version Management"
 type: doc
 order: 2
 status: ready
-tags: [tools, version-management]
+tags: [tools, version-management, engines, config.platform, engine-strict, platform, node-version-file, package.json]
 related: [tools/01-package-managers, tools/20-local-environments, tools/00-overview, tools/27-dependency-management, tools/30-engineering-principles, docker/00-overview]
 when_to_use: "Read before pinning language runtimes for a project — Node, PHP, or Python versions across developers, CI, and production."
 ---

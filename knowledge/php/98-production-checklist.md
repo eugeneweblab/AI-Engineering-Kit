@@ -6,7 +6,7 @@ title: "PHP Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [php, production-checklist]
+tags: [php, production-checklist, upload_max_filesize, post_max_size, opcache.memory_consumption, X-Powered-By, psalm, phpstan]
 related: [php/27-production, php/13-security, php/14-performance, php/28-tooling, php/25-debugging]
 when_to_use: "Read before promoting a PHP application to production or cutting a release."
 ---

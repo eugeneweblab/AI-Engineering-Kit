@@ -6,7 +6,7 @@ title: "TypeScript Language Fundamentals"
 type: doc
 order: 1
 status: ready
-tags: [typescript, language-fundamentals]
+tags: [typescript, language-fundamentals, readonly, prefer-const, no-var, for...of, noUncheckedIndexedAccess]
 related: [typescript/02-type-system, typescript/03-type-inference, typescript/04-functions, typescript/20-immutability]
 when_to_use: "Read before writing variables, control flow, or any everyday TypeScript syntax."
 ---

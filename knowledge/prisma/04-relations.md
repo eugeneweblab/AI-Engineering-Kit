@@ -6,7 +6,7 @@ title: "Relations"
 type: doc
 order: 4
 status: ready
-tags: [prisma, relations]
+tags: [prisma, relations, cuid, "@default", onDelete, onUpdate]
 related: [prisma/03-models, prisma/02-schema, prisma/11-relations-loading, prisma/05-migrations]
 when_to_use: "Read before modeling foreign keys, one-to-many, many-to-many, or one-to-one links between models."
 ---

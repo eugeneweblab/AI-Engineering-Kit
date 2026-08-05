@@ -6,7 +6,7 @@ title: "DevOps Scalability"
 type: doc
 order: 20
 status: ready
-tags: [devops, scalability]
+tags: [devops, scalability, send, rateLimit, reserve]
 related: [devops/19-high-availability, devops/21-performance, devops/11-orchestration, devops/12-monitoring, devops/27-sre-principles]
 when_to_use: "Read before designing autoscaling, capacity, or any system expected to grow in load or data."
 ---

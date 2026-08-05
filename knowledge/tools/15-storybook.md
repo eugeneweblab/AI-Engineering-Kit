@@ -6,7 +6,7 @@ title: "Storybook"
 type: doc
 order: 15
 status: ready
-tags: [tools, storybook]
+tags: [tools, storybook, PlanCard, ThemeProvider, toHaveBeenCalledWith, click, getByRole, OutOfStock]
 related: [tools/14-playwright, tools/13-test-runners, tools/09-vite, tools/25-editor-setup, tools/30-engineering-principles, react/02-component-architecture, frontend/03-design-systems]
 when_to_use: "Read before setting up Storybook or writing stories — documenting components in isolation, testing states, or wiring accessibility and visual checks."
 ---

@@ -6,7 +6,7 @@ title: "TypeScript Error Handling"
 type: doc
 order: 17
 status: ready
-tags: [typescript, error-handling]
+tags: [typescript, error-handling, loadConfig, readFile, cause, unknown, e.message, this.name]
 related: [typescript/12-type-guards, typescript/18-asynchronous-programming, typescript/11-unions-and-intersections, typescript/16-configuration]
 when_to_use: "Read before writing a `try/catch`, typing a `catch` binding, or designing how a function reports failure."
 ---

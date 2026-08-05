@@ -6,7 +6,7 @@ title: "Template Templates"
 type: index
 order: -1
 status: ready
-tags: [templates]
+tags: [templates, readme]
 related: []
 when_to_use: "Read first to find the right document or code template before creating a new file."
 ---

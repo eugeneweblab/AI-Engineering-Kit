@@ -6,7 +6,7 @@ title: "Node.js Performance"
 type: doc
 order: 19
 status: ready
-tags: [nodejs, performance]
+tags: [nodejs, performance, getUser, getOrder, Promise.all, getOrders, crypto.pbkdf2Sync]
 related: [nodejs/02-event-loop, nodejs/06-streams, nodejs/12-worker-threads, nodejs/20-memory-management, nodejs/27-monitoring]
 when_to_use: "Read before optimizing a slow Node.js service, or when latency/throughput regresses under load."
 ---

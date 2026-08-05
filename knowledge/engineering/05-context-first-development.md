@@ -6,7 +6,7 @@ title: "Context-First Development"
 type: doc
 order: 5
 status: ready
-tags: [engineering, context-first-development]
+tags: [engineering, context-first-development, ExportButton, NumberFormat, unparse, plus, createObjectURL, Blob]
 related: [engineering/04-task-execution, ai/01-context-gathering, engineering/00-engineering-principles]
 when_to_use: "Read before modifying an unfamiliar codebase to gather context before making changes."
 ---

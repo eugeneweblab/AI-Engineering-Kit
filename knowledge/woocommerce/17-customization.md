@@ -6,7 +6,7 @@ title: "WooCommerce Customization"
 type: doc
 order: 17
 status: ready
-tags: [woocommerce, customization]
+tags: [woocommerce, customization, functions.php, add_action, update_post_meta, sanitize_textarea_field, meta, get_meta]
 related: [woocommerce/12-hooks, woocommerce/16-security, woocommerce/15-performance, woocommerce/02-installation, woocommerce/100-common-antipatterns]
 when_to_use: "Read before overriding templates, adding custom fields, or changing WooCommerce UI/behavior."
 ---

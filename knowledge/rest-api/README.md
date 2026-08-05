@@ -6,7 +6,7 @@ title: "REST API Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [rest-api]
+tags: [rest-api, readme]
 related: []
 when_to_use: "Read first when starting any REST API work, to see how this section's docs fit together."
 ---

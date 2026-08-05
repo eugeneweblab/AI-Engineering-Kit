@@ -6,7 +6,7 @@ title: "Scalars"
 type: doc
 order: 9
 status: ready
-tags: [graphql, scalars]
+tags: [graphql, scalars, GraphQLError, parseValue, DateTime, serialize, Float, isNaN]
 related: [graphql/03-types, graphql/10-input-types, graphql/02-schema, graphql/17-security, graphql/20-error-handling]
 when_to_use: "Read before adding a custom scalar or handling dates, money, IDs, or other leaf values in a GraphQL schema."
 ---

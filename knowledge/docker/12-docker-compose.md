@@ -6,7 +6,7 @@ title: "Docker Compose"
 type: doc
 order: 12
 status: ready
-tags: [docker, docker-compose]
+tags: [docker, docker-compose, depends_on, compose.yaml, compose.override.yaml, down, "secrets:", db-data]
 related: [docker/13-environment-variables, docker/14-secrets, docker/15-healthchecks, docker/17-resource-limits, docker/07-networks]
 when_to_use: "Read before writing or reviewing a compose.yaml that wires multiple containers together for local dev or single-host deployment."
 ---

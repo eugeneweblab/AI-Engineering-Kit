@@ -6,7 +6,7 @@ title: "Linux Containers"
 type: doc
 order: 22
 status: ready
-tags: [linux, containers]
+tags: [linux, containers, "@sha", iptables, grype, CGO_ENABLED, trivy, alpine]
 related: [linux/06-processes, linux/17-security, linux/21-firewall, linux/08-systemd, linux/25-production]
 when_to_use: "Read before building, running, or reviewing containerized workloads on a Linux host."
 ---

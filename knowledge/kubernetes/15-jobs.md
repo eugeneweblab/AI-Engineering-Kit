@@ -6,7 +6,7 @@ title: "Jobs"
 type: doc
 order: 15
 status: ready
-tags: [kubernetes, jobs]
+tags: [kubernetes, jobs, backoffLimit, ttlSecondsAfterFinished, activeDeadlineSeconds, OnFailure, Always, resources.requests]
 related: [kubernetes/16-cronjobs, kubernetes/05-deployments, kubernetes/19-resource-management, kubernetes/04-pods, kubernetes/24-debugging]
 when_to_use: "Read before running a batch task, migration, or one-off script that must run to completion rather than run forever."
 ---

@@ -6,7 +6,7 @@ title: "Domain Driven Design"
 type: doc
 order: 6
 status: ready
-tags: [architecture, domain-driven-design]
+tags: [architecture, domain-driven-design, DomainError, OrderPlaced, Money, place, constructor, addLine]
 related: [architecture/03-clean-architecture, architecture/07-cqrs, architecture/08-event-driven-architecture, architecture/09-microservices, architecture/10-modular-monolith]
 when_to_use: "Read before modeling a complex business domain or carving a system into service or module boundaries."
 ---

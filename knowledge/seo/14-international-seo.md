@@ -6,7 +6,7 @@ title: "International SEO"
 type: doc
 order: 14
 status: ready
-tags: [seo, international-seo]
+tags: [seo, international-seo, hreflang, x-default, Link, lang]
 related: [seo/06-canonicalization, seo/05-metadata, seo/07-sitemaps, seo/03-indexing, seo/15-local-seo]
 when_to_use: "Read before adding languages or country variants of a site, or when duplicate/wrong-language pages appear in results."
 ---

@@ -6,7 +6,7 @@ title: "Observability Tools"
 type: doc
 order: 29
 status: ready
-tags: [tools, observability-tools]
+tags: [tools, observability-tools, "@opentelemetry", NodeSDK, pino, rate, APP_ENV]
 related: [tools/22-profilers, tools/21-debuggers, tools/23-api-clients, tools/20-local-environments, tools/30-engineering-principles, performance/17-monitoring, security/25-monitoring]
 when_to_use: "Read before instrumenting an application — choosing error tracking, structured logging, and tracing, and deciding what to capture without leaking user data."
 ---

@@ -6,7 +6,7 @@ title: "Symbols"
 type: doc
 order: 19
 status: ready
-tags: [javascript, symbols]
+tags: [javascript, symbols, Symbol, Object.keys, JSON.stringify, for...in, structuredClone, constructor]
 related: [javascript/18-iterators-and-generators, javascript/05-objects-and-prototypes, javascript/17-es6-features, javascript/20-proxies-and-reflect, javascript/06-classes]
 when_to_use: "Read before adding non-string object keys, defining iteration/serialization hooks, or hiding internal metadata on objects."
 ---

@@ -6,7 +6,7 @@ title: "Testing Strategy"
 type: doc
 order: 28
 status: ready
-tags: [testing, testing-strategy]
+tags: [testing, testing-strategy, once]
 related: [testing/01-testing-fundamentals, testing/02-unit-testing, testing/03-integration-testing, testing/04-e2e-testing, testing/19-test-coverage]
 when_to_use: "Read before deciding how to allocate testing effort across a feature, service, or codebase."
 ---

@@ -6,7 +6,7 @@ title: "GitHub Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [github, production-checklist]
+tags: [github, production-checklist, README.md, SECURITY.md, pull_request_target, CODEOWNERS, "permissions:", GITHUB_TOKEN]
 related: [github/17-branch-protection, github/13-security, github/08-actions, github/16-secret-scanning, github/30-engineering-principles]
 when_to_use: "Read before marking a GitHub repository production-ready or onboarding it to CI/CD."
 ---

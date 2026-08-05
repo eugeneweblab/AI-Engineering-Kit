@@ -6,7 +6,7 @@ title: "Frontend Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [frontend, production-checklist]
+tags: [frontend, production-checklist, v-html, SameSite, sizes, dangerouslySetInnerHTML, Secure]
 related: [frontend/26-production, frontend/08-performance, frontend/09-accessibility, frontend/14-security, frontend/23-monitoring]
 when_to_use: "Read before shipping a frontend app or feature to production, and use as the pre-release gate in review."
 ---

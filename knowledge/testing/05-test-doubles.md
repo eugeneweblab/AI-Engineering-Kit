@@ -6,7 +6,7 @@ title: "Test Doubles"
 type: doc
 order: 5
 status: ready
-tags: [testing, test-doubles]
+tags: [testing, test-doubles, TokenService, mockReturnValue, toHaveBeenCalledTimes, toHaveBeenCalled, toBe]
 related: [testing/02-unit-testing, testing/03-integration-testing, testing/06-mocking, testing/11-contract-testing, testing/01-testing-fundamentals]
 when_to_use: "Read before replacing any real dependency in a test with a stub, mock, fake, or spy."
 ---

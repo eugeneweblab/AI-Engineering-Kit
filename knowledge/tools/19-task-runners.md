@@ -6,7 +6,7 @@ title: "Task Runners"
 type: doc
 order: 19
 status: ready
-tags: [tools, task-runners]
+tags: [tools, task-runners, lint, "@echo", format, package.json, runs-on]
 related: [tools/01-package-managers, tools/18-monorepo-tools, tools/16-git-hooks, tools/20-local-environments, tools/30-engineering-principles, cicd/00-overview]
 when_to_use: "Read before organizing project commands — npm scripts, Make, or a task runner — so the same commands work locally and in CI."
 ---

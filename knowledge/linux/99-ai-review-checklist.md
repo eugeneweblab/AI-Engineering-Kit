@@ -6,7 +6,7 @@ title: "Linux AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [linux, ai-review-checklist]
+tags: [linux, ai-review-checklist, ReadWritePaths, flock, ProtectSystem, NoNewPrivileges]
 related: [linux/24-scripting, linux/05-permissions, linux/08-systemd, linux/100-common-antipatterns, linux/98-production-checklist]
 when_to_use: "Read when reviewing any Linux shell script, systemd unit, permission change, or provisioning code before it merges."
 ---

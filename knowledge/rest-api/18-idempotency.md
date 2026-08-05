@@ -6,7 +6,7 @@ title: "Idempotency"
 type: doc
 order: 18
 status: ready
-tags: [rest-api, idempotency]
+tags: [rest-api, idempotency, HttpError, PUT, createCharge, Idempotency-Key, charge, PATCH]
 related: [rest-api/06-request-response, rest-api/07-status-codes, rest-api/09-error-handling, rest-api/17-rate-limiting, rest-api/25-performance]
 when_to_use: "Read before building any write endpoint that a client may retry — payments, orders, sign-ups, or anything triggered over a flaky network."
 ---

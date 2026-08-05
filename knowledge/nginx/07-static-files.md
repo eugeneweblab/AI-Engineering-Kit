@@ -6,7 +6,7 @@ title: "Static Files"
 type: doc
 order: 7
 status: ready
-tags: [nginx, static-files]
+tags: [nginx, static-files, alias, root, expires, dotfiles, tcp_nopush, sendfile]
 related: [nginx/08-caching, nginx/09-compression, nginx/04-location-blocks, nginx/13-security, nginx/10-http2]
 when_to_use: "Read before serving assets, downloads, or a SPA build directly from disk with nginx."
 ---

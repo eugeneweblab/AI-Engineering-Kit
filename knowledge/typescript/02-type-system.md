@@ -6,7 +6,7 @@ title: "Type System"
 type: doc
 order: 2
 status: ready
-tags: [typescript, type-system]
+tags: [typescript, type-system, never, unknown, strictNullChecks, area, strict, noImplicitAny]
 related: [typescript/03-type-inference, typescript/11-unions-and-intersections, typescript/12-type-guards, typescript/16-configuration]
 when_to_use: "Read before designing any data model or deciding how strictly to type a value."
 ---

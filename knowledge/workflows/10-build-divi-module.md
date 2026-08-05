@@ -6,7 +6,7 @@ title: "Workflow — Build a Divi Module"
 type: doc
 order: 10
 status: ready
-tags: [workflows, build-divi-module]
+tags: [workflows, build-divi-module, esc_html, esc_html__, ET_Builder_Module, get_fields, get_the_title, absint]
 related: [divi/04-custom-modules, divi/03-modules, figma/09-figma-to-divi]
   - divi/01-architecture
   - divi/03-modules

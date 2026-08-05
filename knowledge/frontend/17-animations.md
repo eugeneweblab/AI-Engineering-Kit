@@ -6,7 +6,7 @@ title: "Frontend Animations"
 type: doc
 order: 17
 status: ready
-tags: [frontend, animations]
+tags: [frontend, animations, will-change, translateY, scroll, box-shadow, width]
 related: [frontend/15-styling, frontend/08-performance, frontend/09-accessibility, frontend/16-css-architecture, frontend/10-responsive-design]
 when_to_use: "Read before adding transitions, motion, or animated feedback to a UI."
 ---

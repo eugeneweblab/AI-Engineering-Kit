@@ -6,7 +6,7 @@ title: "Redis Production"
 type: doc
 order: 27
 status: ready
-tags: [redis, production]
+tags: [redis, production, maxmemory, noeviction, allkeys-lru, maxmemory-policy, requirepass, evicted_keys]
 related: [redis/18-replication, redis/19-clustering, redis/20-persistence, redis/21-security, redis/98-production-checklist]
 when_to_use: "Read before deploying Redis to production or changing its memory, persistence, HA, or security configuration."
 ---

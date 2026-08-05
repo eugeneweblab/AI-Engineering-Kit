@@ -6,7 +6,7 @@ title: "Redis Debugging"
 type: doc
 order: 25
 status: ready
-tags: [redis, debugging]
+tags: [redis, debugging, SLOWLOG, MONITOR, LATENCY, latency-monitor-threshold, WRONGTYPE, mem_fragmentation_ratio]
 related: [redis/22-monitoring, redis/23-performance, redis/24-testing, redis/28-observability, redis/100-common-antipatterns]
 when_to_use: "Read when a Redis-backed system is slow, returning wrong data, using too much memory, or timing out."
 ---

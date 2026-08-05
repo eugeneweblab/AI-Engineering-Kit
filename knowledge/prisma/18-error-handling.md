@@ -6,7 +6,7 @@ title: "Prisma Error Handling"
 type: doc
 order: 18
 status: ready
-tags: [prisma, error-handling]
+tags: [prisma, error-handling, AppError, P2025, P2002, meta, createUser, super]
 related: [prisma/07-crud, prisma/08-transactions, prisma/20-debugging, prisma/24-best-practices]
 when_to_use: "Read before writing any code that catches a Prisma query failure or maps it to an API response."
 ---

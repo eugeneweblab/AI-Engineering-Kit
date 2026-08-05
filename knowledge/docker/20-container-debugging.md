@@ -6,7 +6,7 @@ title: "Container Debugging"
 type: doc
 order: 20
 status: ready
-tags: [docker, container-debugging]
+tags: [docker, container-debugging, exec, OOMKilled, container, netshoot, inspect, ExitCode]
 related: [docker/16-logging, docker/15-healthchecks, docker/04-containers, docker/17-resource-limits, docker/27-troubleshooting]
 when_to_use: "Read when a container crashes, restarts, hangs, or behaves differently than it did locally."
 ---

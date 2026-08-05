@@ -6,7 +6,7 @@ title: "SQS"
 type: doc
 order: 21
 status: ready
-tags: [aws, sqs]
+tags: [aws, sqs, client, RedrivePolicy]
 related: [aws/22-sns, aws/23-eventbridge, aws/12-lambda, aws/14-cloudwatch, aws/02-iam]
 when_to_use: "Read before producing to or consuming from an SQS queue, or wiring a dead-letter queue."
 ---

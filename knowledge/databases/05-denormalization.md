@@ -6,7 +6,7 @@ title: "Denormalization"
 type: doc
 order: 5
 status: ready
-tags: [databases, denormalization]
+tags: [databases, denormalization, comment]
 related: [databases/04-normalization, databases/03-data-modeling, databases/07-indexing, databases/08-query-optimization, databases/23-data-integrity]
 when_to_use: "Read when a measured read hotspot needs speeding up and you are considering trading redundancy for query performance."
 ---

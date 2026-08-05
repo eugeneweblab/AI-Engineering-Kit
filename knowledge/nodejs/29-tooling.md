@@ -6,7 +6,7 @@ title: "Node.js Tooling"
 type: doc
 order: 29
 status: ready
-tags: [nodejs, tooling]
+tags: [nodejs, tooling, eslint-config-prettier, "node:test", tsconfig.json, engines, strict]
 related: [nodejs/04-package-management, nodejs/21-testing, nodejs/22-debugging, nodejs/26-deployment, nodejs/28-best-practices]
 when_to_use: "Read before setting up or reviewing a Node.js project's linting, formatting, type-checking, build, and CI toolchain."
 ---

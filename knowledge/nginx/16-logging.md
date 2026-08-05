@@ -6,7 +6,7 @@ title: "Nginx Logging"
 type: doc
 order: 16
 status: ready
-tags: [nginx, logging]
+tags: [nginx, logging, Authorization, access_log, request_time, USR1, log_format, logrotate]
 related: [nginx/17-monitoring, nginx/13-security, nginx/24-debugging, nginx/05-reverse-proxy]
 when_to_use: "Read before configuring `access_log` / `error_log` in nginx or reviewing what the edge records."
 ---

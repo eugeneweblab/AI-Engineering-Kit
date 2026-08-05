@@ -6,7 +6,7 @@ title: "Resource Design"
 type: doc
 order: 3
 status: ready
-tags: [rest-api, resource-design]
+tags: [rest-api, resource-design, subscription, password_hash, invoice, camelCase, snake_case, PATCH]
 related: [rest-api/02-rest-principles, rest-api/04-endpoints, rest-api/05-routing, rest-api/10-pagination, rest-api/14-versioning]
 when_to_use: "Read before turning a domain model into resources, URLs, and representations for a new or extended API."
 ---

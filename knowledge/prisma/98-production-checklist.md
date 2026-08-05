@@ -6,7 +6,7 @@ title: "Prisma Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [prisma, production-checklist]
+tags: [prisma, production-checklist, P2024, P2028, offset, maxWait, connection_limit, P2034]
 related: [prisma/25-production, prisma/05-migrations, prisma/15-performance, prisma/26-observability, prisma/21-security]
 when_to_use: "Read before deploying a Prisma-backed service to production or promoting a database change."
 ---

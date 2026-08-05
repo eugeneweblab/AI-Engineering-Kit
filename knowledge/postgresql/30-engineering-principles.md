@@ -6,7 +6,7 @@ title: "PostgreSQL Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [postgresql, engineering-principles]
+tags: [postgresql, engineering-principles, numeric, float, timestamp, timestamptz, CHECK]
 related: [postgresql/06-transactions, postgresql/04-indexes, postgresql/22-migrations, postgresql/05-query-planner, postgresql/25-best-practices]
 when_to_use: "Read before designing a schema, writing migrations, or making any decision that affects how the database enforces correctness."
 ---

@@ -6,7 +6,7 @@ title: "NestJS Security"
 type: doc
 order: 26
 status: ready
-tags: [nestjs, security]
+tags: [nestjs, security, UseGuards, Injectable, ForbiddenException, Column, ValidationPipe, IsOptional]
 related: [nestjs/15-authentication, nestjs/16-authorization, nestjs/08-validation, security/28-owasp-top10]
 when_to_use: "Read before building or reviewing any code with security implications, or when hardening a NestJS application."
 ---

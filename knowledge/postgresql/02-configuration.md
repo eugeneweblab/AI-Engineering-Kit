@@ -6,7 +6,7 @@ title: "PostgreSQL Configuration"
 type: doc
 order: 2
 status: ready
-tags: [postgresql, configuration]
+tags: [postgresql, configuration, work_mem, pg_hba.conf, postgresql.conf, effective_cache_size, shared_buffers, fsync]
 related: [postgresql/01-installation, postgresql/27-tuning, postgresql/16-performance, postgresql/18-security, postgresql/17-monitoring]
 when_to_use: "Read before changing postgresql.conf, pg_hba.conf, or memory/connection settings."
 ---

@@ -6,7 +6,7 @@ title: "Benchmarking"
 type: doc
 order: 19
 status: ready
-tags: [performance, benchmarking]
+tags: [performance, benchmarking, time, load_fixture, range, pytest-benchmark, parse]
 related: [performance/16-profiling, performance/02-metrics, performance/22-load-testing, performance/03-cpu, performance/24-optimization-workflow]
 when_to_use: "Read before writing a microbenchmark or claiming one implementation is faster than another."
 ---

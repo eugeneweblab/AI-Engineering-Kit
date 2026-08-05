@@ -6,7 +6,7 @@ title: "GitHub Permissions"
 type: doc
 order: 21
 status: ready
-tags: [github, permissions]
+tags: [github, permissions, admin, write, triage, maintain, GITHUB_TOKEN, "permissions:"]
 related: [github/19-organizations, github/20-teams, github/22-api, github/08-actions, github/13-security]
 when_to_use: "Read before assigning repository roles, designing custom roles, or scoping tokens and Actions permissions."
 ---

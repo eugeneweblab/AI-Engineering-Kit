@@ -6,7 +6,7 @@ title: "DevOps Secrets Management"
 type: doc
 order: 17
 status: ready
-tags: [devops, secrets-management]
+tags: [devops, secrets-management, DATABASE_URL, "@prod-db", API_KEY]
 related: [devops/16-security, devops/09-configuration-management, devops/05-build-pipelines, devops/10-containerization, devops/14-logging]
 when_to_use: "Read before handling any credential, API key, token, or certificate in code, config, CI, or infrastructure."
 ---

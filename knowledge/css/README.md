@@ -6,7 +6,7 @@ title: "CSS Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [css]
+tags: [css, readme]
 related: []
 when_to_use: "Read first when starting any CSS work, to see how this section's docs fit together."
 ---

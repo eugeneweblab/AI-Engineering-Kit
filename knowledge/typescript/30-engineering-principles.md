@@ -6,7 +6,7 @@ title: "TypeScript Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [typescript, engineering-principles]
+tags: [typescript, engineering-principles, UserSchema, loadUser, unknown, noUncheckedIndexedAccess, strict, uuid]
 related: [typescript/02-type-system, typescript/16-configuration, typescript/17-error-handling, typescript/23-clean-code, typescript/28-best-practices]
 when_to_use: "Read before making structural type-design or codebase-wide decisions in a TypeScript project."
 ---

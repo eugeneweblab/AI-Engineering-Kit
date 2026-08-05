@@ -6,7 +6,7 @@ title: "Media and Uploads"
 type: doc
 order: 21
 status: ready
-tags: [wordpress, media-and-uploads]
+tags: [wordpress, media-and-uploads, WP_Error, add_filter, add_image_size, current_user_can, srcset, move_uploaded_file]
 related: [wordpress/06-security, wordpress/05-performance, wordpress/14-theme-development, wordpress/27-deployment, wordpress/19-database, wordpress/16-block-editor, security/15-file-upload-security]
 when_to_use: "Read before handling uploads or rendering images — accepting files, registering image sizes, outputting responsive images, or offloading media."
 ---

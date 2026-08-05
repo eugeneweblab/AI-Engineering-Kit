@@ -6,7 +6,7 @@ title: "Accessibility Typography"
 type: doc
 order: 11
 status: ready
-tags: [accessibility, typography]
+tags: [accessibility, typography, line-height, min-height, font-size, max-width, height]
 related: [accessibility/10-color-and-contrast, accessibility/12-layout, accessibility/13-responsive-accessibility, accessibility/02-pour-principles, accessibility/23-wcag]
 when_to_use: "Read before setting font sizes, line spacing, or building any text-heavy layout or theme."
 ---

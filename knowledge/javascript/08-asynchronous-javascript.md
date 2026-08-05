@@ -6,7 +6,7 @@ title: "Asynchronous JavaScript"
 type: doc
 order: 8
 status: ready
-tags: [javascript, asynchronous-javascript]
+tags: [javascript, asynchronous-javascript, fetchJson, loadDashboard, Promise.all, AbortController, AbortSignal, Promise.allSettled]
 related: [javascript/09-promises, javascript/10-event-loop, javascript/13-fetch-api, javascript/14-error-handling]
 when_to_use: "Read before writing or reviewing any `async`/`await`, callback, or concurrent I/O code."
 ---

@@ -6,7 +6,7 @@ title: "JavaScript Security"
 type: doc
 order: 26
 status: ready
-tags: [javascript, security]
+tags: [javascript, security, eval, random, innerHTML, __proto__, sanitize, assign]
 related: [javascript/13-fetch-api, javascript/12-dom, javascript/14-error-handling, javascript/29-tooling, javascript/28-best-practices]
 when_to_use: "Read before writing JavaScript that handles untrusted input, renders HTML, builds queries, or pulls in dependencies."
 ---

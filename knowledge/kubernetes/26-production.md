@@ -6,7 +6,7 @@ title: "Kubernetes Production"
 type: doc
 order: 26
 status: ready
-tags: [kubernetes, production]
+tags: [kubernetes, production, requests, minAvailable, DoNotSchedule, preStop, maxUnavailable, maxSurge]
 related: [kubernetes/19-resource-management, kubernetes/20-autoscaling, kubernetes/22-security, kubernetes/23-monitoring, kubernetes/98-production-checklist]
 when_to_use: "Read before promoting any workload to a production cluster or reviewing a production readiness gate."
 ---

@@ -6,7 +6,7 @@ title: "Kubernetes Services"
 type: doc
 order: 7
 status: ready
-tags: [kubernetes, services]
+tags: [kubernetes, services, ClusterIP, spec.selector, port, selector]
 related: [kubernetes/08-ingress, kubernetes/05-deployments, kubernetes/04-pods, kubernetes/17-network-policies, kubernetes/13-statefulsets]
 when_to_use: "Read before exposing a workload to other Pods or the network, or debugging why traffic never reaches your Pods."
 ---

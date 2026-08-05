@@ -6,7 +6,7 @@ title: "Developer Tooling Standards"
 type: index
 order: -1
 status: ready
-tags: [tools]
+tags: [tools, readme]
 related: []
 when_to_use: "Read first when setting up or changing project tooling, to see how this section's docs fit together and which tool owns which job."
 ---

@@ -6,7 +6,7 @@ title: "REST API Rate Limiting"
 type: doc
 order: 17
 status: ready
-tags: [rest-api, rate-limiting]
+tags: [rest-api, rate-limiting, rateLimit, ceil, Retry-After, RateLimit-Reset, RateLimit-Remaining]
 related: [rest-api/15-authentication, rest-api/16-authorization, rest-api/07-status-codes, rest-api/24-security, rest-api/25-performance]
 when_to_use: "Read before exposing any public or authenticated endpoint that could be called in a loop."
 ---

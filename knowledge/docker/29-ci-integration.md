@@ -6,7 +6,7 @@ title: "CI Integration"
 type: doc
 order: 29
 status: ready
-tags: [docker, ci-integration]
+tags: [docker, ci-integration, NPM_TOKEN, BuildKit, runs-on]
 related: [docker/28-tooling, docker/10-buildkit, docker/19-registry, docker/22-production, docker/18-security]
 when_to_use: "Read before wiring Docker builds, scans, or pushes into a CI/CD pipeline."
 ---

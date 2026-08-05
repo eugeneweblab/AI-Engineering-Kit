@@ -6,7 +6,7 @@ title: "Playbooks"
 type: index
 order: -1
 status: ready
-tags: [playbooks]
+tags: [playbooks, readme]
 related: []
 when_to_use: "Read first to find the right operational playbook for the task at hand."
 ---

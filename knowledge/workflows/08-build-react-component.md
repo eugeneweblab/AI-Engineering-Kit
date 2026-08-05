@@ -6,7 +6,7 @@ title: "Workflow — Build a React Component"
 type: doc
 order: 8
 status: ready
-tags: [workflows, build-react-component]
+tags: [workflows, build-react-component, aProduct, ProductCard, ProductCardProps, addToBasket, formatCurrency, repeat]
 related: [react/13-component-composition, react/21-testing, examples/02-react-component]
   - react/02-component-architecture
   - react/05-props

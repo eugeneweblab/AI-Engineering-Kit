@@ -6,7 +6,7 @@ title: "SSL TLS"
 type: doc
 order: 12
 status: ready
-tags: [nginx, ssl-tls]
+tags: [nginx, ssl-tls, root, ssl_protocols, includeSubDomains, ssl_certificate, max-age, preload]
 related: [nginx/13-security, nginx/10-http2, nginx/05-reverse-proxy, nginx/25-production]
 when_to_use: "Read before terminating HTTPS in nginx or reviewing any `ssl_*` / listen 443 configuration."
 ---

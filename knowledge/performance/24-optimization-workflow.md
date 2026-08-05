@@ -6,7 +6,7 @@ title: "Optimization Workflow"
 type: doc
 order: 24
 status: ready
-tags: [performance, optimization-workflow]
+tags: [performance, optimization-workflow, build_report, disable, input, list]
 related: [performance/16-profiling, performance/19-benchmarking, performance/02-metrics, performance/23-performance-budget, performance/29-performance-review]
 when_to_use: "Read before starting any performance optimization so you measure, target, and verify instead of guessing."
 ---

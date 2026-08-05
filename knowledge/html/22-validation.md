@@ -6,7 +6,7 @@ title: "HTML Validation"
 type: doc
 order: 22
 status: ready
-tags: [html, validation]
+tags: [html, validation, pattern, required, maxlength, aria-describedby]
 related: [html/08-forms, html/01-document-structure, html/21-best-practices, html/11-accessibility, html/19-security]
 when_to_use: "Read before shipping markup that must parse correctly, or when building form input validation."
 ---

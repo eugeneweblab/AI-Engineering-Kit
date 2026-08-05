@@ -6,7 +6,7 @@ title: "Dependency Management"
 type: doc
 order: 27
 status: ready
-tags: [tools, dependency-management]
+tags: [tools, dependency-management, update-types, react-dom, open-pull-requests-limit, SECURITY.md, structuredClone, runs-on]
 related: [tools/01-package-managers, tools/28-release-tools, tools/02-version-management, tools/26-ai-coding-tools, tools/30-engineering-principles, security/23-dependency-security, security/24-supply-chain-security]
 when_to_use: "Read before adding a dependency or setting up update automation — evaluating a package, configuring Renovate or Dependabot, or responding to a vulnerability advisory."
 ---

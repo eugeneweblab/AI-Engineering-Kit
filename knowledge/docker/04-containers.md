@@ -6,7 +6,7 @@ title: "Docker Containers"
 type: doc
 order: 4
 status: ready
-tags: [docker, containers]
+tags: [docker, containers, SIGTERM, CMD, SIGKILL, ENTRYPOINT, drain, close]
 related: [docker/03-images, docker/05-volumes, docker/15-healthchecks, docker/17-resource-limits, docker/20-container-debugging]
 when_to_use: "Read before running, designing, or debugging a container's lifecycle, signal handling, or state."
 ---

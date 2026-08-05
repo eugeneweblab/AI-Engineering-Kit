@@ -6,7 +6,7 @@ title: "Open Graph"
 type: doc
 order: 10
 status: ready
-tags: [seo, open-graph]
+tags: [seo, open-graph, "og:url", "og:image", "og:type", "og:title", "og:description"]
 related: [seo/11-twitter-cards, seo/05-metadata, seo/09-structured-data, seo/16-images]
 when_to_use: "Read before adding social-share preview tags — when a page will be shared on Facebook, LinkedIn, Slack, WhatsApp, iMessage, or Discord."
 ---

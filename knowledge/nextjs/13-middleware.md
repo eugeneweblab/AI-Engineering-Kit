@@ -6,7 +6,7 @@ title: "Next.js Middleware"
 type: doc
 order: 13
 status: ready
-tags: [nextjs, middleware]
+tags: [nextjs, middleware, NextResponse, middleware, NextRequest, redirect, URL, startsWith]
 related: [nextjs/14-authentication, nextjs/15-authorization, nextjs/04-routing]
 when_to_use: "Read before adding middleware for redirects, rewrites, or request processing in Next.js."
 ---

@@ -6,7 +6,7 @@ title: "Cost Optimization"
 type: doc
 order: 24
 status: ready
-tags: [aws, cost-optimization]
+tags: [aws, cost-optimization, arm64]
 related: [aws/11-auto-scaling, aws/12-lambda, aws/14-cloudwatch, aws/28-best-practices, aws/29-well-architected-framework]
 when_to_use: "Read before provisioning AWS resources, choosing instance types, or reviewing a bill that is growing faster than traffic."
 ---

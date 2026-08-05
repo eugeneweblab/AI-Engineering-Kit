@@ -6,7 +6,7 @@ title: "Accessibility Forms"
 type: doc
 order: 8
 status: ready
-tags: [accessibility, forms]
+tags: [accessibility, forms, autocomplete, inputmode, aria-invalid, aria-describedby, street-address, one-time-code]
 related: [accessibility/03-semantic-html, accessibility/18-error-messages, accessibility/07-aria, accessibility/05-focus-management, accessibility/10-color-and-contrast]
 when_to_use: "Read before building or reviewing any form: inputs, labels, validation, or error handling."
 ---

@@ -6,7 +6,7 @@ title: "Security Fundamentals"
 type: doc
 order: 1
 status: ready
-tags: [security, security-fundamentals]
+tags: [security, security-fundamentals, ForbiddenError, NotFoundError, canRead]
 related: [security/02-threat-modeling, security/03-authentication, security/04-authorization, security/28-owasp-top10, security/16-secrets-management]
 when_to_use: "Read before writing or reviewing any code that handles untrusted input, secrets, or user identity."
 ---

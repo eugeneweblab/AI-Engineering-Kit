@@ -6,7 +6,7 @@ title: "MySQL Security"
 type: doc
 order: 12
 status: ready
-tags: [mysql, security]
+tags: [mysql, security, root, connect, execute, cursor, require_secure_transport, mysql_secure_installation]
 related: [mysql/13-users-and-roles, mysql/02-configuration, mysql/11-backups, mysql/15-monitoring]
 when_to_use: "Read before exposing a MySQL server to any network, wiring an application to it, or reviewing DB connection and privilege code."
 ---

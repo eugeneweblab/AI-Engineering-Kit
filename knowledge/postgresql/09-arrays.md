@@ -6,7 +6,7 @@ title: "Arrays"
 type: doc
 order: 9
 status: ready
-tags: [postgresql, arrays]
+tags: [postgresql, arrays, jsonb, articles, CHECK, GIN, user_id, EXPLAIN]
 related: [postgresql/08-jsonb, postgresql/03-data-types, postgresql/04-indexes, postgresql/05-query-planner]
 when_to_use: "Read before adding an array column or modeling a one-to-many relationship as an array instead of a join table."
 ---

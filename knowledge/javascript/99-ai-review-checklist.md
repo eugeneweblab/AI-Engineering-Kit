@@ -6,7 +6,7 @@ title: "JavaScript AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [javascript, ai-review-checklist]
+tags: [javascript, ai-review-checklist, res.ok, innerHTML, parseInt, document.write, JSON.parse]
 related: [javascript/30-engineering-principles, javascript/100-common-antipatterns, javascript/14-error-handling, javascript/26-security, javascript/23-clean-code]
 when_to_use: "Read when reviewing JavaScript code — human-written or AI-generated — before approval."
 ---

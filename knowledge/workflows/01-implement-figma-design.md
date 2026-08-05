@@ -6,7 +6,7 @@ title: "Workflow — Implement a Figma Design"
 type: doc
 order: 1
 status: ready
-tags: [workflows, implement-figma-design]
+tags: [workflows, implement-figma-design, them]
 related: [figma/01-figma-analysis, figma/03-design-token-extraction, figma/06-component-detection, figma/20-implementation-definition-of-done, frontend/03-design-systems, react/13-component-composition, accessibility/03-semantic-html, testing/14-visual-regression, workflows/08-build-react-component, figma/19-design-handoff]
 when_to_use: "Follow this workflow when implementing a Figma design into production code."
 ---

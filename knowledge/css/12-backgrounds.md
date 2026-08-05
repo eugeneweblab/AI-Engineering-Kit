@@ -6,7 +6,7 @@ title: "Backgrounds"
 type: doc
 order: 12
 status: ready
-tags: [css, backgrounds]
+tags: [css, backgrounds, background-color, contain, background-image, rgba, background]
 related: [css/11-colors, css/13-borders, css/22-performance, css/23-accessibility]
 when_to_use: "Read before applying background colors, images, gradients, or layered fills to any element."
 ---

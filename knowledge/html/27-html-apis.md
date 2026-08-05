@@ -6,7 +6,7 @@ title: "HTML APIs"
 type: doc
 order: 27
 status: ready
-tags: [html, html-apis]
+tags: [html, html-apis, IntersectionObserver, localStorage, showModal, querySelectorAll, getElementById, addEventListener]
 related: [html/25-web-components, html/09-media, html/17-canvas, html/18-performance, html/19-security]
 when_to_use: "Read before using a browser HTML/DOM API (drag-and-drop, storage, observers, dialog, etc.)."
 ---

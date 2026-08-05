@@ -6,7 +6,7 @@ title: "Git Flow"
 type: doc
 order: 22
 status: ready
-tags: [git, git-flow]
+tags: [git, git-flow, develop]
 related: [git/23-trunk-based-development, git/05-branches, git/06-merging, git/12-tags, git/27-best-practices]
 when_to_use: "Read before adopting or reviewing a branching model for a versioned, release-based product."
 ---

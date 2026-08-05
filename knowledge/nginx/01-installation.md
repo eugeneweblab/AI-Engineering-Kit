@@ -6,7 +6,7 @@ title: "Nginx Installation"
 type: doc
 order: 1
 status: ready
-tags: [nginx, installation]
+tags: [nginx, installation, stream, nginx]
 related: [nginx/00-overview, nginx/02-configuration, nginx/23-docker, nginx/12-ssl-tls, nginx/25-production]
 when_to_use: "Read before installing, upgrading, or containerizing nginx on a server."
 ---

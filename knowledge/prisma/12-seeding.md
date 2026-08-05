@@ -6,7 +6,7 @@ title: "Seeding"
 type: doc
 order: 12
 status: ready
-tags: [prisma, seeding]
+tags: [prisma, seeding, upsert, PrismaClient, prisma.seed, createMany, NODE_ENV, package.json]
 related: [prisma/05-migrations, prisma/08-transactions, prisma/19-testing, prisma/07-crud]
 when_to_use: "Read before writing or reviewing a seed script that populates a database for development, tests, or first-run production data."
 ---

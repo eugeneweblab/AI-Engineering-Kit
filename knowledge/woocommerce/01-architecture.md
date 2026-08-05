@@ -6,7 +6,7 @@ title: "WooCommerce Architecture"
 type: doc
 order: 1
 status: ready
-tags: [woocommerce, architecture]
+tags: [woocommerce, architecture, wp_posts, update_status, wc_get_orders, active, get_col, WP_Query]
 related: [woocommerce/00-overview, woocommerce/04-product-management, woocommerce/05-orders, woocommerce/12-hooks, woocommerce/13-rest-api]
 when_to_use: "Read before writing any code that reads or writes WooCommerce products, orders, or store data."
 ---

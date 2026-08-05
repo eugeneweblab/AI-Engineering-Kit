@@ -6,7 +6,7 @@ title: "Nginx Production"
 type: doc
 order: 25
 status: ready
-tags: [nginx, production]
+tags: [nginx, production, worker_rlimit_nofile, restart, max_fails, worker_connections, LimitNOFILE, fail_timeout]
 related: [nginx/98-production-checklist, nginx/13-security, nginx/18-performance, nginx/27-high-availability, nginx/16-logging]
 when_to_use: "Read before putting an nginx config in front of real traffic, or when reviewing whether an existing deployment is production-ready."
 ---

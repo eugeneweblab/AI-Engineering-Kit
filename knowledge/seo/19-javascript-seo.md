@@ -6,7 +6,7 @@ title: "JavaScript SEO"
 type: doc
 order: 19
 status: ready
-tags: [seo, javascript-seo]
+tags: [seo, javascript-seo, robots, getPost, robots.txt, onClick, href, useEffect]
 related: [seo/04-rendering, seo/02-crawling, seo/20-headless-seo, seo/13-core-web-vitals]
 when_to_use: "Read before shipping any client-rendered content, SPA route, or JS-injected metadata that must be indexed."
 ---

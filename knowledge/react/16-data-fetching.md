@@ -6,7 +6,7 @@ title: "React Data Fetching"
 type: doc
 order: 16
 status: ready
-tags: [react, data-fetching]
+tags: [react, data-fetching, UserProfile, useQuery, "@tanstack", getUser, QueryClient, useEffect]
 related: [react/09-custom-hooks, react/19-error-handling, react/18-state-management, nextjs/09-data-fetching]
 when_to_use: "Read before implementing or reviewing remote data fetching, caching, or synchronization in React."
 ---

@@ -6,7 +6,7 @@ title: "SEO Indexing"
 type: doc
 order: 3
 status: ready
-tags: [seo, indexing]
+tags: [seo, indexing, noindex, X-Robots-Tag, canonical, Disallow, robots, indexed]
 related: [seo/02-crawling, seo/06-canonicalization, seo/04-rendering, seo/08-robots-txt, seo/22-search-console]
 when_to_use: "Read before adding noindex, canonical tags, or anything that decides whether a URL enters search results."
 ---

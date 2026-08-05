@@ -6,7 +6,7 @@ title: "Stylelint"
 type: doc
 order: 6
 status: ready
-tags: [tools, stylelint]
+tags: [tools, stylelint, border-radius, rgba]
 related: [tools/05-prettier, tools/04-eslint, tools/16-git-hooks, tools/09-vite, tools/30-engineering-principles, css/21-architecture, tailwind/26-best-practices]
 when_to_use: "Read before linting CSS — configuring Stylelint for plain CSS, SCSS, or Tailwind, or enforcing design-token usage in stylesheets."
 ---

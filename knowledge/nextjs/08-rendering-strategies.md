@@ -6,7 +6,7 @@ title: "Next.js Rendering Strategies"
 type: doc
 order: 8
 status: ready
-tags: [nextjs, rendering-strategies]
+tags: [nextjs, rendering-strategies, AccountPage, PostPage, DashboardPage, cookies, ProductPage, generateStaticParams]
 related: [nextjs/06-server-components, nextjs/10-caching, nextjs/09-data-fetching, nextjs/20-performance]
 when_to_use: "Read before choosing a rendering strategy for a Next.js route."
 ---

@@ -6,7 +6,7 @@ title: "Security Headers"
 type: doc
 order: 22
 status: ready
-tags: [security, security-headers]
+tags: [security, security-headers, setHeader, preload, frame-ancestors, max-age, Referrer-Policy, X-Frame-Options]
 related: [security/20-csp, security/18-https, security/19-cors, security/11-xss]
 when_to_use: "Read before configuring HTTP response headers for a web app or API gateway."
 ---

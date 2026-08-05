@@ -6,7 +6,7 @@ title: "Resource Management"
 type: doc
 order: 19
 status: ready
-tags: [kubernetes, resource-management]
+tags: [kubernetes, resource-management, LimitRange, requests, ResourceQuota, limits, Guaranteed]
 related: [kubernetes/20-autoscaling, kubernetes/04-pods, kubernetes/23-monitoring, kubernetes/26-production]
 when_to_use: "Read before setting CPU/memory requests and limits on any container, or when a pod is being OOM-killed, throttled, or evicted."
 ---

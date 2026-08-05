@@ -6,7 +6,7 @@ title: "Database Transactions"
 type: doc
 order: 9
 status: ready
-tags: [databases, transactions]
+tags: [databases, transactions, execute, transfer, lock_timeout, statement_timeout, range, transaction]
 related: [databases/12-acid, databases/10-concurrency, databases/11-locking, databases/23-data-integrity, databases/08-query-optimization]
 when_to_use: "Read before writing any multi-statement change that must succeed or fail as a unit."
 ---

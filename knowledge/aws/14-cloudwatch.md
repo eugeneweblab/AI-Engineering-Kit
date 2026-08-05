@@ -6,7 +6,7 @@ title: "CloudWatch"
 type: doc
 order: 14
 status: ready
-tags: [aws, cloudwatch]
+tags: [aws, cloudwatch, CloudWatch, dumps, symptom, emit, time, handle]
 related: [aws/15-cloudtrail, aws/12-lambda, aws/26-monitoring, aws/13-api-gateway, aws/24-cost-optimization]
 when_to_use: "Read before instrumenting logging, metrics, alarms, or dashboards for any AWS workload."
 ---

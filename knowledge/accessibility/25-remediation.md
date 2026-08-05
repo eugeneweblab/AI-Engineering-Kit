@@ -6,7 +6,7 @@ title: "Remediation"
 type: doc
 order: 25
 status: ready
-tags: [accessibility, remediation]
+tags: [accessibility, remediation, save, Modal, Button]
 related: [accessibility/24-accessibility-testing, accessibility/23-wcag, accessibility/03-semantic-html, accessibility/07-aria, accessibility/27-best-practices]
 when_to_use: "Read before fixing an existing product's accessibility defects, triaging an audit report, or planning a remediation backlog."
 ---

@@ -6,7 +6,7 @@ title: "Directives"
 type: doc
 order: 11
 status: ready
-tags: [graphql, directives]
+tags: [graphql, directives, auth, GraphQLError, resolve, deprecated, Feed, includes]
 related: [graphql/02-schema, graphql/19-authorization, graphql/12-fragments, graphql/23-federation, graphql/29-schema-evolution]
 when_to_use: "Read before using a built-in directive in a query or authoring a custom schema directive for auth, formatting, or deprecation."
 ---

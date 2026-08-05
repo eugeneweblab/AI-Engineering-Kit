@@ -6,7 +6,7 @@ title: "Node.js Environment"
 type: doc
 order: 14
 status: ready
-tags: [nodejs, environment]
+tags: [nodejs, environment, NODE_ENV, process.env, process.env.PORT, production, DATABASE_URL, positive]
 related: [nodejs/15-configuration, nodejs/10-process, nodejs/18-security, nodejs/26-deployment, nodejs/16-error-handling]
 when_to_use: "Read before reading, validating, or depending on environment variables and NODE_ENV in a Node.js app."
 ---

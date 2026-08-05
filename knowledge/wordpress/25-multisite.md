@@ -6,7 +6,7 @@ title: "WordPress Multisite"
 type: doc
 order: 25
 status: ready
-tags: [wordpress, multisite]
+tags: [wordpress, multisite, switch_to_blog, restore_current_blog, get_sites, update_option, get_option, current_user_can]
 related: [wordpress/19-database, wordpress/20-users-and-capabilities, wordpress/15-plugin-development, wordpress/27-deployment, wordpress/21-media-and-uploads, wordpress/26-wp-cli]
 when_to_use: "Read before building for or deciding on a WordPress network — writing multisite-aware code, switching between sites, or evaluating whether multisite fits."
 ---

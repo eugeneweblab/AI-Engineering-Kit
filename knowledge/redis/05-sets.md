@@ -6,7 +6,7 @@ title: "Sets"
 type: doc
 order: 5
 status: ready
-tags: [redis, sets]
+tags: [redis, sets, SMEMBERS, SISMEMBER, SSCAN, SADD, SUNIONSTORE]
 related: [redis/02-data-types, redis/04-lists, redis/06-sorted-sets, redis/07-hashes]
 when_to_use: "Read before using Redis sets for membership tests, deduplication, tagging, or set algebra between collections."
 ---

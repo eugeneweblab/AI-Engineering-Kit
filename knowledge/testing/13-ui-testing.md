@@ -6,7 +6,7 @@ title: "UI Testing"
 type: doc
 order: 13
 status: ready
-tags: [testing, ui-testing]
+tags: [testing, ui-testing, LoginForm, getByRole, waitFor, getByLabelText, click, querySelector]
 related: [testing/04-e2e-testing, testing/14-visual-regression, testing/18-accessibility-testing, testing/02-unit-testing, testing/22-flaky-tests]
 when_to_use: "Read before writing or reviewing tests for a component or page rendered in a browser or a DOM environment."
 ---

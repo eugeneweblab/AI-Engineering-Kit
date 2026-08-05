@@ -6,7 +6,7 @@ title: "Git Hooks"
 type: doc
 order: 20
 status: ready
-tags: [git, hooks]
+tags: [git, hooks, pre-commit, pre-push, commit-msg, commit, install]
 related: [git/04-commits, git/16-push, git/28-security, git/29-tooling, git/27-best-practices]
 when_to_use: "Read before adding pre-commit, commit-msg, or pre-push automation, or reviewing a repo's hook setup."
 ---

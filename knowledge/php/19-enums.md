@@ -6,7 +6,7 @@ title: "Enums"
 type: doc
 order: 19
 status: ready
-tags: [php, enums]
+tags: [php, enums, InvalidArgumentException, OrderStatus, ValueError]
 related: [php/02-types, php/04-oop, php/22-clean-code, php/12-database]
 when_to_use: "Read before modeling a fixed set of named values, replacing string/int constants, or storing a status in the database."
 ---

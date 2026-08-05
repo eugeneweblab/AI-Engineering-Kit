@@ -6,7 +6,7 @@ title: "Pseudo Classes"
 type: doc
 order: 14
 status: ready
-tags: [tailwind, pseudo-classes]
+tags: [tailwind, pseudo-classes, "before:", "after:", inline-block, peer, content, "hover:"]
 related: [tailwind/13-state-variants, tailwind/09-typography, tailwind/22-accessibility, tailwind/02-core-concepts, tailwind/11-responsive-design]
 when_to_use: "Read before styling structural or form pseudo-classes (first/last, odd/even, required/checked, placeholder, before/after)."
 ---

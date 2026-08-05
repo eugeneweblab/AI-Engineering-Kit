@@ -6,7 +6,7 @@ title: "CORS"
 type: doc
 order: 19
 status: ready
-tags: [security, cors]
+tags: [security, cors, setHeader, Origin, SameSite]
 related: [security/22-security-headers, security/12-csrf, security/03-authentication, security/20-csp]
 when_to_use: "Read before configuring cross-origin API access or debugging a browser CORS error."
 ---

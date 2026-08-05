@@ -6,7 +6,7 @@ title: "Location Blocks"
 type: doc
 order: 4
 status: ready
-tags: [nginx, location-blocks]
+tags: [nginx, location-blocks, alias, location, try_files, root, dotfiles, server]
 related: [nginx/03-server-blocks, nginx/05-reverse-proxy, nginx/07-static-files, nginx/02-configuration, nginx/13-security]
 when_to_use: "Read before adding or debugging any location, or when a request matches the wrong path handler."
 ---

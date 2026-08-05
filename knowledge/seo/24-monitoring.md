@@ -6,7 +6,7 @@ title: "SEO Monitoring"
 type: doc
 order: 24
 status: ready
-tags: [seo, monitoring]
+tags: [seo, monitoring, noindex, robots, X-Robots-Tag]
 related: [seo/22-search-console, seo/21-analytics, seo/23-audits, seo/27-production-checks, seo/13-core-web-vitals]
 when_to_use: "Read before setting up ongoing SEO health checks or alerting on organic traffic, indexing, or crawl regressions."
 ---

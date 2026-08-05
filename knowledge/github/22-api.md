@@ -6,7 +6,7 @@ title: "API"
 type: doc
 order: 22
 status: ready
-tags: [github, api]
+tags: [github, api, paginate, Retry-After, GITHUB_TOKEN, X-RateLimit-Remaining, ETag, X-Hub-Signature-256]
 related: [github/23-cli, github/21-permissions, github/26-automation, github/29-integrations, github/08-actions]
 when_to_use: "Read before writing any code that calls the GitHub REST or GraphQL API, handles pagination, or manages rate limits."
 ---

@@ -6,7 +6,7 @@ title: "Docker AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [docker, ai-review-checklist]
+tags: [docker, ai-review-checklist, COPY, apt-get, Dockerfile, ARG, ENTRYPOINT, HEALTHCHECK]
 related: [docker/08-dockerfile, docker/09-image-optimization, docker/18-security, docker/26-best-practices, docker/100-common-antipatterns]
 when_to_use: "Read when reviewing a Dockerfile, Compose file, or container-related diff, to catch defects before merge."
 ---

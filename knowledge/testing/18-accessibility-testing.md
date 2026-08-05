@@ -6,7 +6,7 @@ title: "Testing Accessibility Testing"
 type: doc
 order: 18
 status: ready
-tags: [testing, accessibility-testing]
+tags: [testing, accessibility-testing, toHaveFocus, aria-live, click, querySelector, getByRole, data-testid]
 related: [testing/13-ui-testing, testing/04-e2e-testing, testing/14-visual-regression, testing/09-assertions, testing/27-quality-gates]
 when_to_use: "Read before writing or reviewing tests for any user-facing UI that must be usable with a keyboard or screen reader."
 ---

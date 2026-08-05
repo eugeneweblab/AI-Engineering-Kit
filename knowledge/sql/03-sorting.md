@@ -6,7 +6,7 @@ title: "SQL Sorting"
 type: doc
 order: 3
 status: ready
-tags: [sql, sorting]
+tags: [sql, sorting, LIMIT, OFFSET, EXPLAIN]
 related: [sql/01-select, sql/02-filtering, sql/04-grouping, sql/15-indexes, sql/08-window-functions]
 when_to_use: "Read before writing any ORDER BY, before paginating results, or when result order matters to the caller."
 ---

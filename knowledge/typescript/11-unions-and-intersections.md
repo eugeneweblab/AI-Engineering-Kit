@@ -6,7 +6,7 @@ title: "Unions And Intersections"
 type: doc
 order: 11
 status: ready
-tags: [typescript, unions-and-intersections]
+tags: [typescript, unions-and-intersections, never, assertNever, kind, stringify, loading]
 related: [typescript/10-enums-and-literals, typescript/12-type-guards, typescript/07-type-aliases, typescript/13-advanced-types]
 when_to_use: "Read before modeling a value that can be one of several shapes (union) or must satisfy several contracts at once (intersection), especially state machines and API results."
 ---

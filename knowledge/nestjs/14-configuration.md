@@ -6,7 +6,7 @@ title: "NestJS Configuration"
 type: doc
 order: 14
 status: ready
-tags: [nestjs, configuration]
+tags: [nestjs, configuration, Injectable, Inject, process.env, Module, STRIPE_KEY, CanActivate]
 related: [nestjs/02-modules, nestjs/28-deployment, nodejs/15-configuration, security/16-secrets-management]
 when_to_use: "Read before adding or reviewing configuration, environment variables, or secrets handling in a NestJS application."
 ---

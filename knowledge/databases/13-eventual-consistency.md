@@ -6,7 +6,7 @@ title: "Eventual Consistency"
 type: doc
 order: 13
 status: ready
-tags: [databases, eventual-consistency]
+tags: [databases, eventual-consistency, OutOfStock, reserve, transaction]
 related: [databases/12-acid, databases/14-replication, databases/15-sharding, databases/22-high-availability, databases/02-relational-vs-nosql]
 when_to_use: "Read before building read paths against replicas, distributed stores, or caches that can return stale data."
 ---

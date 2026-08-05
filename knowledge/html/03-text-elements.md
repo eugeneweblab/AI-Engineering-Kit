@@ -6,7 +6,7 @@ title: "Text Elements"
 type: doc
 order: 3
 status: ready
-tags: [html, text-elements]
+tags: [html, text-elements, lang, margin]
 related: [html/02-semantic-html, html/04-links, html/06-lists, html/11-accessibility, html/12-seo]
 when_to_use: "Read before marking up paragraphs, headings, emphasis, quotes, or inline text content."
 ---

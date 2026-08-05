@@ -6,7 +6,7 @@ title: "Lambda"
 type: doc
 order: 12
 status: ready
-tags: [aws, lambda]
+tags: [aws, lambda, loads, charge, timeout]
 related: [aws/13-api-gateway, aws/16-secrets-manager, aws/17-parameter-store, aws/14-cloudwatch, aws/02-iam]
 when_to_use: "Read before writing, deploying, or reviewing any AWS Lambda function or its trigger wiring."
 ---

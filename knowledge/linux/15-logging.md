@@ -6,7 +6,7 @@ title: "Linux Logging"
 type: doc
 order: 15
 status: ready
-tags: [linux, logging]
+tags: [linux, logging, logrotate, DATABASE_URL, vector, systemd-timesyncd, systemd, level]
 related: [linux/16-monitoring, linux/08-systemd, linux/19-debugging, linux/25-production]
 when_to_use: "Read before adding logging to a service, configuring journald/syslog, or setting up log rotation and shipping."
 ---

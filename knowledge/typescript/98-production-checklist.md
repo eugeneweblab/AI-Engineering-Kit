@@ -6,7 +6,7 @@ title: "TypeScript Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [typescript, production-checklist]
+tags: [typescript, production-checklist, module, exports, process.env, unknown, prettier, expectTypeError]
 related: [typescript/16-configuration, typescript/24-testing, typescript/25-performance, typescript/26-security, typescript/29-tooling]
 when_to_use: "Read before shipping a TypeScript service or library to production."
 ---

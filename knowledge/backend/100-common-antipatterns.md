@@ -6,7 +6,7 @@ title: "Backend Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [backend, common-antipatterns]
+tags: [backend, common-antipatterns, LIMIT]
 related: [backend/30-engineering-principles, backend/12-error-handling, backend/17-transactions, backend/19-performance, backend/99-ai-review-checklist]
 when_to_use: "Read before writing backend code, to recognize and avoid the recurring failure patterns."
 ---

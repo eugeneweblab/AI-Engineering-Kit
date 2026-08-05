@@ -6,7 +6,7 @@ title: "Positioning"
 type: doc
 order: 5
 status: ready
-tags: [css, positioning]
+tags: [css, positioning, z-index, absolute, fixed, sticky, position, transform]
 related: [css/04-box-model, css/06-flexbox, css/07-grid, css/14-transforms, css/23-accessibility]
 when_to_use: "Read before using position, z-index, or overlays like modals, tooltips, and sticky headers."
 ---

@@ -6,7 +6,7 @@ title: "Architecture Distributed Systems"
 type: doc
 order: 21
 status: ready
-tags: [architecture, distributed-systems]
+tags: [architecture, distributed-systems, transfer, apply, retry, TimeoutError, trace_id]
 related: [architecture/17-fault-tolerance, architecture/16-high-availability, architecture/09-microservices, architecture/20-message-brokers, architecture/18-observability]
 when_to_use: "Read before designing any system where components communicate over a network, or when debugging inconsistency, partial failure, or race conditions across services."
 ---

@@ -6,7 +6,7 @@ title: "MySQL Locking"
 type: doc
 order: 7
 status: ready
-tags: [mysql, locking]
+tags: [mysql, locking, COMMIT, EXPLAIN, information_schema.INNODB_TRX, MyISAM, version, ROLLBACK]
 related: [mysql/06-transactions, mysql/08-storage-engines, mysql/04-indexes, mysql/14-performance]
 when_to_use: "Read before writing concurrent writes, diagnosing deadlocks, or adding SELECT ... FOR UPDATE."
 ---

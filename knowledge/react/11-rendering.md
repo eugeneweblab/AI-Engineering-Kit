@@ -6,7 +6,7 @@ title: "React Rendering Patterns"
 type: doc
 order: 11
 status: ready
-tags: [react, rendering]
+tags: [react, rendering, TodoList, UserCard, ProductCard, setQuery, memo, toggle]
 related: [react/12-performance, react/06-state, react/01-react-philosophy]
 when_to_use: "Read before writing or reviewing React rendering and re-render logic."
 ---

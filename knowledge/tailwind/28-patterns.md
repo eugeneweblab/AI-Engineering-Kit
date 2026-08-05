@@ -6,7 +6,7 @@ title: "Tailwind CSS Patterns"
 type: doc
 order: 28
 status: ready
-tags: [tailwind, patterns]
+tags: [tailwind, patterns, peer, VariantProps, Badge, twMerge, clsx]
 related: [tailwind/17-components, tailwind/24-react, tailwind/13-state-variants, tailwind/26-best-practices, tailwind/21-design-system]
 when_to_use: "Read when you need a proven Tailwind pattern for variants, state-driven styling, or reusable component structure."
 ---

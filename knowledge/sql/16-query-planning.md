@@ -6,7 +6,7 @@ title: "Query Planning"
 type: doc
 order: 16
 status: ready
-tags: [sql, query-planning]
+tags: [sql, query-planning, EXPLAIN, ANALYZE, actual, DISTINCT, cache, BUFFERS]
 related: [sql/17-query-optimization, sql/15-indexes, sql/23-performance, sql/05-joins, sql/100-common-antipatterns]
 when_to_use: "Read before diagnosing a slow query, or whenever you need to interpret an EXPLAIN plan."
 ---

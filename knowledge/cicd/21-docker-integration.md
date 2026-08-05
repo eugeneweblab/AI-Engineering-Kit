@@ -6,7 +6,7 @@ title: "Docker Integration"
 type: doc
 order: 21
 status: ready
-tags: [cicd, docker-integration]
+tags: [cicd, docker-integration, ARG, GIT_SHA, "@sha", NPM_TOKEN, "myapp:latest", builder]
 related: [cicd/03-build-stage, cicd/06-security-scanning, cicd/07-artifacts, cicd/22-kubernetes-integration]
 when_to_use: "Read before building, tagging, or pushing container images from a CI/CD pipeline."
 ---

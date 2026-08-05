@@ -6,7 +6,7 @@ title: "Architecture Scalability"
 type: doc
 order: 13
 status: ready
-tags: [architecture, scalability]
+tags: [architecture, scalability, get_cart, time]
 related: [architecture/14-performance, architecture/19-caching-strategies, architecture/16-high-availability, architecture/21-distributed-systems, architecture/09-microservices]
 when_to_use: "Read before designing a service that must handle growth in traffic, data, or concurrency."
 ---

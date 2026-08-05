@@ -6,7 +6,7 @@ title: "AWS Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [aws]
+tags: [aws, readme]
 related: []
 when_to_use: "Read first when starting any AWS work, to see how this section's docs fit together."
 ---

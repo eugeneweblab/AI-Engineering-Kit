@@ -6,7 +6,7 @@ title: "CSS Colors"
 type: doc
 order: 11
 status: ready
-tags: [css, colors]
+tags: [css, colors, oklch, color-scheme, "--color-text", "--color-surface", prefers-color-scheme, "@media"]
 related: [css/10-typography, css/23-accessibility, css/20-css-variables, css/12-backgrounds, css/25-modern-css]
 when_to_use: "Read before choosing color values, defining a palette, or building dark mode."
 ---

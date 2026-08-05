@@ -6,7 +6,7 @@ title: "Performance Testing"
 type: doc
 order: 15
 status: ready
-tags: [testing, performance-testing]
+tags: [testing, performance-testing, renderInvoice, toBeLessThan, measure, describe, pytest-benchmark]
 related: [testing/16-load-testing, testing/26-observability, testing/25-production-testing, testing/21-cicd, testing/22-flaky-tests]
 when_to_use: "Read before writing tests or benchmarks that assert on latency, throughput, or resource use of code or an endpoint."
 ---

@@ -6,7 +6,7 @@ title: "Objects"
 type: doc
 order: 5
 status: ready
-tags: [typescript, objects]
+tags: [typescript, objects, readonly, deactivate, Date, Required, Pick, Partial]
 related: [typescript/06-interfaces, typescript/07-type-aliases, typescript/09-utility-types, typescript/20-immutability]
 when_to_use: "Read before modeling any object shape, record, or index signature."
 ---

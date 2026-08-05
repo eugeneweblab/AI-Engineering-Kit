@@ -6,7 +6,7 @@ title: "Node.js Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [nodejs, production-checklist]
+tags: [nodejs, production-checklist, headersTimeout, helmet, SIGINT, uncaughtException, unhandledRejection, AbortSignal]
 related: [nodejs/26-deployment, nodejs/27-monitoring, nodejs/18-security, nodejs/16-error-handling, nodejs/17-logging]
 when_to_use: "Read before shipping a Node.js service to production or signing off a release."
 ---

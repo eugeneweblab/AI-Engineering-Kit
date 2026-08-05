@@ -6,7 +6,7 @@ title: "Type Guards"
 type: doc
 order: 12
 status: ready
-tags: [typescript, type-guards]
+tags: [typescript, type-guards, never, unknown, kind, JSON.parse, area, handle]
 related: [typescript/11-unions-and-intersections, typescript/13-advanced-types, typescript/03-type-inference, typescript/17-error-handling]
 when_to_use: "Read before narrowing a union, validating unknown input, or writing any `is`/`asserts` predicate."
 ---

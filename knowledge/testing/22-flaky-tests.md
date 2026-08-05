@@ -6,7 +6,7 @@ title: "Flaky Tests"
 type: doc
 order: 22
 status: ready
-tags: [testing, flaky-tests]
+tags: [testing, flaky-tests, setTimeout, useFakeTimers, toBeVisible, findByRole, toBeTruthy, checkout]
 related: [testing/21-cicd, testing/23-debugging-tests, testing/04-e2e-testing, testing/20-test-maintenance, testing/06-mocking]
 when_to_use: "Read before writing async or E2E tests, or when a test passes and fails on the same code."
 ---

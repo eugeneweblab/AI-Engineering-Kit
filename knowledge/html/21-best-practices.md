@@ -6,7 +6,7 @@ title: "HTML Best Practices"
 type: doc
 order: 21
 status: ready
-tags: [html, best-practices]
+tags: [html, best-practices, charset, lang, style, save]
 related: [html/02-semantic-html, html/11-accessibility, html/22-validation, html/19-security, html/18-performance]
 when_to_use: "Read before authoring or reviewing any HTML document, as a baseline of non-negotiable conventions."
 ---

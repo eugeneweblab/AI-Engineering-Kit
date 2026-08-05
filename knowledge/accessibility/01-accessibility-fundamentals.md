@@ -6,7 +6,7 @@ title: "Accessibility Fundamentals"
 type: doc
 order: 1
 status: ready
-tags: [accessibility, accessibility-fundamentals]
+tags: [accessibility, accessibility-fundamentals, nothing, closeDialog, prefers-color-scheme, prefers-reduced-motion]
 related: [accessibility/02-pour-principles, accessibility/03-semantic-html, accessibility/06-screen-readers, accessibility/23-wcag, accessibility/26-legal-requirements]
 when_to_use: "Read before your first UI task on a project, to understand who assistive technology serves and what standard we build to."
 ---

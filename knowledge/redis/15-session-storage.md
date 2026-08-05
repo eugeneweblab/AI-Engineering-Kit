@@ -6,7 +6,7 @@ title: "Session Storage"
 type: doc
 order: 15
 status: ready
-tags: [redis, session-storage]
+tags: [redis, session-storage, GETEX, expire, DEL, hset, createSession]
 related: [redis/12-expiration, redis/07-hashes, redis/20-persistence, redis/21-security, redis/13-caching]
 when_to_use: "Read before storing web/app session state or auth tokens in Redis."
 ---

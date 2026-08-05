@@ -6,7 +6,7 @@ title: "Borders"
 type: doc
 order: 13
 status: ready
-tags: [css, borders]
+tags: [css, borders, border-radius, outline, outline-offset, border, none, box-sizing]
 related: [css/04-box-model, css/12-backgrounds, css/08-sizing, css/23-accessibility]
 when_to_use: "Read before adding borders, rounded corners, outlines, or focus rings to any element."
 ---

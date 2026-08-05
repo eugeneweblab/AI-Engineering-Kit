@@ -6,7 +6,7 @@ title: "Database Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [databases, common-antipatterns]
+tags: [databases, common-antipatterns, execute, OFFSET, decimal, double, numeric, float]
 related: [databases/08-query-optimization, databases/09-transactions, databases/23-data-integrity, databases/17-migrations, databases/07-indexing]
 when_to_use: "Read when writing or reviewing data-access code to recognize and avoid the recurring failure patterns below."
 ---

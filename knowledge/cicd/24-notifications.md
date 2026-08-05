@@ -6,7 +6,7 @@ title: "Notifications"
 type: doc
 order: 24
 status: ready
-tags: [cicd, notifications]
+tags: [cicd, notifications, failure, always, runs-on, GitHub]
 related: [cicd/23-monitoring, cicd/25-debugging, cicd/14-rollbacks, cicd/09-release-management, cicd/05-quality-gates]
 when_to_use: "Read before wiring pipeline events (build, deploy, failure) to Slack, email, or paging so alerts are actionable and not noise."
 ---

@@ -6,7 +6,7 @@ title: "Keyboard Navigation"
 type: doc
 order: 4
 status: ready
-tags: [accessibility, keyboard-navigation]
+tags: [accessibility, keyboard-navigation, tabindex, aria-activedescendant, getAttribute, setAttribute, getElementById, addEventListener]
 related: [accessibility/05-focus-management, accessibility/03-semantic-html, accessibility/07-aria, accessibility/16-dialogs, accessibility/02-pour-principles]
 when_to_use: "Read before building any interactive widget or reviewing a component, to guarantee it is fully operable without a mouse."
 ---

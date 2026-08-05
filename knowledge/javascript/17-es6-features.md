@@ -6,7 +6,7 @@ title: "Es6 Features"
 type: doc
 order: 17
 status: ready
-tags: [javascript, es6-features]
+tags: [javascript, es6-features, arguments, Object.assign, structuredClone, connect, assign, prefer-const]
 related: [javascript/01-language-fundamentals, javascript/04-functions, javascript/07-modules, javascript/16-this-keyword, javascript/23-clean-code]
 when_to_use: "Read before writing modern JavaScript syntax — destructuring, spread, template literals, let/const, default params, arrows."
 ---

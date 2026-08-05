@@ -6,7 +6,7 @@ title: "Linux Performance"
 type: doc
 order: 18
 status: ready
-tags: [linux, performance]
+tags: [linux, performance, cause, vmstat, perf, MemoryMax]
 related: [linux/06-processes, linux/16-monitoring, linux/19-debugging, linux/11-storage, linux/27-troubleshooting]
 when_to_use: "Read before diagnosing a slow or overloaded Linux host, or tuning one for higher throughput."
 ---

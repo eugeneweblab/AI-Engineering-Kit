@@ -6,7 +6,7 @@ title: "WordPress Caching"
 type: doc
 order: 23
 status: ready
-tags: [wordpress, caching]
+tags: [wordpress, caching, set_transient, get_transient, wp_get_current_user, defined, HOUR_IN_SECONDS, wp_options]
 related: [wordpress/05-performance, wordpress/12-queries, wordpress/18-rest-api, wordpress/19-database, wordpress/29-maintenance, wordpress/27-deployment, performance/08-caching]
 when_to_use: "Read before caching anything in WordPress — choosing between transients and the object cache, invalidating on write, or diagnosing stale or personalized content."
 ---

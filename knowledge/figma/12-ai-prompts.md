@@ -6,7 +6,7 @@ title: "AI Prompting Standard for Figma Tasks"
 type: doc
 order: 12
 status: ready
-tags: [figma, ai-prompts]
+tags: [figma, ai-prompts, TypeScript, passes, WordPress]
 related: [figma/01-figma-analysis, figma/11-ai-design-review, prompts/01-code-review]
 when_to_use: "Read when writing prompts for an AI coding assistant to implement Figma tasks with minimal ambiguity."
 ---

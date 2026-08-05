@@ -6,7 +6,7 @@ title: "Frontend Rendering"
 type: doc
 order: 7
 status: ready
-tags: [frontend, rendering]
+tags: [frontend, rendering, window, Suspense, lang, localStorage, loads]
 related: [frontend/06-data-fetching, frontend/08-performance, frontend/11-seo, frontend/21-code-splitting, frontend/09-accessibility]
 when_to_use: "Read before choosing where a page renders (server, client, static) or debugging hydration mismatches."
 ---

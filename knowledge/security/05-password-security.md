@@ -6,7 +6,7 @@ title: "Password Security"
 type: doc
 order: 5
 status: ready
-tags: [security, password-security]
+tags: [security, password-security, hashPassword, verifyPassword, hash, createHash, digest]
 related: [security/03-authentication, security/06-session-management, security/16-secrets-management, security/21-rate-limiting, security/17-encryption]
 when_to_use: "Read before building or reviewing signup, login, password reset, or any credential-storage code."
 ---

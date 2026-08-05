@@ -6,7 +6,7 @@ title: "SNS"
 type: doc
 order: 22
 status: ready
-tags: [aws, sns]
+tags: [aws, sns, RedrivePolicy, region]
 related: [aws/21-sqs, aws/23-eventbridge, aws/12-lambda, aws/02-iam, aws/14-cloudwatch]
 when_to_use: "Read before publishing to an SNS topic or subscribing a queue, Lambda, or endpoint."
 ---

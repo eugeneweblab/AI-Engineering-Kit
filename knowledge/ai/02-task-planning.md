@@ -6,7 +6,7 @@ title: "Task Planning"
 type: doc
 order: 2
 status: ready
-tags: [ai, task-planning]
+tags: [ai, task-planning, ProfilePage, dependency, upload, change, image]
 related: [ai/01-context-gathering, ai/03-code-generation, engineering/04-task-execution]
 when_to_use: "Read before planning an AI-assisted task and prior to making any code changes."
 ---

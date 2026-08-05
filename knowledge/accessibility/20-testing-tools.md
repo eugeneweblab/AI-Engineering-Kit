@@ -6,7 +6,7 @@ title: "Testing Tools"
 type: doc
 order: 20
 status: ready
-tags: [accessibility, testing-tools]
+tags: [accessibility, testing-tools, lighthouse, toHaveNoViolations, VoiceOver]
 related: [accessibility/21-axe, accessibility/22-lighthouse, accessibility/24-accessibility-testing, accessibility/06-screen-readers, accessibility/23-wcag]
 when_to_use: "Read before choosing how to test accessibility, or when deciding what a passing automated scan does and does not prove."
 ---

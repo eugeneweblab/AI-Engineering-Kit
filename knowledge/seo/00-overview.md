@@ -6,7 +6,7 @@ title: "SEO Overview"
 type: doc
 order: 0
 status: ready
-tags: [seo, overview]
+tags: [seo, overview, noindex, hreflang, X-Robots-Tag, robots]
 related: [seo/01-seo-fundamentals, seo/02-crawling, seo/03-indexing, seo/04-rendering, seo/05-metadata]
 when_to_use: "Read first when starting any SEO work, to see how the topic's docs fit together."
 ---

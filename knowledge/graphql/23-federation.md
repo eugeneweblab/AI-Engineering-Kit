@@ -6,7 +6,7 @@ title: "Federation"
 type: doc
 order: 23
 status: ready
-tags: [graphql, federation]
+tags: [graphql, federation, load, DataLoader]
 related: [graphql/02-schema, graphql/16-dataloader, graphql/18-authentication, graphql/19-authorization, graphql/29-schema-evolution]
 when_to_use: "Read before splitting a GraphQL schema across services or joining subgraphs behind a gateway."
 ---

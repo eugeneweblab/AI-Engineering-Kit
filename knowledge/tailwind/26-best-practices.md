@@ -6,7 +6,7 @@ title: "Tailwind CSS Best Practices"
 type: doc
 order: 26
 status: ready
-tags: [tailwind, best-practices]
+tags: [tailwind, best-practices, tokens, gap-6, eslint-plugin-tailwindcss]
 related: [tailwind/03-utility-first, tailwind/21-design-system, tailwind/17-components, tailwind/28-patterns, tailwind/100-common-antipatterns]
 when_to_use: "Read before writing or reviewing Tailwind markup to keep it consistent, themeable, and maintainable."
 ---

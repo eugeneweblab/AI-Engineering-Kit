@@ -6,7 +6,7 @@ title: "Execution Context"
 type: doc
 order: 2
 status: ready
-tags: [javascript, execution-context]
+tags: [javascript, execution-context, total]
 related: [javascript/00-overview, javascript/01-language-fundamentals, javascript/03-scope-and-closures, javascript/04-functions, javascript/16-this-keyword]
 when_to_use: "Read before debugging hoisting, temporal-dead-zone, or 'undefined before assignment' errors."
 ---

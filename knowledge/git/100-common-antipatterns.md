@@ -6,7 +6,7 @@ title: "Git Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [git, common-antipatterns]
+tags: [git, common-antipatterns, user.email, root, unknown, node_modules]
 related: [git/06-merging, git/07-rebasing, git/09-reset, git/16-push, git/27-best-practices]
 when_to_use: "Read before running a destructive git command or when a repository's history has become hard to follow."
 ---

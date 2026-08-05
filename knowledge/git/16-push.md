@@ -6,7 +6,7 @@ title: "Push"
 type: doc
 order: 16
 status: ready
-tags: [git, push]
+tags: [git, push, simple]
 related: [git/14-fetch, git/15-pull, git/13-remote-repositories, git/12-tags, git/28-security]
 when_to_use: "Read before pushing to a shared remote, and always before considering any force-push."
 ---

@@ -6,7 +6,7 @@ title: "Branch Protection"
 type: doc
 order: 17
 status: ready
-tags: [github, branch-protection]
+tags: [github, branch-protection, CODEOWNERS]
 related: [github/18-rulesets, github/13-security, github/07-code-review, github/09-workflows, github/06-pull-requests]
 when_to_use: "Read before configuring merge rules, required reviews, or required checks on a default branch."
 ---

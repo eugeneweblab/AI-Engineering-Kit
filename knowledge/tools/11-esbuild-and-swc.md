@@ -6,7 +6,7 @@ title: "esbuild and SWC"
 type: doc
 order: 11
 status: ready
-tags: [tools, esbuild-and-swc]
+tags: [tools, esbuild-and-swc, arethetypeswrong, isolatedModules, publint, exports]
 related: [tools/12-babel, tools/09-vite, tools/03-typescript-compiler, tools/13-test-runners, tools/30-engineering-principles]
 when_to_use: "Read before using esbuild or SWC — as a transpiler in a build chain, for a library bundle, or when replacing Babel."
 ---

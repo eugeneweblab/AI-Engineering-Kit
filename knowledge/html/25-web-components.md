@@ -6,7 +6,7 @@ title: "Web Components"
 type: doc
 order: 25
 status: ready
-tags: [html, web-components]
+tags: [html, web-components, disconnectedCallback, querySelector, innerHTML, getElementById, define, addEventListener]
 related: [html/02-semantic-html, html/27-html-apis, html/11-accessibility, html/23-progressive-enhancement, html/14-custom-data-attributes]
 when_to_use: "Read before authoring or reviewing a Custom Element, Shadow DOM, or <template>-based component."
 ---

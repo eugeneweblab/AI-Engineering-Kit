@@ -6,7 +6,7 @@ title: "Figma to Divi Builder"
 type: doc
 order: 9
 status: ready
-tags: [figma, figma-to-divi]
+tags: [figma, figma-to-divi, preset]
 related: [figma/07-figma-to-html, divi/05-layouts, divi/04-custom-modules, workflows/10-build-divi-module]
 when_to_use: "Read before building a Figma design as an editable layout in the Divi Builder."
 ---

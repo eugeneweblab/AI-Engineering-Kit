@@ -6,7 +6,7 @@ title: "Profilers"
 type: doc
 order: 22
 status: ready
-tags: [tools, profilers]
+tags: [tools, profilers, writeFile, measure, connect, XDEBUG_TRIGGER, stringify, DevTools]
 related: [tools/21-debuggers, tools/29-observability-tools, tools/13-test-runners, tools/09-vite, tools/30-engineering-principles, performance/16-profiling, performance/24-optimization-workflow]
 when_to_use: "Read before optimizing anything — capturing a CPU or memory profile in Node, PHP, or the browser, and reading the result correctly."
 ---

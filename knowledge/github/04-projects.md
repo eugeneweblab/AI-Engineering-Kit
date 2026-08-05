@@ -6,7 +6,7 @@ title: "Projects"
 type: doc
 order: 4
 status: ready
-tags: [github, projects]
+tags: [github, projects, GraphQL, runs-on]
 related: [github/03-issues, github/05-discussions, github/26-automation, github/22-api, github/23-cli]
 when_to_use: "Read before setting up or automating a Projects (v2) board or roadmap to plan and track work across repositories."
 ---

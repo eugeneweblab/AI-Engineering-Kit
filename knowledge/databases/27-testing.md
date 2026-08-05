@@ -6,7 +6,7 @@ title: "Database Testing"
 type: doc
 order: 27
 status: ready
-tags: [databases, testing]
+tags: [databases, testing, down, release, afterEach, toThrow, createUser, mockResolvedValue]
 related: [databases/17-migrations, databases/09-transactions, databases/23-data-integrity, databases/10-concurrency, databases/08-query-optimization]
 when_to_use: "Read before writing tests that touch a database, or when deciding how to test schema, queries, and migrations."
 ---

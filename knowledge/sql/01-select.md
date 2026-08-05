@@ -6,7 +6,7 @@ title: "Select"
 type: doc
 order: 1
 status: ready
-tags: [sql, select]
+tags: [sql, select, DISTINCT, EXTRACT, HAVING, EXISTS, email, LIMIT]
 related: [sql/00-overview, sql/02-filtering, sql/03-sorting, sql/04-grouping, sql/05-joins]
 when_to_use: "Read before writing any query that projects columns, uses DISTINCT, or relies on clause evaluation order."
 ---

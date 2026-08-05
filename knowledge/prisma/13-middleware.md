@@ -6,7 +6,7 @@ title: "Middleware"
 type: doc
 order: 13
 status: ready
-tags: [prisma, middleware]
+tags: [prisma, middleware, args.where, Date]
 related: [prisma/14-extensions, prisma/23-soft-delete, prisma/26-observability, prisma/06-client]
 when_to_use: "Read before adding, reviewing, or migrating any `prisma.$use` middleware that intercepts queries."
 ---

@@ -6,7 +6,7 @@ title: "Docker Orchestration"
 type: doc
 order: 23
 status: ready
-tags: [docker, orchestration]
+tags: [docker, orchestration, maxUnavailable, SIGTERM, "@sha", startupProbe, maxSurge, terminationGracePeriodSeconds]
 related: [docker/22-production, docker/15-healthchecks, docker/17-resource-limits, docker/24-monitoring, docker/12-docker-compose]
 when_to_use: "Read when running containers across multiple hosts — scaling, scheduling, rolling deploys, and self-healing."
 ---

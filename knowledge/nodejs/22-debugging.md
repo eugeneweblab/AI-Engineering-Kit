@@ -6,7 +6,7 @@ title: "Node.js Debugging"
 type: doc
 order: 22
 status: ready
-tags: [nodejs, debugging]
+tags: [nodejs, debugging, withdraw, uncaughtException, rejects, console.log, fatal, SIGUSR2]
 related: [nodejs/16-error-handling, nodejs/20-memory-management, nodejs/19-performance, nodejs/17-logging, nodejs/21-testing]
 when_to_use: "Read when diagnosing a crash, hang, leak, or performance problem in a Node.js process."
 ---

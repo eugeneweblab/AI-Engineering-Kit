@@ -6,7 +6,7 @@ title: "Divi Modules"
 type: doc
 order: 3
 status: ready
-tags: [divi, modules]
+tags: [divi, modules, module]
 related: [divi/01-architecture, divi/04-custom-modules, divi/09-custom-css, divi/11-responsive-design, divi/10-performance]
 when_to_use: "Read before adding or configuring built-in Divi modules on a page."
 ---

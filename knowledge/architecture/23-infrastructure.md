@@ -6,7 +6,7 @@ title: "Infrastructure"
 type: doc
 order: 23
 status: ready
-tags: [architecture, infrastructure]
+tags: [architecture, infrastructure, plan, apply, DB_PASSWORD]
 related: [architecture/22-cloud-architecture, architecture/24-deployment, architecture/16-high-availability, architecture/18-observability, architecture/15-security]
 when_to_use: "Read before provisioning environments, writing infrastructure-as-code, or when environments drift or cannot be reproduced."
 ---

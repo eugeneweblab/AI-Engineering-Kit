@@ -6,7 +6,7 @@ title: "Docker Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [docker, engineering-principles]
+tags: [docker, engineering-principles, "@sha", SIGTERM, Dockerfile, compose, tmpfs, EXPOSE]
 related: [docker/08-dockerfile, docker/11-multi-stage-builds, docker/18-security, docker/22-production, docker/26-best-practices]
 when_to_use: "Read before writing a Dockerfile or shaping how an app is containerized, to internalize the reasoning behind the rules."
 ---

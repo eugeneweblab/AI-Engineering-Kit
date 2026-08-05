@@ -6,7 +6,7 @@ title: "Prettier"
 type: doc
 order: 5
 status: ready
-tags: [tools, prettier]
+tags: [tools, prettier, eslint-config-prettier, eslint-plugin-prettier, GitHub]
 related: [tools/04-eslint, tools/16-git-hooks, tools/25-editor-setup, tools/06-stylelint, tools/30-engineering-principles]
 when_to_use: "Read before adding or configuring a formatter — setting options, integrating with ESLint, or introducing formatting to an existing codebase without destroying git blame."
 ---

@@ -6,7 +6,7 @@ title: "Code Organization"
 type: doc
 order: 25
 status: ready
-tags: [backend, code-organization]
+tags: [backend, code-organization, helpers, eslint-plugin-boundaries]
 related: [backend/02-layered-architecture, backend/03-clean-architecture, backend/07-business-logic, backend/24-documentation]
 when_to_use: "Read before creating a new module, restructuring a service, or deciding where a new piece of code belongs."
 ---

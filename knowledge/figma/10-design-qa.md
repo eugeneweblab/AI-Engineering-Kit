@@ -6,7 +6,7 @@ title: "Design QA"
 type: doc
 order: 10
 status: ready
-tags: [figma, design-qa]
+tags: [figma, design-qa, AxeBuilder, goto, them, setViewportSize, Primary, withTags]
 related: [figma/15-screenshot-comparison, figma/13-visual-regression, figma/20-implementation-definition-of-done]
   - figma/13-visual-regression
   - figma/15-screenshot-comparison

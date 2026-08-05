@@ -6,7 +6,7 @@ title: "MySQL Configuration"
 type: doc
 order: 2
 status: ready
-tags: [mysql, configuration]
+tags: [mysql, configuration, my.cnf, innodb_buffer_pool_size, sql_mode, STRICT_TRANS_TABLES, max_connections, innodb_flush_log_at_trx_commit]
 related: [mysql/01-installation, mysql/06-transactions, mysql/14-performance, mysql/20-production, mysql/15-monitoring]
 when_to_use: "Read before editing my.cnf or tuning buffer pool, durability, or charset settings."
 ---

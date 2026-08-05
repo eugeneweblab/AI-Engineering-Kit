@@ -6,7 +6,7 @@ title: "NestJS Distributed Systems"
 type: doc
 order: 23
 status: ready
-tags: [nestjs, distributed-systems]
+tags: [nestjs, distributed-systems, Injectable, ChargeResult, EventPattern, Inject, Controller, bootstrap]
 related: [nestjs/20-queues, nestjs/24-observability, architecture/21-distributed-systems, architecture/17-fault-tolerance]
 when_to_use: "Read before designing or reviewing microservices, inter-service communication, or other distributed-system concerns."
 ---

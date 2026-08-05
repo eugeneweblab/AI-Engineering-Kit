@@ -6,7 +6,7 @@ title: "Linux Backups"
 type: doc
 order: 20
 status: ready
-tags: [linux, backups]
+tags: [linux, backups, mysqldump, pg_dump]
 related: [linux/11-storage, linux/14-cron, linux/17-security, linux/23-automation, linux/25-production]
 when_to_use: "Read before designing, scripting, or reviewing any Linux backup or restore process."
 ---

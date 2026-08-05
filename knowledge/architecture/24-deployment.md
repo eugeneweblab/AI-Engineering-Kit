@@ -6,7 +6,7 @@ title: "Architecture Deployment"
 type: doc
 order: 24
 status: ready
-tags: [architecture, deployment]
+tags: [architecture, deployment, "@sha", RollingUpdate]
 related: [architecture/23-infrastructure, architecture/16-high-availability, architecture/18-observability, architecture/17-fault-tolerance, architecture/26-architecture-decision-records]
 when_to_use: "Read before designing or reviewing how a service ships to production — pipelines, release strategy, rollout, and rollback."
 ---

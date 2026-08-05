@@ -6,7 +6,7 @@ title: "Workflow — Build a WordPress Feature"
 type: doc
 order: 9
 status: ready
-tags: [workflows, build-wordpress-feature]
+tags: [workflows, build-wordpress-feature, add_action, register_rest_route, flush_rewrite_rules, is_user_logged_in, register_activation_hook, defined]
 related: [wordpress/15-plugin-development, wordpress/08-hooks, examples/03-wordpress-feature]
   - wordpress/01-wordpress-architecture
   - wordpress/03-best-practices

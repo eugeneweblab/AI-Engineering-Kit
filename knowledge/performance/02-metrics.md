@@ -6,7 +6,7 @@ title: "Metrics"
 type: doc
 order: 2
 status: ready
-tags: [performance, metrics]
+tags: [performance, metrics, handle, histogram_quantile, Histogram, labels, time]
 related: [performance/01-performance-fundamentals, performance/17-monitoring, performance/25-production-monitoring, performance/18-web-vitals, performance/22-load-testing]
 when_to_use: "Read before instrumenting a service or interpreting a latency number, so you measure the right thing the right way."
 ---

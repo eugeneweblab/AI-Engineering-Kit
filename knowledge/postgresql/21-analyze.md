@@ -6,7 +6,7 @@ title: "Analyze"
 type: doc
 order: 21
 status: ready
-tags: [postgresql, analyze]
+tags: [postgresql, analyze, ANALYZE, pg_restore, city, VACUUM, EXPLAIN, pg_stat_statements]
 related: [postgresql/20-vacuum, postgresql/05-query-planner, postgresql/04-indexes, postgresql/16-performance, postgresql/27-tuning]
 when_to_use: "Read before diagnosing a query that suddenly picked a bad plan, after a bulk load, or when tuning planner statistics on skewed or correlated columns."
 ---

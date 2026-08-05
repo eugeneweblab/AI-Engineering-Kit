@@ -6,7 +6,7 @@ title: "Next.js Testing"
 type: doc
 order: 22
 status: ready
-tags: [nextjs, testing]
+tags: [nextjs, testing, getByRole, NextRequest, ProductPage, toEqual, goto, toHaveBeenCalledWith]
 related: [nextjs/06-server-components, testing/04-e2e-testing, react/21-testing]
 when_to_use: "Read before setting up or writing automated tests for a Next.js app."
 ---

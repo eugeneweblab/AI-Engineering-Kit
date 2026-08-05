@@ -6,7 +6,7 @@ title: "Customers"
 type: doc
 order: 6
 status: ready
-tags: [woocommerce, customers]
+tags: [woocommerce, customers, WC_Customer, wp_posts, wp_postmeta, update_user_meta, wc_get_orders, get_results]
 related: [woocommerce/05-orders, woocommerce/07-checkout, woocommerce/13-rest-api, woocommerce/16-security]
 when_to_use: "Read before creating, updating, or reading customer records, addresses, or account data in WooCommerce."
 ---

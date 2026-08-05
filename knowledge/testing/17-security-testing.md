@@ -6,7 +6,7 @@ title: "Security Testing"
 type: doc
 order: 17
 status: ready
-tags: [testing, security-testing]
+tags: [testing, security-testing, toBe, toHaveProperty, encodeURIComponent, login]
 related: [testing/12-api-testing, testing/04-e2e-testing, testing/21-cicd, testing/25-production-testing, testing/03-integration-testing]
 when_to_use: "Read before adding automated tests or pipeline checks that verify a system resists abuse and known vulnerability classes."
 ---

@@ -6,7 +6,7 @@ title: "Database Tools"
 type: doc
 order: 24
 status: ready
-tags: [tools, database-tools]
+tags: [tools, database-tools, DATABASE_URL, PostgreSQL, WordPress, EXPLAIN, search-replace, BEGIN]
 related: [tools/20-local-environments, tools/23-api-clients, tools/22-profilers, tools/26-ai-coding-tools, tools/30-engineering-principles, databases/08-query-optimization, databases/17-migrations]
 when_to_use: "Read before working with a database by hand — choosing a client, inspecting queries, running migrations, or moving data between environments safely."
 ---

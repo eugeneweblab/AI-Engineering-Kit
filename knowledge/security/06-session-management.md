@@ -6,7 +6,7 @@ title: "Session Management"
 type: doc
 order: 6
 status: ready
-tags: [security, session-management]
+tags: [security, session-management, HttpOnly, login, SameSite, Secure, localStorage, clearCookie]
 related: [security/03-authentication, security/04-authorization, security/07-jwt, security/12-csrf, security/11-xss]
 when_to_use: "Read before building or reviewing how a login is remembered across requests — cookies, tokens, or server sessions."
 ---

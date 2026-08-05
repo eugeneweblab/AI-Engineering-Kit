@@ -6,7 +6,7 @@ title: "Twitter Cards"
 type: doc
 order: 11
 status: ready
-tags: [seo, twitter-cards]
+tags: [seo, twitter-cards, "twitter:card", summary, description, "og:title", "og:description", "og:image"]
 related: [seo/10-open-graph, seo/05-metadata, seo/09-structured-data, seo/16-images]
 when_to_use: "Read before shipping share-preview markup for links posted on X/Twitter, when you need a large-image card instead of a plain link."
 ---

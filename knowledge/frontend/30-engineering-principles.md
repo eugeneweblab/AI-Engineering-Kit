@@ -6,7 +6,7 @@ title: "Frontend Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [frontend, engineering-principles]
+tags: [frontend, engineering-principles, Cart, useState, useEffect, setItems, fetchCart, useQuery]
 related: [frontend/27-best-practices, frontend/08-performance, frontend/09-accessibility, frontend/13-error-handling, frontend/04-state-management]
 when_to_use: "Read before making a structural or technical decision in a frontend codebase — choosing state, drawing component boundaries, or deciding what runs on the client."
 ---

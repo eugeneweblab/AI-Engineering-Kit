@@ -6,7 +6,7 @@ title: "JavaScript Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [javascript, production-checklist]
+tags: [javascript, production-checklist, res.ok, unhandledrejection, pnpm-lock.yaml, package-lock.json, document.write, textContent]
 related: [javascript/14-error-handling, javascript/26-security, javascript/25-performance, javascript/29-tooling, javascript/24-testing]
 when_to_use: "Read before shipping JavaScript to production or approving a release."
 ---

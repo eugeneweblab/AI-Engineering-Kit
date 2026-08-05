@@ -6,7 +6,7 @@ title: "Divi REST API"
 type: doc
 order: 17
 status: ready
-tags: [divi, rest-api]
+tags: [divi, rest-api, permission_callback, register_rest_route, validate_callback, sanitize_callback, get_param, WP_REST_Response]
 related: [divi/18-headless, divi/16-wordpress-hooks, divi/19-security, divi/15-custom-fields, divi/07-dynamic-content]
 when_to_use: "Read before exposing or consuming WordPress REST endpoints for a Divi site, headless or otherwise."
 ---

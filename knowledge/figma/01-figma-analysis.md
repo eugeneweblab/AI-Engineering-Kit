@@ -6,7 +6,7 @@ title: "Figma Analysis"
 type: doc
 order: 1
 status: ready
-tags: [figma, figma-analysis]
+tags: [figma, figma-analysis, FIGMA_TOKEN, FILE_KEY, PlanCard, Primary, Desktop, URL]
 related: [figma/02-layout-analysis, figma/03-design-token-extraction, figma/06-component-detection, workflows/01-implement-figma-design]
   - figma/02-layout-analysis
   - figma/03-design-token-extraction

@@ -6,7 +6,7 @@ title: "Containerization"
 type: doc
 order: 10
 status: ready
-tags: [devops, containerization]
+tags: [devops, containerization, ENTRYPOINT, COPY, CMD, WORKDIR, alpine, EXPOSE]
 related: [devops/11-orchestration, devops/09-configuration-management, devops/16-security, devops/05-build-pipelines, devops/07-deployment-strategies]
 when_to_use: "Read before writing or reviewing a Dockerfile, container image, or anything that packages an app to run in a container."
 ---

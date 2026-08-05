@@ -6,7 +6,7 @@ title: "Composer"
 type: doc
 order: 7
 status: ready
-tags: [php, composer]
+tags: [php, composer, composer.lock, composer.json, install, require-dev, config.platform]
 related: [php/06-autoloading, php/24-psr-standards, php/28-tooling, php/27-production]
 when_to_use: "Read before adding a dependency, editing composer.json, or setting up an install in CI/CD."
 ---

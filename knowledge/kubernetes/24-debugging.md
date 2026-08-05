@@ -6,7 +6,7 @@ title: "Kubernetes Debugging"
 type: doc
 order: 24
 status: ready
-tags: [kubernetes, debugging]
+tags: [kubernetes, debugging, OOMKilled, describe, Pending, netshoot, curl]
 related: [kubernetes/04-pods, kubernetes/21-observability, kubernetes/23-monitoring, kubernetes/19-resource-management, kubernetes/07-services]
 when_to_use: "Read before diagnosing a CrashLoopBackOff, Pending pod, failing probe, or unreachable Service."
 ---

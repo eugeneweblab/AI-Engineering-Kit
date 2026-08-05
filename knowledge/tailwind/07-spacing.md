@@ -6,7 +6,7 @@ title: "Tailwind CSS Spacing"
 type: doc
 order: 7
 status: ready
-tags: [tailwind, spacing]
+tags: [tailwind, spacing, gap-6, gap-4, mx-auto]
 related: [tailwind/08-sizing, tailwind/06-grid, tailwind/05-flexbox, tailwind/04-layout, tailwind/16-theme]
 when_to_use: "Read before adding padding, margins, or gaps — any time you space elements apart or pad content inside a box."
 ---

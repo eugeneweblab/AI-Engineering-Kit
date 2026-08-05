@@ -6,7 +6,7 @@ title: "CI/CD Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [cicd, engineering-principles]
+tags: [cicd, engineering-principles, RepoDigests]
 related: [cicd/02-pipeline-design, cicd/05-quality-gates, cicd/09-release-management, cicd/14-rollbacks, cicd/27-best-practices]
 when_to_use: "Read before designing, refactoring, or reviewing any CI/CD pipeline or delivery workflow."
 ---

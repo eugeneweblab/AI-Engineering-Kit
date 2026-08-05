@@ -6,7 +6,7 @@ title: "Architecture Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [architecture, common-antipatterns]
+tags: [architecture, common-antipatterns, schema, OrderPlaced]
 related: [architecture/09-microservices, architecture/03-clean-architecture, architecture/30-engineering-principles, architecture/08-event-driven-architecture, architecture/99-ai-review-checklist]
 when_to_use: "Read before adding a service, layer, or shared component, to check you are not walking into a known trap."
 ---

@@ -6,7 +6,7 @@ title: "Next.js Server Actions"
 type: doc
 order: 11
 status: ready
-tags: [nextjs, server-actions]
+tags: [nextjs, server-actions, cancelOrder, FormData, createProduct, updateMany, revalidateTag, useActionState]
 related: [nextjs/06-server-components, nextjs/24-security, nextjs/15-authorization, react/15-forms]
 when_to_use: "Read before implementing form submissions or data mutations with Next.js Server Actions."
 ---

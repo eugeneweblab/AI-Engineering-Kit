@@ -6,7 +6,7 @@ title: "PostgreSQL Full Text Search"
 type: doc
 order: 10
 status: ready
-tags: [postgresql, full-text-search]
+tags: [postgresql, full-text-search, tsvector, websearch_to_tsquery, to_tsvector, pg_trgm, ts_rank, docs]
 related: [postgresql/04-indexes, postgresql/08-jsonb, postgresql/15-extensions, postgresql/05-query-planner]
 when_to_use: "Read before building search over text columns, or when LIKE '%term%' queries are slow or matching poorly."
 ---

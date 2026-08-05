@@ -6,7 +6,7 @@ title: "Supply Chain Security"
 type: doc
 order: 24
 status: ready
-tags: [security, supply-chain-security]
+tags: [security, supply-chain-security, postinstall, NPM_TOKEN, "@main", AWS_KEY, AWS_SECRET_ACCESS_KEY, id-token]
 related: [security/23-dependency-security, security/16-secrets-management, security/25-monitoring, security/26-incident-response]
 when_to_use: "Read before configuring CI/CD, package publishing, or build-artifact integrity controls."
 ---

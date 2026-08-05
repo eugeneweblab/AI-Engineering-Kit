@@ -6,7 +6,7 @@ title: "Views"
 type: doc
 order: 18
 status: ready
-tags: [sql, views]
+tags: [sql, views, EXPLAIN]
 related: [sql/19-materialized-views, sql/07-common-table-expressions, sql/22-security, sql/23-performance, sql/17-query-optimization]
 when_to_use: "Read before creating a view, replacing repeated query logic with a named abstraction, or exposing a curated subset of tables to consumers."
 ---

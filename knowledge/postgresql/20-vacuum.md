@@ -6,7 +6,7 @@ title: "Vacuum"
 type: doc
 order: 20
 status: ready
-tags: [postgresql, vacuum]
+tags: [postgresql, vacuum, VACUUM, pg_repack, pg_stat_user_tables, autovacuum_vacuum_scale_factor, autovacuum_freeze_max_age, idle_in_transaction_session_timeout]
 related: [postgresql/21-analyze, postgresql/06-transactions, postgresql/16-performance, postgresql/17-monitoring, postgresql/27-tuning]
 when_to_use: "Read before tuning autovacuum, diagnosing table/index bloat or transaction-ID wraparound warnings, or running a manual VACUUM on a large table."
 ---

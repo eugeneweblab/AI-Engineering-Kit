@@ -6,7 +6,7 @@ title: "Context"
 type: doc
 order: 8
 status: ready
-tags: [graphql, context]
+tags: [graphql, context, context, GraphQLError, requireUser, authenticate]
 related: [graphql/07-resolvers, graphql/16-dataloader, graphql/18-authentication, graphql/19-authorization, graphql/06-subscriptions]
 when_to_use: "Read before designing what shared per-request state resolvers receive, or when adding auth, loaders, or db handles to GraphQL context."
 ---

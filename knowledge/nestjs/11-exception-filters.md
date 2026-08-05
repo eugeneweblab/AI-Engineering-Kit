@@ -6,7 +6,7 @@ title: "NestJS Exception Filters"
 type: doc
 order: 11
 status: ready
-tags: [nestjs, exception-filters]
+tags: [nestjs, exception-filters, HttpStatus, HttpException, super, constructor, UserNotFoundException, DomainException]
 related: [nestjs/08-validation, nestjs/10-interceptors, backend/12-error-handling, rest-api/09-error-handling]
 when_to_use: "Read before building or reviewing exception filters and application-wide error handling."
 ---

@@ -6,7 +6,7 @@ title: "PostgreSQL Debugging"
 type: doc
 order: 24
 status: ready
-tags: [postgresql, debugging]
+tags: [postgresql, debugging, pg_stat_statements, pg_locks, pg_stat_activity, ANALYZE, EXPLAIN, backend]
 related: [postgresql/05-query-planner, postgresql/17-monitoring, postgresql/07-locking, postgresql/16-performance, postgresql/20-vacuum]
 when_to_use: "Read before diagnosing a slow query, a lock stall, a connection storm, or any unexpected PostgreSQL behavior in a running system."
 ---

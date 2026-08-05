@@ -6,7 +6,7 @@ title: "GitHub Overview"
 type: doc
 order: 0
 status: ready
-tags: [github, overview]
+tags: [github, overview, GITHUB_TOKEN]
 related: [github/01-github-platform, github/02-repositories, github/03-issues, github/06-pull-requests, github/08-actions]
 when_to_use: "Read first when you need to know which GitHub doc in this topic answers your question."
 ---

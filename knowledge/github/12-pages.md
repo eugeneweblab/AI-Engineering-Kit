@@ -6,7 +6,7 @@ title: "Pages"
 type: doc
 order: 12
 status: ready
-tags: [github, pages]
+tags: [github, pages, runs-on, base, localhost, id-token]
 related: [github/09-workflows, github/08-actions, github/02-repositories, github/13-security, github/17-branch-protection]
 when_to_use: "Read before publishing a site, docs, or SPA to GitHub Pages."
 ---

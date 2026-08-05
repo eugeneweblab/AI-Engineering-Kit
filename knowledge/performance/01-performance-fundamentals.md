@@ -6,7 +6,7 @@ title: "Performance Fundamentals"
 type: doc
 order: 1
 status: ready
-tags: [performance, performance-fundamentals]
+tags: [performance, performance-fundamentals, rows]
 related: [performance/02-metrics, performance/16-profiling, performance/24-optimization-workflow, performance/03-cpu, performance/05-network]
 when_to_use: "Read before any optimization work, to fix the mental model and the measure-first loop the rest of the topic assumes."
 ---

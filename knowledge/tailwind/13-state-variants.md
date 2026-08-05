@@ -6,7 +6,7 @@ title: "State Variants"
 type: doc
 order: 13
 status: ready
-tags: [tailwind, state-variants]
+tags: [tailwind, state-variants, "focus-visible:", "focus:", "hover:", outline-none, "focus:outline-none", "group-hover:"]
 related: [tailwind/14-pseudo-classes, tailwind/12-dark-mode, tailwind/11-responsive-design, tailwind/22-accessibility, tailwind/02-core-concepts]
 when_to_use: "Read before styling interactive states — hover, focus, disabled, group/peer, or aria/data-driven UI."
 ---

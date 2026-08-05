@@ -6,7 +6,7 @@ title: "Screen Readers"
 type: doc
 order: 6
 status: ready
-tags: [accessibility, screen-readers]
+tags: [accessibility, screen-readers, "display:none", aria-hidden, aria-label, "visibility:hidden", onclick, aria-labelledby]
 related: [accessibility/03-semantic-html, accessibility/07-aria, accessibility/05-focus-management, accessibility/19-live-regions, accessibility/24-accessibility-testing]
 when_to_use: "Read before building UI that must be usable without sight, or when debugging why a component is announced wrong."
 ---

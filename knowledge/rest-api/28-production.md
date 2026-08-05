@@ -6,7 +6,7 @@ title: "REST API Production"
 type: doc
 order: 28
 status: ready
-tags: [rest-api, production]
+tags: [rest-api, production, retry, SIGTERM, dependency, drain, close]
 related: [rest-api/26-monitoring, rest-api/24-security, rest-api/25-performance, rest-api/17-rate-limiting, rest-api/14-versioning]
 when_to_use: "Read before deploying a REST API to production or reviewing its operational readiness."
 ---

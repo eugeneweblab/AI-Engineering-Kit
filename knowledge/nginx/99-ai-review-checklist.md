@@ -6,7 +6,7 @@ title: "Nginx AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [nginx, ai-review-checklist]
+tags: [nginx, ai-review-checklist, location, add_header, proxy_pass, brotli, resolver, fastcgi_cache]
 related: [nginx/30-engineering-principles, nginx/26-best-practices, nginx/13-security, nginx/05-reverse-proxy, nginx/100-common-antipatterns]
 when_to_use: "Read before reviewing or approving any nginx config change in a pull request or agent-generated diff."
 ---

@@ -6,7 +6,7 @@ title: "Cloud Architecture"
 type: doc
 order: 22
 status: ready
-tags: [architecture, cloud-architecture]
+tags: [architecture, cloud-architecture, jsonencode, GetObject]
 related: [architecture/23-infrastructure, architecture/16-high-availability, architecture/13-scalability, architecture/15-security, architecture/24-deployment]
 when_to_use: "Read before choosing cloud services for a workload, or when designing for scale, cost, resilience, or multi-region on a cloud provider."
 ---

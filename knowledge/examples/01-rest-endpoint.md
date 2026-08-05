@@ -6,7 +6,7 @@ title: "Example — REST Endpoint"
 type: doc
 order: 1
 status: ready
-tags: [examples, rest-endpoint]
+tags: [examples, rest-endpoint, register, problem, getHttpServer, ConflictException, MaxLength, IsOptional]
 related: [examples/02-react-component, workflows/07-add-api-endpoint, rest-api/09-error-handling, nestjs/04-controllers, testing/12-api-testing]
 when_to_use: "Read when implementing a REST endpoint end to end — contract, validation, service, errors, and tests."
 ---

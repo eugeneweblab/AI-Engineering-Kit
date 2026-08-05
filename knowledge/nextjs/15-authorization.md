@@ -6,7 +6,7 @@ title: "Next.js Authorization"
 type: doc
 order: 15
 status: ready
-tags: [nextjs, authorization]
+tags: [nextjs, authorization, requireUser, redirect, getSession, Layout, getInvoice, findFirst]
 related: [nextjs/14-authentication, nextjs/24-security, nextjs/11-server-actions, nextjs/13-middleware, nextjs/06-server-components]
 when_to_use: "Read before adding any access check, protected route, Server Action, or role gate in a Next.js app."
 ---

@@ -6,7 +6,7 @@ title: "CSS Typography"
 type: doc
 order: 10
 status: ready
-tags: [css, typography]
+tags: [css, typography, line-height, font-size, font-family, "@font-face"]
 related: [css/08-sizing, css/11-colors, css/23-accessibility, css/17-responsive-design, css/20-css-variables]
 when_to_use: "Read before setting font-size, line-height, font-family, or loading web fonts."
 ---

@@ -6,7 +6,7 @@ title: "Version Control"
 type: doc
 order: 1
 status: ready
-tags: [git, version-control]
+tags: [git, version-control, commit, nothing]
 related: [git/00-overview, git/03-repository, git/04-commits, git/13-remote-repositories, git/27-best-practices]
 when_to_use: "Read before reasoning about git's model — the three states, distributed history, and what an operation actually changes."
 ---

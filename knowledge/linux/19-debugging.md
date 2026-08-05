@@ -6,7 +6,7 @@ title: "Linux Debugging"
 type: doc
 order: 19
 status: ready
-tags: [linux, debugging]
+tags: [linux, debugging, perf, EACCES, ENOSPC, ENOENT]
 related: [linux/06-processes, linux/15-logging, linux/16-monitoring, linux/18-performance, linux/27-troubleshooting]
 when_to_use: "Read before investigating a crashed, hung, or misbehaving process on a Linux host."
 ---

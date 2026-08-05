@@ -6,7 +6,7 @@ title: "PHP Tooling"
 type: doc
 order: 28
 status: ready
-tags: [php, tooling]
+tags: [php, tooling, require-dev, composer.lock]
 related: [php/07-composer, php/15-testing, php/24-psr-standards, php/25-debugging, php/26-best-practices]
 when_to_use: "Read before setting up a PHP project's quality gate, CI, or local dev toolchain."
 ---

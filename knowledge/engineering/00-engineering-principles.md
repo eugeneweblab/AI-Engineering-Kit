@@ -6,7 +6,7 @@ title: "Engineering Principles"
 type: doc
 order: 0
 status: ready
-tags: [engineering, engineering-principles]
+tags: [engineering, engineering-principles, DiscountStrategy, apply, toUser, slugify, TODO]
 related: [engineering/01-decision-framework, engineering/04-task-execution, engineering/05-context-first-development, architecture/30-engineering-principles]
 when_to_use: "Read before making any engineering decision to apply the kit's foundational principles."
 ---

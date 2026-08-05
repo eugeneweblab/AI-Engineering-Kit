@@ -6,7 +6,7 @@ title: "HTTPS"
 type: doc
 order: 18
 status: ready
-tags: [security, https]
+tags: [security, https, Secure, preload, includeSubDomains, max-age, SameSite, HttpOnly]
 related: [security/17-encryption, security/16-secrets-management, security/22-security-headers, security/19-cors]
 when_to_use: "Read before configuring TLS, serving traffic, setting cookies, or reviewing any transport-layer security."
 ---

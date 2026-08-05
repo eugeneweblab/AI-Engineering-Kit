@@ -6,7 +6,7 @@ title: "MySQL Clustering"
 type: doc
 order: 10
 status: ready
-tags: [mysql, clustering]
+tags: [mysql, clustering, MySQL, writes]
 related: [mysql/09-replication, mysql/21-high-availability, mysql/11-backups, mysql/20-production]
 when_to_use: "Read before choosing a clustering topology for HA or write scaling, or evaluating Group Replication vs Galera vs NDB."
 ---

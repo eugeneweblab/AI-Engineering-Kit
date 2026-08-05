@@ -6,7 +6,7 @@ title: "Threat Modeling"
 type: doc
 order: 2
 status: ready
-tags: [security, threat-modeling]
+tags: [security, threat-modeling, service]
 related: [security/01-security-fundamentals, security/03-authentication, security/04-authorization, security/29-security-review, security/28-owasp-top10]
 when_to_use: "Read when designing a new feature or system, before choosing which security controls to build."
 ---

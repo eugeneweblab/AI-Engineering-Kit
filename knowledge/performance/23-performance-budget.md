@@ -6,7 +6,7 @@ title: "Performance Budget"
 type: doc
 order: 23
 status: ready
-tags: [performance, performance-budget]
+tags: [performance, performance-budget, fast, JavaScript]
 related: [performance/18-web-vitals, performance/02-metrics, performance/10-code-splitting, performance/11-images, performance/29-performance-review]
 when_to_use: "Read before setting or enforcing a performance target, so 'fast enough' becomes a number CI can check."
 ---

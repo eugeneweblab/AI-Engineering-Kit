@@ -6,7 +6,7 @@ title: "Branching Strategies"
 type: doc
 order: 4
 status: ready
-tags: [devops, branching-strategies]
+tags: [devops, branching-strategies, enabled, CONFLICT, feat, develop, release]
 related: [devops/03-git-workflow, devops/05-build-pipelines, devops/06-release-management, devops/07-deployment-strategies, devops/02-development-lifecycle]
 when_to_use: "Read before choosing or reviewing how a team integrates work — trunk-based, GitHub Flow, or release branches."
 ---

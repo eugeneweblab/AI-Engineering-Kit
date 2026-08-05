@@ -6,7 +6,7 @@ title: "WordPress Overview"
 type: doc
 order: 0
 status: ready
-tags: [wordpress, overview]
+tags: [wordpress, overview, WP_Query]
 related: [wordpress/01-wordpress-architecture, wordpress/02-project-structure, wordpress/08-hooks, wordpress/06-security, wordpress/30-engineering-principles, wordpress/03-best-practices]
 when_to_use: "Read first when starting work on a WordPress project, to understand what this topic covers and which document answers your question."
 ---

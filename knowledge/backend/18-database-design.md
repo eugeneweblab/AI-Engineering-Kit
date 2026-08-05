@@ -6,7 +6,7 @@ title: "Database Design"
 type: doc
 order: 18
 status: ready
-tags: [backend, database-design]
+tags: [backend, database-design, CHECK, timestamptz, float, numeric, UNIQUE, customers]
 related: [backend/17-transactions, backend/13-caching, backend/09-validation, backend/19-performance, backend/08-domain-modeling]
 when_to_use: "Read before creating a schema, adding a migration, choosing keys and indexes, or modeling a new persistent entity."
 ---

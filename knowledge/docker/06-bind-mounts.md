@@ -6,7 +6,7 @@ title: "Bind Mounts"
 type: doc
 order: 6
 status: ready
-tags: [docker, bind-mounts]
+tags: [docker, bind-mounts, node_modules, read_only, target]
 related: [docker/05-volumes, docker/04-containers, docker/21-development-workflow, docker/14-secrets, docker/18-security]
 when_to_use: "Read before mounting host files or directories into a container for local development, config injection, or debugging."
 ---

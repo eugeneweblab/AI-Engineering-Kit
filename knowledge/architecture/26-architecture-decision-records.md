@@ -6,7 +6,7 @@ title: "Architecture Decision Records"
 type: doc
 order: 26
 status: ready
-tags: [architecture, architecture-decision-records]
+tags: [architecture, architecture-decision-records, Accepted, OrderPlaced]
 related: [architecture/25-documentation, architecture/27-architecture-review, architecture/28-best-practices, architecture/00-overview, architecture/30-engineering-principles]
 when_to_use: "Read before making or reviewing a significant, hard-to-reverse architectural decision that future engineers will need the reasoning for."
 ---

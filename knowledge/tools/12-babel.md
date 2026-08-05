@@ -6,7 +6,7 @@ title: "Babel"
 type: doc
 order: 12
 status: ready
-tags: [tools, babel]
+tags: [tools, babel, browserslist, devDependencies, flatMap, GraphQL]
 related: [tools/11-esbuild-and-swc, tools/10-webpack, tools/13-test-runners, tools/09-vite, tools/30-engineering-principles, javascript/17-es6-features]
 when_to_use: "Read when a project still uses Babel — configuring presets and browser targets, understanding polyfills, or deciding whether to migrate away."
 ---

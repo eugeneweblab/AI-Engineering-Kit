@@ -6,7 +6,7 @@ title: "Performance Rendering"
 type: doc
 order: 6
 status: ready
-tags: [performance, rendering]
+tags: [performance, rendering, opacity, transform, will-change, writes, translateY]
 related: [performance/07-loading, performance/09-lazy-loading, performance/11-images, performance/18-web-vitals, performance/03-cpu]
 when_to_use: "Read before building or reviewing any UI that renders lists, animations, or frequently-updating state on the client."
 ---

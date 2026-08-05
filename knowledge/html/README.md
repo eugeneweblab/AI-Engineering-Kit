@@ -6,7 +6,7 @@ title: "HTML Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [html]
+tags: [html, readme]
 related: []
 when_to_use: "Read first when starting any html work, to see how this section's docs fit together."
 ---

@@ -6,7 +6,7 @@ title: "MySQL Architecture"
 type: doc
 order: 28
 status: ready
-tags: [mysql, architecture]
+tags: [mysql, architecture, sync_binlog, innodb_flush_log_at_trx_commit, COMMIT, Seconds_Behind_Source, MyISAM, innodb_buffer_pool_size]
 related: [mysql/08-storage-engines, mysql/09-replication, mysql/06-transactions, mysql/21-high-availability]
 when_to_use: "Read before designing how services talk to MySQL, or when reasoning about durability, buffer pool, or replication topology."
 ---

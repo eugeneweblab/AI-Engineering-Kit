@@ -6,7 +6,7 @@ title: "HTML Security"
 type: doc
 order: 19
 status: ready
-tags: [html, security]
+tags: [html, security, "javascript:", allow-scripts, "data:", textContent, innerHTML, allow-same-origin]
 related: [html/04-links, html/08-forms, html/15-iframes, html/10-metadata, html/27-html-apis]
 when_to_use: "Read before rendering user-supplied content, adding external links, embedding third-party frames, or setting document-level security policy."
 ---

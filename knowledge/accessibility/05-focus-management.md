@@ -6,7 +6,7 @@ title: "Focus Management"
 type: doc
 order: 5
 status: ready
-tags: [accessibility, focus-management]
+tags: [accessibility, focus-management, closeDialog, focus, inert, showModal, querySelector, close]
 related: [accessibility/04-keyboard-navigation, accessibility/16-dialogs, accessibility/19-live-regions, accessibility/07-aria, accessibility/06-screen-readers]
 when_to_use: "Read before building modals, drawers, route transitions, or any UI that opens, closes, or replaces content dynamically."
 ---

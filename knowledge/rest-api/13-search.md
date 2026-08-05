@@ -6,7 +6,7 @@ title: "Search"
 type: doc
 order: 13
 status: ready
-tags: [rest-api, search]
+tags: [rest-api, search, BadRequest, search, to_tsvector, tsvector, websearch_to_tsquery, ts_rank]
 related: [rest-api/11-filtering, rest-api/12-sorting, rest-api/10-pagination, rest-api/08-validation, rest-api/25-performance]
 when_to_use: "Read before adding free-text or full-text `search` to a collection endpoint."
 ---

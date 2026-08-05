@@ -6,7 +6,7 @@ title: "Software Architecture"
 type: doc
 order: 1
 status: ready
-tags: [architecture, software-architecture]
+tags: [architecture, software-architecture, rate, no-restricted-imports]
 related: [architecture/02-system-design, architecture/03-clean-architecture, architecture/26-architecture-decision-records, architecture/28-best-practices, architecture/30-engineering-principles]
 when_to_use: "Read before making any decision that will be expensive to reverse — module boundaries, data ownership, or a new dependency between components."
 ---

@@ -6,7 +6,7 @@ title: "AI Workflow"
 type: doc
 order: 28
 status: ready
-tags: [divi, ai-workflow]
+tags: [divi, ai-workflow, post_content, wp_get_theme, get_stylesheet_directory_uri, wp_enqueue_style, add_action]
 related: [divi/00-overview, divi/01-architecture, divi/04-custom-modules, divi/20-debugging, divi/29-review]
 when_to_use: "Read before an AI agent generates, edits, or refactors any Divi content, code, or layout."
 ---

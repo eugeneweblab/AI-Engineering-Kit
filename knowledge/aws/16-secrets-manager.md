@@ -6,7 +6,7 @@ title: "Secrets Manager"
 type: doc
 order: 16
 status: ready
-tags: [aws, secrets-manager]
+tags: [aws, secrets-manager, lru_cache, get_secret_value, "@lru", DB_PASSWORD, client, loads]
 related: [aws/17-parameter-store, aws/02-iam, aws/12-lambda, aws/05-rds, aws/15-cloudtrail]
 when_to_use: "Read before storing, retrieving, or rotating any credential, API key, or database password in AWS."
 ---

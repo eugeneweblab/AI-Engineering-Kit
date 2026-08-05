@@ -6,7 +6,7 @@ title: "Accessibility Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [accessibility]
+tags: [accessibility, readme, button, prefers-color-scheme, prefers-reduced-motion]
 related: []
 when_to_use: "Read first when starting accessibility work, to see how this section's docs fit together and which one covers the component you are building."
 ---

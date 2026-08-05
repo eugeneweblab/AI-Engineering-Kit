@@ -6,7 +6,7 @@ title: "SQL Best Practices"
 type: doc
 order: 26
 status: ready
-tags: [sql, best-practices]
+tags: [sql, best-practices, DATE, EXISTS, HAVING, OFFSET, LOWER, LEFT]
 related: [sql/13-dml, sql/15-indexes, sql/22-security, sql/17-query-optimization, sql/100-common-antipatterns]
 when_to_use: "Read before writing or reviewing any non-trivial query, DML statement, or schema change."
 ---

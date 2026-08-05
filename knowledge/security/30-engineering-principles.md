@@ -6,7 +6,7 @@ title: "Security Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [security, engineering-principles]
+tags: [security, engineering-principles, authorize, check, sendStatus]
 related: [security/27-best-practices, security/28-owasp-top10, security/01-security-fundamentals, security/02-threat-modeling, security/29-security-review]
 when_to_use: "Read to internalize the durable mental models that should guide every security decision."
 ---

@@ -6,7 +6,7 @@ title: "Concurrency"
 type: doc
 order: 10
 status: ready
-tags: [databases, concurrency]
+tags: [databases, concurrency, SERIALIZABLE, updated_at, version, UNIQUE, CHECK]
 related: [databases/09-transactions, databases/11-locking, databases/12-acid, databases/23-data-integrity, databases/08-query-optimization]
 when_to_use: "Read before writing code where two requests can update the same row, or when choosing an isolation level."
 ---

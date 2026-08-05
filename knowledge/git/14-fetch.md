@@ -6,7 +6,7 @@ title: "Fetch"
 type: doc
 order: 14
 status: ready
-tags: [git, fetch]
+tags: [git, fetch, bisect, describe]
 related: [git/15-pull, git/16-push, git/13-remote-repositories, git/06-merging, git/07-rebasing]
 when_to_use: "Read before syncing with a remote, or when you need to see remote changes without touching your working tree."
 ---

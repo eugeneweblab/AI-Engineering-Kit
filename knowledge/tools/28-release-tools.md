@@ -6,7 +6,7 @@ title: "Release Tools"
 type: doc
 order: 28
 status: ready
-tags: [tools, release-tools]
+tags: [tools, release-tools, exports, files, publint, concurrency, chore, GITHUB_TOKEN]
 related: [tools/17-commit-conventions, tools/18-monorepo-tools, tools/27-dependency-management, tools/19-task-runners, tools/30-engineering-principles, cicd/00-overview]
 when_to_use: "Read before automating versioning and publishing — choosing between Changesets and semantic-release, generating changelogs, or publishing packages from CI."
 ---

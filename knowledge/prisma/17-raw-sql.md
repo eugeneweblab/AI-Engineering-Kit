@@ -6,7 +6,7 @@ title: "Raw SQL"
 type: doc
 order: 17
 status: ready
-tags: [prisma, raw-sql]
+tags: [prisma, raw-sql, Prisma.sql, Unsafe, queryRawUnsafe, unknown, EXPLAIN]
 related: [prisma/21-security, prisma/15-performance, prisma/08-transactions, prisma/09-filtering]
 when_to_use: "Read before writing any $queryRaw, $executeRaw, or TypedSQL query, or reviewing code that drops out of the Prisma Client API."
 ---

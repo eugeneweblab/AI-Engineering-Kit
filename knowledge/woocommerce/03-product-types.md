@@ -6,7 +6,7 @@ title: "Product Types"
 type: doc
 order: 3
 status: ready
-tags: [woocommerce, product-types]
+tags: [woocommerce, product-types, set_name, WC_Product_Simple, save, variable, simple, WC_Product]
 related: [woocommerce/00-overview, woocommerce/01-architecture, woocommerce/04-product-management, woocommerce/05-orders, woocommerce/09-shipping]
 when_to_use: "Read before creating or modeling a product, to choose the correct product type and class."
 ---

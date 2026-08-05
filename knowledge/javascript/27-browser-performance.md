@@ -6,7 +6,7 @@ title: "Browser Performance"
 type: doc
 order: 27
 status: ready
-tags: [javascript, browser-performance]
+tags: [javascript, browser-performance, getBoundingClientRect, IntersectionObserver, requestAnimationFrame, unobserve, querySelectorAll, observe]
 related: [javascript/12-dom, javascript/11-browser-api, javascript/25-performance, javascript/10-event-loop, javascript/13-fetch-api]
 when_to_use: "Read before optimizing page load, rendering, scrolling, or interaction responsiveness in the browser."
 ---

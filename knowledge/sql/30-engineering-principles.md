@@ -6,7 +6,7 @@ title: "SQL Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [sql, engineering-principles]
+tags: [sql, engineering-principles, VARCHAR, TIMESTAMPTZ, EXPLAIN, CHECK, customers, SUPERUSER]
 related: [sql/14-transactions, sql/15-indexes, sql/17-query-optimization, sql/22-security, sql/26-best-practices]
 when_to_use: "Read before designing a schema, writing non-trivial queries, or reviewing SQL that will run against production data."
 ---

@@ -6,7 +6,7 @@ title: "Engineering Code Review"
 type: doc
 order: 2
 status: ready
-tags: [engineering, code-review]
+tags: [engineering, code-review, apply, DiscountStrategy, toUpperCase, findMany, findById, findOne]
 related: [engineering/00-engineering-principles, workflows/05-review-pull-request, checklists/02-pull-request-author]
 when_to_use: "Read before reviewing a pull request or self-reviewing changes for correctness and consistency."
 ---

@@ -6,7 +6,7 @@ title: "Worker Threads"
 type: doc
 order: 12
 status: ready
-tags: [nodejs, worker-threads]
+tags: [nodejs, worker-threads, Piscina, postMessage, availableParallelism, Worker, createHash, digest]
 related: [nodejs/02-event-loop, nodejs/11-child-process, nodejs/13-cluster, nodejs/19-performance, nodejs/20-memory-management]
 when_to_use: "Read before offloading CPU-bound work off the event loop with the worker_threads module."
 ---

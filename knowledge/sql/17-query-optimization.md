@@ -6,7 +6,7 @@ title: "SQL Query Optimization"
 type: doc
 order: 17
 status: ready
-tags: [sql, query-optimization]
+tags: [sql, query-optimization, EXISTS, trip, OFFSET, DISTINCT, pg_stat_statements]
 related: [sql/16-query-planning, sql/15-indexes, sql/05-joins, sql/23-performance, sql/100-common-antipatterns]
 when_to_use: "Read before rewriting a slow query, tuning a hot read path, or reviewing SQL for performance."
 ---

@@ -6,7 +6,7 @@ title: "HTML Structured Data"
 type: doc
 order: 13
 status: ready
-tags: [html, structured-data]
+tags: [html, structured-data, "@type", "@context", image, Organization, Article]
 related: [html/12-seo, html/26-microdata, html/10-metadata, html/02-semantic-html]
 when_to_use: "Read before adding Schema.org / JSON-LD markup to make a page eligible for rich results."
 ---

@@ -6,7 +6,7 @@ title: "Content Quality"
 type: doc
 order: 25
 status: ready
-tags: [seo, content-quality]
+tags: [seo, content-quality, noindex]
 related: [seo/01-seo-fundamentals, seo/05-metadata, seo/09-structured-data, seo/17-links, seo/26-best-practices]
 when_to_use: "Read before generating, templating, or reviewing page copy, titles, headings, or programmatic content at scale."
 ---

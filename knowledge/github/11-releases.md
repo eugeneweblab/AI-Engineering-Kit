@@ -6,7 +6,7 @@ title: "Releases"
 type: doc
 order: 11
 status: ready
-tags: [github, releases]
+tags: [github, releases, GITHUB_REF_NAME, GH_TOKEN, runs-on]
 related: [github/10-packages, github/09-workflows, github/08-actions, github/06-pull-requests, github/26-automation]
 when_to_use: "Read before tagging, cutting, or automating a GitHub release."
 ---

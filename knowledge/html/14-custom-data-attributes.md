@@ -6,7 +6,7 @@ title: "Custom Data Attributes"
 type: doc
 order: 14
 status: ready
-tags: [html, custom-data-attributes]
+tags: [html, custom-data-attributes, dataset, aria-expanded, textContent, innerHTML, data-testid, getAttribute]
 related: [html/02-semantic-html, html/11-accessibility, html/19-security, html/27-html-apis]
 when_to_use: "Read before stashing state or hooks on DOM elements with data-* attributes."
 ---

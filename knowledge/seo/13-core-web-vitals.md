@@ -6,7 +6,7 @@ title: "Core Web Vitals"
 type: doc
 order: 13
 status: ready
-tags: [seo, core-web-vitals]
+tags: [seo, core-web-vitals, web-vitals, setTimeout, shift, aspect-ratio, append, Promise]
 related: [seo/12-performance, seo/16-images, seo/04-rendering, seo/24-monitoring, seo/22-search-console]
 when_to_use: "Read before touching layout, above-the-fold rendering, or interactivity, or when diagnosing a failing LCP/INP/CLS metric."
 ---

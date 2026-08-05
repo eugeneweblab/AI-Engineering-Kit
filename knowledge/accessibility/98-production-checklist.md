@@ -6,7 +6,7 @@ title: "Accessibility Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [accessibility, production-checklist]
+tags: [accessibility, production-checklist, aria-live, tabindex, lang, role, aria-describedby, aria-label]
 related: [accessibility/23-wcag, accessibility/24-accessibility-testing, accessibility/20-testing-tools, accessibility/26-legal-requirements, accessibility/30-engineering-principles]
 when_to_use: "Read before shipping any user-facing UI to production, as the final gate that the feature is usable by keyboard, screen reader, and low-vision users."
 ---

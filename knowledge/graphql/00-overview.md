@@ -6,7 +6,7 @@ title: "GraphQL Overview"
 type: doc
 order: 0
 status: ready
-tags: [graphql, overview]
+tags: [graphql, overview, graphql]
 related: [graphql/01-graphql-fundamentals, graphql/02-schema, graphql/04-queries, graphql/05-mutations, graphql/07-resolvers]
 when_to_use: "Read first when starting any GraphQL work, to see how the topic's docs fit together."
 ---

@@ -6,7 +6,7 @@ title: "Prisma Performance"
 type: doc
 order: 15
 status: ready
-tags: [prisma, performance]
+tags: [prisma, performance, findMany, take, aggregate, findUnique, connection_limit, skip]
 related: [prisma/16-indexes, prisma/11-relations-loading, prisma/10-pagination, prisma/17-raw-sql, prisma/26-observability]
 when_to_use: "Read before diagnosing slow Prisma queries, N+1 problems, connection exhaustion, or high database load."
 ---

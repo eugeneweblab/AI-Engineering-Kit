@@ -6,7 +6,7 @@ title: "Node.js Logging"
 type: doc
 order: 17
 status: ready
-tags: [nodejs, logging]
+tags: [nodejs, logging, console.log, pino, createUser, err.message, child, x-request-id]
 related: [nodejs/16-error-handling, nodejs/27-monitoring, nodejs/18-security, nodejs/14-environment, nodejs/26-deployment]
 when_to_use: "Read before adding logging to a service or reviewing what and how an app logs."
 ---

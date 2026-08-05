@@ -6,7 +6,7 @@ title: "WooCommerce Multisite"
 type: doc
 order: 20
 status: ready
-tags: [woocommerce, multisite]
+tags: [woocommerce, multisite, shop_order, switch_to_blog, restore_current_blog, get_var, wc_get_orders, wp_2_options]
 related: [woocommerce/01-architecture, woocommerce/16-security, woocommerce/15-performance, woocommerce/22-deployment]
 when_to_use: "Read before running WooCommerce on a WordPress Multisite network or writing code that touches more than one site."
 ---

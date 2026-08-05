@@ -6,7 +6,7 @@ title: "Common WordPress Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [wordpress, common-antipatterns]
+tags: [wordpress, common-antipatterns, add_action, get_option, my_plugin_register_routes, plugins_url, update_option, wp_enqueue_script]
 related: [wordpress/03-best-practices, wordpress/06-security, wordpress/05-performance, wordpress/99-ai-review-checklist]
 when_to_use: "Read before writing WordPress code to avoid common implementation mistakes."
 ---

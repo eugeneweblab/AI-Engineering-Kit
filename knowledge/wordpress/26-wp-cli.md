@@ -6,7 +6,7 @@ title: "WP-CLI"
 type: doc
 order: 26
 status: ready
-tags: [wordpress, wp-cli]
+tags: [wordpress, wp-cli, search-replace, defined, get_posts, wp_cache_flush, output, warning]
 related: [wordpress/27-deployment, wordpress/22-cron-and-background-tasks, wordpress/19-database, wordpress/29-maintenance, wordpress/28-debugging]
 when_to_use: "Read before automating WordPress from the command line — running maintenance, migrating URLs, scripting deploys, or writing a custom WP-CLI command."
 ---

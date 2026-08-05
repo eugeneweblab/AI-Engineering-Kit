@@ -6,7 +6,7 @@ title: "Package Managers"
 type: doc
 order: 1
 status: ready
-tags: [tools, package-managers]
+tags: [tools, package-managers, package.json, packageManager, node_modules, node-version-file, devDependencies, composer.lock]
 related: [tools/02-version-management, tools/18-monorepo-tools, tools/27-dependency-management, tools/00-overview, tools/30-engineering-principles, tools/19-task-runners]
 when_to_use: "Read before choosing or changing a package manager, adding dependencies, or debugging an install that differs between machines and CI."
 ---

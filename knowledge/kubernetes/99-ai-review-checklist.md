@@ -6,7 +6,7 @@ title: "Kubernetes AI Review Checklist"
 type: doc
 order: 99
 status: ready
-tags: [kubernetes, ai-review-checklist]
+tags: [kubernetes, ai-review-checklist, runAsUser, imagePullPolicy, Always, readinessProbe, privileged, livenessProbe]
 related: [kubernetes/30-engineering-principles, kubernetes/100-common-antipatterns, kubernetes/22-security, kubernetes/18-rbac, kubernetes/19-resource-management]
 when_to_use: "Read before reviewing any pull request that adds or changes Kubernetes manifests, Helm charts, or operators."
 ---

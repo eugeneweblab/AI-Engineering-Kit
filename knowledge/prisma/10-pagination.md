@@ -6,7 +6,7 @@ title: "Prisma Pagination"
 type: doc
 order: 10
 status: ready
-tags: [prisma, pagination]
+tags: [prisma, pagination, orderBy, take, cursor, findMany, skip, createdAt]
 related: [prisma/09-filtering, prisma/07-crud, prisma/16-indexes, prisma/15-performance, prisma/11-relations-loading]
 when_to_use: "Read before returning any list endpoint or query that can grow beyond a screenful of rows."
 ---

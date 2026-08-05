@@ -6,7 +6,7 @@ title: "Loading"
 type: doc
 order: 7
 status: ready
-tags: [performance, loading]
+tags: [performance, loading, defer, preconnect]
 related: [performance/10-code-splitting, performance/09-lazy-loading, performance/08-caching, performance/11-images, performance/18-web-vitals]
 when_to_use: "Read before building or reviewing a page's initial load path, critical rendering path, or resource fetch order."
 ---

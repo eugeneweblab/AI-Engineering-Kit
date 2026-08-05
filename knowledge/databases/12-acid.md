@@ -6,7 +6,7 @@ title: "ACID"
 type: doc
 order: 12
 status: ready
-tags: [databases, acid]
+tags: [databases, acid, COMMIT, synchronous_commit, SERIALIZABLE, ROLLBACK, fsync, BEGIN]
 related: [databases/09-transactions, databases/10-concurrency, databases/11-locking, databases/13-eventual-consistency, databases/23-data-integrity]
 when_to_use: "Read before writing any multi-statement write path that must not leave the database in a half-applied state."
 ---

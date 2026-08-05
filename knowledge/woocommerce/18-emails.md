@@ -6,7 +6,7 @@ title: "Emails"
 type: doc
 order: 18
 status: ready
-tags: [woocommerce, emails]
+tags: [woocommerce, emails, wc_get_order, __construct, send, add_action, wp_mail, add_filter]
 related: [woocommerce/05-orders, woocommerce/12-hooks, woocommerce/17-customization, woocommerce/23-monitoring]
 when_to_use: "Read before adding, customizing, or debugging any WooCommerce transactional email or its deliverability."
 ---

@@ -6,7 +6,7 @@ title: "Docker Logging"
 type: doc
 order: 16
 status: ready
-tags: [docker, logging]
+tags: [docker, logging, toISOString, Date, Authorization]
 related: [docker/15-healthchecks, docker/24-monitoring, docker/17-resource-limits, docker/22-production, docker/14-secrets]
 when_to_use: "Read before deciding where a containerized app writes logs or how a host retains and ships them."
 ---

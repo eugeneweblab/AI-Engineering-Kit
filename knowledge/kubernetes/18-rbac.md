@@ -6,7 +6,7 @@ title: "RBAC"
 type: doc
 order: 18
 status: ready
-tags: [kubernetes, rbac]
+tags: [kubernetes, rbac, ClusterRole, secrets, ServiceAccount, watch, Role, cluster-admin]
 related: [kubernetes/22-security, kubernetes/10-secrets, kubernetes/17-network-policies, kubernetes/99-ai-review-checklist]
 when_to_use: "Read before granting a user, group, or ServiceAccount any permission in a cluster, or when reviewing Role/RoleBinding manifests."
 ---

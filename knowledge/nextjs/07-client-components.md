@@ -6,7 +6,7 @@ title: "Next.js Client Components"
 type: doc
 order: 7
 status: ready
-tags: [nextjs, client-components]
+tags: [nextjs, client-components, SearchBox, setQuery, useState, useEffect, ProductList, useTransition]
 related: [nextjs/06-server-components, nextjs/20-performance, react/06-state, react/08-hooks]
 when_to_use: "Read before adding interactivity or client-side state with a Next.js Client Component."
 ---

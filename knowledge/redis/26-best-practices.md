@@ -6,7 +6,7 @@ title: "Redis Best Practices"
 type: doc
 order: 26
 status: ready
-tags: [redis, best-practices]
+tags: [redis, best-practices, SCAN, MGET, maxmemory, hset, dumps, expire]
 related: [redis/12-expiration, redis/13-caching, redis/23-performance, redis/27-production, redis/100-common-antipatterns]
 when_to_use: "Read before writing any new Redis access code or reviewing how an app uses Redis."
 ---

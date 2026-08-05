@@ -6,7 +6,7 @@ title: "WooCommerce Subscriptions"
 type: doc
 order: 19
 status: ready
-tags: [woocommerce, subscriptions]
+tags: [woocommerce, subscriptions, get_meta, on-hold, cancelled, add_action, payment_complete, charge_card]
 related: [woocommerce/05-orders, woocommerce/08-payments, woocommerce/12-hooks, woocommerce/23-monitoring]
 when_to_use: "Read before building, extending, or debugging any recurring-billing flow with WooCommerce Subscriptions."
 ---

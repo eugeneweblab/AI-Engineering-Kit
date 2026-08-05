@@ -6,7 +6,7 @@ title: "Resource Limits"
 type: doc
 order: 17
 status: ready
-tags: [docker, resource-limits]
+tags: [docker, resource-limits, cpus]
 related: [docker/15-healthchecks, docker/16-logging, docker/22-production, docker/23-orchestration, docker/25-performance]
 when_to_use: "Read before running containers on a shared host or reviewing memory/CPU limits in a compose file."
 ---

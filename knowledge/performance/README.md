@@ -6,7 +6,7 @@ title: "Performance Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [performance]
+tags: [performance, readme]
 related: []
 when_to_use: "Read first when starting performance work, to see how this section's docs fit together and where to begin measuring."
 ---

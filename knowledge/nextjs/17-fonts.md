@@ -6,7 +6,7 @@ title: "Next.js Fonts"
 type: doc
 order: 17
 status: ready
-tags: [nextjs, fonts]
+tags: [nextjs, fonts, Inter, RootLayout, ReactNode, size-adjust, Header, "@theme"]
 related: [nextjs/20-performance, performance/12-fonts, nextjs/16-images]
 when_to_use: "Read before loading or optimizing web fonts in a Next.js app."
 ---

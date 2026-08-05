@@ -6,7 +6,7 @@ title: "Database Security"
 type: doc
 order: 19
 status: ready
-tags: [databases, security]
+tags: [databases, security, SUPERUSER, columns, readFileSync, require_secure_transport, LIKE]
 related: [databases/18-backup-and-recovery, databases/26-auditing, databases/25-multi-tenancy, databases/17-migrations, databases/08-query-optimization]
 when_to_use: "Read before granting database access, wiring credentials, storing sensitive columns, or reviewing any query that touches user input."
 ---

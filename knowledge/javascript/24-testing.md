@@ -6,7 +6,7 @@ title: "JavaScript Testing"
 type: doc
 order: 24
 status: ready
-tags: [javascript, testing]
+tags: [javascript, testing, fetchUser, spyOn, beforeEach, NotFoundError, restoreAllMocks, boundary]
 related: [javascript/14-error-handling, javascript/08-asynchronous-javascript, javascript/23-clean-code, javascript/28-best-practices, javascript/29-tooling]
 when_to_use: "Read before writing, reviewing, or restructuring any JavaScript test suite."
 ---

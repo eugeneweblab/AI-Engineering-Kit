@@ -6,7 +6,7 @@ title: "NestJS Validation"
 type: doc
 order: 8
 status: ready
-tags: [nestjs, validation]
+tags: [nestjs, validation, IsEmail, IsUUID, ValidateNested, IsInt, IsArray, IsOptional]
 related: [nestjs/07-dto, nestjs/12-pipes, nestjs/11-exception-filters, backend/09-validation, security/09-input-validation]
 when_to_use: "Read before adding or reviewing validation of incoming request data at the application boundary."
 ---

@@ -6,7 +6,7 @@ title: "TypeScript Clean Code"
 type: doc
 order: 23
 status: ready
-tags: [typescript, clean-code]
+tags: [typescript, clean-code, unknown, handle, transfer, typescript-eslint, hasAccess]
 related: [typescript/04-functions, typescript/17-error-handling, typescript/28-best-practices, typescript/30-engineering-principles, typescript/21-functional-programming]
 when_to_use: "Read before writing or reviewing everyday application code — naming, function shape, control flow, and readability."
 ---

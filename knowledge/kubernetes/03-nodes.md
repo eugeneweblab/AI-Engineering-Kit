@@ -6,7 +6,7 @@ title: "Nodes"
 type: doc
 order: 3
 status: ready
-tags: [kubernetes, nodes]
+tags: [kubernetes, nodes, Pending, nodeName, NoSchedule, nodeSelector, NotReady, drain]
 related: [kubernetes/01-architecture, kubernetes/04-pods, kubernetes/19-resource-management, kubernetes/20-autoscaling, kubernetes/24-debugging]
 when_to_use: "Read before scheduling workloads to specific nodes, draining nodes, or debugging Pending pods and node pressure."
 ---

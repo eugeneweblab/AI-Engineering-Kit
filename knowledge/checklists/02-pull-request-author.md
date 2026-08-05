@@ -6,7 +6,7 @@ title: "Pull Request Author Checklist"
 type: doc
 order: 2
 status: ready
-tags: [checklists, pull-request-author]
+tags: [checklists, pull-request-author, getOrders, debugger, CreateOrderItemDto, console.log]
 related: [templates/01-pull-request, workflows/05-review-pull-request, engineering/02-code-review, tools/99-ai-review-checklist, checklists/01-pre-launch]
 when_to_use: "Run before requesting review on a change, to catch what a reviewer would otherwise spend their attention on."
 ---

@@ -6,7 +6,7 @@ title: "SVG"
 type: doc
 order: 16
 status: ready
-tags: [html, svg]
+tags: [html, svg, currentColor, aria-label, aria-hidden, Content-Security-Policy, aria-labelledby, max-width]
 related: [html/05-images, html/11-accessibility, html/19-security, html/18-performance, html/17-canvas]
 when_to_use: "Read before adding icons, logos, or resolution-independent graphics with SVG."
 ---

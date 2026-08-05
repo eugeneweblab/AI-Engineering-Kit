@@ -6,7 +6,7 @@ title: "Library Design"
 type: doc
 order: 27
 status: ready
-tags: [typescript, library-design]
+tags: [typescript, library-design, types, exports, package.json, input, readonly]
 related: [typescript/08-generics, typescript/09-utility-types, typescript/14-modules, typescript/16-configuration]
 when_to_use: "Read before designing a public TypeScript API, package exports, or shipping type declarations."
 ---

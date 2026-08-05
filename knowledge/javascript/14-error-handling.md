@@ -6,7 +6,7 @@ title: "JavaScript Error Handling"
 type: doc
 order: 14
 status: ready
-tags: [javascript, error-handling]
+tags: [javascript, error-handling, NotFoundError, loadUser, err.message, super, window.onunhandledrejection, this.name]
 related: [javascript/09-promises, javascript/08-asynchronous-javascript, javascript/13-fetch-api, javascript/30-engineering-principles, javascript/23-clean-code]
 when_to_use: "Read before writing or reviewing any try/catch, Promise rejection handling, or custom error class."
 ---

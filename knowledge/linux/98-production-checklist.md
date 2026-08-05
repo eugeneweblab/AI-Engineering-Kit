@@ -6,7 +6,7 @@ title: "Linux Production Checklist"
 type: doc
 order: 98
 status: ready
-tags: [linux, production-checklist]
+tags: [linux, production-checklist, systemd-timesyncd, TasksMax, MemoryMax, logrotate, enable, ReadWritePaths]
 related: [linux/25-production, linux/17-security, linux/08-systemd, linux/15-logging, linux/20-backups]
 when_to_use: "Read before promoting any Linux host or service to production or signing off a go-live."
 ---

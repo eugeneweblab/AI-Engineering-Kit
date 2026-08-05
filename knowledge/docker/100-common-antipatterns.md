@@ -6,7 +6,7 @@ title: "Docker Common Antipatterns"
 type: doc
 order: 100
 status: ready
-tags: [docker, common-antipatterns]
+tags: [docker, common-antipatterns, ENTRYPOINT, CMD, useradd, Dockerfile, SIGKILL, HEALTHCHECK]
 related: [docker/08-dockerfile, docker/09-image-optimization, docker/14-secrets, docker/18-security, docker/30-engineering-principles]
 when_to_use: "Read when authoring or reviewing a Dockerfile to recognize and avoid the most common container mistakes."
 ---

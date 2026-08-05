@@ -6,7 +6,7 @@ title: "Alerting"
 type: doc
 order: 15
 status: ready
-tags: [devops, alerting]
+tags: [devops, alerting, rate, "for:", window, HighCPU]
 related: [devops/12-monitoring, devops/13-observability, devops/25-incident-management, devops/26-postmortems, devops/27-sre-principles]
 when_to_use: "Read before writing or reviewing an alert rule, on-call routing, or escalation policy."
 ---

@@ -6,7 +6,7 @@ title: "MySQL Query Optimization"
 type: doc
 order: 5
 status: ready
-tags: [mysql, query-optimization]
+tags: [mysql, query-optimization, EXPLAIN, YEAR, ALL, OFFSET, Handler_read_rnd_next, pt-query-digest]
 related: [mysql/04-indexes, mysql/03-data-types, mysql/14-performance, mysql/15-monitoring, mysql/06-transactions]
 when_to_use: "Read before writing a query on a large table or when diagnosing a slow query."
 ---

@@ -6,7 +6,7 @@ title: "Shell"
 type: doc
 order: 2
 status: ready
-tags: [linux, shell]
+tags: [linux, shell, eval]
 related: [linux/03-bash, linux/01-filesystem, linux/00-overview, linux/05-permissions, linux/04-users-and-groups]
 when_to_use: "Read before typing any command line or reasoning about how quoting, globbing, redirection, or pipelines behave."
 ---

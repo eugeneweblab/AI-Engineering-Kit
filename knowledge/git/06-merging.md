@@ -6,7 +6,7 @@ title: "Merging"
 type: doc
 order: 6
 status: ready
-tags: [git, merging]
+tags: [git, merging, bisect]
 related: [git/07-rebasing, git/05-branches, git/17-conflict-resolution, git/10-revert, git/19-reflog]
 when_to_use: "Read before integrating one branch into another or configuring how pull requests land on the main branch."
 ---

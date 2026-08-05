@@ -6,7 +6,7 @@ title: "Dark Mode"
 type: doc
 order: 12
 status: ready
-tags: [tailwind, dark-mode]
+tags: [tailwind, dark-mode, "dark:", dark, data-theme, color-scheme, prefers-color-scheme, variant]
 related: [tailwind/11-responsive-design, tailwind/13-state-variants, tailwind/16-theme, tailwind/10-colors, tailwind/22-accessibility]
 when_to_use: "Read before adding a dark theme or a light/dark toggle to a Tailwind UI."
 ---
