@@ -129,11 +129,14 @@ Type checking is a separate step, exactly as with Vite:
 **Good Example** — a bundle-size budget that fails the build
 
 ```js
-performance: {
-  hints: 'error',
-  maxEntrypointSize: 250_000,   // bytes, uncompressed
-  maxAssetSize: 250_000,
-},
+// webpack.config.js — alongside output, module, and optimization
+module.exports = {
+  performance: {
+    hints: 'error',
+    maxEntrypointSize: 250_000,   // bytes, uncompressed
+    maxAssetSize: 250_000,
+  },
+};
 ```
 
 A budget enforced by the build is a budget; a number in a document is an aspiration. See

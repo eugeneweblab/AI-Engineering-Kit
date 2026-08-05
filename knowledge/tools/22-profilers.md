@@ -68,9 +68,9 @@ and shows why each re-rendered.
 node --cpu-prof --cpu-prof-dir=./profiles dist/server.js
 # → profiles/CPU.20260714.*.cpuprofile — open in chrome://inspect or the DevTools Performance panel
 
-# Heap snapshot on demand.
-node --heapsnapshot-signal=SIGUSR2 dist/server.js
-kill -USR2 <pid>
+# Heap snapshot on demand: start with the signal handler, then signal the process.
+node --heapsnapshot-signal=SIGUSR2 dist/server.js &
+kill -USR2 "$!"          # or: pkill -USR2 -f dist/server.js
 ```
 
 ```js

@@ -147,7 +147,7 @@ necessary — and being the default `test` script, it is also what CI runs.
 
 **Bad Example** — nondeterminism from shared state
 
-```ts
+```tsx
 // No cleanup between tests: the DOM from the previous test is still mounted,
 // and getByRole finds two matching elements — failing only when run in a certain order.
 test('renders the form', () => {

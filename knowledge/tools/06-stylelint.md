@@ -79,25 +79,27 @@ export default {
 For SCSS, add the syntax and its rule set:
 
 ```js
-{
+// stylelint.config.js
+export default {
   extends: ['stylelint-config-standard-scss'],
   rules: {
     'scss/at-extend-no-missing-placeholder': true,   // @extend on a class is a specificity trap
     'scss/no-global-function-names': true,           // math.div, not the deprecated globals
   },
-}
+};
 ```
 
 For a Tailwind codebase, the at-rules must be allowed or every file errors:
 
 ```js
-{
+// stylelint.config.js
+export default {
   rules: {
     'at-rule-no-unknown': [true, {
       ignoreAtRules: ['tailwind', 'apply', 'layer', 'config', 'screen', 'variants'],
     }],
   },
-}
+};
 ```
 
 ## Examples

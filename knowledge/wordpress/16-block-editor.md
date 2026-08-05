@@ -145,10 +145,12 @@ Hand-rolled attributes give you maintenance.
 **Bad Example**
 
 ```json
-"attributes": {
-  "backgroundColor": { "type": "string" },
-  "paddingTop": { "type": "number" },
-  "fontSize": { "type": "number" }
+{
+  "attributes": {
+    "backgroundColor": { "type": "string" },
+    "paddingTop": { "type": "number" },
+    "fontSize": { "type": "number" }
+  }
 }
 ```
 
@@ -158,10 +160,12 @@ respect the theme's palette or `theme.json`.
 **Good Example**
 
 ```json
-"supports": {
-  "color": { "background": true, "text": true },
-  "spacing": { "padding": true, "margin": true },
-  "typography": { "fontSize": true, "lineHeight": true }
+{
+  "supports": {
+    "color": { "background": true, "text": true },
+    "spacing": { "padding": true, "margin": true },
+    "typography": { "fontSize": true, "lineHeight": true }
+  }
 }
 ```
 

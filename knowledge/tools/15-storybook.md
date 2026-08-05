@@ -104,7 +104,7 @@ export const SelectsPlan: Story = {
 
 Global context belongs in decorators, declared once:
 
-```ts
+```tsx
 // .storybook/preview.tsx
 import type { Preview } from '@storybook/react';
 import { ThemeProvider } from '../src/theme';
@@ -143,7 +143,7 @@ case a Figma frame never shows.
 
 **Bad Example** — stories that document nothing and break easily
 
-```ts
+```tsx
 export const Primary = () => <Button>Click me</Button>;
 export const Secondary = () => <Button variant="secondary">Click me</Button>;
 export const Tertiary = () => <Button variant="tertiary">Click me</Button>;
@@ -153,7 +153,7 @@ export const Tertiary = () => <Button variant="tertiary">Click me</Button>;
 
 **Bad Example** — a component that cannot be isolated
 
-```ts
+```tsx
 export const Default: Story = {
   decorators: [
     (Story) => (

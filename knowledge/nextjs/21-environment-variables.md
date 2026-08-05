@@ -155,7 +155,7 @@ Two consequences follow from build-time inlining:
 ```tsx
 // Bad — not statically analyzable, undefined in the browser.
 const key = "NEXT_PUBLIC_ANALYTICS_ID";
-const id = process.env[key];
+const dynamicId = process.env[key];
 
 // Good — full literal name, inlined at build time.
 const id = process.env.NEXT_PUBLIC_ANALYTICS_ID;

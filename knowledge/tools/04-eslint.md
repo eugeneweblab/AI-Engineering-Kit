@@ -114,14 +114,17 @@ Wire it into scripts:
 **Good Example** — a rule that encodes a real project constraint
 
 ```js
-{
-  rules: {
-    'no-restricted-syntax': ['error', {
-      selector: "CallExpression[callee.object.name='localStorage']",
-      message: 'Use the storage service — it handles SSR and quota errors.',
-    }],
+// eslint.config.js — one entry in the exported array
+export default [
+  {
+    rules: {
+      'no-restricted-syntax': ['error', {
+        selector: "CallExpression[callee.object.name='localStorage']",
+        message: 'Use the storage service — it handles SSR and quota errors.',
+      }],
+    },
   },
-}
+];
 ```
 
 This is what a linter is for: a rule the compiler cannot express and a reviewer would

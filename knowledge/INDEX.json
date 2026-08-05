@@ -3,9 +3,9 @@
   "note": "Regenerate with `python3 scripts/build-index.py`. Do not edit by hand.",
   "stats": {
     "topics": 49,
-    "docs": 1421,
-    "ready": 1415,
-    "draft": 6
+    "docs": 1439,
+    "ready": 1439,
+    "draft": 0
   },
   "topics": {
     "accessibility": {
@@ -2131,9 +2131,9 @@
     },
     "checklists": {
       "path": "knowledge/checklists",
-      "doc_count": 1,
-      "ready": 0,
-      "draft": 1,
+      "doc_count": 4,
+      "ready": 4,
+      "draft": 0,
       "docs": [
         {
           "id": "checklists/readme",
@@ -2141,12 +2141,54 @@
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "draft",
+          "status": "ready",
           "tags": [
             "checklists"
           ],
           "when_to_use": "Read first to find the right checklist before completing or reviewing work.",
           "path": "knowledge/checklists/README.md"
+        },
+        {
+          "id": "checklists/01-pre-launch",
+          "title": "Pre-Launch Checklist",
+          "slug": "pre-launch",
+          "type": "doc",
+          "order": 1,
+          "status": "ready",
+          "tags": [
+            "checklists",
+            "pre-launch"
+          ],
+          "when_to_use": "Run a week before putting a site or application in front of real users, and again on launch day.",
+          "path": "knowledge/checklists/01-pre-launch.md"
+        },
+        {
+          "id": "checklists/02-pull-request-author",
+          "title": "Pull Request Author Checklist",
+          "slug": "pull-request-author",
+          "type": "doc",
+          "order": 2,
+          "status": "ready",
+          "tags": [
+            "checklists",
+            "pull-request-author"
+          ],
+          "when_to_use": "Run before requesting review on a change, to catch what a reviewer would otherwise spend their attention on.",
+          "path": "knowledge/checklists/02-pull-request-author.md"
+        },
+        {
+          "id": "checklists/03-new-project-setup",
+          "title": "New Project Setup Checklist",
+          "slug": "new-project-setup",
+          "type": "doc",
+          "order": 3,
+          "status": "ready",
+          "tags": [
+            "checklists",
+            "new-project-setup"
+          ],
+          "when_to_use": "Run when starting a new repository, before writing the first feature.",
+          "path": "knowledge/checklists/03-new-project-setup.md"
         }
       ]
     },
@@ -5253,9 +5295,9 @@
     },
     "examples": {
       "path": "knowledge/examples",
-      "doc_count": 1,
-      "ready": 0,
-      "draft": 1,
+      "doc_count": 4,
+      "ready": 4,
+      "draft": 0,
       "docs": [
         {
           "id": "examples/readme",
@@ -5263,12 +5305,54 @@
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "draft",
+          "status": "ready",
           "tags": [
             "examples"
           ],
           "when_to_use": "Read first to find a relevant worked example in this collection.",
           "path": "knowledge/examples/README.md"
+        },
+        {
+          "id": "examples/01-rest-endpoint",
+          "title": "Example — REST Endpoint",
+          "slug": "rest-endpoint",
+          "type": "doc",
+          "order": 1,
+          "status": "ready",
+          "tags": [
+            "examples",
+            "rest-endpoint"
+          ],
+          "when_to_use": "Read when implementing a REST endpoint end to end — contract, validation, service, errors, and tests.",
+          "path": "knowledge/examples/01-rest-endpoint.md"
+        },
+        {
+          "id": "examples/02-react-component",
+          "title": "Example — React Component",
+          "slug": "react-component",
+          "type": "doc",
+          "order": 2,
+          "status": "ready",
+          "tags": [
+            "examples",
+            "react-component"
+          ],
+          "when_to_use": "Read when building a React component end to end — props contract, every state, accessibility, and tests.",
+          "path": "knowledge/examples/02-react-component.md"
+        },
+        {
+          "id": "examples/03-wordpress-feature",
+          "title": "Example — WordPress Feature",
+          "slug": "wordpress-feature",
+          "type": "doc",
+          "order": 3,
+          "status": "ready",
+          "tags": [
+            "examples",
+            "wordpress-feature"
+          ],
+          "when_to_use": "Read when building a WordPress feature end to end — post type, metadata, admin UI, front end, and security.",
+          "path": "knowledge/examples/03-wordpress-feature.md"
         }
       ]
     },
@@ -13030,9 +13114,9 @@
     },
     "playbooks": {
       "path": "knowledge/playbooks",
-      "doc_count": 1,
-      "ready": 0,
-      "draft": 1,
+      "doc_count": 4,
+      "ready": 4,
+      "draft": 0,
       "docs": [
         {
           "id": "playbooks/readme",
@@ -13040,12 +13124,54 @@
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "draft",
+          "status": "ready",
           "tags": [
             "playbooks"
           ],
           "when_to_use": "Read first to find the right operational playbook for the task at hand.",
           "path": "knowledge/playbooks/README.md"
+        },
+        {
+          "id": "playbooks/01-site-down",
+          "title": "Playbook — Site Down",
+          "slug": "site-down",
+          "type": "doc",
+          "order": 1,
+          "status": "ready",
+          "tags": [
+            "playbooks",
+            "site-down"
+          ],
+          "when_to_use": "Follow when the application is unreachable, erroring for most users, or failing its primary flow in production.",
+          "path": "knowledge/playbooks/01-site-down.md"
+        },
+        {
+          "id": "playbooks/02-failed-deployment",
+          "title": "Playbook — Failed Deployment",
+          "slug": "failed-deployment",
+          "type": "doc",
+          "order": 2,
+          "status": "ready",
+          "tags": [
+            "playbooks",
+            "failed-deployment"
+          ],
+          "when_to_use": "Follow when a release broke production, a deploy will not complete, or a migration failed partway.",
+          "path": "knowledge/playbooks/02-failed-deployment.md"
+        },
+        {
+          "id": "playbooks/03-security-incident",
+          "title": "Playbook — Security Incident",
+          "slug": "security-incident",
+          "type": "doc",
+          "order": 3,
+          "status": "ready",
+          "tags": [
+            "playbooks",
+            "security-incident"
+          ],
+          "when_to_use": "Follow when a credential has leaked, unauthorized access is suspected, or a compromise is reported.",
+          "path": "knowledge/playbooks/03-security-incident.md"
         }
       ]
     },
@@ -14045,9 +14171,9 @@
     },
     "prompts": {
       "path": "knowledge/prompts",
-      "doc_count": 1,
-      "ready": 0,
-      "draft": 1,
+      "doc_count": 4,
+      "ready": 4,
+      "draft": 0,
       "docs": [
         {
           "id": "prompts/readme",
@@ -14055,12 +14181,54 @@
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "draft",
+          "status": "ready",
           "tags": [
             "prompts"
           ],
           "when_to_use": "Read first to find a reusable prompt for an AI-assisted task.",
           "path": "knowledge/prompts/README.md"
+        },
+        {
+          "id": "prompts/01-code-review",
+          "title": "Prompt — Code Review",
+          "slug": "code-review",
+          "type": "doc",
+          "order": 1,
+          "status": "ready",
+          "tags": [
+            "prompts",
+            "code-review"
+          ],
+          "when_to_use": "Copy when asking an assistant to review a diff, and adapt the context section to the project.",
+          "path": "knowledge/prompts/01-code-review.md"
+        },
+        {
+          "id": "prompts/02-bug-investigation",
+          "title": "Prompt — Bug Investigation",
+          "slug": "bug-investigation",
+          "type": "doc",
+          "order": 2,
+          "status": "ready",
+          "tags": [
+            "prompts",
+            "bug-investigation"
+          ],
+          "when_to_use": "Copy when asking an assistant to find a root cause, and fill in the evidence you already have.",
+          "path": "knowledge/prompts/02-bug-investigation.md"
+        },
+        {
+          "id": "prompts/03-refactoring",
+          "title": "Prompt — Refactoring",
+          "slug": "refactoring",
+          "type": "doc",
+          "order": 3,
+          "status": "ready",
+          "tags": [
+            "prompts",
+            "refactoring"
+          ],
+          "when_to_use": "Copy when asking an assistant to restructure code without changing its behavior.",
+          "path": "knowledge/prompts/03-refactoring.md"
         }
       ]
     },
@@ -16551,9 +16719,9 @@
     },
     "snippets": {
       "path": "knowledge/snippets",
-      "doc_count": 1,
-      "ready": 0,
-      "draft": 1,
+      "doc_count": 4,
+      "ready": 4,
+      "draft": 0,
       "docs": [
         {
           "id": "snippets/readme",
@@ -16561,12 +16729,54 @@
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "draft",
+          "status": "ready",
           "tags": [
             "snippets"
           ],
           "when_to_use": "Read first to find a reusable code snippet in this collection.",
           "path": "knowledge/snippets/README.md"
+        },
+        {
+          "id": "snippets/01-typescript-utilities",
+          "title": "TypeScript Utilities",
+          "slug": "typescript-utilities",
+          "type": "doc",
+          "order": 1,
+          "status": "ready",
+          "tags": [
+            "snippets",
+            "typescript-utilities"
+          ],
+          "when_to_use": "Copy when you need money formatting, async control flow, or type-narrowing helpers.",
+          "path": "knowledge/snippets/01-typescript-utilities.md"
+        },
+        {
+          "id": "snippets/02-php-wordpress",
+          "title": "PHP and WordPress Snippets",
+          "slug": "php-wordpress",
+          "type": "doc",
+          "order": 2,
+          "status": "ready",
+          "tags": [
+            "snippets",
+            "php-wordpress"
+          ],
+          "when_to_use": "Copy when writing WordPress PHP — escaping output, guarding a request, querying, or caching.",
+          "path": "knowledge/snippets/02-php-wordpress.md"
+        },
+        {
+          "id": "snippets/03-shell-scripts",
+          "title": "Shell Script Snippets",
+          "slug": "shell-scripts",
+          "type": "doc",
+          "order": 3,
+          "status": "ready",
+          "tags": [
+            "snippets",
+            "shell-scripts"
+          ],
+          "when_to_use": "Copy when writing a shell script that will run unattended — deploys, backups, CI steps, maintenance jobs.",
+          "path": "knowledge/snippets/03-shell-scripts.md"
         }
       ]
     },
@@ -17566,9 +17776,9 @@
     },
     "templates": {
       "path": "knowledge/templates",
-      "doc_count": 1,
-      "ready": 0,
-      "draft": 1,
+      "doc_count": 4,
+      "ready": 4,
+      "draft": 0,
       "docs": [
         {
           "id": "templates/readme",
@@ -17576,12 +17786,54 @@
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "draft",
+          "status": "ready",
           "tags": [
             "templates"
           ],
           "when_to_use": "Read first to find the right document or code template before creating a new file.",
           "path": "knowledge/templates/README.md"
+        },
+        {
+          "id": "templates/01-pull-request",
+          "title": "Pull Request Template",
+          "slug": "pull-request",
+          "type": "doc",
+          "order": 1,
+          "status": "ready",
+          "tags": [
+            "templates",
+            "pull-request"
+          ],
+          "when_to_use": "Copy when opening a pull request, or install as .github/PULL_REQUEST_TEMPLATE.md for a repository.",
+          "path": "knowledge/templates/01-pull-request.md"
+        },
+        {
+          "id": "templates/02-architecture-decision-record",
+          "title": "Architecture Decision Record Template",
+          "slug": "architecture-decision-record",
+          "type": "doc",
+          "order": 2,
+          "status": "ready",
+          "tags": [
+            "templates",
+            "architecture-decision-record"
+          ],
+          "when_to_use": "Copy when recording a decision that is expensive to reverse or will be questioned later.",
+          "path": "knowledge/templates/02-architecture-decision-record.md"
+        },
+        {
+          "id": "templates/03-incident-report",
+          "title": "Incident Report Template",
+          "slug": "incident-report",
+          "type": "doc",
+          "order": 3,
+          "status": "ready",
+          "tags": [
+            "templates",
+            "incident-report"
+          ],
+          "when_to_use": "Copy after a user-visible failure, once service is restored and the timeline is still accurate.",
+          "path": "knowledge/templates/03-incident-report.md"
         }
       ]
     },

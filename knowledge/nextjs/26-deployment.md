@@ -157,7 +157,7 @@ CMD ["node", "server.js"]
 
 **Build-time vs request-time data.** Do not require runtime-only secrets during the build. A route that reads per-request state (cookies, headers, an uncached `fetch`) is rendered dynamically and will not be prerendered — that is expected. Since `fetch()` is uncached by default in Next.js 15+, a page that fetches without opting into caching stays dynamic unless every request is statically analyzable. Opt into static data explicitly when a page should be prerendered at build time:
 
-```ts
+```tsx
 // app/blog/[slug]/page.tsx — cached fetch keeps this route prerenderable
 export default async function Page({
   params,

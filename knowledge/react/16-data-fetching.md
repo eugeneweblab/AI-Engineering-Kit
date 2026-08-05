@@ -487,7 +487,7 @@ Bad (a new object identity or a non-deterministic value in the key defeats
 dedup and caching):
 
 ```tsx
-useQuery({ queryKey: ["user", { id, at: Date.now() }], queryFn: /* ... */ });
+useQuery({ queryKey: ["user", { id, at: Date.now() }], queryFn: fetchUser });
 ```
 
 ---

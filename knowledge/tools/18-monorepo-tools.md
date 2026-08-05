@@ -104,16 +104,18 @@ Reference internal packages by name, with the workspace protocol:
 
 ```js
 // eslint.config.js — packages may not reach into each other's internals
-{
-  rules: {
-    'no-restricted-imports': ['error', {
-      patterns: [
-        { group: ['@acme/*/src/*'], message: 'Import the package entry point, not its internals.' },
-        { group: ['../../../*'], message: 'Cross-package imports must use the package name.' },
-      ],
-    }],
+export default [
+  {
+    rules: {
+      'no-restricted-imports': ['error', {
+        patterns: [
+          { group: ['@acme/*/src/*'], message: 'Import the package entry point, not its internals.' },
+          { group: ['../../../*'], message: 'Cross-package imports must use the package name.' },
+        ],
+      }],
+    },
   },
-}
+];
 ```
 
 Without this, a monorepo becomes one application with directories, and extracting a package
