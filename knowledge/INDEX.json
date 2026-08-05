@@ -3,9 +3,9 @@
   "note": "Regenerate with `python3 scripts/build-index.py`. Do not edit by hand.",
   "stats": {
     "topics": 49,
-    "docs": 1387,
-    "ready": 1380,
-    "draft": 7
+    "docs": 1406,
+    "ready": 1400,
+    "draft": 6
   },
   "topics": {
     "accessibility": {
@@ -18084,22 +18084,288 @@
     },
     "tools": {
       "path": "knowledge/tools",
-      "doc_count": 1,
-      "ready": 0,
-      "draft": 1,
+      "doc_count": 20,
+      "ready": 20,
+      "draft": 0,
       "docs": [
         {
           "id": "tools/readme",
-          "title": "Tools",
+          "title": "Developer Tooling Standards",
           "slug": "readme",
           "type": "index",
           "order": -1,
-          "status": "draft",
+          "status": "ready",
           "tags": [
             "tools"
           ],
-          "when_to_use": "Read first to find the right tool reference in this section.",
+          "when_to_use": "Read first when setting up or changing project tooling, to see how this section's docs fit together and which tool owns which job.",
           "path": "knowledge/tools/README.md"
+        },
+        {
+          "id": "tools/00-overview",
+          "title": "Tooling Overview",
+          "slug": "overview",
+          "type": "doc",
+          "order": 0,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "overview"
+          ],
+          "when_to_use": "Read first when setting up tooling for a project, to understand which categories of tool are needed and how they fit together.",
+          "path": "knowledge/tools/00-overview.md"
+        },
+        {
+          "id": "tools/01-package-managers",
+          "title": "Package Managers",
+          "slug": "package-managers",
+          "type": "doc",
+          "order": 1,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "package-managers"
+          ],
+          "when_to_use": "Read before choosing or changing a package manager, adding dependencies, or debugging an install that differs between machines and CI.",
+          "path": "knowledge/tools/01-package-managers.md"
+        },
+        {
+          "id": "tools/02-version-management",
+          "title": "Version Management",
+          "slug": "version-management",
+          "type": "doc",
+          "order": 2,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "version-management"
+          ],
+          "when_to_use": "Read before pinning language runtimes for a project — Node, PHP, or Python versions across developers, CI, and production.",
+          "path": "knowledge/tools/02-version-management.md"
+        },
+        {
+          "id": "tools/03-typescript-compiler",
+          "title": "TypeScript Compiler",
+          "slug": "typescript-compiler",
+          "type": "doc",
+          "order": 3,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "typescript-compiler"
+          ],
+          "when_to_use": "Read before configuring tsconfig.json or wiring type checking into a build — choosing compiler options, separating checking from transpiling, or fixing slow type checks.",
+          "path": "knowledge/tools/03-typescript-compiler.md"
+        },
+        {
+          "id": "tools/04-eslint",
+          "title": "ESLint",
+          "slug": "eslint",
+          "type": "doc",
+          "order": 4,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "eslint"
+          ],
+          "when_to_use": "Read before configuring ESLint or adding rules — writing flat config, integrating TypeScript rules, or deciding what belongs in a linter versus a formatter.",
+          "path": "knowledge/tools/04-eslint.md"
+        },
+        {
+          "id": "tools/05-prettier",
+          "title": "Prettier",
+          "slug": "prettier",
+          "type": "doc",
+          "order": 5,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "prettier"
+          ],
+          "when_to_use": "Read before adding or configuring a formatter — setting options, integrating with ESLint, or introducing formatting to an existing codebase without destroying git blame.",
+          "path": "knowledge/tools/05-prettier.md"
+        },
+        {
+          "id": "tools/06-stylelint",
+          "title": "Stylelint",
+          "slug": "stylelint",
+          "type": "doc",
+          "order": 6,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "stylelint"
+          ],
+          "when_to_use": "Read before linting CSS — configuring Stylelint for plain CSS, SCSS, or Tailwind, or enforcing design-token usage in stylesheets.",
+          "path": "knowledge/tools/06-stylelint.md"
+        },
+        {
+          "id": "tools/07-php-code-standards",
+          "title": "PHP Code Standards",
+          "slug": "php-code-standards",
+          "type": "doc",
+          "order": 7,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "php-code-standards"
+          ],
+          "when_to_use": "Read before setting up PHP linting — configuring PHP_CodeSniffer or PHP-CS-Fixer, applying the WordPress standard, or automating fixes.",
+          "path": "knowledge/tools/07-php-code-standards.md"
+        },
+        {
+          "id": "tools/08-static-analysis",
+          "title": "Static Analysis",
+          "slug": "static-analysis",
+          "type": "doc",
+          "order": 8,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "static-analysis"
+          ],
+          "when_to_use": "Read before adding static analysis to a project — configuring PHPStan or Psalm, choosing a rule level, or introducing analysis to a legacy codebase with a baseline.",
+          "path": "knowledge/tools/08-static-analysis.md"
+        },
+        {
+          "id": "tools/09-vite",
+          "title": "Vite",
+          "slug": "vite",
+          "type": "doc",
+          "order": 9,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "vite"
+          ],
+          "when_to_use": "Read before configuring a Vite build — setting up dev server, environment variables, aliases, proxying, or optimizing the production bundle.",
+          "path": "knowledge/tools/09-vite.md"
+        },
+        {
+          "id": "tools/10-webpack",
+          "title": "Webpack",
+          "slug": "webpack",
+          "type": "doc",
+          "order": 10,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "webpack"
+          ],
+          "when_to_use": "Read when working with a Webpack build — configuring loaders and plugins, splitting chunks, or deciding whether to migrate to a faster bundler.",
+          "path": "knowledge/tools/10-webpack.md"
+        },
+        {
+          "id": "tools/11-esbuild-and-swc",
+          "title": "esbuild and SWC",
+          "slug": "esbuild-and-swc",
+          "type": "doc",
+          "order": 11,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "esbuild-and-swc"
+          ],
+          "when_to_use": "Read before using esbuild or SWC — as a transpiler in a build chain, for a library bundle, or when replacing Babel.",
+          "path": "knowledge/tools/11-esbuild-and-swc.md"
+        },
+        {
+          "id": "tools/12-babel",
+          "title": "Babel",
+          "slug": "babel",
+          "type": "doc",
+          "order": 12,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "babel"
+          ],
+          "when_to_use": "Read when a project still uses Babel — configuring presets and browser targets, understanding polyfills, or deciding whether to migrate away.",
+          "path": "knowledge/tools/12-babel.md"
+        },
+        {
+          "id": "tools/13-test-runners",
+          "title": "Test Runners",
+          "slug": "test-runners",
+          "type": "doc",
+          "order": 13,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "test-runners"
+          ],
+          "when_to_use": "Read before choosing or configuring a test runner — Vitest, Jest, or PHPUnit — including coverage, watch mode, and CI parallelism.",
+          "path": "knowledge/tools/13-test-runners.md"
+        },
+        {
+          "id": "tools/14-playwright",
+          "title": "Playwright",
+          "slug": "playwright",
+          "type": "doc",
+          "order": 14,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "playwright"
+          ],
+          "when_to_use": "Read before writing or configuring browser tests — setting up Playwright, choosing selectors, handling authentication, or fixing flaky E2E runs.",
+          "path": "knowledge/tools/14-playwright.md"
+        },
+        {
+          "id": "tools/15-storybook",
+          "title": "Storybook",
+          "slug": "storybook",
+          "type": "doc",
+          "order": 15,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "storybook"
+          ],
+          "when_to_use": "Read before setting up Storybook or writing stories — documenting components in isolation, testing states, or wiring accessibility and visual checks.",
+          "path": "knowledge/tools/15-storybook.md"
+        },
+        {
+          "id": "tools/16-git-hooks",
+          "title": "Git Hooks",
+          "slug": "git-hooks",
+          "type": "doc",
+          "order": 16,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "git-hooks"
+          ],
+          "when_to_use": "Read before adding pre-commit or pre-push automation — choosing a hook manager, deciding what belongs in each hook, and keeping hooks fast enough to survive.",
+          "path": "knowledge/tools/16-git-hooks.md"
+        },
+        {
+          "id": "tools/17-commit-conventions",
+          "title": "Commit Conventions",
+          "slug": "commit-conventions",
+          "type": "doc",
+          "order": 17,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "commit-conventions"
+          ],
+          "when_to_use": "Read before adopting a commit message convention — configuring commitlint, choosing types and scopes, or wiring commits to automated versioning.",
+          "path": "knowledge/tools/17-commit-conventions.md"
+        },
+        {
+          "id": "tools/18-monorepo-tools",
+          "title": "Monorepo Tools",
+          "slug": "monorepo-tools",
+          "type": "doc",
+          "order": 18,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "monorepo-tools"
+          ],
+          "when_to_use": "Read before setting up or working in a monorepo — configuring workspaces, task orchestration and caching, or deciding whether a monorepo is warranted.",
+          "path": "knowledge/tools/18-monorepo-tools.md"
         }
       ]
     },
