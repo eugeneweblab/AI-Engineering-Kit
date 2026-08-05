@@ -8,6 +8,7 @@ order: 10
 status: ready
 tags: [backend, authentication, NotFoundError, createRemoteJWKSet, cancelOwnedBy, getStore, decode]
 related: [security/03-authentication, backend/11-authorization, backend/09-validation, backend/06-api-design, backend/21-security, backend/22-observability, security/07-jwt]
+defers_to: security/03-authentication
 when_to_use: "Read before wiring authentication into a service — where identity is verified, how it is carried through the layers, and how it crosses a service boundary."
 ---
 # Backend Authentication

@@ -3,7 +3,7 @@ id: security/99-ai-review-checklist
 topic: security
 slug: ai-review-checklist
 title: "Security AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [security, ai-review-checklist, getInvoice, NotFound, invoice, parse, eval]

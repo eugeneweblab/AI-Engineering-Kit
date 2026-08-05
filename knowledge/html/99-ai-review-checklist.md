@@ -3,7 +3,7 @@ id: html/99-ai-review-checklist
 topic: html
 slug: ai-review-checklist
 title: "HTML AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [html, ai-review-checklist, pattern, onclick, autocomplete, defer, aria-labelledby]

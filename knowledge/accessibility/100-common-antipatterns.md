@@ -3,7 +3,7 @@ id: accessibility/100-common-antipatterns
 topic: accessibility
 slug: common-antipatterns
 title: "Accessibility Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [accessibility, common-antipatterns, polite, assertive, onclick, aria-live, aria-labelledby, tabindex]

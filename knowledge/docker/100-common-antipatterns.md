@@ -3,7 +3,7 @@ id: docker/100-common-antipatterns
 topic: docker
 slug: common-antipatterns
 title: "Docker Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [docker, common-antipatterns, ENTRYPOINT, CMD, useradd, Dockerfile, SIGKILL, HEALTHCHECK]

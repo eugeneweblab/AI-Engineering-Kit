@@ -3,7 +3,7 @@ id: postgresql/100-common-antipatterns
 topic: postgresql
 slug: common-antipatterns
 title: "PostgreSQL Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [postgresql, common-antipatterns, timestamp, serial, CONCURRENTLY, timestamptz, float, CHECK]

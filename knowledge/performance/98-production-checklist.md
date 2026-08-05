@@ -3,7 +3,7 @@ id: performance/98-production-checklist
 topic: performance
 slug: production-checklist
 title: "Performance Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [performance, production-checklist, font-display, EXPLAIN]

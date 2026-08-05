@@ -3,7 +3,7 @@ id: snippets/02-php-wordpress
 topic: snippets
 slug: php-wordpress
 title: "PHP and WordPress Snippets"
-type: doc
+type: snippet
 order: 2
 status: ready
 tags: [snippets, php-wordpress, add_action, prepare, get_the_title, esc_html__, esc_like, enqueue_assets]

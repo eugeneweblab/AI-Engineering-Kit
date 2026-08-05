@@ -3,7 +3,7 @@ id: databases/100-common-antipatterns
 topic: databases
 slug: common-antipatterns
 title: "Database Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [databases, common-antipatterns, execute, OFFSET, decimal, double, numeric, float]

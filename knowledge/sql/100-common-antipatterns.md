@@ -3,7 +3,7 @@ id: sql/100-common-antipatterns
 topic: sql
 slug: common-antipatterns
 title: "SQL Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [sql, common-antipatterns, NUMERIC, date, CHECK, REAL, TIMESTAMPTZ, FLOAT]

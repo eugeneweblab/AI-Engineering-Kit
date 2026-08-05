@@ -3,7 +3,7 @@ id: html/100-common-antipatterns
 topic: html
 slug: common-antipatterns
 title: "HTML Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [html, common-antipatterns, deleteItem, window.opener, placeholder, save, getElementById]

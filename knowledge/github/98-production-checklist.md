@@ -3,7 +3,7 @@ id: github/98-production-checklist
 topic: github
 slug: production-checklist
 title: "GitHub Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [github, production-checklist, README.md, SECURITY.md, pull_request_target, CODEOWNERS, "permissions:", GITHUB_TOKEN]

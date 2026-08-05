@@ -3,7 +3,7 @@ id: nestjs/98-production-checklist
 topic: nestjs
 slug: production-checklist
 title: "Production Readiness Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [nestjs, production-checklist]

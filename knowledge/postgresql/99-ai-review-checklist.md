@@ -3,7 +3,7 @@ id: postgresql/99-ai-review-checklist
 topic: postgresql
 slug: ai-review-checklist
 title: "PostgreSQL AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [postgresql, ai-review-checklist, varchar, double, timestamp, timestamptz, lock_timeout, numeric]

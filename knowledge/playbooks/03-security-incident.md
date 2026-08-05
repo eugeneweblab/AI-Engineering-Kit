@@ -3,7 +3,7 @@ id: playbooks/03-security-incident
 topic: playbooks
 slug: security-incident
 title: "Playbook — Security Incident"
-type: doc
+type: playbook
 order: 3
 status: ready
 tags: [playbooks, security-incident, DEPLOY_TOKEN]

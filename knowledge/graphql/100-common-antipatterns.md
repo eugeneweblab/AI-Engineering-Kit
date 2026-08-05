@@ -3,7 +3,7 @@ id: graphql/100-common-antipatterns
 topic: graphql
 slug: common-antipatterns
 title: "GraphQL Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [graphql, common-antipatterns, load, EmailTakenError, CreateUserResult, extensions, author, ValidationError]

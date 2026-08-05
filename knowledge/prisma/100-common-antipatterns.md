@@ -3,7 +3,7 @@ id: prisma/100-common-antipatterns
 topic: prisma
 slug: common-antipatterns
 title: "Prisma Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [prisma, common-antipatterns, findMany, PrismaClient, take, upsert, findUnique, P2002]

@@ -7,6 +7,7 @@ type: doc
 order: 17
 status: ready
 tags: [wordpress, block-themes, theme.json, rendered, style.css, index.html]
+applies_to: [block-theme]
 related: [wordpress/14-theme-development, wordpress/16-block-editor, wordpress/13-template-hierarchy, wordpress/05-performance, wordpress/24-internationalization]
 when_to_use: "Read before building a block theme or writing theme.json — defining presets, styling blocks globally, or creating HTML templates and parts."
 ---

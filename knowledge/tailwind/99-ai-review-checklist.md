@@ -3,7 +3,7 @@ id: tailwind/99-ai-review-checklist
 topic: tailwind
 slug: ai-review-checklist
 title: "Tailwind CSS AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [tailwind, ai-review-checklist, "focus-visible:", "dark:", w-full, justfy-center, gap-4, flexx]

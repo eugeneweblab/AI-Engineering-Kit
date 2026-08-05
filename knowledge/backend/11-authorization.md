@@ -7,7 +7,8 @@ type: doc
 order: 11
 status: ready
 tags: [backend, authorization, NotFound, getInvoice, canRead, Forbidden, required, findOne]
-related: [backend/10-authentication, backend/07-business-logic, backend/06-api-design, backend/21-security, backend/22-observability]
+related: [security/04-authorization, backend/10-authentication, backend/07-business-logic, backend/06-api-design, backend/21-security, backend/22-observability]
+defers_to: security/04-authorization
 when_to_use: "Read before adding or reviewing any permission check, role, ownership rule, or access-control decision."
 ---
 # Backend Authorization
@@ -126,6 +127,7 @@ async function getInvoice(caller: User, invoiceId: string): Promise<Invoice> {
 
 ## Related
 
+- `knowledge/security/04-authorization.md`
 - `knowledge/backend/10-authentication.md`
 - `knowledge/backend/07-business-logic.md`
 - `knowledge/backend/06-api-design.md`

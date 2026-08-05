@@ -3,7 +3,7 @@ id: git/99-ai-review-checklist
 topic: git
 slug: ai-review-checklist
 title: "Git AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [git, ai-review-checklist, GitHub, root, unknown]

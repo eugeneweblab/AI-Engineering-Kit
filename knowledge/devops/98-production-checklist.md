@@ -3,7 +3,7 @@ id: devops/98-production-checklist
 topic: devops
 slug: production-checklist
 title: "DevOps Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [devops, production-checklist]

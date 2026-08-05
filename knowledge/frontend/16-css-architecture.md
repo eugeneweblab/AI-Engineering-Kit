@@ -7,7 +7,8 @@ type: doc
 order: 16
 status: ready
 tags: [frontend, css-architecture, "@layer", stylelint, Button.tsx]
-related: [frontend/15-styling, frontend/03-design-systems, frontend/02-component-driven-development, frontend/25-folder-structure, frontend/08-performance]
+related: [css/21-architecture, frontend/15-styling, frontend/03-design-systems, frontend/02-component-driven-development, frontend/25-folder-structure, frontend/08-performance]
+defers_to: css/21-architecture
 when_to_use: "Read before establishing how CSS is organized, layered, and scaled across a codebase."
 ---
 # Frontend CSS Architecture
@@ -134,6 +135,7 @@ body .page .content .card.card--wide { padding: 32px !important; }
 
 ## Related
 
+- `knowledge/css/21-architecture.md`
 - `knowledge/frontend/15-styling.md`
 - `knowledge/frontend/03-design-systems.md`
 - `knowledge/frontend/02-component-driven-development.md`

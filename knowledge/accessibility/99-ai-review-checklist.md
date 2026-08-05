@@ -3,7 +3,7 @@ id: accessibility/99-ai-review-checklist
 topic: accessibility
 slug: ai-review-checklist
 title: "Accessibility AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [accessibility, ai-review-checklist, jsx-a11y, aria-disabled, aria-hidden, aria-live, aria-labelledby, tabindex]

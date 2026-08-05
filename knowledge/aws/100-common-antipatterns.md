@@ -3,7 +3,7 @@ id: aws/100-common-antipatterns
 topic: aws
 slug: common-antipatterns
 title: "AWS Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [aws, common-antipatterns, plan]

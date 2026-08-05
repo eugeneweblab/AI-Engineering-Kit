@@ -7,7 +7,8 @@ type: doc
 order: 10
 status: ready
 tags: [frontend, responsive-design, minmax, min-width, sizes, srcset, clamp]
-related: [frontend/09-accessibility, frontend/15-styling, frontend/16-css-architecture, frontend/08-performance, frontend/18-assets]
+related: [css/17-responsive-design, frontend/09-accessibility, frontend/15-styling, frontend/16-css-architecture, frontend/08-performance, frontend/18-assets]
+defers_to: css/17-responsive-design
 when_to_use: "Read before building any layout or component that must work across phone, tablet, and desktop."
 ---
 # Frontend Responsive Design
@@ -131,6 +132,7 @@ h1 { font-size: clamp(1.5rem, 1rem + 3vw, 2.5rem); }
 
 ## Related
 
+- `knowledge/css/17-responsive-design.md`
 - `knowledge/frontend/09-accessibility.md`
 - `knowledge/frontend/15-styling.md`
 - `knowledge/frontend/16-css-architecture.md`

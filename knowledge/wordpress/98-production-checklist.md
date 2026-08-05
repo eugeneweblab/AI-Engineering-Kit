@@ -3,7 +3,7 @@ id: wordpress/98-production-checklist
 topic: wordpress
 slug: production-checklist
 title: "WordPress Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [wordpress, production-checklist]

@@ -3,7 +3,7 @@ id: examples/03-wordpress-feature
 topic: examples
 slug: wordpress-feature
 title: "Example — WordPress Feature"
-type: doc
+type: example
 order: 3
 status: ready
 tags: [examples, wordpress-feature, WP_Error, defined, esc_html_e, ACME_EVENTS_PATH, add_action, get_post_meta]

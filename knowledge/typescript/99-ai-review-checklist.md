@@ -3,7 +3,7 @@ id: typescript/99-ai-review-checklist
 topic: typescript
 slug: ai-review-checklist
 title: "TypeScript AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [typescript, ai-review-checklist, unknown, Pick, Partial, Omit, never, JSON.parse]

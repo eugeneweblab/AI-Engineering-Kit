@@ -3,7 +3,7 @@ id: testing/98-production-checklist
 topic: testing
 slug: production-checklist
 title: "Testing Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [testing, production-checklist]

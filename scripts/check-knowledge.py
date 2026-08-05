@@ -71,6 +71,17 @@ CUSTOM_STRUCTURE = {
 }
 REQUIRED_ORDERS = {0, 98, 99, 100} | set(range(1, 31))
 
+# `type` tells an agent what kind of artifact this is, so it can filter by role:
+# a rule document, the topic index, a verification list, a copyable template.
+DOC_TYPES = {"doc", "index", "checklist", "antipatterns", "workflow",
+             "template", "playbook", "prompt", "snippet", "example"}
+
+# Variants a document can be specific to. Applying a rule under the wrong variant
+# is not a near miss — App Router caching advice is simply wrong on the Pages
+# Router, and block-theme guidance does not apply to a classic theme.
+VARIANTS = {"app-router", "pages-router", "block-theme", "classic-theme",
+            "typeorm", "prisma"}
+
 BASELINE_PATH = Path(__file__).with_name("codeblock-baseline.json")
 
 FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n", re.DOTALL)
@@ -412,6 +423,8 @@ def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
                     problems.append(f"{rel}: order {want} already used by {seen_orders[key]}")
                 seen_orders[key] = str(rel)
 
+        if fm.get("type") not in DOC_TYPES:
+            problems.append(f"{rel}: type is {fm.get('type')!r}, expected one of {sorted(DOC_TYPES)}")
         if fm.get("status") not in ("ready", "draft"):
             problems.append(f"{rel}: status is {fm.get('status')!r}, expected ready or draft")
         if not fm.get("title"):
@@ -436,6 +449,26 @@ def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
             seen_titles[title] = str(rel)
         if not fm.get("when_to_use", "").strip('"\' '):
             problems.append(f"{rel}: when_to_use is empty")
+
+        raw_applies = fm.get("applies_to", "")
+        if raw_applies:
+            values = [v.strip() for v in raw_applies.strip("[]").split(",") if v.strip()]
+            for v in values:
+                if v not in VARIANTS:
+                    problems.append(
+                        f"{rel}: applies_to {v!r} is not a known variant {sorted(VARIANTS)}"
+                    )
+
+        owner = fm.get("defers_to")
+        if owner:
+            # Two topics can legitimately cover one subject; `defers_to` names which
+            # of them states the rule, so an agent that finds both knows which wins.
+            if not (root / f"{owner}.md").exists():
+                problems.append(f"{rel}: defers_to -> {owner} does not exist")
+            elif owner == fm.get("id"):
+                problems.append(f"{rel}: defers_to points at itself")
+            elif owner not in doc.related:
+                problems.append(f"{rel}: defers_to {owner} but does not list it in `related`")
 
         doc_id = fm.get("id")
         if doc_id:

@@ -3,7 +3,7 @@ id: workflows/10-build-divi-module
 topic: workflows
 slug: build-divi-module
 title: "Workflow — Build a Divi Module"
-type: doc
+type: workflow
 order: 10
 status: ready
 tags: [workflows, build-divi-module, esc_html, esc_html__, ET_Builder_Module, get_fields, get_the_title, absint]

@@ -3,7 +3,7 @@ id: prompts/01-code-review
 topic: prompts
 slug: code-review
 title: "Prompt — Code Review"
-type: doc
+type: prompt
 order: 1
 status: ready
 tags: [prompts, code-review]

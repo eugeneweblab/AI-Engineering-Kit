@@ -3,7 +3,7 @@ id: examples/01-rest-endpoint
 topic: examples
 slug: rest-endpoint
 title: "Example — REST Endpoint"
-type: doc
+type: example
 order: 1
 status: ready
 tags: [examples, rest-endpoint, register, problem, getHttpServer, ConflictException, MaxLength, IsOptional]

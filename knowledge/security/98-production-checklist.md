@@ -3,7 +3,7 @@ id: security/98-production-checklist
 topic: security
 slug: production-checklist
 title: "Security Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [security, production-checklist, unsafe-eval, Strict, unsafe-inline, X-Frame-Options, X-Content-Type-Options, Secure]

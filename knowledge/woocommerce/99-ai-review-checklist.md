@@ -3,7 +3,7 @@ id: woocommerce/99-ai-review-checklist
 topic: woocommerce
 slug: ai-review-checklist
 title: "WooCommerce AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [woocommerce, ai-review-checklist, wc_clean, __return_true, wp_kses, permission_callback, sanitize_text_field, wp_posts]

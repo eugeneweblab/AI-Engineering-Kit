@@ -3,7 +3,7 @@ id: nextjs/100-common-antipatterns
 topic: nextjs
 slug: common-antipatterns
 title: "Common Anti-Patterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [nextjs, common-antipatterns, cookies, UserCard, Stripe, revalidatePath, NEXT_PUBLIC_, ProductsPage]

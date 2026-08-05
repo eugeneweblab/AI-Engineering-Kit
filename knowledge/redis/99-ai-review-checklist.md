@@ -3,7 +3,7 @@ id: redis/99-ai-review-checklist
 topic: redis
 slug: ai-review-checklist
 title: "Redis AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [redis, ai-review-checklist, DEL, SCAN, WAIT, MOVED, ASK, UNLINK]

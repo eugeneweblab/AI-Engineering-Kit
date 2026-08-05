@@ -3,7 +3,7 @@ id: rest-api/98-production-checklist
 topic: rest-api
 slug: production-checklist
 title: "REST API Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [rest-api, production-checklist, Deprecation, Sunset, Idempotency-Key, request_id, PATCH, Retry-After]

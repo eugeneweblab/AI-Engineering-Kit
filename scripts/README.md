@@ -70,7 +70,7 @@ inspection:
 | Check | What fails the build |
 |---|---|
 | structure | a standard topic missing `README`/`00`/`98`/`99`/`100`, or a gap in `01`–`30` |
-| frontmatter | `id`/`topic`/`order` disagreeing with the path; empty `status`/`title`/`when_to_use` |
+| frontmatter | `id`/`topic`/`order` disagreeing with the path; empty `status`/`title`/`when_to_use`; an unknown `type`, `applies_to` variant, or a `defers_to` target that does not exist or is missing from `related` |
 | duplicates | a repeated `id`, a repeated `title`, or two docs claiming the same `order` inside a topic |
 | links | a markdown link, a `related:` id, or a `` `knowledge/…md` `` path that does not resolve |
 | fences | an unclosed ``` fence |

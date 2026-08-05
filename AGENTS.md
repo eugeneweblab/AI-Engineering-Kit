@@ -59,15 +59,26 @@ id: nextjs/03-app-router      # stable unique id (topic/basename)
 topic: nextjs                 # owning topic (folder name)
 slug: app-router              # topic-scoped slug
 title: "Next.js App Router"   # human title (first H1)
-type: doc                     # doc | index
+type: doc                     # doc | index | checklist | antipatterns | workflow
+                              # | template | playbook | prompt | snippet | example
 order: 3                      # canonical ordering within the topic
 status: ready                 # ready | draft  ← authoritative only when "ready"
 tags: [nextjs, app-router,    # topic, slug, then the API names this doc governs
        generateStaticParams, notFound]
+applies_to: [app-router]      # optional: the variant this doc is specific to
 related: []                   # ids of related docs
+defers_to: ""                 # optional: when two topics cover one subject,
+                              # the doc that owns the rule
 when_to_use: ""               # one line: when this doc applies (fill as content lands)
 ---
 ```
+
+`applies_to` and `defers_to` appear only when they say something. `applies_to`
+names the variant a document is specific to — App Router caching rules are not
+"mostly right" on the Pages Router, they are wrong — so a document carrying it
+should be skipped when the repository is the other variant. `defers_to` names the
+document that owns the rule when two topics cover one subject; the deferring
+document still applies, but it does not override the owner.
 
 **`status` is the most important field:**
 

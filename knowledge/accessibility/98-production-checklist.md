@@ -3,7 +3,7 @@ id: accessibility/98-production-checklist
 topic: accessibility
 slug: production-checklist
 title: "Accessibility Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [accessibility, production-checklist, aria-live, tabindex, lang, role, aria-describedby, aria-label]

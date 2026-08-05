@@ -3,7 +3,7 @@ id: checklists/01-pre-launch
 topic: checklists
 slug: pre-launch
 title: "Pre-Launch Checklist"
-type: doc
+type: checklist
 order: 1
 status: ready
 tags: [checklists, pre-launch, robots.txt, X-Content-Type-Options, Referrer-Policy, noindex]

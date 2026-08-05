@@ -3,7 +3,7 @@ id: kubernetes/100-common-antipatterns
 topic: kubernetes
 slug: common-antipatterns
 title: "Kubernetes Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [kubernetes, common-antipatterns, ResourceQuota, requests, limits, SIGTERM, minAvailable, preStop]

@@ -3,7 +3,7 @@ id: templates/01-pull-request
 topic: templates
 slug: pull-request
 title: "Pull Request Template"
-type: doc
+type: template
 order: 1
 status: ready
 tags: [templates, pull-request, getOrders]

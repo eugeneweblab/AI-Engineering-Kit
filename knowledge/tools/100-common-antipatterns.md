@@ -3,7 +3,7 @@ id: tools/100-common-antipatterns
 topic: tools
 slug: common-antipatterns
 title: "Tools Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [tools, common-antipatterns, package.json, engine-strict, eslint-config-prettier, VITE_, packageManager, engines]

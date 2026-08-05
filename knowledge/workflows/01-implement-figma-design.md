@@ -3,7 +3,7 @@ id: workflows/01-implement-figma-design
 topic: workflows
 slug: implement-figma-design
 title: "Workflow — Implement a Figma Design"
-type: doc
+type: workflow
 order: 1
 status: ready
 tags: [workflows, implement-figma-design, them]

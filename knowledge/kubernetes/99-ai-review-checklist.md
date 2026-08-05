@@ -3,7 +3,7 @@ id: kubernetes/99-ai-review-checklist
 topic: kubernetes
 slug: ai-review-checklist
 title: "Kubernetes AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [kubernetes, ai-review-checklist, runAsUser, imagePullPolicy, Always, readinessProbe, privileged, livenessProbe]

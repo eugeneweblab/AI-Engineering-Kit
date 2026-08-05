@@ -7,7 +7,8 @@ type: doc
 order: 17
 status: ready
 tags: [rest-api, rate-limiting, rateLimit, ceil, Retry-After, RateLimit-Reset, RateLimit-Remaining]
-related: [rest-api/15-authentication, rest-api/16-authorization, rest-api/07-status-codes, rest-api/24-security, rest-api/25-performance]
+related: [security/21-rate-limiting, rest-api/15-authentication, rest-api/16-authorization, rest-api/07-status-codes, rest-api/24-security, rest-api/25-performance]
+defers_to: security/21-rate-limiting
 when_to_use: "Read before exposing any public or authenticated endpoint that could be called in a loop."
 ---
 # REST API Rate Limiting
@@ -131,6 +132,7 @@ function rateLimit(req: Request) {
 
 ## Related
 
+- `knowledge/security/21-rate-limiting.md`
 - `knowledge/rest-api/15-authentication.md`
 - `knowledge/rest-api/16-authorization.md`
 - `knowledge/rest-api/07-status-codes.md`

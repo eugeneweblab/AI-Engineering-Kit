@@ -3,7 +3,7 @@ id: docker/99-ai-review-checklist
 topic: docker
 slug: ai-review-checklist
 title: "Docker AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [docker, ai-review-checklist, COPY, apt-get, Dockerfile, ARG, ENTRYPOINT, HEALTHCHECK]

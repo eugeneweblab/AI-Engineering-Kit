@@ -3,7 +3,7 @@ id: databases/98-production-checklist
 topic: databases
 slug: production-checklist
 title: "Database Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [databases, production-checklist, EXPLAIN, decimal, timestamptz, numeric, float, OFFSET]

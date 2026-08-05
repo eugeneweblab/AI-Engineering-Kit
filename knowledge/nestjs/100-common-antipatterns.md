@@ -3,7 +3,7 @@ id: nestjs/100-common-antipatterns
 topic: nestjs
 slug: common-antipatterns
 title: "Common Engineering Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [nestjs, common-antipatterns, InjectRepository, Injectable, UsersService, BadRequestException, Controller, constructor]

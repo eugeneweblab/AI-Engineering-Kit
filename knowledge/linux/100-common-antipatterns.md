@@ -3,7 +3,7 @@ id: linux/100-common-antipatterns
 topic: linux
 slug: common-antipatterns
 title: "Linux Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [linux, common-antipatterns, chown, shellcheck, nohup, enable]

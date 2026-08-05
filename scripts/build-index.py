@@ -57,6 +57,10 @@ for topic in sorted(os.listdir(KB)):
             "order": order,
             "status": meta.get("status", "unknown"),
             "tags": meta.get("tags", []),
+            # Present only when they say something: the variant a doc is specific
+            # to, and the doc that owns the rule when two topics cover one subject.
+            **({"applies_to": meta["applies_to"]} if meta.get("applies_to") else {}),
+            **({"defers_to": meta["defers_to"]} if meta.get("defers_to") else {}),
             "when_to_use": meta.get("when_to_use", ""),
             "path": rel,
         })

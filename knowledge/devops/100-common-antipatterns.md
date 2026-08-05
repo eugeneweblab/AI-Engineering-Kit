@@ -3,7 +3,7 @@ id: devops/100-common-antipatterns
 topic: devops
 slug: common-antipatterns
 title: "DevOps Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [devops, common-antipatterns]

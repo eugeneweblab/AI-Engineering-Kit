@@ -17,6 +17,7 @@
     },
     {
       "when": "app/**/page.tsx",
+      "variant": "app-router",
       "means": "Next.js App Router — the current model",
       "docs": [
         "nextjs/03-app-router",
@@ -26,6 +27,7 @@
     },
     {
       "when": "pages/_app.tsx",
+      "variant": "pages-router",
       "means": "Next.js Pages Router — legacy; do not extend it",
       "docs": [
         "nextjs/30-migration-guide",
@@ -42,6 +44,7 @@
     },
     {
       "when": "prisma/schema.prisma",
+      "variant": "prisma",
       "means": "Prisma is the ORM",
       "docs": [
         "prisma/02-schema",
@@ -51,6 +54,7 @@
     },
     {
       "when": "ormconfig.*|**/*.entity.ts",
+      "variant": "typeorm",
       "means": "TypeORM is the ORM",
       "docs": [
         "nestjs/17-database",
@@ -129,6 +133,7 @@
     },
     {
       "when": "wp-content/themes/*/theme.json",
+      "variant": "block-theme",
       "means": "WordPress block theme",
       "docs": [
         "wordpress/17-block-themes",
@@ -138,6 +143,7 @@
     {
       "when": "wp-content/themes/*/functions.php",
       "absent": "wp-content/themes/*/theme.json",
+      "variant": "classic-theme",
       "means": "WordPress classic theme — the template hierarchy governs",
       "docs": [
         "wordpress/13-template-hierarchy",
@@ -154,6 +160,7 @@
     },
     {
       "when": "wp-content/themes/Divi/|wp-content/themes/*/style.css:Template: Divi",
+      "variant": "classic-theme",
       "means": "Divi builder — assumes a classic theme",
       "docs": [
         "divi/01-architecture",

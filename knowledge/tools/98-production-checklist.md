@@ -3,7 +3,7 @@ id: tools/98-production-checklist
 topic: tools
 slug: production-checklist
 title: "Tools Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [tools, production-checklist, config.platform, publint, packageManager]

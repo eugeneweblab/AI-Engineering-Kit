@@ -3,7 +3,7 @@ id: php/98-production-checklist
 topic: php
 slug: production-checklist
 title: "PHP Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [php, production-checklist, upload_max_filesize, post_max_size, opcache.memory_consumption, X-Powered-By, psalm, phpstan]

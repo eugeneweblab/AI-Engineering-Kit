@@ -3,7 +3,7 @@ id: nodejs/99-ai-review-checklist
 topic: nodejs
 slug: ai-review-checklist
 title: "Node.js AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [nodejs, ai-review-checklist, EventEmitter, AbortSignal, pipe, timeout, setImmediate, child_process.exec]

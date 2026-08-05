@@ -3,7 +3,7 @@ id: nextjs/99-ai-review-checklist
 topic: nextjs
 slug: ai-review-checklist
 title: "Next.js AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [nextjs, ai-review-checklist, remotePatterns, fill, revalidatePath, error.tsx, revalidateTag, loading.tsx]

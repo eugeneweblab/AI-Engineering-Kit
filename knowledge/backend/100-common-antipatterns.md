@@ -3,7 +3,7 @@ id: backend/100-common-antipatterns
 topic: backend
 slug: common-antipatterns
 title: "Backend Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [backend, common-antipatterns, LIMIT]

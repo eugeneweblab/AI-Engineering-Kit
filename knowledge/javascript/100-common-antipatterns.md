@@ -3,7 +3,7 @@ id: javascript/100-common-antipatterns
 topic: javascript
 slug: common-antipatterns
 title: "JavaScript Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [javascript, common-antipatterns, res.ok, save, innerHTML, addEventListener, setTimeout]

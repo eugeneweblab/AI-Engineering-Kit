@@ -593,7 +593,7 @@
           "id": "accessibility/98-production-checklist",
           "title": "Accessibility Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -613,7 +613,7 @@
           "id": "accessibility/99-ai-review-checklist",
           "title": "Accessibility AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -633,7 +633,7 @@
           "id": "accessibility/100-common-antipatterns",
           "title": "Accessibility Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -1374,7 +1374,7 @@
           "id": "architecture/98-production-checklist",
           "title": "Architecture Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -1388,7 +1388,7 @@
           "id": "architecture/99-ai-review-checklist",
           "title": "Architecture AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -1402,7 +1402,7 @@
           "id": "architecture/100-common-antipatterns",
           "title": "Architecture Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -1972,7 +1972,7 @@
           "id": "aws/98-production-checklist",
           "title": "AWS Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -1988,7 +1988,7 @@
           "id": "aws/99-ai-review-checklist",
           "title": "AWS AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -2005,7 +2005,7 @@
           "id": "aws/100-common-antipatterns",
           "title": "AWS Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -2244,6 +2244,7 @@
             "getStore",
             "decode"
           ],
+          "defers_to": "security/03-authentication",
           "when_to_use": "Read before wiring authentication into a service — where identity is verified, how it is carried through the layers, and how it crosses a service boundary.",
           "path": "knowledge/backend/10-authentication.md"
         },
@@ -2264,6 +2265,7 @@
             "required",
             "findOne"
           ],
+          "defers_to": "security/04-authorization",
           "when_to_use": "Read before adding or reviewing any permission check, role, ownership rule, or access-control decision.",
           "path": "knowledge/backend/11-authorization.md"
         },
@@ -2341,6 +2343,7 @@
             "insertIfAbsent",
             "transaction"
           ],
+          "defers_to": "architecture/20-message-brokers",
           "when_to_use": "Read before publishing to or consuming from a broker (Kafka, RabbitMQ, SQS, NATS) or choosing one.",
           "path": "knowledge/backend/15-message-brokers.md"
         },
@@ -2610,7 +2613,7 @@
           "id": "backend/98-production-checklist",
           "title": "Backend Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -2624,7 +2627,7 @@
           "id": "backend/99-ai-review-checklist",
           "title": "Backend AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -2638,7 +2641,7 @@
           "id": "backend/100-common-antipatterns",
           "title": "Backend Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -2675,7 +2678,7 @@
           "id": "checklists/01-pre-launch",
           "title": "Pre-Launch Checklist",
           "slug": "pre-launch",
-          "type": "doc",
+          "type": "checklist",
           "order": 1,
           "status": "ready",
           "tags": [
@@ -2693,7 +2696,7 @@
           "id": "checklists/02-pull-request-author",
           "title": "Pull Request Author Checklist",
           "slug": "pull-request-author",
-          "type": "doc",
+          "type": "checklist",
           "order": 2,
           "status": "ready",
           "tags": [
@@ -2711,7 +2714,7 @@
           "id": "checklists/03-new-project-setup",
           "title": "New Project Setup Checklist",
           "slug": "new-project-setup",
-          "type": "doc",
+          "type": "checklist",
           "order": 3,
           "status": "ready",
           "tags": [
@@ -3283,7 +3286,7 @@
           "id": "cicd/98-production-checklist",
           "title": "CI/CD Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -3297,7 +3300,7 @@
           "id": "cicd/99-ai-review-checklist",
           "title": "CI/CD AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -3313,7 +3316,7 @@
           "id": "cicd/100-common-antipatterns",
           "title": "CI/CD Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -3926,7 +3929,7 @@
           "id": "css/98-production-checklist",
           "title": "CSS Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -3945,7 +3948,7 @@
           "id": "css/99-ai-review-checklist",
           "title": "CSS AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -3965,7 +3968,7 @@
           "id": "css/100-common-antipatterns",
           "title": "CSS Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -4559,7 +4562,7 @@
           "id": "databases/98-production-checklist",
           "title": "Database Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -4579,7 +4582,7 @@
           "id": "databases/99-ai-review-checklist",
           "title": "Database AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -4598,7 +4601,7 @@
           "id": "databases/100-common-antipatterns",
           "title": "Database Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -4983,6 +4986,7 @@
             "send",
             "AbortSignal"
           ],
+          "defers_to": "architecture/16-high-availability",
           "when_to_use": "Read before designing redundancy, health checks, failover, or SLA targets for a production service.",
           "path": "knowledge/devops/19-high-availability.md"
         },
@@ -5161,7 +5165,7 @@
           "id": "devops/98-production-checklist",
           "title": "DevOps Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -5175,7 +5179,7 @@
           "id": "devops/99-ai-review-checklist",
           "title": "DevOps AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -5189,7 +5193,7 @@
           "id": "devops/100-common-antipatterns",
           "title": "DevOps Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -5248,6 +5252,9 @@
             "architecture",
             "post_content",
             "functions.php"
+          ],
+          "applies_to": [
+            "classic-theme"
           ],
           "when_to_use": "Read before editing Divi content or writing module code, to understand the content model and render pipeline.",
           "path": "knowledge/divi/01-architecture.md"
@@ -5770,7 +5777,7 @@
           "id": "divi/98-production-checklist",
           "title": "Divi Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -5786,7 +5793,7 @@
           "id": "divi/99-ai-review-checklist",
           "title": "Divi AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -5805,7 +5812,7 @@
           "id": "divi/100-common-antipatterns",
           "title": "Divi Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -6410,7 +6417,7 @@
           "id": "docker/98-production-checklist",
           "title": "Docker Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -6430,7 +6437,7 @@
           "id": "docker/99-ai-review-checklist",
           "title": "Docker AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -6450,7 +6457,7 @@
           "id": "docker/100-common-antipatterns",
           "title": "Docker Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -6646,7 +6653,7 @@
           "id": "examples/01-rest-endpoint",
           "title": "Example — REST Endpoint",
           "slug": "rest-endpoint",
-          "type": "doc",
+          "type": "example",
           "order": 1,
           "status": "ready",
           "tags": [
@@ -6666,7 +6673,7 @@
           "id": "examples/02-react-component",
           "title": "Example — React Component",
           "slug": "react-component",
-          "type": "doc",
+          "type": "example",
           "order": 2,
           "status": "ready",
           "tags": [
@@ -6686,7 +6693,7 @@
           "id": "examples/03-wordpress-feature",
           "title": "Example — WordPress Feature",
           "slug": "wordpress-feature",
-          "type": "doc",
+          "type": "example",
           "order": 3,
           "status": "ready",
           "tags": [
@@ -7312,6 +7319,7 @@
             "useEffect",
             "prefers-reduced-motion"
           ],
+          "defers_to": "accessibility/01-accessibility-fundamentals",
           "when_to_use": "Read before building any interactive component, form, modal, or custom control.",
           "path": "knowledge/frontend/09-accessibility.md"
         },
@@ -7331,6 +7339,7 @@
             "srcset",
             "clamp"
           ],
+          "defers_to": "css/17-responsive-design",
           "when_to_use": "Read before building any layout or component that must work across phone, tablet, and desktop.",
           "path": "knowledge/frontend/10-responsive-design.md"
         },
@@ -7448,6 +7457,7 @@
             "stylelint",
             "Button.tsx"
           ],
+          "defers_to": "css/21-architecture",
           "when_to_use": "Read before establishing how CSS is organized, layered, and scaled across a codebase.",
           "path": "knowledge/frontend/16-css-architecture.md"
         },
@@ -7728,7 +7738,7 @@
           "id": "frontend/98-production-checklist",
           "title": "Frontend Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -7747,7 +7757,7 @@
           "id": "frontend/99-ai-review-checklist",
           "title": "Frontend AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -7766,7 +7776,7 @@
           "id": "frontend/100-common-antipatterns",
           "title": "Frontend Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -8311,7 +8321,7 @@
           "id": "git/98-production-checklist",
           "title": "Git Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -8329,7 +8339,7 @@
           "id": "git/99-ai-review-checklist",
           "title": "Git AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -8346,7 +8356,7 @@
           "id": "git/100-common-antipatterns",
           "title": "Git Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -8940,7 +8950,7 @@
           "id": "github/98-production-checklist",
           "title": "GitHub Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -8960,7 +8970,7 @@
           "id": "github/99-ai-review-checklist",
           "title": "GitHub AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -8978,7 +8988,7 @@
           "id": "github/100-common-antipatterns",
           "title": "GitHub Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -9591,7 +9601,7 @@
           "id": "graphql/98-production-checklist",
           "title": "GraphQL Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -9606,7 +9616,7 @@
           "id": "graphql/99-ai-review-checklist",
           "title": "GraphQL AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -9620,7 +9630,7 @@
           "id": "graphql/100-common-antipatterns",
           "title": "GraphQL Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -10241,7 +10251,7 @@
           "id": "html/98-production-checklist",
           "title": "HTML Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -10258,7 +10268,7 @@
           "id": "html/99-ai-review-checklist",
           "title": "HTML AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -10277,7 +10287,7 @@
           "id": "html/100-common-antipatterns",
           "title": "HTML Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -10914,7 +10924,7 @@
           "id": "javascript/98-production-checklist",
           "title": "JavaScript Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -10934,7 +10944,7 @@
           "id": "javascript/99-ai-review-checklist",
           "title": "JavaScript AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -10953,7 +10963,7 @@
           "id": "javascript/100-common-antipatterns",
           "title": "JavaScript Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -11568,7 +11578,7 @@
           "id": "kubernetes/98-production-checklist",
           "title": "Kubernetes Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -11588,7 +11598,7 @@
           "id": "kubernetes/99-ai-review-checklist",
           "title": "Kubernetes AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -11608,7 +11618,7 @@
           "id": "kubernetes/100-common-antipatterns",
           "title": "Kubernetes Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -12217,7 +12227,7 @@
           "id": "linux/98-production-checklist",
           "title": "Linux Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -12237,7 +12247,7 @@
           "id": "linux/99-ai-review-checklist",
           "title": "Linux AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -12255,7 +12265,7 @@
           "id": "linux/100-common-antipatterns",
           "title": "Linux Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -12901,7 +12911,7 @@
           "id": "mysql/98-production-checklist",
           "title": "MySQL Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -12921,7 +12931,7 @@
           "id": "mysql/99-ai-review-checklist",
           "title": "MySQL AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -12941,7 +12951,7 @@
           "id": "mysql/100-common-antipatterns",
           "title": "MySQL Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -13109,6 +13119,9 @@
             "UserEntity",
             "Inject",
             "constructor"
+          ],
+          "applies_to": [
+            "typeorm"
           ],
           "when_to_use": "Read before writing or reviewing any data-access or repository layer that reads from or writes to persistent storage.",
           "path": "knowledge/nestjs/06-repositories.md"
@@ -13326,6 +13339,9 @@
             "InjectRepository",
             "Column",
             "InjectDataSource"
+          ],
+          "applies_to": [
+            "typeorm"
           ],
           "when_to_use": "Read before integrating or reviewing database access, ORM setup, entities, or migrations in a NestJS application.",
           "path": "knowledge/nestjs/17-database.md"
@@ -13593,7 +13609,7 @@
           "id": "nestjs/98-production-checklist",
           "title": "Production Readiness Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -13607,7 +13623,7 @@
           "id": "nestjs/99-ai-review-checklist",
           "title": "AI Engineering Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -13621,7 +13637,7 @@
           "id": "nestjs/100-common-antipatterns",
           "title": "Common Engineering Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -13733,6 +13749,9 @@
             "error.tsx",
             "page.tsx"
           ],
+          "applies_to": [
+            "app-router"
+          ],
           "when_to_use": "Read before structuring routes and directories with the Next.js App Router.",
           "path": "knowledge/nextjs/03-app-router.md"
         },
@@ -13793,6 +13812,9 @@
             "setOrders",
             "aggregate"
           ],
+          "applies_to": [
+            "app-router"
+          ],
           "when_to_use": "Read before building server-rendered components or moving logic to the server in Next.js.",
           "path": "knowledge/nextjs/06-server-components.md"
         },
@@ -13812,6 +13834,9 @@
             "useEffect",
             "ProductList",
             "useTransition"
+          ],
+          "applies_to": [
+            "app-router"
           ],
           "when_to_use": "Read before adding interactivity or client-side state with a Next.js Client Component.",
           "path": "knowledge/nextjs/07-client-components.md"
@@ -13853,6 +13878,9 @@
             "no-store",
             "API_URL"
           ],
+          "applies_to": [
+            "app-router"
+          ],
           "when_to_use": "Read before fetching data from a database or API in a Next.js app.",
           "path": "knowledge/nextjs/09-data-fetching.md"
         },
@@ -13870,6 +13898,9 @@
             "API_URL",
             "getProduct",
             "revalidatePath"
+          ],
+          "applies_to": [
+            "app-router"
           ],
           "when_to_use": "Read before configuring caching or revalidation for data and routes in Next.js.",
           "path": "knowledge/nextjs/10-caching.md"
@@ -13891,6 +13922,9 @@
             "revalidateTag",
             "useActionState"
           ],
+          "applies_to": [
+            "app-router"
+          ],
           "when_to_use": "Read before implementing form submissions or data mutations with Next.js Server Actions.",
           "path": "knowledge/nextjs/11-server-actions.md"
         },
@@ -13909,6 +13943,9 @@
             "route.ts",
             "NextRequest",
             "treeifyError"
+          ],
+          "applies_to": [
+            "app-router"
           ],
           "when_to_use": "Read before building HTTP endpoints or Route Handlers in a Next.js app.",
           "path": "knowledge/nextjs/12-api-routes.md"
@@ -14265,6 +14302,10 @@
             "searchParams",
             "getStaticProps"
           ],
+          "applies_to": [
+            "pages-router",
+            "app-router"
+          ],
           "when_to_use": "Read before migrating a Pages Router app to the App Router or upgrading across a major Next.js version.",
           "path": "knowledge/nextjs/30-migration-guide.md"
         },
@@ -14272,7 +14313,7 @@
           "id": "nextjs/98-production-checklist",
           "title": "Next.js Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -14286,7 +14327,7 @@
           "id": "nextjs/99-ai-review-checklist",
           "title": "Next.js AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -14306,7 +14347,7 @@
           "id": "nextjs/100-common-antipatterns",
           "title": "Common Anti-Patterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -14946,7 +14987,7 @@
           "id": "nginx/98-production-checklist",
           "title": "Nginx Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -14966,7 +15007,7 @@
           "id": "nginx/99-ai-review-checklist",
           "title": "Nginx AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -14986,7 +15027,7 @@
           "id": "nginx/100-common-antipatterns",
           "title": "Nginx Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -15636,7 +15677,7 @@
           "id": "nodejs/98-production-checklist",
           "title": "Node.js Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -15656,7 +15697,7 @@
           "id": "nodejs/99-ai-review-checklist",
           "title": "Node.js AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -15676,7 +15717,7 @@
           "id": "nodejs/100-common-antipatterns",
           "title": "Node.js Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -15953,6 +15994,7 @@
             "statement_timeout",
             "LIMIT"
           ],
+          "defers_to": "databases/20-performance",
           "when_to_use": "Read before designing schema, adding indexes, or diagnosing a slow database-backed endpoint.",
           "path": "knowledge/performance/13-database-performance.md"
         },
@@ -16255,7 +16297,7 @@
           "id": "performance/98-production-checklist",
           "title": "Performance Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -16271,7 +16313,7 @@
           "id": "performance/99-ai-review-checklist",
           "title": "Performance AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -16285,7 +16327,7 @@
           "id": "performance/100-common-antipatterns",
           "title": "Performance Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -16918,7 +16960,7 @@
           "id": "php/98-production-checklist",
           "title": "PHP Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -16938,7 +16980,7 @@
           "id": "php/99-ai-review-checklist",
           "title": "PHP AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -16958,7 +17000,7 @@
           "id": "php/100-common-antipatterns",
           "title": "PHP Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -17000,7 +17042,7 @@
           "id": "playbooks/01-site-down",
           "title": "Playbook — Site Down",
           "slug": "site-down",
-          "type": "doc",
+          "type": "playbook",
           "order": 1,
           "status": "ready",
           "tags": [
@@ -17014,7 +17056,7 @@
           "id": "playbooks/02-failed-deployment",
           "title": "Playbook — Failed Deployment",
           "slug": "failed-deployment",
-          "type": "doc",
+          "type": "playbook",
           "order": 2,
           "status": "ready",
           "tags": [
@@ -17028,7 +17070,7 @@
           "id": "playbooks/03-security-incident",
           "title": "Playbook — Security Incident",
           "slug": "security-incident",
-          "type": "doc",
+          "type": "playbook",
           "order": 3,
           "status": "ready",
           "tags": [
@@ -17670,7 +17712,7 @@
           "id": "postgresql/98-production-checklist",
           "title": "PostgreSQL Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -17690,7 +17732,7 @@
           "id": "postgresql/99-ai-review-checklist",
           "title": "PostgreSQL AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -17710,7 +17752,7 @@
           "id": "postgresql/100-common-antipatterns",
           "title": "PostgreSQL Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -18357,7 +18399,7 @@
           "id": "prisma/98-production-checklist",
           "title": "Prisma Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -18377,7 +18419,7 @@
           "id": "prisma/99-ai-review-checklist",
           "title": "Prisma AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -18397,7 +18439,7 @@
           "id": "prisma/100-common-antipatterns",
           "title": "Prisma Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -18439,7 +18481,7 @@
           "id": "prompts/01-code-review",
           "title": "Prompt — Code Review",
           "slug": "code-review",
-          "type": "doc",
+          "type": "prompt",
           "order": 1,
           "status": "ready",
           "tags": [
@@ -18453,7 +18495,7 @@
           "id": "prompts/02-bug-investigation",
           "title": "Prompt — Bug Investigation",
           "slug": "bug-investigation",
-          "type": "doc",
+          "type": "prompt",
           "order": 2,
           "status": "ready",
           "tags": [
@@ -18469,7 +18511,7 @@
           "id": "prompts/03-refactoring",
           "title": "Prompt — Refactoring",
           "slug": "refactoring",
-          "type": "doc",
+          "type": "prompt",
           "order": 3,
           "status": "ready",
           "tags": [
@@ -19115,7 +19157,7 @@
           "id": "react/98-production-checklist",
           "title": "React Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -19135,7 +19177,7 @@
           "id": "react/99-ai-review-checklist",
           "title": "React Definition of Done",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -19150,7 +19192,7 @@
           "id": "react/100-common-antipatterns",
           "title": "React Anti-Patterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -19795,7 +19837,7 @@
           "id": "redis/98-production-checklist",
           "title": "Redis Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -19815,7 +19857,7 @@
           "id": "redis/99-ai-review-checklist",
           "title": "Redis AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -19835,7 +19877,7 @@
           "id": "redis/100-common-antipatterns",
           "title": "Redis Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -20197,6 +20239,7 @@
             "RateLimit-Reset",
             "RateLimit-Remaining"
           ],
+          "defers_to": "security/21-rate-limiting",
           "when_to_use": "Read before exposing any public or authenticated endpoint that could be called in a loop.",
           "path": "knowledge/rest-api/17-rate-limiting.md"
         },
@@ -20453,7 +20496,7 @@
           "id": "rest-api/98-production-checklist",
           "title": "REST API Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -20473,7 +20516,7 @@
           "id": "rest-api/99-ai-review-checklist",
           "title": "REST API AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -20488,7 +20531,7 @@
           "id": "rest-api/100-common-antipatterns",
           "title": "REST API Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -21092,7 +21135,7 @@
           "id": "security/98-production-checklist",
           "title": "Security Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -21112,7 +21155,7 @@
           "id": "security/99-ai-review-checklist",
           "title": "Security AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -21131,7 +21174,7 @@
           "id": "security/100-common-antipatterns",
           "title": "Security Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -21751,7 +21794,7 @@
           "id": "seo/98-production-checklist",
           "title": "SEO Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -21771,7 +21814,7 @@
           "id": "seo/99-ai-review-checklist",
           "title": "SEO AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -21790,7 +21833,7 @@
           "id": "seo/100-common-antipatterns",
           "title": "SEO Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -21832,7 +21875,7 @@
           "id": "snippets/01-typescript-utilities",
           "title": "TypeScript Utilities",
           "slug": "typescript-utilities",
-          "type": "doc",
+          "type": "snippet",
           "order": 1,
           "status": "ready",
           "tags": [
@@ -21852,7 +21895,7 @@
           "id": "snippets/02-php-wordpress",
           "title": "PHP and WordPress Snippets",
           "slug": "php-wordpress",
-          "type": "doc",
+          "type": "snippet",
           "order": 2,
           "status": "ready",
           "tags": [
@@ -21872,7 +21915,7 @@
           "id": "snippets/03-shell-scripts",
           "title": "Shell Script Snippets",
           "slug": "shell-scripts",
-          "type": "doc",
+          "type": "snippet",
           "order": 3,
           "status": "ready",
           "tags": [
@@ -22498,7 +22541,7 @@
           "id": "sql/98-production-checklist",
           "title": "SQL Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -22518,7 +22561,7 @@
           "id": "sql/99-ai-review-checklist",
           "title": "SQL AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -22538,7 +22581,7 @@
           "id": "sql/100-common-antipatterns",
           "title": "SQL Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -23181,7 +23224,7 @@
           "id": "tailwind/98-production-checklist",
           "title": "Tailwind CSS Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -23199,7 +23242,7 @@
           "id": "tailwind/99-ai-review-checklist",
           "title": "Tailwind CSS AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -23219,7 +23262,7 @@
           "id": "tailwind/100-common-antipatterns",
           "title": "Tailwind CSS Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -23261,7 +23304,7 @@
           "id": "templates/01-pull-request",
           "title": "Pull Request Template",
           "slug": "pull-request",
-          "type": "doc",
+          "type": "template",
           "order": 1,
           "status": "ready",
           "tags": [
@@ -23276,7 +23319,7 @@
           "id": "templates/02-architecture-decision-record",
           "title": "Architecture Decision Record Template",
           "slug": "architecture-decision-record",
-          "type": "doc",
+          "type": "template",
           "order": 2,
           "status": "ready",
           "tags": [
@@ -23295,7 +23338,7 @@
           "id": "templates/03-incident-report",
           "title": "Incident Report Template",
           "slug": "incident-report",
-          "type": "doc",
+          "type": "template",
           "order": 3,
           "status": "ready",
           "tags": [
@@ -23905,7 +23948,7 @@
           "id": "testing/98-production-checklist",
           "title": "Testing Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -23919,7 +23962,7 @@
           "id": "testing/99-ai-review-checklist",
           "title": "Testing AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -23935,7 +23978,7 @@
           "id": "testing/100-common-antipatterns",
           "title": "Testing Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -24275,6 +24318,7 @@
             "E2E",
             "package.json"
           ],
+          "defers_to": "git/20-hooks",
           "when_to_use": "Read before adding pre-commit or pre-push automation — choosing a hook manager, deciding what belongs in each hook, and keeping hooks fast enough to survive.",
           "path": "knowledge/tools/16-git-hooks.md"
         },
@@ -24546,7 +24590,7 @@
           "id": "tools/98-production-checklist",
           "title": "Tools Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -24563,7 +24607,7 @@
           "id": "tools/99-ai-review-checklist",
           "title": "Tools AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -24583,7 +24627,7 @@
           "id": "tools/100-common-antipatterns",
           "title": "Tools Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -25222,7 +25266,7 @@
           "id": "typescript/98-production-checklist",
           "title": "TypeScript Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -25242,7 +25286,7 @@
           "id": "typescript/99-ai-review-checklist",
           "title": "TypeScript AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -25262,7 +25306,7 @@
           "id": "typescript/100-common-antipatterns",
           "title": "TypeScript Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -25913,7 +25957,7 @@
           "id": "woocommerce/98-production-checklist",
           "title": "WooCommerce Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -25929,7 +25973,7 @@
           "id": "woocommerce/99-ai-review-checklist",
           "title": "WooCommerce AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -25949,7 +25993,7 @@
           "id": "woocommerce/100-common-antipatterns",
           "title": "WooCommerce Common Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -26259,6 +26303,9 @@
             "is_singular",
             "add_filter"
           ],
+          "applies_to": [
+            "classic-theme"
+          ],
           "when_to_use": "Read before creating or overriding a theme template — choosing the right filename, adding template parts, or debugging which template WordPress actually loaded.",
           "path": "knowledge/wordpress/13-template-hierarchy.md"
         },
@@ -26278,6 +26325,9 @@
             "get_template_directory_uri",
             "filemtime",
             "wp_enqueue_style"
+          ],
+          "applies_to": [
+            "classic-theme"
           ],
           "when_to_use": "Read before building or modifying a theme — creating a child theme, enqueuing assets, declaring theme support, or registering menus and image sizes.",
           "path": "knowledge/wordpress/14-theme-development.md"
@@ -26319,6 +26369,9 @@
             "register_block_type",
             "register_block_pattern"
           ],
+          "applies_to": [
+            "block-theme"
+          ],
           "when_to_use": "Read before building for the block editor — registering a block, choosing static or dynamic rendering, adding block supports, or handling deprecations.",
           "path": "knowledge/wordpress/16-block-editor.md"
         },
@@ -26336,6 +26389,9 @@
             "rendered",
             "style.css",
             "index.html"
+          ],
+          "applies_to": [
+            "block-theme"
           ],
           "when_to_use": "Read before building a block theme or writing theme.json — defining presets, styling blocks globally, or creating HTML templates and parts.",
           "path": "knowledge/wordpress/17-block-themes.md"
@@ -26604,7 +26660,7 @@
           "id": "wordpress/98-production-checklist",
           "title": "WordPress Production Checklist",
           "slug": "production-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 98,
           "status": "ready",
           "tags": [
@@ -26618,7 +26674,7 @@
           "id": "wordpress/99-ai-review-checklist",
           "title": "WordPress AI Review Checklist",
           "slug": "ai-review-checklist",
-          "type": "doc",
+          "type": "checklist",
           "order": 99,
           "status": "ready",
           "tags": [
@@ -26632,7 +26688,7 @@
           "id": "wordpress/100-common-antipatterns",
           "title": "Common WordPress Antipatterns",
           "slug": "common-antipatterns",
-          "type": "doc",
+          "type": "antipatterns",
           "order": 100,
           "status": "ready",
           "tags": [
@@ -26674,7 +26730,7 @@
           "id": "workflows/01-implement-figma-design",
           "title": "Workflow — Implement a Figma Design",
           "slug": "implement-figma-design",
-          "type": "doc",
+          "type": "workflow",
           "order": 1,
           "status": "ready",
           "tags": [
@@ -26689,7 +26745,7 @@
           "id": "workflows/02-fix-a-bug",
           "title": "Workflow — Fix a Bug",
           "slug": "fix-a-bug",
-          "type": "doc",
+          "type": "workflow",
           "order": 2,
           "status": "ready",
           "tags": [
@@ -26708,7 +26764,7 @@
           "id": "workflows/03-create-new-feature",
           "title": "Workflow — Create a New Feature",
           "slug": "create-new-feature",
-          "type": "doc",
+          "type": "workflow",
           "order": 3,
           "status": "ready",
           "tags": [
@@ -26728,7 +26784,7 @@
           "id": "workflows/04-refactor-existing-code",
           "title": "Workflow — Refactor Existing Code",
           "slug": "refactor-existing-code",
-          "type": "doc",
+          "type": "workflow",
           "order": 4,
           "status": "ready",
           "tags": [
@@ -26743,7 +26799,7 @@
           "id": "workflows/05-review-pull-request",
           "title": "Workflow — Review a Pull Request",
           "slug": "review-pull-request",
-          "type": "doc",
+          "type": "workflow",
           "order": 5,
           "status": "ready",
           "tags": [
@@ -26759,7 +26815,7 @@
           "id": "workflows/06-investigate-production-bug",
           "title": "Workflow — Investigate a Production Bug",
           "slug": "investigate-production-bug",
-          "type": "doc",
+          "type": "workflow",
           "order": 6,
           "status": "ready",
           "tags": [
@@ -26773,7 +26829,7 @@
           "id": "workflows/07-add-api-endpoint",
           "title": "Workflow — Add an API Endpoint",
           "slug": "add-api-endpoint",
-          "type": "doc",
+          "type": "workflow",
           "order": 7,
           "status": "ready",
           "tags": [
@@ -26793,7 +26849,7 @@
           "id": "workflows/08-build-react-component",
           "title": "Workflow — Build a React Component",
           "slug": "build-react-component",
-          "type": "doc",
+          "type": "workflow",
           "order": 8,
           "status": "ready",
           "tags": [
@@ -26813,7 +26869,7 @@
           "id": "workflows/09-build-wordpress-feature",
           "title": "Workflow — Build a WordPress Feature",
           "slug": "build-wordpress-feature",
-          "type": "doc",
+          "type": "workflow",
           "order": 9,
           "status": "ready",
           "tags": [
@@ -26833,7 +26889,7 @@
           "id": "workflows/10-build-divi-module",
           "title": "Workflow — Build a Divi Module",
           "slug": "build-divi-module",
-          "type": "doc",
+          "type": "workflow",
           "order": 10,
           "status": "ready",
           "tags": [
@@ -26853,7 +26909,7 @@
           "id": "workflows/11-build-gutenberg-block",
           "title": "Workflow — Build a Gutenberg Block",
           "slug": "build-gutenberg-block",
-          "type": "doc",
+          "type": "workflow",
           "order": 11,
           "status": "ready",
           "tags": [

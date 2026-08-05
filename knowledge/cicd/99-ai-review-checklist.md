@@ -3,7 +3,7 @@ id: cicd/99-ai-review-checklist
 topic: cicd
 slug: ai-review-checklist
 title: "CI/CD AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [cicd, ai-review-checklist, needs, continue-on-error]

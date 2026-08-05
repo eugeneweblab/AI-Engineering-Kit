@@ -3,7 +3,7 @@ id: databases/99-ai-review-checklist
 topic: databases
 slug: ai-review-checklist
 title: "Database AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [databases, ai-review-checklist, BEGIN, COMMIT, timestamptz, numeric, OFFSET]

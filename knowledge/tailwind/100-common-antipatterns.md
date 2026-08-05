@@ -3,7 +3,7 @@ id: tailwind/100-common-antipatterns
 topic: tailwind
 slug: common-antipatterns
 title: "Tailwind CSS Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [tailwind, common-antipatterns, tailwind-merge, "focus-visible:", "dark:", px-4, justfy-center, flexx]

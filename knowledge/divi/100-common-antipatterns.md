@@ -3,7 +3,7 @@ id: divi/100-common-antipatterns
 topic: divi
 slug: common-antipatterns
 title: "Divi Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [divi, common-antipatterns, wp_enqueue_style, wp_get_theme, get_stylesheet_directory_uri, wp_kses, add_action, post_content]

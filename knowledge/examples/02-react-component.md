@@ -3,7 +3,7 @@ id: examples/02-react-component
 topic: examples
 slug: react-component
 title: "Example — React Component"
-type: doc
+type: example
 order: 2
 status: ready
 tags: [examples, react-component, aProduct, button, findByRole, HttpResponse, ProductCard, toBeInTheDocument]

@@ -3,7 +3,7 @@ id: sql/98-production-checklist
 topic: sql
 slug: production-checklist
 title: "SQL Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [sql, production-checklist, CHECK, EXPLAIN, down, TIMESTAMPTZ, NUMERIC, CONCURRENTLY]

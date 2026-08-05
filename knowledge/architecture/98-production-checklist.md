@@ -3,7 +3,7 @@ id: architecture/98-production-checklist
 topic: architecture
 slug: production-checklist
 title: "Architecture Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [architecture, production-checklist]

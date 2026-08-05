@@ -3,7 +3,7 @@ id: mysql/99-ai-review-checklist
 topic: mysql
 slug: ai-review-checklist
 title: "MySQL AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [mysql, ai-review-checklist, utf8mb4, InnoDB, FLOAT, DECIMAL, root, LIMIT]

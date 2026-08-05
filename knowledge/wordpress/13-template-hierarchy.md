@@ -7,6 +7,7 @@ type: doc
 order: 13
 status: ready
 tags: [wordpress, template-hierarchy, get_template_part, get_header, get_footer, index.php, is_singular, add_filter]
+applies_to: [classic-theme]
 related: [wordpress/14-theme-development, wordpress/17-block-themes, wordpress/09-custom-post-types, wordpress/12-queries, wordpress/01-wordpress-architecture]
 when_to_use: "Read before creating or overriding a theme template — choosing the right filename, adding template parts, or debugging which template WordPress actually loaded."
 ---

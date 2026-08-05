@@ -3,7 +3,7 @@ id: seo/98-production-checklist
 topic: seo
 slug: production-checklist
 title: "SEO Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [seo, production-checklist, noindex, robots.txt, "og:url", onclick, "og:title", "og:description"]

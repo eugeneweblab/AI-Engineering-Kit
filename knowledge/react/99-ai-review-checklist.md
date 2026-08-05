@@ -3,7 +3,7 @@ id: react/99-ai-review-checklist
 topic: react
 slug: ai-review-checklist
 title: "React Definition of Done"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [react, ai-review-checklist, useEffect]

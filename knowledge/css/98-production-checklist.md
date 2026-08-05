@@ -3,7 +3,7 @@ id: css/98-production-checklist
 topic: css
 slug: production-checklist
 title: "CSS Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [css, production-checklist, optional, will-change, left, opacity, prefers-color-scheme]

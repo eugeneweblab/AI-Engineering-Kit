@@ -3,7 +3,7 @@ id: security/100-common-antipatterns
 topic: security
 slug: common-antipatterns
 title: "Security Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [security, common-antipatterns, Forbidden, send, price, isAdmin, userId, unsafe-inline]

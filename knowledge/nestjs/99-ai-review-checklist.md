@@ -3,7 +3,7 @@ id: nestjs/99-ai-review-checklist
 topic: nestjs
 slug: ai-review-checklist
 title: "AI Engineering Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [nestjs, ai-review-checklist]

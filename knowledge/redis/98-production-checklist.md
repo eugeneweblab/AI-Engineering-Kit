@@ -3,7 +3,7 @@ id: redis/98-production-checklist
 topic: redis
 slug: production-checklist
 title: "Redis Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [redis, production-checklist, FLUSHALL, maxmemory, FLUSHDB, slowlog-log-slower-than, blocked_clients, requirepass]

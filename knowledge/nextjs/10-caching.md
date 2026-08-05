@@ -7,6 +7,7 @@ type: doc
 order: 10
 status: ready
 tags: [nextjs, caching, revalidateTag, API_URL, getProduct, revalidatePath]
+applies_to: [app-router]
 related: [nextjs/09-data-fetching, nextjs/08-rendering-strategies, nextjs/20-performance, performance/08-caching]
 when_to_use: "Read before configuring caching or revalidation for data and routes in Next.js."
 ---

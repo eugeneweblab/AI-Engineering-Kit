@@ -3,7 +3,7 @@ id: architecture/99-ai-review-checklist
 topic: architecture
 slug: ai-review-checklist
 title: "Architecture AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [architecture, ai-review-checklist]

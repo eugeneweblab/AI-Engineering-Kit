@@ -3,7 +3,7 @@ id: wordpress/100-common-antipatterns
 topic: wordpress
 slug: common-antipatterns
 title: "Common WordPress Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [wordpress, common-antipatterns, add_action, get_option, my_plugin_register_routes, plugins_url, update_option, wp_enqueue_script]

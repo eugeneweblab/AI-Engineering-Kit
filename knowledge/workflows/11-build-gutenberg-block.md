@@ -3,7 +3,7 @@ id: workflows/11-build-gutenberg-block
 topic: workflows
 slug: build-gutenberg-block
 title: "Workflow — Build a Gutenberg Block"
-type: doc
+type: workflow
 order: 11
 status: ready
 tags: [workflows, build-gutenberg-block, edit, esc_html, save, register_block_type, registerBlockType, get_block_wrapper_attributes]

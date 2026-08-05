@@ -3,7 +3,7 @@ id: checklists/03-new-project-setup
 topic: checklists
 slug: new-project-setup
 title: "New Project Setup Checklist"
-type: doc
+type: checklist
 order: 3
 status: ready
 tags: [checklists, new-project-setup, "@github", CLAUDE.md, AGENTS.md, README.md, engine-strict, packageManager]

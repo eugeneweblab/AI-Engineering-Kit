@@ -3,7 +3,7 @@ id: workflows/03-create-new-feature
 topic: workflows
 slug: create-new-feature
 title: "Workflow — Create a New Feature"
-type: doc
+type: workflow
 order: 3
 status: ready
 tags: [workflows, create-new-feature, ExportButton, unparse, createObjectURL, Blob, scope, open]

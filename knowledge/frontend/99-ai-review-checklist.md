@@ -3,7 +3,7 @@ id: frontend/99-ai-review-checklist
 topic: frontend
 slug: ai-review-checklist
 title: "Frontend AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [frontend, ai-review-checklist, loading, label, button, localStorage, prefers-reduced-motion]

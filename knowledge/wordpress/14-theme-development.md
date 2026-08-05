@@ -7,6 +7,7 @@ type: doc
 order: 14
 status: ready
 tags: [wordpress, theme-development, add_theme_support, get_stylesheet_directory, functions.php, get_template_directory_uri, filemtime, wp_enqueue_style]
+applies_to: [classic-theme]
 related: [wordpress/13-template-hierarchy, wordpress/17-block-themes, wordpress/02-project-structure, wordpress/24-internationalization, wordpress/05-performance, wordpress/16-block-editor]
 when_to_use: "Read before building or modifying a theme — creating a child theme, enqueuing assets, declaring theme support, or registering menus and image sizes."
 ---

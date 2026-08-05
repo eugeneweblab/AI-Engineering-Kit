@@ -3,7 +3,7 @@ id: javascript/99-ai-review-checklist
 topic: javascript
 slug: ai-review-checklist
 title: "JavaScript AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [javascript, ai-review-checklist, res.ok, innerHTML, parseInt, document.write, JSON.parse]

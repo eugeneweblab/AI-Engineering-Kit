@@ -3,7 +3,7 @@ id: nginx/100-common-antipatterns
 topic: nginx
 slug: common-antipatterns
 title: "Nginx Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [nginx, common-antipatterns, location, Set-Cookie, add_header, non_idempotent, default_server, try_files]

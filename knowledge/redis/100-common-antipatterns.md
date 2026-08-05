@@ -3,7 +3,7 @@ id: redis/100-common-antipatterns
 topic: redis
 slug: common-antipatterns
 title: "Redis Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [redis, common-antipatterns, maxmemory, DEL, UNLINK, MULTI, allkeys-lru, SCAN]

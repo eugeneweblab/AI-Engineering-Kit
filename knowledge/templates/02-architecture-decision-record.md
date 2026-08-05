@@ -3,7 +3,7 @@ id: templates/02-architecture-decision-record
 topic: templates
 slug: architecture-decision-record
 title: "Architecture Decision Record Template"
-type: doc
+type: template
 order: 2
 status: ready
 tags: [templates, architecture-decision-record, "@dev", "@maria", DECIMAL, Accepted, JavaScript]

@@ -3,7 +3,7 @@ id: php/99-ai-review-checklist
 topic: php
 slug: ai-review-checklist
 title: "PHP AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [php, ai-review-checklist, strict_types, php-cs-fixer, psalm, phpstan, mixed, var_dump]

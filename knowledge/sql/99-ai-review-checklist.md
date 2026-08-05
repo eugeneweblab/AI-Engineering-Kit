@@ -3,7 +3,7 @@ id: sql/99-ai-review-checklist
 topic: sql
 slug: ai-review-checklist
 title: "SQL AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [sql, ai-review-checklist, EXPLAIN, SERIALIZABLE, NUMERIC, DECIMAL, OFFSET, CHECK]

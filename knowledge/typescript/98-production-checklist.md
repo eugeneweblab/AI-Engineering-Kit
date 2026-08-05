@@ -3,7 +3,7 @@ id: typescript/98-production-checklist
 topic: typescript
 slug: production-checklist
 title: "TypeScript Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [typescript, production-checklist, module, exports, process.env, unknown, prettier, expectTypeError]

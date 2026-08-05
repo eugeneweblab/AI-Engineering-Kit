@@ -3,7 +3,7 @@ id: php/100-common-antipatterns
 topic: php
 slug: common-antipatterns
 title: "PHP Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [php, common-antipatterns, hash_equals, prepare, __construct, execute, strict_types, TypeError]

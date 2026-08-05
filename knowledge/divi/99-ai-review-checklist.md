@@ -3,7 +3,7 @@ id: divi/99-ai-review-checklist
 topic: divi
 slug: ai-review-checklist
 title: "Divi AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [divi, ai-review-checklist, wp_kses, post_content, esc_url, esc_attr, esc_html]

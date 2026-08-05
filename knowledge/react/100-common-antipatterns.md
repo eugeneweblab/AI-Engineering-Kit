@@ -3,7 +3,7 @@ id: react/100-common-antipatterns
 topic: react
 slug: common-antipatterns
 title: "React Anti-Patterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [react, common-antipatterns, useState, useEffect, setFullName, React.memo, useCallback, useMemo]

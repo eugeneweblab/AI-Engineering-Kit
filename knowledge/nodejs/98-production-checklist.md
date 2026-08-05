@@ -3,7 +3,7 @@ id: nodejs/98-production-checklist
 topic: nodejs
 slug: production-checklist
 title: "Node.js Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [nodejs, production-checklist, headersTimeout, helmet, SIGINT, uncaughtException, unhandledRejection, AbortSignal]

@@ -3,7 +3,7 @@ id: playbooks/01-site-down
 topic: playbooks
 slug: site-down
 title: "Playbook — Site Down"
-type: doc
+type: playbook
 order: 1
 status: ready
 tags: [playbooks, site-down]

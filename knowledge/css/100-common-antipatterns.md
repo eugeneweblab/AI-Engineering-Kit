@@ -3,7 +3,7 @@ id: css/100-common-antipatterns
 topic: css
 slug: common-antipatterns
 title: "CSS Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [css, common-antipatterns, translateX, opacity, max-width, transform, padding, min-height]

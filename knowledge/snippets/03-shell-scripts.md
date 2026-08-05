@@ -3,7 +3,7 @@ id: snippets/03-shell-scripts
 topic: snippets
 slug: shell-scripts
 title: "Shell Script Snippets"
-type: doc
+type: snippet
 order: 3
 status: ready
 tags: [snippets, shell-scripts, DATABASE_URL, DB_NAME, environment, cleanup]

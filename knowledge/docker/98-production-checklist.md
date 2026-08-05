@@ -3,7 +3,7 @@ id: docker/98-production-checklist
 topic: docker
 slug: production-checklist
 title: "Docker Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [docker, production-checklist, unless-stopped, stop_grace_period, on-failure, no-new-privileges, tmpfs, Dockerfile]

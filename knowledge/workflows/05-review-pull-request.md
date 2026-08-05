@@ -3,7 +3,7 @@ id: workflows/05-review-pull-request
 topic: workflows
 slug: review-pull-request
 title: "Workflow — Review a Pull Request"
-type: doc
+type: workflow
 order: 5
 status: ready
 tags: [workflows, review-pull-request, IsInt, userId]

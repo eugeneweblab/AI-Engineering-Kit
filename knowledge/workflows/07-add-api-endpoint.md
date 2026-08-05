@@ -3,7 +3,7 @@ id: workflows/07-add-api-endpoint
 topic: workflows
 slug: add-api-endpoint
 title: "Workflow — Add an API Endpoint"
-type: doc
+type: workflow
 order: 7
 status: ready
 tags: [workflows, add-api-endpoint, problem, signup, treeifyError, auth, safeParse, register]

@@ -3,7 +3,7 @@ id: prisma/98-production-checklist
 topic: prisma
 slug: production-checklist
 title: "Prisma Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [prisma, production-checklist, P2024, P2028, offset, maxWait, connection_limit, P2034]

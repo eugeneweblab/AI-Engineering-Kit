@@ -3,7 +3,7 @@ id: git/98-production-checklist
 topic: git
 slug: production-checklist
 title: "Git Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [git, production-checklist, vMAJOR.MINOR.PATCH, README, user.email, pre-commit]

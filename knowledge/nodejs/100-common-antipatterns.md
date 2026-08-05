@@ -3,7 +3,7 @@ id: nodejs/100-common-antipatterns
 topic: nodejs
 slug: common-antipatterns
 title: "Node.js Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [nodejs, common-antipatterns, pipe, save, execFile, charge]

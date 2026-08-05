@@ -3,7 +3,7 @@ id: performance/99-ai-review-checklist
 topic: performance
 slug: ai-review-checklist
 title: "Performance AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [performance, ai-review-checklist]

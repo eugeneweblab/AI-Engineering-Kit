@@ -3,7 +3,7 @@ id: graphql/99-ai-review-checklist
 topic: graphql
 slug: ai-review-checklist
 title: "GraphQL AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [graphql, ai-review-checklist]

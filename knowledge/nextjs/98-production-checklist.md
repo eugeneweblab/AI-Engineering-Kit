@@ -3,7 +3,7 @@ id: nextjs/98-production-checklist
 topic: nextjs
 slug: production-checklist
 title: "Next.js Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [nextjs, production-checklist]

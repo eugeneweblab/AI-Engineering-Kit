@@ -3,7 +3,7 @@ id: testing/100-common-antipatterns
 topic: testing
 slug: common-antipatterns
 title: "Testing Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [testing, common-antipatterns]

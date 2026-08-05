@@ -7,6 +7,7 @@ type: doc
 order: 6
 status: ready
 tags: [nextjs, server-components, DashboardPage, useState, ProductsPage, ExportButton, setOrders, aggregate]
+applies_to: [app-router]
 related: [nextjs/07-client-components, nextjs/09-data-fetching, nextjs/11-server-actions, nextjs/08-rendering-strategies]
 when_to_use: "Read before building server-rendered components or moving logic to the server in Next.js."
 ---

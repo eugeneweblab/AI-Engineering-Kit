@@ -7,6 +7,7 @@ type: doc
 order: 16
 status: ready
 tags: [wordpress, block-editor, block.json, esc_html, post_content, save, register_block_type, register_block_pattern]
+applies_to: [block-theme]
 related: [wordpress/17-block-themes, wordpress/11-metadata, wordpress/18-rest-api, wordpress/15-plugin-development, wordpress/06-security, wordpress/14-theme-development, workflows/11-build-gutenberg-block]
 when_to_use: "Read before building for the block editor — registering a block, choosing static or dynamic rendering, adding block supports, or handling deprecations."
 ---

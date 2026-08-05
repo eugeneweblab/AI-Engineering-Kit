@@ -3,7 +3,7 @@ id: frontend/98-production-checklist
 topic: frontend
 slug: production-checklist
 title: "Frontend Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [frontend, production-checklist, v-html, SameSite, sizes, dangerouslySetInnerHTML, Secure]

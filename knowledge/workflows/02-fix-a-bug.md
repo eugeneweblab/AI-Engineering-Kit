@@ -3,7 +3,7 @@ id: workflows/02-fix-a-bug
 topic: workflows
 slug: fix-a-bug
 title: "Workflow — Fix a Bug"
-type: doc
+type: workflow
 order: 2
 status: ready
 tags: [workflows, fix-a-bug, IsInt, InvoiceRow, getHttpServer, send, CreateOrderItemDto]

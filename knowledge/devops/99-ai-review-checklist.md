@@ -3,7 +3,7 @@ id: devops/99-ai-review-checklist
 topic: devops
 slug: ai-review-checklist
 title: "DevOps AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [devops, ai-review-checklist]

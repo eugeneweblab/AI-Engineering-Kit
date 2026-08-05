@@ -3,7 +3,7 @@ id: linux/98-production-checklist
 topic: linux
 slug: production-checklist
 title: "Linux Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [linux, production-checklist, systemd-timesyncd, TasksMax, MemoryMax, logrotate, enable, ReadWritePaths]

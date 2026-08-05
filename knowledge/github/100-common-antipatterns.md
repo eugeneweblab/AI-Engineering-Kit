@@ -3,7 +3,7 @@ id: github/100-common-antipatterns
 topic: github
 slug: common-antipatterns
 title: "GitHub Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [github, common-antipatterns, pull_request_target, write-all, "permissions:", GITHUB_TOKEN, repo, pull_request]

@@ -3,7 +3,7 @@ id: checklists/02-pull-request-author
 topic: checklists
 slug: pull-request-author
 title: "Pull Request Author Checklist"
-type: doc
+type: checklist
 order: 2
 status: ready
 tags: [checklists, pull-request-author, getOrders, debugger, CreateOrderItemDto, console.log]

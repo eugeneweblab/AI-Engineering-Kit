@@ -3,7 +3,7 @@ id: wordpress/99-ai-review-checklist
 topic: wordpress
 slug: ai-review-checklist
 title: "WordPress AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [wordpress, ai-review-checklist]

@@ -3,7 +3,7 @@ id: rest-api/100-common-antipatterns
 topic: rest-api
 slug: common-antipatterns
 title: "REST API Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [rest-api, common-antipatterns, Sunset, Idempotency-Key, request_id, PATCH, PUT]

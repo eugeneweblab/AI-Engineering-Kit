@@ -3,7 +3,7 @@ id: woocommerce/100-common-antipatterns
 topic: woocommerce
 slug: common-antipatterns
 title: "WooCommerce Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [woocommerce, common-antipatterns, add_product, wc_get_product, permission_callback, calculate_totals, wp_posts, wp_postmeta]

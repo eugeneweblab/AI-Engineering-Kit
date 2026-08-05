@@ -3,7 +3,7 @@ id: testing/99-ai-review-checklist
 topic: testing
 slug: ai-review-checklist
 title: "Testing AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [testing, ai-review-checklist, only, skip]

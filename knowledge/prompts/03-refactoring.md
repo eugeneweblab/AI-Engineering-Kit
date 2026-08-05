@@ -3,7 +3,7 @@ id: prompts/03-refactoring
 topic: prompts
 slug: refactoring
 title: "Prompt — Refactoring"
-type: doc
+type: prompt
 order: 3
 status: ready
 tags: [prompts, refactoring]

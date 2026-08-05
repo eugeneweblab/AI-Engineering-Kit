@@ -3,7 +3,7 @@ id: divi/98-production-checklist
 topic: divi
 slug: production-checklist
 title: "Divi Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [divi, production-checklist, WP_DEBUG, robots.txt]

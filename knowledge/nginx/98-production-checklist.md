@@ -3,7 +3,7 @@ id: nginx/98-production-checklist
 topic: nginx
 slug: production-checklist
 title: "Nginx Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [nginx, production-checklist, default_server, proxy_read_timeout, limit_req, limit_conn, expires, brotli]

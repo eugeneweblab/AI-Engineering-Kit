@@ -3,7 +3,7 @@ id: workflows/06-investigate-production-bug
 topic: workflows
 slug: investigate-production-bug
 title: "Workflow — Investigate a Production Bug"
-type: doc
+type: workflow
 order: 6
 status: ready
 tags: [workflows, investigate-production-bug]

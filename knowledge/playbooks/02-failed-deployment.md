@@ -3,7 +3,7 @@ id: playbooks/02-failed-deployment
 topic: playbooks
 slug: failed-deployment
 title: "Playbook — Failed Deployment"
-type: doc
+type: playbook
 order: 2
 status: ready
 tags: [playbooks, failed-deployment]

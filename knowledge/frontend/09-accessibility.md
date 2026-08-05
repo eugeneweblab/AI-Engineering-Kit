@@ -7,7 +7,8 @@ type: doc
 order: 9
 status: ready
 tags: [frontend, accessibility, DeleteButton, aria-label, focus, useEffect, prefers-reduced-motion]
-related: [frontend/12-forms, frontend/02-component-driven-development, frontend/10-responsive-design, frontend/07-rendering, frontend/28-ui-patterns]
+related: [accessibility/01-accessibility-fundamentals, frontend/12-forms, frontend/02-component-driven-development, frontend/10-responsive-design, frontend/07-rendering, frontend/28-ui-patterns]
+defers_to: accessibility/01-accessibility-fundamentals
 when_to_use: "Read before building any interactive component, form, modal, or custom control."
 ---
 # Frontend Accessibility
@@ -133,6 +134,7 @@ function DeleteButton({ onConfirm }: { onConfirm: () => void }) {
 
 ## Related
 
+- `knowledge/accessibility/01-accessibility-fundamentals.md`
 - `knowledge/frontend/12-forms.md`
 - `knowledge/frontend/02-component-driven-development.md`
 - `knowledge/frontend/10-responsive-design.md`

@@ -3,7 +3,7 @@ id: snippets/01-typescript-utilities
 topic: snippets
 slug: typescript-utilities
 title: "TypeScript Utilities"
-type: doc
+type: snippet
 order: 1
 status: ready
 tags: [snippets, typescript-utilities, clearTimeout, required, isError, assertNever, setTimeout, TypeError]

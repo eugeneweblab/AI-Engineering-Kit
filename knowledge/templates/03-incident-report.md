@@ -3,7 +3,7 @@ id: templates/03-incident-report
 topic: templates
 slug: incident-report
 title: "Incident Report Template"
-type: doc
+type: template
 order: 3
 status: ready
 tags: [templates, incident-report, "@ana", "@dev", CheckoutErrorRateHigh, TypeScript]

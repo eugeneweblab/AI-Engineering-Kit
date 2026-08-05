@@ -3,7 +3,7 @@ id: backend/98-production-checklist
 topic: backend
 slug: production-checklist
 title: "Backend Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [backend, production-checklist]

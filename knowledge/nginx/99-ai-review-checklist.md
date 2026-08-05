@@ -3,7 +3,7 @@ id: nginx/99-ai-review-checklist
 topic: nginx
 slug: ai-review-checklist
 title: "Nginx AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [nginx, ai-review-checklist, location, add_header, proxy_pass, brotli, resolver, fastcgi_cache]

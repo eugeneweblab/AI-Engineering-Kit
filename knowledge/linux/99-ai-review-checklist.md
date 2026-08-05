@@ -3,7 +3,7 @@ id: linux/99-ai-review-checklist
 topic: linux
 slug: ai-review-checklist
 title: "Linux AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [linux, ai-review-checklist, ReadWritePaths, flock, ProtectSystem, NoNewPrivileges]

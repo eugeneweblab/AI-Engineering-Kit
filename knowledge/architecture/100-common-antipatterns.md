@@ -3,7 +3,7 @@ id: architecture/100-common-antipatterns
 topic: architecture
 slug: common-antipatterns
 title: "Architecture Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [architecture, common-antipatterns, schema, OrderPlaced]

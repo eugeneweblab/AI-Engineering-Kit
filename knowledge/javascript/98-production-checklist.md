@@ -3,7 +3,7 @@ id: javascript/98-production-checklist
 topic: javascript
 slug: production-checklist
 title: "JavaScript Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [javascript, production-checklist, res.ok, unhandledrejection, pnpm-lock.yaml, package-lock.json, document.write, textContent]

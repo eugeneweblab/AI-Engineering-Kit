@@ -3,7 +3,7 @@ id: woocommerce/98-production-checklist
 topic: woocommerce
 slug: production-checklist
 title: "WooCommerce Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [woocommerce, production-checklist, wp_options, WP_DEBUG]

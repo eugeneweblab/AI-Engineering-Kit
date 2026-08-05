@@ -3,7 +3,7 @@ id: tailwind/98-production-checklist
 topic: tailwind
 slug: production-checklist
 title: "Tailwind CSS Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [tailwind, production-checklist, "motion-reduce:", optional, prettier-plugin-tailwindcss, "focus-visible:"]

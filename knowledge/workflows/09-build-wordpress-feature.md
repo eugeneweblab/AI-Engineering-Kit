@@ -3,7 +3,7 @@ id: workflows/09-build-wordpress-feature
 topic: workflows
 slug: build-wordpress-feature
 title: "Workflow — Build a WordPress Feature"
-type: doc
+type: workflow
 order: 9
 status: ready
 tags: [workflows, build-wordpress-feature, add_action, register_rest_route, flush_rewrite_rules, is_user_logged_in, register_activation_hook, defined]

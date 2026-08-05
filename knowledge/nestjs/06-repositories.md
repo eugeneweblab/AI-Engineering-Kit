@@ -7,6 +7,7 @@ type: doc
 order: 6
 status: ready
 tags: [nestjs, repositories, InjectRepository, Injectable, Column, UserEntity, Inject, constructor]
+applies_to: [typeorm]
 related: [nestjs/17-database, nestjs/05-services, nestjs/18-transactions, prisma/06-client]
 when_to_use: "Read before writing or reviewing any data-access or repository layer that reads from or writes to persistent storage."
 ---

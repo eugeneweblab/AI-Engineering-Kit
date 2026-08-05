@@ -3,7 +3,7 @@ id: workflows/04-refactor-existing-code
 topic: workflows
 slug: refactor-existing-code
 title: "Workflow — Refactor Existing Code"
-type: doc
+type: workflow
 order: 4
 status: ready
 tags: [workflows, refactor-existing-code, toBe]

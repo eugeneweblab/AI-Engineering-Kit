@@ -3,7 +3,7 @@ id: postgresql/98-production-checklist
 topic: postgresql
 slug: production-checklist
 title: "PostgreSQL Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [postgresql, production-checklist, scram-sha-256, pg_stat_statements, pg_basebackup, idle_in_transaction, trust, password]

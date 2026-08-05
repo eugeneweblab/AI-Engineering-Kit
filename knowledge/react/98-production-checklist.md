@@ -3,7 +3,7 @@ id: react/98-production-checklist
 topic: react
 slug: production-checklist
 title: "React Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [react, production-checklist, console.log, index.html, dangerouslySetInnerHTML, useEffect, debugger, React.memo]

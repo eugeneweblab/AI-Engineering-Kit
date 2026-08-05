@@ -3,7 +3,7 @@ id: kubernetes/98-production-checklist
 topic: kubernetes
 slug: production-checklist
 title: "Kubernetes Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [kubernetes, production-checklist, SIGTERM, readinessProbe, livenessProbe, LimitRange, ResourceQuota, Guaranteed]

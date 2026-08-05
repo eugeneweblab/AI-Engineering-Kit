@@ -3,7 +3,7 @@ id: html/98-production-checklist
 topic: html
 slug: production-checklist
 title: "HTML Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [html, production-checklist, html-validate, autocomplete, defer]

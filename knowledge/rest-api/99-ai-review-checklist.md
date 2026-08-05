@@ -3,7 +3,7 @@ id: rest-api/99-ai-review-checklist
 topic: rest-api
 slug: ai-review-checklist
 title: "REST API AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [rest-api, ai-review-checklist, request_id]

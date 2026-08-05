@@ -3,7 +3,7 @@ id: backend/99-ai-review-checklist
 topic: backend
 slug: ai-review-checklist
 title: "Backend AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [backend, ai-review-checklist]

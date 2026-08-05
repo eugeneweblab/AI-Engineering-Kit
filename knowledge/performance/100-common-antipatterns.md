@@ -3,7 +3,7 @@ id: performance/100-common-antipatterns
 topic: performance
 slug: common-antipatterns
 title: "Performance Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [performance, common-antipatterns, EXPLAIN, indexOf, LIMIT]

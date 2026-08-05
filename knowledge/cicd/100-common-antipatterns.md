@@ -3,7 +3,7 @@ id: cicd/100-common-antipatterns
 topic: cicd
 slug: common-antipatterns
 title: "CI/CD Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [cicd, common-antipatterns, continue-on-error]

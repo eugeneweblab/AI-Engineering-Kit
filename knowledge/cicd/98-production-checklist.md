@@ -3,7 +3,7 @@ id: cicd/98-production-checklist
 topic: cicd
 slug: production-checklist
 title: "CI/CD Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [cicd, production-checklist]

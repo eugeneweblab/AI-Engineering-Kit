@@ -3,7 +3,7 @@ id: seo/100-common-antipatterns
 topic: seo
 slug: common-antipatterns
 title: "SEO Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [seo, common-antipatterns, noindex, robots.txt, X-Robots-Tag, Disallow, https, http]

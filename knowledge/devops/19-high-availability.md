@@ -7,7 +7,8 @@ type: doc
 order: 19
 status: ready
 tags: [devops, high-availability, getUser, timeout, send, AbortSignal]
-related: [devops/18-disaster-recovery, devops/20-scalability, devops/11-orchestration, devops/07-deployment-strategies, devops/27-sre-principles]
+related: [architecture/16-high-availability, devops/18-disaster-recovery, devops/20-scalability, devops/11-orchestration, devops/07-deployment-strategies, devops/27-sre-principles]
+defers_to: architecture/16-high-availability
 when_to_use: "Read before designing redundancy, health checks, failover, or SLA targets for a production service."
 ---
 # DevOps High Availability
@@ -131,6 +132,7 @@ async function getUser(id: string) {
 
 ## Related
 
+- `knowledge/architecture/16-high-availability.md`
 - `knowledge/devops/18-disaster-recovery.md`
 - `knowledge/devops/20-scalability.md`
 - `knowledge/devops/11-orchestration.md`

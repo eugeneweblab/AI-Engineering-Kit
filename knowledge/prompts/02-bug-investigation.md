@@ -3,7 +3,7 @@ id: prompts/02-bug-investigation
 topic: prompts
 slug: bug-investigation
 title: "Prompt — Bug Investigation"
-type: doc
+type: prompt
 order: 2
 status: ready
 tags: [prompts, bug-investigation, applyDiscount, TypeError]

@@ -3,7 +3,7 @@ id: prisma/99-ai-review-checklist
 topic: prisma
 slug: ai-review-checklist
 title: "Prisma AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [prisma, ai-review-checklist, findMany, PrismaClient, Prisma.validator, onUpdate, onDelete, Unsafe]

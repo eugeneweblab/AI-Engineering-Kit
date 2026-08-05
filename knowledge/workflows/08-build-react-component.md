@@ -3,7 +3,7 @@ id: workflows/08-build-react-component
 topic: workflows
 slug: build-react-component
 title: "Workflow — Build a React Component"
-type: doc
+type: workflow
 order: 8
 status: ready
 tags: [workflows, build-react-component, aProduct, ProductCard, ProductCardProps, addToBasket, formatCurrency, repeat]

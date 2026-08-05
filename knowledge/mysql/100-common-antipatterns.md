@@ -3,7 +3,7 @@ id: mysql/100-common-antipatterns
 topic: mysql
 slug: common-antipatterns
 title: "MySQL Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [mysql, common-antipatterns, utf8, utf8mb4, OFFSET, DATE, pt-online-schema-change, gh-ost]

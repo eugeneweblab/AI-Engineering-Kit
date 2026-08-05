@@ -3,7 +3,7 @@ id: frontend/100-common-antipatterns
 topic: frontend
 slug: common-antipatterns
 title: "Frontend Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [frontend, common-antipatterns, useEffect, setFullName, useState, v-html, button, dangerouslySetInnerHTML]

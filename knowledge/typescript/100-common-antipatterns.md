@@ -3,7 +3,7 @@ id: typescript/100-common-antipatterns
 topic: typescript
 slug: common-antipatterns
 title: "TypeScript Common Antipatterns"
-type: doc
+type: antipatterns
 order: 100
 status: ready
 tags: [typescript, common-antipatterns, toUpperCase, unknown, handle, parse, compute, UserSchema]

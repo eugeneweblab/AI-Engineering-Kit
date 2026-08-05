@@ -7,6 +7,7 @@ type: doc
 order: 30
 status: ready
 tags: [nextjs, migration-guide, cookies, getServerSideProps, generateStaticParams, searchParams, getStaticProps]
+applies_to: [pages-router, app-router]
 related: [nextjs/03-app-router, nextjs/06-server-components, nextjs/09-data-fetching, nextjs/10-caching, nextjs/11-server-actions]
 when_to_use: "Read before migrating a Pages Router app to the App Router or upgrading across a major Next.js version."
 ---

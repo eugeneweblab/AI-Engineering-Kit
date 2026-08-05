@@ -3,7 +3,7 @@ id: tools/99-ai-review-checklist
 topic: tools
 slug: ai-review-checklist
 title: "Tools AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [tools, ai-review-checklist, tsconfig.json, files, eslint-config-prettier, devDependencies, exports, strict]

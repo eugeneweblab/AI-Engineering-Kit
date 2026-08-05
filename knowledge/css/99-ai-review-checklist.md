@@ -3,7 +3,7 @@ id: css/99-ai-review-checklist
 topic: css
 slug: ai-review-checklist
 title: "CSS AI Review Checklist"
-type: doc
+type: checklist
 order: 99
 status: ready
 tags: [css, ai-review-checklist, will-change, min-width, opacity, max-width, transform, prefers-reduced-motion]

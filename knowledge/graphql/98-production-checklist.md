@@ -3,7 +3,7 @@ id: graphql/98-production-checklist
 topic: graphql
 slug: production-checklist
 title: "GraphQL Production Checklist"
-type: doc
+type: checklist
 order: 98
 status: ready
 tags: [graphql, production-checklist, extensions]
