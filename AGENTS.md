@@ -102,7 +102,9 @@ When you add or edit a doc:
 2. Fill a `draft` stub with real content and flip `status` to `ready`; set
    `when_to_use` and `related`.
 3. Regenerate the index: `python3 scripts/build-index.py`.
-4. Keep the canonical filenames/numbering from `docs/structure/canonical-file-list.md`.
+4. Keep the canonical filenames/numbering from `docs/structure/canonical-file-list.md`, and
+   add the file to that list when you create one — the numeric prefix is the document's
+   `order` and must be unique within its topic.
 5. Verify before you finish: `python3 scripts/check-knowledge.py knowledge`. It resolves
    every cross-link and parses every fenced code block in the language its fence claims,
    so a wrong tag or an unrunnable example fails loudly instead of shipping.

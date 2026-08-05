@@ -24,6 +24,7 @@ Checks
   links       markdown links, `related:` ids, and `knowledge/...md` paths resolve
   fences      every ``` fence is closed
   blocks      each fenced block parses as the language it is tagged with
+  plan        docs/structure/ still describes the tree that exists on disk
 
 Language coverage: Python, JSON (incl. JSONC and multi-document), YAML, shell.
 PHP and JS/TS are checked only when `php` / `npx` are available, and only against
@@ -297,6 +298,61 @@ def check_structure(root: Path, problems: list[str]) -> None:
             problems.append(f"{topic}/: no document with order {missing:02d}")
 
 
+TREE_DIR_RE = re.compile(r"^[├└]──\s+([a-z0-9-]+)/\s*$", re.MULTILINE)
+LIST_DIR_RE = re.compile(r"^knowledge/([a-z0-9-]+)/\s*$")
+LIST_FILE_RE = re.compile(r"^([0-9]{2,3}-[a-z0-9-]+\.md|README\.md|WRITING_STANDARD\.md)$")
+
+
+def check_planning_docs(root: Path, problems: list[str]) -> None:
+    """The structure spec and file list must still describe the tree on disk.
+
+    Both drifted silently once — 21 topics existed with no entry in the file list,
+    and `figma/` was named under Exceptions but absent from the directory tree.
+    Nothing caught either, because nothing compared them to reality.
+    """
+    spec_dir = root.parent / "docs" / "structure"
+    tree_doc = spec_dir / "frozen-structure-v1.md"
+    list_doc = spec_dir / "canonical-file-list.md"
+    if not tree_doc.exists() or not list_doc.exists():
+        return  # running against a bare knowledge/ copy
+
+    on_disk = {p.name for p in root.iterdir() if p.is_dir()}
+
+    tree_text = tree_doc.read_text(encoding="utf-8", errors="replace")
+    root_section = re.search(r"^# Root\s*$(.*?)^---", tree_text, re.DOTALL | re.MULTILINE)
+    if root_section:
+        in_tree = set(TREE_DIR_RE.findall(root_section.group(1)))
+        for topic in sorted(on_disk - in_tree):
+            problems.append(f"frozen-structure-v1.md: {topic}/ exists on disk but is not in the root tree")
+        for topic in sorted(in_tree - on_disk):
+            problems.append(f"frozen-structure-v1.md: {topic}/ is in the root tree but not on disk")
+
+    listed: dict[str, set[str]] = {}
+    current = None
+    for line in list_doc.read_text(encoding="utf-8", errors="replace").split("\n"):
+        stripped = line.strip()
+        directory = LIST_DIR_RE.match(stripped)
+        if directory:
+            current = directory.group(1)
+            listed.setdefault(current, set())
+            continue
+        filename = LIST_FILE_RE.match(stripped)
+        if filename and current:
+            listed[current].add(filename.group(1))
+
+    for topic in sorted(on_disk - set(listed)):
+        problems.append(f"canonical-file-list.md: no part for {topic}/")
+    for topic in sorted(set(listed) - on_disk):
+        problems.append(f"canonical-file-list.md: part for {topic}/, which does not exist")
+
+    for topic in sorted(set(listed) & on_disk):
+        actual = {f.name for f in (root / topic).glob("*.md")}
+        for name in sorted(listed[topic] - actual):
+            problems.append(f"canonical-file-list.md: lists {topic}/{name}, which does not exist")
+        for name in sorted(actual - listed[topic]):
+            problems.append(f"canonical-file-list.md: {topic}/{name} exists but is not listed")
+
+
 def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
     seen_ids: dict[str, str] = {}
     seen_orders: dict[tuple[str, int], str] = {}
@@ -468,6 +524,7 @@ def main(argv: list[str]) -> int:
     problems: list[str] = []
 
     check_structure(root, problems)
+    check_planning_docs(root, problems)
     check_docs(root, docs, problems)
     n_links = check_links(root, docs, problems)
     counts = check_blocks(docs, problems, "--skip-external" in flags,
