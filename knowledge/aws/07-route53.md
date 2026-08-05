@@ -7,7 +7,7 @@ type: doc
 order: 7
 status: ready
 tags: [aws, route53]
-related: [aws/08-cloudfront, aws/09-acm, aws/10-elastic-load-balancer, aws/16-high-availability]
+related: [aws/08-cloudfront, aws/09-acm, aws/10-elastic-load-balancer, aws/31-high-availability]
 when_to_use: "Read before creating DNS records, delegating a domain, or wiring a hostname to a load balancer, CloudFront, or S3."
 ---
 # Route 53
@@ -129,4 +129,4 @@ resource "aws_route53_record" "apex" {
 - `knowledge/aws/08-cloudfront.md`
 - `knowledge/aws/09-acm.md`
 - `knowledge/aws/10-elastic-load-balancer.md`
-- `knowledge/aws/16-high-availability.md`
+- `knowledge/aws/31-high-availability.md`

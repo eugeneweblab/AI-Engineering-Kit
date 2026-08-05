@@ -3,8 +3,8 @@
   "note": "Regenerate with `python3 scripts/build-index.py`. Do not edit by hand.",
   "stats": {
     "topics": 49,
-    "docs": 1354,
-    "ready": 1347,
+    "docs": 1355,
+    "ready": 1348,
     "draft": 7
   },
   "topics": {
@@ -1110,8 +1110,8 @@
     },
     "aws": {
       "path": "knowledge/aws",
-      "doc_count": 35,
-      "ready": 35,
+      "doc_count": 36,
+      "ready": 36,
       "draft": 0,
       "docs": [
         {
@@ -1560,6 +1560,20 @@
           ],
           "when_to_use": "Read before designing any new AWS workload or making an architectural decision on AWS.",
           "path": "knowledge/aws/30-engineering-principles.md"
+        },
+        {
+          "id": "aws/31-high-availability",
+          "title": "High Availability",
+          "slug": "high-availability",
+          "type": "doc",
+          "order": 31,
+          "status": "ready",
+          "tags": [
+            "aws",
+            "high-availability"
+          ],
+          "when_to_use": "Read before designing a workload to survive an Availability Zone or Region failure — Multi-AZ layout, failover behavior, health checks, and the RTO/RPO the design actually delivers.",
+          "path": "knowledge/aws/31-high-availability.md"
         },
         {
           "id": "aws/98-production-checklist",

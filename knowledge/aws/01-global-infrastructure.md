@@ -117,6 +117,6 @@ resource "aws_subnet" "app" {
 
 - `knowledge/aws/00-overview.md`
 - `knowledge/aws/06-vpc.md`
-- `knowledge/aws/16-high-availability.md`
+- `knowledge/aws/31-high-availability.md`
 - `knowledge/aws/05-rds.md`
 - `knowledge/aws/08-cloudfront.md`

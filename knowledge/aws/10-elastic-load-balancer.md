@@ -7,7 +7,7 @@ type: doc
 order: 10
 status: ready
 tags: [aws, elastic-load-balancer]
-related: [aws/06-vpc, aws/09-acm, aws/11-auto-scaling, aws/16-high-availability, aws/03-ec2]
+related: [aws/06-vpc, aws/09-acm, aws/11-auto-scaling, aws/31-high-availability, aws/03-ec2]
 when_to_use: "Read before putting a load balancer in front of a service — choosing ALB vs NLB, configuring listeners, health checks, or TLS termination."
 ---
 # Elastic Load Balancer
@@ -149,4 +149,4 @@ resource "aws_lb_target_group" "app" {
 - `knowledge/aws/06-vpc.md`
 - `knowledge/aws/09-acm.md`
 - `knowledge/aws/11-auto-scaling.md`
-- `knowledge/aws/16-high-availability.md`
+- `knowledge/aws/31-high-availability.md`
