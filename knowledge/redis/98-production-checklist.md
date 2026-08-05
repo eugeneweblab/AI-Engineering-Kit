@@ -28,6 +28,8 @@ leak data. This checklist forces each unsafe default to be an explicit, reviewed
 
 ## Memory and Eviction
 
+**Rules:** [Expiration](12-expiration.md) · [Performance](23-performance.md)
+
 - [ ] `maxmemory` is set to a value that leaves headroom below the host's RAM.
 - [ ] An eviction policy is chosen deliberately (`allkeys-lru`/`allkeys-lfu` for caches,
       `noeviction` where losing keys corrupts state) — not left at default.
@@ -37,6 +39,8 @@ leak data. This checklist forces each unsafe default to be an explicit, reviewed
 
 ## Durability and Persistence
 
+**Rules:** [Persistence](20-persistence.md)
+
 - [ ] Persistence mode (RDB, AOF, or both) is chosen to match the recovery requirement.
 - [ ] If data must survive a crash, AOF with `appendfsync everysec` (or stricter) is on.
 - [ ] Redis is not the sole source of truth for data that cannot be recomputed or reloaded.
@@ -44,6 +48,8 @@ leak data. This checklist forces each unsafe default to be an explicit, reviewed
 - [ ] Restart/failover has been rehearsed and the expected data-loss window is documented.
 
 ## Availability and Scaling
+
+**Rules:** [Replication](18-replication.md) · [Clustering](19-clustering.md)
 
 - [ ] Replication or Cluster is configured so a single node loss is survivable.
 - [ ] Automatic failover (Sentinel or Cluster) is enabled and tested, not just configured.
@@ -55,6 +61,8 @@ leak data. This checklist forces each unsafe default to be an explicit, reviewed
 
 ## Security
 
+**Rules:** [Security](21-security.md)
+
 - [ ] Authentication is required (`requirepass` or, preferably, ACL users with least
       privilege) — never an open, no-auth instance.
 - [ ] Redis is not exposed to the public internet; it binds to a private interface/VPC.
@@ -65,6 +73,8 @@ leak data. This checklist forces each unsafe default to be an explicit, reviewed
 
 ## Performance and Safety
 
+**Rules:** [Performance](23-performance.md) · [Lua Scripting](11-lua-scripting.md)
+
 - [ ] No code path calls `KEYS`, `FLUSHALL`, or `FLUSHDB` against production.
 - [ ] `slowlog-log-slower-than` is set and the slowlog is monitored.
 - [ ] Multi-command atomic logic uses Lua or `MULTI`/`WATCH`, not client round trips.
@@ -73,6 +83,8 @@ leak data. This checklist forces each unsafe default to be an explicit, reviewed
       blocking on large deletes.
 
 ## Observability
+
+**Rules:** [Monitoring](22-monitoring.md) · [Observability](28-observability.md)
 
 - [ ] `INFO` metrics (memory, evictions, `blocked_clients`, hit rate, connected clients)
       are scraped and dashboarded.

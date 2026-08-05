@@ -29,6 +29,8 @@ repeatable pre-flight so the same failure does not ship twice.
 
 ## Correctness and State
 
+**Rules:** [State Management](04-state-management.md) · [Error Handling](13-error-handling.md)
+
 - [ ] Every async read renders an explicit loading, empty, and error state — not just the happy path.
 - [ ] Failures surface a retry or recovery path; the UI never dead-ends on a spinner.
 - [ ] Route and feature subtrees are wrapped in error boundaries so one crash does not blank the page.
@@ -37,6 +39,8 @@ repeatable pre-flight so the same failure does not ship twice.
 - [ ] Optimistic updates roll back correctly when the server rejects the change.
 
 ## Performance
+
+**Rules:** [Performance](08-performance.md) · [Bundling](20-bundling.md)
 
 - [ ] The route bundle is under an agreed budget, enforced in CI, with no unexpected regressions.
 - [ ] Code is split at the route level; interaction- and viewport-gated code is lazy-loaded.
@@ -48,6 +52,8 @@ repeatable pre-flight so the same failure does not ship twice.
 
 ## Accessibility
 
+**Rules:** [Accessibility](09-accessibility.md)
+
 - [ ] Every interactive element is reachable and operable by keyboard, with a visible focus ring.
 - [ ] Semantic HTML is used; ARIA is added only where native elements cannot express the role.
 - [ ] Images have meaningful `alt` text; decorative images have empty `alt`.
@@ -57,6 +63,8 @@ repeatable pre-flight so the same failure does not ship twice.
 
 ## Security
 
+**Rules:** [Security](14-security.md)
+
 - [ ] No secrets, API keys, or tokens are embedded in client bundles or environment output.
 - [ ] All user-supplied content is escaped; `dangerouslySetInnerHTML`/`v-html` is sanitized or absent.
 - [ ] Auth tokens live in `HttpOnly`, `Secure`, `SameSite` cookies, not `localStorage`.
@@ -65,11 +73,15 @@ repeatable pre-flight so the same failure does not ship twice.
 
 ## SEO and Metadata
 
+**Rules:** [SEO](11-seo.md)
+
 - [ ] Each route sets a unique `<title>`, meta description, and canonical URL.
 - [ ] Open Graph and structured data are present where content is shared or indexed.
 - [ ] Content that must be indexed is server-rendered or pre-rendered, not client-only.
 
 ## Build and Deploy
+
+**Rules:** [Build Tools](19-build-tools.md) · [Production](26-production.md)
 
 - [ ] Production build runs with source maps uploaded to error tracking but not served publicly.
 - [ ] Static assets are content-hashed and served with long-lived immutable cache headers.
@@ -77,6 +89,8 @@ repeatable pre-flight so the same failure does not ship twice.
 - [ ] The app degrades gracefully when JavaScript fails to load or a chunk 404s after a deploy.
 
 ## Observability
+
+**Rules:** [Monitoring](23-monitoring.md)
 
 - [ ] Client error tracking is wired up and reporting with release/version tags.
 - [ ] Real-user monitoring captures Core Web Vitals in the field, not just in CI.

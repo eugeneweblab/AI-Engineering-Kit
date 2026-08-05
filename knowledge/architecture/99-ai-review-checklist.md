@@ -30,6 +30,8 @@ are cheap to fix — before merge — and gives the agent a reason to reject, no
 
 ## Boundaries & Coupling
 
+**Rules:** [Clean Architecture](03-clean-architecture.md) · [Modular Monolith](10-modular-monolith.md)
+
 - [ ] Does every new module/service boundary follow a **change or ownership** axis, not a
   technical layer, so things that change together live together?
 - [ ] Do dependencies point **inward** (toward stable domain logic), with no domain code
@@ -40,6 +42,8 @@ are cheap to fix — before merge — and gives the agent a reason to reject, no
 - [ ] Is there **one owner** for each piece of data? No two services write the same table.
 
 ## Simplicity & Abstraction
+
+**Rules:** [Best Practices](28-best-practices.md) · [Engineering Principles](30-engineering-principles.md)
 
 - [ ] Does every new abstraction (interface, layer, generic, service) have **at least two
   real callers** or a concrete imminent need (see
@@ -52,6 +56,8 @@ are cheap to fix — before merge — and gives the agent a reason to reject, no
 
 ## Correctness of the Design
 
+**Rules:** [System Design](02-system-design.md) · [Review](27-architecture-review.md)
+
 - [ ] Are consistency and transaction boundaries explicit, and does no operation assume
   distributed ACID it does not have?
 - [ ] For any async/event flow, is delivery semantics stated (at-least-once vs.
@@ -63,6 +69,8 @@ are cheap to fix — before merge — and gives the agent a reason to reject, no
 
 ## Change Cost & Reversibility
 
+**Rules:** [Decision Records](26-architecture-decision-records.md) · [Real World Patterns](29-real-world-patterns.md)
+
 - [ ] Is any **one-way-door** decision (public API, data model, service split) recorded in
   an [ADR](26-architecture-decision-records.md) with alternatives and reasoning?
 - [ ] Can this change be **rolled back** independently, without a coordinated multi-service
@@ -71,6 +79,8 @@ are cheap to fix — before merge — and gives the agent a reason to reject, no
   version explicitly?
 
 ## Consistency With the System
+
+**Rules:** [Software Architecture](01-software-architecture.md) · [Integration Patterns](12-integration-patterns.md)
 
 - [ ] Does the change follow the existing patterns and conventions of the codebase, or
   justify a deliberate departure?

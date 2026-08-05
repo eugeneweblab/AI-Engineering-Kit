@@ -32,6 +32,8 @@ whatever the reviewer happened to notice.
 
 ## Correctness
 
+**Rules:** [Language Fundamentals](01-language-fundamentals.md) · [This Keyword](16-this-keyword.md)
+
 - [ ] Are all equality comparisons `===` / `!==`, with no reliance on `==` coercion?
 - [ ] Are variables declared with `const`/`let` (never `var`), scoped where used?
 - [ ] Does every `fetch`/network call check `res.ok` before reading the body?
@@ -40,6 +42,8 @@ whatever the reviewer happened to notice.
       where the shape is not guaranteed?
 
 ## Async and Concurrency
+
+**Rules:** [Asynchronous JavaScript](08-asynchronous-javascript.md) · [Promises](09-promises.md)
 
 - [ ] Is every promise awaited or its rejection otherwise handled — no floating promises?
 - [ ] Are independent async calls parallelized with `Promise.all` instead of serial
@@ -50,12 +54,16 @@ whatever the reviewer happened to notice.
 
 ## State and Data
 
+**Rules:** [Objects And Prototypes](05-objects-and-prototypes.md) · [Memory Management](15-memory-management.md)
+
 - [ ] Are function arguments and shared/module-level objects treated as immutable?
 - [ ] Is external data (API responses, `JSON.parse`, user input) validated at the
       boundary before use?
 - [ ] Are there no accidental global variables (missing declaration, leaked `this`)?
 
 ## Security
+
+**Rules:** [Security](26-security.md)
 
 - [ ] Is user-controlled data kept out of `innerHTML`, `eval`, `new Function`, and
       `document.write`?
@@ -64,11 +72,15 @@ whatever the reviewer happened to notice.
 
 ## Errors and Robustness
 
+**Rules:** [Error Handling](14-error-handling.md)
+
 - [ ] Are thrown values `Error` objects with useful messages, not strings?
 - [ ] Are failure paths (not just the happy path) tested?
 - [ ] Do error messages avoid leaking internal details (stack traces, queries) to users?
 
 ## Clarity
+
+**Rules:** [Clean Code](23-clean-code.md) · [Best Practices](28-best-practices.md)
 
 - [ ] Are functions single-purpose and named for what they do?
 - [ ] Is the happy path flat (early returns) rather than deeply nested?

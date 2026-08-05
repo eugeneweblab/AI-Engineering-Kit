@@ -36,6 +36,8 @@ the happy path passes."
 
 ## Correctness
 
+**Rules:** [Business Logic](07-business-logic.md) · [Validation](09-validation.md)
+
 - [ ] Are all edge cases handled: empty input, nulls, zero, negative, boundary, max size?
 - [ ] Are retryable writes idempotent, and multi-step writes wrapped in one transaction?
 - [ ] Is untrusted input validated and normalized at the boundary before use?
@@ -44,12 +46,16 @@ the happy path passes."
 
 ## Error Handling
 
+**Rules:** [Error Handling](12-error-handling.md)
+
 - [ ] Is every error either handled where there is context or propagated with its cause intact?
 - [ ] Are there zero `catch` blocks that log-and-swallow, hiding failure from the caller?
 - [ ] Do errors returned to clients avoid leaking stack traces, SQL, or internal detail?
 - [ ] Are external calls guarded by timeouts and bounded retries with backoff?
 
 ## Security
+
+**Rules:** [Security](21-security.md) · [Authorization](11-authorization.md)
 
 - [ ] Is authorization enforced on the endpoint/handler itself, not only in the UI or caller?
 - [ ] Are queries parameterized (no string-built SQL) and inputs escaped for their sink?
@@ -58,6 +64,8 @@ the happy path passes."
 
 ## Design and Maintainability
 
+**Rules:** [Code Organization](25-code-organization.md) · [Clean Architecture](03-clean-architecture.md)
+
 - [ ] Is decision logic separated from I/O so it can be tested without mocks?
 - [ ] Are dependencies passed explicitly rather than pulled from globals/singletons?
 - [ ] Is any new abstraction justified by real, repeated use rather than speculation?
@@ -65,16 +73,22 @@ the happy path passes."
 
 ## Testing
 
+**Rules:** [Testing](23-testing.md)
+
 - [ ] Do tests cover the failure and edge paths, not just the happy path?
 - [ ] Are tests deterministic (no reliance on wall-clock, network, or ordering)?
 - [ ] Does the diff include a regression test for the specific bug it fixes?
 
 ## Observability
 
+**Rules:** [Observability](22-observability.md)
+
 - [ ] Do new failure branches emit a structured log with a correlation id and a metric?
 - [ ] Are logs free of secrets and PII, and at an appropriate level? See [observability](22-observability.md).
 
 ## Performance
+
+**Rules:** [Performance](19-performance.md)
 
 - [ ] Are there no N+1 queries or unbounded loads on hot paths?
 - [ ] Are list endpoints paginated and expensive queries indexed or cached?

@@ -31,6 +31,8 @@ it is cheap to fix, before merge, and gives the agent a reason to reject, not ju
 
 ## Reproducibility & Artifacts
 
+**Rules:** [Build Pipelines](05-build-pipelines.md) · [Containerization](10-containerization.md)
+
 - [ ] Is a **single artifact** built once and promoted across environments, rather than
   rebuilt per stage (see [build pipelines](05-build-pipelines.md))?
 - [ ] Are dependencies **locked/pinned** so the build is reproducible from a clean checkout?
@@ -38,6 +40,8 @@ it is cheap to fix, before merge, and gives the agent a reason to reject, not ju
   from?
 
 ## Infrastructure & Configuration
+
+**Rules:** [Infrastructure As Code](08-infrastructure-as-code.md) · [Configuration Management](09-configuration-management.md)
 
 - [ ] Is all infrastructure change expressed as **declarative code** and applied by a
   pipeline, with no manual, out-of-band edits to live resources (see
@@ -49,6 +53,8 @@ it is cheap to fix, before merge, and gives the agent a reason to reject, not ju
 
 ## Secrets & Security
 
+**Rules:** [Secrets Management](17-secrets-management.md) · [Security](16-security.md)
+
 - [ ] Are there **no secrets** in code, images, logs, or committed config? Every secret
   comes from a manager (see [secrets management](17-secrets-management.md)).
 - [ ] Does the pipeline avoid printing secrets to logs or exposing them to untrusted
@@ -56,6 +62,8 @@ it is cheap to fix, before merge, and gives the agent a reason to reject, not ju
 - [ ] Do images and jobs run with **least privilege** (non-root, scoped credentials)?
 
 ## Safety & Reversibility
+
+**Rules:** [Deployment Strategies](07-deployment-strategies.md) · [Change Management](24-change-management.md)
 
 - [ ] Does the deploy have a **tested rollback** and a real health/readiness gate (see
   [deployment strategies](07-deployment-strategies.md))?
@@ -65,6 +73,8 @@ it is cheap to fix, before merge, and gives the agent a reason to reject, not ju
 
 ## Pipeline Quality
 
+**Rules:** [Quality Gates](23-quality-gates.md) · [Testing](22-testing.md)
+
 - [ ] Does the pipeline **fail closed** — blocking on any unverifiable or failed step rather
   than passing (see [engineering principles](30-engineering-principles.md))?
 - [ ] Are quality gates (tests, lint, security scan) **required**, not optional or
@@ -73,6 +83,8 @@ it is cheap to fix, before merge, and gives the agent a reason to reject, not ju
   bypassed?
 
 ## Observability & Ownership
+
+**Rules:** [Observability](13-observability.md) · [SRE Principles](27-sre-principles.md)
 
 - [ ] Does the change stay **observable** — logs, metrics, and traces emitted so a
   regression is diagnosable from data (see [observability](13-observability.md))?

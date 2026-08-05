@@ -29,6 +29,8 @@ A checklist turns "we were careful" into "we verified."
 
 ## Error Handling and Resilience
 
+**Rules:** [Error Handling](14-error-handling.md)
+
 - [ ] Every `fetch` / network call checks `res.ok` (or equivalent) before using the body.
 - [ ] No empty or log-only `catch` blocks — every caught error is handled or rethrown.
 - [ ] A global handler exists for `unhandledrejection` (browser) / `unhandledRejection`
@@ -40,6 +42,8 @@ A checklist turns "we were careful" into "we verified."
 
 ## Security
 
+**Rules:** [Security](26-security.md)
+
 - [ ] No secrets, API keys, or tokens are present in client-side bundles or committed
       files (grep the built output, not just the source).
 - [ ] User-controlled strings are never passed to `innerHTML`, `eval`, `new Function`, or
@@ -49,6 +53,8 @@ A checklist turns "we were careful" into "we verified."
 - [ ] Environment-specific config comes from environment variables, not hardcoded values.
 
 ## Performance
+
+**Rules:** [Performance](25-performance.md) · [Browser Performance](27-browser-performance.md)
 
 - [ ] The production bundle is minified, tree-shaken, and served with compression
       (gzip/brotli).
@@ -61,6 +67,8 @@ A checklist turns "we were careful" into "we verified."
 
 ## Build and Configuration
 
+**Rules:** [Tooling](29-tooling.md) · [Modules](07-modules.md)
+
 - [ ] `NODE_ENV=production` (or the framework equivalent) is set so dev-only code and
       warnings are stripped.
 - [ ] Source maps are generated and uploaded to the error tracker but not publicly
@@ -71,12 +79,16 @@ A checklist turns "we were careful" into "we verified."
 
 ## Observability
 
+**Rules:** [Error Handling](14-error-handling.md) · [Tooling](29-tooling.md)
+
 - [ ] Errors and unhandled rejections report to a monitoring service with stack traces.
 - [ ] Logs are structured and contain no credentials, tokens, or PII.
 - [ ] Key user flows emit metrics or events so regressions are detectable post-deploy.
 - [ ] A rollback path exists and has been verified (previous build is deployable).
 
 ## Testing
+
+**Rules:** [Testing](24-testing.md)
 
 - [ ] Unit tests cover the core logic including failure paths, not just the happy path.
 - [ ] Async code is tested for both resolution and rejection.

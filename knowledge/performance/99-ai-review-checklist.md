@@ -32,6 +32,8 @@ adds complexity for a speedup nobody measured.
 
 ## Evidence & Justification
 
+**Rules:** [Profiling](16-profiling.md) · [Benchmarking](19-benchmarking.md)
+
 - [ ] Is there a **profile or benchmark** showing the changed code is (or was) a real
   bottleneck — not a guess (see [profiling](16-profiling.md))?
 - [ ] For an optimization, is there a **before/after number** proving it worked, measured the
@@ -41,6 +43,8 @@ adds complexity for a speedup nobody measured.
   a measurement, not added speculatively (see [engineering principles](30-engineering-principles.md))?
 
 ## Algorithms & Data Access
+
+**Rules:** [Query Optimization](15-query-optimization.md) · [— Database Access](13-database-performance.md)
 
 - [ ] Is the algorithm's **complexity** appropriate for realistic input size — no accidental
   O(n²) over a collection that grows?
@@ -52,6 +56,8 @@ adds complexity for a speedup nobody measured.
 
 ## Memory & Allocation
 
+**Rules:** [Memory](04-memory.md)
+
 - [ ] Are collections, caches, and buffers **bounded**, so the change cannot grow memory
   without limit (see [memory](04-memory.md))?
 - [ ] Does it avoid loading a large dataset **fully into memory** when it could stream or
@@ -60,6 +66,8 @@ adds complexity for a speedup nobody measured.
   shows they matter?
 
 ## Caching & Concurrency
+
+**Rules:** [Caching](08-caching.md) · [Scalability](21-scalability.md)
 
 - [ ] Does every new cache have a defined **TTL or invalidation**, and can it ever serve
   **stale or wrong** data (see [caching](08-caching.md))?
@@ -70,12 +78,16 @@ adds complexity for a speedup nobody measured.
 
 ## Blocking & Waiting
 
+**Rules:** [CPU](03-cpu.md) · [API Performance](14-api-performance.md)
+
 - [ ] Is the request path free of **blocking I/O** that could be async or offloaded?
 - [ ] Is expensive or long-running work moved off the synchronous path where it does not need
   to be there?
 - [ ] Are locks held for the **minimum** scope, not around I/O or long computation?
 
 ## Client Delivery (web)
+
+**Rules:** [Loading](07-loading.md) · [Web Vitals](18-web-vitals.md)
 
 - [ ] Does the change avoid **shipping more bytes** than needed — no unbounded bundle growth,
   new dependencies code-split (see [code splitting](10-code-splitting.md))?

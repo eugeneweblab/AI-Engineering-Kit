@@ -29,6 +29,8 @@ rediscovered service by service.
 
 ## Correctness and Data Safety
 
+**Rules:** [Transactions](17-transactions.md) · [Validation](09-validation.md)
+
 - [ ] All writes that a client or queue may retry are idempotent (unique key or upsert).
 - [ ] Multi-step writes that must all-or-nothing run inside a single transaction.
 - [ ] Database migrations are backward-compatible and safe to run before the new code
@@ -38,6 +40,8 @@ rediscovered service by service.
 - [ ] Numeric money/quantity fields use integers or decimals, never floats.
 
 ## Reliability
+
+**Rules:** [Background Jobs](16-background-jobs.md) · [Error Handling](12-error-handling.md)
 
 - [ ] Every outbound network/DB call has an explicit timeout.
 - [ ] Retries use exponential backoff with jitter and a maximum attempt cap.
@@ -49,6 +53,8 @@ rediscovered service by service.
 
 ## Security
 
+**Rules:** [Security](21-security.md) · [Authentication](10-authentication.md)
+
 - [ ] All input is validated and authorization is enforced on every endpoint, not just the UI.
 - [ ] Secrets come from a secrets manager or env, never from source or logs.
 - [ ] TLS is enforced; internal service-to-service traffic is authenticated.
@@ -56,6 +62,8 @@ rediscovered service by service.
 - [ ] Dependencies are scanned for known CVEs and pinned to exact versions.
 
 ## Observability
+
+**Rules:** [Observability](22-observability.md)
 
 - [ ] Structured logs carry a request/correlation id and never log secrets or PII.
 - [ ] The four golden signals (latency, traffic, errors, saturation) are on a dashboard.
@@ -65,12 +73,16 @@ rediscovered service by service.
 
 ## Performance and Scale
 
+**Rules:** [Performance](19-performance.md) · [Scalability](20-scalability.md)
+
 - [ ] Load tested at expected peak plus headroom; p99 latency meets its SLO.
 - [ ] No N+1 queries on hot paths; heavy reads are indexed or cached with a TTL.
 - [ ] The service is horizontally scalable (stateless, or state externalized).
 - [ ] Resource limits (CPU, memory) are set so one instance cannot starve the node.
 
 ## Operations
+
+**Rules:** [Deployment](26-deployment.md) · [Production](27-production.md)
 
 - [ ] Deployment is automated and repeatable (CI/CD), with a canary or rolling strategy.
 - [ ] Configuration is environment-specific and injected, not baked into the image.

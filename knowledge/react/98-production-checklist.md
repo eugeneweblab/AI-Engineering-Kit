@@ -32,6 +32,8 @@ the cost of finding a gap from a user's bug report to five minutes during review
 
 ## Build & Bundle
 
+**Rules:** [Tooling](29-tooling.md) · [Production](28-production.md)
+
 - [ ] The app is served as a **production build** (`NODE_ENV=production`); React dev
   warnings, prop-type checks, and the slower dev renderer are compiled out.
 - [ ] The **bundle is analyzed** and large dependencies are justified; heavy or
@@ -46,6 +48,8 @@ the cost of finding a gap from a user's bug report to five minutes during review
 
 ## Rendering & Performance
 
+**Rules:** [Rendering Patterns](11-rendering.md) · [Performance](12-performance.md)
+
 - [ ] Every list rendered from data uses a **stable, unique `key`** — never the array
   index for lists that reorder, insert, or delete.
 - [ ] Context values that change are **memoized** (`useMemo`), and unrelated concerns live
@@ -59,6 +63,8 @@ the cost of finding a gap from a user's bug report to five minutes during review
 
 ## Error Handling & Resilience
 
+**Rules:** [Error Handling](19-error-handling.md)
+
 - [ ] **Error boundaries** wrap route-level or feature-level subtrees so one failed render
   degrades a section, not the whole page (see [error handling](19-error-handling.md)).
 - [ ] Every async data path has explicit **loading, error, and empty** states — no
@@ -69,6 +75,8 @@ the cost of finding a gap from a user's bug report to five minutes during review
 
 ## Data Fetching
 
+**Rules:** [Data Fetching](16-data-fetching.md)
+
 - [ ] Server state is managed by a dedicated library (TanStack Query, RTK Query, or the
   framework's loaders) — not hand-rolled `useEffect` fetches — so caching, retries, and
   race conditions are handled (see [data fetching](16-data-fetching.md)).
@@ -78,6 +86,8 @@ the cost of finding a gap from a user's bug report to five minutes during review
   a write.
 
 ## Accessibility
+
+**Rules:** [Accessibility](20-accessibility.md)
 
 - [ ] Interactive elements are real semantic elements (`<button>`, `<a href>`) — not
   `onClick` on a `<div>` — so keyboard and screen-reader users can use them (see
@@ -90,6 +100,8 @@ the cost of finding a gap from a user's bug report to five minutes during review
 
 ## Security
 
+**Rules:** [Security](25-security.md)
+
 - [ ] **No secrets in the client bundle** — API keys, tokens, and private config are never
   shipped to the browser (see [security](25-security.md)).
 - [ ] User-supplied HTML is never passed to `dangerouslySetInnerHTML` without sanitizing;
@@ -100,12 +112,16 @@ the cost of finding a gap from a user's bug report to five minutes during review
 
 ## Testing & CI
 
+**Rules:** [Testing](21-testing.md)
+
 - [ ] Critical user flows have tests that assert **behavior** (React Testing Library),
   and CI runs them plus lint and type-check on every PR (see [testing](21-testing.md)).
 - [ ] TypeScript (or PropTypes) passes with no errors; `strict` mode is on for TS projects.
 - [ ] The production build is exercised in CI (build succeeds, no new console warnings).
 
 ## Deployment & Runtime
+
+**Rules:** [Production](28-production.md)
 
 - [ ] Environment configuration is injected per environment at build/deploy time; the same
   artifact is promoted, not rebuilt per environment.

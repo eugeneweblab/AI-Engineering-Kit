@@ -36,6 +36,8 @@ that surface (e.g. no data fetching).
 
 ## Server / Client Boundary
 
+**Rules:** [Server Components](06-server-components.md) · [Client Components](07-client-components.md)
+
 - [ ] Is every `"use client"` at an interactive leaf, not on a page or layout by default?
 - [ ] Is the client bundle free of server-only imports (db clients, secret config, private logic)?
 - [ ] Are Server Components composed into Client Components via `children` rather than imported into client modules?
@@ -43,6 +45,8 @@ that surface (e.g. no data fetching).
 - [ ] Are `useEffect`/`useState` used only where genuine client interactivity requires them?
 
 ## Data Fetching & Caching
+
+**Rules:** [Data Fetching](09-data-fetching.md) · [Caching](10-caching.md)
 
 - [ ] Is data fetched on the server and passed down, rather than fetched client-side to hydrate static content?
 - [ ] Is each `fetch` caching behavior explicit (Next.js 15+ defaults to uncached)?
@@ -53,12 +57,16 @@ that surface (e.g. no data fetching).
 
 ## Mutations & Server Actions
 
+**Rules:** [Server Actions](11-server-actions.md)
+
 - [ ] Does every Server Action / Route Handler validate its input with a schema before use?
 - [ ] Does every mutation re-check authentication and authorization on the server?
 - [ ] Are Server Actions never used to expose read endpoints that should be plain data fetches?
 - [ ] Is user-controlled input never interpolated into raw SQL or shell commands?
 
 ## Security
+
+**Rules:** [Security](24-security.md) · [Authorization](15-authorization.md)
 
 - [ ] Are only `NEXT_PUBLIC_`-prefixed env vars referenced in client code, and no secrets among them?
 - [ ] Are auth checks enforced in the data/action layer, not only in middleware or UI?
@@ -67,6 +75,8 @@ that surface (e.g. no data fetching).
 
 ## Rendering, Routing & UX
 
+**Rules:** [Rendering Strategies](08-rendering-strategies.md) · [Routing](04-routing.md)
+
 - [ ] Does every route segment that can fail have an `error.tsx`, and every async boundary a `loading.tsx` or `<Suspense>`?
 - [ ] Are `generateStaticParams` and `generateMetadata` present where static generation or SEO requires them?
 - [ ] Do navigations use `<Link>` (not raw `<a>`) for internal routes to keep client-side transitions?
@@ -74,12 +84,16 @@ that surface (e.g. no data fetching).
 
 ## Performance & Assets
 
+**Rules:** [Performance](20-performance.md) · [Images](16-images.md)
+
 - [ ] Are images rendered via `next/image` with explicit `width`/`height` (or `fill`) to prevent layout shift?
 - [ ] Are fonts loaded via `next/font` rather than a render-blocking external stylesheet?
 - [ ] Are heavy client-only dependencies `dynamic()`-imported with SSR disabled where appropriate?
 - [ ] Was the bundle checked for a dependency that accidentally crossed the client boundary?
 
 ## Testing & Verification
+
+**Rules:** [Testing](22-testing.md)
 
 - [ ] Does `next build` pass with no new warnings, and does the route table look as intended?
 - [ ] Are there tests for the mutation's negative paths (invalid input, unauthorized, not found)?

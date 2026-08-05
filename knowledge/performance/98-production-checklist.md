@@ -32,12 +32,16 @@ finding a gap from a 3 a.m. incident to five minutes during review.
 
 ## Targets & Budget
 
+**Rules:** [Budget](23-performance-budget.md) · [Metrics](02-metrics.md)
+
 - [ ] A **performance budget** exists with explicit latency (p95/p99) and throughput targets
   per critical path (see [performance budget](23-performance-budget.md)).
 - [ ] The change was measured against the budget, and the after-numbers are recorded.
 - [ ] Targets are set on **percentiles**, not averages, and match real user-facing paths.
 
 ## Load & Capacity
+
+**Rules:** [Load Testing](22-load-testing.md) · [Capacity Planning](20-capacity-planning.md)
 
 - [ ] The system was **load-tested** at expected peak plus headroom, and met its targets
   under that load (see [load testing](22-load-testing.md)).
@@ -50,6 +54,8 @@ finding a gap from a 3 a.m. incident to five minutes during review.
 
 ## Data & Queries
 
+**Rules:** [Query Optimization](15-query-optimization.md) · [— Database Access](13-database-performance.md)
+
 - [ ] Every query on the hot path is **indexed** for its access pattern; `EXPLAIN` shows no
   full scans on large tables (see [query optimization](15-query-optimization.md)).
 - [ ] No **N+1 query** patterns on request paths; related data is batched or joined.
@@ -59,6 +65,8 @@ finding a gap from a 3 a.m. incident to five minutes during review.
   connection limit (see [database performance](13-database-performance.md)).
 
 ## Caching & Memory
+
+**Rules:** [Caching](08-caching.md) · [Memory](04-memory.md)
 
 - [ ] Every cache has a defined **invalidation strategy or TTL**; nothing is cached forever
   by accident (see [caching](08-caching.md)).
@@ -70,6 +78,8 @@ finding a gap from a 3 a.m. incident to five minutes during review.
 
 ## Resilience Under Latency
 
+**Rules:** [API Performance](14-api-performance.md) · [Scalability](21-scalability.md)
+
 - [ ] Every outbound network call has a **timeout** so one slow dependency cannot stall the
   caller indefinitely.
 - [ ] Slow or failing dependencies are isolated (timeout, circuit breaker, fallback) so they
@@ -79,6 +89,8 @@ finding a gap from a 3 a.m. incident to five minutes during review.
 
 ## Assets & Delivery (web)
 
+**Rules:** [Images](11-images.md) · [Code Splitting](10-code-splitting.md)
+
 - [ ] Static assets are **compressed** (gzip/brotli), **cache-headed**, and served from a
   CDN where applicable.
 - [ ] Images are sized and modern-format; fonts are subset and `font-display` is set (see
@@ -87,6 +99,8 @@ finding a gap from a 3 a.m. incident to five minutes during review.
   meet target (see [web vitals](18-web-vitals.md)).
 
 ## Observability
+
+**Rules:** [Production Monitoring](25-production-monitoring.md) · [Monitoring](17-monitoring.md)
 
 - [ ] Latency (with percentiles), throughput, error rate, and saturation are **emitted as
   metrics** and visible on a dashboard (see [monitoring](17-monitoring.md)).

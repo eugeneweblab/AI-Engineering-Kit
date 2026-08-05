@@ -48,6 +48,8 @@ Verify that:
 
 ## Architecture
 
+**Rules:** [Component Architecture](02-component-architecture.md) · [Component Composition](13-component-composition.md)
+
 Verify that:
 
 ☐ Component responsibilities are clearly separated.
@@ -65,6 +67,8 @@ Verify that:
 ---
 
 ## React Best Practices
+
+**Rules:** [Best Practices](26-best-practices.md) · [Hooks](08-hooks.md)
 
 Verify that:
 
@@ -104,6 +108,8 @@ Verify that:
 
 ## Performance
 
+**Rules:** [Performance](12-performance.md) · [Rendering Patterns](11-rendering.md)
+
 Verify that:
 
 ☐ No unnecessary rendering.
@@ -119,6 +125,8 @@ Verify that:
 ---
 
 ## Accessibility
+
+**Rules:** [Accessibility](20-accessibility.md)
 
 Verify that:
 
@@ -140,6 +148,8 @@ Verify that:
 
 ## Error Handling
 
+**Rules:** [Error Handling](19-error-handling.md)
+
 Verify that:
 
 ☐ Expected errors are handled.
@@ -156,6 +166,8 @@ Verify that:
 
 ## Testing
 
+**Rules:** [Testing](21-testing.md)
+
 Verify that:
 
 ☐ Critical user behavior is tested.
@@ -171,6 +183,8 @@ Verify that:
 ---
 
 ## Code Quality
+
+**Rules:** [Code Style](23-code-style.md) · [Folder Structure](22-folder-structure.md)
 
 Verify that:
 
@@ -203,6 +217,8 @@ Verify that:
 ---
 
 ## Security
+
+**Rules:** [Security](25-security.md)
 
 Verify that:
 

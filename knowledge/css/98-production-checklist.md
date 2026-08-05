@@ -27,6 +27,8 @@ that only appear in the field, where they are expensive to fix and visible to ev
 
 ## Cross-Browser and Device
 
+**Rules:** [Browser Compatibility](26-browser-compatibility.md) · [Modern CSS](25-modern-css.md)
+
 - [ ] Verified in the current versions of Chrome, Firefox, Safari, and Edge.
 - [ ] Tested on real mobile viewport widths (360px and up), not just a resized desktop window.
 - [ ] Any modern feature (`:has()`, container queries, subgrid) has a fallback or a documented
@@ -36,6 +38,8 @@ that only appear in the field, where they are expensive to fix and visible to ev
 
 ## Responsive Layout
 
+**Rules:** [Responsive Design](17-responsive-design.md) · [Media Queries](18-media-queries.md)
+
 - [ ] Layout is fluid between breakpoints, not fixed-width — see [responsive design](17-responsive-design.md).
 - [ ] Breakpoints are content-driven (where the layout breaks), not device-model specific.
 - [ ] Text remains readable and untruncated when the user zooms to 200%.
@@ -44,6 +48,8 @@ that only appear in the field, where they are expensive to fix and visible to ev
 
 ## Accessibility
 
+**Rules:** [Accessibility](23-accessibility.md)
+
 - [ ] Text meets WCAG AA contrast (4.5:1 body, 3:1 large) — see [accessibility](23-accessibility.md).
 - [ ] A visible `:focus-visible` style exists on every interactive element; focus is never `outline: none` without replacement.
 - [ ] `@media (prefers-reduced-motion: reduce)` disables or reduces non-essential animation.
@@ -51,6 +57,8 @@ that only appear in the field, where they are expensive to fix and visible to ev
 - [ ] Layout does not depend on `order`/absolute positioning in a way that breaks the DOM reading order.
 
 ## Performance
+
+**Rules:** [Performance](22-performance.md)
 
 - [ ] The CSS bundle is minified and within its size budget — see [performance](22-performance.md).
 - [ ] Critical/above-the-fold CSS loads render-blocking; the rest is deferred or split.
@@ -61,6 +69,8 @@ that only appear in the field, where they are expensive to fix and visible to ev
 
 ## Robustness
 
+**Rules:** [Specificity](03-specificity.md) · [Browser Compatibility](26-browser-compatibility.md)
+
 - [ ] No `!important` except in documented, isolated utility layers.
 - [ ] Maximum selector specificity is a single class unless justified — see [engineering principles](30-engineering-principles.md).
 - [ ] Colors, spacing, type, and breakpoints come from tokens/custom properties, not magic numbers.
@@ -68,6 +78,8 @@ that only appear in the field, where they are expensive to fix and visible to ev
 - [ ] Dark mode (if supported) is driven by `prefers-color-scheme` or a token switch, with no hard-coded light-only colors.
 
 ## Tooling and Hygiene
+
+**Rules:** [Debugging](27-debugging.md) · [Best Practices](28-best-practices.md)
 
 - [ ] Stylelint passes with the project config; no disabled rules without a comment.
 - [ ] The stylesheet builds with no warnings and no `@import` chains that block loading.

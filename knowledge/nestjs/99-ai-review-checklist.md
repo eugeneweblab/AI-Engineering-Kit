@@ -80,6 +80,8 @@ Never solve the wrong problem.
 
 ## 2. Architecture Review
 
+**Rules:** [Architecture](01-architecture.md) · [Modules](02-modules.md)
+
 Verify:
 
 ☐ Responsibilities are clearly separated.
@@ -114,6 +116,8 @@ Respect KISS and YAGNI.
 
 ## 4. Code Quality Review
 
+**Rules:** [Services](05-services.md) · [Engineering Principles](30-engineering-principles.md)
+
 Verify:
 
 ☐ Naming is meaningful.
@@ -131,6 +135,8 @@ Code should be optimized for future maintainers.
 ---
 
 ## 5. Security Review
+
+**Rules:** [Security](26-security.md) · [Authorization](16-authorization.md)
 
 Verify:
 
@@ -152,6 +158,8 @@ Security is mandatory.
 
 ## 6. Performance Review
 
+**Rules:** [Performance Engineering](27-performance.md) · [Caching](19-caching.md)
+
 Verify:
 
 ☐ No obvious bottlenecks exist.
@@ -170,6 +178,8 @@ Performance should be evidence-driven.
 
 ## 7. Reliability Review
 
+**Rules:** [Transactions](18-transactions.md) · [Distributed Systems](23-distributed-systems.md)
+
 Verify:
 
 ☐ Failure scenarios handled.
@@ -187,6 +197,8 @@ Systems should fail predictably.
 ---
 
 ## 8. Testing Review
+
+**Rules:** [Testing](25-testing.md)
 
 Verify:
 
@@ -222,6 +234,8 @@ Maintainability is a long-term requirement.
 
 ## 10. Observability Review
 
+**Rules:** [Observability](24-observability.md)
+
 Verify:
 
 ☐ Logging appropriate.
@@ -237,6 +251,8 @@ Production behavior should remain observable.
 ---
 
 ## 11. Deployment Review
+
+**Rules:** [Deployment](28-deployment.md)
 
 Verify:
 

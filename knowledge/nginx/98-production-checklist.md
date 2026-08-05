@@ -29,12 +29,16 @@ promotion, not after the incident.
 
 ## Validation and Deployment
 
+**Rules:** [Configuration](02-configuration.md) · [Production](25-production.md)
+
 - [ ] `nginx -t` passes on the exact config being deployed, in CI and on the host.
 - [ ] The deploy reloads with `nginx -s reload` (graceful), not `restart` (drops connections).
 - [ ] The identical config is applied to every node in the fleet, not just one.
 - [ ] The previous known-good config is recoverable via version control.
 
 ## TLS and Certificates
+
+**Rules:** [SSL TLS](12-ssl-tls.md)
 
 - [ ] TLS 1.2 and 1.3 only; SSLv3, TLS 1.0, and 1.1 are disabled.
 - [ ] Certificates are valid, cover all served `server_name`s, and auto-renew (ACME/certbot).
@@ -44,6 +48,8 @@ promotion, not after the incident.
 - [ ] OCSP stapling is enabled (`ssl_stapling on;`) to cut handshake latency.
 
 ## Security Hardening
+
+**Rules:** [Security](13-security.md) · [Rate Limiting](14-rate-limiting.md)
 
 - [ ] `server_tokens off;` — the nginx version is not advertised in headers or error pages.
 - [ ] A `default_server` fails closed (e.g. `return 444;`) on unknown Host headers.
@@ -56,6 +62,8 @@ promotion, not after the incident.
 
 ## Proxying and Upstreams
 
+**Rules:** [Reverse Proxy](05-reverse-proxy.md) · [Load Balancing](06-load-balancing.md)
+
 - [ ] Every `proxy_pass` sets `Host`, `X-Real-IP`, `X-Forwarded-For`, `X-Forwarded-Proto`.
 - [ ] Explicit `proxy_connect_timeout`, `proxy_read_timeout`, and `send_timeout` are set.
 - [ ] Upstreams define health checks / `max_fails` + `fail_timeout` so dead backends drop out.
@@ -63,6 +71,8 @@ promotion, not after the incident.
 - [ ] WebSocket locations set `Upgrade`/`Connection` headers and a long `proxy_read_timeout`.
 
 ## Performance
+
+**Rules:** [Performance](18-performance.md) · [Compression](09-compression.md)
 
 - [ ] `worker_processes auto;` and `worker_connections` are tuned to the host, with a
       matching OS `ulimit -n`.
@@ -73,6 +83,8 @@ promotion, not after the incident.
 
 ## Observability
 
+**Rules:** [Logging](16-logging.md) · [Monitoring](17-monitoring.md)
+
 - [ ] Access and error logs are written, rotated (`logrotate`), and shipped off-host.
 - [ ] `error_log` level is `warn` or `error` in production, not `debug`.
 - [ ] The access log format includes `$request_time` and `$upstream_response_time`.
@@ -80,6 +92,8 @@ promotion, not after the incident.
 - [ ] Alerts fire on 5xx rate, upstream failures, and worker connection saturation.
 
 ## Resilience
+
+**Rules:** [High Availability](27-high-availability.md) · [Load Balancing](06-load-balancing.md)
 
 - [ ] The host is not a single point of failure (LB pair, keepalived VIP, or multiple AZs).
 - [ ] `limit_conn` caps per-client concurrent connections to blunt slow-loris and abuse.

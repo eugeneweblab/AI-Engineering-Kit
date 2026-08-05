@@ -31,6 +31,8 @@ outage to a five-minute review.
 
 ## Build & Artifact
 
+**Rules:** [Build Pipelines](05-build-pipelines.md) · [Containerization](10-containerization.md)
+
 - [ ] A single **immutable artifact** is built once in CI and promoted unchanged across
   environments — not rebuilt per environment (see [build pipelines](05-build-pipelines.md)).
 - [ ] The artifact is **versioned and pinned** by digest/tag; the exact commit it was built
@@ -41,6 +43,8 @@ outage to a five-minute review.
 
 ## Configuration & Secrets
 
+**Rules:** [Configuration Management](09-configuration-management.md) · [Secrets Management](17-secrets-management.md)
+
 - [ ] Configuration is **externalized per environment**; the same artifact reads different
   injected config (see [configuration management](09-configuration-management.md)).
 - [ ] No secrets in code, images, or committed config; all secrets come from a **secrets
@@ -49,6 +53,8 @@ outage to a five-minute review.
   on live hosts.
 
 ## Deployment & Rollback
+
+**Rules:** [Deployment Strategies](07-deployment-strategies.md) · [Release Management](06-release-management.md)
 
 - [ ] The deploy is **automated and repeatable** and supports a tested **rollback**
   (blue/green, canary, or versioned revert — see [deployment strategies](07-deployment-strategies.md)).
@@ -62,6 +68,8 @@ outage to a five-minute review.
 
 ## Observability & Alerting
 
+**Rules:** [Monitoring](12-monitoring.md) · [Alerting](15-alerting.md)
+
 - [ ] Structured **logs** with correlation/trace IDs, **metrics**, and **traces** are
   emitted for the request path (see [observability](13-observability.md)).
 - [ ] **Alerts** exist on the SLOs and on saturation (error rate, latency, resource use),
@@ -73,6 +81,8 @@ outage to a five-minute review.
 
 ## Reliability & Recovery
 
+**Rules:** [High Availability](19-high-availability.md) · [Disaster Recovery](18-disaster-recovery.md)
+
 - [ ] Resource **limits and requests** (CPU, memory) are set; nothing relies on unbounded
   resources.
 - [ ] There is a tested **backup and restore** — an untested backup is not a backup (see
@@ -82,6 +92,8 @@ outage to a five-minute review.
 - [ ] Failure and load behavior have been tested before this reaches production.
 
 ## Ownership & Process
+
+**Rules:** [Incident Management](25-incident-management.md) · [Postmortems](26-postmortems.md)
 
 - [ ] The change passed all **quality gates** (tests, lint, security scan) and none were
   skipped or marked flaky-ignore (see [quality gates](23-quality-gates.md)).

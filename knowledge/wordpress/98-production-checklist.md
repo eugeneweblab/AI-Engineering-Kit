@@ -72,6 +72,8 @@ Always search before creating.
 
 ## Phase 3 — Architecture
 
+**Rules:** [Architecture](01-wordpress-architecture.md) · [Project Structure](02-project-structure.md)
+
 Verify:
 
 ☐ The implementation follows the project's architecture.
@@ -92,6 +94,8 @@ Architecture should become stronger after every task.
 
 ## Phase 4 — WordPress Standards
 
+**Rules:** [Best Practices](03-best-practices.md) · [Code Style](04-code-style.md)
+
 Verify:
 
 ☐ WordPress APIs are used where appropriate.
@@ -109,6 +113,8 @@ Verify:
 ---
 
 ## Phase 5 — Security
+
+**Rules:** [Security](06-security.md)
 
 Verify:
 
@@ -132,6 +138,8 @@ Security is never optional.
 
 ## Phase 6 — Performance
 
+**Rules:** [Performance](05-performance.md) · [Caching](23-caching.md)
+
 Verify:
 
 ☐ Duplicate queries were avoided.
@@ -152,6 +160,8 @@ Performance should improve or remain unchanged.
 
 ## Phase 7 — Frontend
 
+**Rules:** [Template Hierarchy](13-template-hierarchy.md) · [Block Themes and theme.json](17-block-themes.md)
+
 Verify:
 
 ☐ Responsive behavior is correct.
@@ -170,6 +180,8 @@ Verify:
 
 ## Phase 8 — Backend
 
+**Rules:** [Plugin Development](15-plugin-development.md) · [REST API](18-rest-api.md)
+
 Verify:
 
 ☐ Business logic is isolated.
@@ -187,6 +199,8 @@ Verify:
 ---
 
 ## Phase 9 — Code Quality
+
+**Rules:** [Code Style](04-code-style.md)
 
 Verify:
 
@@ -210,6 +224,8 @@ Readable code is preferred over clever code.
 
 ## Phase 10 — Testing
 
+**Rules:** [Testing](07-testing.md)
+
 Verify:
 
 ☐ Happy path was tested.
@@ -227,6 +243,8 @@ Verify:
 ---
 
 ## Phase 11 — Documentation
+
+**Rules:** [Maintenance](29-maintenance.md)
 
 Verify:
 

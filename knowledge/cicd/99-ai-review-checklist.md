@@ -28,6 +28,8 @@ the only place they are caught. A reviewer who scans YAML casually is the last l
 
 ## Correctness & Determinism
 
+**Rules:** [Build Stage](03-build-stage.md) · [Artifacts](07-artifacts.md)
+
 - [ ] Are all base images pinned by digest and actions/plugins pinned by SHA or exact tag?
 - [ ] Are dependencies installed from a lockfile rather than resolved to latest?
 - [ ] Is the artifact built once and promoted, rather than rebuilt per environment?
@@ -35,6 +37,8 @@ the only place they are caught. A reviewer who scans YAML casually is the last l
 - [ ] Are jobs idempotent and safe to re-run without double-deploying or corrupting state?
 
 ## Gates & Flow
+
+**Rules:** [Quality Gates](05-quality-gates.md) · [Pipeline Design](02-pipeline-design.md)
 
 - [ ] Does the change keep required checks blocking on merge and deploy?
 - [ ] Do fast, cheap stages (lint, unit) run before slow ones (integration, e2e)?
@@ -44,6 +48,8 @@ the only place they are caught. A reviewer who scans YAML casually is the last l
 
 ## Security
 
+**Rules:** [Security Scanning](06-security-scanning.md) · [Secrets](15-secrets.md)
+
 - [ ] Are all secrets referenced from a secrets store, with none hardcoded in the diff?
 - [ ] Could any added `echo`, `set -x`, or debug step print a secret to the logs?
 - [ ] Do new jobs use least-privilege tokens (scoped, short-lived, or OIDC)?
@@ -52,12 +58,16 @@ the only place they are caught. A reviewer who scans YAML casually is the last l
 
 ## Release Safety
 
+**Rules:** [Rollbacks](14-rollbacks.md) · [Release Management](09-release-management.md)
+
 - [ ] Does the change preserve a tested, one-step rollback path?
 - [ ] Are database migrations backward-compatible and separable from the code deploy?
 - [ ] Is every deploy still traceable (commit SHA, artifact digest, actor recorded)?
 - [ ] Do health checks / smoke tests still gate traffic to a new version?
 
 ## Maintainability
+
+**Rules:** [Best Practices](27-best-practices.md) · [Tooling](29-tooling.md)
 
 - [ ] Is duplicated pipeline logic factored into reusable workflows/templates?
 - [ ] Are hardcoded environment values replaced with variables/inputs?

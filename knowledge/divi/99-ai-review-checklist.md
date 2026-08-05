@@ -33,6 +33,8 @@ instead of after they are live.
 
 ## Model & Structure
 
+**Rules:** [Architecture](01-architecture.md) · [Layouts](05-layouts.md)
+
 - [ ] Is the Divi version (4 shortcode vs 5 JSON) correct for the change, with the right
       content format and module API used?
 - [ ] Is content edited through the builder model, not by hand-writing shortcodes/JSON or
@@ -43,6 +45,8 @@ instead of after they are live.
 
 ## Styling
 
+**Rules:** [Custom CSS](09-custom-css.md) · [Global Elements](06-global-elements.md)
+
 - [ ] Are repeated styles driven by presets/globals instead of per-module inline CSS?
 - [ ] Is custom CSS in the child theme or Divi's global Custom CSS box — not scattered
       across module Advanced tabs? See [custom-css](09-custom-css.md).
@@ -50,6 +54,8 @@ instead of after they are live.
 - [ ] Do styles use global colors/fonts/spacing tokens rather than hard-coded values?
 
 ## Code (Child Theme, PHP, JS)
+
+**Rules:** [Custom Modules](04-custom-modules.md) · [WordPress Hooks](16-wordpress-hooks.md)
 
 - [ ] Is all PHP/CSS/JS in a **child theme**, never the Divi parent?
 - [ ] Are scripts/styles registered via `wp_enqueue_*` with declared dependencies — not
@@ -63,12 +69,16 @@ instead of after they are live.
 
 ## Performance & Accessibility
 
+**Rules:** [Performance](10-performance.md) · [Accessibility](12-accessibility.md)
+
 - [ ] Does the change avoid adding a plugin or font for something Divi already provides?
 - [ ] Are new images sized, compressed, and lazy-loaded (except the LCP image)?
 - [ ] Does the change preserve semantic headings, `alt` text, contrast, and keyboard focus?
       See [accessibility](12-accessibility.md).
 
 ## Verification
+
+**Rules:** [Testing](21-testing.md) · [Debugging](20-debugging.md)
 
 - [ ] Was the change confirmed on the **rendered front end**, not only in the Visual
       Builder, at every breakpoint?

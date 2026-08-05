@@ -28,6 +28,8 @@ you run before, not after, the pager goes off.
 
 ## Workload & Scheduling
 
+**Rules:** [Deployments](05-deployments.md) · [Resource Management](19-resource-management.md)
+
 - [ ] Every container has CPU and memory `requests` and `limits` set.
 - [ ] Latency-sensitive workloads use `Guaranteed` QoS (limit == request for memory).
 - [ ] At least 2 replicas run for every stateless service.
@@ -38,6 +40,8 @@ you run before, not after, the pager goes off.
 
 ## Health & Reliability
 
+**Rules:** [Pods](04-pods.md) · [Autoscaling](20-autoscaling.md)
+
 - [ ] `readinessProbe` reflects true ability to serve (checks critical dependencies).
 - [ ] `livenessProbe` restarts only on genuine hangs and cannot cause a crash loop under load.
 - [ ] `startupProbe` protects slow-starting apps from premature liveness kills.
@@ -46,6 +50,8 @@ you run before, not after, the pager goes off.
 
 ## Configuration & Secrets
 
+**Rules:** [Configmaps](09-configmaps.md) · [Secrets](10-secrets.md)
+
 - [ ] No secrets are committed to Git or baked into images.
 - [ ] Secrets come from an encrypted store (KMS-backed etcd, External Secrets, Vault).
 - [ ] etcd encryption at rest is enabled for the cluster.
@@ -53,6 +59,8 @@ you run before, not after, the pager goes off.
 - [ ] A rollout is triggered (checksum annotation or new object) when config changes.
 
 ## Security
+
+**Rules:** [Security](22-security.md) · [Network Policies](17-network-policies.md)
 
 - [ ] Containers run as non-root with `runAsNonRoot: true`.
 - [ ] All Linux capabilities are dropped; only required ones are added back.
@@ -64,6 +72,8 @@ you run before, not after, the pager goes off.
 
 ## Observability
 
+**Rules:** [Observability](21-observability.md) · [Monitoring](23-monitoring.md)
+
 - [ ] Metrics are exported (Prometheus/OpenMetrics) and scraped.
 - [ ] Structured logs go to stdout/stderr and are shipped to a central store.
 - [ ] Alerts exist for CrashLoopBackOff, OOMKilled, Pending Pods, and probe failures.
@@ -71,6 +81,8 @@ you run before, not after, the pager goes off.
 - [ ] Distributed tracing is wired for multi-service request paths.
 
 ## Resilience & Recovery
+
+**Rules:** [Disaster Recovery](28-disaster-recovery.md) · [Upgrades](25-upgrades.md)
 
 - [ ] etcd and PersistentVolumes are backed up on a schedule and restores are tested.
 - [ ] Autoscaling (HPA/VPA/Cluster Autoscaler) is configured and load-tested.

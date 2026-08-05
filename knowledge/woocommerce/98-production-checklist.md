@@ -33,6 +33,8 @@ review.
 
 ## Payments & Checkout
 
+**Rules:** [Payments](08-payments.md) · [Checkout](07-checkout.md)
+
 - [ ] A real order has been placed in **live mode** (not just the test gateway) and
   refunded, confirming capture, order status, and receipt end to end.
 - [ ] Every payment gateway's **webhook/IPN endpoint** is reachable from the internet and
@@ -46,6 +48,8 @@ review.
 
 ## Data & Storage
 
+**Rules:** [Orders](05-orders.md) · [Customers](06-customers.md)
+
 - [ ] **HPOS** status is intentional and consistent: either fully enabled and migrated, or
   fully off — never mid-migration on launch (see [architecture](01-architecture.md)).
 - [ ] A tested **backup** and a tested **restore** of the database and uploads exist — an
@@ -57,6 +61,8 @@ review.
 
 ## Tax, Shipping & Pricing
 
+**Rules:** [Taxes](10-taxes.md) · [Shipping](09-shipping.md)
+
 - [ ] Tax rates, rounding, and inclusive/exclusive display are configured and verified
   against a known-correct order total (see [taxes](10-taxes.md)).
 - [ ] Shipping zones, methods, and rates produce the expected cost for a real address in
@@ -65,6 +71,8 @@ review.
   gateway expectations.
 
 ## Performance & Scale
+
+**Rules:** [Performance](15-performance.md) · [Scaling](24-scaling.md)
 
 - [ ] A persistent **object cache** (Redis/Memcached) is running, and page/full-page
   caching **excludes** cart, checkout, my-account, and any session-bearing page.
@@ -77,6 +85,8 @@ review.
 
 ## Security & Access
 
+**Rules:** [Security](16-security.md)
+
 - [ ] Site is served over **HTTPS** end to end; mixed content and insecure gateway
   callbacks are eliminated.
 - [ ] WooCommerce, WordPress, PHP, and every plugin/theme are on **supported, patched**
@@ -87,6 +97,8 @@ review.
   in the database export or the repo.
 
 ## Deployment & Operations
+
+**Rules:** [Deployment](22-deployment.md) · [Monitoring](23-monitoring.md)
 
 - [ ] Deploys are repeatable and support a **rollback** of code, plugins, and (where safe)
   schema, tested on staging that mirrors production versions (see [deployment](22-deployment.md)).

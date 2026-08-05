@@ -28,6 +28,8 @@ so they are caught before launch, not during an outage.
 
 ## Schema and Contract
 
+**Rules:** [Schema](02-schema.md) · [Schema Evolution](29-schema-evolution.md)
+
 - [ ] The production schema is published to a registry and diffed against the last
       shipped version in CI (breaking changes fail the build).
 - [ ] All removed or renamed fields went through `@deprecated` first and show zero usage
@@ -38,6 +40,8 @@ so they are caught before launch, not during an outage.
 
 ## Query Cost and Safety
 
+**Rules:** [Security](17-security.md) · [Pagination](13-pagination.md)
+
 - [ ] Maximum query **depth** is enforced and rejects overly nested queries.
 - [ ] Query **complexity/cost** limits are enforced before execution.
 - [ ] A per-operation **timeout** is set and cancels in-flight resolver work.
@@ -47,6 +51,8 @@ so they are caught before launch, not during an outage.
 
 ## Performance
 
+**Rules:** [Performance](22-performance.md) · [N+1 Problem](15-n1-problem.md)
+
 - [ ] **DataLoader** (or equivalent per-request batching) covers every entity fetched in
       a list context; no N+1 remains under load test.
 - [ ] Resolver-level and downstream **caching** is configured with sane TTLs and keys.
@@ -54,6 +60,8 @@ so they are caught before launch, not during an outage.
 - [ ] Slow-query and slow-resolver thresholds are defined and alert.
 
 ## Security
+
+**Rules:** [Security](17-security.md) · [Authentication](18-authentication.md)
 
 - [ ] Authentication is verified in **context**, once per request, not per resolver ad hoc.
 - [ ] Authorization is enforced at the **field/type** level, not only at the entry query.
@@ -65,6 +73,8 @@ so they are caught before launch, not during an outage.
 
 ## Errors and Observability
 
+**Rules:** [Error Handling](20-error-handling.md) · [Monitoring](25-monitoring.md)
+
 - [ ] Expected failures are modeled as **result unions/data**; only faults become GraphQL
       errors.
 - [ ] Errors carry stable, documented **error codes** in `extensions`.
@@ -74,6 +84,8 @@ so they are caught before launch, not during an outage.
 - [ ] Dashboards and alerts exist for error rate, p95 latency, and rejected-by-cost count.
 
 ## Operations
+
+**Rules:** [Production](27-production.md) · [Caching](21-caching.md)
 
 - [ ] Health and readiness endpoints exist and reflect downstream dependency health.
 - [ ] Graceful shutdown drains in-flight operations before exit.

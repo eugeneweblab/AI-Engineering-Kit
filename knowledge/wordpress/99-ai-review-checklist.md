@@ -52,6 +52,8 @@ Verify:
 
 ## Phase 2 — Architecture Review
 
+**Rules:** [Architecture](01-wordpress-architecture.md) · [Project Structure](02-project-structure.md)
+
 Verify:
 
 ☐ Existing architecture has been respected.
@@ -72,6 +74,8 @@ Architecture should become cleaner after every change.
 
 ## Phase 3 — WordPress Review
 
+**Rules:** [Hooks — Actions and Filters](08-hooks.md) · [Best Practices](03-best-practices.md)
+
 Verify:
 
 ☐ WordPress APIs are used where appropriate.
@@ -89,6 +93,8 @@ Verify:
 ---
 
 ## Phase 4 — Security Review
+
+**Rules:** [Security](06-security.md) · [Users and Capabilities](20-users-and-capabilities.md)
 
 Verify:
 
@@ -112,6 +118,8 @@ Security issues block approval.
 
 ## Phase 5 — Performance Review
 
+**Rules:** [Performance](05-performance.md) · [Queries and The Loop](12-queries.md)
+
 Verify:
 
 ☐ Database queries are efficient.
@@ -132,6 +140,8 @@ Avoid accepting performance regressions without justification.
 
 ## Phase 6 — Frontend Review
 
+**Rules:** [Template Hierarchy](13-template-hierarchy.md) · [Block Editor](16-block-editor.md)
+
 Verify:
 
 ☐ The implementation matches the design.
@@ -150,6 +160,8 @@ Verify:
 
 ## Phase 7 — Backend Review
 
+**Rules:** [Plugin Development](15-plugin-development.md) · [Database and $wpdb](19-database.md)
+
 Verify:
 
 ☐ Business logic is encapsulated.
@@ -167,6 +179,8 @@ Verify:
 ---
 
 ## Phase 8 — Code Quality Review
+
+**Rules:** [Code Style](04-code-style.md)
 
 Verify:
 
@@ -192,6 +206,8 @@ Readable code should require minimal explanation.
 
 ## Phase 9 — Testing Review
 
+**Rules:** [Testing](07-testing.md)
+
 Verify:
 
 ☐ Primary functionality has been tested.
@@ -211,6 +227,8 @@ Testing should provide confidence rather than merely increase coverage.
 ---
 
 ## Phase 10 — Documentation Review
+
+**Rules:** [Maintenance](29-maintenance.md)
 
 Verify:
 

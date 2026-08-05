@@ -36,6 +36,8 @@ and new endpoints appear.
 
 ## Authentication and Sessions
 
+**Rules:** [Authentication](03-authentication.md) · [Session Management](06-session-management.md)
+
 - [ ] Passwords are hashed with Argon2id or bcrypt and a per-user salt; no fast/reversible hashes.
 - [ ] Login, signup, password-reset, and MFA endpoints are rate-limited and lockout-protected.
 - [ ] Session IDs regenerate on login and privilege change; logout revokes server-side.
@@ -46,12 +48,16 @@ and new endpoints appear.
 
 ## Authorization
 
+**Rules:** [Authorization](04-authorization.md)
+
 - [ ] Every endpoint enforces an explicit authorization check; default is deny.
 - [ ] Object-level access is checked (the requester owns/may access *this* record, not just the type).
 - [ ] Role/permission checks happen server-side, never trusting a client-supplied role or flag.
 - [ ] There are no debug, admin, or actuator endpoints reachable without authentication.
 
 ## Input, Output, and Injection
+
+**Rules:** [Input Validation](09-input-validation.md) · [Output Encoding](10-output-encoding.md)
 
 - [ ] All external input is validated against an allowlist schema at the boundary.
 - [ ] Database access uses parameterized queries or an ORM; no string-concatenated SQL.
@@ -61,6 +67,8 @@ and new endpoints appear.
 
 ## Transport and Headers
 
+**Rules:** [HTTPS](18-https.md) · [Headers](22-security-headers.md)
+
 - [ ] HTTPS is enforced everywhere with HSTS; HTTP redirects to HTTPS.
 - [ ] TLS is 1.2+ with modern ciphers; no expired or self-signed certs in production.
 - [ ] A Content-Security-Policy is set and does not use `unsafe-inline`/`unsafe-eval` for scripts.
@@ -68,6 +76,8 @@ and new endpoints appear.
 - [ ] CORS allows only known origins; it is not `*` on any authenticated endpoint.
 
 ## Secrets and Configuration
+
+**Rules:** [Secrets Management](16-secrets-management.md)
 
 - [ ] No secrets, keys, or tokens are committed to the repo or baked into images/logs.
 - [ ] Secrets come from a secrets manager or injected env vars, not source files.
@@ -77,17 +87,23 @@ and new endpoints appear.
 
 ## Dependencies and Supply Chain
 
+**Rules:** [Dependency Security](23-dependency-security.md) · [Supply Chain Security](24-supply-chain-security.md)
+
 - [ ] A dependency vulnerability scan runs in CI and blocks known-critical findings.
 - [ ] Dependencies are pinned with a lockfile; builds are reproducible.
 - [ ] Base images are minimal, current, and pulled by digest, not floating tags.
 
 ## Data Protection
 
+**Rules:** [Encryption](17-encryption.md)
+
 - [ ] Sensitive data at rest is encrypted; PII is minimized and access-logged.
 - [ ] Backups exist, are encrypted, and a restore has been tested.
 - [ ] PII/secrets are scrubbed from logs, analytics, and error trackers.
 
 ## Monitoring and Response
+
+**Rules:** [Monitoring](25-monitoring.md) · [Incident Response](26-incident-response.md)
 
 - [ ] Security-relevant events (auth failures, lockouts, authz denials) are logged and alertable.
 - [ ] Log timestamps are UTC and logs are tamper-evident / centralized.

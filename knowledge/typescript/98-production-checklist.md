@@ -31,6 +31,8 @@ artifact is sound".
 
 ## Compiler & Configuration
 
+**Rules:** [Configuration](16-configuration.md) · [Tooling](29-tooling.md)
+
 - [ ] `strict: true` is set in the tsconfig with no per-file or per-directory opt-outs.
 - [ ] `noUncheckedIndexedAccess` and `exactOptionalPropertyTypes` are enabled.
 - [ ] `tsc --noEmit` runs in CI as its own step and passes with zero errors.
@@ -40,6 +42,8 @@ artifact is sound".
 
 ## Type Safety
 
+**Rules:** [Type System](02-type-system.md) · [Type Guards](12-type-guards.md)
+
 - [ ] No `any` in shipped code (lint enforces `no-explicit-any`); `unknown` is used at boundaries.
 - [ ] Every `as` cast and `!` non-null assertion is backed by an adjacent runtime check.
 - [ ] All external inputs (HTTP, env, files, message queues) are schema-validated before use.
@@ -48,12 +52,16 @@ artifact is sound".
 
 ## Errors & Async
 
+**Rules:** [Error Handling](17-error-handling.md) · [Asynchronous Programming](18-asynchronous-programming.md)
+
 - [ ] Every `await`ed promise and floating promise is handled (`no-floating-promises` on).
 - [ ] Fallible domain operations return typed errors/`Result`, not untyped throws.
 - [ ] `catch` blocks type the error as `unknown` and narrow before use.
 - [ ] Unhandled rejection and uncaught exception handlers are registered in services.
 
 ## Build & Dependencies
+
+**Rules:** [Modules](14-modules.md) · [Tooling](29-tooling.md)
 
 - [ ] The build emits with the type-check gate green — transpile-only builds are not the release path.
 - [ ] `.d.ts` declarations are generated and published for any library artifact.
@@ -63,12 +71,16 @@ artifact is sound".
 
 ## Testing & CI
 
+**Rules:** [Testing](24-testing.md)
+
 - [ ] Unit and integration tests pass in CI on the target runtime version.
 - [ ] Type-level expectations (e.g. `expectTypeError`, `tsd`) cover public API contracts.
 - [ ] Lint (`eslint` + `@typescript-eslint`) and format (`prettier`) run and pass in CI.
 - [ ] The full check suite runs on the merge commit, not only locally.
 
 ## Observability & Runtime
+
+**Rules:** [Error Handling](17-error-handling.md) · [Performance](25-performance.md)
 
 - [ ] Logs are structured and never contain secrets, tokens, or full request bodies.
 - [ ] An error tracker captures unhandled errors with de-minified stack traces.

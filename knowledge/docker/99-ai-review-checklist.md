@@ -29,6 +29,8 @@ merge time is the cheapest place to catch them.
 
 ## Correctness & Reproducibility
 
+**Rules:** [Dockerfile](08-dockerfile.md) · [Multi Stage Builds](11-multi-stage-builds.md)
+
 - [ ] Is the base image pinned by digest, so rebuilds are byte-reproducible?
 - [ ] Are dependencies installed from a committed lockfile (`npm ci`, `pip install -r`
       with hashes), not resolved fresh each build?
@@ -38,6 +40,8 @@ merge time is the cheapest place to catch them.
 
 ## Security
 
+**Rules:** [Security](18-security.md) · [Secrets](14-secrets.md)
+
 - [ ] Does the image declare a non-root `USER` before the entrypoint?
 - [ ] Are there any secrets, tokens, or keys visible in `ENV`, `ARG`, or copied files?
 - [ ] Is the build free of `curl ... | sh` and unpinned remote scripts?
@@ -45,6 +49,8 @@ merge time is the cheapest place to catch them.
 - [ ] Are capabilities dropped and privileges restricted in the run config?
 
 ## Image Hygiene
+
+**Rules:** [Image Optimization](09-image-optimization.md) · [Images](03-images.md)
 
 - [ ] Is a [multi-stage build](11-multi-stage-builds.md) used to drop build-time tooling?
 - [ ] Is a `.dockerignore` present and does it exclude `.git`, `node_modules`, and env files?
@@ -54,6 +60,8 @@ merge time is the cheapest place to catch them.
 
 ## Runtime Behavior
 
+**Rules:** [Healthchecks](15-healthchecks.md) · [Resource Limits](17-resource-limits.md)
+
 - [ ] Do `ENTRYPOINT`/`CMD` use exec form so PID 1 receives `SIGTERM`?
 - [ ] Is there a [`HEALTHCHECK`](15-healthchecks.md) that reflects real readiness?
 - [ ] Are [resource limits](17-resource-limits.md) set in the Compose/run config?
@@ -61,6 +69,8 @@ merge time is the cheapest place to catch them.
 - [ ] Is persistent state written to a volume, never the container's writable layer?
 
 ## Configuration
+
+**Rules:** [Environment Variables](13-environment-variables.md) · [Compose](12-docker-compose.md)
 
 - [ ] Is environment-specific config injected at run time, not hardcoded in a layer?
 - [ ] Are published ports limited to what the service needs?

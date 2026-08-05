@@ -25,6 +25,8 @@ because the happy path renders fine.
 
 ## Element Choice and Semantics
 
+**Rules:** [Semantic HTML](03-semantic-html.md) · [ARIA](07-aria.md)
+
 - [ ] Is each interactive element a native control (`<button>`, `<a href>`, `<input>`),
       not a clickable `<div>`/`<span>`?
 - [ ] Do `<a>` elements navigate and `<button>` elements act — never the reverse?
@@ -35,6 +37,8 @@ because the happy path renders fine.
 
 ## Accessible Names
 
+**Rules:** [ARIA](07-aria.md) · [Forms](08-forms.md)
+
 - [ ] Does every form control have an associated `<label>`, `aria-label`, or
       `aria-labelledby`?
 - [ ] Do icon-only buttons/links have an accessible name, with the icon `aria-hidden`?
@@ -42,6 +46,8 @@ because the happy path renders fine.
 - [ ] Is link/button text meaningful without surrounding context?
 
 ## Keyboard and Focus
+
+**Rules:** [Keyboard Navigation](04-keyboard-navigation.md) · [Focus Management](05-focus-management.md)
 
 - [ ] Can every new interactive element be reached and activated by keyboard?
 - [ ] Are custom widgets handling the expected keys (Enter/Space to activate, arrows to
@@ -53,6 +59,8 @@ because the happy path renders fine.
 
 ## Dynamic Content and Feedback
 
+**Rules:** [Live Regions](19-live-regions.md) · [Error Messages](18-error-messages.md)
+
 - [ ] Are async status, errors, and toasts announced via an `aria-live` region or focus
       move, not shown silently?
 - [ ] Are validation errors linked to their field via `aria-describedby` and expressed in
@@ -62,12 +70,16 @@ because the happy path renders fine.
 
 ## Perceivable Design
 
+**Rules:** [Color and Contrast](10-color-and-contrast.md) · [Typography](11-typography.md)
+
 - [ ] Do color choices in the diff meet contrast minimums (4.5:1 text, 3:1 large/UI)?
 - [ ] Is any state (error, selected, required) shown by more than color alone?
 - [ ] Is `prefers-reduced-motion` respected for newly added animation/transition?
 - [ ] Do new layouts reflow without horizontal scroll at 320 px and survive 200% text zoom?
 
 ## Verification Signals
+
+**Rules:** [Axe](21-axe.md) · [Testing](24-accessibility-testing.md)
 
 - [ ] Are there tests or a lint rule (`jsx-a11y`/axe) covering the new component's a11y
       contract?

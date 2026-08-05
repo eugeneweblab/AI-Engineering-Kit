@@ -28,6 +28,8 @@ invisible risk into visible, auditable state.
 
 ## Branch Protection & Merge Rules
 
+**Rules:** [Branch Protection](17-branch-protection.md) · [Rulesets](18-rulesets.md)
+
 - [ ] The default branch has a [ruleset](18-rulesets.md) or
       [branch protection](17-branch-protection.md) rule applied.
 - [ ] Direct pushes to the default branch are blocked for everyone, including admins.
@@ -39,6 +41,8 @@ invisible risk into visible, auditable state.
 - [ ] Stale approvals are dismissed when new commits are pushed.
 
 ## CI/CD & Actions
+
+**Rules:** [Actions](08-actions.md) · [Workflows](09-workflows.md)
 
 - [ ] Every merge to production is gated by a required CI workflow (tests, lint, build).
 - [ ] Workflows declare `permissions:` explicitly and default the `GITHUB_TOKEN` to
@@ -54,6 +58,8 @@ invisible risk into visible, auditable state.
 
 ## Security & Supply Chain
 
+**Rules:** [Security](13-security.md) · [Dependabot](15-dependabot.md)
+
 - [ ] [Secret scanning](16-secret-scanning.md) with push protection is enabled.
 - [ ] [Dependabot](15-dependabot.md) alerts and security updates are enabled.
 - [ ] [CodeQL](14-codeql.md) or an equivalent SAST scan runs on PRs to the default branch.
@@ -63,6 +69,8 @@ invisible risk into visible, auditable state.
 
 ## Access & Permissions
 
+**Rules:** [Permissions](21-permissions.md) · [Teams](20-teams.md)
+
 - [ ] Repository access is granted through [teams](20-teams.md), not to individuals.
 - [ ] [Permissions](21-permissions.md) follow least privilege — no unnecessary admins.
 - [ ] Deploy keys and machine tokens are scoped to a single repo and rotated.
@@ -71,6 +79,8 @@ invisible risk into visible, auditable state.
 
 ## Releases & Traceability
 
+**Rules:** [Releases](11-releases.md) · [Packages](10-packages.md)
+
 - [ ] [Releases](11-releases.md) are tagged and immutable; artifacts are attached or
       published to [Packages](10-packages.md).
 - [ ] Release notes are generated from merged PRs so every shipped change is traceable.
@@ -78,6 +88,8 @@ invisible risk into visible, auditable state.
 - [ ] The commit deployed to production maps to an exact, reachable tag or SHA.
 
 ## Repository Hygiene
+
+**Rules:** [Repositories](02-repositories.md) · [Best Practices](27-best-practices.md)
 
 - [ ] Issue and PR templates exist and capture required context.
 - [ ] A `README.md` explains how to build, test, and run locally.

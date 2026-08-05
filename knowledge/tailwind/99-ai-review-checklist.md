@@ -21,6 +21,8 @@ time. Pair it with the ship-time [production-checklist](98-production-checklist.
 
 ## Design Tokens & Values
 
+**Rules:** [Theme](16-theme.md) · [Design System](21-design-system.md)
+
 - [ ] Do new colors, spacing, and radii use theme tokens instead of arbitrary values like
       `p-[7px]` or `text-[#3b82f6]`?
 - [ ] If an arbitrary value is present, is it genuinely one-off, or should it become a
@@ -30,6 +32,8 @@ time. Pair it with the ship-time [production-checklist](98-production-checklist.
 - [ ] Are raw hex/rgb colors avoided in favor of named palette or brand tokens?
 
 ## Structure & Reuse
+
+**Rules:** [Components](17-components.md) · [Patterns](28-patterns.md)
 
 - [ ] Is repeated markup (buttons, cards, badges) extracted into a component rather than
       copy-pasted with drift?
@@ -41,6 +45,8 @@ time. Pair it with the ship-time [production-checklist](98-production-checklist.
 
 ## Responsiveness
 
+**Rules:** [Responsive Design](11-responsive-design.md)
+
 - [ ] Are styles mobile-first — base unprefixed, `md:`/`lg:` layered on top — rather than
       desktop-first with overrides?
 - [ ] Does the change avoid fixed pixel widths that break on small screens (prefer
@@ -48,6 +54,8 @@ time. Pair it with the ship-time [production-checklist](98-production-checklist.
 - [ ] Are breakpoints from the standard set, not one-off arbitrary media queries?
 
 ## State & Interactivity
+
+**Rules:** [State Variants](13-state-variants.md) · [Pseudo Classes](14-pseudo-classes.md)
 
 - [ ] Are interactive elements given `hover:`, `focus-visible:`, and `disabled:` states as
       appropriate?
@@ -58,6 +66,8 @@ time. Pair it with the ship-time [production-checklist](98-production-checklist.
 
 ## Dark Mode
 
+**Rules:** [Dark Mode](12-dark-mode.md)
+
 - [ ] If the app supports dark mode, does every new surface/text/border include a `dark:`
       variant?
 - [ ] Are the `dark:` color choices actually readable (adequate contrast), not just
@@ -65,11 +75,15 @@ time. Pair it with the ship-time [production-checklist](98-production-checklist.
 
 ## Accessibility
 
+**Rules:** [Accessibility](22-accessibility.md)
+
 - [ ] Do foreground/background pairs meet WCAG AA contrast in both themes?
 - [ ] Is information conveyed by more than color (icon, text, shape) for status/errors?
 - [ ] Do motion utilities honor `motion-reduce:`?
 
 ## Correctness & Hygiene
+
+**Rules:** [Best Practices](26-best-practices.md) · [Debugging](25-debugging.md)
 
 - [ ] Are all class names valid (no typos like `flexx`, `justfy-center` that silently do
       nothing)?

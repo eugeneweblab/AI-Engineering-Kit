@@ -22,6 +22,8 @@ can change the final output.
 
 ## Indexation Control
 
+**Rules:** [Indexing](03-indexing.md) · [Robots Txt](08-robots-txt.md)
+
 - [ ] Production returns `index,follow` for every URL that should rank, and no page
   carries an accidental `noindex`.
 - [ ] Staging, preview, and non-production hosts return `noindex` (or are blocked at the
@@ -33,6 +35,8 @@ can change the final output.
 - [ ] `X-Robots-Tag` headers (if used) agree with the `robots` meta on the same URL.
 
 ## URLs, Status Codes, and Redirects
+
+**Rules:** [Links](17-links.md) · [Crawling](02-crawling.md)
 
 - [ ] Every indexable URL returns `200`; no indexable content sits behind a `3xx`,
   `4xx`, or `5xx`.
@@ -47,6 +51,8 @@ can change the final output.
 
 ## Canonicalization and Duplicates
 
+**Rules:** [Canonicalization](06-canonicalization.md)
+
 - [ ] Every indexable page emits exactly one `<link rel="canonical">` with an absolute
   URL.
 - [ ] Canonical URLs are self-referential on canonical pages and point to the canonical
@@ -57,6 +63,8 @@ can change the final output.
 
 ## Rendering
 
+**Rules:** [Rendering](04-rendering.md) · [JavaScript SEO](19-javascript-seo.md)
+
 - [ ] Indexable content is present in the server response (SSR/SSG) or reliably
   prerendered — not dependent on client-side hydration to exist.
 - [ ] The rendered HTML seen by Search Console URL Inspection matches the intended
@@ -65,6 +73,8 @@ can change the final output.
   perform (click, scroll, tab).
 
 ## Metadata and Social
+
+**Rules:** [Metadata](05-metadata.md) · [Open Graph](10-open-graph.md)
 
 - [ ] Every indexable page has a unique, non-empty `<title>` and meta description.
 - [ ] `<html lang>` is set correctly; `hreflang` tags are present, reciprocal, and use
@@ -75,6 +85,8 @@ can change the final output.
 
 ## Discoverability
 
+**Rules:** [Sitemaps](07-sitemaps.md) · [Crawling](02-crawling.md)
+
 - [ ] An XML sitemap exists, lists only canonical, indexable, `200` URLs, and is
   referenced from `robots.txt`.
 - [ ] The sitemap contains no `noindex`, redirected, or blocked URLs.
@@ -83,6 +95,8 @@ can change the final output.
 - [ ] The property is verified in Search Console and the sitemap is submitted.
 
 ## Performance and Core Web Vitals
+
+**Rules:** [Core Web Vitals](13-core-web-vitals.md) · [Performance](12-performance.md)
 
 - [ ] Largest Contentful Paint, Interaction to Next Paint, and Cumulative Layout Shift
   meet "good" thresholds on mobile for key templates (see
@@ -93,6 +107,8 @@ can change the final output.
   content.
 
 ## Monitoring
+
+**Rules:** [Monitoring](24-monitoring.md) · [Search Console](22-search-console.md)
 
 - [ ] Search Console coverage and Core Web Vitals reports are watched and alert on
   regressions.

@@ -29,6 +29,8 @@ concrete list catches these before they ship, when they cost minutes instead of 
 
 ## Command Cost and Blocking
 
+**Rules:** [Performance](23-performance.md) · [Data Types](02-data-types.md)
+
 - [ ] No `KEYS` in production paths — pattern iteration uses `SCAN`/`HSCAN`/`SSCAN`.
 - [ ] No O(N) command (`SMEMBERS`, `HGETALL`, `LRANGE 0 -1`, `ZRANGE 0 -1`) over a
       collection that grows with traffic.
@@ -37,6 +39,8 @@ concrete list catches these before they ship, when they cost minutes instead of 
 - [ ] Large deletes rely on lazy-free or `UNLINK` rather than blocking `DEL` on huge keys.
 
 ## Atomicity and Concurrency
+
+**Rules:** [Transactions](10-transactions.md) · [Lua Scripting](11-lua-scripting.md)
 
 - [ ] Every read-modify-write (counter with cap, check-then-set, dequeue-and-ack) is atomic
       via a single command, `INCR`/`SETNX`-style primitives, `MULTI`/`WATCH`, or Lua.
@@ -47,6 +51,8 @@ concrete list catches these before they ship, when they cost minutes instead of 
 
 ## Keys, TTLs, and Memory
 
+**Rules:** [Expiration](12-expiration.md) · [Caching](13-caching.md)
+
 - [ ] Every new key has a TTL or a clearly justified reason it must persist.
 - [ ] Rate-limit and lock counters set their TTL atomically with creation (not a second
       round trip that can be skipped on crash).
@@ -55,6 +61,8 @@ concrete list catches these before they ship, when they cost minutes instead of 
 
 ## Data Model and Correctness
 
+**Rules:** [Data Types](02-data-types.md) · [Sorted Sets](06-sorted-sets.md)
+
 - [ ] The data type fits the access pattern (sorted set for ranking, hash for objects,
       stream for an event log, set for membership).
 - [ ] Redis is not treated as the durable source of truth for non-recomputable data.
@@ -62,6 +70,8 @@ concrete list catches these before they ship, when they cost minutes instead of 
 - [ ] Serialization format is consistent between writer and reader; no ambiguous encodings.
 
 ## Resilience
+
+**Rules:** [Replication](18-replication.md) · [Persistence](20-persistence.md)
 
 - [ ] Redis calls are wrapped so a Redis outage degrades gracefully, not a hard 500.
 - [ ] Connections come from a pool and are reused; timeouts are set on operations.

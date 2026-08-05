@@ -27,6 +27,8 @@ turns "we think it's ready" into a signed-off, repeatable release gate.
 
 ## Runtime & Configuration
 
+**Rules:** [Production](27-production.md) · [Composer](07-composer.md)
+
 - [ ] PHP is a supported, patched version (8.3+ in 2026); EOL versions are removed.
 - [ ] `display_errors=Off` and `display_startup_errors=Off` in the production `php.ini`.
 - [ ] `log_errors=On` with `error_reporting=E_ALL`, writing to a collected log, not stdout.
@@ -37,6 +39,8 @@ turns "we think it's ready" into a signed-off, repeatable release gate.
 
 ## Performance
 
+**Rules:** [Performance](14-performance.md)
+
 - [ ] OPcache is enabled with `opcache.validate_timestamps=0` on immutable deploys.
 - [ ] `opcache.memory_consumption` and `opcache.max_accelerated_files` fit the codebase.
 - [ ] Preloading (`opcache.preload`) or the framework's cache warmers run at deploy time.
@@ -45,6 +49,8 @@ turns "we think it's ready" into a signed-off, repeatable release gate.
 - [ ] N+1 queries are eliminated; slow-query logging is on and reviewed.
 
 ## Security
+
+**Rules:** [Security](13-security.md)
 
 - [ ] No secrets in the repo; `.env` is gitignored and injected from a secrets manager.
 - [ ] All database access uses parameterized/prepared statements — no string interpolation.
@@ -57,6 +63,8 @@ turns "we think it's ready" into a signed-off, repeatable release gate.
 
 ## Reliability & Observability
 
+**Rules:** [Error Handling](08-error-handling.md) · [Debugging](25-debugging.md)
+
 - [ ] Uncaught exceptions and fatal errors are captured to an error tracker (e.g. Sentry).
 - [ ] Structured logs (PSR-3) include a request/correlation id; no PII or secrets logged.
 - [ ] A liveness/readiness health endpoint exists and checks critical dependencies.
@@ -65,6 +73,8 @@ turns "we think it's ready" into a signed-off, repeatable release gate.
 
 ## Data & Deployment
 
+**Rules:** [Database](12-database.md) · [Production](27-production.md)
+
 - [ ] Database migrations run automatically and are reversible or forward-only by policy.
 - [ ] `composer install --no-dev` runs in the release image; dev tools are absent in prod.
 - [ ] Deploys are atomic (symlink/immutable image swap) with a tested rollback path.
@@ -72,6 +82,8 @@ turns "we think it's ready" into a signed-off, repeatable release gate.
 - [ ] Scheduled tasks (cron) and workers are supervised and restart on failure.
 
 ## Verification
+
+**Rules:** [Testing](15-testing.md) · [Tooling](28-tooling.md)
 
 - [ ] The full test suite and `phpstan`/`psalm` pass in CI on the release commit.
 - [ ] A smoke test hits critical paths against the built artifact before traffic cutover.

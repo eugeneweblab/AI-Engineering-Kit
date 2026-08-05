@@ -29,6 +29,8 @@ keeps subjective bikeshedding out of review.
 
 ## Semantics & Structure
 
+**Rules:** [Semantic HTML](02-semantic-html.md) · [Document Structure](01-document-structure.md)
+
 - [ ] Is each element chosen for meaning rather than appearance (no `<div>` where a
   semantic element fits)?
 - [ ] Are interactive elements native (`<a>` for navigation, `<button>` for actions),
@@ -39,6 +41,8 @@ keeps subjective bikeshedding out of review.
 
 ## Accessibility
 
+**Rules:** [Accessibility](11-accessibility.md)
+
 - [ ] Does every `<img>` have an `alt` (descriptive or empty for decorative)?
 - [ ] Is every form control associated with a `<label>`?
 - [ ] Is all interactive content keyboard-operable with a visible focus indicator?
@@ -47,6 +51,8 @@ keeps subjective bikeshedding out of review.
 - [ ] Are `aria-label`/`aria-labelledby` references pointing at existing elements?
 
 ## Correctness & Validity
+
+**Rules:** [Validation](22-validation.md)
 
 - [ ] Is the markup well-formed and spec-valid (correct nesting, required attributes,
   properly closed elements)?
@@ -57,11 +63,15 @@ keeps subjective bikeshedding out of review.
 
 ## Forms
 
+**Rules:** [Forms](08-forms.md)
+
 - [ ] Do inputs use the most specific `type` and appropriate `autocomplete`?
 - [ ] Is native validation (`required`, `pattern`, `min`/`max`) used before JS?
 - [ ] Does the form submit and function with JavaScript disabled?
 
 ## Security & Robustness
+
+**Rules:** [Security](19-security.md) · [Progressive Enhancement](23-progressive-enhancement.md)
 
 - [ ] Do `target="_blank"` links carry `rel="noopener"`?
 - [ ] Is any dynamically inserted HTML sanitized against XSS?
@@ -69,6 +79,8 @@ keeps subjective bikeshedding out of review.
   `onclick`-style handlers unless justified?
 
 ## Performance
+
+**Rules:** [Performance](18-performance.md)
 
 - [ ] Do images declare dimensions to avoid layout shift?
 - [ ] Do non-critical images use `loading="lazy"` and scripts use `defer`/`async`?

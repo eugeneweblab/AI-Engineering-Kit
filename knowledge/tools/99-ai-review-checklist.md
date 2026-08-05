@@ -28,6 +28,8 @@ The failures are also delayed. A lockfile rewritten in CI does not break today; 
 
 ## Version and Dependency Changes
 
+**Rules:** [Dependency Management](27-dependency-management.md) · [Package Managers](01-package-managers.md)
+
 ☐ Does a new dependency justify itself — is it maintained, right-sized, and not already provided by the platform?
 
 ☐ Is the lockfile updated in the same commit, and does its diff contain only expected changes?
@@ -45,6 +47,8 @@ The failures are also delayed. A lockfile rewritten in CI does not break today; 
 ---
 
 ## Weakened Checks
+
+**Rules:** [ESLint](04-eslint.md) · [Static Analysis](08-static-analysis.md)
 
 ☐ Is a lint rule being disabled, downgraded to a warning, or suppressed file-wide?
 
@@ -66,6 +70,8 @@ The failures are also delayed. A lockfile rewritten in CI does not break today; 
 
 ## CI and Reproducibility
 
+**Rules:** [Package Managers](01-package-managers.md) · [Task Runners](19-task-runners.md)
+
 ☐ Does CI invoke tools directly where a project script exists?
 
 ☐ Is the install step using the frozen-lockfile command?
@@ -81,6 +87,8 @@ The failures are also delayed. A lockfile rewritten in CI does not break today; 
 ---
 
 ## Hooks and Local Gates
+
+**Rules:** [— Git Hooks](16-git-hooks.md) · [Commit Conventions](17-commit-conventions.md)
 
 ☐ Does a new hook operate on staged files only?
 
@@ -98,6 +106,8 @@ The failures are also delayed. A lockfile rewritten in CI does not break today; 
 
 ## Configuration Hygiene
 
+**Rules:** [Prettier](05-prettier.md) · [TypeScript Compiler](03-typescript-compiler.md)
+
 ☐ Are two tools now responsible for the same job — two formatters, two linters?
 
 ☐ Is `eslint-config-prettier` still last in the config array?
@@ -114,6 +124,8 @@ The failures are also delayed. A lockfile rewritten in CI does not break today; 
 
 ## Secrets and Data
 
+**Rules:** [Local Environments](20-local-environments.md) · [Database Tools](24-database-tools.md)
+
 ☐ Does the diff add a credential, token, or `.env` file to version control?
 
 ☐ Does a new MCP server, database client, or script point at production?
@@ -125,6 +137,8 @@ The failures are also delayed. A lockfile rewritten in CI does not break today; 
 ---
 
 ## Release Changes
+
+**Rules:** [Release Tools](28-release-tools.md)
 
 ☐ Are version numbers being hand-edited where tooling should derive them?
 

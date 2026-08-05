@@ -28,6 +28,8 @@ classes before merge, when the fix is one line instead of an incident and a data
 
 ## Schema and Types
 
+**Rules:** [Data Types](03-data-types.md) · [Architecture](28-architecture.md)
+
 - [ ] Does every new table use `InnoDB` and `utf8mb4`?
 - [ ] Does every table have an explicit, compact primary key (not a random UUID)?
 - [ ] Are `NOT NULL`, `UNIQUE`, and `CHECK` constraints applied wherever an invariant exists?
@@ -36,6 +38,8 @@ classes before merge, when the fix is one line instead of an incident and a data
 - [ ] Are timestamps stored in UTC?
 
 ## Queries and Indexes
+
+**Rules:** [Query Optimization](05-query-optimization.md) · [Indexes](04-indexes.md)
 
 - [ ] Can every `WHERE`, `JOIN`, and `ORDER BY` use an index, confirmed by `EXPLAIN`?
 - [ ] Is the plan free of `type: ALL` (full scan) and `Using filesort`/`Using temporary` on large tables?
@@ -46,6 +50,8 @@ classes before merge, when the fix is one line instead of an incident and a data
 
 ## Transactions and Locking
 
+**Rules:** [Transactions](06-transactions.md) · [Locking](07-locking.md)
+
 - [ ] Is each transaction scoped to only the writes that must be atomic?
 - [ ] Is there no network/API call or user wait held open inside a transaction?
 - [ ] Do multi-statement transactions acquire locks in a consistent order to avoid deadlocks?
@@ -54,6 +60,8 @@ classes before merge, when the fix is one line instead of an incident and a data
 
 ## Migrations
 
+**Rules:** [Migrations](16-migrations.md)
+
 - [ ] Is the migration reversible, with a tested down path?
 - [ ] Will it run online on a large table (no long metadata/exclusive lock)?
 - [ ] Is it forward/backward compatible so the old and new app can both run mid-deploy?
@@ -61,12 +69,16 @@ classes before merge, when the fix is one line instead of an incident and a data
 
 ## Security
 
+**Rules:** [Security](12-security.md) · [Users And Roles](13-users-and-roles.md)
+
 - [ ] Is all user input parameterized (no dynamic SQL) — no [injection](12-security.md) surface?
 - [ ] Does the code use a least-privilege account, not `root`?
 - [ ] Are credentials read from a secrets manager, not hard-coded?
 - [ ] Are errors caught so raw SQL/schema details are not returned to the client?
 
 ## Correctness
+
+**Rules:** [Testing](17-testing.md) · [Debugging](18-debugging.md)
 
 - [ ] Are `NULL` semantics handled (`= NULL` is never true; use `IS NULL`)?
 - [ ] Does `GROUP BY` list every non-aggregated selected column (no `ONLY_FULL_GROUP_BY` violation)?

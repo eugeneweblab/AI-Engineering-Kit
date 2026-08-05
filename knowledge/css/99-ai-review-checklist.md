@@ -29,6 +29,8 @@ accessibility invariants intact.
 
 ## Specificity and Cascade
 
+**Rules:** [Specificity](03-specificity.md) · [Selectors](02-selectors.md)
+
 - [ ] Is the maximum specificity in the diff a single class (`0,1,0`), with any escalation justified in a comment?
 - [ ] Is `!important` absent, or confined to a documented utility layer? See [specificity](03-specificity.md).
 - [ ] Are new selectors component-scoped rather than descendant chains tied to page structure?
@@ -36,11 +38,15 @@ accessibility invariants intact.
 
 ## Tokens and Values
 
+**Rules:** [Variables](20-css-variables.md) · [Architecture](21-architecture.md)
+
 - [ ] Are colors, spacing, font sizes, and breakpoints referenced from custom properties, not literals?
 - [ ] Are there any repeated magic numbers that should be a shared token?
 - [ ] Do new custom properties follow the project's naming scheme and live at the right scope?
 
 ## Responsive and Layout
+
+**Rules:** [Responsive Design](17-responsive-design.md) · [Grid](07-grid.md)
 
 - [ ] Is the change mobile-first (base styles small, `min-width` to grow), not `max-width` overrides?
 - [ ] Does it use Flexbox/Grid for layout rather than floats, absolute positioning, or fixed pixel math?
@@ -49,6 +55,8 @@ accessibility invariants intact.
 
 ## Accessibility
 
+**Rules:** [Accessibility](23-accessibility.md)
+
 - [ ] Is a visible `:focus-visible` style present, and is `outline: none` never used without a replacement?
 - [ ] Do new text/background pairings meet WCAG AA contrast? See [accessibility](23-accessibility.md).
 - [ ] Is animation gated behind `prefers-reduced-motion`?
@@ -56,12 +64,16 @@ accessibility invariants intact.
 
 ## Performance
 
+**Rules:** [Performance](22-performance.md)
+
 - [ ] Do animations/transitions touch only `transform` and `opacity`? See [performance](22-performance.md).
 - [ ] Is `will-change` scoped and removed after use, not left on globally?
 - [ ] Does the diff avoid deeply nested or universal selectors that are costly to match?
 - [ ] Does the change avoid adding render-blocking `@import` chains?
 
 ## Hygiene
+
+**Rules:** [Methodologies](29-css-methodologies.md) · [Best Practices](28-best-practices.md)
 
 - [ ] Does the diff delete the CSS it replaces, rather than only appending overrides?
 - [ ] Is there no dead, commented-out, or duplicated CSS left behind?

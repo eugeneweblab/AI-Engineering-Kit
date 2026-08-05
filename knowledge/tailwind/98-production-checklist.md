@@ -21,6 +21,8 @@ is a blocker until fixed or explicitly waived. This complements the runtime-focu
 
 ## Build & Bundle
 
+**Rules:** [Optimization](20-optimization.md) · [Performance](19-performance.md)
+
 - [ ] Is the CSS produced by a real build step (Vite/PostCSS/CLI), not a CDN `<script>`
       that ships every utility to users?
 - [ ] Does the built stylesheet contain only used utilities (spot-check that unused
@@ -35,6 +37,8 @@ is a blocker until fixed or explicitly waived. This complements the runtime-focu
 
 ## Theme & Configuration
 
+**Rules:** [Theme](16-theme.md) · [Customization](15-customization.md)
+
 - [ ] Is the theme configured once (v4 `@theme` in CSS, or a single config) with no
       conflicting duplicate definitions?
 - [ ] Are brand colors, spacing, and radii defined as tokens rather than scattered
@@ -46,6 +50,8 @@ is a blocker until fixed or explicitly waived. This complements the runtime-focu
 
 ## Responsiveness & Layout
 
+**Rules:** [Responsive Design](11-responsive-design.md) · [Layout](04-layout.md)
+
 - [ ] Does every page render correctly at mobile, tablet, and desktop breakpoints with no
       horizontal scroll?
 - [ ] Are responsive variants mobile-first (base styles unprefixed, `md:`/`lg:` add on
@@ -55,12 +61,16 @@ is a blocker until fixed or explicitly waived. This complements the runtime-focu
 
 ## Dark Mode & Theming
 
+**Rules:** [Dark Mode](12-dark-mode.md)
+
 - [ ] If dark mode ships, does every surface, text, and border have a `dark:` counterpart
       with no unreadable low-contrast pairs?
 - [ ] Is the dark-mode strategy (`class`/`data` attribute vs `prefers-color-scheme`)
       consistent across the app, with no flash of the wrong theme on load?
 
 ## Accessibility
+
+**Rules:** [Accessibility](22-accessibility.md)
 
 - [ ] Do text/background color pairs meet WCAG AA contrast (4.5:1 body, 3:1 large text)
       in both themes?
@@ -71,6 +81,8 @@ is a blocker until fixed or explicitly waived. This complements the runtime-focu
 
 ## Performance
 
+**Rules:** [Performance](19-performance.md) · [Optimization](20-optimization.md)
+
 - [ ] Is critical CSS small enough that first paint is not blocked by a huge stylesheet?
 - [ ] Are heavy effects (`backdrop-blur`, large `shadow`, gradients) used sparingly on
       scroll-critical paths?
@@ -78,6 +90,8 @@ is a blocker until fixed or explicitly waived. This complements the runtime-focu
       rule and bloat the bundle?
 
 ## Tooling & CI
+
+**Rules:** [Tooling](29-tooling.md) · [Production](27-production.md)
 
 - [ ] Does `prettier-plugin-tailwindcss` run in CI so class order is consistent?
 - [ ] Does a lint step flag unknown/typo'd class names before merge?

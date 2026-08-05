@@ -26,6 +26,8 @@ Tooling gaps are invisible while one person works on a project and expensive the
 
 ## Reproducibility
 
+**Rules:** [Package Managers](01-package-managers.md) · [Version Management](02-version-management.md)
+
 ☐ Runtime version is pinned in a committed file (`.nvmrc`, `.tool-versions`, or equivalent).
 
 ☐ CI, Docker, and local tooling all read that same version.
@@ -44,6 +46,8 @@ Tooling gaps are invisible while one person works on a project and expensive the
 
 ## Entry Points
 
+**Rules:** [Task Runners](19-task-runners.md) · [Monorepo Tools](18-monorepo-tools.md)
+
 ☐ One documented command installs everything.
 
 ☐ One command (`verify` or equivalent) runs every check and exits non-zero on failure.
@@ -57,6 +61,8 @@ Tooling gaps are invisible while one person works on a project and expensive the
 ---
 
 ## Correctness Gates
+
+**Rules:** [ESLint](04-eslint.md) · [Test Runners](13-test-runners.md)
 
 ☐ Type checking runs as a required CI check (`tsc --noEmit` or equivalent).
 
@@ -74,6 +80,8 @@ Tooling gaps are invisible while one person works on a project and expensive the
 
 ## Configuration in the Repository
 
+**Rules:** [Prettier](05-prettier.md) · [Editor Setup](25-editor-setup.md)
+
 ☐ `.editorconfig` exists and covers every language in use.
 
 ☐ `.gitattributes` normalizes line endings.
@@ -87,6 +95,8 @@ Tooling gaps are invisible while one person works on a project and expensive the
 ---
 
 ## Automation
+
+**Rules:** [— Git Hooks](16-git-hooks.md) · [Commit Conventions](17-commit-conventions.md)
 
 ☐ Git hooks install automatically on dependency install.
 
@@ -104,6 +114,8 @@ Tooling gaps are invisible while one person works on a project and expensive the
 
 ## Local Environment
 
+**Rules:** [Local Environments](20-local-environments.md)
+
 ☐ Service versions match production majors.
 
 ☐ A committed `.env.example` lists every required variable.
@@ -119,6 +131,8 @@ Tooling gaps are invisible while one person works on a project and expensive the
 ---
 
 ## Release and Observability
+
+**Rules:** [Release Tools](28-release-tools.md) · [Observability Tools](29-observability-tools.md)
 
 ☐ Version numbers are derived by tooling, not hand-edited.
 

@@ -29,6 +29,8 @@ incident it prevents is hours and irreversible data loss.
 
 ## Schema and Constraints
 
+**Rules:** [DDL](12-ddl.md) · [Data Types](11-data-types.md)
+
 - [ ] Every table has a primary key.
 - [ ] Every real relationship has a `FOREIGN KEY`, and the referencing column is indexed.
 - [ ] Columns are `NOT NULL` unless a distinct "absent" state is genuinely needed.
@@ -38,6 +40,8 @@ incident it prevents is hours and irreversible data loss.
       `UNIQUE` constraints, not only in application code.
 
 ## Migrations
+
+**Rules:** [DDL](12-ddl.md)
 
 - [ ] The migration is reversible, and the `down`/rollback path has been tested.
 - [ ] Adding a column with a volatile default, backfilling, or changing a type does not
@@ -50,6 +54,8 @@ incident it prevents is hours and irreversible data loss.
 
 ## Performance
 
+**Rules:** [Query Optimization](17-query-optimization.md) · [Query Planning](16-query-planning.md)
+
 - [ ] Every new or changed query on a large table has been run through `EXPLAIN
       (ANALYZE, BUFFERS)` against production-scale data.
 - [ ] No sequential scan on a large table sits on a hot path; the driving predicate and
@@ -61,6 +67,8 @@ incident it prevents is hours and irreversible data loss.
 
 ## Transactions and Concurrency
 
+**Rules:** [Transactions](14-transactions.md)
+
 - [ ] Writes that must be atomic are wrapped in a single transaction.
 - [ ] The isolation level is chosen deliberately and matches the consistency the logic
       assumes.
@@ -70,6 +78,8 @@ incident it prevents is hours and irreversible data loss.
 
 ## Security and Access
 
+**Rules:** [Security](22-security.md)
+
 - [ ] The application connects with a least-privilege role — not the schema owner, not a
       superuser.
 - [ ] All values are parameterized; no SQL is built by string concatenation.
@@ -78,6 +88,8 @@ incident it prevents is hours and irreversible data loss.
 - [ ] Access to PII columns is restricted and, where required, masked or encrypted.
 
 ## Operability
+
+**Rules:** [Testing](24-testing.md) · [Debugging](25-debugging.md)
 
 - [ ] Slow-query logging and `pg_stat_statements` (or equivalent) are enabled.
 - [ ] Connection pooling is configured with a sane max that the database can serve.

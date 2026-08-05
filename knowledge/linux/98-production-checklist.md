@@ -31,6 +31,8 @@ cost of skipping it is a 2am page.
 
 ## Provisioning & Reproducibility
 
+**Rules:** [Package Management](12-package-management.md) · [Automation](23-automation.md)
+
 - [ ] The host is built from version-controlled config (cloud-init/Ansible/image), not by hand.
 - [ ] The OS is a supported LTS release still receiving security updates.
 - [ ] All installed packages come from signed repositories; no `curl | bash` installs remain.
@@ -38,6 +40,8 @@ cost of skipping it is a 2am page.
 - [ ] Timezone is UTC and NTP/`systemd-timesyncd` is syncing the clock.
 
 ## Access & Security
+
+**Rules:** [SSH](10-ssh.md) · [Firewall](21-firewall.md)
 
 - [ ] SSH allows key-based auth only; `PasswordAuthentication no` and `PermitRootLogin no`.
 - [ ] Every human logs in as a named user; shared accounts are eliminated.
@@ -48,6 +52,8 @@ cost of skipping it is a 2am page.
 
 ## Services & Process Lifecycle
 
+**Rules:** [Systemd](08-systemd.md) · [Processes](06-processes.md)
+
 - [ ] Every service runs under [systemd](08-systemd.md) as a dedicated non-root user.
 - [ ] Units set `Restart=on-failure` and are `enable`d to start on boot.
 - [ ] Sandboxing is applied where possible (`NoNewPrivileges`, `ProtectSystem`, `ReadWritePaths`).
@@ -56,6 +62,8 @@ cost of skipping it is a 2am page.
 
 ## Storage & Data
 
+**Rules:** [Storage](11-storage.md) · [Backups](20-backups.md)
+
 - [ ] Disk usage and inode usage are monitored with alerts before they reach 100%.
 - [ ] Backups run on a schedule and a restore has been tested end-to-end ([backups](20-backups.md)).
 - [ ] Log rotation (`logrotate`/journald limits) caps disk growth from logs.
@@ -63,12 +71,16 @@ cost of skipping it is a 2am page.
 
 ## Observability
 
+**Rules:** [Logging](15-logging.md) · [Monitoring](16-monitoring.md)
+
 - [ ] Every service logs to journald or a central sink with a known retention ([logging](15-logging.md)).
 - [ ] Host metrics (CPU, memory, disk, load) are collected and dashboarded ([monitoring](16-monitoring.md)).
 - [ ] Alerts fire on error *rates* and resource thresholds, not just on total outage.
 - [ ] A documented health endpoint or command confirms each service is actually serving.
 
 ## Resilience & Recovery
+
+**Rules:** [Backups](20-backups.md) · [Troubleshooting](27-troubleshooting.md)
 
 - [ ] The host survives a reboot and an OOM event without manual intervention.
 - [ ] An out-of-band recovery path (console/rescue) exists for when SSH is down.

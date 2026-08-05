@@ -30,6 +30,8 @@ it is cheap. Treat an unchecked box as a launch blocker, not a follow-up ticket.
 
 ## Identity & Access
 
+**Rules:** [IAM](02-iam.md)
+
 - [ ] Every workload uses an **IAM role**; there are no static access keys in AMIs, images, or env files.
 - [ ] Policies are scoped to specific actions and resource ARNs — no bare `"*"` on `Action` or `Resource`.
 - [ ] The **root account** has MFA, no active access keys, and is not used for daily work.
@@ -37,6 +39,8 @@ it is cheap. Treat an unchecked box as a launch blocker, not a follow-up ticket.
 - [ ] Service Control Policies and permission boundaries cap what accounts and delegated admins can do.
 
 ## Network & Perimeter
+
+**Rules:** [VPC](06-vpc.md) · [Elastic Load Balancer](10-elastic-load-balancer.md)
 
 - [ ] Resources live in **private subnets**; only load balancers and bastions sit in public subnets.
 - [ ] Security groups allow only required ports from required sources — no `0.0.0.0/0` on SSH/RDP/databases.
@@ -46,6 +50,8 @@ it is cheap. Treat an unchecked box as a launch blocker, not a follow-up ticket.
 
 ## Data & Encryption
 
+**Rules:** [S3](04-s3.md) · [ACM](09-acm.md)
+
 - [ ] Encryption at rest is on (KMS) for RDS, EBS, [S3](04-s3.md), and any snapshots/backups.
 - [ ] Encryption in transit (TLS) is enforced end to end, including between services.
 - [ ] S3 buckets **block public access** at the account and bucket level unless public is a deliberate requirement.
@@ -53,6 +59,8 @@ it is cheap. Treat an unchecked box as a launch blocker, not a follow-up ticket.
 - [ ] Point-in-time recovery / snapshots exist for every stateful store, and restore has been rehearsed.
 
 ## Resilience & Scaling
+
+**Rules:** [High Availability](31-high-availability.md) · [Auto Scaling](11-auto-scaling.md)
 
 - [ ] The workload spans **at least two Availability Zones**; no single-AZ point of failure.
 - [ ] Databases run **Multi-AZ**; read scaling uses replicas, not the primary.
@@ -62,6 +70,8 @@ it is cheap. Treat an unchecked box as a launch blocker, not a follow-up ticket.
 
 ## Observability
 
+**Rules:** [CloudWatch](14-cloudwatch.md) · [Monitoring](26-monitoring.md)
+
 - [ ] Metrics, logs, and traces flow to [CloudWatch](14-cloudwatch.md) / X-Ray from every component.
 - [ ] Alarms exist for error rate, latency, saturation, and health, and they page a real owner.
 - [ ] Dashboards cover the golden signals so on-call can triage without spelunking.
@@ -70,6 +80,8 @@ it is cheap. Treat an unchecked box as a launch blocker, not a follow-up ticket.
 
 ## Deployment & Operations
 
+**Rules:** [Production](27-production.md) · [ECS](18-ecs.md)
+
 - [ ] All infrastructure is defined in **code** (Terraform/CDK/CloudFormation) with no console drift.
 - [ ] Deploys run through CI/CD with rollback (or blue-green / canary) and no manual prod changes.
 - [ ] Secrets come from [Secrets Manager](16-secrets-manager.md) or Parameter Store — none in code or env vars.
@@ -77,6 +89,8 @@ it is cheap. Treat an unchecked box as a launch blocker, not a follow-up ticket.
 - [ ] A runbook exists for the top failure modes, and on-call knows where it is.
 
 ## Cost
+
+**Rules:** [Cost Optimization](24-cost-optimization.md)
 
 - [ ] AWS Budgets and cost-anomaly alarms are configured before launch.
 - [ ] Instances/functions are right-sized against measured utilization, not guessed.

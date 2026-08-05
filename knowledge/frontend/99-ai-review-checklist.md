@@ -29,6 +29,8 @@ error paths, focus order, effect dependencies, and what the user actually downlo
 
 ## State and Data
 
+**Rules:** [State Management](04-state-management.md) · [Data Fetching](06-data-fetching.md)
+
 - [ ] Is every piece of state stored once, with derived values computed rather than stored and synced?
 - [ ] Is server data managed by a caching layer, not hand-rolled `useEffect` fetch-and-set?
 - [ ] Are async states modeled as a union, so `loading`, `error`, and `data` cannot contradict?
@@ -38,6 +40,8 @@ error paths, focus order, effect dependencies, and what the user actually downlo
 
 ## Rendering and Effects
 
+**Rules:** [Rendering](07-rendering.md) · [Component Driven Development](02-component-driven-development.md)
+
 - [ ] Is render pure — no fetches, mutations, or DOM writes during render?
 - [ ] Do effects have complete, correct dependency arrays, with cleanup for subscriptions and timers?
 - [ ] Is any effect actually a derivation that should be computed inline instead?
@@ -46,12 +50,16 @@ error paths, focus order, effect dependencies, and what the user actually downlo
 
 ## Performance
 
+**Rules:** [Performance](08-performance.md) · [Code Splitting](21-code-splitting.md)
+
 - [ ] Does the change stay within the route's bundle budget and avoid pulling in heavy dependencies?
 - [ ] Is newly added heavy or below-the-fold code lazy-loaded rather than eagerly imported?
 - [ ] Are new images responsive, correctly sized, and lazy-loaded where appropriate?
 - [ ] Does the diff avoid patterns that cause layout shift (unsized media, late-injected content)?
 
 ## Accessibility
+
+**Rules:** [Accessibility](09-accessibility.md)
 
 - [ ] Are semantic elements used (`button`, `a`, `nav`, `label`) instead of `div`s with click handlers?
 - [ ] Is every interactive element keyboard-operable with a visible focus indicator?
@@ -61,12 +69,16 @@ error paths, focus order, effect dependencies, and what the user actually downlo
 
 ## Security
 
+**Rules:** [Security](14-security.md)
+
 - [ ] Is all user-controlled content escaped, with any raw-HTML injection sanitized?
 - [ ] Are secrets and tokens kept out of the client bundle and out of `localStorage`?
 - [ ] Are client-side checks treated as UX only, with authorization enforced on the server?
 - [ ] Do external links carry `rel="noopener noreferrer"`?
 
 ## Testing and Resilience
+
+**Rules:** [Testing](22-testing.md) · [Error Handling](13-error-handling.md)
 
 - [ ] Are the failure and empty paths tested, not just the happy path?
 - [ ] Do tests assert on user-visible behavior and roles, not implementation details?

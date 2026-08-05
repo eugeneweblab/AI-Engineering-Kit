@@ -28,6 +28,8 @@ mechanical pass that a human or an agent can run in minutes.
 
 ## Image Build
 
+**Rules:** [Dockerfile](08-dockerfile.md) · [Multi Stage Builds](11-multi-stage-builds.md)
+
 - [ ] Base image is pinned by digest (`@sha256:...`), not a floating tag like `latest`.
 - [ ] Final image is built with a [multi-stage build](11-multi-stage-builds.md); no
       compilers, dev dependencies, or test tooling remain.
@@ -39,6 +41,8 @@ mechanical pass that a human or an agent can run in minutes.
 
 ## Security
 
+**Rules:** [Security](18-security.md) · [Secrets](14-secrets.md)
+
 - [ ] Container runs as a non-root `USER`.
 - [ ] Root filesystem is mounted read-only (`--read-only`) with explicit `tmpfs` for
       writable paths.
@@ -49,6 +53,8 @@ mechanical pass that a human or an agent can run in minutes.
 
 ## Runtime Configuration
 
+**Rules:** [Resource Limits](17-resource-limits.md) · [Environment Variables](13-environment-variables.md)
+
 - [ ] Memory and CPU limits are set; the container will not consume the whole host.
 - [ ] A restart policy is defined (`unless-stopped` / `on-failure`, not `always` blindly).
 - [ ] Config and [secrets](14-secrets.md) are injected at run time via env/secret mounts,
@@ -58,6 +64,8 @@ mechanical pass that a human or an agent can run in minutes.
 
 ## Health & Observability
 
+**Rules:** [Healthchecks](15-healthchecks.md) · [Logging](16-logging.md)
+
 - [ ] A [`HEALTHCHECK`](15-healthchecks.md) is defined and reflects real readiness, not
       just "process alive".
 - [ ] Application logs go to stdout/stderr, not to files inside the container.
@@ -66,17 +74,23 @@ mechanical pass that a human or an agent can run in minutes.
 
 ## State & Data
 
+**Rules:** [Volumes](05-volumes.md) · [Bind Mounts](06-bind-mounts.md)
+
 - [ ] Persistent state lives in named volumes or external stores, never the writable layer.
 - [ ] Volumes containing data are covered by a tested backup and restore procedure.
 - [ ] The container can be killed and replaced with zero data loss (verified, not assumed).
 
 ## Networking
 
+**Rules:** [Networks](07-networks.md)
+
 - [ ] Only the ports the service actually needs are published; nothing extra is exposed.
 - [ ] Inter-service traffic uses a defined [network](07-networks.md), not host networking.
 - [ ] TLS terminates at a known boundary (ingress/reverse proxy) with a valid certificate.
 
 ## CI/CD
+
+**Rules:** [CI Integration](29-ci-integration.md) · [Registry](19-registry.md)
 
 - [ ] The image is built and scanned in [CI](29-ci-integration.md), not on a laptop.
 - [ ] Build is reproducible: same inputs produce the same image digest.

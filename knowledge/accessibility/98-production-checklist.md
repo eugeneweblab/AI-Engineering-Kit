@@ -24,6 +24,8 @@ criteria. The keyboard and screen-reader sections below are where real defects h
 
 ## Structure and Semantics
 
+**Rules:** [Semantic HTML](03-semantic-html.md) · [ARIA](07-aria.md)
+
 - [ ] Every interactive element is a native control (`<button>`, `<a href>`, `<input>`…)
       or a custom widget with the correct `role`, name, and state.
 - [ ] The page has exactly one `<h1>`, and headings descend without skipping levels.
@@ -37,6 +39,8 @@ criteria. The keyboard and screen-reader sections below are where real defects h
 
 ## Keyboard and Focus
 
+**Rules:** [Keyboard Navigation](04-keyboard-navigation.md) · [Focus Management](05-focus-management.md)
+
 - [ ] Every interactive element is reachable and operable with keyboard alone
       (Tab, Shift+Tab, Enter, Space, arrows as appropriate).
 - [ ] Tab order follows the visual/reading order; no positive `tabindex` values.
@@ -47,6 +51,8 @@ criteria. The keyboard and screen-reader sections below are where real defects h
 
 ## Names, Text Alternatives, and Language
 
+**Rules:** [ARIA](07-aria.md) · [Images](09-images.md)
+
 - [ ] Every form control has a programmatically associated `<label>` (or `aria-label`).
 - [ ] Every informative image has meaningful `alt`; decorative images have `alt=""` or
       `aria-hidden="true"`.
@@ -54,6 +60,8 @@ criteria. The keyboard and screen-reader sections below are where real defects h
 - [ ] Link text is meaningful out of context (no bare "click here" / "read more").
 
 ## Visual and Perceivable
+
+**Rules:** [Color and Contrast](10-color-and-contrast.md) · [Typography](11-typography.md)
 
 - [ ] Body text meets 4.5:1 contrast; large text and UI components meet 3:1.
 - [ ] No information is conveyed by color, shape, or position alone.
@@ -63,6 +71,8 @@ criteria. The keyboard and screen-reader sections below are where real defects h
 
 ## Forms, Errors, and Feedback
 
+**Rules:** [Forms](08-forms.md) · [Error Messages](18-error-messages.md)
+
 - [ ] Required fields and constraints are indicated in text, not color alone.
 - [ ] Validation errors are announced (live region or focus move) and tied to their field
       via `aria-describedby`.
@@ -71,12 +81,16 @@ criteria. The keyboard and screen-reader sections below are where real defects h
 
 ## Motion and Media
 
+**Rules:** [Motion And Animation](14-motion-and-animation.md) · [Media](15-media.md)
+
 - [ ] Non-essential animation is disabled or reduced under `prefers-reduced-motion`.
 - [ ] No content flashes more than three times per second.
 - [ ] Auto-playing or moving content can be paused, stopped, or hidden.
 - [ ] Pre-recorded video has captions; audio-only content has a transcript.
 
 ## Verification and Process
+
+**Rules:** [Testing Tools](20-testing-tools.md) · [Testing](24-accessibility-testing.md)
 
 - [ ] An automated scan (axe) runs in CI and passes with no new violations.
 - [ ] A keyboard-only walkthrough of the primary flows has been completed.

@@ -29,12 +29,16 @@ before they become false confidence baked into the suite.
 
 ## Does the Test Actually Test Something
 
+**Rules:** [Assertions](09-assertions.md) · [Test Coverage](19-test-coverage.md)
+
 - [ ] Every test contains at least one meaningful assertion — not just "it ran without throwing."
 - [ ] You can name the exact production change that would make each test fail.
 - [ ] The assertion checks the real output/behavior, not a value the test itself computed.
 - [ ] The test is not asserting on a mock's return value that the test configured.
 
 ## Behavior, Not Implementation
+
+**Rules:** [Unit Testing](02-unit-testing.md) · [Mocking](06-mocking.md)
 
 - [ ] Assertions target observable behavior (return values, side effects a caller sees),
       not private fields, call counts, or internal method calls.
@@ -45,6 +49,8 @@ before they become false confidence baked into the suite.
 
 ## Determinism
 
+**Rules:** [Flaky Tests](22-flaky-tests.md) · [Test Data](07-test-data.md)
+
 - [ ] No reliance on real time — clocks are injected or frozen.
 - [ ] No reliance on network, filesystem, or external services without a controlled double.
 - [ ] Randomness is seeded; unordered collections are compared order-insensitively.
@@ -52,6 +58,8 @@ before they become false confidence baked into the suite.
       [flaky tests](22-flaky-tests.md).
 
 ## Structure and Clarity
+
+**Rules:** [Test Organization](08-test-organization.md) · [Fixtures](10-fixtures.md)
 
 - [ ] The test name states the scenario and expected outcome, readable as a spec line.
 - [ ] It follows Arrange-Act-Assert with a single logical action.
@@ -61,6 +69,8 @@ before they become false confidence baked into the suite.
 
 ## Correct Level and Scope
 
+**Rules:** [Strategy](28-testing-strategy.md) · [Integration Testing](03-integration-testing.md)
+
 - [ ] The test is at the cheapest level that gives real confidence (unit before integration
       before E2E). See the [pyramid](01-testing-fundamentals.md).
 - [ ] Doubles are used deliberately and honor the real collaborator's contract, not by reflex.
@@ -68,6 +78,8 @@ before they become false confidence baked into the suite.
 - [ ] Setup uses factories/builders over brittle shared fixtures; no leaked state between tests.
 
 ## Red Flags to Reject
+
+**Rules:** [Test Maintenance](20-test-maintenance.md) · [Test Doubles](05-test-doubles.md)
 
 - [ ] No `sleep(n)` or fixed delays used to wait for async work — condition-based waits only.
 - [ ] No assertion-free tests written solely to raise a coverage number.

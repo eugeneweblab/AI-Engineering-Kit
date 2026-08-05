@@ -30,6 +30,8 @@ specifically, with git-aware questions, is the only way to catch them before the
 
 ## Commit Quality
 
+**Rules:** [Commits](04-commits.md) · [Best Practices](27-best-practices.md)
+
 - [ ] Does each commit represent one logical, buildable change (not a "wip" grab-bag)?
 - [ ] Is every commit message in the imperative mood with a subject that says what changed?
 - [ ] Does the body explain *why* — the motivation or trade-off — when the change is non-obvious?
@@ -37,6 +39,8 @@ specifically, with git-aware questions, is the only way to catch them before the
 - [ ] Is author identity real and consistent (not `root`, `unknown`, or a placeholder)?
 
 ## History & Structure
+
+**Rules:** [History](18-history.md) · [Rebasing](07-rebasing.md)
 
 - [ ] Is the branch rebased/updated onto the current target, or will it merge stale code?
 - [ ] Is the history free of accidental merge bubbles from routine `git pull`?
@@ -46,6 +50,8 @@ specifically, with git-aware questions, is the only way to catch them before the
 
 ## Merge & Conflict Safety
 
+**Rules:** [Merging](06-merging.md) · [Conflict Resolution](17-conflict-resolution.md)
+
 - [ ] Were [conflicts](17-conflict-resolution.md) resolved by keeping the correct code, not by blindly picking one side?
 - [ ] After a merge, do the tests still pass (a "clean" merge can still be semantically broken)?
 - [ ] Did the merge accidentally revert a change from the target branch (`git log --merges` / diff against base)?
@@ -53,12 +59,16 @@ specifically, with git-aware questions, is the only way to catch them before the
 
 ## Destructive Operation Safety
 
+**Rules:** [Reset](09-reset.md) · [Reflog](19-reflog.md)
+
 - [ ] Before any `reset --hard`, `checkout -- .`, or `clean -fd`, is uncommitted work confirmed safe?
 - [ ] Before any force-push, is the branch confirmed to be unshared or explicitly owner-approved?
 - [ ] Is [revert](10-revert.md) used instead of [reset](09-reset.md) to undo a *published* commit?
 - [ ] Is there a known recovery path ([reflog](19-reflog.md)) if the operation is wrong?
 
 ## Security & Secrets
+
+**Rules:** [Security](28-security.md)
 
 - [ ] Are there zero secrets, tokens, or keys in the diff *and* anywhere in the branch's history?
 - [ ] Are release commits/tags signed where the repo requires it?

@@ -30,6 +30,8 @@ unbounded `UPDATE` that automated tests routinely miss.
 
 ## Correctness
 
+**Rules:** [Joins](05-joins.md) · [Aggregate Functions](09-aggregate-functions.md)
+
 - [ ] Does every `UPDATE`/`DELETE` have a `WHERE` clause, and is it the intended set?
 - [ ] Are `JOIN` conditions complete, so no accidental cross join (Cartesian product)
       inflates rows?
@@ -41,12 +43,16 @@ unbounded `UPDATE` that automated tests routinely miss.
 
 ## Security
 
+**Rules:** [Security](22-security.md)
+
 - [ ] Are all user-supplied values parameterized, with zero string concatenation into SQL?
 - [ ] Do dynamic identifiers (table/column names) come from an allowlist, never raw input?
 - [ ] Does the query run with least privilege, not as a schema owner or superuser?
 - [ ] Are PII/secret columns excluded from logs and from broad `SELECT *`?
 
 ## Performance
+
+**Rules:** [Query Optimization](17-query-optimization.md) · [Indexes](15-indexes.md)
 
 - [ ] Has the query been checked with `EXPLAIN` against realistic row counts?
 - [ ] Is the driving predicate sargable — no function wrapping an indexed column
@@ -58,6 +64,8 @@ unbounded `UPDATE` that automated tests routinely miss.
 
 ## Transactions and Concurrency
 
+**Rules:** [Transactions](14-transactions.md)
+
 - [ ] Are writes that must be atomic inside one transaction?
 - [ ] Is the isolation level correct for the assumed consistency (e.g. does a
       read-modify-write need `SERIALIZABLE` or `SELECT ... FOR UPDATE`)?
@@ -65,6 +73,8 @@ unbounded `UPDATE` that automated tests routinely miss.
 - [ ] Is the transaction free of external calls that would hold locks during I/O?
 
 ## Migrations
+
+**Rules:** [DDL](12-ddl.md) · [DML](13-dml.md)
 
 - [ ] Is the migration reversible, with a tested rollback?
 - [ ] Does it avoid long blocking locks on hot tables (batched backfill, concurrent

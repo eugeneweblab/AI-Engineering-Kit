@@ -37,12 +37,16 @@ The cost is a few minutes per review; the payoff is not shipping a class of know
 
 ## Trust Boundaries and Input
 
+**Rules:** [Input Validation](09-input-validation.md) · [Threat Modeling](02-threat-modeling.md)
+
 - [ ] Is every external input (body, query, header, param, file, upstream response) validated against an allowlist schema?
 - [ ] Is validation at the boundary, before the data reaches business logic or storage?
 - [ ] Are numeric/enum/length bounds enforced, not just type?
 - [ ] Is no client-supplied value (role, price, userId, isAdmin) trusted for a security decision?
 
 ## Injection
+
+**Rules:** [SQL Injection](13-sql-injection.md) · [Command Injection](14-command-injection.md)
 
 - [ ] Are all SQL/NoSQL queries parameterized — zero string concatenation with input?
 - [ ] Do OS/shell calls use argument arrays and avoid `shell: true`/interpolation?
@@ -51,12 +55,16 @@ The cost is a few minutes per review; the payoff is not shipping a class of know
 
 ## AuthN / AuthZ
 
+**Rules:** [Authentication](03-authentication.md) · [Authorization](04-authorization.md)
+
 - [ ] Does every new endpoint/handler enforce authentication and an explicit authorization check?
 - [ ] Is object-level ownership verified (this user may act on *this* resource)?
 - [ ] Is the default deny, so a missing check fails closed rather than open?
 - [ ] Are auth errors uniform in message and timing (no account-existence leak)?
 
 ## Secrets and Data
+
+**Rules:** [Secrets Management](16-secrets-management.md) · [Encryption](17-encryption.md)
 
 - [ ] Are there zero hardcoded secrets, keys, or tokens in the diff?
 - [ ] Are credentials, tokens, session IDs, and PII kept out of logs and error messages?
@@ -65,11 +73,15 @@ The cost is a few minutes per review; the payoff is not shipping a class of know
 
 ## Errors and Responses
 
+**Rules:** [Output Encoding](10-output-encoding.md) · [Headers](22-security-headers.md)
+
 - [ ] Do client-facing errors omit stack traces, SQL, file paths, and internal detail?
 - [ ] Does the code fail closed on exceptions (deny access, not grant it)?
 - [ ] Are constant-time comparisons used for secrets/tokens/HMACs?
 
 ## Dependencies
+
+**Rules:** [Dependency Security](23-dependency-security.md) · [Supply Chain Security](24-supply-chain-security.md)
 
 - [ ] Does the diff avoid adding an unvetted, unmaintained, or typosquat-suspect package?
 - [ ] Are new dependencies pinned in the lockfile?

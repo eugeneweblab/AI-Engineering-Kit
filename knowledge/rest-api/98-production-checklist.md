@@ -22,6 +22,8 @@ the gate, those pages are the reasoning.
 
 ## Contract & Versioning
 
+**Rules:** [Versioning](14-versioning.md) · [OpenAPI](21-openapi.md)
+
 - [ ] Every endpoint is documented in a published [OpenAPI](21-openapi.md) spec that matches the running server.
 - [ ] The API is versioned (URL prefix or header) and this release introduces no breaking change to an existing version.
 - [ ] Response envelope, field casing, and date/time format (ISO 8601, UTC) are consistent across all endpoints.
@@ -30,6 +32,8 @@ the gate, those pages are the reasoning.
 
 ## Correctness & HTTP Semantics
 
+**Rules:** [HTTP](01-http.md) · [Status Codes](07-status-codes.md)
+
 - [ ] Each endpoint returns the correct [status code](07-status-codes.md) — never `200` for a failure.
 - [ ] `GET`/`HEAD` are side-effect free; mutations use `POST`/`PUT`/`PATCH`/`DELETE`.
 - [ ] Money-moving and create endpoints accept an `Idempotency-Key` and are proven safe to retry.
@@ -37,6 +41,8 @@ the gate, those pages are the reasoning.
 - [ ] Input is validated against an explicit schema; unexpected fields are rejected or ignored deliberately.
 
 ## Security
+
+**Rules:** [Security](24-security.md) · [Authentication](15-authentication.md)
 
 - [ ] Every non-public endpoint requires [authentication](15-authentication.md) and enforces [authorization](16-authorization.md) per object, not just per route.
 - [ ] TLS is required; HTTP is redirected to HTTPS and HSTS is set.
@@ -47,6 +53,8 @@ the gate, those pages are the reasoning.
 
 ## Reliability & Performance
 
+**Rules:** [Idempotency](18-idempotency.md) · [Performance](25-performance.md)
+
 - [ ] Every endpoint has a request [timeout](25-performance.md) and downstream calls have their own timeouts.
 - [ ] [Rate limiting](17-rate-limiting.md) is enforced per client with `429` and a `Retry-After` header.
 - [ ] `Cache-Control` and `ETag` are set intentionally; cacheable responses are actually cacheable.
@@ -55,6 +63,8 @@ the gate, those pages are the reasoning.
 
 ## Observability
 
+**Rules:** [Monitoring](26-monitoring.md)
+
 - [ ] Structured logs include a `request_id` propagated to every downstream call.
 - [ ] Metrics track request rate, error rate, and latency per route ([monitoring](26-monitoring.md)).
 - [ ] A `/health` (and `/ready`) endpoint reflects real dependency status, not a hardcoded `200`.
@@ -62,6 +72,8 @@ the gate, those pages are the reasoning.
 - [ ] `4xx` and `5xx` responses are distinguished in dashboards so client errors do not mask server failures.
 
 ## Data & Operations
+
+**Rules:** [Pagination](10-pagination.md) · [Production](28-production.md)
 
 - [ ] Database migrations are backward compatible with the currently deployed version (deploy runs both at once).
 - [ ] Rollback is tested: the previous version can serve traffic against the new schema.

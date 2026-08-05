@@ -29,6 +29,8 @@ turns that requirement into concrete, auditable items so nothing load-bearing is
 
 ## Suite Correctness
 
+**Rules:** [Assertions](09-assertions.md) · [Best Practices](24-best-practices.md)
+
 - [ ] Every test asserts observable behavior, not internal state or call counts.
 - [ ] Each test can fail: you can name the production change that turns it red.
 - [ ] No test is skipped or disabled without a linked ticket and an owner.
@@ -37,6 +39,8 @@ turns that requirement into concrete, auditable items so nothing load-bearing is
 
 ## Determinism and Isolation
 
+**Rules:** [Flaky Tests](22-flaky-tests.md) · [Test Data](07-test-data.md)
+
 - [ ] No test reads the real wall clock, network, filesystem, or random source without
       control (injected clock, seeded RNG, stubbed transport).
 - [ ] Each test creates and tears down its own data; no shared mutable global state.
@@ -44,6 +48,8 @@ turns that requirement into concrete, auditable items so nothing load-bearing is
 - [ ] The known flake rate is at or near zero; any flaky test is quarantined with a fix ticket.
 
 ## Coverage and Levels
+
+**Rules:** [Test Coverage](19-test-coverage.md) · [Strategy](28-testing-strategy.md)
 
 - [ ] Critical paths (auth, payments, data writes) have integration or E2E coverage, not
       just unit tests. See [testing strategy](28-testing-strategy.md).
@@ -55,6 +61,8 @@ turns that requirement into concrete, auditable items so nothing load-bearing is
 
 ## CI/CD Integration
 
+**Rules:** [CI/CD](21-cicd.md) · [Quality Gates](27-quality-gates.md)
+
 - [ ] The full suite runs on every pull request and blocks merge on failure.
 - [ ] A red build cannot be merged; the gate is enforced, not advisory.
 - [ ] Test run time is tracked and the inner-loop (unit) suite stays fast enough to run locally.
@@ -64,12 +72,16 @@ turns that requirement into concrete, auditable items so nothing load-bearing is
 
 ## Data and Environment
 
+**Rules:** [Test Data](07-test-data.md) · [Fixtures](10-fixtures.md)
+
 - [ ] Test data uses factories/builders, not brittle shared fixtures copied across tests.
 - [ ] No test uses real production data, real credentials, or real third-party accounts.
 - [ ] External services are faked, stubbed, or run as ephemeral containers — never called live.
 - [ ] Secrets used in tests come from the CI secret store, not committed to the repo.
 
 ## Production-Time Testing
+
+**Rules:** [Production Testing](25-production-testing.md) · [Observability](26-observability.md)
 
 - [ ] Smoke tests run against the deployed build before it takes traffic. See
       [production testing](25-production-testing.md).

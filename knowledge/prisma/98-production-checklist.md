@@ -28,6 +28,8 @@ catches the failures that only appear at scale, before users do.
 
 ## Client and Connections
 
+**Rules:** [Client](06-client.md) · [Production](25-production.md)
+
 - [ ] Exactly one `PrismaClient` is instantiated per process, exported from a shared module.
 - [ ] In development, the client is cached on `globalThis` so hot-reload does not spawn new pools.
 - [ ] `connection_limit` is set explicitly, and total connections across all instances stay under the database max.
@@ -35,6 +37,8 @@ catches the failures that only appear at scale, before users do.
 - [ ] The client is disconnected on graceful shutdown (`SIGTERM` → `$disconnect()`).
 
 ## Schema and Migrations
+
+**Rules:** [Schema](02-schema.md) · [Migrations](05-migrations.md)
 
 - [ ] Migrations are applied with `prisma migrate deploy` in CI/CD, never at app boot.
 - [ ] `prisma migrate status` reports no pending or failed migrations against production.
@@ -45,6 +49,8 @@ catches the failures that only appear at scale, before users do.
 
 ## Queries and Performance
 
+**Rules:** [Performance](15-performance.md) · [Indexes](16-indexes.md)
+
 - [ ] Every `findMany` on a growing table has a `take` limit and a deterministic `orderBy`.
 - [ ] Large lists use cursor-based pagination, not `skip`/`offset` for deep pages.
 - [ ] Relations are loaded with `include`/`select`, and no N+1 loops remain in hot paths.
@@ -54,12 +60,16 @@ catches the failures that only appear at scale, before users do.
 
 ## Transactions and Consistency
 
+**Rules:** [Transactions](08-transactions.md)
+
 - [ ] Multi-step dependent writes are wrapped in `$transaction`.
 - [ ] Interactive transactions have a bounded `timeout` and `maxWait`.
 - [ ] Transaction callbacks contain no external I/O (HTTP, queue) that could hold locks open.
 - [ ] Isolation level is set explicitly where write-skew or lost-update is possible.
 
 ## Security
+
+**Rules:** [Security](21-security.md)
 
 - [ ] No user input is interpolated into `$queryRawUnsafe`; all raw SQL uses tagged templates.
 - [ ] The `DATABASE_URL` comes from a secrets manager, not source control.
@@ -69,12 +79,16 @@ catches the failures that only appear at scale, before users do.
 
 ## Observability
 
+**Rules:** [Observability](26-observability.md) · [Debugging](20-debugging.md)
+
 - [ ] Slow-query and error logging is enabled (sampled in production, not full query logs).
 - [ ] Connection pool saturation and query latency are monitored with alerts.
 - [ ] Known error codes (`P2002`, `P2024`, `P2025`, `P2028`) are handled and surfaced in metrics.
 - [ ] A dashboard tracks migration status and replication lag if read replicas are used.
 
 ## Resilience
+
+**Rules:** [Error Handling](18-error-handling.md) · [Production](25-production.md)
 
 - [ ] Transient failures (deadlock `P2034`, timeout `P2024`) are retried with backoff and a cap.
 - [ ] The app degrades gracefully (returns a clear error) when the database is unreachable, not a stack trace.

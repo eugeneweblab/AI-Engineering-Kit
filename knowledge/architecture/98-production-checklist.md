@@ -31,6 +31,8 @@ outage to five minutes during review.
 
 ## Reliability & Fault Tolerance
 
+**Rules:** [Fault Tolerance](17-fault-tolerance.md) · [High Availability](16-high-availability.md)
+
 - [ ] Every outbound network call has a **timeout** and a bounded **retry** with backoff
   and jitter (see [fault tolerance](17-fault-tolerance.md)).
 - [ ] Retries are only applied to **idempotent** operations, or protected by an
@@ -44,6 +46,8 @@ outage to five minutes during review.
 
 ## Scalability & Performance
 
+**Rules:** [Scalability](13-scalability.md) · [Performance](14-performance.md)
+
 - [ ] The service is **stateless**, or its state is externalized, so it can scale
   horizontally (see [scalability](13-scalability.md)).
 - [ ] Resource **limits and requests** (CPU, memory) are set; the service does not rely on
@@ -54,6 +58,8 @@ outage to five minutes during review.
 - [ ] Latency and throughput targets (SLOs) are defined and measured against real traffic.
 
 ## Data & State
+
+**Rules:** [Caching Strategies](19-caching-strategies.md) · [Distributed Systems](21-distributed-systems.md)
 
 - [ ] Schema migrations are **backward-compatible** and safe to run while the old version
   is still live (expand/contract, no destructive change coupled to deploy).
@@ -66,6 +72,8 @@ outage to five minutes during review.
 
 ## Observability
 
+**Rules:** [Observability](18-observability.md)
+
 - [ ] Structured **logs** (with correlation/trace IDs), **metrics**, and **traces** are
   emitted for every request path (see [observability](18-observability.md)).
 - [ ] A **health/readiness** endpoint distinguishes "alive" from "ready to serve traffic".
@@ -74,6 +82,8 @@ outage to five minutes during review.
 - [ ] Dashboards let an on-call engineer answer "is it healthy?" in under a minute.
 
 ## Security
+
+**Rules:** [Security](15-security.md)
 
 - [ ] No secrets in code, images, or committed config; all secrets come from a **secrets
   manager** and are rotatable.
@@ -84,6 +94,8 @@ outage to five minutes during review.
   non-root user.
 
 ## Deployment & Operations
+
+**Rules:** [Deployment](24-deployment.md) · [Infrastructure](23-infrastructure.md)
 
 - [ ] Deploys are automated, repeatable, and support a **rollback** (blue/green, canary,
   or versioned rollback — see [deployment](24-deployment.md)).

@@ -31,6 +31,8 @@ silent runtime failures.
 
 ## Type Soundness
 
+**Rules:** [Type System](02-type-system.md) · [Type Guards](12-type-guards.md)
+
 - [ ] No `any` (explicit or implicit); boundary values use `unknown` and are narrowed.
 - [ ] Every `as` cast and `!` assertion has an adjacent runtime check that justifies it.
 - [ ] No double-cast escape hatch (`x as unknown as T`) without an explicit, sound reason.
@@ -39,11 +41,15 @@ silent runtime failures.
 
 ## Boundaries & Validation
 
+**Rules:** [Interfaces](06-interfaces.md) · [Library Design](27-library-design.md)
+
 - [ ] API responses, `JSON.parse`, env vars, and user input are schema-validated before typed use.
 - [ ] The static type at a boundary is *derived from* the validator, not asserted alongside it.
 - [ ] No structural type is trusted across a network/process boundary without parsing.
 
 ## Errors & Async
+
+**Rules:** [Error Handling](17-error-handling.md) · [Asynchronous Programming](18-asynchronous-programming.md)
 
 - [ ] No floating promises; every async call is awaited or explicitly handled.
 - [ ] `catch (e)` treats `e` as `unknown` and narrows before accessing properties.
@@ -52,6 +58,8 @@ silent runtime failures.
 
 ## API & Types
 
+**Rules:** [Generics](08-generics.md) · [Utility Types](09-utility-types.md)
+
 - [ ] Exported functions/types have explicit, intentional signatures — not inferred-and-leaked internals.
 - [ ] `readonly`/`as const` are used for data that should not mutate.
 - [ ] Utility types (`Pick`, `Omit`, `Partial`) are used instead of hand-duplicated shapes.
@@ -59,6 +67,8 @@ silent runtime failures.
 - [ ] Enum-like values use string-literal unions or `as const` objects unless a real enum is needed.
 
 ## Clarity
+
+**Rules:** [Clean Code](23-clean-code.md) · [Best Practices](28-best-practices.md)
 
 - [ ] Names describe intent; types are not widened to `string`/`number` where a literal union fits.
 - [ ] No dead `@ts-expect-error` (it would fail the build) and no unexplained suppressions.

@@ -31,6 +31,8 @@ for "it works", and check for the failure modes that "working" hides.
 
 ## Identity & Permissions
 
+**Rules:** [IAM](02-iam.md)
+
 - [ ] No policy uses `"Action": "*"` or `"Resource": "*"`; each statement is scoped to the minimum.
 - [ ] No `*FullAccess` AWS-managed policies are attached where a scoped policy would do.
 - [ ] No static access keys or `aws_access_key_id` literals appear in the diff; workloads use roles.
@@ -39,12 +41,16 @@ for "it works", and check for the failure modes that "working" hides.
 
 ## Secrets & Configuration
 
+**Rules:** [Secrets Manager](16-secrets-manager.md) · [Parameter Store](17-parameter-store.md)
+
 - [ ] No hardcoded secrets, tokens, passwords, or connection strings — values come from Secrets Manager / SSM.
 - [ ] `.tfstate`, `.env`, and credential files are not committed and are gitignored.
 - [ ] KMS keys have scoped key policies, not account-wide `kms:*`.
 - [ ] Environment-specific values are parameterized, not copy-pasted per environment.
 
 ## Network Exposure
+
+**Rules:** [VPC](06-vpc.md) · [Security](25-security.md)
 
 - [ ] No security-group rule opens SSH (22), RDP (3389), or a database port to `0.0.0.0/0`.
 - [ ] New resources default to **private** subnets unless public exposure is justified in the change.
@@ -53,12 +59,16 @@ for "it works", and check for the failure modes that "working" hides.
 
 ## Data Protection
 
+**Rules:** [S3](04-s3.md) · [Security](25-security.md)
+
 - [ ] Encryption at rest is set on new RDS, EBS, S3, and DynamoDB resources (no `encrypted = false`).
 - [ ] New stateful resources have backups / point-in-time recovery configured.
 - [ ] `deletion_protection` (or equivalent) is on for production databases.
 - [ ] No `prevent_destroy = false` or `--force` that could silently drop a stateful resource.
 
 ## Resilience & Correctness
+
+**Rules:** [High Availability](31-high-availability.md) · [Auto Scaling](11-auto-scaling.md)
 
 - [ ] Multi-AZ / multi-subnet is preserved; the change does not collapse a workload into one AZ.
 - [ ] Lambda functions set a bounded `timeout` and use a current, non-retired runtime.
@@ -67,6 +77,8 @@ for "it works", and check for the failure modes that "working" hides.
 
 ## Observability & Cost
 
+**Rules:** [Monitoring](26-monitoring.md) · [Cost Optimization](24-cost-optimization.md)
+
 - [ ] New components emit metrics/logs/traces; alarms exist for the paths they add.
 - [ ] Log retention is set (not unbounded), and CloudTrail coverage is not weakened.
 - [ ] Instance/function sizing is justified; no obvious over-provisioning.
@@ -74,6 +86,8 @@ for "it works", and check for the failure modes that "working" hides.
 - [ ] Every new resource is tagged (owner, environment, cost-center).
 
 ## Change Hygiene
+
+**Rules:** [Production](27-production.md) · [Best Practices](28-best-practices.md)
 
 - [ ] The change is in infrastructure-as-code, not a described console action.
 - [ ] The `terraform plan` / CDK diff shows only intended changes — no surprise replacements of stateful resources.

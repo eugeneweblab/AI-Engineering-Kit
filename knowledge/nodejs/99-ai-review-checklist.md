@@ -29,6 +29,8 @@ catches them before they ship.
 
 ## Event Loop & Concurrency
 
+**Rules:** [Event Loop](02-event-loop.md) · [Worker Threads](12-worker-threads.md)
+
 - [ ] No `*Sync` file/crypto/zlib calls on the request or job hot path (startup-only is fine).
 - [ ] No heavy synchronous CPU work (large JSON, regex backtracking, hashing) blocking the loop.
 - [ ] `Promise.all` is not run over unbounded input; concurrency is bounded (e.g. a pool/limit).
@@ -36,12 +38,16 @@ catches them before they ship.
 
 ## Async Correctness
 
+**Rules:** [Error Handling](16-error-handling.md) · [Streams](06-streams.md)
+
 - [ ] Every `async` call is `await`ed, returned, or has an explicit `.catch` — no floating promises.
 - [ ] No `async` function is passed where a sync callback is expected (rejections vanish silently).
 - [ ] No mixing of callbacks and promises on the same operation (double-invoke / double-settle).
 - [ ] `await` inside a loop is intentional; independent work uses bounded concurrency, not serial awaits.
 
 ## Error Handling
+
+**Rules:** [Error Handling](16-error-handling.md)
 
 - [ ] Every `EventEmitter` and stream has an `'error'` listener (an unheard `'error'` throws).
 - [ ] Streams use `pipeline()` from `node:stream/promises`, not bare `.pipe()`.
@@ -51,6 +57,8 @@ catches them before they ship.
 
 ## Resources & Lifecycle
 
+**Rules:** [Process](10-process.md) · [Memory Management](20-memory-management.md)
+
 - [ ] Every outbound HTTP/DB/cache call has a timeout and an `AbortSignal`.
 - [ ] File handles, DB connections, timers, and listeners are released in a `finally`/`close` path.
 - [ ] No `EventEmitter` listeners added per-request without removal (memory leak / max-listeners).
@@ -59,6 +67,8 @@ catches them before they ship.
 
 ## Security
 
+**Rules:** [Security](18-security.md)
+
 - [ ] User input never concatenated into SQL, shell (`exec`), or file paths — parameterized/escaped/validated.
 - [ ] `child_process.exec` with user input is replaced by `execFile`/`spawn` with an argument array.
 - [ ] External input is schema-validated at the boundary before use.
@@ -66,6 +76,8 @@ catches them before they ship.
 - [ ] Deserialization of untrusted data avoids prototype-pollution sinks (`__proto__`, unsafe merge).
 
 ## Configuration & Portability
+
+**Rules:** [Configuration](15-configuration.md) · [Environment](14-environment.md)
 
 - [ ] Config read from `process.env` is validated once at startup, not scattered and unchecked.
 - [ ] No hard-coded hosts, ports, credentials, or absolute local paths.

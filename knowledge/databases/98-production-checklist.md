@@ -29,6 +29,8 @@ These are all preventable by a checklist. Running one turns "we think it's fine"
 
 ## Schema and Integrity
 
+**Rules:** [Schema Design](06-schema-design.md) · [Data Integrity](23-data-integrity.md)
+
 - [ ] Every foreign key relationship has an actual `FOREIGN KEY` constraint with a defined
   `ON DELETE` / `ON UPDATE` action.
 - [ ] `NOT NULL`, `UNIQUE`, and `CHECK` constraints encode the real business invariants.
@@ -37,6 +39,8 @@ These are all preventable by a checklist. Running one turns "we think it's fine"
 - [ ] Text columns that need it have a length/format constraint, not unbounded free text.
 
 ## Migrations
+
+**Rules:** [Migrations](17-migrations.md)
 
 - [ ] Every schema change ships as a version-controlled, reviewed migration — no manual DDL.
 - [ ] Each migration has a tested rollback (or a documented forward-only recovery plan).
@@ -49,6 +53,8 @@ These are all preventable by a checklist. Running one turns "we think it's fine"
 
 ## Performance and Indexing
 
+**Rules:** [Indexing](07-indexing.md) · [Performance](20-performance.md)
+
 - [ ] Every query on the hot path has been checked with `EXPLAIN`/`EXPLAIN ANALYZE` — no
   unexpected sequential scans on large tables.
 - [ ] Indexes exist for the columns real queries filter, join, and sort on.
@@ -58,6 +64,8 @@ These are all preventable by a checklist. Running one turns "we think it's fine"
 - [ ] The system was load-tested at expected peak with production-scale data volumes.
 
 ## Availability and Recovery
+
+**Rules:** [High Availability](22-high-availability.md) · [Backup And Recovery](18-backup-and-recovery.md)
 
 - [ ] Automated backups run on a schedule, and a restore has actually been performed and
   verified — an untested backup does not count.
@@ -69,6 +77,8 @@ These are all preventable by a checklist. Running one turns "we think it's fine"
 
 ## Security
 
+**Rules:** [Security](19-security.md)
+
 - [ ] Connections require TLS; the database is not reachable from the public internet.
 - [ ] The application connects with a least-privilege account — not a superuser/admin role.
 - [ ] Credentials come from a secrets manager, not source code or committed config.
@@ -76,6 +86,8 @@ These are all preventable by a checklist. Running one turns "we think it's fine"
 - [ ] All access is parameterized; no dynamic SQL is built from untrusted input.
 
 ## Observability
+
+**Rules:** [Monitoring](21-monitoring.md)
 
 - [ ] Key metrics are collected and alerted on: connections, replication lag, error rate,
   p99 latency, disk usage.

@@ -29,12 +29,16 @@ skims past.
 
 ## Client and Connection Handling
 
+**Rules:** [Client](06-client.md) · [Production](25-production.md)
+
 - [ ] Is `PrismaClient` instantiated once in a shared module, not inside handlers or per call?
 - [ ] Is the dev client cached on `globalThis` to survive hot-reload?
 - [ ] Is `$disconnect()` wired to graceful shutdown rather than called mid-request?
 - [ ] For serverless/edge, is a pooler (Accelerate, PgBouncer) configured instead of raw connections?
 
 ## Queries and Data Fetching
+
+**Rules:** [Filtering](09-filtering.md) · [Relations Loading](11-relations-loading.md)
 
 - [ ] Does every `findMany` on a growing table include a `take` and a deterministic `orderBy`?
 - [ ] Are relations loaded via `include`/`select`, with no per-row lazy loads (N+1)?
@@ -45,6 +49,8 @@ skims past.
 
 ## Writes and Transactions
 
+**Rules:** [Transactions](08-transactions.md) · [CRUD](07-crud.md)
+
 - [ ] Are dependent multi-step writes wrapped in `$transaction`?
 - [ ] Do interactive transactions set `timeout`/`maxWait` and avoid external I/O inside the callback?
 - [ ] Are upserts used for get-or-create instead of a read-then-write race?
@@ -52,12 +58,16 @@ skims past.
 
 ## Schema and Migrations
 
+**Rules:** [Schema](02-schema.md) · [Migrations](05-migrations.md)
+
 - [ ] Do schema changes come with a generated migration, not a `db push`?
 - [ ] Is the migration reversible, or is an expand/contract sequence used for destructive changes?
 - [ ] Do new relations declare the correct `onDelete`/`onUpdate` referential action?
 - [ ] Are nullable-vs-required and default values chosen deliberately for existing rows?
 
 ## Security and Correctness
+
+**Rules:** [Security](21-security.md) · [Raw SQL](17-raw-sql.md)
 
 - [ ] Is all raw SQL written as tagged `$queryRaw`/`$executeRaw` templates, never `Unsafe` with interpolation?
 - [ ] Are tenant/owner scopes applied to every query in multi-tenant code?

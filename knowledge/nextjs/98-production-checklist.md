@@ -32,6 +32,8 @@ It is defined by a healthy, secure, observable, and maintainable production syst
 
 ## Architecture
 
+**Rules:** [Architecture](01-architecture.md) · [Project Structure](02-project-structure.md)
+
 Verify:
 
 ☐ Server Components are used whenever possible.
@@ -50,6 +52,8 @@ Verify:
 
 ## Rendering
 
+**Rules:** [Rendering Strategies](08-rendering-strategies.md) · [Server Components](06-server-components.md)
+
 Verify:
 
 ☐ Appropriate rendering strategy selected.
@@ -65,6 +69,8 @@ Verify:
 ---
 
 ## Data Fetching
+
+**Rules:** [Data Fetching](09-data-fetching.md)
 
 Verify:
 
@@ -82,6 +88,8 @@ Verify:
 
 ## Server Actions
 
+**Rules:** [Server Actions](11-server-actions.md)
+
 Verify:
 
 ☐ Input validation implemented.
@@ -97,6 +105,8 @@ Verify:
 ---
 
 ## API Routes
+
+**Rules:** [API Routes](12-api-routes.md)
 
 Verify:
 
@@ -114,6 +124,8 @@ Verify:
 
 ## Caching
 
+**Rules:** [Caching](10-caching.md)
+
 Verify:
 
 ☐ Cache strategy documented.
@@ -129,6 +141,8 @@ Verify:
 ---
 
 ## Performance
+
+**Rules:** [Performance](20-performance.md) · [Images](16-images.md)
 
 Verify:
 
@@ -152,6 +166,8 @@ Verify:
 
 ## Accessibility
 
+**Rules:** [Accessibility](25-accessibility.md)
+
 Verify:
 
 ☐ Semantic HTML used.
@@ -170,6 +186,8 @@ Verify:
 
 ## SEO
 
+**Rules:** [SEO](19-seo.md) · [Metadata](18-metadata.md)
+
 Verify:
 
 ☐ Metadata complete.
@@ -187,6 +205,8 @@ Verify:
 ---
 
 ## Security
+
+**Rules:** [Security](24-security.md)
 
 Verify:
 
@@ -210,6 +230,8 @@ Verify:
 
 ## Environment
 
+**Rules:** [Environment Variables](21-environment-variables.md)
+
 Verify:
 
 ☐ Environment variables documented.
@@ -225,6 +247,8 @@ Verify:
 ---
 
 ## Database
+
+**Rules:** [Database Migrations](../databases/17-migrations.md) · [Prisma Client](../prisma/06-client.md)
 
 Verify:
 
@@ -242,6 +266,8 @@ Verify:
 
 ## Logging
 
+**Rules:** [Observability](23-observability.md)
+
 Verify:
 
 ☐ Structured logging implemented.
@@ -255,6 +281,8 @@ Verify:
 ---
 
 ## Monitoring
+
+**Rules:** [Observability](23-observability.md)
 
 Verify:
 
@@ -272,6 +300,8 @@ Verify:
 
 ## Testing
 
+**Rules:** [Testing](22-testing.md)
+
 Verify:
 
 ☐ Unit tests passing.
@@ -287,6 +317,8 @@ Verify:
 ---
 
 ## Deployment
+
+**Rules:** [Deployment](26-deployment.md)
 
 Verify:
 
@@ -322,6 +354,8 @@ Verify:
 
 ## Before Deployment
 
+**Rules:** [Deployment](26-deployment.md) · [Production Checklist](98-production-checklist.md)
+
 ☐ Review architecture.
 
 ☐ Review performance.
@@ -334,6 +368,8 @@ Verify:
 
 ## Deployment
 
+**Rules:** [Deployment](26-deployment.md) · [Observability](23-observability.md)
+
 ☐ Build successfully.
 
 ☐ Deploy successfully.
@@ -345,6 +381,8 @@ Verify:
 ---
 
 ## After Deployment
+
+**Rules:** [Observability](23-observability.md)
 
 ☐ Verify production functionality.
 

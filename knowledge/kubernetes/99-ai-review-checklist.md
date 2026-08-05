@@ -28,11 +28,15 @@ comments instead of incidents.
 
 ## Images & Reproducibility
 
+**Rules:** [Deployments](05-deployments.md) · [Best Practices](27-best-practices.md)
+
 - [ ] Is every image pinned to a digest or immutable tag (never `:latest` or no tag)?
 - [ ] Is `imagePullPolicy` consistent with the tag strategy (not `Always` on a digest)?
 - [ ] Do images come from a trusted, scanned registry?
 
 ## Resources & Scheduling
+
+**Rules:** [Resource Management](19-resource-management.md) · [Autoscaling](20-autoscaling.md)
 
 - [ ] Does every container set CPU and memory `requests` and `limits`?
 - [ ] Are the values justified by real usage, not copy-pasted placeholders?
@@ -41,12 +45,16 @@ comments instead of incidents.
 
 ## Health Probes
 
+**Rules:** [Deployments](05-deployments.md) · [Pods](04-pods.md)
+
 - [ ] Is there a `readinessProbe` that checks real serving ability, not just an open port?
 - [ ] Is the `livenessProbe` distinct from readiness and safe from crash-looping under load?
 - [ ] Do slow-starting containers use a `startupProbe` instead of a long liveness delay?
 - [ ] Are probe timeouts and thresholds set (not left to defaults that mask hangs)?
 
 ## Security
+
+**Rules:** [Security](22-security.md) · [RBAC](18-rbac.md)
 
 - [ ] Does the `securityContext` set `runAsNonRoot: true` and a non-zero `runAsUser`?
 - [ ] Are all capabilities dropped, with only the required ones added back?
@@ -58,17 +66,23 @@ comments instead of incidents.
 
 ## Configuration & Secrets
 
+**Rules:** [Configmaps](09-configmaps.md) · [Secrets](10-secrets.md)
+
 - [ ] Are secrets referenced from a Secret/secrets manager, never inline or in Git?
 - [ ] Is config externalized to ConfigMaps rather than hardcoded in the manifest?
 - [ ] Does a config change roll the Pods (checksum annotation), not silently persist stale values?
 
 ## State & Lifecycle
 
+**Rules:** [Statefulsets](13-statefulsets.md) · [Persistent Volumes](12-persistent-volumes.md)
+
 - [ ] Is persistent state on a PersistentVolume, not the Pod's ephemeral filesystem?
 - [ ] Is `terminationGracePeriodSeconds` sufficient for graceful drain on `SIGTERM`?
 - [ ] For StatefulSets, are volumeClaimTemplates and an ordered update strategy correct?
 
 ## Observability
+
+**Rules:** [Observability](21-observability.md) · [Monitoring](23-monitoring.md)
 
 - [ ] Are Prometheus scrape annotations / ServiceMonitor present for metrics?
 - [ ] Do logs go to stdout/stderr in a structured format?

@@ -29,12 +29,16 @@ silently.
 
 ## Contract & Shape
 
+**Rules:** [Resource Design](03-resource-design.md) · [Versioning](14-versioning.md)
+
 - [ ] Are URLs resource-oriented nouns, with the action carried by the HTTP method (no `/createX`, `/doY`)?
 - [ ] Does the response shape match the rest of the API (envelope, [casing](03-resource-design.md), date format)?
 - [ ] For a changed field, is this additive — not a rename or removal that breaks existing clients?
 - [ ] Is any new breaking change gated behind a new [version](14-versioning.md)?
 
 ## Status Codes & Errors
+
+**Rules:** [Status Codes](07-status-codes.md) · [Error Handling](09-error-handling.md)
 
 - [ ] Does each path return the correct [status code](07-status-codes.md), never `200` on failure?
 - [ ] Do errors use the shared [error shape](09-error-handling.md) with a stable machine-readable `code`?
@@ -43,12 +47,16 @@ silently.
 
 ## Validation & Input
 
+**Rules:** [Validation](08-validation.md)
+
 - [ ] Is every input [validated](08-validation.md) against an explicit schema before use?
 - [ ] Are numeric/string bounds enforced (lengths, ranges, enums) rather than assumed?
 - [ ] Is request body size bounded so a large payload cannot exhaust memory?
 - [ ] Are user-supplied values parameterized, never string-concatenated into queries?
 
 ## Security
+
+**Rules:** [Security](24-security.md) · [Authorization](16-authorization.md)
 
 - [ ] Does the endpoint require [authentication](15-authentication.md) if it is not explicitly public?
 - [ ] Is [authorization](16-authorization.md) checked on the specific object, not just the route (no IDOR)?
@@ -57,12 +65,16 @@ silently.
 
 ## Reliability
 
+**Rules:** [Idempotency](18-idempotency.md) · [Rate Limiting](17-rate-limiting.md)
+
 - [ ] Are mutating endpoints safe to retry via idempotency ([idempotency](18-idempotency.md))?
 - [ ] Do list endpoints [paginate](10-pagination.md) with an enforced max page size?
 - [ ] Do downstream/database calls have timeouts, and are errors handled rather than swallowed?
 - [ ] Are N+1 queries avoided on list and nested-resource responses?
 
 ## Observability & Tests
+
+**Rules:** [Monitoring](26-monitoring.md) · [Testing](23-testing.md)
 
 - [ ] Does the change log a `request_id` and enough context to debug a failure (without secrets)?
 - [ ] Are there tests for the happy path *and* the negative paths (unauthorized, invalid, not found)?

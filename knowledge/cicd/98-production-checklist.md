@@ -28,6 +28,8 @@ are invisible while everything works — they only surface under the exact condi
 
 ## Build & Artifact
 
+**Rules:** [Build Stage](03-build-stage.md) · [Artifacts](07-artifacts.md)
+
 - [ ] The pipeline is defined in the repository and changes go through code review.
 - [ ] Builds are deterministic: same commit produces the same artifact on any runner.
 - [ ] Base images are pinned by digest and actions/plugins by SHA or exact version.
@@ -37,6 +39,8 @@ are invisible while everything works — they only surface under the exact condi
 
 ## Test & Quality Gates
 
+**Rules:** [Test Stage](04-test-stage.md) · [Quality Gates](05-quality-gates.md)
+
 - [ ] CI runs on every push and pull request and blocks merge on failure.
 - [ ] Unit, integration, and required end-to-end tests all run in the pipeline.
 - [ ] Quality gates (coverage threshold, lint, type check) are enforced, not advisory.
@@ -44,6 +48,8 @@ are invisible while everything works — they only surface under the exact condi
 - [ ] The critical-path pipeline completes within the team's agreed time budget.
 
 ## Security
+
+**Rules:** [Security Scanning](06-security-scanning.md) · [Secrets](15-secrets.md)
 
 - [ ] Dependency and container image scanning runs and blocks on critical findings.
 - [ ] Static analysis (SAST) and secret scanning run on every change.
@@ -54,6 +60,8 @@ are invisible while everything works — they only surface under the exact condi
 
 ## Release & Deployment
 
+**Rules:** [Deployment](10-deployment.md) · [Blue Green Deployment](11-blue-green-deployment.md)
+
 - [ ] Production deploys require an explicit gate (manual approval or protected environment).
 - [ ] The deployment strategy (blue-green, canary, rolling) is defined and automated.
 - [ ] A one-step, tested rollback exists and has been exercised, not just documented.
@@ -61,6 +69,8 @@ are invisible while everything works — they only surface under the exact condi
 - [ ] Releases are versioned and each deploy records commit SHA, artifact digest, and actor.
 
 ## Observability & Recovery
+
+**Rules:** [Monitoring](23-monitoring.md) · [Rollbacks](14-rollbacks.md)
 
 - [ ] Deployments emit events/annotations visible on dashboards and in logs.
 - [ ] Health checks and readiness probes gate traffic to a new version.

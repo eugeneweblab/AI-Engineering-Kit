@@ -28,6 +28,8 @@ disciplined review pass converts a subjective read into a repeatable gate.
 
 ## Types & Correctness
 
+**Rules:** [Types](02-types.md) · [Modern PHP](23-modern-php.md)
+
 - [ ] Does every new/changed file declare `declare(strict_types=1)`?
 - [ ] Are all parameters, returns, and properties typed as specifically as the domain
       allows (no bare `mixed`/`array` where a type or DTO fits)?
@@ -37,6 +39,8 @@ disciplined review pass converts a subjective read into a repeatable gate.
 - [ ] Are enums/match used for closed sets instead of magic strings and `switch` fallthrough?
 
 ## Security
+
+**Rules:** [Security](13-security.md)
 
 - [ ] Are all SQL queries parameterized, with no user input concatenated into the query?
 - [ ] Is all dynamic output escaped for its context, or emitted through an auto-escaping
@@ -49,6 +53,8 @@ disciplined review pass converts a subjective read into a repeatable gate.
 
 ## Errors & Resources
 
+**Rules:** [Error Handling](08-error-handling.md) · [Exceptions](09-exceptions.md)
+
 - [ ] Do error conditions throw typed exceptions instead of returning `false`/`null`?
 - [ ] Are exceptions caught specifically (not a bare `catch (\Throwable)` that swallows)?
 - [ ] Is the `@` error-suppression operator absent from the diff?
@@ -56,6 +62,8 @@ disciplined review pass converts a subjective read into a repeatable gate.
       path, including failures?
 
 ## Design & Testability
+
+**Rules:** [Dependency Injection](20-dependency-injection.md) · [Clean Code](22-clean-code.md)
 
 - [ ] Are dependencies injected via interfaces rather than `new`ed or fetched from statics
       /singletons inside logic?
@@ -65,6 +73,8 @@ disciplined review pass converts a subjective read into a repeatable gate.
       residue?
 
 ## Tests & Tooling
+
+**Rules:** [Testing](15-testing.md) · [Tooling](28-tooling.md)
 
 - [ ] Do new behaviors have unit tests, including the failure and edge paths?
 - [ ] Do `phpstan`/`psalm` pass at the configured level with no new baseline entries?

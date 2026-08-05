@@ -28,6 +28,8 @@ that visual review misses.
 
 ## Document Foundation
 
+**Rules:** [Document Structure](01-document-structure.md) · [Metadata](10-metadata.md)
+
 - [ ] `<!DOCTYPE html>` is the first line of the document.
 - [ ] `<html>` has a valid `lang` attribute (e.g. `lang="en"`).
 - [ ] `<meta charset="utf-8">` is the first element in `<head>`.
@@ -37,6 +39,8 @@ that visual review misses.
 
 ## Structure & Semantics
 
+**Rules:** [Semantic HTML](02-semantic-html.md)
+
 - [ ] Exactly one `<main>` element wraps the primary content.
 - [ ] Landmark elements (`<header>`, `<nav>`, `<main>`, `<footer>`) are used, not `<div>` substitutes.
 - [ ] Heading levels are logical and never skip a level.
@@ -44,6 +48,8 @@ that visual review misses.
 - [ ] Lists use `<ul>`/`<ol>`/`<li>`; tabular data uses `<table>` with `<th scope>`.
 
 ## Accessibility
+
+**Rules:** [Accessibility](11-accessibility.md)
 
 - [ ] Every `<img>` has an `alt` attribute (empty for decorative images).
 - [ ] Every form control has an associated `<label>` (via `for`/`id` or wrapping).
@@ -54,6 +60,8 @@ that visual review misses.
 
 ## Forms
 
+**Rules:** [Forms](08-forms.md)
+
 - [ ] Inputs use the correct `type` (`email`, `tel`, `url`, `number`, etc.).
 - [ ] `autocomplete` attributes are set on personal-data fields.
 - [ ] Required fields use the `required` attribute, not JS-only validation.
@@ -61,12 +69,16 @@ that visual review misses.
 
 ## Metadata & SEO
 
+**Rules:** [Metadata](10-metadata.md) · [SEO](12-seo.md)
+
 - [ ] A `<meta name="description">` is present and unique per page.
 - [ ] Open Graph / Twitter Card tags are set for shareable pages.
 - [ ] A canonical `<link rel="canonical">` is present where duplicate URLs can exist.
 - [ ] Structured data (JSON-LD) is included where relevant and validates.
 
 ## Performance
+
+**Rules:** [Performance](18-performance.md) · [Browser Rendering](20-browser-rendering.md)
 
 - [ ] Images specify `width` and `height` (or `aspect-ratio`) to prevent layout shift.
 - [ ] Below-the-fold images use `loading="lazy"`; hero images do not.
@@ -76,12 +88,16 @@ that visual review misses.
 
 ## Security
 
+**Rules:** [Security](19-security.md)
+
 - [ ] External `target="_blank"` links include `rel="noopener"`.
 - [ ] No untrusted content is injected as raw HTML without sanitization.
 - [ ] A Content-Security-Policy is set; no inline event handlers rely on unsafe-inline.
 - [ ] Sensitive form pages are served over HTTPS and post to HTTPS endpoints.
 
 ## Cross-Environment
+
+**Rules:** [Progressive Enhancement](23-progressive-enhancement.md) · [Microdata](26-microdata.md)
 
 - [ ] Core content and navigation work with JavaScript disabled.
 - [ ] The page is legible and operable with CSS disabled.

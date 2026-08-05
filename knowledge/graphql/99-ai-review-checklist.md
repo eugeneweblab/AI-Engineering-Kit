@@ -30,6 +30,8 @@ questions with concrete answers.
 
 ## Schema Changes
 
+**Rules:** [Schema](02-schema.md) · [Schema Evolution](29-schema-evolution.md)
+
 - [ ] Is the change **additive**? Removing/renaming a field or making an argument non-null
       is breaking — confirm deprecation and usage data first.
 - [ ] Does new nullability match reality? Non-null only where the server can **always**
@@ -41,6 +43,8 @@ questions with concrete answers.
 
 ## Resolvers
 
+**Rules:** [Resolvers](07-resolvers.md) · [DataLoader](16-dataloader.md)
+
 - [ ] Does any new field-on-a-list resolver fetch per-item without a **DataLoader**? (N+1)
 - [ ] Is the resolver **thin** — parse, authorize, delegate to a service — with no business
       logic inline?
@@ -51,6 +55,8 @@ questions with concrete answers.
 
 ## Security and Authorization
 
+**Rules:** [Security](17-security.md) · [Authorization](19-authorization.md)
+
 - [ ] Is **authorization** checked for the new field/type, not assumed from the parent?
 - [ ] Do new inputs have **validation** (length, range, format) before use?
 - [ ] Could the new field **expose** internal or other-tenant data through a nested path?
@@ -58,11 +64,15 @@ questions with concrete answers.
 
 ## Errors
 
+**Rules:** [Error Handling](20-error-handling.md)
+
 - [ ] Are expected failures modeled as **data** (unions/result types), reserving GraphQL
       errors for faults?
 - [ ] Do thrown errors carry a stable **code** and no sensitive detail (stack, SQL)?
 
 ## Tests
+
+**Rules:** [Testing](24-testing.md)
 
 - [ ] Is there a test that would **fail on an N+1** (asserts query count) for new list paths?
 - [ ] Are authorization **negative cases** (forbidden viewer) tested for new fields?

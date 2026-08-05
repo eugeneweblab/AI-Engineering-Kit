@@ -30,6 +30,8 @@ these items stops correctness and availability defects before they reach `main`.
 
 ## Correctness and Types
 
+**Rules:** [Data Types](03-data-types.md) · [JSONB](08-jsonb.md)
+
 - [ ] Are time columns `timestamptz`, not naive `timestamp`?
 - [ ] Is money/exact-decimal stored as `numeric`, never `float`/`double`?
 - [ ] Does every new table have a primary key?
@@ -39,6 +41,8 @@ these items stops correctness and availability defects before they reach `main`.
 
 ## Concurrency and Transactions
 
+**Rules:** [Transactions](06-transactions.md) · [Locking](07-locking.md)
+
 - [ ] Is each read-modify-write protected by `SELECT ... FOR UPDATE` or a serializable transaction ([transactions](06-transactions.md))?
 - [ ] Are transaction boundaries scoped to the smallest atomic unit and kept short?
 - [ ] Are potentially-duplicating inserts made idempotent with `ON CONFLICT`?
@@ -46,6 +50,8 @@ these items stops correctness and availability defects before they reach `main`.
 - [ ] Are lock-order and deadlock risks considered where multiple rows/tables are updated?
 
 ## Queries and Indexes
+
+**Rules:** [Query Planner](05-query-planner.md) · [Indexes](04-indexes.md)
 
 - [ ] Is there an index supporting the `WHERE`/`JOIN`/`ORDER BY` of any hot query ([indexes](04-indexes.md))?
 - [ ] Are indexed columns used sargably (no function wrapping the column in the predicate)?
@@ -56,6 +62,8 @@ these items stops correctness and availability defects before they reach `main`.
 
 ## Migrations
 
+**Rules:** [Migrations](22-migrations.md)
+
 - [ ] Is the migration forward-only and reproducible from an empty database ([migrations](22-migrations.md))?
 - [ ] Does index creation on a populated table use `CREATE INDEX CONCURRENTLY`?
 - [ ] Does adding a `NOT NULL` column avoid a full-table rewrite (default handling, backfill in batches)?
@@ -63,6 +71,8 @@ these items stops correctness and availability defects before they reach `main`.
 - [ ] Does any long-lived `ACCESS EXCLUSIVE` lock on a hot table have a `lock_timeout` and a plan?
 
 ## Security
+
+**Rules:** [Security](18-security.md) · [Roles And Permissions](19-roles-and-permissions.md)
 
 - [ ] Does the change avoid granting more privilege than the app role needs ([roles](19-roles-and-permissions.md))?
 - [ ] Are secrets kept out of the diff (no inline passwords/connection strings)?

@@ -33,6 +33,8 @@ modes that "it looks right in the builder" always misses.
 
 ## Content & Structure
 
+**Rules:** [Architecture](01-architecture.md) · [Templates](08-templates.md)
+
 - [ ] Every layout is expressed as section → row → column → module, with no orphaned or
       empty modules left from editing.
 - [ ] Headers, footers, and post/archive templates are defined once in the
@@ -43,6 +45,8 @@ modes that "it looks right in the builder" always misses.
 - [ ] Dynamic content and custom fields resolve correctly with real data, not fallbacks.
 
 ## Performance
+
+**Rules:** [Performance](10-performance.md)
 
 - [ ] Divi performance features are enabled: dynamic CSS, dynamic module framework,
       critical CSS, and deferred/removed unused jQuery where compatible.
@@ -56,6 +60,8 @@ modes that "it looks right in the builder" always misses.
 
 ## Responsive & Accessibility
 
+**Rules:** [Responsive Design](11-responsive-design.md) · [Accessibility](12-accessibility.md)
+
 - [ ] Every page is checked at phone, tablet, and desktop breakpoints on the rendered
       front end. See [responsive-design](11-responsive-design.md).
 - [ ] Images have meaningful `alt` text; decorative images have empty `alt`.
@@ -65,6 +71,8 @@ modes that "it looks right in the builder" always misses.
 
 ## SEO & Metadata
 
+**Rules:** [SEO](13-seo.md)
+
 - [ ] Titles, meta descriptions, and Open Graph/social tags are set per page.
 - [ ] A single canonical H1 per page; semantic heading structure throughout.
 - [ ] XML sitemap and `robots.txt` are correct and not blocking production.
@@ -72,6 +80,8 @@ modes that "it looks right in the builder" always misses.
       [seo](13-seo.md).
 
 ## Security & Configuration
+
+**Rules:** [Security](19-security.md) · [Production](25-production.md)
 
 - [ ] `WP_DEBUG` and Divi debug/static-CSS-off flags are disabled in production.
 - [ ] All custom PHP/CSS/JS lives in a **child theme**, never the parent.
@@ -81,6 +91,8 @@ modes that "it looks right in the builder" always misses.
       See [security](19-security.md).
 
 ## Deployment & Backup
+
+**Rules:** [Deployment](22-deployment.md) · [Maintenance](23-maintenance.md)
 
 - [ ] The site was promoted from staging, not built live; staging matches production
       config. See [deployment](22-deployment.md).

@@ -33,6 +33,8 @@ answerable from the diff and its context. A "no" is a review blocker unless just
 
 ## Indexation Signals
 
+**Rules:** [Indexing](03-indexing.md) · [Robots Txt](08-robots-txt.md)
+
 - [ ] Do all signals for each affected URL agree (HTTP status, `robots` meta,
   `X-Robots-Tag`, canonical, sitemap membership)?
 - [ ] Is any new or changed `noindex` intentional, and gated so it can never apply to
@@ -44,6 +46,8 @@ answerable from the diff and its context. A "no" is a review blocker unless just
 
 ## URLs and Redirects
 
+**Rules:** [Links](17-links.md) · [Canonicalization](06-canonicalization.md)
+
 - [ ] If a URL changed, is there a permanent `301` from the old URL, with no chain or
   loop introduced?
 - [ ] Are internal links updated to point at the final URL rather than through a
@@ -53,6 +57,8 @@ answerable from the diff and its context. A "no" is a review blocker unless just
 
 ## Canonicalization
 
+**Rules:** [Canonicalization](06-canonicalization.md)
+
 - [ ] Does each affected indexable page still emit exactly one absolute canonical?
 - [ ] Is the canonical self-referential on canonical pages and correct on
   parameter/duplicate variants?
@@ -61,12 +67,16 @@ answerable from the diff and its context. A "no" is a review blocker unless just
 
 ## Rendering and Content Parity
 
+**Rules:** [Rendering](04-rendering.md) · [JavaScript SEO](19-javascript-seo.md)
+
 - [ ] Does indexable content still exist in the server response without relying on
   client hydration?
 - [ ] Does the change avoid branching content on user-agent (no cloaking)?
 - [ ] Is robot-visible content identical to user-visible content after the change?
 
 ## Metadata and Structured Data
+
+**Rules:** [Metadata](05-metadata.md) · [Structured Data](09-structured-data.md)
 
 - [ ] Does every affected page keep a unique, non-empty `<title>` and description?
 - [ ] Are `hreflang`, Open Graph, and Twitter tags still present, valid, and reciprocal
@@ -75,6 +85,8 @@ answerable from the diff and its context. A "no" is a review blocker unless just
   marked-up content the user cannot see)?
 
 ## Safety Net
+
+**Rules:** [Search Console](22-search-console.md) · [Monitoring](24-monitoring.md)
 
 - [ ] Are SEO invariants for the changed routes covered by (or added to) an automated
   test?

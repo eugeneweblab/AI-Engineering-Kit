@@ -24,6 +24,8 @@ A feature is not complete until it is production ready.
 
 ## Architecture
 
+**Rules:** [Architecture](01-architecture.md) · [Modules](02-modules.md)
+
 ☐ Responsibilities are clearly separated.
 
 ☐ Modules have well-defined boundaries.
@@ -39,6 +41,8 @@ A feature is not complete until it is production ready.
 ---
 
 ## API Design
+
+**Rules:** [Controllers](04-controllers.md) · [Data Transfer Objects (DTO)](07-dto.md)
 
 ☐ REST or GraphQL contracts are consistent.
 
@@ -56,6 +60,8 @@ A feature is not complete until it is production ready.
 
 ## Authentication & Authorization
 
+**Rules:** [Authentication](15-authentication.md) · [Authorization](16-authorization.md)
+
 ☐ Authentication is implemented.
 
 ☐ Authorization is enforced.
@@ -70,6 +76,8 @@ A feature is not complete until it is production ready.
 
 ## Validation
 
+**Rules:** [Validation](08-validation.md) · [Pipes](12-pipes.md)
+
 ☐ Request validation is complete.
 
 ☐ Invalid input returns meaningful errors.
@@ -81,6 +89,8 @@ A feature is not complete until it is production ready.
 ---
 
 ## Database
+
+**Rules:** [Database](17-database.md) · [Repositories](06-repositories.md)
 
 ☐ Database schema reviewed.
 
@@ -98,6 +108,8 @@ A feature is not complete until it is production ready.
 
 ## Caching
 
+**Rules:** [Caching](19-caching.md)
+
 ☐ Cache invalidation strategy defined.
 
 ☐ Cache expiration configured.
@@ -107,6 +119,8 @@ A feature is not complete until it is production ready.
 ---
 
 ## Background Processing
+
+**Rules:** [Queues](20-queues.md) · [Event-Driven Architecture](21-events.md)
 
 ☐ Queue retries configured.
 
@@ -119,6 +133,8 @@ A feature is not complete until it is production ready.
 ---
 
 ## Distributed Systems
+
+**Rules:** [Distributed Systems](23-distributed-systems.md)
 
 ☐ Service contracts documented.
 
@@ -133,6 +149,8 @@ A feature is not complete until it is production ready.
 ---
 
 ## Security
+
+**Rules:** [Security](26-security.md)
 
 ☐ OWASP review completed.
 
@@ -152,6 +170,8 @@ A feature is not complete until it is production ready.
 
 ## Performance
 
+**Rules:** [Performance Engineering](27-performance.md)
+
 ☐ Performance bottlenecks measured.
 
 ☐ Database optimized.
@@ -165,6 +185,8 @@ A feature is not complete until it is production ready.
 ---
 
 ## Observability
+
+**Rules:** [Observability](24-observability.md)
 
 ☐ Structured logging enabled.
 
@@ -182,6 +204,8 @@ A feature is not complete until it is production ready.
 
 ## Testing
 
+**Rules:** [Testing](25-testing.md)
+
 ☐ Unit tests pass.
 
 ☐ Integration tests pass.
@@ -198,6 +222,8 @@ A feature is not complete until it is production ready.
 
 ## Deployment
 
+**Rules:** [Deployment](28-deployment.md)
+
 ☐ Deployment fully automated.
 
 ☐ Rollback tested.
@@ -213,6 +239,8 @@ A feature is not complete until it is production ready.
 ---
 
 ## Maintenance
+
+**Rules:** [Maintenance](29-maintenance.md)
 
 ☐ Documentation updated.
 

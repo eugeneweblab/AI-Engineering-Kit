@@ -28,6 +28,8 @@ under real traffic.
 
 ## Runtime & Build
 
+**Rules:** [Runtime](01-nodejs-runtime.md) · [Package Management](04-package-management.md)
+
 - [ ] Node.js version is a current **LTS**, pinned via `engines` and `.nvmrc`/Dockerfile.
 - [ ] `NODE_ENV=production` is set (enables framework/prod optimizations and disables dev paths).
 - [ ] Dependencies installed with `npm ci` (or `pnpm i --frozen-lockfile`) from a committed lockfile.
@@ -37,6 +39,8 @@ under real traffic.
 
 ## Configuration & Secrets
 
+**Rules:** [Configuration](15-configuration.md) · [Environment](14-environment.md)
+
 - [ ] All configuration is read from the environment and **validated once at startup**; the
       process fails fast if a required var is missing or malformed.
 - [ ] No secrets, tokens, or connection strings are committed to the repo or baked into the image.
@@ -44,6 +48,8 @@ under real traffic.
 - [ ] The same build artifact runs in every environment, differing only by injected config.
 
 ## Resilience & Lifecycle
+
+**Rules:** [Process](10-process.md) · [Error Handling](16-error-handling.md)
 
 - [ ] `SIGTERM`/`SIGINT` trigger **graceful shutdown**: stop accepting, drain in-flight, close DB pools, then exit.
 - [ ] `unhandledRejection` and `uncaughtException` are logged and the process **exits** (supervisor restarts it).
@@ -54,6 +60,8 @@ under real traffic.
 
 ## Limits & Backpressure
 
+**Rules:** [Streams](06-streams.md) · [Performance](19-performance.md)
+
 - [ ] Request body size is capped; oversized payloads are rejected at the boundary.
 - [ ] DB and HTTP connection **pools are bounded** and sized to the workload.
 - [ ] Concurrency / queue depth for background work is bounded (no unbounded `Promise.all` over unbounded input).
@@ -61,6 +69,8 @@ under real traffic.
 - [ ] CPU-heavy work (crypto, big JSON, compression) is off the main thread or rate-limited.
 
 ## Observability
+
+**Rules:** [Logging](17-logging.md) · [Monitoring](27-monitoring.md)
 
 - [ ] Logs are **structured JSON** to stdout, with a correlation/request id; no secrets or PII logged.
 - [ ] Log level is configurable via env and defaults to `info` in production.
@@ -70,6 +80,8 @@ under real traffic.
 
 ## Health & Deployment
 
+**Rules:** [Deployment](26-deployment.md) · [Cluster](13-cluster.md)
+
 - [ ] `/healthz` (liveness) and `/readyz` (readiness) endpoints exist and reflect real dependency state.
 - [ ] Readiness returns **not-ready** during startup and during shutdown drain.
 - [ ] Deployment is zero-downtime (rolling/blue-green) and honors the drain period.
@@ -78,6 +90,8 @@ under real traffic.
 
 ## Security
 
+**Rules:** [Security](18-security.md)
+
 - [ ] `npm audit` / dependency scanning runs in CI and blocks on known-critical CVEs.
 - [ ] Security headers set (via `helmet` or equivalent); CORS is explicitly configured, not wildcard-with-credentials.
 - [ ] All input is schema-validated; no user input flows into shell, SQL, or file paths unsanitized.
@@ -85,6 +99,8 @@ under real traffic.
 - [ ] TLS terminates in front of the app; internal traffic policy is documented.
 
 ## Testing & Release
+
+**Rules:** [Testing](21-testing.md)
 
 - [ ] CI runs lint, type-check, and the full test suite on every change; the pipeline is green.
 - [ ] Failure paths (timeout, dependency down, bad input) are covered by tests, not just happy paths.

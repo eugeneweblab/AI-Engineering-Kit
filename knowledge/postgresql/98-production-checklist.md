@@ -29,6 +29,8 @@ cost of discovering it during an outage is measured in data loss and downtime.
 
 ## Backups and Recovery
 
+**Rules:** [Backups](14-backups.md)
+
 - [ ] Automated base backups run on a schedule (`pg_basebackup` or a tool like pgBackRest/Barman).
 - [ ] WAL archiving is enabled (`archive_mode = on`) for point-in-time recovery.
 - [ ] A full restore has been **performed** into a scratch environment, not just configured.
@@ -38,6 +40,8 @@ cost of discovering it during an outage is measured in data loss and downtime.
 
 ## High Availability and Replication
 
+**Rules:** [High Availability](13-high-availability.md) · [Replication](12-replication.md)
+
 - [ ] At least one streaming replica exists ([replication](12-replication.md)).
 - [ ] Replication lag is monitored with an alert threshold.
 - [ ] Automatic failover is configured and has been tested (Patroni, repmgr, or managed equivalent).
@@ -45,6 +49,8 @@ cost of discovering it during an outage is measured in data loss and downtime.
 - [ ] Client connection string uses the failover endpoint, not a single node's IP.
 
 ## Configuration and Capacity
+
+**Rules:** [Configuration](02-configuration.md) · [Tuning](27-tuning.md)
 
 - [ ] `shared_buffers`, `work_mem`, and `effective_cache_size` are tuned to the host, not defaults ([tuning](27-tuning.md)).
 - [ ] `max_connections` is set below what the hardware supports, with a pooler (PgBouncer) in front.
@@ -55,6 +61,8 @@ cost of discovering it during an outage is measured in data loss and downtime.
 
 ## Security
 
+**Rules:** [Security](18-security.md) · [Roles And Permissions](19-roles-and-permissions.md)
+
 - [ ] `pg_hba.conf` requires `scram-sha-256`; no `trust` or `password` (cleartext) rules ([security](18-security.md)).
 - [ ] TLS is enforced for all client connections (`ssl = on`, clients require it).
 - [ ] The application connects as a least-privilege role, never `postgres`/superuser ([roles](19-roles-and-permissions.md)).
@@ -64,6 +72,8 @@ cost of discovering it during an outage is measured in data loss and downtime.
 
 ## Observability
 
+**Rules:** [Monitoring](17-monitoring.md) · [Vacuum](20-vacuum.md)
+
 - [ ] `log_min_duration_statement` is set to capture slow queries ([monitoring](17-monitoring.md)).
 - [ ] `pg_stat_statements` is enabled for query-level metrics.
 - [ ] Metrics (connections, cache hit ratio, lag, deadlocks, bloat) feed a dashboard and alerts.
@@ -71,6 +81,8 @@ cost of discovering it during an outage is measured in data loss and downtime.
 - [ ] Alerts exist for disk-space-remaining, replication lag, and connection saturation.
 
 ## Schema and Migrations
+
+**Rules:** [Migrations](22-migrations.md) · [Data Types](03-data-types.md)
 
 - [ ] All migrations are forward-only, version-controlled, and tested against a prod-sized copy ([migrations](22-migrations.md)).
 - [ ] Index creation on live tables uses `CREATE INDEX CONCURRENTLY`.

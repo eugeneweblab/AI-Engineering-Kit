@@ -28,6 +28,8 @@ off. Treat unchecked items as blocking defects, not future work.
 
 ## Configuration and Engine
 
+**Rules:** [Configuration](02-configuration.md) · [Storage Engines](08-storage-engines.md)
+
 - [ ] All tables use the `InnoDB` storage engine (no MyISAM in the write path).
 - [ ] Server, tables, and client connections all use `utf8mb4` character set.
 - [ ] `sql_mode` includes `STRICT_TRANS_TABLES` (bad data errors instead of truncating).
@@ -38,6 +40,8 @@ off. Treat unchecked items as blocking defects, not future work.
 
 ## Schema and Indexes
 
+**Rules:** [Data Types](03-data-types.md) · [Indexes](04-indexes.md)
+
 - [ ] Every table has an explicit, compact primary key.
 - [ ] Every hot query has a supporting index, verified with `EXPLAIN` (no `type: ALL` on large tables).
 - [ ] Foreign keys are declared with an explicit `ON DELETE` / `ON UPDATE` action.
@@ -45,6 +49,8 @@ off. Treat unchecked items as blocking defects, not future work.
 - [ ] Money is stored as `DECIMAL` or integer minor units, never `FLOAT`/`DOUBLE`.
 
 ## Backups and Recovery
+
+**Rules:** [Backups](11-backups.md)
 
 - [ ] Automated backups run on a schedule and are stored off-host.
 - [ ] A restore has been tested end-to-end within the last 30 days (an untested backup does not exist).
@@ -54,12 +60,16 @@ off. Treat unchecked items as blocking defects, not future work.
 
 ## Replication and High Availability
 
+**Rules:** [Replication](09-replication.md) · [High Availability](21-high-availability.md)
+
 - [ ] Replication topology is defined with at least one replica for failover/reads.
 - [ ] Replica lag is monitored and alerts fire above the acceptable threshold.
 - [ ] A tested failover/promotion procedure exists (manual or automated via Orchestrator/Group Replication).
 - [ ] `GTID` mode is enabled for consistent, resumable replication.
 
 ## Security
+
+**Rules:** [Security](12-security.md) · [Users And Roles](13-users-and-roles.md)
 
 - [ ] Connections require TLS; plaintext is rejected.
 - [ ] No application uses the `root` account; each app has a least-privilege user.
@@ -69,6 +79,8 @@ off. Treat unchecked items as blocking defects, not future work.
 
 ## Observability
 
+**Rules:** [Monitoring](15-monitoring.md)
+
 - [ ] The slow query log is enabled with a defined `long_query_time` threshold.
 - [ ] Metrics (connections, buffer pool hit rate, replication lag, QPS, errors) ship to a dashboard.
 - [ ] Alerts exist for disk space, replication lag, connection saturation, and lock waits.
@@ -76,12 +88,16 @@ off. Treat unchecked items as blocking defects, not future work.
 
 ## Deployment and Migrations
 
+**Rules:** [Production](20-production.md) · [Migrations](16-migrations.md)
+
 - [ ] Schema migrations run online (`gh-ost`, `pt-online-schema-change`, or `LOCK=NONE`) on large tables.
 - [ ] Migrations are forward/backward compatible for rolling app deploys.
 - [ ] Every migration has a tested rollback path.
 - [ ] Disk headroom exists for the migration's temporary copy (online tools double table size).
 
 ## Capacity
+
+**Rules:** [Performance](14-performance.md) · [Partitioning](22-partitioning.md)
 
 - [ ] Disk usage and growth rate are tracked with a projected exhaustion date.
 - [ ] Connection pool sizing has been load-tested against `max_connections`.

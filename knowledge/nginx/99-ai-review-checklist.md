@@ -29,6 +29,8 @@ list forces the reviewer to reason about inheritance, matching order, and failur
 
 ## Correctness and Matching
 
+**Rules:** [Location Blocks](04-location-blocks.md) · [Server Blocks](03-server-blocks.md)
+
 - [ ] Does the change pass `nginx -t`, and is that verified rather than assumed?
 - [ ] Are `location` matches unambiguous — no regex block silently shadowing a prefix/auth path?
 - [ ] For redefined `add_header`/`proxy_set_header` in a child block, are all still-needed
@@ -38,6 +40,8 @@ list forces the reviewer to reason about inheritance, matching order, and failur
 
 ## Proxying
 
+**Rules:** [Reverse Proxy](05-reverse-proxy.md) · [Proxying Applications](19-proxying-applications.md)
+
 - [ ] Are `Host`, `X-Real-IP`, `X-Forwarded-For`, and `X-Forwarded-Proto` set on the proxy?
 - [ ] Are explicit `proxy_connect_timeout`/`proxy_read_timeout`/`send_timeout` present?
 - [ ] Is `proxy_next_upstream` scoped so non-idempotent (POST/PUT) requests are not retried?
@@ -45,6 +49,8 @@ list forces the reviewer to reason about inheritance, matching order, and failur
 - [ ] Is `resolver` configured when `proxy_pass` uses a variable/DNS name that can change?
 
 ## Security
+
+**Rules:** [Security](13-security.md) · [SSL TLS](12-ssl-tls.md)
 
 - [ ] Is `server_tokens off;` set so the version is not leaked?
 - [ ] Does an unknown Host fail closed via a `default_server`, not fall through to a real site?
@@ -55,6 +61,8 @@ list forces the reviewer to reason about inheritance, matching order, and failur
 
 ## Performance and Caching
 
+**Rules:** [Caching](08-caching.md) · [Performance](18-performance.md)
+
 - [ ] Are timeouts and `worker_connections` sane for the expected load?
 - [ ] Is `gzip`/`brotli` enabled for text types without compressing already-compressed assets?
 - [ ] Does `proxy_cache`/`fastcgi_cache` honor `Cache-Control` and never cache authenticated
@@ -62,6 +70,8 @@ list forces the reviewer to reason about inheritance, matching order, and failur
 - [ ] Is `keepalive` set on upstreams to reuse backend connections?
 
 ## Observability and Change Safety
+
+**Rules:** [Logging](16-logging.md) · [Monitoring](17-monitoring.md)
 
 - [ ] Do access logs include `$request_time` and `$upstream_response_time`?
 - [ ] Is `error_log` at `warn`/`error`, not `debug`, for production?

@@ -30,6 +30,8 @@ fine" into "verified against known failure modes."
 
 ## Pull Request Scope & Intent
 
+**Rules:** [Pull Requests](06-pull-requests.md) · [Code Review](07-code-review.md)
+
 - [ ] Does the PR do one thing? Unrelated changes should be split so each can be reviewed
       and reverted independently.
 - [ ] Does the description state what changed, why, and how it was tested?
@@ -38,6 +40,8 @@ fine" into "verified against known failure modes."
 - [ ] Does the PR target the correct base branch?
 
 ## Workflow & Actions Changes
+
+**Rules:** [Actions](08-actions.md) · [Workflows](09-workflows.md)
 
 - [ ] Are any newly added or modified [Actions](08-actions.md) pinned to a full commit
       SHA rather than a mutable tag (`@v4`, `@main`)?
@@ -50,12 +54,16 @@ fine" into "verified against known failure modes."
 
 ## Secrets & Sensitive Data
 
+**Rules:** [Secret Scanning](16-secret-scanning.md) · [Security](13-security.md)
+
 - [ ] Does the diff introduce no hardcoded secrets, tokens, or credentials?
 - [ ] Are secrets referenced via `secrets.*` / environment secrets, never echoed to logs?
 - [ ] Does `.gitignore` still exclude `.env`, key files, and build artifacts?
 - [ ] Are no internal hostnames, private URLs, or customer data added to public files?
 
 ## Repository Configuration Changes
+
+**Rules:** [Branch Protection](17-branch-protection.md) · [Rulesets](18-rulesets.md)
 
 - [ ] Does the change preserve [branch protection](17-branch-protection.md) and required
       checks — not weaken or bypass them?
@@ -65,6 +73,8 @@ fine" into "verified against known failure modes."
 - [ ] Are ruleset or protection edits accompanied by a stated reason?
 
 ## Correctness Signals
+
+**Rules:** [CodeQL](14-codeql.md) · [Dependabot](15-dependabot.md)
 
 - [ ] Do required status checks pass on this PR (tests, lint, build)?
 - [ ] Does the change include or update tests for the behavior it modifies?

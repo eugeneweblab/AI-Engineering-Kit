@@ -32,6 +32,8 @@ is double-charged.
 
 ## Data Access & Correctness
 
+**Rules:** [Orders](05-orders.md) · [Product Management](04-product-management.md)
+
 - [ ] Products and orders are read/written through **CRUD objects** (`wc_get_product()`,
   `wc_get_order()`, `->save()`), not `get_post_meta()`/`update_post_meta()`/`$wpdb`.
 - [ ] Order code is **HPOS-compatible** — no assumption that orders live in
@@ -43,6 +45,8 @@ is double-charged.
 
 ## Trust & Money
 
+**Rules:** [Payments](08-payments.md) · [Taxes](10-taxes.md)
+
 - [ ] Prices, line totals, quantities, and coupon values are **recomputed server-side**;
   nothing money-related is trusted from `$_POST`/request.
 - [ ] Payment and webhook handlers are **idempotent** — a duplicate delivery or retry does
@@ -51,6 +55,8 @@ is double-charged.
   `payment_complete()`), so hooks and stock reduction fire correctly.
 
 ## Extension Hygiene
+
+**Rules:** [Hooks](12-hooks.md) · [Customization](17-customization.md)
 
 - [ ] Customization is delivered via **hooks** (actions/filters), not by editing core or
   parent-theme files that an update reverts (see [hooks](12-hooks.md)).
@@ -63,6 +69,8 @@ is double-charged.
 
 ## WordPress Security
 
+**Rules:** [Security](16-security.md)
+
 - [ ] Every state-changing request verifies a **nonce** and a **capability**
   (`current_user_can()`); nothing relies on obscurity (see [security](16-security.md)).
 - [ ] Input is **sanitized** on the way in (`sanitize_text_field`, `wc_clean`, etc.) and
@@ -73,6 +81,8 @@ is double-charged.
 
 ## Compatibility & Versions
 
+**Rules:** [Best Practices](25-best-practices.md) · [Deployment](22-deployment.md)
+
 - [ ] Only non-deprecated APIs are used, appropriate to the **targeted WooCommerce/WordPress/PHP
   versions**, and those targets are stated.
 - [ ] Text is internationalized (`__()`, `esc_html__()` with the correct text domain) rather
@@ -81,6 +91,8 @@ is double-charged.
   not hand-rolled formatting.
 
 ## Tests
+
+**Rules:** [Testing](21-testing.md)
 
 - [ ] The change has automated coverage for the money path (order total, tax, stock, coupon)
   and for the negative cases (invalid input, unauthorized user) (see [testing](21-testing.md)).

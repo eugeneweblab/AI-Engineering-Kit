@@ -25,7 +25,9 @@ Follow this loop for any coding task:
    [`knowledge/engineering/`](knowledge/engineering/) and [`knowledge/ai/`](knowledge/ai/).
 4. **Self-verify before finishing.** Run the topic's `98-production-checklist.md`
    and `99-ai-review-checklist.md`, and re-read `100-common-antipatterns.md` to
-   confirm you did not introduce a known mistake.
+   confirm you did not introduce a known mistake. Each themed section of those
+   checklists opens with a **Rules:** line naming the documents the items came
+   from — when a check fails, that is where the explanation and the fix are.
 
 Never invent guidance that contradicts a `ready` document. If no `ready` doc covers
 the topic, say so and rely on general engineering judgment — do not treat a `draft`

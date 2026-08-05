@@ -29,6 +29,8 @@ approving.
 
 ## Correctness and Transactions
 
+**Rules:** [Transactions](09-transactions.md) · [ACID](12-acid.md)
+
 - [ ] Are all writes that must succeed or fail together inside one transaction?
 - [ ] Is the transaction free of network/user I/O and kept short, so it does not hold locks?
 - [ ] Is the isolation level correct for any read-modify-write (does it race under
@@ -37,6 +39,8 @@ approving.
 - [ ] Are rows touched in a consistent order to avoid deadlocks?
 
 ## Integrity
+
+**Rules:** [Data Integrity](23-data-integrity.md) · [Schema Design](06-schema-design.md)
 
 - [ ] Are new invariants enforced by database constraints, not only application code?
 - [ ] Are column types correct and precise (`numeric` for money, `timestamptz` for time,
@@ -48,6 +52,8 @@ approving.
 
 ## Queries and Performance
 
+**Rules:** [Query Optimization](08-query-optimization.md) · [Indexing](07-indexing.md)
+
 - [ ] Is every query parameterized (no string concatenation of user input)?
 - [ ] Does each new query on a large table have a supporting index for its filter/join/sort?
 - [ ] Is there an `N+1` pattern — a query inside a loop that should be a join or a batch?
@@ -56,6 +62,8 @@ approving.
 
 ## Migrations
 
+**Rules:** [Migrations](17-migrations.md)
+
 - [ ] Is the schema change a reviewed migration with a rollback path?
 - [ ] Is it backward-compatible with the currently deployed app (expand/contract)?
 - [ ] Does index creation or a table rewrite use the online/concurrent path to avoid locking?
@@ -63,12 +71,16 @@ approving.
 
 ## Security and Data Handling
 
+**Rules:** [Security](19-security.md) · [Auditing](26-auditing.md)
+
 - [ ] Does the code use a least-privilege connection, not an admin role?
 - [ ] Are secrets pulled from a secrets manager rather than hard-coded?
 - [ ] Is sensitive data kept out of logs and error messages?
 - [ ] Are deletes/updates scoped by a `WHERE` clause that cannot accidentally hit all rows?
 
 ## Red Flags — stop and require justification
+
+**Rules:** [Locking](11-locking.md) · [Concurrency](10-concurrency.md)
 
 - [ ] A raw SQL string interpolating a variable.
 - [ ] A loop issuing one query per iteration.
