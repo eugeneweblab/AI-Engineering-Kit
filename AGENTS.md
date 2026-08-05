@@ -103,3 +103,6 @@ When you add or edit a doc:
    `when_to_use` and `related`.
 3. Regenerate the index: `python3 scripts/build-index.py`.
 4. Keep the canonical filenames/numbering from `docs/structure/canonical-file-list.md`.
+5. Verify before you finish: `python3 scripts/check-knowledge.py knowledge`. It resolves
+   every cross-link and parses every fenced code block in the language its fence claims,
+   so a wrong tag or an unrunnable example fails loudly instead of shipping.

@@ -1,8 +1,11 @@
 name: knowledge-guardrails
 
-# Protects the knowledge base from the two regression classes the quality audit found:
+# Protects the knowledge base from the regression classes past audits found:
 #   1. empty/stub docs marked `status: ready` (agents filter INDEX.json for ready docs)
 #   2. INDEX.json / INDEX.md drifting out of sync with the docs' frontmatter
+#   3. broken cross-links, structural gaps, and code blocks that do not parse in the
+#      language they are tagged with (wrong fence tag, invalid YAML, shell-hostile
+#      placeholders) — none of which are visible by inspection
 on:
   push:
     paths:
@@ -24,8 +27,17 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install checker dependencies
+        run: python3 -m pip install --quiet pyyaml
+
       - name: No stub marked ready
         run: python3 scripts/check-ready-not-stub.py knowledge
+
+      # Runs `php -l`, `bash -n`, and esbuild over every fenced block. PHP and Node are
+      # preinstalled on ubuntu-latest; if either goes missing the checker reports the
+      # skip rather than passing silently.
+      - name: Structure, links, and code blocks
+        run: python3 scripts/check-knowledge.py knowledge
 
       - name: INDEX is in sync with frontmatter
         run: |

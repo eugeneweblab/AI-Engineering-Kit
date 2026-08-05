@@ -40,5 +40,46 @@ regression the quality audit found: empty topics marked `ready` that route agent
 python3 scripts/check-ready-not-stub.py knowledge   # exit 0 = clean, 1 = violations
 ```
 
-Wired into CI via `.github/workflows/knowledge-guardrails.yml`, which also fails the
-build if `INDEX.json`/`INDEX.md` are out of sync with the docs' frontmatter.
+## `check-knowledge.py`
+
+Guardrail linter (read-only). Covers the defect classes that are not visible by
+inspection:
+
+| Check | What fails the build |
+|---|---|
+| structure | a standard topic missing `README`/`00`/`98`/`99`/`100`, or a gap in `01`–`30` |
+| frontmatter | `id`/`topic`/`order` disagreeing with the path; empty `status`/`title`/`when_to_use` |
+| duplicates | a repeated `id`, or two docs claiming the same `order` inside a topic |
+| links | a markdown link, a `related:` id, or a `` `knowledge/…md` `` path that does not resolve |
+| fences | an unclosed ``` fence |
+| code blocks | a block that does not parse as the language its fence claims |
+
+Blocks are handed to the real parser for their language: `ast.parse` (Python), a
+JSONC-tolerant decoder (JSON), PyYAML (YAML), `bash -n` (shell), `php -l` (PHP), and
+esbuild (JS/TS/JSX/TSX). PHP and JS/TS are skipped with a printed note when `php` or
+`npx` is unavailable.
+
+```bash
+python3 scripts/check-knowledge.py knowledge      # exit 0 = clean, 1 = violations
+python3 scripts/check-knowledge.py --skip-external  # structure/links only, no php/npx
+```
+
+### `codeblock-baseline.json`
+
+Documentation legitimately contains code *fragments* — class-method excerpts, NestJS
+parameter decorators, Bad/Good pairs that reuse a name, lists of sibling JSX elements
+or function signatures. These never parse standalone and are not defects, so the PHP
+and JS/TS checks ignore the blocks listed in this baseline and fail only on a *new*
+failure. After intentionally adding or removing such a fragment:
+
+```bash
+python3 scripts/check-knowledge.py --update-baseline
+```
+
+Review the diff before committing: a baseline that grows without a matching fragment
+is a real defect being silenced.
+
+---
+
+All three linters run in CI via `.github/workflows/knowledge-guardrails.yml`, which
+also fails the build if `INDEX.json`/`INDEX.md` are out of sync with the frontmatter.
