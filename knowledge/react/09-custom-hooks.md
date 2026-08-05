@@ -7,7 +7,7 @@ type: doc
 order: 9
 status: ready
 tags: [react, custom-hooks]
-related: []
+related: [react/08-hooks, react/16-data-fetching, react/14-patterns]
 when_to_use: "Read before writing or reviewing a custom React hook or extracting logic out of a component."
 ---
 # Custom Hooks
@@ -413,3 +413,9 @@ A Custom Hook is complete when:
 Custom Hooks are the primary mechanism for sharing behavior in React.
 
 Well-designed hooks isolate business logic, simplify components, and improve the overall maintainability of the application while providing a consistent developer experience.
+
+## Related
+
+- `knowledge/react/08-hooks.md`
+- `knowledge/react/16-data-fetching.md`
+- `knowledge/react/14-patterns.md`

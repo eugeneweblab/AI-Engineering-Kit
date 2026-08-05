@@ -7,7 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [react, props]
-related: []
+related: [react/04-components, react/13-component-composition, react/06-state]
 when_to_use: "Read before designing or reviewing a React component's props and public API."
 ---
 # Props and Component API Design
@@ -454,3 +454,9 @@ A component API is complete when:
 A well-designed component API makes components intuitive to use, easy to extend, and difficult to misuse.
 
 Thoughtful API design reduces maintenance costs and creates a more consistent developer experience across the entire application.
+
+## Related
+
+- `knowledge/react/04-components.md`
+- `knowledge/react/13-component-composition.md`
+- `knowledge/react/06-state.md`

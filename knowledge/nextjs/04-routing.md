@@ -7,7 +7,7 @@ type: doc
 order: 4
 status: ready
 tags: [nextjs, routing]
-related: []
+related: [nextjs/03-app-router, nextjs/05-layouts, nextjs/13-middleware, react/17-routing]
 when_to_use: "Read before implementing navigation and links between pages in a Next.js app."
 ---
 # Next.js Routing
@@ -388,6 +388,65 @@ Avoid generating multiple URLs for identical content.
 
 ---
 
+## Examples
+
+**Good Example** — typed segments, streaming, and links that prefetch
+
+```tsx
+// app/blog/[slug]/page.tsx
+export async function generateStaticParams() {
+  const posts = await getAllPostSlugs();
+  return posts.map((slug) => ({ slug }));          // pre-rendered at build time
+}
+
+export const dynamicParams = true;                 // unknown slugs render on demand
+
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getPost(slug);
+  if (!post) notFound();
+
+  return (
+    <>
+      <article>{post.body}</article>
+      {/* The slow part streams in without blocking the article. */}
+      <Suspense fallback={<CommentsSkeleton />}>
+        <Comments postId={post.id} />
+      </Suspense>
+    </>
+  );
+}
+```
+
+```tsx
+// Client-side navigation with automatic prefetching on hover/viewport.
+import Link from 'next/link';
+
+export function PostLink({ slug, title }: { slug: string; title: string }) {
+  return <Link href={`/blog/${slug}`}>{title}</Link>;
+}
+```
+
+**Bad Example** — anchors and manual history
+
+```tsx
+'use client';
+
+export function PostLink({ slug, title }: { slug: string; title: string }) {
+  // A plain anchor triggers a full document load: the whole JS bundle is
+  // re-parsed, client state is lost, and nothing is prefetched.
+  return <a href={`/blog/${slug}`}>{title}</a>;
+}
+
+export function Back() {
+  // Pushing history by hand desynchronises the router from the URL: the next
+  // navigation renders the previous route's data.
+  return <button onClick={() => window.history.pushState({}, '', '/blog')}>Back</button>;
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -426,3 +485,10 @@ Routing is complete when:
 Well-designed routing is more than connecting pages—it defines how users understand and navigate an application.
 
 By keeping URLs meaningful, using declarative navigation, protecting routes on the server, and preserving shareable state, Next.js applications become easier to use, easier to maintain, and better optimized for performance and search engines.
+
+## Related
+
+- `knowledge/nextjs/03-app-router.md`
+- `knowledge/nextjs/05-layouts.md`
+- `knowledge/nextjs/13-middleware.md`
+- `knowledge/react/17-routing.md`

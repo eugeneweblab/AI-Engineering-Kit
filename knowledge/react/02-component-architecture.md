@@ -7,7 +7,7 @@ type: doc
 order: 2
 status: ready
 tags: [react, component-architecture]
-related: []
+related: [react/13-component-composition, react/14-patterns, react/22-folder-structure, react/01-react-philosophy]
 when_to_use: "Read before designing, splitting, or reviewing React component structure and composition."
 ---
 # React Component Architecture
@@ -413,3 +413,10 @@ A component architecture is considered complete when:
 Strong React applications are built from a clear hierarchy of focused, reusable components.
 
 A disciplined component architecture reduces duplication, simplifies maintenance, and allows applications to evolve without unnecessary complexity.
+
+## Related
+
+- `knowledge/react/13-component-composition.md`
+- `knowledge/react/14-patterns.md`
+- `knowledge/react/22-folder-structure.md`
+- `knowledge/react/01-react-philosophy.md`

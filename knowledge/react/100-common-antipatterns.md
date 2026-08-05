@@ -7,7 +7,7 @@ type: doc
 order: 100
 status: ready
 tags: [react, common-antipatterns]
-related: []
+related: [react/26-best-practices, react/11-rendering, react/06-state, react/99-ai-review-checklist]
 when_to_use: "Read during React implementation, code review, or refactoring to detect and avoid common anti-patterns."
 ---
 # React Anti-Patterns
@@ -441,3 +441,10 @@ A React implementation satisfies this document when:
 Most React problems arise from unnecessary complexity rather than missing features.
 
 Avoiding common anti-patterns results in applications that are easier to understand, easier to extend, and significantly easier to maintain over time.
+
+## Related
+
+- `knowledge/react/26-best-practices.md`
+- `knowledge/react/11-rendering.md`
+- `knowledge/react/06-state.md`
+- `knowledge/react/99-ai-review-checklist.md`

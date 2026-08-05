@@ -7,7 +7,7 @@ type: doc
 order: 26
 status: ready
 tags: [nextjs, deployment]
-related: []
+related: [nextjs/21-environment-variables, nextjs/23-observability, nextjs/10-caching, cicd/10-deployment]
 when_to_use: "Read before deploying a Next.js app to a hosting platform or production environment."
 ---
 # Next.js Deployment
@@ -487,6 +487,74 @@ Accessibility verification belongs in release validation.
 
 ---
 
+## Examples
+
+**Good Example** — a standalone image, built once, configured per environment
+
+```ts
+// next.config.ts
+export default {
+  output: 'standalone',      // emits .next/standalone with only the used dependencies
+};
+```
+
+```dockerfile
+FROM node:22-alpine AS deps
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+
+FROM node:22-alpine AS build
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN npm run build
+
+FROM node:22-alpine AS runtime
+WORKDIR /app
+ENV NODE_ENV=production
+# standalone bundles the server and its dependencies: a fraction of the image size.
+COPY --from=build /app/.next/standalone ./
+COPY --from=build /app/.next/static ./.next/static
+COPY --from=build /app/public ./public
+
+USER node
+EXPOSE 3000
+CMD ["node", "server.js"]
+```
+
+```yaml
+# Runtime configuration is injected, so the same digest runs in every environment.
+env:
+  - name: DATABASE_URL
+    valueFrom: { secretKeyRef: { name: app-secrets, key: database-url } }
+  - name: API_URL
+    value: https://api.example.com
+readinessProbe:
+  httpGet: { path: /api/health, port: 3000 }
+```
+
+**Bad Example** — a build per environment, with configuration compiled in
+
+```dockerfile
+FROM node:latest
+WORKDIR /app
+COPY . .                              # including .env.production and node_modules
+RUN npm install
+
+# Public values inlined at build time bind the artifact to one environment.
+# Staging and production now run different builds, so what was tested is not
+# what ships.
+ENV NEXT_PUBLIC_API_URL=https://api.example.com
+RUN npm run build
+
+# Runs as root, ships the full source tree and dev dependencies, and npm
+# swallows SIGTERM so in-flight requests are killed rather than drained.
+CMD ["npm", "start"]
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -527,3 +595,10 @@ A deployment process is complete when:
 Reliable deployment is the foundation of stable software delivery.
 
 By automating builds, protecting configuration, validating production environments, monitoring application health, and maintaining rollback procedures, Next.js applications can be deployed confidently and consistently across environments.
+
+## Related
+
+- `knowledge/nextjs/21-environment-variables.md`
+- `knowledge/nextjs/23-observability.md`
+- `knowledge/nextjs/10-caching.md`
+- `knowledge/cicd/10-deployment.md`

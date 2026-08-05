@@ -7,7 +7,7 @@ type: doc
 order: 28
 status: ready
 tags: [nextjs, best-practices]
-related: []
+related: [nextjs/29-engineering-principles, nextjs/100-common-antipatterns, nextjs/06-server-components]
 when_to_use: "Read for a concise reference of engineering best practices when building a Next.js app."
 ---
 # Next.js Best Practices
@@ -598,6 +598,75 @@ Long-term maintainability should guide engineering decisions.
 
 ---
 
+## Examples
+
+**Good Example** — a feature assembled from the framework's own defaults
+
+```tsx
+// app/events/[slug]/page.tsx
+export const revalidate = 300;
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const event = await getEvent((await params).slug);   // deduplicated with the page fetch
+  return event ? { title: event.name } : { title: 'Not found', robots: { index: false } };
+}
+
+export default async function EventPage({ params }: PageProps) {
+  const { slug } = await params;
+  const event = await getEvent(slug);
+  if (!event) notFound();
+
+  return (
+    <article>
+      <h1>{event.name}</h1>
+      {/* Slow, non-critical region streams in; the article does not wait. */}
+      <Suspense fallback={<AttendeesSkeleton />}>
+        <Attendees eventId={event.id} />
+      </Suspense>
+      {/* The only interactive leaf. */}
+      <RegisterButton eventId={event.id} />
+    </article>
+  );
+}
+```
+
+Server by default, `notFound()` instead of a hand-rolled 404, metadata derived from the same
+data, caching declared per route, and one small client boundary.
+
+**Bad Example** — every default overridden
+
+```tsx
+'use client';
+
+// force-dynamic on content that changes hourly: every request re-renders and
+// nothing is cached, for no benefit.
+export const dynamic = 'force-dynamic';
+
+export default function EventPage({ params }: { params: { slug: string } }) {
+  const [event, setEvent] = useState<Event | null>(null);
+  const [attendees, setAttendees] = useState<Attendee[]>([]);
+
+  // A waterfall the server could have parallelised, executed after hydration.
+  useEffect(() => {
+    fetch(`/api/events/${params.slug}`)
+      .then((r) => r.json())
+      .then((e) => {
+        setEvent(e);
+        return fetch(`/api/events/${e.id}/attendees`);
+      })
+      .then((r) => r.json())
+      .then(setAttendees);
+  }, [params.slug]);
+
+  // A 404 rendered as a 200: crawlers index it, monitoring counts it as success.
+  if (!event) return <p>Not found</p>;
+
+  return <h1>{event.name}</h1>;
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -632,3 +701,9 @@ An implementation follows Next.js best practices when:
 Successful Next.js applications are the result of consistent engineering practices rather than isolated technical decisions.
 
 By following the principles described throughout this knowledge base—server-first architecture, clear separation of responsibilities, secure development, performance optimization, accessibility, testing, observability, and disciplined deployment—teams can build applications that remain scalable, maintainable, and reliable as they evolve.
+
+## Related
+
+- `knowledge/nextjs/29-engineering-principles.md`
+- `knowledge/nextjs/100-common-antipatterns.md`
+- `knowledge/nextjs/06-server-components.md`

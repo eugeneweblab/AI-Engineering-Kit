@@ -7,7 +7,7 @@ type: doc
 order: 6
 status: ready
 tags: [nextjs, server-components]
-related: []
+related: [nextjs/07-client-components, nextjs/09-data-fetching, nextjs/11-server-actions, nextjs/08-rendering-strategies]
 when_to_use: "Read before building server-rendered components or moving logic to the server in Next.js."
 ---
 # Next.js Server Components
@@ -372,6 +372,77 @@ Rendering on the server should not change accessibility requirements.
 
 ---
 
+## Examples
+
+**Good Example** — server work stays on the server; the client boundary is a leaf
+
+```tsx
+// app/dashboard/page.tsx — async Server Component, zero client JS.
+import { db } from '@/lib/db';
+import { ExportButton } from './export-button';
+
+export default async function DashboardPage() {
+  // Two independent queries in parallel; no waterfall, no API layer in between.
+  const [orders, revenue] = await Promise.all([
+    db.order.count({ where: { status: 'PAID' } }),
+    db.order.aggregate({ _sum: { totalCents: true } }),
+  ]);
+
+  return (
+    <section>
+      <Stat label="Paid orders" value={orders} />
+      <Stat label="Revenue" value={(revenue._sum.totalCents ?? 0) / 100} />
+      {/* Only this button ships JavaScript. */}
+      <ExportButton orderCount={orders} />
+    </section>
+  );
+}
+```
+
+```tsx
+// A Client Component can still render server-rendered content passed as children.
+'use client';
+
+export function Collapsible({ title, children }: { title: string; children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <button onClick={() => setOpen(!open)}>{title}</button>
+      {open && children}          {/* `children` was rendered on the server */}
+    </div>
+  );
+}
+```
+
+**Bad Example** — a client boundary at the top, and server-only code imported below it
+
+```tsx
+'use client';
+
+import { db } from '@/lib/db';         // pulls the database driver toward the browser
+import { STRIPE_SECRET } from '@/config';
+
+export default function DashboardPage() {
+  const [orders, setOrders] = useState(0);
+
+  // Sequential fetches after hydration: two round trips the server could have
+  // done in parallel before the first byte was sent.
+  useEffect(() => {
+    fetch('/api/orders/count')
+      .then((r) => r.json())
+      .then((d) => fetch(`/api/revenue?since=${d.since}`).then((r) => r.json()))
+      .then((d) => setOrders(d.count));
+  }, []);
+
+  return <Stat label="Paid orders" value={orders} />;
+}
+```
+
+Guard modules that read secrets with the `server-only` package, so this import fails the
+build instead of leaking at runtime.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -408,3 +479,10 @@ A Server Component implementation is complete when:
 React Server Components are the foundation of modern Next.js applications.
 
 By keeping rendering, data access, authentication, and business logic on the server while limiting Client Components to interactive UI, applications become faster, more secure, easier to maintain, and significantly more scalable.
+
+## Related
+
+- `knowledge/nextjs/07-client-components.md`
+- `knowledge/nextjs/09-data-fetching.md`
+- `knowledge/nextjs/11-server-actions.md`
+- `knowledge/nextjs/08-rendering-strategies.md`

@@ -7,7 +7,7 @@ type: doc
 order: 17
 status: ready
 tags: [nextjs, fonts]
-related: []
+related: [nextjs/20-performance, performance/12-fonts, nextjs/16-images]
 when_to_use: "Read before loading or optimizing web fonts in a Next.js app."
 ---
 # Next.js Fonts
@@ -477,6 +477,76 @@ Avoid introducing unnecessary third-party font providers.
 
 ---
 
+## Examples
+
+**Good Example** — self-hosted at build time, one weight axis, exposed as a variable
+
+```ts
+// app/fonts.ts
+import { Inter, JetBrains_Mono } from 'next/font/google';
+
+// next/font downloads the files at BUILD time and serves them from your origin:
+// no request to Google at runtime, no third-party connection, no layout shift.
+export const sans = Inter({
+  subsets: ['latin'],
+  display: 'swap',              // text is visible immediately in the fallback
+  variable: '--font-sans',
+  // A variable font covers every weight in one file — smaller than three statics.
+  axes: [],
+});
+
+export const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
+  weight: ['400'],              // only the weight actually used
+});
+```
+
+```tsx
+// app/layout.tsx
+import { sans, mono } from './fonts';
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+      <body className="font-sans">{children}</body>
+    </html>
+  );
+}
+```
+
+```css
+/* The fallback is metric-adjusted automatically, so the swap does not move text. */
+:root {
+  --font-fallback: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+```
+
+**Bad Example** — a stylesheet link, every weight, and a blocking swap
+
+```tsx
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <head>
+        {/* A render-blocking request to a third-party origin: an extra DNS lookup,
+            TLS handshake, and round trip before any text can paint. */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=block"
+          rel="stylesheet"
+        />
+      </head>
+      {/* display=block hides the text entirely until the font arrives (FOIT),
+          and nine weights are downloaded to use two. */}
+      <body style={{ fontFamily: 'Inter' }}>{children}</body>
+    </html>
+  );
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -517,3 +587,9 @@ Font implementation is complete when:
 Typography directly affects usability, accessibility, and performance.
 
 By using Next.js font optimization, minimizing downloaded variants, configuring appropriate fallbacks, and preventing layout shifts, applications provide a faster and more consistent user experience across all devices.
+
+## Related
+
+- `knowledge/nextjs/20-performance.md`
+- `knowledge/performance/12-fonts.md`
+- `knowledge/nextjs/16-images.md`

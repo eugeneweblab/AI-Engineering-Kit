@@ -7,7 +7,7 @@ type: doc
 order: 98
 status: ready
 tags: [nextjs, production-checklist]
-related: []
+related: [nextjs/26-deployment, nextjs/24-security, nextjs/20-performance, nextjs/99-ai-review-checklist]
 when_to_use: "Read before shipping a Next.js app to production."
 ---
 # Next.js Production Checklist
@@ -389,3 +389,10 @@ Review carefully for:
 Production readiness is achieved through disciplined engineering rather than a successful deployment alone.
 
 By verifying architecture, performance, accessibility, security, testing, observability, deployment, and operational readiness before every release, teams significantly reduce production risk and improve long-term maintainability.
+
+## Related
+
+- `knowledge/nextjs/26-deployment.md`
+- `knowledge/nextjs/24-security.md`
+- `knowledge/nextjs/20-performance.md`
+- `knowledge/nextjs/99-ai-review-checklist.md`

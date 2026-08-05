@@ -7,7 +7,7 @@ type: doc
 order: 20
 status: ready
 tags: [nextjs, performance]
-related: []
+related: [nextjs/10-caching, nextjs/16-images, nextjs/08-rendering-strategies, performance/18-web-vitals]
 when_to_use: "Read before diagnosing or optimizing performance and Core Web Vitals in a Next.js app."
 ---
 # Next.js Performance
@@ -659,6 +659,72 @@ Security always takes priority.
 
 ---
 
+## Examples
+
+**Good Example** — ship less JavaScript, stream the slow parts, load heavy widgets on demand
+
+```tsx
+// The shell renders immediately; each slow region streams in independently.
+export default function DashboardPage() {
+  return (
+    <>
+      <h1>Dashboard</h1>
+      <Suspense fallback={<StatsSkeleton />}>
+        <Stats />                     {/* awaits a 400 ms query */}
+      </Suspense>
+      <Suspense fallback={<ChartSkeleton />}>
+        <RevenueChart />              {/* awaits a 2 s aggregation */}
+      </Suspense>
+    </>
+  );
+}
+```
+
+```tsx
+// A 300 kB charting library, loaded only when the component actually renders,
+// and never included in the server bundle.
+const HeavyChart = dynamic(() => import('@/components/heavy-chart'), {
+  ssr: false,
+  loading: () => <ChartSkeleton />,
+});
+```
+
+```ts
+// next.config.ts — measure the budget in CI rather than describing it in a doc.
+export default {
+  experimental: { optimizePackageImports: ['lucide-react', 'date-fns'] },
+  // ANALYZE=true npm run build prints the per-route first-load JS.
+};
+```
+
+**Bad Example** — a client boundary at the root and barrel imports
+
+```tsx
+'use client';                       // the entire route becomes client-rendered
+
+// A barrel file: importing one icon pulls the whole library into the bundle
+// unless the package is tree-shakeable and side-effect free — most are not.
+import { ChevronDown } from '@/components/index';
+import moment from 'moment';        // 300 kB, all locales, for one date format
+
+import HeavyChart from '@/components/heavy-chart';   // always in the first load
+
+export default function DashboardPage() {
+  const [stats, setStats] = useState(null);
+
+  // Everything awaited before anything renders: the user sees a spinner for the
+  // duration of the slowest query, with no streamed shell.
+  useEffect(() => {
+    Promise.all([fetch('/api/stats'), fetch('/api/revenue')]).then(/* … */);
+  }, []);
+
+  if (!stats) return <Spinner />;
+  return <HeavyChart data={stats} />;
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -699,3 +765,10 @@ A performance optimization is complete when:
 Performance is a continuous engineering practice rather than a one-time task.
 
 By prioritizing server rendering, minimizing client-side JavaScript, optimizing bundles, leveraging caching, and continuously measuring results, Next.js applications remain fast, scalable, and maintainable throughout their lifecycle.
+
+## Related
+
+- `knowledge/nextjs/10-caching.md`
+- `knowledge/nextjs/16-images.md`
+- `knowledge/nextjs/08-rendering-strategies.md`
+- `knowledge/performance/18-web-vitals.md`

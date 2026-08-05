@@ -678,3 +678,9 @@ Testing is complete when:
 Effective React testing focuses on user behavior, business outcomes, and confidence during refactoring.
 
 By combining unit, component, integration, and end-to-end testing with accessible testing practices, applications become more reliable and significantly easier to maintain over time.
+
+## Related
+
+- `knowledge/react/09-custom-hooks.md`
+- `knowledge/testing/13-ui-testing.md`
+- `knowledge/testing/02-unit-testing.md`

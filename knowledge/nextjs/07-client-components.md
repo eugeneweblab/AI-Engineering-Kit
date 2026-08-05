@@ -7,7 +7,7 @@ type: doc
 order: 7
 status: ready
 tags: [nextjs, client-components]
-related: []
+related: [nextjs/06-server-components, nextjs/20-performance, react/06-state, react/08-hooks]
 when_to_use: "Read before adding interactivity or client-side state with a Next.js Client Component."
 ---
 # Next.js Client Components
@@ -373,6 +373,86 @@ Everything executed in the browser should be considered public.
 
 ---
 
+## Examples
+
+**Good Example** — the boundary sits at the smallest interactive unit
+
+```tsx
+// app/search/page.tsx — Server Component: renders the results.
+export default async function SearchPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string }>;
+}) {
+  const { q } = await searchParams;
+  const results = await search(q ?? '');
+
+  return (
+    <>
+      <SearchBox initialQuery={q ?? ''} />   {/* the only client component */}
+      <ResultList results={results} />       {/* server-rendered, no client JS */}
+    </>
+  );
+}
+```
+
+```tsx
+// app/search/search-box.tsx
+'use client';
+
+export function SearchBox({ initialQuery }: { initialQuery: string }) {
+  const router = useRouter();
+  const [query, setQuery] = useState(initialQuery);
+  const [isPending, startTransition] = useTransition();
+
+  // The URL stays the source of truth, so results are shareable and the back
+  // button works.
+  const submit = (value: string) =>
+    startTransition(() => router.push(`/search?q=${encodeURIComponent(value)}`));
+
+  return (
+    <input
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+      onKeyDown={(e) => e.key === 'Enter' && submit(query)}
+      aria-busy={isPending}
+    />
+  );
+}
+```
+
+**Bad Example** — a client boundary around content that never changes
+
+```tsx
+'use client';
+
+// The whole page is a Client Component because one input needs state. The
+// article body, the footer, and the navigation all ship as JavaScript and are
+// rendered twice: once on the server for HTML, once again during hydration.
+export default function SearchPage() {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState<Result[]>([]);
+
+  useEffect(() => {
+    // Fires on every keystroke: no debounce, no cancellation, and responses can
+    // arrive out of order so an old query overwrites a newer one.
+    fetch(`/api/search?q=${query}`)
+      .then((r) => r.json())
+      .then(setResults);
+  }, [query]);
+
+  return (
+    <>
+      <input value={query} onChange={(e) => setQuery(e.target.value)} />
+      <ResultList results={results} />
+      <SiteFooter />              {/* static markup, now shipped as JS */}
+    </>
+  );
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -413,3 +493,10 @@ A Client Component implementation is complete when:
 Client Components provide the interactive layer of a Next.js application.
 
 By limiting them to browser-specific functionality and keeping rendering, business logic, and data access on the server, applications remain fast, secure, scalable, and easier to maintain.
+
+## Related
+
+- `knowledge/nextjs/06-server-components.md`
+- `knowledge/nextjs/20-performance.md`
+- `knowledge/react/06-state.md`
+- `knowledge/react/08-hooks.md`

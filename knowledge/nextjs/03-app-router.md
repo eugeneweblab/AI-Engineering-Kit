@@ -602,6 +602,65 @@ Avoid blank screens during navigation.
 
 ---
 
+## Examples
+
+**Good Example** — the file system expresses the UI states
+
+```text
+app/
+├── layout.tsx                 root shell: html, body, providers
+├── products/
+│   ├── layout.tsx             sidebar, preserved across product pages
+│   ├── loading.tsx            streamed instantly while page.tsx awaits
+│   ├── error.tsx              'use client' — catches render errors in this segment
+│   ├── page.tsx               the listing
+│   └── [id]/
+│       ├── page.tsx           one product
+│       └── not-found.tsx      shown when notFound() is called
+└── (marketing)/               route group: shares a layout, adds nothing to the URL
+    ├── layout.tsx
+    └── about/page.tsx
+```
+
+```tsx
+// app/products/[id]/page.tsx
+import { notFound } from 'next/navigation';
+
+export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;                    // params is a Promise in Next.js 15+
+  const product = await getProduct(id);
+
+  if (!product) {
+    notFound();                                   // renders the nearest not-found.tsx
+  }
+
+  return <ProductDetail product={product} />;
+}
+```
+
+**Bad Example** — one route that reimplements the router
+
+```tsx
+// app/page.tsx — every screen behind a query string, so nothing is linkable,
+// nothing is cacheable per route, and the layout cannot differ per section.
+'use client';
+
+export default function Page() {
+  const params = useSearchParams();
+  const view = params.get('view');
+
+  if (view === 'products') return <ProductList />;
+  if (view === 'product') return <ProductDetail id={params.get('id')!} />;
+  if (view === 'about') return <About />;
+  return <Home />;
+}
+```
+
+There is no `loading.tsx` to stream, no `error.tsx` boundary, no per-segment metadata, and
+every navigation re-renders the whole tree on the client.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -640,3 +699,10 @@ App Router implementation is complete when:
 The App Router provides a powerful file-based routing system that encourages server-first architecture, nested layouts, and predictable application structure.
 
 By organizing routes around business domains and leveraging the built-in routing primitives, Next.js applications become easier to scale, easier to maintain, and more resilient as they evolve.
+
+## Related
+
+- `knowledge/nextjs/04-routing.md`
+- `knowledge/nextjs/05-layouts.md`
+- `knowledge/nextjs/06-server-components.md`
+- `knowledge/nextjs/08-rendering-strategies.md`

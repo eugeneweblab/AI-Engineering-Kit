@@ -7,7 +7,7 @@ type: doc
 order: 23
 status: ready
 tags: [nextjs, observability]
-related: []
+related: [nextjs/26-deployment, nextjs/20-performance, architecture/18-observability]
 when_to_use: "Read before adding logging, tracing, monitoring, or alerting to a Next.js app."
 ---
 # Next.js Observability
@@ -672,6 +672,78 @@ Monitoring must remain lightweight.
 
 ---
 
+## Examples
+
+**Good Example** — errors reported with context, real-user metrics collected
+
+```ts
+// instrumentation.ts — runs once per runtime, before the app handles a request.
+export async function register() {
+  if (process.env.NEXT_RUNTIME === 'nodejs') {
+    const { initTracing } = await import('./lib/tracing');
+    await initTracing();
+  }
+}
+
+// Every uncaught server-side error, with the request context attached.
+export async function onRequestError(
+  error: unknown,
+  request: { path: string; method: string; headers: Record<string, string> },
+  context: { routerKind: string; routePath: string; renderSource: string },
+) {
+  await reportError({
+    message: error instanceof Error ? error.message : String(error),
+    stack: error instanceof Error ? error.stack : undefined,
+    path: request.path,
+    route: context.routePath,          // the pattern, not the filled-in URL
+    renderSource: context.renderSource,
+    requestId: request.headers['x-request-id'],
+  });
+}
+```
+
+```tsx
+// app/web-vitals.tsx — field data from real users, not a lab score.
+'use client';
+
+export function WebVitals() {
+  useReportWebVitals((metric) => {
+    navigator.sendBeacon(
+      '/api/vitals',
+      JSON.stringify({ name: metric.name, value: metric.value, id: metric.id, path: location.pathname }),
+    );
+  });
+  return null;
+}
+```
+
+**Bad Example** — logs to the console, errors swallowed by the boundary
+
+```tsx
+'use client';
+
+export default function Error({ error, reset }: { error: Error; reset: () => void }) {
+  // The boundary renders a friendly message and the error is never reported,
+  // so nobody learns that this route is failing for a quarter of users.
+  console.error(error);
+
+  return <p>Something went wrong. <button onClick={reset}>Try again</button></p>;
+}
+```
+
+```ts
+// A structured logger writing to stdout with no request identifier: lines from
+// concurrent requests interleave and cannot be reassembled into one trace.
+export async function GET() {
+  console.log('fetching orders');
+  const orders = await getOrders();
+  console.log('done', orders.length);
+  return Response.json(orders);
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -712,3 +784,9 @@ An observability strategy is complete when:
 Observability is essential for operating production Next.js applications.
 
 By combining structured logging, meaningful metrics, distributed tracing, health checks, and actionable alerts, engineering teams can detect problems earlier, diagnose them faster, and maintain reliable production systems with confidence.
+
+## Related
+
+- `knowledge/nextjs/26-deployment.md`
+- `knowledge/nextjs/20-performance.md`
+- `knowledge/architecture/18-observability.md`

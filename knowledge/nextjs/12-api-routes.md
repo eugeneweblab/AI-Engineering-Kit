@@ -7,7 +7,7 @@ type: doc
 order: 12
 status: ready
 tags: [nextjs, api-routes]
-related: []
+related: [nextjs/11-server-actions, nextjs/13-middleware, rest-api/04-endpoints, rest-api/09-error-handling]
 when_to_use: "Read before building HTTP endpoints or Route Handlers in a Next.js app."
 ---
 # Next.js API Routes
@@ -424,6 +424,79 @@ Although APIs are not user interfaces, predictable error responses improve acces
 
 ---
 
+## Examples
+
+**Good Example** — a Route Handler with an explicit contract and correct caching
+
+```ts
+// app/api/orders/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
+
+const CreateOrder = z.object({
+  sku: z.string().min(1),
+  quantity: z.number().int().min(1).max(100),
+});
+
+export async function POST(request: NextRequest) {
+  const session = await auth();
+  if (!session) {
+    return NextResponse.json({ error: 'unauthorized' }, { status: 401 });
+  }
+
+  const parsed = CreateOrder.safeParse(await request.json().catch(() => null));
+  if (!parsed.success) {
+    // A shape the client can act on, not a stack trace.
+    return NextResponse.json(
+      { error: 'validation_failed', fields: z.treeifyError(parsed.error) },
+      { status: 400 },
+    );
+  }
+
+  const order = await createOrder(session.userId, parsed.data);
+
+  return NextResponse.json(
+    { id: order.id, status: order.status },
+    { status: 201, headers: { Location: `/api/orders/${order.id}` } },
+  );
+}
+
+export async function GET() {
+  const products = await getPublicProducts();
+  // Public and slow-changing: let the CDN serve it.
+  return NextResponse.json(products, {
+    headers: { 'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=60' },
+  });
+}
+```
+
+**Bad Example** — a route that returns 200 for everything and leaks internals
+
+```ts
+// app/api/orders/route.ts
+export async function POST(request: Request) {
+  try {
+    const body = await request.json();       // untyped, unvalidated
+
+    // No auth check, and the user id comes from the request body, so a caller
+    // can create orders on anyone's account.
+    const order = await db.order.create({ data: { ...body } });
+
+    return Response.json({ success: true, order });   // whole row, every column
+  } catch (e) {
+    // 200 with an error inside: clients cannot use status codes, retries never
+    // trigger, and monitoring sees a healthy endpoint.
+    return Response.json({ success: false, error: String(e), stack: (e as Error).stack });
+  }
+}
+```
+
+Prefer a Server Action for form mutations from your own UI; use a Route Handler when the
+endpoint is a real API consumed by something you do not render — a webhook, a mobile client,
+or a third party.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -464,3 +537,10 @@ An API Route implementation is complete when:
 Route Handlers provide a flexible foundation for building HTTP APIs in Next.js.
 
 By reserving them for external communication, integrations, and resource-oriented APIs—while using Server Actions for UI-driven mutations—applications remain simpler, more maintainable, and better aligned with the App Router architecture.
+
+## Related
+
+- `knowledge/nextjs/11-server-actions.md`
+- `knowledge/nextjs/13-middleware.md`
+- `knowledge/rest-api/04-endpoints.md`
+- `knowledge/rest-api/09-error-handling.md`

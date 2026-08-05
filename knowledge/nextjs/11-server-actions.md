@@ -7,7 +7,7 @@ type: doc
 order: 11
 status: ready
 tags: [nextjs, server-actions]
-related: []
+related: [nextjs/06-server-components, nextjs/24-security, nextjs/15-authorization, react/15-forms]
 when_to_use: "Read before implementing form submissions or data mutations with Next.js Server Actions."
 ---
 # Next.js Server Actions
@@ -383,6 +383,83 @@ Mutation workflows should remain accessible.
 
 ---
 
+## Examples
+
+**Good Example** — an action authorises, validates, mutates, then revalidates
+
+```ts
+// app/orders/actions.ts
+'use server';
+
+import { z } from 'zod';
+
+const CancelOrder = z.object({ orderId: z.string().uuid() });
+
+export async function cancelOrder(_prev: ActionState, formData: FormData): Promise<ActionState> {
+  // 1. A Server Action is a public HTTP endpoint. Authorise it like one — being
+  //    reachable only from a protected page proves nothing.
+  const session = await auth();
+  if (!session) {
+    return { ok: false, error: 'Not signed in' };
+  }
+
+  // 2. Validate: FormData values are strings from the network, never trusted types.
+  const parsed = CancelOrder.safeParse({ orderId: formData.get('orderId') });
+  if (!parsed.success) {
+    return { ok: false, error: 'Invalid request' };
+  }
+
+  // 3. Scope the write to the caller, so ownership is enforced by the query.
+  const { count } = await db.order.updateMany({
+    where: { id: parsed.data.orderId, userId: session.userId, status: 'PENDING' },
+    data: { status: 'CANCELLED' },
+  });
+  if (count === 0) {
+    return { ok: false, error: 'This order can no longer be cancelled' };
+  }
+
+  revalidateTag(`order:${parsed.data.orderId}`);
+  return { ok: true };
+}
+```
+
+```tsx
+// The form works before hydration, and reports progress after it.
+'use client';
+
+export function CancelForm({ orderId }: { orderId: string }) {
+  const [state, action, pending] = useActionState(cancelOrder, { ok: false });
+  return (
+    <form action={action}>
+      <input type="hidden" name="orderId" value={orderId} />
+      <button disabled={pending}>{pending ? 'Cancelling…' : 'Cancel order'}</button>
+      {state.error && <p role="alert">{state.error}</p>}
+    </form>
+  );
+}
+```
+
+**Bad Example** — an unauthenticated mutation that trusts its arguments
+
+```ts
+'use server';
+
+export async function cancelOrder(orderId: string) {
+  // No session check. The action is a POST endpoint with a stable id, callable
+  // by anyone who has ever loaded the page — including from curl.
+  await db.order.update({ where: { id: orderId }, data: { status: 'CANCELLED' } });
+
+  // No ownership scope: any order id cancels any customer's order.
+  // No validation: `orderId` is whatever the caller sent.
+  // No revalidation: the page keeps showing the order as pending.
+}
+```
+
+Hiding the button behind a permission check in the UI does not protect the action — the
+endpoint exists regardless of what the page renders.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -421,3 +498,10 @@ A Server Action implementation is complete when:
 Server Actions are the preferred mechanism for handling data mutations in modern Next.js applications.
 
 By centralizing validation, authorization, database access, and cache invalidation on the server, applications become simpler, more secure, easier to maintain, and better aligned with the server-first architecture of the App Router.
+
+## Related
+
+- `knowledge/nextjs/06-server-components.md`
+- `knowledge/nextjs/24-security.md`
+- `knowledge/nextjs/15-authorization.md`
+- `knowledge/react/15-forms.md`

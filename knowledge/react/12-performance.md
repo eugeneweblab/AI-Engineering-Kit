@@ -7,7 +7,7 @@ type: doc
 order: 12
 status: ready
 tags: [react, performance]
-related: []
+related: [react/11-rendering, react/08-hooks, react/10-context-api, performance/06-rendering]
 when_to_use: "Read before optimizing or reviewing React performance and memoization decisions."
 ---
 # React Performance
@@ -392,3 +392,10 @@ Performance optimization is complete when:
 Effective React performance optimization focuses on measurable improvements rather than theoretical ones.
 
 By minimizing unnecessary rendering, reducing bundle size, optimizing network usage, and profiling before making changes, applications remain fast, maintainable, and scalable as they grow.
+
+## Related
+
+- `knowledge/react/11-rendering.md`
+- `knowledge/react/08-hooks.md`
+- `knowledge/react/10-context-api.md`
+- `knowledge/performance/06-rendering.md`

@@ -7,7 +7,7 @@ type: doc
 order: 15
 status: ready
 tags: [react, forms]
-related: []
+related: [react/06-state, react/19-error-handling, react/20-accessibility]
 when_to_use: "Read before building or reviewing React forms, inputs, and validation."
 ---
 # React Forms
@@ -371,3 +371,9 @@ A React form is complete when:
 Well-designed forms balance usability, accessibility, performance, and security.
 
 By separating presentation, validation, and business logic, React forms become easier to maintain, easier to test, and more resilient as application requirements evolve.
+
+## Related
+
+- `knowledge/react/06-state.md`
+- `knowledge/react/19-error-handling.md`
+- `knowledge/react/20-accessibility.md`

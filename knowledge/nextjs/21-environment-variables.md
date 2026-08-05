@@ -7,7 +7,7 @@ type: doc
 order: 21
 status: ready
 tags: [nextjs, environment-variables]
-related: []
+related: [nextjs/26-deployment, nextjs/24-security, security/16-secrets-management]
 when_to_use: "Read before managing environment variables or secrets across Next.js environments."
 ---
 # Next.js Environment Variables
@@ -472,6 +472,77 @@ Environment configuration should not alter accessibility behavior unexpectedly a
 
 ---
 
+## Examples
+
+**Good Example** — one image promoted across environments, secrets read at runtime
+
+```ts
+// config/env.ts — server configuration, read at request time, never inlined.
+import 'server-only';
+import { z } from 'zod';
+
+const serverSchema = z.object({
+  DATABASE_URL: z.string().url(),
+  STRIPE_SECRET_KEY: z.string().startsWith('sk_'),
+  SESSION_SECRET: z.string().min(32),
+});
+
+export const env = serverSchema.parse(process.env);   // throws at boot on bad config
+```
+
+```tsx
+// Per-environment public values passed from the server, so the same build works
+// in staging and production without a rebuild.
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const publicConfig = { apiUrl: process.env.API_URL!, environment: process.env.APP_ENV! };
+  return (
+    <html lang="en">
+      <body>
+        <ConfigProvider value={publicConfig}>{children}</ConfigProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+```bash
+# .env.example — committed. Documents every variable; contains no values.
+DATABASE_URL=postgres://user:password@localhost:5432/app
+STRIPE_SECRET_KEY=sk_test_replace_me
+SESSION_SECRET=generate_with_openssl_rand_hex_32
+API_URL=http://localhost:3000
+```
+
+**Bad Example** — per-environment values baked into the bundle, secrets exposed
+
+```tsx
+'use client';
+
+export function Checkout() {
+  // A secret with the NEXT_PUBLIC_ prefix is inlined into the JavaScript bundle
+  // and readable by anyone who opens devtools. The prefix does not protect it —
+  // it publishes it.
+  const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY!);
+
+  // Dynamic access is not statically replaced, so this is undefined in the
+  // browser regardless of the prefix.
+  const key = 'NEXT_PUBLIC_API_URL';
+  const apiUrl = process.env[key];
+
+  return <PayButton stripe={stripe} apiUrl={apiUrl} />;
+}
+```
+
+```dockerfile
+# The API URL is inlined at build time, so this image is bound to staging.
+# Promoting the identical artifact to production is impossible; production gets
+# a different build, which is a different thing from the one that was tested.
+ARG NEXT_PUBLIC_API_URL=https://staging-api.example.com
+RUN npm run build
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -510,3 +581,9 @@ Environment configuration is complete when:
 Environment variables provide the foundation for secure and flexible application configuration.
 
 By separating configuration from application logic, validating required values, protecting secrets, and centralizing configuration access, Next.js applications become easier to deploy, maintain, and operate across multiple environments.
+
+## Related
+
+- `knowledge/nextjs/26-deployment.md`
+- `knowledge/nextjs/24-security.md`
+- `knowledge/security/16-secrets-management.md`

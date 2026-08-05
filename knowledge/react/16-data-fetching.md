@@ -7,7 +7,7 @@ type: doc
 order: 16
 status: ready
 tags: [react, data-fetching]
-related: []
+related: [react/09-custom-hooks, react/19-error-handling, react/18-state-management, nextjs/09-data-fetching]
 when_to_use: "Read before implementing or reviewing remote data fetching, caching, or synchronization in React."
 ---
 # React Data Fetching
@@ -769,3 +769,10 @@ Data fetching is complete when:
 Effective data fetching is built on clear separation between server state and client state.
 
 By using dedicated server state management, consistent caching strategies, and predictable request lifecycles, React applications become faster, more reliable, and easier to maintain as they scale.
+
+## Related
+
+- `knowledge/react/09-custom-hooks.md`
+- `knowledge/react/19-error-handling.md`
+- `knowledge/react/18-state-management.md`
+- `knowledge/nextjs/09-data-fetching.md`

@@ -7,7 +7,7 @@ type: doc
 order: 9
 status: ready
 tags: [nextjs, data-fetching]
-related: []
+related: [nextjs/06-server-components, nextjs/10-caching, nextjs/12-api-routes, react/16-data-fetching]
 when_to_use: "Read before fetching data from a database or API in a Next.js app."
 ---
 # Next.js Data Fetching
@@ -484,6 +484,68 @@ Verify:
 
 ---
 
+## Examples
+
+**Good Example** — fetch where the data is used, in parallel, with explicit caching
+
+```tsx
+// Requests for the same URL in one render pass are deduplicated automatically,
+// so each component can ask for what it needs without prop-drilling.
+async function getUser(id: string) {
+  const res = await fetch(`${process.env.API_URL}/users/${id}`, {
+    next: { revalidate: 60, tags: [`user:${id}`] },   // cached, taggable
+  });
+  if (!res.ok) throw new Error(`Failed to load user ${id}: ${res.status}`);
+  return res.json() as Promise<User>;
+}
+
+export default async function ProfilePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+
+  // Independent requests start together: total latency is the slowest, not the sum.
+  const [user, orders] = await Promise.all([getUser(id), getOrders(id)]);
+
+  return <Profile user={user} orders={orders} />;
+}
+```
+
+```ts
+// After a write, invalidate exactly what changed.
+'use server';
+
+export async function updateUser(id: string, data: UpdateUser) {
+  await db.user.update({ where: { id }, data });
+  revalidateTag(`user:${id}`);          // not the whole path, not the whole site
+}
+```
+
+**Bad Example** — a waterfall, an unbounded cache, and errors that vanish
+
+```tsx
+export default async function ProfilePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+
+  // Sequential awaits with no dependency between them: two round trips where
+  // one would do.
+  const user = await getUser(id);
+  const orders = await getOrders(id);
+
+  return <Profile user={user} orders={orders} />;
+}
+
+async function getUser(id: string) {
+  // force-cache on user data: the first response is served to every visitor
+  // until the next deploy, and there is no tag to invalidate it.
+  const res = await fetch(`${process.env.API_URL}/users/${id}`, { cache: 'force-cache' });
+
+  // A 500 has res.ok === false but does not throw. Parsing it yields undefined
+  // fields and the page renders blanks instead of an error boundary.
+  return res.json();
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -525,3 +587,10 @@ A data-fetching implementation is complete when:
 Data fetching is one of the most important architectural concerns in a Next.js application.
 
 By fetching data on the server, choosing the correct caching strategy, validating responses, and avoiding unnecessary client-side requests, applications become faster, more secure, easier to maintain, and significantly more scalable.
+
+## Related
+
+- `knowledge/nextjs/06-server-components.md`
+- `knowledge/nextjs/10-caching.md`
+- `knowledge/nextjs/12-api-routes.md`
+- `knowledge/react/16-data-fetching.md`

@@ -7,7 +7,7 @@ type: doc
 order: 19
 status: ready
 tags: [nextjs, seo]
-related: []
+related: [nextjs/18-metadata, nextjs/08-rendering-strategies, seo/01-seo-fundamentals]
 when_to_use: "Read before optimizing a Next.js app for search engine discoverability and indexing."
 ---
 # Next.js SEO
@@ -719,6 +719,89 @@ Security contributes to user trust.
 
 ---
 
+## Examples
+
+**Good Example** — server-rendered content, canonical URLs, and a generated sitemap
+
+```ts
+// app/sitemap.ts — regenerated with the content, never hand-maintained.
+import type { MetadataRoute } from 'next';
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const events = await getAllEvents();
+
+  return [
+    { url: 'https://example.com', changeFrequency: 'daily', priority: 1 },
+    ...events.map((event) => ({
+      url: `https://example.com/events/${event.slug}`,
+      lastModified: event.updatedAt,
+      changeFrequency: 'weekly' as const,
+    })),
+  ];
+}
+```
+
+```ts
+// app/robots.ts
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: [{ userAgent: '*', allow: '/', disallow: ['/api/', '/account/'] }],
+    sitemap: 'https://example.com/sitemap.xml',
+  };
+}
+```
+
+```tsx
+// Structured data rendered on the server, so crawlers see it in the HTML.
+export default async function EventPage({ params }: { params: Promise<{ slug: string }> }) {
+  const event = await getEvent((await params).slug);
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: event.name,
+    startDate: event.startsAt.toISOString(),
+    location: { '@type': 'Place', name: event.venue },
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <h1>{event.name}</h1>
+    </>
+  );
+}
+```
+
+**Bad Example** — content that only exists after hydration
+
+```tsx
+'use client';
+
+export default function EventPage({ params }: { params: { slug: string } }) {
+  const [event, setEvent] = useState<Event | null>(null);
+
+  // The server returns an empty shell. A crawler that does not execute JavaScript
+  // indexes a page with no heading, no text, and no links to follow.
+  useEffect(() => {
+    fetch(`/api/events/${params.slug}`).then((r) => r.json()).then(setEvent);
+  }, [params.slug]);
+
+  if (!event) return <Spinner />;
+
+  return (
+    <>
+      {/* Every filter combination is a separate URL with identical content and
+          no canonical, so the crawl budget is spent on duplicates. */}
+      <h1>{event.name}</h1>
+      <a href={`/events?sort=date&page=2&ref=nav&sid=${Math.random()}`}>Next</a>
+    </>
+  );
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -759,3 +842,9 @@ SEO implementation is complete when:
 SEO is the result of good engineering, not isolated optimizations.
 
 By combining server-side rendering, semantic HTML, meaningful metadata, logical URL structures, fast performance, and accessible content, Next.js applications become easier to discover, easier to navigate, and better positioned for long-term search visibility.
+
+## Related
+
+- `knowledge/nextjs/18-metadata.md`
+- `knowledge/nextjs/08-rendering-strategies.md`
+- `knowledge/seo/01-seo-fundamentals.md`

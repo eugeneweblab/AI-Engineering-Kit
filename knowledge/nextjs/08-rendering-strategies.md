@@ -7,7 +7,7 @@ type: doc
 order: 8
 status: ready
 tags: [nextjs, rendering-strategies]
-related: []
+related: [nextjs/06-server-components, nextjs/10-caching, nextjs/09-data-fetching, nextjs/20-performance]
 when_to_use: "Read before choosing a rendering strategy for a Next.js route."
 ---
 # Next.js Rendering Strategies
@@ -658,6 +658,72 @@ Verify:
 
 ---
 
+## Examples
+
+**Good Example** — the strategy chosen per route, and stated in code
+
+```tsx
+// app/blog/[slug]/page.tsx — static, revalidated in the background.
+export const revalidate = 3600;                    // ISR: rebuild at most hourly
+
+export async function generateStaticParams() {
+  return (await getAllPostSlugs()).map((slug) => ({ slug }));
+}
+
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  return <Article post={await getPost(slug)} />;
+}
+```
+
+```tsx
+// app/account/page.tsx — per-user, so it must be dynamic. Say so explicitly.
+export const dynamic = 'force-dynamic';
+
+export default async function AccountPage() {
+  const session = await auth();                    // reads cookies → dynamic anyway
+  return <Account user={await getUser(session.userId)} />;
+}
+```
+
+```tsx
+// A shell that renders immediately, with the slow part streamed in.
+export default function OrdersPage() {
+  return (
+    <>
+      <h1>Orders</h1>
+      <Suspense fallback={<OrdersSkeleton />}>
+        <OrdersTable />          {/* awaits a slow query without blocking the shell */}
+      </Suspense>
+    </>
+  );
+}
+```
+
+**Bad Example** — everything dynamic by accident, or static when it must not be
+
+```tsx
+// A single cookie read at the top of a shared layout makes EVERY route below it
+// dynamic, silently turning a static site into a server-rendered one.
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const theme = (await cookies()).get('theme')?.value ?? 'light';
+  return <html data-theme={theme}><body>{children}</body></html>;
+}
+```
+
+```tsx
+// Force-static on a page whose content is per-user: the first visitor's data is
+// cached and served to everyone else.
+export const dynamic = 'force-static';
+
+export default async function AccountPage() {
+  const session = await auth();
+  return <Account user={await getUser(session.userId)} />;
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -696,3 +762,10 @@ A rendering strategy is complete when:
 Selecting the correct rendering strategy is one of the most important architectural decisions in a Next.js application.
 
 By favoring Static Rendering whenever possible, introducing ISR for periodically changing content, reserving Dynamic Rendering for personalized experiences, and leveraging Streaming and Partial Prerendering where appropriate, applications achieve an optimal balance between performance, scalability, freshness, and maintainability.
+
+## Related
+
+- `knowledge/nextjs/06-server-components.md`
+- `knowledge/nextjs/10-caching.md`
+- `knowledge/nextjs/09-data-fetching.md`
+- `knowledge/nextjs/20-performance.md`

@@ -661,3 +661,10 @@ A layout implementation is complete when:
 Layouts are the structural foundation of a Next.js application.
 
 By centralizing shared UI, preserving state across navigations, and maintaining a server-first architecture, layouts improve performance, reduce duplication, and provide a consistent user experience throughout the application.
+
+## Related
+
+- `knowledge/nextjs/03-app-router.md`
+- `knowledge/nextjs/04-routing.md`
+- `knowledge/nextjs/06-server-components.md`
+- `knowledge/nextjs/18-metadata.md`

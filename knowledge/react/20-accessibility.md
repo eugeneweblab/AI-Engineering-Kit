@@ -7,7 +7,7 @@ type: doc
 order: 20
 status: ready
 tags: [react, accessibility]
-related: []
+related: [react/15-forms, accessibility/01-accessibility-fundamentals, accessibility/05-focus-management]
 when_to_use: "Read before building or reviewing React UI to ensure it is accessible to all users and assistive technologies."
 ---
 # React Accessibility
@@ -401,3 +401,9 @@ Accessibility implementation is complete when:
 Accessible React applications are built through thoughtful design, semantic HTML, and consistent engineering practices.
 
 By treating accessibility as a core requirement rather than an optional enhancement, applications become more usable, inclusive, and maintainable for every user.
+
+## Related
+
+- `knowledge/react/15-forms.md`
+- `knowledge/accessibility/01-accessibility-fundamentals.md`
+- `knowledge/accessibility/05-focus-management.md`

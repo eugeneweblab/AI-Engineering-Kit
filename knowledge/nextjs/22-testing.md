@@ -7,7 +7,7 @@ type: doc
 order: 22
 status: ready
 tags: [nextjs, testing]
-related: []
+related: [nextjs/06-server-components, testing/04-e2e-testing, react/21-testing]
 when_to_use: "Read before setting up or writing automated tests for a Next.js app."
 ---
 # Next.js Testing
@@ -667,6 +667,72 @@ Security-sensitive behavior should always be tested.
 
 ---
 
+## Examples
+
+**Good Example** — Server Components tested end to end, client logic tested in isolation
+
+```ts
+// e2e/checkout.spec.ts — Playwright drives the real app, including Server Actions.
+import { test, expect } from '@playwright/test';
+
+test('a signed-in user can cancel a pending order', async ({ page }) => {
+  await page.goto('/orders/ord_123');
+
+  await page.getByRole('button', { name: 'Cancel order' }).click();
+
+  // Asserts what the user observes, not which function ran.
+  await expect(page.getByRole('status')).toHaveText('Order cancelled');
+  await expect(page.getByRole('button', { name: 'Cancel order' })).toBeHidden();
+});
+```
+
+```tsx
+// Client Components are unit-tested with Testing Library, queried by role.
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+test('the search box pushes the query to the URL', async () => {
+  const user = userEvent.setup();
+  const push = vi.fn();
+  vi.mocked(useRouter).mockReturnValue({ push } as never);
+
+  render(<SearchBox initialQuery="" />);
+  await user.type(screen.getByRole('textbox'), 'lamps{Enter}');
+
+  expect(push).toHaveBeenCalledWith('/search?q=lamps');
+});
+```
+
+```ts
+// Pure server functions are tested directly — no HTTP, no rendering.
+test('cancelOrder refuses an order owned by someone else', async () => {
+  const result = await cancelOrderFor('user-b', 'order-owned-by-user-a');
+  expect(result).toEqual({ ok: false, error: 'This order can no longer be cancelled' });
+});
+```
+
+**Bad Example** — rendering async Server Components in jsdom, asserting implementation
+
+```tsx
+// An async Server Component is not a React function component jsdom can render:
+// it returns a Promise, so this either throws or silently asserts on nothing.
+test('dashboard shows stats', async () => {
+  render(<DashboardPage />);
+  expect(await screen.findByText('Paid orders')).toBeInTheDocument();
+});
+
+test('search calls the API', async () => {
+  render(<SearchBox initialQuery="" />);
+  await userEvent.type(screen.getByTestId('search-input'), 'lamps');
+
+  // Selecting by test id proves nothing about the accessible name, and asserting
+  // the fetch URL couples the test to the transport rather than the behaviour.
+  expect(fetchSpy).toHaveBeenCalledWith('/api/search?q=lamps');
+});
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -707,3 +773,9 @@ A testing strategy is complete when:
 Testing is an essential part of building reliable Next.js applications.
 
 By focusing on observable behavior, selecting the appropriate testing strategy, automating verification, and continuously validating accessibility, security, and critical user workflows, teams can deliver production-ready applications with greater confidence.
+
+## Related
+
+- `knowledge/nextjs/06-server-components.md`
+- `knowledge/testing/04-e2e-testing.md`
+- `knowledge/react/21-testing.md`

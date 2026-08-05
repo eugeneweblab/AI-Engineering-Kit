@@ -7,7 +7,7 @@ type: doc
 order: 18
 status: ready
 tags: [nextjs, metadata]
-related: []
+related: [nextjs/19-seo, nextjs/05-layouts, seo/05-metadata]
 when_to_use: "Read before configuring page metadata or Open Graph tags in a Next.js app."
 ---
 # Next.js Metadata
@@ -572,6 +572,76 @@ Metadata is publicly visible.
 
 ---
 
+## Examples
+
+**Good Example** — static defaults in the layout, per-page metadata generated from data
+
+```ts
+// app/layout.tsx — defaults every page inherits, with a title template.
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://example.com'),   // makes relative OG URLs absolute
+  title: { default: 'Acme', template: '%s — Acme' },
+  description: 'Event registration for engineering teams.',
+  openGraph: { siteName: 'Acme', type: 'website', locale: 'en_GB' },
+  robots: { index: true, follow: true },
+};
+```
+
+```ts
+// app/events/[slug]/page.tsx — derived from the same data the page renders.
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> },
+): Promise<Metadata> {
+  const { slug } = await params;
+  const event = await getEvent(slug);           // deduplicated with the page's own fetch
+
+  if (!event) {
+    return { title: 'Event not found', robots: { index: false } };
+  }
+
+  return {
+    title: event.name,                          // becomes "Event name — Acme"
+    description: event.summary.slice(0, 155),
+    alternates: { canonical: `/events/${slug}` },
+    openGraph: {
+      title: event.name,
+      description: event.summary,
+      images: [{ url: event.imageUrl, width: 1200, height: 630, alt: event.name }],
+    },
+  };
+}
+```
+
+**Bad Example** — tags injected on the client, and one description for the whole site
+
+```tsx
+'use client';
+
+export default function EventPage({ event }: { event: Event }) {
+  // Crawlers and social scrapers read the server response. Setting the title
+  // after hydration means the shared preview and the indexed title are wrong.
+  useEffect(() => {
+    document.title = event.name;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', event.summary);
+  }, [event]);
+
+  return (
+    <>
+      {/* Hand-written tags in the body: duplicated, unmanaged, and ignored. */}
+      <meta property="og:image" content="/og.png" />   {/* relative, no metadataBase */}
+      <h1>{event.name}</h1>
+    </>
+  );
+}
+```
+
+Every page sharing one description also means every search result looks the same, and
+`og:image` without an absolute URL renders as a broken preview.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -612,3 +682,9 @@ Metadata implementation is complete when:
 Metadata is an essential part of every modern web application.
 
 By generating accurate server-side metadata, defining canonical URLs, configuring social previews, and maintaining consistency across layouts and pages, Next.js applications become more discoverable, accessible, and professional.
+
+## Related
+
+- `knowledge/nextjs/19-seo.md`
+- `knowledge/nextjs/05-layouts.md`
+- `knowledge/seo/05-metadata.md`

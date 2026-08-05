@@ -578,3 +578,9 @@ The project structure is complete when:
 A well-designed folder structure reflects the architecture of the application rather than individual technologies.
 
 By organizing code around features, responsibilities, and reuse, React projects remain easier to understand, scale, and maintain throughout their lifecycle.
+
+## Related
+
+- `knowledge/react/02-component-architecture.md`
+- `knowledge/react/23-code-style.md`
+- `knowledge/nextjs/27-folder-structure.md`

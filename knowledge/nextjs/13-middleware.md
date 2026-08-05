@@ -7,7 +7,7 @@ type: doc
 order: 13
 status: ready
 tags: [nextjs, middleware]
-related: []
+related: [nextjs/14-authentication, nextjs/15-authorization, nextjs/04-routing]
 when_to_use: "Read before adding middleware for redirects, rewrites, or request processing in Next.js."
 ---
 # Next.js Middleware
@@ -644,6 +644,68 @@ Redirects and rewrites must not create confusing navigation flows or inaccessibl
 
 ---
 
+## Examples
+
+**Good Example** — cheap checks only, with a matcher that excludes assets
+
+```ts
+// middleware.ts — runs on the edge, before every matched request.
+import { NextRequest, NextResponse } from 'next/server';
+
+export async function middleware(request: NextRequest) {
+  const token = request.cookies.get('session')?.value;
+
+  // Presence check only: enough to redirect an anonymous visitor away from a
+  // protected area, and cheap enough to run on every request.
+  if (!token) {
+    const signIn = new URL('/sign-in', request.url);
+    signIn.searchParams.set('next', request.nextUrl.pathname);
+    return NextResponse.redirect(signIn);
+  }
+
+  // Pass request-scoped context downstream instead of re-reading it later.
+  const response = NextResponse.next();
+  response.headers.set('x-request-id', crypto.randomUUID());
+  return response;
+}
+
+export const config = {
+  // Never run on static assets, images, or the favicon — that is pure overhead.
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|webp)$).*)'],
+};
+```
+
+The real authorisation decision happens in the page, the Server Action, or the Route Handler,
+where the user record and the resource are both available.
+
+**Bad Example** — authorisation and database access in middleware
+
+```ts
+export async function middleware(request: NextRequest) {
+  const token = request.cookies.get('session')?.value;
+
+  // A database query on the edge runtime, on every request including assets:
+  // Node APIs are unavailable, the connection cannot be pooled, and latency is
+  // added to every navigation.
+  const user = await db.user.findUnique({ where: { sessionToken: token } });
+
+  // The full authorisation policy expressed as path prefixes, which drift from
+  // the routes the moment one is renamed or a new one is added.
+  if (request.nextUrl.pathname.startsWith('/admin') && user?.role !== 'admin') {
+    return NextResponse.redirect(new URL('/', request.url));
+  }
+  if (request.nextUrl.pathname.startsWith('/orders/') && !user) {
+    return new NextResponse('forbidden', { status: 403 });
+  }
+
+  return NextResponse.next();
+}
+
+// No matcher: this runs for every image, font, and JS chunk the page loads.
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -682,3 +744,9 @@ A Middleware implementation is complete when:
 Middleware provides a centralized mechanism for handling request-level concerns before the application is rendered.
 
 By limiting Middleware to lightweight routing, security, and request processing responsibilities, applications remain fast, scalable, secure, and easier to reason about.
+
+## Related
+
+- `knowledge/nextjs/14-authentication.md`
+- `knowledge/nextjs/15-authorization.md`
+- `knowledge/nextjs/04-routing.md`

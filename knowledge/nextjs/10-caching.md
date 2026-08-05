@@ -7,7 +7,7 @@ type: doc
 order: 10
 status: ready
 tags: [nextjs, caching]
-related: []
+related: [nextjs/09-data-fetching, nextjs/08-rendering-strategies, nextjs/20-performance, performance/08-caching]
 when_to_use: "Read before configuring caching or revalidation for data and routes in Next.js."
 ---
 # Next.js Caching
@@ -330,6 +330,66 @@ Loading indicators, streamed updates, and refreshed content should remain access
 
 ---
 
+## Examples
+
+**Good Example** — tagged entries, invalidated by the write that changed them
+
+```ts
+// lib/products.ts
+export async function getProduct(id: string): Promise<Product> {
+  const res = await fetch(`${process.env.API_URL}/products/${id}`, {
+    next: { revalidate: 300, tags: ['products', `product:${id}`] },
+  });
+  if (!res.ok) throw new Error(`product ${id}: ${res.status}`);
+  return res.json();
+}
+```
+
+```ts
+// app/products/actions.ts
+'use server';
+
+export async function renameProduct(id: string, name: string) {
+  await db.product.update({ where: { id }, data: { name } });
+
+  // Precise: this product's pages, and any listing that declared the broader tag.
+  revalidateTag(`product:${id}`);
+  revalidateTag('products');
+}
+```
+
+```tsx
+// Opt out deliberately where freshness matters more than cost, and say why.
+export default async function StockPage() {
+  // Stock changes per second; a cached value would show items that are gone.
+  const stock = await fetch(`${process.env.API_URL}/stock`, { cache: 'no-store' });
+  return <StockTable rows={await stock.json()} />;
+}
+```
+
+**Bad Example** — cached without a key to invalidate, then invalidated with a sledgehammer
+
+```ts
+export async function getProduct(id: string) {
+  // Cached for a day, with no tag. The only way to refresh it is a redeploy.
+  const res = await fetch(`${process.env.API_URL}/products/${id}`, {
+    next: { revalidate: 86_400 },
+  });
+  return res.json();
+}
+
+'use server';
+export async function renameProduct(id: string, name: string) {
+  await db.product.update({ where: { id }, data: { name } });
+
+  // Purges the entire cache for every user and every route, so the next request
+  // to any page is a cold miss. This is how a cache becomes a liability.
+  revalidatePath('/', 'layout');
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -368,3 +428,10 @@ A caching strategy is complete when:
 Effective caching is one of the highest-impact optimizations in a Next.js application.
 
 By selecting the appropriate cache layer, defining clear invalidation rules, and protecting personalized data, applications become significantly faster, more scalable, and more cost-efficient without sacrificing correctness.
+
+## Related
+
+- `knowledge/nextjs/09-data-fetching.md`
+- `knowledge/nextjs/08-rendering-strategies.md`
+- `knowledge/nextjs/20-performance.md`
+- `knowledge/performance/08-caching.md`

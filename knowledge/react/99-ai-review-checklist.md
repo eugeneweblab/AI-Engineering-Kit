@@ -7,7 +7,7 @@ type: doc
 order: 99
 status: ready
 tags: [react, ai-review-checklist]
-related: []
+related: [react/98-production-checklist, react/100-common-antipatterns, react/26-best-practices]
 when_to_use: "Read before reviewing a React pull request or AI-generated React, or to confirm an implementation is done."
 ---
 # React Definition of Done
@@ -305,3 +305,9 @@ A React task is considered complete only when:
 The Definition of Done is the final quality gate for every React task.
 
 Following this checklist ensures that completed work is not only functional, but also maintainable, scalable, accessible, testable, and aligned with the engineering standards of the project.
+
+## Related
+
+- `knowledge/react/98-production-checklist.md`
+- `knowledge/react/100-common-antipatterns.md`
+- `knowledge/react/26-best-practices.md`

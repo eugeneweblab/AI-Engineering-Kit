@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [react, react-philosophy]
-related: []
+related: [react/02-component-architecture, react/06-state, react/11-rendering, react/13-component-composition]
 when_to_use: "Read before writing or reviewing any React code to align with the project's core React engineering principles."
 ---
 # React Philosophy
@@ -303,3 +303,10 @@ A React component is complete when:
 Well-designed React applications are built from small, focused, reusable components.
 
 Simplicity, composition, and predictable data flow create software that is easier to maintain, extend, and review.
+
+## Related
+
+- `knowledge/react/02-component-architecture.md`
+- `knowledge/react/06-state.md`
+- `knowledge/react/11-rendering.md`
+- `knowledge/react/13-component-composition.md`

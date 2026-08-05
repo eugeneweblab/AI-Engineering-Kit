@@ -750,3 +750,10 @@ An authentication implementation is complete when:
 Authentication and authorization form the security foundation of every Next.js application.
 
 By keeping identity verification, permission checks, and protected business logic on the server while minimizing trust in the client, applications remain secure, scalable, maintainable, and aligned with modern App Router best practices.
+
+## Related
+
+- `knowledge/nextjs/15-authorization.md`
+- `knowledge/nextjs/13-middleware.md`
+- `knowledge/security/03-authentication.md`
+- `knowledge/security/07-jwt.md`

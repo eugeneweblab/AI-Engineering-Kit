@@ -7,7 +7,7 @@ type: doc
 order: 18
 status: ready
 tags: [react, state-management]
-related: []
+related: [react/06-state, react/10-context-api, react/16-data-fetching]
 when_to_use: "Read before adding or reviewing React state, whether local, shared, or global."
 ---
 # React State Management
@@ -432,3 +432,9 @@ State management is complete when:
 Effective state management begins with minimizing the amount of state.
 
 Keeping state local, avoiding duplication, and deriving values whenever possible leads to simpler, more maintainable, and more predictable React applications.
+
+## Related
+
+- `knowledge/react/06-state.md`
+- `knowledge/react/10-context-api.md`
+- `knowledge/react/16-data-fetching.md`

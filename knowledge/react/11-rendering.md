@@ -7,7 +7,7 @@ type: doc
 order: 11
 status: ready
 tags: [react, rendering]
-related: []
+related: [react/12-performance, react/06-state, react/01-react-philosophy]
 when_to_use: "Read before writing or reviewing React rendering and re-render logic."
 ---
 # React Rendering Patterns
@@ -427,3 +427,9 @@ Rendering is complete when:
 Well-structured rendering produces interfaces that are predictable, readable, and easy to maintain.
 
 By separating computation from presentation and keeping rendering pure, React components become simpler to understand, easier to test, and more resilient as applications grow.
+
+## Related
+
+- `knowledge/react/12-performance.md`
+- `knowledge/react/06-state.md`
+- `knowledge/react/01-react-philosophy.md`

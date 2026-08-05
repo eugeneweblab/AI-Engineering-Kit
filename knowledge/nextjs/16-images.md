@@ -7,7 +7,7 @@ type: doc
 order: 16
 status: ready
 tags: [nextjs, images]
-related: []
+related: [nextjs/20-performance, performance/11-images, accessibility/09-images]
 when_to_use: "Read before adding or optimizing images in a Next.js app."
 ---
 # Next.js Images
@@ -472,6 +472,82 @@ Images often represent the largest assets on a page.
 
 ---
 
+## Examples
+
+**Good Example** — dimensions declared, priority on the LCP image, `sizes` that match the CSS
+
+```tsx
+import Image from 'next/image';
+import hero from '@/public/hero.jpg';          // static import: dimensions inferred
+
+export function Hero() {
+  return (
+    <Image
+      src={hero}
+      alt="Two engineers reviewing a deployment dashboard"
+      priority                                  // the LCP image: preload, do not lazy-load
+      placeholder="blur"                        // blurDataURL generated at build time
+      sizes="100vw"
+      className="w-full h-auto"
+    />
+  );
+}
+
+export function ProductThumb({ product }: { product: Product }) {
+  return (
+    <Image
+      src={product.imageUrl}                    // remote: dimensions must be explicit
+      alt={product.name}
+      width={320}
+      height={240}
+      // Tells the browser which candidate to pick; must match the rendered width.
+      sizes="(max-width: 640px) 50vw, 320px"
+      loading="lazy"
+    />
+  );
+}
+```
+
+```ts
+// next.config.ts — only these hosts may be optimised, so the endpoint cannot be
+// used as an open image proxy.
+export default {
+  images: {
+    remotePatterns: [{ protocol: 'https', hostname: 'cdn.example.com', pathname: '/products/**' }],
+    formats: ['image/avif', 'image/webp'],
+  },
+};
+```
+
+**Bad Example** — no dimensions, the hero lazy-loaded, `fill` without a sized parent
+
+```tsx
+export function Hero() {
+  return (
+    <>
+      {/* A plain img with no width/height: the page reflows when it loads (CLS),
+          and no format negotiation or resizing happens at all. */}
+      <img src="/hero.jpg" />
+
+      {/* Lazy-loading the LCP image delays it by a full round trip — the single
+          most common cause of a poor LCP score on a Next.js site. */}
+      <Image src="/hero.jpg" alt="" width={1600} height={900} loading="lazy" />
+
+      {/* `fill` requires a positioned, sized parent. Without one the image
+          collapses to zero height and renders nothing. */}
+      <div>
+        <Image src="/banner.jpg" alt="Banner" fill />
+      </div>
+
+      {/* sizes="100vw" on a 320px thumbnail downloads the largest candidate. */}
+      <Image src="/thumb.jpg" alt="Thumb" width={320} height={240} sizes="100vw" />
+    </>
+  );
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -512,3 +588,9 @@ Image implementation is complete when:
 Images have a significant impact on application performance and user experience.
 
 By using the Next.js `Image` component, optimizing formats and dimensions, providing accessible alternative text, and leveraging responsive loading strategies, applications become faster, more accessible, and easier to maintain.
+
+## Related
+
+- `knowledge/nextjs/20-performance.md`
+- `knowledge/performance/11-images.md`
+- `knowledge/accessibility/09-images.md`

@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [nextjs, architecture]
-related: []
+related: [nextjs/02-project-structure, nextjs/03-app-router, nextjs/06-server-components, nextjs/08-rendering-strategies, react/02-component-architecture]
 when_to_use: "Read before establishing the overall architecture of a new Next.js application."
 ---
 # Next.js Architecture
@@ -530,6 +530,68 @@ Accessibility should not depend on client-side JavaScript.
 
 ---
 
+## Examples
+
+**Good Example** — the boundary between server and client is a deliberate line
+
+```tsx
+// app/products/[id]/page.tsx — a Server Component: data access stays on the server.
+import { getProduct } from '@/lib/products';       // imports the DB client
+import { AddToCart } from './add-to-cart';         // the only interactive part
+
+export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const product = await getProduct(id);            // no API round trip, no client bundle
+
+  return (
+    <article>
+      <h1>{product.name}</h1>
+      <p>{product.description}</p>
+      {/* Interactivity is isolated to one small leaf component. */}
+      <AddToCart productId={product.id} priceCents={product.priceCents} />
+    </article>
+  );
+}
+```
+
+```tsx
+// app/products/[id]/add-to-cart.tsx
+'use client';
+
+export function AddToCart({ productId, priceCents }: { productId: string; priceCents: number }) {
+  const [pending, setPending] = useState(false);
+  return <button disabled={pending} onClick={() => setPending(true)}>Add — {priceCents / 100} €</button>;
+}
+```
+
+The database client, the product query, and the pricing logic never reach the browser. Only
+`AddToCart` ships JavaScript.
+
+**Bad Example** — the whole page marked as a Client Component
+
+```tsx
+'use client';                       // one directive pushes everything below to the browser
+
+import { db } from '@/lib/db';      // a server-only module in a client bundle:
+                                    // either the build fails, or credentials ship
+export default function ProductPage({ params }: { params: { id: string } }) {
+  const [product, setProduct] = useState<Product | null>(null);
+
+  // A request that could have been a direct query now costs a round trip, runs
+  // after hydration, and shows a spinner where server-rendered HTML would have been.
+  useEffect(() => {
+    fetch(`/api/products/${params.id}`)
+      .then((r) => r.json())
+      .then(setProduct);
+  }, [params.id]);
+
+  if (!product) return <Spinner />;
+  return <h1>{product.name}</h1>;
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -569,3 +631,11 @@ The architecture is complete when:
 A well-designed Next.js architecture leverages the strengths of the server while keeping the client lightweight.
 
 By clearly separating responsibilities, minimizing client-side JavaScript, and organizing the application around features, teams can build applications that are scalable, maintainable, secure, and performant.
+
+## Related
+
+- `knowledge/nextjs/02-project-structure.md`
+- `knowledge/nextjs/03-app-router.md`
+- `knowledge/nextjs/06-server-components.md`
+- `knowledge/nextjs/08-rendering-strategies.md`
+- `knowledge/react/02-component-architecture.md`
