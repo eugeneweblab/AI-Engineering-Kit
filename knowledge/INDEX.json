@@ -3,17 +3,30 @@
   "note": "Regenerate with `python3 scripts/build-index.py`. Do not edit by hand.",
   "stats": {
     "topics": 49,
-    "docs": 1379,
-    "ready": 1372,
+    "docs": 1387,
+    "ready": 1380,
     "draft": 7
   },
   "topics": {
     "accessibility": {
       "path": "knowledge/accessibility",
-      "doc_count": 34,
-      "ready": 34,
+      "doc_count": 35,
+      "ready": 35,
       "draft": 0,
       "docs": [
+        {
+          "id": "accessibility/readme",
+          "title": "Accessibility Engineering Standards",
+          "slug": "readme",
+          "type": "index",
+          "order": -1,
+          "status": "ready",
+          "tags": [
+            "accessibility"
+          ],
+          "when_to_use": "Read first when starting accessibility work, to see how this section's docs fit together and which one covers the component you are building.",
+          "path": "knowledge/accessibility/README.md"
+        },
         {
           "id": "accessibility/00-overview",
           "title": "Overview",
@@ -4127,10 +4140,23 @@
     },
     "divi": {
       "path": "knowledge/divi",
-      "doc_count": 34,
-      "ready": 34,
+      "doc_count": 35,
+      "ready": 35,
       "draft": 0,
       "docs": [
+        {
+          "id": "divi/readme",
+          "title": "Divi Engineering Standards",
+          "slug": "readme",
+          "type": "index",
+          "order": -1,
+          "status": "ready",
+          "tags": [
+            "divi"
+          ],
+          "when_to_use": "Read first when starting work on a Divi site, to see how this section's docs fit together and where builder constraints apply.",
+          "path": "knowledge/divi/README.md"
+        },
         {
           "id": "divi/00-overview",
           "title": "Overview",
@@ -12010,10 +12036,23 @@
     },
     "performance": {
       "path": "knowledge/performance",
-      "doc_count": 34,
-      "ready": 34,
+      "doc_count": 35,
+      "ready": 35,
       "draft": 0,
       "docs": [
+        {
+          "id": "performance/readme",
+          "title": "Performance Engineering Standards",
+          "slug": "readme",
+          "type": "index",
+          "order": -1,
+          "status": "ready",
+          "tags": [
+            "performance"
+          ],
+          "when_to_use": "Read first when starting performance work, to see how this section's docs fit together and where to begin measuring.",
+          "path": "knowledge/performance/README.md"
+        },
         {
           "id": "performance/00-overview",
           "title": "Overview",
@@ -15518,10 +15557,23 @@
     },
     "security": {
       "path": "knowledge/security",
-      "doc_count": 34,
-      "ready": 34,
+      "doc_count": 35,
+      "ready": 35,
       "draft": 0,
       "docs": [
+        {
+          "id": "security/readme",
+          "title": "Security Engineering Standards",
+          "slug": "readme",
+          "type": "index",
+          "order": -1,
+          "status": "ready",
+          "tags": [
+            "security"
+          ],
+          "when_to_use": "Read first when starting security work, to see how this section's docs fit together and which one covers your problem.",
+          "path": "knowledge/security/README.md"
+        },
         {
           "id": "security/00-overview",
           "title": "Overview",
@@ -16002,10 +16054,23 @@
     },
     "seo": {
       "path": "knowledge/seo",
-      "doc_count": 34,
-      "ready": 34,
+      "doc_count": 35,
+      "ready": 35,
       "draft": 0,
       "docs": [
+        {
+          "id": "seo/readme",
+          "title": "SEO Engineering Standards",
+          "slug": "readme",
+          "type": "index",
+          "order": -1,
+          "status": "ready",
+          "tags": [
+            "seo"
+          ],
+          "when_to_use": "Read first when starting SEO work, to see how this section's docs fit together and which technical concern applies.",
+          "path": "knowledge/seo/README.md"
+        },
         {
           "id": "seo/00-overview",
           "title": "Overview",
@@ -17004,10 +17069,23 @@
     },
     "tailwind": {
       "path": "knowledge/tailwind",
-      "doc_count": 34,
-      "ready": 34,
+      "doc_count": 35,
+      "ready": 35,
       "draft": 0,
       "docs": [
+        {
+          "id": "tailwind/readme",
+          "title": "Tailwind CSS Engineering Standards",
+          "slug": "readme",
+          "type": "index",
+          "order": -1,
+          "status": "ready",
+          "tags": [
+            "tailwind"
+          ],
+          "when_to_use": "Read first when starting Tailwind work, to see how this section's docs fit together and how the utility model should be applied.",
+          "path": "knowledge/tailwind/README.md"
+        },
         {
           "id": "tailwind/00-overview",
           "title": "Overview",
@@ -17509,10 +17587,23 @@
     },
     "testing": {
       "path": "knowledge/testing",
-      "doc_count": 34,
-      "ready": 34,
+      "doc_count": 35,
+      "ready": 35,
       "draft": 0,
       "docs": [
+        {
+          "id": "testing/readme",
+          "title": "Testing Engineering Standards",
+          "slug": "readme",
+          "type": "index",
+          "order": -1,
+          "status": "ready",
+          "tags": [
+            "testing"
+          ],
+          "when_to_use": "Read first when starting testing work, to see how this section's docs fit together and which level of test fits the problem.",
+          "path": "knowledge/testing/README.md"
+        },
         {
           "id": "testing/00-overview",
           "title": "Overview",
@@ -18511,10 +18602,23 @@
     },
     "woocommerce": {
       "path": "knowledge/woocommerce",
-      "doc_count": 34,
-      "ready": 34,
+      "doc_count": 35,
+      "ready": 35,
       "draft": 0,
       "docs": [
+        {
+          "id": "woocommerce/readme",
+          "title": "WooCommerce Engineering Standards",
+          "slug": "readme",
+          "type": "index",
+          "order": -1,
+          "status": "ready",
+          "tags": [
+            "woocommerce"
+          ],
+          "when_to_use": "Read first when starting work on a WooCommerce store, to see how this section's docs fit together and which extension point applies.",
+          "path": "knowledge/woocommerce/README.md"
+        },
         {
           "id": "woocommerce/00-overview",
           "title": "Overview",
