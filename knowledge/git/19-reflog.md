@@ -6,7 +6,7 @@ title: "Reflog"
 type: doc
 order: 19
 status: ready
-tags: [git, reflog, reflog, rebase, never, checkout, reset]
+tags: [git, reflog, rebase, never, checkout, reset]
 related: [git/09-reset, git/07-rebasing, git/18-history, git/08-cherry-pick, git/27-best-practices]
 when_to_use: "Read before or right after a destructive operation (reset --hard, rebase, branch delete) to recover lost commits."
 ---

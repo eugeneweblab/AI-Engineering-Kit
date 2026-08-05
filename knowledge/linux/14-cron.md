@@ -6,7 +6,7 @@ title: "Cron"
 type: doc
 order: 14
 status: ready
-tags: [linux, cron, systemd, flock, cron]
+tags: [linux, cron, systemd, flock]
 related: [linux/08-systemd, linux/15-logging, linux/23-automation, linux/13-environment]
 when_to_use: "Read before scheduling a recurring job, or debugging a cron/timer that runs by hand but not on schedule."
 ---

@@ -6,7 +6,7 @@ title: "TypeScript Overview"
 type: doc
 order: 0
 status: ready
-tags: [typescript, overview, strict, unknown, isInteger, toFixed, typescript]
+tags: [typescript, overview, strict, unknown, isInteger, toFixed]
 related: [typescript/02-type-system, typescript/03-type-inference, typescript/16-configuration, typescript/28-best-practices, typescript/100-common-antipatterns]
 when_to_use: "Read first when starting any TypeScript work, to orient yourself before diving into a specific document."
 ---

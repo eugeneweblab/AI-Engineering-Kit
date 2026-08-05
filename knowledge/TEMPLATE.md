@@ -33,7 +33,7 @@ is met. After editing, regenerate the index: `python3 scripts/build-index.py`.
 
 ## Body structure
 
-```markdown
+````markdown
 # Title
 
 ## Purpose
@@ -56,15 +56,15 @@ The high-level ideas that guide decisions in this area.
 
 **Good Example**
 
-​```ts
+```ts
 // correct, modern, production-ready
-​```
+```
 
 **Bad Example**
 
-​```ts
+```ts
 // the common mistake, with a note on why it fails
-​```
+```
 
 ## Common Mistakes
 
@@ -86,4 +86,4 @@ The high-level ideas that guide decisions in this area.
 ## Related
 
 - `knowledge/<topic>/<doc>.md`
-```
+````

@@ -6,7 +6,7 @@ title: "Prisma Transactions"
 type: doc
 order: 8
 status: ready
-tags: [prisma, transactions, Serializable, timeout, transaction, maxWait, P2034, prisma]
+tags: [prisma, transactions, Serializable, timeout, transaction, maxWait, P2034]
 related: [prisma/07-crud, prisma/06-client, prisma/15-performance, prisma/18-error-handling, prisma/09-filtering]
 when_to_use: "Read before writing any operation where multiple database changes must succeed or fail together."
 ---

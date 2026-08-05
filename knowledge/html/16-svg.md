@@ -37,7 +37,7 @@ crisp, safe, lightweight graphic from a liability.
 ## Core Principles
 
 - **Choose the embedding method by intent.** Inline `<svg>` when you need to style,
-  animate, or script it; `<img src="…​.svg">` for a static decorative or content image
+  animate, or script it; `<img src="….svg">` for a static decorative or content image
   that you do not manipulate.
 - **Accessibility is explicit.** SVG has no default accessible name. Add `role="img"`
   plus `<title>` (or `aria-label`) for meaningful graphics; `aria-hidden="true"` for

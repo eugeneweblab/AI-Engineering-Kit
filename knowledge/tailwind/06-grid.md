@@ -6,7 +6,7 @@ title: "Tailwind CSS Grid"
 type: doc
 order: 6
 status: ready
-tags: [tailwind, grid, auto-fit, auto-fill, minmax, grid, subgrid]
+tags: [tailwind, grid, auto-fit, auto-fill, minmax, subgrid]
 related: [tailwind/05-flexbox, tailwind/04-layout, tailwind/07-spacing, tailwind/11-responsive-design, tailwind/08-sizing]
 when_to_use: "Read before building any two-dimensional layout — dashboards, card galleries, form grids, or page shells that align in both rows and columns."
 ---

@@ -6,7 +6,7 @@ title: "Bash"
 type: doc
 order: 3
 status: ready
-tags: [linux, bash, shellcheck, eval, expr, bash, mktemp]
+tags: [linux, bash, shellcheck, eval, expr, mktemp]
 related: [linux/02-shell, linux/01-filesystem, linux/00-overview, linux/05-permissions, linux/04-users-and-groups]
 when_to_use: "Read before writing or reviewing any Bash script that runs in CI, deploys, or automation."
 ---

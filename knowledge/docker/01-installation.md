@@ -6,7 +6,7 @@ title: "Docker Installation"
 type: doc
 order: 1
 status: ready
-tags: [docker, installation, docker, docker-compose, repo]
+tags: [docker, installation, docker-compose, repo]
 related: [docker/00-overview, docker/02-docker-architecture, docker/04-containers, docker/18-security, docker/21-development-workflow]
 when_to_use: "Read before installing Docker on a new machine, CI runner, or server, or when diagnosing a broken install."
 ---

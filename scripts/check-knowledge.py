@@ -23,7 +23,7 @@ Checks
               matches the document's H1
   duplicates  no duplicate `id`, no duplicate `title`, no duplicate `order` in a topic
   links       markdown links, `related:` ids, and `knowledge/...md` paths resolve
-  fences      every ``` fence is closed
+  fences      every ``` fence is closed; no zero-width characters in the body
   blocks      each fenced block parses as the language it is tagged with
   plan        docs/structure/ still describes the tree that exists on disk
   pointers    98/99 checklists route each themed section to the rule behind it
@@ -402,6 +402,14 @@ def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
                 continue  # README/TEMPLATE/STYLE_GUIDE at the root carry no frontmatter
             problems.append(f"{rel}: no frontmatter")
             continue
+        # Zero-width and BOM characters survive copy-paste into filenames, commands,
+        # and identifiers, and hide fences from every tool that looks for ``` at the
+        # start of a line — which is how TEMPLATE.md's example blocks went unchecked.
+        for ch, label in (("\u200b", "U+200B zero-width space"), ("\ufeff", "U+FEFF BOM")):
+            if ch in doc.body:
+                line = doc.body[: doc.body.index(ch)].count("\n") + 1
+                problems.append(f"{rel}: {label} in the body, near line {line}")
+
         if not doc.fences_balanced:
             problems.append(f"{rel}: unbalanced ``` fence")
 

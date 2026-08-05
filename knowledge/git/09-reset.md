@@ -6,7 +6,7 @@ title: "Reset"
 type: doc
 order: 9
 status: ready
-tags: [git, reset, reset]
+tags: [git, reset]
 related: [git/10-revert, git/19-reflog, git/11-stash, git/04-commits, git/07-rebasing]
 when_to_use: "Read before running git reset — especially --hard — or before undoing local commits or unstaging files."
 ---

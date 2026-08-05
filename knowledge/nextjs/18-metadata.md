@@ -6,7 +6,7 @@ title: "Next.js Metadata"
 type: doc
 order: 18
 status: ready
-tags: [nextjs, metadata, generateMetadata, metadata, getPost, viewport, EventPage, URL]
+tags: [nextjs, metadata, generateMetadata, getPost, viewport, EventPage, URL]
 related: [nextjs/19-seo, nextjs/05-layouts, seo/05-metadata]
 when_to_use: "Read before configuring page metadata or Open Graph tags in a Next.js app."
 ---

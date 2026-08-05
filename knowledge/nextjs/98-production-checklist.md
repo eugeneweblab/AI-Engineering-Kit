@@ -354,7 +354,7 @@ Verify:
 
 ## Before Deployment
 
-**Rules:** [Deployment](26-deployment.md) · [Production Checklist](98-production-checklist.md)
+**Rules:** [Deployment](26-deployment.md) · [Environment Variables](21-environment-variables.md)
 
 ☐ Review architecture.
 
