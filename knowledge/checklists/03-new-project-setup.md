@@ -176,6 +176,60 @@ The project is set up when someone can clone it, run two commands, and get a wor
 application identical to what CI sees — and when the first real feature can be written
 without deciding any of the above.
 
+## Examples
+
+**Good Example** — the setup is a command, and the checks are enforced
+
+```bash
+# One documented command takes a new machine to a running app.
+git clone git@github.com:acme/app.git && cd app
+cp .env.example .env          # every required variable, no values
+pnpm install --frozen-lockfile
+pnpm db:up && pnpm db:migrate && pnpm db:seed
+pnpm dev                      # http://localhost:3000
+```
+
+```json
+{
+  "scripts": {
+    "verify": "pnpm typecheck && pnpm lint && pnpm test && pnpm build",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": ["eslint --max-warnings 0 --fix", "prettier --write"]
+  },
+  "packageManager": "pnpm@9.12.0"
+}
+```
+
+```yaml
+# The same `verify` in CI, plus a branch protection rule that requires it.
+- run: pnpm install --frozen-lockfile
+- run: pnpm verify
+```
+
+Formatting, linting, and the test suite are decided once, run identically on every machine,
+and enforced before merge rather than argued about in review.
+
+**Bad Example** — a README with steps and good intentions
+
+```markdown
+## Setup
+
+1. Install Node (we're on 18 or 20, either is fine)
+2. `npm install`
+3. Set up your `.env` — ask someone on the team for the values
+4. Point it at the staging database
+
+We use Prettier, please format your code before committing.
+```
+
+Two Node versions means two lockfile resolutions. "Ask someone" means the required variables
+are undocumented. Pointing local development at the shared staging database means one
+developer's test data is everyone's. "Please format" is not enforcement.
+
+---
+
 ## Related
 
 - `knowledge/tools/98-production-checklist.md`

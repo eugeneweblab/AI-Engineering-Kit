@@ -375,6 +375,49 @@ The Good result is not more clever code. It is code that a reviewer cannot disti
 
 ---
 
+## Examples
+
+**Good Example** — find the existing answer before writing a new one
+
+```bash
+# Does this already exist? Search by behaviour, not by the name you would pick.
+rg -n "formatCurrency|toCurrency|formatPrice" src/
+rg -n "Intl.NumberFormat" src/
+
+# How does this codebase already solve the adjacent problem?
+rg -n --files-with-matches "export function use[A-Z]" src/hooks/ | head
+
+# What does the project itself say about the rule?
+sed -n '1,80p' CONTRIBUTING.md
+rg -n "currency|money|price" docs/
+```
+
+```text
+Found before writing anything:
+  src/lib/format.ts        formatCurrency(cents, locale) — already handles rounding
+  src/lib/money.ts         Money type; amounts are integer cents everywhere
+  CONTRIBUTING.md          "never store amounts as floats"
+
+Conclusion: the task is to call the existing helper from the new component,
+not to add a second formatter. Scope shrank from ~80 lines to 3.
+```
+
+**Bad Example** — start from the request and infer the rest
+
+```ts
+// Written without searching. A formatter already existed three directories away,
+// and this one disagrees with it: it takes a float, rounds differently, and
+// hardcodes the locale the rest of the app takes from the user.
+export function formatPrice(price: number): string {
+  return '£' + price.toFixed(2);
+}
+```
+
+The result compiles, passes review if the reviewer is also unaware, and produces prices that
+differ by a penny from every other screen — a defect that surfaces in accounting, not in tests.
+
+---
+
 ## Summary
 
 Context gathering is the highest return activity in AI-assisted software development.

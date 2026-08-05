@@ -401,6 +401,46 @@ AI should clearly communicate low confidence instead of presenting uncertain con
 
 ---
 
+## Examples
+
+**Good Example** — the claim is backed by a command and its output
+
+```text
+$ npm run verify
+  ✓ tsc --noEmit                      0 errors
+  ✓ eslint . --max-warnings 0         0 problems
+  ✓ vitest run                        142 passed, 0 failed
+  ✓ next build                        built in 24.1s
+
+$ npm run test -- --grep "quantity"
+  ✓ rejects a quantity below 1        (new test, fails on main)
+```
+
+```text
+Verified
+  - the reported bug no longer reproduces (steps in the ticket, re-run manually)
+  - the new test fails on main at 4a91c2e and passes on this branch
+  - typecheck, lint, unit tests, and the production build all pass
+  - checked 98-production-checklist.md and 100-common-antipatterns.md for nestjs
+
+Not verified — stated rather than implied
+  - no load testing; the change is on the validation path and adds one comparison
+  - not tested against the staging database; the schema is unchanged
+```
+
+**Bad Example** — a confident summary of work that was not checked
+
+```text
+Fixed the validation bug, added a test, and everything passes. Also cleaned up
+some unrelated code while I was in there. Should be good to merge.
+```
+
+"Everything passes" names no command. The test was never run against `main`, so nobody knows
+it would have caught the bug. The "cleanup" is unreviewed and unmentioned in the diff summary.
+If any of it is wrong, the reviewer inherits the job of finding out.
+
+---
+
 ## Completion Criteria
 
 A task should only be marked complete if all of the following are true:

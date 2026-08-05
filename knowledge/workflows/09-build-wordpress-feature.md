@@ -426,6 +426,74 @@ Large template files containing business logic.
 
 ---
 
+## Examples
+
+**Good Example** — the feature is a plugin, wired on hooks, using core APIs
+
+```php
+// wp-content/plugins/acme-events/acme-events.php
+defined( 'ABSPATH' ) || exit;
+
+require_once __DIR__ . '/inc/class-acme-event-post-type.php';
+require_once __DIR__ . '/inc/class-acme-signup-service.php';
+
+// Registration on init — so it happens on every request, not only on activation.
+add_action( 'init', array( Acme_Event_Post_Type::class, 'register' ) );
+
+register_activation_hook(
+	__FILE__,
+	static function () {
+		Acme_Event_Post_Type::register();   // register BEFORE flushing
+		flush_rewrite_rules();
+	}
+);
+```
+
+```php
+// The rule lives in a service, so the REST route, WP-CLI, and the admin screen
+// all enforce it identically.
+add_action( 'rest_api_init', static function () {
+	register_rest_route(
+		'acme/v1',
+		'/events/(?P<id>\d+)/signups',
+		array(
+			'methods'             => WP_REST_Server::CREATABLE,
+			'callback'            => 'acme_create_signup',
+			'permission_callback' => static fn() => is_user_logged_in(),
+			'args'                => array(
+				'id' => array( 'required' => true, 'sanitize_callback' => 'absint' ),
+			),
+		)
+	);
+} );
+```
+
+**Bad Example** — the feature is a theme edit and a direct query
+
+```php
+<?php
+// functions.php of the active theme: the next theme update or theme switch
+// deletes the entire feature.
+add_action( 'wp_head', function () {
+	global $wpdb;
+
+	// Direct SQL: bypasses the object cache, post-status rules, and every hook
+	// another plugin registered. The output is unescaped on top of it.
+	$rows = $wpdb->get_results( "SELECT * FROM {$wpdb->posts} WHERE post_type='event'" );
+	foreach ( $rows as $row ) {
+		echo '<div>' . $row->post_title . '</div>';
+	}
+} );
+
+// A signup handler with no capability check and no nonce, reachable by anyone.
+add_action( 'admin_post_nopriv_acme_signup', function () {
+	global $wpdb;
+	$wpdb->query( "INSERT INTO wp_acme_signups (event_id) VALUES ({$_POST['event_id']})" );
+} );
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:

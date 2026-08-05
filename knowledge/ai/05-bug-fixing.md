@@ -401,6 +401,63 @@ A bug fix is successful when:
 
 ---
 
+## Examples
+
+**Good Example** — reproduce, locate, fix the cause, prove it with a test
+
+```text
+1. Reproduce
+   POST /api/orders with quantity: 0 returns 201 and creates an order.
+   Reproduced locally on main at 4a91c2e.
+
+2. Locate
+   CreateOrderDto has @IsInt() but no @Min(1).
+   ValidationPipe is global, so the DTO is the only gate — and it lets 0 through.
+
+3. Cause
+   The rule "quantity must be at least 1" was never expressed anywhere.
+   Downstream, the pricing loop multiplies by 0 and the order totals zero.
+
+4. Fix — one line, at the boundary where the rule belongs.
+```
+
+```diff
+ export class CreateOrderItemDto {
+   @IsInt()
++  @Min(1)
+   readonly quantity!: number;
+ }
+```
+
+```ts
+// 5. The regression test fails before the fix and passes after it.
+it('rejects a quantity below 1', async () => {
+  await request(app.getHttpServer())
+    .post('/orders')
+    .send({ items: [{ sku: 'SKU-1', quantity: 0 }] })
+    .expect(400);
+});
+```
+
+**Bad Example** — suppress the symptom where it was noticed
+
+```tsx
+// The zero-total orders were discovered on the invoice screen, so the invoice
+// screen was changed. The invalid order is still created, still stored, and
+// still breaks the nightly revenue report and the warehouse export.
+export function InvoiceRow({ order }: { order: Order }) {
+  if (order.totalCents === 0) {
+    return null;              // hides the evidence
+  }
+  return <Row order={order} />;
+}
+```
+
+No test was added, so nothing prevents the next zero-quantity order — and the next report of
+"orders missing from the invoice list" will be investigated from scratch.
+
+---
+
 ## Summary
 
 Professional bug fixing is a structured investigation process.

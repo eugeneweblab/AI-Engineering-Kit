@@ -313,6 +313,51 @@ Before completing:
 
 ---
 
+## Examples
+
+**Good Example** — behaviour pinned first, then changed in reviewable steps
+
+```bash
+# 1. Characterise the current behaviour before touching it. These tests describe
+#    what the code DOES, including the parts nobody intended.
+npm run test -- --coverage src/pricing
+# → 34% covered. Add tests for the uncovered branches BEFORE refactoring.
+```
+
+```ts
+// 2. A pinning test for the behaviour being preserved, quirks included.
+it('rounds half up, matching the legacy behaviour', () => {
+  expect(priceWithTax(1005, 0.2)).toBe(1206);   // not 1205 — documented quirk
+});
+```
+
+```text
+3. Refactor in separate commits, each one green:
+   a1b2c3d  test: pin current pricing behaviour        (no production change)
+   b2c3d4e  refactor: extract TaxCalculator            (no behaviour change)
+   c3d4e5f  refactor: replace the switch with a map    (no behaviour change)
+   d4e5f6a  fix: correct the rounding for 0% tax       (behaviour change, stated)
+
+4. The one behavioural change is its own commit, with its own test, and can be
+   reverted without losing the refactor.
+```
+
+**Bad Example** — restructure and fix in one pass
+
+```text
+One commit, 1,400 lines: extracted four classes, renamed a dozen symbols,
+switched from a switch to a strategy map, changed the rounding, upgraded the
+money library, and reformatted the file.
+
+Tests: three were deleted "because they tested the old structure".
+```
+
+The suite is green, and nobody can say whether the behaviour changed. When invoices come out a
+penny off next month, the only way back is reverting all of it — including the parts that were
+improvements.
+
+---
+
 ## Common Mistakes
 
 Avoid:

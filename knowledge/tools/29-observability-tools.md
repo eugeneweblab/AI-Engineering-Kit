@@ -199,6 +199,66 @@ An alert is a promise that someone will act. Alert on symptoms users feel, not o
 
 Route by severity: paging for user-facing breakage, a channel message for degradation, a dashboard for everything else. An alert that fires nightly and is always dismissed has already stopped working.
 
+## Examples
+
+**Good Example** — one correlation id, carried across every signal
+
+```ts
+// Structured logs, with the fields you will actually filter on.
+import pino from 'pino';
+
+export const logger = pino({
+  level: process.env.LOG_LEVEL ?? 'info',
+  redact: ['req.headers.authorization', 'req.headers.cookie', '*.password', '*.token'],
+});
+
+// The same id appears on the access log, the application log, the trace, and
+// the error report — so one incident is one query, not four.
+logger.info({
+  event: 'order.placed',
+  orderId: order.id,
+  userId: user.id,
+  traceId: trace.getActiveSpan()?.spanContext().traceId,
+  durationMs: Math.round(elapsed),
+});
+```
+
+```yaml
+# Alert on what users experience, with a window long enough not to page on noise.
+- alert: CheckoutErrorRateHigh
+  expr: |
+    sum(rate(http_requests_total{route="/api/orders",status=~"5.."}[5m]))
+      / sum(rate(http_requests_total{route="/api/orders"}[5m])) > 0.02
+  for: 10m
+  annotations:
+    summary: "Checkout 5xx above 2% for 10 minutes"
+    runbook: https://runbooks.example.com/checkout-errors
+```
+
+**Bad Example** — logs nobody can query, alerts nobody trusts
+
+```ts
+// Unstructured: no field to filter on, values interpolated into the message,
+// and the token logged in full.
+console.log(`order ${order.id} placed by ${user.email} token=${req.headers.authorization}`);
+```
+
+```yaml
+# Fires on a single slow request, at any hour, with no runbook and no
+# indication of user impact. Within a month it is muted, and with it the
+# alerts that would have mattered.
+- alert: SlowRequest
+  expr: http_request_duration_seconds > 1
+  for: 0m
+  annotations:
+    summary: "A request was slow"
+```
+
+An alert that pages without telling the responder what to do trains people to ignore the
+pager. That is a worse outcome than having no alert at all.
+
+---
+
 ## Common Mistakes
 
 - Error tracking without sourcemaps or a release marker.

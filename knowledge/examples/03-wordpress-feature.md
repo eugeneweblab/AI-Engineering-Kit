@@ -323,6 +323,62 @@ decide, not the template.
 
 ---
 
+## Examples
+
+**Good Example** — a plugin, a service, and one rule enforced everywhere
+
+```php
+// The rule lives in one class, so the REST route, WP-CLI, and the admin screen
+// cannot disagree about when a signup is allowed.
+class ACME_Signup_Service {
+
+	/**
+	 * @return int|WP_Error Signup ID, or WP_Error explaining the refusal.
+	 */
+	public function register( int $event_id, int $user_id ) {
+		if ( 'publish' !== get_post_status( $event_id ) ) {
+			return new WP_Error( 'event_not_open', __( 'This event is not open.', 'acme' ), array( 'status' => 403 ) );
+		}
+
+		if ( $this->is_registered( $event_id, $user_id ) ) {
+			return new WP_Error( 'already_registered', __( 'You are already registered.', 'acme' ), array( 'status' => 409 ) );
+		}
+
+		if ( $this->seats_taken( $event_id ) >= $this->capacity( $event_id ) ) {
+			return new WP_Error( 'event_full', __( 'This event is full.', 'acme' ), array( 'status' => 409 ) );
+		}
+
+		return wp_insert_post(
+			array(
+				'post_type'   => 'acme_signup',
+				'post_status' => 'publish',
+				'post_author' => $user_id,
+				'meta_input'  => array( '_event_id' => $event_id ),
+			),
+			true
+		);
+	}
+}
+```
+
+**Bad Example** — the same rule written three times, slightly differently
+
+```php
+// In the REST callback:
+if ( get_post_status( $event_id ) !== 'publish' ) { return new WP_Error( 'closed' ); }
+
+// In the admin form handler — capacity checked, status forgotten:
+if ( acme_seats_taken( $event_id ) >= 100 ) { wp_die( 'Full' ); }   // hardcoded capacity
+
+// In the WP-CLI command — neither checked:
+$wpdb->insert( "{$wpdb->prefix}acme_signups", array( 'event_id' => $event_id ) );
+```
+
+Three implementations means three behaviours. The CLI path bypasses every rule, so a bulk
+import fills events past capacity and nobody finds out until the day of the event.
+
+---
+
 ## Related
 
 - `knowledge/workflows/09-build-wordpress-feature.md`

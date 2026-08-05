@@ -249,6 +249,54 @@ Deliberately omitted here, and needed in production:
 
 ---
 
+## Examples
+
+**Good Example** — the failure paths are as designed as the happy one
+
+```ts
+// Each failure is distinguishable, so a client can act on it.
+export async function POST(request: NextRequest, { params }: RouteContext) {
+  const session = await auth();
+  if (!session) return problem(401, 'not_authenticated');
+
+  const { eventId } = await params;
+  const parsed = CreateSignup.safeParse(await request.json().catch(() => null));
+  if (!parsed.success) return problem(400, 'validation_failed', z.treeifyError(parsed.error));
+
+  const result = await signups.register(eventId, session.userId, parsed.data);
+
+  switch (result.error) {
+    case 'NOT_FOUND':          return problem(404, 'event_not_found');
+    case 'NOT_OPEN':           return problem(403, 'event_not_open');
+    case 'ALREADY_REGISTERED': return problem(409, 'already_registered');
+    case 'EVENT_FULL':         return problem(409, 'event_full');
+  }
+
+  return Response.json({ id: result.id, status: 'confirmed' }, { status: 201 });
+}
+```
+
+**Bad Example** — one success shape and one catch-all failure
+
+```ts
+export async function POST(request: Request) {
+  try {
+    const body = await request.json();
+    const id = await signup(body.eventId, body.userId);
+    return Response.json({ ok: true, id });
+  } catch (e) {
+    // "Event full" and "database unreachable" are the same response, so the
+    // client either retries both — hammering a full event — or neither.
+    return Response.json({ ok: false, message: String(e) }, { status: 500 });
+  }
+}
+```
+
+`userId` taken from the body also means any caller can register any user. The endpoint works
+in the demo and is a defect in production.
+
+---
+
 ## Related
 
 - `knowledge/workflows/07-add-api-endpoint.md`

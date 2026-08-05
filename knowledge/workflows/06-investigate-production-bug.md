@@ -363,6 +363,49 @@ Can be scheduled according to normal priorities.
 
 ---
 
+## Examples
+
+**Good Example** — stabilise, then investigate with the evidence preserved
+
+```bash
+# 1. Stop the bleeding first, and say so — mitigation is not diagnosis.
+kubectl rollout undo deployment/api          # back to the last known-good release
+# → error rate back to baseline at 14:22. Incident mitigated, NOT resolved.
+
+# 2. Preserve the evidence before it rotates out of retention.
+kubectl logs deployment/api --previous --since=2h > incident-2026-08-04.log
+curl -sS "$LOGS_API/query?q=status:500 AND route:/api/orders&from=13:00&to=14:30" \
+  > incident-2026-08-04.json
+```
+
+```text
+3. Narrow with the data, not with guesses
+   All 500s carry plan:"legacy" — 2% of traffic, 100% of failures.
+   Deploys in the window: 3. Only 8f2c1a9 touched pricing.
+   8f2c1a9 made plan.discountPercent required; legacy rows have it null.
+
+4. Reproduce off production
+   Seeded one legacy plan locally → same stack trace. Cause confirmed.
+
+5. Fix forward, with a regression test, and write the incident report:
+   timeline, cause, why monitoring did not catch it, what changes.
+```
+
+**Bad Example** — investigate on production, in the dark
+
+```text
+14:20  Restarted the pods. Still failing.
+14:30  Increased the memory limit "in case it's OOM". No change.
+14:40  Edited the config map directly on the cluster to disable the pricing cache.
+14:50  Errors stopped. Marked resolved. Did not record what was changed.
+15:30  Next deploy overwrote the manual config change; errors returned.
+```
+
+The cluster no longer matches the repository, nobody knows which change helped, the logs from
+the failure window have rotated away, and the same incident happens again after every deploy.
+
+---
+
 ## Common Mistakes
 
 Avoid:

@@ -120,6 +120,45 @@ Treat the findings as a reviewer's notes, not a verdict:
 
 ---
 
+## Examples
+
+**Good Example** — the prompt supplies the standard, the scope, and the output shape
+
+```text
+Review the diff below against this repository's standards.
+
+Standards that apply
+  - Amounts are integer cents; a float on money is a defect, not a preference.
+  - Services return Result and never throw across a service boundary.
+  - Every new route needs an explicit authorization check.
+  - No new dependency without an ADR in docs/adr/.
+
+Scope
+  Only the diff. Do not comment on pre-existing code it does not touch.
+  Do not comment on formatting — Prettier owns it.
+
+Output
+  For each finding: severity (blocking | non-blocking | question), file:line,
+  what breaks, and the smallest change that fixes it.
+  If you are not sure a finding is real, mark it as a question.
+
+Diff:
+<diff here>
+```
+
+**Bad Example** — an open request with no standard and no scope
+
+```text
+Review this code and tell me what you think.
+<paste of the whole file>
+```
+
+Without the standard, the review reports generic advice — add comments, use arrow functions,
+consider extracting a helper — and misses the float on money, because nothing said money was
+integer cents. Without a scope, most findings are about code the change never touched.
+
+---
+
 ## Related
 
 - `knowledge/engineering/02-code-review.md`

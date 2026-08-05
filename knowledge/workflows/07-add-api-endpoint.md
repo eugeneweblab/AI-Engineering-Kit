@@ -411,6 +411,65 @@ Relevant knowledge:
 
 ---
 
+## Examples
+
+**Good Example** — the contract is decided before the handler is written
+
+```text
+POST /api/v1/events/{eventId}/signups        register the current user
+
+201  { "id": 4471, "status": "confirmed" }
+400  validation failed
+401  not authenticated
+403  event not open to this user
+404  event does not exist
+409  already registered | event full | event already started
+429  rate limited
+```
+
+```ts
+// The handler follows the contract, and the errors are distinguishable.
+export async function POST(request: NextRequest, { params }: { params: Promise<{ eventId: string }> }) {
+  const session = await auth();
+  if (!session) return problem(401, 'not_authenticated');
+
+  const { eventId } = await params;
+  const body = CreateSignup.safeParse(await request.json().catch(() => null));
+  if (!body.success) return problem(400, 'validation_failed', z.treeifyError(body.error));
+
+  const result = await signupsService.register(eventId, session.userId, body.data);
+
+  if (result.error === 'EVENT_FULL') return problem(409, 'event_full');
+  if (result.error === 'NOT_FOUND') return problem(404, 'event_not_found');
+
+  return Response.json({ id: result.id, status: 'confirmed' }, { status: 201 });
+}
+```
+
+Deciding the codes first is what keeps them consistent across endpoints, and it is what lets
+the client handle "full" differently from "already registered".
+
+**Bad Example** — the contract emerges from the implementation
+
+```ts
+export async function POST(request: Request) {
+  try {
+    const body = await request.json();
+    const id = await signup(body.eventId, body.userId);   // userId from the body
+    return Response.json({ ok: true, id });
+  } catch (e) {
+    // Every failure is a 500 with a message string. The client cannot tell
+    // "event full" from "database down", so it retries both — or neither.
+    return Response.json({ ok: false, error: String(e) }, { status: 500 });
+  }
+}
+```
+
+`userId` from the request body means any caller can sign up any user. The contract was never
+written down, so nobody noticed.
+
+---
+
 ## Common Mistakes
 
 Avoid:

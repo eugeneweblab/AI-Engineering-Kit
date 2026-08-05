@@ -391,6 +391,65 @@ Before completing the feature:
 
 ---
 
+## Examples
+
+**Good Example** — the feature is shaped by what the codebase already does
+
+```text
+Feature: export orders as CSV
+
+Context first
+  - src/lib/export/to-csv.ts exists; the invoices page already uses it.
+  - Exports stream from a Route Handler (src/app/api/invoices/export/route.ts).
+  - CONTRIBUTING.md: no new dependencies without an ADR.
+
+Plan
+  1. src/app/api/orders/export/route.ts — mirrors the invoices route.
+  2. Reuse toCsv; add the orders column map beside the invoices one.
+  3. Stream from the repository, not from the paginated page query.
+  4. Integration test: 4,000 seeded orders produce 4,001 lines.
+
+Out of scope (stated, not silently dropped)
+  - XLSX export — asked for "eventually"; separate ticket.
+  - Column selection UI — not requested.
+```
+
+```ts
+// The implementation is unremarkable on purpose: a reviewer who knows the
+// invoices route already knows this one.
+export async function GET(request: NextRequest) {
+  const session = await auth();
+  if (!session) return new Response('Unauthorized', { status: 401 });
+
+  const rows = ordersRepository.streamAllForUser(session.userId);   // not the page query
+  return new Response(toCsvStream(rows, ORDER_COLUMNS), {
+    headers: {
+      'content-type': 'text/csv; charset=utf-8',
+      'content-disposition': 'attachment; filename="orders.csv"',
+    },
+  });
+}
+```
+
+**Bad Example** — the feature is shaped by the first idea
+
+```tsx
+'use client';
+import { unparse } from 'papaparse';       // new dependency, no ADR
+
+export function ExportButton({ orders }: { orders: Order[] }) {
+  // `orders` is the current page — 20 of 4,000. The export is silently
+  // incomplete, and it will be trusted for months before anyone notices.
+  const download = () => {
+    const csv = unparse(orders);
+    window.open(URL.createObjectURL(new Blob([csv], { type: 'text/csv' })));
+  };
+  return <button onClick={download}>Export CSV</button>;
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:

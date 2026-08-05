@@ -421,6 +421,69 @@ Hardcoded colors
 
 ---
 
+## Examples
+
+**Good Example** — a child-theme module with declared fields and escaped output
+
+```php
+<?php
+// wp-content/themes/acme-child/includes/modules/EventCard/EventCard.php
+// Lives in the CHILD theme, so a Divi update does not delete it.
+class ACME_Event_Card extends ET_Builder_Module {
+
+	public $slug       = 'acme_event_card';
+	public $vb_support = 'on';                  // works in the Visual Builder
+
+	public function init() {
+		$this->name = esc_html__( 'Event Card', 'acme' );
+	}
+
+	public function get_fields() {
+		// Declared fields become Visual Builder controls, and Divi sanitizes them.
+		return array(
+			'event_id' => array(
+				'label'           => esc_html__( 'Event', 'acme' ),
+				'type'            => 'select',
+				'options'         => acme_event_options(),
+				'toggle_slug'     => 'main_content',
+			),
+		);
+	}
+
+	public function render( $unprocessed_props, $content, $render_slug ) {
+		$event_id = absint( $this->props['event_id'] );
+
+		return sprintf(
+			'<article class="acme-event-card"><h3>%s</h3><p>%s</p></article>',
+			esc_html( get_the_title( $event_id ) ),
+			esc_html( get_post_meta( $event_id, '_event_start', true ) )
+		);
+	}
+}
+
+new ACME_Event_Card();
+```
+
+**Bad Example** — a code module with inline PHP and per-instance CSS
+
+```text
+Divi → Code Module → pasted markup, with the event id typed in by hand.
+Repeated on 14 pages. Each copy has slightly different markup.
+```
+
+```css
+/* Custom CSS added in each module's own settings panel. The selectors are
+   Divi's generated numbering, so reordering a section detaches the styling
+   from the element it was written for. */
+.et_pb_text_0 { color: #111827 !important; padding: 17px !important; }
+.et_pb_text_7 { color: #111828 !important; padding: 16px !important; }
+```
+
+None of this is in version control, none of it can be reviewed, and changing the card means
+opening fourteen pages in the builder.
+
+---
+
 ## Common Mistakes
 
 Avoid:

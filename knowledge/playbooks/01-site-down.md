@@ -171,6 +171,48 @@ including the wrong turns. See [Incident Report](../templates/03-incident-report
 
 ---
 
+## Examples
+
+**Good Example** — confirm, communicate, mitigate, then diagnose
+
+```bash
+# 1. Confirm it is not just you. 60 seconds, not a debate.
+curl -sS -o /dev/null -w '%{http_code} %{time_total}s\n' https://example.com
+dig +short example.com
+curl -sS -o /dev/null -w '%{http_code}\n' https://example.com/api/health/ready
+
+# 2. Post the first update BEFORE investigating. Silence is the second incident.
+#    "Investigating reports that example.com is unavailable. Next update 15:00."
+
+# 3. Mitigate with the fastest reversible action available.
+kubectl rollout undo deployment/web        # last known-good release
+# → 200s return at 14:22. Say so: mitigated, not resolved.
+
+# 4. Preserve evidence before it rotates away.
+kubectl logs deployment/web --previous --since=2h > incident-$(date -u +%Y%m%dT%H%M%SZ).log
+```
+
+```text
+5. Only now, diagnose — with the site up and the logs saved.
+6. Write the incident report the same day, while the timeline is still known.
+```
+
+**Bad Example** — debug first, tell people later
+
+```text
+14:05  Alert fires. Start reading application logs.
+14:20  Still reading. Nobody outside the team knows anything.
+14:35  Support is fielding customer emails with no information to give.
+14:40  Try a config change directly on the production cluster.
+14:55  Try another. Site comes back. Nobody records which change did it.
+15:10  Cluster no longer matches the repository; the next deploy reverts the fix.
+```
+
+The outage lasted 50 minutes; the trust cost came from the 35 minutes of silence, and the
+cause is still unknown.
+
+---
+
 ## Related
 
 - `knowledge/playbooks/02-failed-deployment.md`

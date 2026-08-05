@@ -136,6 +136,53 @@ should not require a deploy. Considered a webhook to invalidate on change, but t
 
 ---
 
+## Examples
+
+**Good Example** — filled in so a reviewer can start reviewing
+
+```markdown
+## What and why
+Zero-quantity order items produced zero-total orders. #481 hid them on the
+invoice screen; this fixes the cause by rejecting the input at the boundary.
+
+## How to verify
+`POST /api/orders` with `"quantity": 0` returns 400.
+`npm test -- --grep quantity` — the new test fails on `main` at 4a91c2e.
+
+## Risk and rollback
+Low: one validation rule on one path. Existing zero-quantity orders are
+unaffected (a separate data-cleanup ticket, #489). Rollback: revert this commit.
+
+## Not included
+`getOrders()` has a missing timeout with the same shape. Fixing it here would
+mix two changes; opened #490.
+
+## Screenshots
+Error state: <image>   (400 response rendered in the checkout form)
+```
+
+**Bad Example** — the template left as headings
+
+```markdown
+## What and why
+Fixes the bug.
+
+## How to verify
+Should work now.
+
+## Risk and rollback
+Low risk.
+
+## Screenshots
+N/A
+```
+
+The template was filled in without being answered. The reviewer still has to work out which
+bug, how to reproduce it, what "low risk" is based on, and whether the 900-line diff contains
+anything besides the fix.
+
+---
+
 ## Related
 
 - `knowledge/workflows/05-review-pull-request.md`

@@ -492,6 +492,55 @@ The best modification is often the one that future engineers barely notice becau
 
 ---
 
+## Examples
+
+**Good Example** — the smallest diff that solves the stated problem
+
+```diff
+ export async function getUser(id: string): Promise<User> {
+-  const res = await fetch(`${API_URL}/users/${id}`);
++  const res = await fetch(`${API_URL}/users/${id}`, { signal: AbortSignal.timeout(5_000) });
++
++  if (!res.ok) {
++    throw new HttpError(res.status, `Failed to load user ${id}`);
++  }
++
+   return res.json();
+ }
+```
+
+```text
+Reported: the profile page hangs forever when the API is down.
+Cause:    fetch has no timeout, and a 500 body parses as JSON without throwing.
+Change:   a timeout and a status check. Two behaviours, one function, one commit.
+
+Noticed but NOT changed in this diff:
+  - getOrders() has the same problem  → same fix, separate commit
+  - the file uses `any` in three places → pre-existing, separate ticket
+```
+
+**Bad Example** — the fix, plus everything else the file needed
+
+```diff
+-export async function getUser(id: string): Promise<User> {
+-  const res = await fetch(`${API_URL}/users/${id}`);
+-  return res.json();
++// Reformatted the whole file, renamed the module's exports, switched to axios,
++// converted three other functions, and reordered the imports.
++import axios from 'axios';
++
++export const fetchUserById = async (id: string): Promise<User> => {
++  const { data } = await axios.get(`${API_URL}/users/${id}`, { timeout: 5000 });
++  return data;
+ }
+```
+
+The bug fix is in there somewhere. A reviewer cannot find it, the rename breaks every caller,
+a new dependency was added without discussion, and if the change causes a regression it cannot
+be reverted without also reverting the fix.
+
+---
+
 ## Summary
 
 Professional software engineering is primarily the discipline of changing existing systems safely.

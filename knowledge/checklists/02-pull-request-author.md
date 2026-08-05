@@ -144,6 +144,54 @@ See [Templates — Pull Request](../templates/01-pull-request.md).
 The PR is ready when you have read the whole diff yourself, `verify` is green, the
 description explains why, and you can name what would break if it is wrong.
 
+## Examples
+
+**Good Example** — the author does the reviewer's first pass first
+
+```bash
+# Read your own diff before anyone else does. Most review comments are things
+# the author would have caught here.
+git diff --stat main...HEAD
+git diff main...HEAD -- ':!*.lock' ':!*.snap'
+
+# The same commands CI runs, run locally, before the PR exists.
+npm run verify
+
+# Does the new test actually catch the bug?
+git stash -- src/ && npm test -- --grep "quantity"   # expect FAIL
+git stash pop && npm test -- --grep "quantity"       # expect PASS
+```
+
+```markdown
+## What and why
+Zero-quantity order items created zero-total orders (#481 fixed the invoice
+symptom; this fixes the cause). Adds `@Min(1)` to `CreateOrderItemDto`.
+
+## How to verify
+`POST /api/orders` with `quantity: 0` now returns 400. Test added; it fails on
+`main` at 4a91c2e.
+
+## Risk
+Low. One validation rule, one path. Rollback: revert this commit.
+
+## Not included
+`getOrders()` has the same missing timeout — separate commit on this branch.
+```
+
+**Bad Example** — the diff is the description
+
+```markdown
+## fix stuff
+
+fixes the bug
+```
+
+A 900-line diff with a reformatted file, an unrelated rename, and the actual fix somewhere in
+the middle. The reviewer has to reconstruct the intent, cannot tell which lines matter, and
+has no way to verify the claim.
+
+---
+
 ## Related
 
 - `knowledge/templates/01-pull-request.md`

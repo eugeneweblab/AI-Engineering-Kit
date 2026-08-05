@@ -154,6 +154,58 @@ entirely to a third party that owns the arithmetic.
 
 ---
 
+## Examples
+
+**Good Example** — the alternatives and the cost are recorded, not just the choice
+
+```markdown
+# ADR-014: Use Postgres row-level security for tenant isolation
+
+**Status** Accepted — 2026-08-04
+**Deciders** Platform team
+**Supersedes** ADR-009 (application-level tenant filtering)
+
+## Context
+Three incidents in six months were cross-tenant data leaks caused by a query
+that forgot `WHERE tenant_id = ?`. Application-level filtering puts the
+invariant in every query, where it is one omission away from failing.
+
+## Decision
+Enforce tenant isolation with Postgres row-level security. The application sets
+`SET LOCAL app.tenant_id` at the start of each transaction; policies do the rest.
+
+## Consequences
+Positive — a forgotten filter now returns zero rows instead of another tenant's.
+Negative — every connection must run in a transaction; connection pooling needs
+`pgbouncer` in transaction mode. Migrations must set the tenant explicitly.
+Cost — roughly two weeks to migrate 40 tables, plus a load test.
+
+## Alternatives considered
+- **Schema per tenant** — strongest isolation, but 4,000 schemas breaks
+  migrations and connection reuse at our tenant count.
+- **Keep application-level filtering, add a lint rule** — cheap, but the rule
+  cannot see dynamic query builders, which is where two of the three leaks were.
+```
+
+**Bad Example** — a decision with no reasoning to review later
+
+```markdown
+# ADR-014: Use RLS
+
+**Status** Accepted
+
+## Decision
+We will use row-level security.
+
+## Consequences
+Better security.
+```
+
+In a year, nobody can tell whether schema-per-tenant was rejected for a good reason or never
+considered — so the argument is had again from scratch, with less information.
+
+---
+
 ## Related
 
 - `knowledge/architecture/26-architecture-decision-records.md`

@@ -423,6 +423,53 @@ Remove the temporary `console.debug` line before finishing.
 
 ---
 
+## Examples
+
+**Good Example** — narrow the search space with evidence at each step
+
+```text
+Symptom     Checkout returns 500 for ~2% of users since 14:10 today.
+
+1. Bound it
+   Logs: all failures carry `plan: "legacy"`. 98% of traffic is `plan: "standard"`.
+   → not load, not infrastructure; it is data-dependent.
+
+2. Bisect the change
+   git log --oneline --since="12:00" → 3 deploys. The 14:05 one touched pricing.
+   git bisect between 12:00 and 14:10 using a request replay → lands on 8f2c1a9.
+
+3. Read the diff, not the whole file
+   8f2c1a9 changed `plan.discountPercent` from optional to required.
+   Legacy plans have it as null in the database.
+
+4. Confirm before fixing
+   Reproduced locally by seeding one legacy plan: same stack trace, same 500.
+```
+
+```diff
+-const discount = plan.discountPercent;
++// Legacy plans predate the field; treat a missing value as no discount.
++const discount = plan.discountPercent ?? 0;
+```
+
+Every step removed possibilities. The fix was written once, after the cause was known.
+
+**Bad Example** — change things until the symptom disappears
+
+```text
+14:20  Restarted the service. Still failing.
+14:35  Rolled back the cache config "just in case". No change.
+14:50  Added a try/catch around the pricing call, returning a default price.
+       Errors stopped appearing in the log.
+15:00  Marked resolved.
+```
+
+The 500s stopped; the wrong prices did not. Legacy customers are now charged the default
+price silently, the cause is still unknown, and the try/catch removed the only signal that
+would have led to it.
+
+---
+
 ## Summary
 
 Effective debugging is a disciplined engineering process.

@@ -425,6 +425,81 @@ Mixing editor state with business logic
 
 ---
 
+## Examples
+
+**Good Example** — `block.json` as the single source of truth, server-rendered
+
+```json
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acme/event-card",
+  "title": "Event Card",
+  "category": "widgets",
+  "icon": "calendar",
+  "textdomain": "acme",
+  "attributes": {
+    "eventId": { "type": "number", "default": 0 }
+  },
+  "supports": {
+    "color": { "background": true, "text": true },
+    "spacing": { "padding": true }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "style": "file:./style.css"
+}
+```
+
+```php
+<?php
+// render.php — the markup is produced on the server, so the saved content never
+// becomes invalid when the markup changes in a later release.
+$event_id = absint( $attributes['eventId'] ?? 0 );
+if ( ! $event_id ) {
+	return '';
+}
+?>
+<article <?php echo get_block_wrapper_attributes(); ?>>
+	<h3><?php echo esc_html( get_the_title( $event_id ) ); ?></h3>
+	<p><?php echo esc_html( get_post_meta( $event_id, '_event_start', true ) ); ?></p>
+</article>
+```
+
+```php
+// One registration call; everything else comes from block.json.
+add_action( 'init', static function () {
+	register_block_type( __DIR__ . '/build/event-card' );
+} );
+```
+
+**Bad Example** — attributes declared in JS, markup saved into post content
+
+```jsx
+// Attributes and metadata duplicated in JS instead of block.json, so the editor
+// and the server disagree the moment one is edited.
+registerBlockType('acme/event-card', {
+  title: 'Event Card',
+  attributes: { eventId: { type: 'number' } },
+
+  edit: ({ attributes }) => <div>Event {attributes.eventId}</div>,
+
+  // save() writes markup into post_content. Changing this markup in the next
+  // release invalidates every existing instance: editors see "This block
+  // contains unexpected or invalid content" on pages nobody touched.
+  save: ({ attributes }) => (
+    <div className="event-card" style={{ padding: '17px', color: '#111827' }}>
+      Event {attributes.eventId}
+    </div>
+  ),
+});
+```
+
+Inline styles also bypass the `supports` mechanism, so the editor's colour and spacing controls
+do nothing.
+
+---
+
 ## Common Mistakes
 
 Avoid:

@@ -239,6 +239,64 @@ function acme_enqueue_assets(): void {
 
 ---
 
+## Examples
+
+**Good Example** — prefixed, hooked, escaped, and capability-checked
+
+```php
+// Prefixed so it cannot collide with another plugin, registered on a hook,
+// and every value escaped for the context it lands in.
+add_action( 'wp_enqueue_scripts', 'acme_enqueue_assets' );
+
+function acme_enqueue_assets() {
+	// Version from filemtime: the cache busts when the file actually changes.
+	$path = get_stylesheet_directory() . '/build/app.css';
+
+	wp_enqueue_style(
+		'acme-app',
+		get_stylesheet_directory_uri() . '/build/app.css',
+		array(),
+		file_exists( $path ) ? (string) filemtime( $path ) : null
+	);
+}
+
+add_action( 'admin_post_acme_save', 'acme_handle_save' );
+
+function acme_handle_save() {
+	$post_id = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
+
+	if ( ! $post_id || ! current_user_can( 'edit_post', $post_id ) ) {
+		wp_die( esc_html__( 'Not allowed.', 'acme' ), 403 );
+	}
+	check_admin_referer( 'acme_save_' . $post_id );
+
+	update_post_meta( $post_id, '_acme_note', sanitize_textarea_field( wp_unslash( $_POST['note'] ?? '' ) ) );
+
+	wp_safe_redirect( wp_get_referer() );
+	exit;
+}
+```
+
+**Bad Example** — the snippet pasted into `functions.php` unchanged
+
+```php
+// Unprefixed: collides with any other plugin defining the same name, and the
+// site white-screens with "Cannot redeclare function".
+function enqueue_assets() {
+	// Hardcoded version: the browser serves last month's CSS after every deploy.
+	wp_enqueue_style( 'app', get_template_directory_uri() . '/build/app.css', array(), '1.0' );
+}
+enqueue_assets();   // called directly, before WordPress is ready for it
+
+function handle_save() {
+	global $wpdb;
+	// No capability check, no nonce, unescaped interpolation into SQL.
+	$wpdb->query( "UPDATE {$wpdb->posts} SET post_title='{$_POST['title']}' WHERE ID={$_POST['id']}" );
+}
+```
+
+---
+
 ## Related
 
 - `knowledge/wordpress/06-security.md`

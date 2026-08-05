@@ -142,6 +142,57 @@ so explicitly — or a report that stopped asking why too early.
 
 ---
 
+## Examples
+
+**Good Example** — a timeline, a cause, and actions with owners
+
+```markdown
+# Incident 2026-08-04: checkout 500s for legacy plans
+
+**Impact** 2% of checkout requests failed for 72 minutes. 431 customers
+affected; 0 orders lost (all retried successfully after the fix).
+**Detected by** Error-rate alert, 14:12 — 2 minutes after onset.
+
+## Timeline (UTC)
+14:10  Deploy 8f2c1a9 reaches production.
+14:12  CheckoutErrorRateHigh fires.
+14:15  First status update posted.
+14:22  Rolled back to 7c1a9f2. Error rate returns to baseline.
+14:50  Cause identified: `plan.discountPercent` made required; legacy rows null.
+15:24  Fix deployed with a regression test. Incident closed.
+
+## Cause
+8f2c1a9 changed `discountPercent` from optional to required in the pricing code.
+Rows created before 2024 have it null. No test covered a legacy plan, and the
+staging database had been reseeded without legacy rows in March.
+
+## Why it was not caught earlier
+Staging data no longer represents production. The type change was correct in
+TypeScript terms; the database was the source of the null.
+
+## Actions
+- [ ] Seed staging with a representative legacy row — @ana — 2026-08-11
+- [ ] Add a nullability check to the migration review checklist — @ben — 2026-08-08
+- [x] Regression test for null discountPercent — @ana — done in 9f3c2d1
+```
+
+**Bad Example** — a summary with no timeline and no follow-through
+
+```markdown
+# Incident report
+
+The site was down for a while this afternoon due to a bad deploy. We rolled it
+back and everything is working now. We should be more careful with deploys.
+
+Action items: be more careful.
+```
+
+No times, so nobody can tell whether detection or response was the slow part. No cause, so the
+same class of failure is not prevented. "Be more careful" has no owner and no date, which means
+it will not happen.
+
+---
+
 ## Related
 
 - `knowledge/playbooks/01-site-down.md`

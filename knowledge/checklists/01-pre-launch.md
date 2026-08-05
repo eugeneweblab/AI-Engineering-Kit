@@ -174,6 +174,39 @@ The launch is ready when someone has completed the primary user flow on producti
 restore has been tested, alerts reach a person, and rollback has been rehearsed. Everything
 else on this list is a defect you would rather find now than at 2am.
 
+## Examples
+
+**Good Example** — items that can be answered by running something
+
+```markdown
+- [ ] `curl -sI https://example.com` returns `200` and `strict-transport-security`.
+- [ ] A restore of last night's backup into a scratch database returns a non-zero
+      row count for `orders` (proving the dump is real, not just present).
+- [ ] Lighthouse on `/` scores LCP < 2.5 s on Slow 4G throttling.
+- [ ] `axe` reports zero violations on the four highest-traffic templates.
+- [ ] `robots.txt` allows `/` and the staging site's `Disallow: /` did not ship.
+- [ ] A 404 returns HTTP 404, not 200 with a "not found" page.
+```
+
+Each line names the check and the passing condition, so two people running the list reach the
+same verdict.
+
+**Bad Example** — items that cannot fail
+
+```markdown
+- [ ] Site is fast
+- [ ] SEO is set up
+- [ ] Security reviewed
+- [ ] Backups working
+- [ ] Accessibility checked
+```
+
+"Backups working" is ticked by seeing a file in a bucket. The file may be a 0-byte dump from a
+cron job that has been failing for a month; the checklist cannot tell the difference, which is
+exactly the situation it exists to prevent.
+
+---
+
 ## Related
 
 - `knowledge/checklists/03-new-project-setup.md`

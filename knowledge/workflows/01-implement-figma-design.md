@@ -440,6 +440,46 @@ The comparison should use the complete page—not isolated components.
 
 ---
 
+## Examples
+
+**Good Example** — the design is read as a document before anything is built
+
+```text
+Before writing code
+  Node        Checkout / Desktop 1440 (12:340) — confirmed with the designer
+  Frames      1440 and 375 only; fluid between them (agreed, not guessed)
+  Tokens      Surface/Card, Ink/Primary, Accent/Blue — already in tokens.css
+  Components  Button/Primary exists in src/components/button.tsx — reuse it
+  Missing     field error state, empty cart → asked; designer added both
+
+While building
+  - auto layout → flexbox, no absolute positioning
+  - every colour and spacing value references a token
+  - the submit control is a <button>, the heading an <h2>
+
+Before opening the PR
+  npm run verify            typecheck, lint, tests, build
+  npx playwright test       visual diff under 1% against the reference
+  axe                       zero violations in default and error states
+```
+
+**Bad Example** — build from the picture, reconcile later
+
+```text
+- opened the Figma link, screenshotted the desktop frame
+- measured spacing off the screenshot; hardcoded 17px, 23px, 31px
+- copied hex values into the component's CSS module
+- invented a tablet breakpoint at 1024 because "it looked cramped"
+- invented an error state because the form needed one
+- opened the PR; the design review found nine differences, four of which were
+  the invented states and two of which were the invented breakpoint
+```
+
+Nothing here is recoverable without redoing it: the values have no source, the invented states
+were never designed, and the review has to re-derive intent that was available from the start.
+
+---
+
 ## Common Mistakes
 
 Avoid:

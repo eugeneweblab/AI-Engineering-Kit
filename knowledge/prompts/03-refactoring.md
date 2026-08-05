@@ -123,6 +123,44 @@ Asking for the plan before the diff is worth a round trip on anything structural
 
 ---
 
+## Examples
+
+**Good Example** — the goal, the invariant, and the stopping condition
+
+```text
+Refactor src/pricing/discount.ts.
+
+Goal
+  Replace the 6-branch switch on plan type with a lookup, so adding a plan does
+  not mean editing this function.
+
+Must not change
+  - Observable behaviour, including the half-up rounding at line 31. There is a
+    pinning test for it (test/pricing/rounding.test.ts); it must still pass.
+  - The public signature of applyDiscount.
+
+Constraints
+  - No new dependencies.
+  - Keep it in this file; do not reorganise the module.
+  - Behaviour changes, if you think one is warranted, go in a SEPARATE commit
+    with its own test — do not fold them into the refactor.
+
+Done when
+  npm run verify passes and `git diff` shows no change outside this file.
+```
+
+**Bad Example** — an open invitation
+
+```text
+This file is messy, please clean it up and modernise it.
+```
+
+"Modernise" invites a new dependency, a rename that breaks callers, and a rounding change made
+in passing — all in one diff, with no way to tell which part caused the invoices to come out a
+penny short next month.
+
+---
+
 ## Related
 
 - `knowledge/workflows/04-refactor-existing-code.md`

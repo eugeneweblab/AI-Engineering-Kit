@@ -367,6 +367,53 @@ Treating every task as an isolated problem.
 
 ---
 
+## Examples
+
+**Good Example** — the shape of the change is decided by what already exists
+
+```text
+Request: "add CSV export to the orders page"
+
+Context gathered first
+  - src/lib/export/ already exists: `toCsv(rows, columns)` used by the invoices page.
+  - Exports are streamed via a Route Handler, not generated in the browser
+    (src/app/api/invoices/export/route.ts is the pattern).
+  - The orders query is already paginated; there is a `findAllForUser` on the
+    repository that the invoices export uses in the same way.
+  - CONTRIBUTING.md: "no new dependencies without an ADR".
+
+Plan that follows from it
+  1. src/app/api/orders/export/route.ts — mirrors the invoices route exactly.
+  2. Reuse `toCsv`; add the orders column map next to the invoices one.
+  3. No new dependency, no new pattern, no client-side generation.
+
+Estimated diff: ~40 lines, all of it in the shape a reviewer already knows.
+```
+
+**Bad Example** — the shape of the change is decided by the first idea
+
+```tsx
+// Written without looking: a new dependency, a second CSV implementation, and
+// generation in the browser — where the page only has the current page of rows,
+// so the export silently contains 20 of 4,000 orders.
+import { unparse } from 'papaparse';          // new dependency, no ADR
+
+export function ExportButton({ orders }: { orders: Order[] }) {
+  const download = () => {
+    const csv = unparse(orders.map((o) => ({ id: o.id, total: o.totalCents / 100 })));
+    const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+    window.open(url);
+  };
+
+  return <button onClick={download}>Export CSV</button>;
+}
+```
+
+The code works in the demo, where there are twelve orders. The defect — an export that is
+quietly incomplete — is the kind that is trusted for months before anyone notices.
+
+---
+
 ## Summary
 
 Strong engineers spend significant time building context before writing code.

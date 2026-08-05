@@ -217,6 +217,52 @@ export const env = {
 
 ---
 
+## Examples
+
+**Good Example** — a snippet adapted to the codebase it lands in
+
+```ts
+// Pasted, then adapted: the project's Result type, its error codes, and its
+// logger — not the generic version from the snippet.
+import { type Result, ok, err } from '@/lib/result';
+
+export function parseMoney(input: string): Result<number, 'INVALID_AMOUNT'> {
+  const cents = Math.round(Number(input.replace(/[^0-9.-]/g, '')) * 100);
+
+  if (!Number.isFinite(cents) || !Number.isSafeInteger(cents)) {
+    return err('INVALID_AMOUNT');
+  }
+
+  return ok(cents);   // integer cents, as the codebase requires everywhere
+}
+```
+
+**Bad Example** — pasted as-is, next to something that already exists
+
+```ts
+// A second formatter, three directories from src/lib/format.ts, disagreeing
+// with it: this one takes a float, rounds differently, and hardcodes the locale
+// the rest of the app reads from the user.
+export function formatPrice(price: number): string {
+  return '£' + price.toFixed(2);
+}
+
+// Copied from a snippet without reading it: `any` in a strict codebase, and a
+// silent catch that turns a parse failure into 0.
+export function parseAmount(input: any): number {
+  try {
+    return parseFloat(input);
+  } catch {
+    return 0;
+  }
+}
+```
+
+Prices now differ by a penny between screens — a defect that surfaces in accounting rather
+than in tests.
+
+---
+
 ## Related
 
 - `knowledge/typescript/09-utility-types.md`

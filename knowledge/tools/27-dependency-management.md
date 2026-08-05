@@ -184,6 +184,54 @@ composer why-not vendor/package 2.0   # what blocks an upgrade
 
 Run this quarterly. The usual finds: packages replaced during a migration but never uninstalled, polyfills for browsers no longer supported, and utilities superseded by the standard library.
 
+## Examples
+
+**Good Example** — a lockfile in CI, updates in reviewable batches
+
+```yaml
+# .github/workflows/ci.yml — the install must fail if the lockfile is stale.
+- run: pnpm install --frozen-lockfile
+- run: pnpm audit --audit-level=high
+- run: pnpm verify
+```
+
+```json
+{
+  "renovate": {
+    "extends": ["config:recommended"],
+    "schedule": ["before 6am on Monday"],
+    "packageRules": [
+      { "matchUpdateTypes": ["minor", "patch"], "groupName": "non-major", "automerge": true },
+      { "matchUpdateTypes": ["major"], "dependencyDashboardApproval": true }
+    ],
+    "vulnerabilityAlerts": { "labels": ["security"], "schedule": ["at any time"] }
+  }
+}
+```
+
+Patch and minor updates arrive weekly, grouped, and merge themselves when the suite passes.
+Majors wait for a human. Security advisories bypass the schedule entirely.
+
+**Bad Example** — updates deferred, lockfile optional
+
+```yaml
+# `install` without --frozen-lockfile resolves fresh versions in CI, so CI can
+# pass on a dependency tree that no developer has ever run.
+- run: npm install
+- run: npm test
+```
+
+```bash
+# Six months later, all at once. Two majors, a transitive breaking change, and
+# no way to tell which of the 240 updated packages caused the failure.
+npm update && npm audit fix --force
+```
+
+`audit fix --force` installs breaking major versions to resolve advisories. Running it without
+reading the plan is how a security fix becomes an outage.
+
+---
+
 ## Common Mistakes
 
 - Deferring updates until an advisory forces a large, risky migration.

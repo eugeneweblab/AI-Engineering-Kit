@@ -390,6 +390,47 @@ Optional improvements that are not required for correctness.
 
 ---
 
+## Examples
+
+**Good Example** — comments that state the consequence and the confidence
+
+```markdown
+**Blocking** — `src/orders/export/route.ts:24`
+`streamAllForUser` is not scoped to the session user; it takes the `userId`
+query parameter. Any authenticated user can export another user's orders.
+Suggest deriving it from `session.userId` as the invoices route does.
+
+**Blocking** — `src/orders/dto.ts:12`
+`quantity` has `@IsInt()` but no `@Min(1)`. A quantity of 0 creates a zero-total
+order, which is the defect fixed in #481; this reintroduces it on a new path.
+
+**Non-blocking** — `src/orders/export/route.ts:41`
+The column map duplicates `INVOICE_COLUMNS` almost exactly. Extracting a shared
+base would be nice, but it is not worth blocking on.
+
+**Question** — is the 30-second timeout enough for the largest tenant?
+Our biggest account has ~180k orders; I have not measured it.
+```
+
+Each comment says what happens if it is not addressed, and separates what must change from
+what is a preference and what is a genuine question.
+
+**Bad Example** — taste presented as requirement, substance skipped
+
+```markdown
+- Use arrow functions here for consistency.
+- I'd call this `fetchOrders` rather than `getOrders`.
+- Nit: extra blank line.
+- Can you add a comment explaining this function?
+- Otherwise LGTM 👍
+```
+
+Nine comments about style; none about the unscoped `userId` that lets one customer download
+another's data. The author spends an hour on the renames, the reviewer feels thorough, and the
+defect ships.
+
+---
+
 ## Common Mistakes
 
 Avoid:

@@ -356,6 +356,60 @@ Before completing the task:
 
 ---
 
+## Examples
+
+**Good Example** — reproduce, then narrow, then fix, then prove
+
+```bash
+# 1. Reproduce on a known commit, with the exact steps from the report.
+git checkout main && git rev-parse --short HEAD    # 4a91c2e
+curl -sS -X POST localhost:3000/api/orders \
+  -H 'content-type: application/json' \
+  -d '{"items":[{"sku":"SKU-1","quantity":0}]}' -o /dev/null -w '%{http_code}\n'
+# → 201, and the order exists. Reproduced.
+
+# 2. Narrow: when did this start behaving this way?
+git log --oneline -S 'quantity' -- src/orders/dto/
+```
+
+```ts
+// 3. A failing test FIRST — it must fail on main, or it is not testing the bug.
+it('rejects a quantity below 1', async () => {
+  await request(app.getHttpServer())
+    .post('/orders')
+    .send({ items: [{ sku: 'SKU-1', quantity: 0 }] })
+    .expect(400);
+});
+```
+
+```diff
+ export class CreateOrderItemDto {
+   @IsInt()
++  @Min(1)
+   readonly quantity!: number;
+ }
+```
+
+The commit contains one behavioural change and one test. Reverting it is safe, and the test
+documents the rule for the next person.
+
+**Bad Example** — patch where the symptom appeared
+
+```diff
+ export function InvoiceRow({ order }: { order: Order }) {
++  // Zero-total orders were showing up on the invoice screen, so they are
++  // filtered out here. The invalid orders are still created and still break
++  // the nightly revenue report.
++  if (order.totalCents === 0) return null;
+   return <Row order={order} />;
+ }
+```
+
+The bug was never reproduced, so its cause was never found. No test was added, so nothing
+prevents recurrence — and the next report of "orders missing from invoices" starts from zero.
+
+---
+
 ## Common Mistakes
 
 Avoid:

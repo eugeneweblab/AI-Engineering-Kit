@@ -367,6 +367,51 @@ The second example contains no engineering thinking: no file scope, no ordering,
 
 ---
 
+## Examples
+
+**Good Example** — a plan with an order, a boundary, and a verification step
+
+```text
+Task: add rate limiting to the public API.
+
+Findings from context gathering
+  - Redis is already a dependency (src/lib/redis.ts), used for sessions.
+  - Route handlers live in src/app/api/**; there is no shared middleware today.
+  - CONTRIBUTING.md requires new middleware to be covered by an integration test.
+
+Plan
+  1. src/lib/rate-limit.ts — sliding-window counter on the existing Redis client.
+  2. src/middleware.ts — apply to /api/* only; skip static assets via the matcher.
+  3. Return 429 with Retry-After; document the header in docs/api.md.
+  4. Integration test: 11th request within the window returns 429.
+
+Explicitly out of scope
+  - Per-plan limits (needs the billing model, which does not exist yet).
+  - Rate limiting the tRPC routes — different transport, separate ticket.
+
+Open question
+  - Limit per IP or per API key? Keys exist but are optional today.
+    → Proceeding with IP, noted in the PR description; trivial to change.
+```
+
+**Bad Example** — start editing and decide as you go
+
+```text
+Task: add rate limiting to the public API.
+
+→ opened src/middleware.ts, added a counter in a module-level Map
+→ noticed it resets on deploy, switched to Redis
+→ noticed it also caught /_next/static, added an exclusion
+→ while there, refactored the auth check "since it was nearby"
+→ tests failed; changed the test to match the new behaviour
+```
+
+The diff now contains three unrelated changes, the auth refactor was never requested, and a
+failing test was edited rather than explained. The open question about IP versus API key was
+never surfaced, so it was answered silently by whoever typed first.
+
+---
+
 ## Summary
 
 Planning is an engineering activity, not administrative overhead.

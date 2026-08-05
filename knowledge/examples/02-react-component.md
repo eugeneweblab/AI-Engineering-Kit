@@ -238,6 +238,57 @@ name at all, so the test suite cannot tell you the component became unusable.
 
 ---
 
+## Examples
+
+**Good Example** — every state the component can be in is built and testable
+
+```tsx
+export function ProductCard({ product, onAdd }: ProductCardProps) {
+  return (
+    <article className={styles.card}>
+      {product.imageUrl ? (
+        <img src={product.imageUrl} alt={product.imageAlt} width={800} height={600} loading="lazy" />
+      ) : (
+        <div className={styles.imageFallback} aria-hidden="true" />
+      )}
+
+      <h3 className={styles.title}>{product.name}</h3>
+      <p className={styles.price}>{formatCurrency(product.priceCents)}</p>
+
+      <Button onClick={() => onAdd(product.id)} disabled={!product.inStock}>
+        {product.inStock ? 'Add to basket' : 'Out of stock'}
+      </Button>
+    </article>
+  );
+}
+```
+
+```tsx
+// The states are enumerated once and reused by Storybook and the tests.
+export const Default: Story  = { args: { product: aProduct() } };
+export const LongName: Story = { args: { product: aProduct({ name: 'x'.repeat(64) }) } };
+export const NoImage: Story  = { args: { product: aProduct({ imageUrl: null }) } };
+export const OutOfStock: Story = { args: { product: aProduct({ inStock: false }) } };
+```
+
+**Bad Example** — the happy path, with the rest discovered by users
+
+```tsx
+export function ProductCard({ data }: { data: any }) {
+  return (
+    <div className="card" onClick={() => addToBasket(data.id)}>
+      {/* Null imageUrl renders a broken image icon. */}
+      <img src={data.img} />
+      <div className="title">{data.name}</div>
+      {/* Float arithmetic on money, and no out-of-stock state at all. */}
+      <div className="price">£{data.price / 100}</div>
+    </div>
+  );
+}
+```
+
+---
+
 ## Related
 
 - `knowledge/workflows/08-build-react-component.md`

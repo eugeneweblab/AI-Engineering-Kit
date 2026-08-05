@@ -124,6 +124,42 @@ suggest optimizations for code that is not in the hot path.
 
 ---
 
+## Examples
+
+**Good Example** — evidence in the prompt, hypotheses out
+
+```text
+Investigate this failure. Do not propose a fix yet — I want the cause first.
+
+Symptom
+  POST /api/orders returns 500 for ~2% of requests since 14:10 UTC, 2026-08-04.
+  Before 14:10: 0.01% baseline.
+
+Evidence
+  - Every failing request has plan:"legacy" in the structured log (attached).
+  - Three deploys in the window: 7c1a9f2 (docs), 8f2c1a9 (pricing), 9a3b7c1 (css).
+  - Stack trace: TypeError: Cannot read properties of null (reading 'toFixed')
+    at applyDiscount (src/pricing/discount.ts:24)
+  - Not reproducible with a standard plan locally.
+
+Ask
+  1. Rank the plausible causes by how well they explain ALL the evidence.
+  2. For each, state the single cheapest check that would confirm or refute it.
+  3. Say explicitly what the evidence does NOT tell us.
+```
+
+**Bad Example** — the symptom, and a request for the answer
+
+```text
+Our checkout is broken, it returns 500 sometimes. What's wrong and how do I fix it?
+```
+
+With no logs, no timestamps, and no deploy history, any answer is a guess dressed as a
+diagnosis — and a confident guess is worse than none, because it directs the next hour of work
+at the wrong subsystem.
+
+---
+
 ## Related
 
 - `knowledge/workflows/02-fix-a-bug.md`

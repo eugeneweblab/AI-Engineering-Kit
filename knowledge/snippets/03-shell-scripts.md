@@ -239,6 +239,56 @@ Run ShellCheck in CI. Nearly every mistake above is one it reports.
 
 ---
 
+## Examples
+
+**Good Example** — fails loudly, quotes everything, cleans up after itself
+
+```bash
+#!/usr/bin/env bash
+# -e stop on error, -u error on unset variable, -o pipefail catch failures
+# anywhere in a pipe rather than only in its last command.
+set -euo pipefail
+
+readonly BACKUP_DIR="${BACKUP_DIR:?BACKUP_DIR must be set}"
+readonly STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
+
+workdir="$(mktemp -d)"
+# Runs on success, on failure, and on Ctrl-C — so nothing is left behind.
+trap 'rm -rf "$workdir"' EXIT
+
+# Quoted: survives paths and values containing spaces.
+mysqldump --single-transaction --quick "$DB_NAME" > "$workdir/dump.sql"
+
+# Verify before trusting: a zero-byte dump is the classic silent backup failure.
+if [[ ! -s "$workdir/dump.sql" ]]; then
+	echo "error: dump is empty" >&2
+	exit 1
+fi
+
+gzip -9 "$workdir/dump.sql"
+mv "$workdir/dump.sql.gz" "$BACKUP_DIR/db-$STAMP.sql.gz"
+echo "wrote $BACKUP_DIR/db-$STAMP.sql.gz"
+```
+
+**Bad Example** — continues after failure, unquoted, leaves temp files
+
+```bash
+#!/bin/bash
+# No `set -e`: every command below runs even if the one before it failed.
+
+BACKUP_DIR=/backups/$SITE          # unquoted and possibly unset → /backups/
+cd $BACKUP_DIR                     # unquoted: breaks on a path with a space
+
+# If mysqldump fails, the redirect still creates a 0-byte file, gzip compresses
+# it happily, and the backup "succeeds" every night for a year.
+mysqldump $DB_NAME > dump.sql
+gzip dump.sql
+
+rm -rf $BACKUP_DIR/*               # if BACKUP_DIR is unset, this is rm -rf /*
+```
+
+---
+
 ## Related
 
 - `knowledge/linux/00-overview.md`

@@ -168,6 +168,53 @@ Add the missing check as an action item — see [Incident Report](../templates/0
 
 ---
 
+## Examples
+
+**Good Example** — roll back on a clock, then investigate the artifact
+
+```bash
+# Decide the rollback deadline BEFORE debugging: "if not healthy by 14:25, revert".
+kubectl rollout status deployment/api --timeout=120s || kubectl rollout undo deployment/api
+
+# For a symlink-based deploy, the previous release is still on disk.
+PREVIOUS=$(ls -1dt /var/www/app/releases/* | sed -n 2p)
+ln -sfn "$PREVIOUS" /var/www/app/current
+sudo systemctl reload php8.3-fpm
+
+# Confirm the rollback actually took effect — do not assume.
+curl -sS https://example.com/api/version
+```
+
+```bash
+# Then investigate off production, against the exact artifact that failed.
+GOOD=a1b2c3d   # last known-good release
+BAD=e4f5a6b    # the release that broke
+git log --oneline "$GOOD".."$BAD"
+docker run --rm -it "registry.example.com/api:$BAD" node -e 'require("./dist/main.js")'
+```
+
+The rollback is boring because it was rehearsed: the previous release is on disk, the database
+migration was backward-compatible, and the decision had a deadline instead of an argument.
+
+**Bad Example** — fix forward under pressure
+
+```bash
+# 15 minutes into a broken deploy, with no rollback path because the release
+# directory was overwritten in place.
+cd /var/www/app && git pull && composer install     # on the live server
+
+# The migration already ran and dropped a column, so the previous release
+# cannot start even if it were available.
+php artisan migrate                                  # irreversible, unreviewed
+
+# Each attempt is untested, unlogged, and applied straight to production.
+```
+
+Fixing forward is a decision, not a default. It is only available when the change is small,
+understood, and reversible — none of which is true fifteen minutes into an outage.
+
+---
+
 ## Related
 
 - `knowledge/playbooks/01-site-down.md`

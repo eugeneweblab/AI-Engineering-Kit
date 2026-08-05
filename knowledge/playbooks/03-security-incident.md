@@ -158,6 +158,52 @@ could be committed and reach production undetected. See
 
 ---
 
+## Examples
+
+**Good Example** — contain without destroying evidence, then rotate and disclose
+
+```bash
+# 1. Contain. Isolate rather than delete — the disk is evidence.
+kubectl cordon node-7                       # stop new scheduling
+kubectl scale deployment/api --replicas=0   # stop the workload, keep the volume
+aws ec2 create-snapshot --volume-id vol-0abc --description "incident-2026-08-04"
+
+# 2. Revoke access along every path, not just the one that was used.
+aws iam delete-access-key --access-key-id AKIA... --user-name deploy
+gh api -X DELETE /orgs/acme/actions/secrets/DEPLOY_TOKEN
+psql -c "ALTER ROLE app WITH PASSWORD 'new-secret';"
+
+# 3. Invalidate anything derived from the compromised secret.
+redis-cli --scan --pattern 'session:*' | xargs -r redis-cli DEL   # force re-auth
+```
+
+```text
+4. Preserve the timeline: who accessed what, when, from where.
+   Access logs, audit logs, and the snapshot are copied to a separate account
+   the compromised credentials could not reach.
+
+5. Disclose on the legal clock, not when the investigation finishes.
+   GDPR: 72 hours from becoming aware. The report can say "investigation ongoing".
+```
+
+**Bad Example** — clean up first, ask questions later
+
+```bash
+# Destroys the evidence needed to establish what was accessed and for how long.
+kubectl delete pod api-7d9f8                # the compromised container, gone
+rm -rf /var/log/nginx/access.log*           # the record of what was requested
+docker system prune -af                     # the image that would show the change
+
+# Rotates one key and calls it contained, while the same credential is still
+# in three other places.
+aws iam delete-access-key --access-key-id AKIA...
+```
+
+Without the logs, "we found no evidence of data access" is not a finding — it is the absence
+of the ability to make one, and regulators read it that way.
+
+---
+
 ## Related
 
 - `knowledge/security/26-incident-response.md`

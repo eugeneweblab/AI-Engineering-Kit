@@ -483,6 +483,59 @@ The best generated code is code that another engineer would naturally assume was
 
 ---
 
+## Examples
+
+**Good Example** — generated code that matches the surrounding conventions
+
+```ts
+// src/services/orders.ts — follows the file's existing shape: a named export,
+// a Result return, errors as values, and the project's own logger.
+import { logger } from '@/lib/logger';
+import { type Result, ok, err } from '@/lib/result';
+import { ordersRepository } from '@/repositories/orders';
+
+export async function cancelOrder(orderId: string, userId: string): Promise<Result<void>> {
+  const cancelled = await ordersRepository.cancelOwnedBy(orderId, userId);
+
+  if (!cancelled) {
+    // Same error shape the other services in this directory return.
+    return err({ code: 'ORDER_NOT_CANCELLABLE', message: 'This order can no longer be cancelled' });
+  }
+
+  logger.info({ event: 'order.cancelled', orderId, userId });
+  return ok(undefined);
+}
+```
+
+The imports are the ones the project already uses, the error shape matches its neighbours, and
+nothing new was introduced — no second logger, no thrown exception in a codebase that returns
+results.
+
+**Bad Example** — idiomatic code from somewhere else
+
+```ts
+// Correct in isolation, wrong here: this codebase returns Result and never
+// throws across a service boundary, uses pino rather than console, and has an
+// ordersRepository that this bypasses entirely.
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();          // a second client instance
+
+export default async function cancelOrder(orderId: any, userId: any) {
+  try {
+    await prisma.order.update({ where: { id: orderId }, data: { status: 'CANCELLED' } });
+    console.log('cancelled', orderId);      // not the project's logger
+  } catch (e) {
+    throw new Error('failed');              // loses the cause, and throws where callers expect a Result
+  }
+}
+```
+
+A second `PrismaClient` exhausts the connection pool under load — a failure that appears in
+production, not in review.
+
+---
+
 ## Summary
 
 AI should not generate code that merely works.

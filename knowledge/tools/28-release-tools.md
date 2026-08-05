@@ -184,6 +184,54 @@ npm deprecate @acme/ui@1.4.2 "Broken exports map — use 1.4.3"
 
 For a package published by mistake with a secret in it, deprecation is not enough: rotate the secret first, then contact the registry. The secret is compromised the moment it is published, regardless of what happens to the package.
 
+## Examples
+
+**Good Example** — the changelog is a by-product of the commits
+
+```bash
+# Each change declares its own version impact, at the time it is written,
+# by the person who knows.
+pnpm changeset
+# → which packages changed?  @acme/ui
+# → what kind of change?     minor
+# → summary:                 add `size` prop to Button
+```
+
+```yaml
+# .github/workflows/release.yml — versioning and publishing are one reviewed PR.
+- uses: changesets/action@v1
+  with:
+    version: pnpm changeset version   # bumps versions, writes CHANGELOG.md
+    publish: pnpm changeset publish   # tags and publishes what the PR approved
+  env:
+    NPM_CONFIG_PROVENANCE: true       # signed provenance attestation
+```
+
+Interdependent packages are bumped together, the changelog is generated from the same
+declarations, and the release is a diff someone approved.
+
+**Bad Example** — versions edited by hand at release time
+
+```bash
+# The version bump, the tag, and the publish are three independent chances to
+# be inconsistent — and this sequence publishes before the tag exists, so a
+# failed push leaves a published version with no corresponding commit.
+vim package.json          # 1.4.0 → 1.5.0
+npm publish
+git tag v1.5.0 && git push --tags
+```
+
+```markdown
+<!-- CHANGELOG.md, written from memory after the fact -->
+## 1.5.0
+- Various improvements and bug fixes
+```
+
+A consumer cannot tell whether upgrading is safe. The one question a changelog exists to
+answer is the one this does not answer.
+
+---
+
 ## Common Mistakes
 
 - Versions bumped by hand, drifting from tags and changelogs.

@@ -132,6 +132,47 @@ Two properties of how these tools bill are worth understanding, because both are
 - **Context is the cost driver.** Long sessions, large files read in full, and verbose instructions all accumulate. Starting a fresh session for a new task is usually cheaper than continuing a long one.
 - **Prompt caching is a prefix match.** Stable content at the front of a conversation — the instructions file, tool definitions — is cached and reread cheaply; anything that changes invalidates everything after it. This is another argument for keeping instructions files stable rather than regenerating them per session.
 
+## Examples
+
+**Good Example** — the repository carries the context, and the output is verified
+
+```markdown
+<!-- AGENTS.md at the repository root: read by the agent before it starts. -->
+# Working in this repository
+
+- Package manager is pnpm. Never run `npm install`.
+- `pnpm verify` must pass before you claim a task is done: typecheck, lint,
+  unit tests, build.
+- Amounts are integer cents. Never introduce a float for money.
+- Services return `Result`, never throw across a service boundary.
+- No new dependencies without an ADR in docs/adr/.
+```
+
+```bash
+# The agent's claim is checked by the same command a human would run,
+# and by the same command CI runs — not by reading the diff and agreeing.
+pnpm verify
+git diff --stat                # is the diff the size the task implied?
+git diff -- src/lib/money.ts   # did it touch anything it was told not to?
+```
+
+**Bad Example** — accept plausible output because it reads well
+
+```ts
+// Generated, reviewed by eye, merged. Every line is idiomatic and the function
+// name is right, so nothing looked wrong.
+export function applyDiscount(totalCents: number, percent: number): number {
+  // Floating-point arithmetic on money, in a codebase whose one written rule
+  // is that amounts are integer cents. Off by a penny on ~3% of orders.
+  return totalCents * (1 - percent / 100);
+}
+```
+
+Generated code fails in a specific way: it is fluent, conventional, and wrong about the things
+only this repository knows. Fluency is not evidence — run the checks.
+
+---
+
 ## Common Mistakes
 
 - No instructions file, so conventions are re-inferred every session.

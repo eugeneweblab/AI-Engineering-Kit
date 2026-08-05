@@ -419,6 +419,65 @@ Premature optimization
 
 ---
 
+## Examples
+
+**Good Example** — the API is decided first, and the states are all built
+
+```tsx
+// The prop contract comes from the design's variant axes, nothing more.
+type ProductCardProps = {
+  product: Product;
+  onAddToBasket: (productId: string) => void;
+  variant?: 'default' | 'compact';
+};
+
+export function ProductCard({ product, onAddToBasket, variant = 'default' }: ProductCardProps) {
+  return (
+    <article className={cx(styles.card, styles[variant])}>
+      <img
+        src={product.imageUrl}
+        alt={product.imageAlt}          // from the data, never invented at render time
+        width={800}
+        height={600}
+        loading="lazy"
+      />
+      <h3 className={styles.title}>{product.name}</h3>
+      <p className={styles.price}>{formatCurrency(product.priceCents)}</p>
+      <Button onClick={() => onAddToBasket(product.id)}>Add to basket</Button>
+    </article>
+  );
+}
+```
+
+```tsx
+// Every state the design defines has a story and a test, not just the happy one.
+export const Default: Story = { args: { product: aProduct() } };
+export const LongName: Story = { args: { product: aProduct({ name: 'x'.repeat(64) }) } };
+export const NoImage: Story = { args: { product: aProduct({ imageUrl: null }) } };
+export const Compact: Story = { args: { product: aProduct(), variant: 'compact' } };
+```
+
+**Bad Example** — build the happy path, discover the rest in production
+
+```tsx
+export function ProductCard({ data }: { data: any }) {
+  // `any` props: no contract, so the compiler cannot help a caller.
+  return (
+    <div className="card" onClick={() => addToBasket(data.id)}>
+      {/* A div with a click handler: not focusable, not keyboard-operable. */}
+      <img src={data.img} />                    {/* no alt, no dimensions */}
+      <div className="title">{data.name}</div>  {/* styled to look like a heading */}
+      <div className="price">£{data.price / 100}</div>  {/* float arithmetic on money */}
+    </div>
+  );
+}
+```
+
+There is no long-name state, no missing-image state, and no compact variant — so the first
+64-character product name breaks the grid on a live page.
+
+---
+
 ## Common Mistakes
 
 Avoid:
