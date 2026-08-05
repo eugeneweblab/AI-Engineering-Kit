@@ -227,3 +227,11 @@ Invalidate it on write rather than relying only on expiry — see [Caching](23-c
 Use the query the page already ran, alter it with `pre_get_posts`, and reach for `WP_Query`
 only for genuinely secondary data. Bound every result set, keep queries out of loops, and let
 WordPress prime the caches it knows how to prime.
+
+## Related
+
+- `knowledge/wordpress/09-custom-post-types.md`
+- `knowledge/wordpress/11-metadata.md`
+- `knowledge/wordpress/19-database.md`
+- `knowledge/wordpress/23-caching.md`
+- `knowledge/wordpress/05-performance.md`

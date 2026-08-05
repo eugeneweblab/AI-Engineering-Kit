@@ -40,6 +40,10 @@ failure fails the build. Regenerate after an intentional change:
 
     python3 scripts/check-knowledge.py --update-baseline
 
+Baseline entries are keyed by `<path>#<hash of the block source>`, not by position,
+so inserting a section above a known fragment does not invalidate it — while editing
+the fragment itself does, which is when it should be looked at again.
+
 Exit code 0 = clean, 1 = violations found, 2 = bad invocation.
 
 Usage:
@@ -48,6 +52,7 @@ Usage:
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import shutil
@@ -369,7 +374,6 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
     js_blocks: list[tuple[str, str, str]] = []
 
     for doc in docs:
-        family_index: dict[str, int] = {}
         for tag, src, line in doc.blocks:
             if tag in JS_FAMILY:
                 family = "js"
@@ -385,9 +389,10 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
                 family = "yaml"
             else:
                 continue
-            n = family_index.get(family, 0)
-            family_index[family] = n + 1
-            block_id = f"{doc.rel}#{family}{n}"
+            # Key by content hash, not position: inserting a section above a known
+            # fragment must not invalidate its baseline entry.
+            digest = hashlib.sha1(src.encode("utf-8")).hexdigest()[:10]
+            block_id = f"{doc.rel}#{digest}"
             counts[family] += 1
 
             if family == "python":

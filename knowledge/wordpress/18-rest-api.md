@@ -266,6 +266,92 @@ will not cache them unless you override the header. See [Caching](23-caching.md)
 
 ---
 
+## Examples
+
+**Good Example** — explicit permission, declared arguments, shaped response
+
+```php
+add_action( 'rest_api_init', 'myplugin_register_routes' );
+
+function myplugin_register_routes() {
+	register_rest_route(
+		'myplugin/v1',
+		'/events/(?P<id>\d+)/signups',
+		array(
+			'methods'             => WP_REST_Server::CREATABLE,
+			'callback'            => 'myplugin_create_signup',
+			'permission_callback' => static function ( WP_REST_Request $request ) {
+				return is_user_logged_in() && current_user_can( 'read_post', (int) $request['id'] );
+			},
+			'args'                => array(
+				'id'    => array(
+					'required'          => true,
+					'validate_callback' => static fn( $value ) => is_numeric( $value ) && (int) $value > 0,
+					'sanitize_callback' => 'absint',
+				),
+				'notes' => array(
+					'type'              => 'string',
+					'default'           => '',
+					'sanitize_callback' => 'sanitize_textarea_field',
+				),
+			),
+		)
+	);
+}
+
+function myplugin_create_signup( WP_REST_Request $request ) {
+	$result = ( new MyPlugin_Registration_Service() )->register(
+		(int) $request['id'],
+		get_current_user_id(),
+		$request['notes']
+	);
+
+	if ( is_wp_error( $result ) ) {
+		// A WP_Error with a status becomes a correct HTTP response automatically.
+		$result->add_data( array( 'status' => 409 ), $result->get_error_code() );
+		return $result;
+	}
+
+	// Return only what the client needs — not the whole post object.
+	return new WP_REST_Response(
+		array(
+			'id'     => $result,
+			'status' => 'confirmed',
+		),
+		201
+	);
+}
+```
+
+**Bad Example** — implicitly public, unvalidated input, oversharing
+
+```php
+add_action( 'rest_api_init', function () {
+	register_rest_route(
+		'myplugin/v1',
+		'/events/signups',
+		array(
+			'methods'  => 'POST',
+			'callback' => 'myplugin_create_signup',
+			// No permission_callback: _doing_it_wrong() since 5.5, and historically
+			// this meant "public" by accident.
+		)
+	);
+} );
+
+function myplugin_create_signup() {
+	// Reads the superglobal directly, so nothing declared or sanitized it.
+	$event_id = $_POST['event_id'];
+
+	add_post_meta( $event_id, '_signup', get_current_user_id() );
+
+	// Returns the entire post row: author email, unpublished content, private meta.
+	return get_post( $event_id );
+}
+```
+
+---
+
 ## Common Mistakes
 
 - **Missing or `__return_true` permission callbacks** on endpoints that expose private data.
@@ -300,3 +386,11 @@ Register versioned, namespaced routes with an explicit permission callback and d
 arguments; return `WP_Error` for failures; extend core endpoints rather than duplicating them;
 and remember that every REST call boots the entire application, so bound and cache what is
 public.
+
+## Related
+
+- `knowledge/wordpress/20-users-and-capabilities.md`
+- `knowledge/wordpress/09-custom-post-types.md`
+- `knowledge/wordpress/16-block-editor.md`
+- `knowledge/wordpress/06-security.md`
+- `knowledge/rest-api/24-security.md`

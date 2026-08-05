@@ -175,8 +175,9 @@ add_filter( 'big_image_size_threshold', fn() => 3840 );
 
 Use the attachment helpers; they emit `srcset`, `sizes`, dimensions, and lazy loading:
 
+**Good Example** — responsive, dimensioned, lazy where appropriate
+
 ```php
-// Good — responsive, dimensioned, lazy where appropriate.
 echo wp_get_attachment_image(
 	$attachment_id,
 	'acme-card',
@@ -194,8 +195,9 @@ echo wp_get_attachment_image(
 the_post_thumbnail( 'acme-hero', array( 'loading' => 'eager', 'fetchpriority' => 'high' ) );
 ```
 
+**Bad Example** — no srcset, no dimensions (so the page shifts as it loads), no alt
+
 ```php
-// Bad — no srcset, no dimensions (so the page shifts as it loads), no alt.
 echo '<img src="' . wp_get_attachment_url( $attachment_id ) . '">';
 ```
 
@@ -268,3 +270,10 @@ The uploads directory is the largest and least reproducible part of a WordPress 
 Let WordPress handle uploads: it verifies content, sanitizes names, and files everything
 correctly. Restrict types, block execution in the uploads directory, register only the image
 sizes you render, and emit responsive markup with real alt text.
+
+## Related
+
+- `knowledge/wordpress/05-performance.md`
+- `knowledge/wordpress/06-security.md`
+- `knowledge/wordpress/16-block-editor.md`
+- `knowledge/security/15-file-upload-security.md`

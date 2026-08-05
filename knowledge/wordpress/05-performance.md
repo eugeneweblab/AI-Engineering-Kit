@@ -7,7 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [wordpress, performance]
-related: []
+related: [wordpress/12-queries, wordpress/23-caching, wordpress/19-database, wordpress/21-media-and-uploads, performance/13-database-performance]
 when_to_use: "Read before optimizing or building performance-sensitive WordPress features."
 ---
 # WordPress Performance
@@ -543,6 +543,73 @@ Performance is an ongoing engineering activity.
 
 ---
 
+## Examples
+
+**Good Example** — one query, primed caches, a bounded result
+
+```php
+function myplugin_render_event_list( int $limit = 20 ): string {
+	$query = new WP_Query(
+		array(
+			'post_type'              => 'myplugin_event',
+			'posts_per_page'         => $limit,   // always bounded
+			'no_found_rows'          => true,     // no pagination here, so skip the row count
+			'update_post_meta_cache' => true,     // one meta query for the whole set
+			'update_post_term_cache' => false,    // terms are not rendered; do not load them
+		)
+	);
+
+	$out = '';
+	foreach ( $query->posts as $event ) {
+		// Already in the object cache from the primed meta query above — no extra SQL.
+		$starts = get_post_meta( $event->ID, '_event_start', true );
+		$out   .= sprintf(
+			'<li>%s — %s</li>',
+			esc_html( get_the_title( $event ) ),
+			esc_html( $starts )
+		);
+	}
+
+	return '<ul>' . $out . '</ul>';
+}
+```
+
+**Bad Example** — a query per row, unbounded, uncached
+
+```php
+function myplugin_render_event_list(): string {
+	$ids = get_posts(
+		array(
+			'post_type'      => 'myplugin_event',
+			'posts_per_page' => -1,       // every event ever published
+			'fields'         => 'ids',
+		)
+	);
+
+	$out = '';
+	foreach ( $ids as $id ) {
+		// One uncached round trip per event, then another for the organiser.
+		$starts    = $GLOBALS['wpdb']->get_var(
+			$GLOBALS['wpdb']->prepare(
+				"SELECT meta_value FROM {$GLOBALS['wpdb']->postmeta}
+				 WHERE post_id = %d AND meta_key = '_event_start'",
+				$id
+			)
+		);
+		$organiser = get_user_by( 'id', get_post_field( 'post_author', $id ) );
+
+		$out .= '<li>' . get_the_title( $id ) . ' — ' . $starts . '</li>';
+	}
+
+	return '<ul>' . $out . '</ul>';
+}
+```
+
+At 40 events this looks acceptable in development. At 4,000 it is 8,000 queries per page load,
+and the fix is architectural — bound the set and prime the cache — not a faster loop.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -582,3 +649,11 @@ Performance work is complete only if:
 Performance is the result of good architecture, efficient data access, responsible resource usage, and continuous measurement.
 
 The fastest code is often the code that never executes because unnecessary work has been eliminated.
+
+## Related
+
+- `knowledge/wordpress/12-queries.md`
+- `knowledge/wordpress/23-caching.md`
+- `knowledge/wordpress/19-database.md`
+- `knowledge/wordpress/21-media-and-uploads.md`
+- `knowledge/performance/13-database-performance.md`

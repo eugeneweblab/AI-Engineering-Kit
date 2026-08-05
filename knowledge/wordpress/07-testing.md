@@ -7,7 +7,7 @@ type: doc
 order: 7
 status: ready
 tags: [wordpress, testing]
-related: []
+related: [wordpress/04-code-style, wordpress/15-plugin-development, wordpress/28-debugging, php/15-testing, testing/02-unit-testing]
 when_to_use: "Read before writing tests or defining a testing strategy for a WordPress project."
 ---
 # WordPress Testing
@@ -620,6 +620,59 @@ public function test_reads_a_post() {
 
 ---
 
+## Examples
+
+**Good Example** — behaviour asserted through the public surface, with real fixtures
+
+```php
+class Test_Registration_Service extends WP_UnitTestCase {
+
+	public function test_registration_is_rejected_once_the_event_is_full(): void {
+		$event = self::factory()->post->create( array( 'post_type' => 'myplugin_event' ) );
+		update_post_meta( $event, '_event_seats', 1 );
+
+		$first  = self::factory()->user->create();
+		$second = self::factory()->user->create();
+
+		$service = new MyPlugin_Registration_Service();
+		$this->assertTrue( $service->register( $event, $first ) );
+
+		$result = $service->register( $event, $second );
+
+		// Assert the observable outcome and the reason, not the internals.
+		$this->assertWPError( $result );
+		$this->assertSame( 'event_full', $result->get_error_code() );
+		$this->assertSame( 1, $service->seats_taken( $event ) );
+	}
+}
+```
+
+The test states a rule the business cares about. It survives a rewrite of how seats are
+counted, and it fails loudly if the rule breaks.
+
+**Bad Example** — asserts the implementation, depends on the environment
+
+```php
+class Test_Registration extends WP_UnitTestCase {
+
+	public function test_register(): void {
+		// Hardcoded IDs from the developer's own database: passes locally, fails in CI.
+		$service = new MyPlugin_Registration_Service();
+		$service->register( 412, 7 );
+
+		// Asserts a private storage detail. Renaming the meta key breaks the test
+		// even though the behaviour is unchanged.
+		$this->assertNotEmpty( get_post_meta( 412, '_myplugin_regs_v2', true ) );
+
+		// Real network call: slow, flaky, and it emails a real address on every run.
+		$response = wp_remote_post( 'https://api.example.com/notify', array( 'body' => array( 'id' => 412 ) ) );
+		$this->assertTrue( true );   // asserts nothing; the test can never fail here
+	}
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -684,3 +737,11 @@ Testing is considered complete when:
 Testing provides confidence that software behaves correctly today and continues to behave correctly as the project evolves.
 
 A professional engineering workflow treats testing as part of development rather than a separate activity performed at the end.
+
+## Related
+
+- `knowledge/wordpress/04-code-style.md`
+- `knowledge/wordpress/15-plugin-development.md`
+- `knowledge/wordpress/28-debugging.md`
+- `knowledge/php/15-testing.md`
+- `knowledge/testing/02-unit-testing.md`

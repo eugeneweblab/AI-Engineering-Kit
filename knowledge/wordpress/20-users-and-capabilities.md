@@ -282,3 +282,10 @@ permissions across `switch_to_blog()` — see [Multisite](25-multisite.md).
 Authorization in WordPress means asking what a user may *do*, on *which object*, at the moment
 of the action — with a nonce to prove intent. Roles are site configuration stored in the
 database; capabilities are the contract your code depends on.
+
+## Related
+
+- `knowledge/wordpress/06-security.md`
+- `knowledge/wordpress/18-rest-api.md`
+- `knowledge/wordpress/25-multisite.md`
+- `knowledge/security/04-authorization.md`

@@ -225,6 +225,74 @@ add_action( 'acme_daily_cleanup', function () {
 
 ---
 
+## Examples
+
+**Good Example** — a real scheduler, an idempotent callback, a lock
+
+```php
+// wp-config.php — stop traffic from triggering cron; a system scheduler owns it.
+define( 'DISABLE_WP_CRON', true );
+```
+
+```bash
+# crontab — deterministic timing, independent of visitors and full-page caching.
+*/5 * * * * cd /var/www/app && wp cron event run --due-now --quiet
+```
+
+```php
+add_action( 'myplugin_send_reminders', 'myplugin_send_reminders' );
+
+function myplugin_send_reminders() {
+	// Two overlapping runs would email everyone twice. Take a short lock first.
+	if ( ! wp_cache_add( 'myplugin_reminders_lock', 1, 'myplugin', 5 * MINUTE_IN_SECONDS ) ) {
+		return;
+	}
+
+	$pending = get_posts(
+		array(
+			'post_type'      => 'myplugin_signup',
+			'posts_per_page' => 100,          // one bounded batch per run
+			'meta_key'       => '_reminder_sent',
+			'meta_compare'   => 'NOT EXISTS',
+			'fields'         => 'ids',
+		)
+	);
+
+	foreach ( $pending as $signup_id ) {
+		myplugin_send_reminder( $signup_id );
+		// Mark immediately: a crash mid-batch must not re-send what already went out.
+		update_post_meta( $signup_id, '_reminder_sent', time() );
+	}
+
+	wp_cache_delete( 'myplugin_reminders_lock', 'myplugin' );
+}
+```
+
+**Bad Example** — scheduled on every request, unbounded, and not idempotent
+
+```php
+// Runs on init, so a new event is scheduled on every single page load.
+add_action( 'init', function () {
+	wp_schedule_event( time(), 'hourly', 'myplugin_send_reminders' );
+} );
+
+add_action( 'myplugin_send_reminders', function () {
+	// Every signup, forever — the job gets slower every day and eventually times out
+	// halfway through, having sent an arbitrary prefix of the emails.
+	$all = get_posts( array( 'post_type' => 'myplugin_signup', 'posts_per_page' => -1 ) );
+
+	foreach ( $all as $signup ) {
+		myplugin_send_reminder( $signup->ID );   // no record of what was sent
+	}
+} );
+```
+
+`wp_schedule_event()` belongs in an activation hook, or behind a
+`! wp_next_scheduled( $hook )` guard. Without one, the cron table fills with duplicates and
+the job runs many times per hour.
+
+---
+
 ## Common Mistakes
 
 - **Scheduling on `init` without `wp_next_scheduled()`**, creating a duplicate on every
@@ -261,3 +329,10 @@ WP-Cron is a schedule, not a scheduler: traffic triggers it, so production sites
 disable that trigger and drive `wp cron event run --due-now` from the system cron. Register
 callbacks always, schedule once, cancel with identical arguments, bound every run, and reach
 for Action Scheduler when the work is really a queue.
+
+## Related
+
+- `knowledge/wordpress/26-wp-cli.md`
+- `knowledge/wordpress/29-maintenance.md`
+- `knowledge/wordpress/28-debugging.md`
+- `knowledge/wordpress/05-performance.md`

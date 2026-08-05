@@ -228,6 +228,64 @@ in one project — pick one model.
 
 ---
 
+## Examples
+
+**Good Example** — specificity expressed in filenames
+
+```text
+wp-content/themes/acme/
+├── single-myplugin_event.php     one event
+├── archive-myplugin_event.php    the event archive
+├── taxonomy-event_type.php       one event-type term
+├── template-parts/
+│   ├── event/card.php
+│   └── event/meta.php
+└── index.php                     final fallback, stays short
+```
+
+```php
+<?php
+// single-myplugin_event.php — no conditionals about "which page is this".
+get_header();
+
+while ( have_posts() ) :
+	the_post();
+	get_template_part( 'template-parts/event/meta' );
+	the_content();
+endwhile;
+
+get_footer();
+```
+
+Adding a distinct layout for one event type means adding
+`single-myplugin_event-summer-workshop.php`. Nothing existing is edited.
+
+**Bad Example** — one template plus a conditional ladder
+
+```php
+<?php
+// index.php — the hierarchy is switched off and reimplemented by hand.
+get_header();
+
+if ( is_singular( 'myplugin_event' ) ) {
+	include get_template_directory() . '/parts/event-single.php';
+} elseif ( is_post_type_archive( 'myplugin_event' ) ) {
+	include get_template_directory() . '/parts/event-archive.php';
+} elseif ( is_tax( 'event_type' ) ) {
+	include get_template_directory() . '/parts/event-tax.php';
+} else {
+	include get_template_directory() . '/parts/default.php';
+}
+
+get_footer();
+```
+
+Every new content type extends the ladder, a child theme can no longer override one view by
+filename, and `get_template_directory()` hardcodes the parent theme so child overrides are
+skipped entirely.
+
+---
+
 ## Common Mistakes
 
 - **`index.php` with conditionals** instead of correctly named templates.
@@ -260,3 +318,10 @@ in one project — pick one model.
 The hierarchy resolves a request to a file by name, from most specific to `index.php`. Name
 templates correctly instead of branching, override through a child theme, and have plugins
 defer to the theme when it supplies its own version.
+
+## Related
+
+- `knowledge/wordpress/14-theme-development.md`
+- `knowledge/wordpress/17-block-themes.md`
+- `knowledge/wordpress/12-queries.md`
+- `knowledge/wordpress/01-wordpress-architecture.md`

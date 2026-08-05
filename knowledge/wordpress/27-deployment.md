@@ -255,6 +255,61 @@ all.
 
 ---
 
+## Examples
+
+**Good Example** — atomic release, shared state, one-way database flow
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+RELEASE="/var/www/app/releases/$(git rev-parse --short HEAD)"
+SHARED="/var/www/app/shared"
+
+git archive HEAD | (mkdir -p "$RELEASE" && tar -x -C "$RELEASE")
+composer install --no-dev --optimize-autoloader --working-dir="$RELEASE"
+
+# Uploads and configuration live outside the release and survive every deploy.
+ln -sfn "$SHARED/uploads"    "$RELEASE/wp-content/uploads"
+ln -sfn "$SHARED/.env"       "$RELEASE/.env"
+
+# Fail before switching, not after.
+wp --path="$RELEASE" core verify-checksums
+wp --path="$RELEASE" db check
+
+# The switch itself is one atomic symlink change.
+ln -sfn "$RELEASE" /var/www/app/current
+wp --path=/var/www/app/current cache flush
+```
+
+```bash
+# Database moves DOWN only. Pulling production into staging is routine;
+# the reverse is a data-loss event and no script should offer it.
+wp @production db export - | wp @staging db import -
+wp @staging search-replace 'https://example.com' 'https://staging.example.com' --all-tables-with-prefix
+```
+
+**Bad Example** — editing production in place
+
+```bash
+# In-place git pull: the site serves a half-updated tree while files land, and
+# composer install runs against live traffic.
+cd /var/www/app && git pull origin main && composer install
+
+# Uploads inside the repository: either they are committed (a 4 GB repo) or the
+# deploy deletes them.
+rsync -a --delete ./wp-content/ user@prod:/var/www/app/wp-content/
+
+# Pushing the local database up destroys every order and comment created since
+# the developer last pulled.
+wp @local db export - | wp @production db import -
+```
+
+There is no rollback here: the previous release no longer exists on disk, and the database it
+matched has been overwritten.
+
+---
+
 ## Common Mistakes
 
 - **Pushing a database from staging to production**, destroying live content.
@@ -288,3 +343,10 @@ all.
 Put code in version control and configuration in the environment; deploy atomically and clear
 the bytecode cache; let the database flow only from production down; and design migrations so
 that rolling back the code is always possible.
+
+## Related
+
+- `knowledge/wordpress/02-project-structure.md`
+- `knowledge/wordpress/26-wp-cli.md`
+- `knowledge/wordpress/29-maintenance.md`
+- `knowledge/wordpress/23-caching.md`

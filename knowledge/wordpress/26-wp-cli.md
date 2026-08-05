@@ -250,6 +250,43 @@ do {
 
 ---
 
+## Examples
+
+**Good Example** — a dry run first, then the real one, through WordPress
+
+```bash
+# search-replace understands serialized data; a SQL REPLACE() corrupts it.
+# --dry-run reports the row count without writing anything.
+wp search-replace 'https://staging.example.com' 'https://example.com' \
+  --all-tables-with-prefix --precise --recurse-objects --dry-run
+
+# Same command without --dry-run once the report looks right.
+wp search-replace 'https://staging.example.com' 'https://example.com' \
+  --all-tables-with-prefix --precise --recurse-objects
+
+# Deleting through WP-CLI fires the same hooks the admin UI does, so meta,
+# term relationships, and caches are cleaned up.
+wp post delete $(wp post list --post_type=myplugin_event --post_status=trash --format=ids) --force
+
+# Bulk work belongs here, not in an admin-page loop that dies on the PHP time limit.
+wp eval-file scripts/backfill-event-slugs.php --quiet
+```
+
+**Bad Example** — raw SQL against the same data
+
+```bash
+# REPLACE() rewrites the bytes inside serialized strings without fixing their length
+# prefixes, so every option holding a serialized array silently stops unserializing.
+wp db query "UPDATE wp_options SET option_value =
+  REPLACE(option_value, 'https://staging.example.com', 'https://example.com')"
+
+# Deletes the rows and nothing else: postmeta, term relationships, and the object
+# cache all keep pointing at posts that no longer exist.
+wp db query "DELETE FROM wp_posts WHERE post_type = 'myplugin_event'"
+```
+
+---
+
 ## Common Mistakes
 
 - **SQL `UPDATE` for URL changes**, corrupting serialized data.
@@ -282,3 +319,10 @@ do {
 WP-CLI runs real WordPress, so hooks and caches behave correctly. Use it for migrations,
 maintenance, and deploys; change URLs only through `search-replace`; and package repeated
 project operations as documented commands with dry-run support.
+
+## Related
+
+- `knowledge/wordpress/22-cron-and-background-tasks.md`
+- `knowledge/wordpress/27-deployment.md`
+- `knowledge/wordpress/29-maintenance.md`
+- `knowledge/wordpress/28-debugging.md`

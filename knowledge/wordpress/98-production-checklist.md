@@ -7,7 +7,7 @@ type: doc
 order: 98
 status: ready
 tags: [wordpress, production-checklist]
-related: []
+related: [wordpress/27-deployment, wordpress/06-security, wordpress/05-performance, wordpress/99-ai-review-checklist]
 when_to_use: "Read before considering a WordPress task complete to verify all mandatory checks."
 ---
 # WordPress Production Checklist
@@ -309,3 +309,10 @@ A WordPress task is complete only if:
 This checklist is the minimum quality standard for all WordPress development.
 
 It should be used before every commit, pull request, or AI-generated implementation to ensure consistency, maintainability, and production readiness.
+
+## Related
+
+- `knowledge/wordpress/27-deployment.md`
+- `knowledge/wordpress/06-security.md`
+- `knowledge/wordpress/05-performance.md`
+- `knowledge/wordpress/99-ai-review-checklist.md`

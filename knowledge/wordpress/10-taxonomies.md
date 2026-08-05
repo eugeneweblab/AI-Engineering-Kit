@@ -234,3 +234,10 @@ already claims it.
 Taxonomies are the indexed way to classify content in WordPress, and post meta is not a
 substitute. Register them prefixed on `init` with REST and admin visibility, pick hierarchy
 based on real usage, and keep `tax_query` clauses few.
+
+## Related
+
+- `knowledge/wordpress/09-custom-post-types.md`
+- `knowledge/wordpress/11-metadata.md`
+- `knowledge/wordpress/12-queries.md`
+- `knowledge/wordpress/19-database.md`

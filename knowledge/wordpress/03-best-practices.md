@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [wordpress, best-practices]
-related: []
+related: [wordpress/04-code-style, wordpress/06-security, wordpress/05-performance, wordpress/100-common-antipatterns, wordpress/30-engineering-principles]
 when_to_use: "Read before writing WordPress code to follow professional engineering best practices."
 ---
 # WordPress Best Practices
@@ -616,6 +616,73 @@ Documentation explains why.
 
 ---
 
+## Examples
+
+**Good Example** — the feature is assembled from APIs WordPress already provides
+
+```php
+// Settings: the Settings API renders, nonces, sanitizes, and saves for you.
+add_action( 'admin_init', function () {
+	register_setting(
+		'myplugin',
+		'myplugin_notify_email',
+		array(
+			'type'              => 'string',
+			'sanitize_callback' => 'sanitize_email',
+			'default'           => '',
+		)
+	);
+} );
+
+// Storage: posts and meta, so revisions, search, REST, and the editor all work.
+$event_id = wp_insert_post(
+	array(
+		'post_type'   => 'myplugin_event',
+		'post_title'  => $title,
+		'post_status' => 'publish',
+	),
+	true                       // return WP_Error instead of 0 on failure
+);
+
+// Mail: goes through wp_mail, so SMTP plugins, logging, and filters apply.
+wp_mail(
+	get_option( 'myplugin_notify_email' ),
+	__( 'New event created', 'myplugin' ),
+	get_permalink( $event_id )
+);
+
+// HTTP: the WP HTTP API honours proxies, timeouts, and the site's SSL configuration.
+$response = wp_remote_post(
+	'https://api.example.com/events',
+	array( 'timeout' => 10, 'body' => array( 'id' => $event_id ) )
+);
+```
+
+**Bad Example** — the same feature reimplemented alongside WordPress
+
+```php
+// A parallel table, so no revisions, no search, no REST, no editor, no capability model.
+$wpdb->insert( $wpdb->prefix . 'myplugin_events', array( 'title' => $title ) );
+
+// A hand-rolled options page: no nonce, no capability check, no sanitization.
+if ( isset( $_POST['notify_email'] ) ) {
+	update_option( 'myplugin_notify_email', $_POST['notify_email'] );
+}
+
+// Bypasses wp_mail, so SMTP configuration, logging, and filters do not apply —
+// and on most hosts this silently fails to deliver.
+mail( $to, 'New event created', $body );
+
+// Bypasses the HTTP API: ignores proxy settings and the site's timeout policy,
+// and fails outright where cURL is restricted.
+file_get_contents( 'https://api.example.com/events?id=' . $event_id );
+```
+
+Every line on the right-hand side has a WordPress equivalent that already solves the parts
+that are easy to forget. Reaching past them is how a plugin stops working on the next host.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -657,3 +724,11 @@ A WordPress implementation follows best practices when:
 Professional WordPress development is built on consistency, reuse, and respect for the platform.
 
 Following these practices results in software that is easier to maintain, safer to extend, and more resilient as projects grow.
+
+## Related
+
+- `knowledge/wordpress/04-code-style.md`
+- `knowledge/wordpress/06-security.md`
+- `knowledge/wordpress/05-performance.md`
+- `knowledge/wordpress/100-common-antipatterns.md`
+- `knowledge/wordpress/30-engineering-principles.md`

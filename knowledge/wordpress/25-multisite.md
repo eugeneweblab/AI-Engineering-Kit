@@ -63,8 +63,9 @@ The decision is difficult to reverse. Make it deliberately.
 `switch_to_blog()` changes `$wpdb->prefix` and the option context. Every switch must be
 restored, on every path.
 
+**Good Example** — `try`/`finally` guarantees restoration even on an exception or early return
+
 ```php
-// Good: try/finally guarantees restoration even on an exception or early return.
 foreach ( get_sites( array( 'fields' => 'ids', 'number' => 0 ) ) as $site_id ) {
 	switch_to_blog( $site_id );
 
@@ -77,9 +78,10 @@ foreach ( get_sites( array( 'fields' => 'ids', 'number' => 0 ) ) as $site_id ) {
 }
 ```
 
+**Bad Example** — an exception or `continue` leaves the whole request pointed at the wrong
+site, so everything after it reads and writes the wrong data
+
 ```php
-// Bad: an exception or `continue` leaves the whole request pointed at the wrong site,
-// so everything after it reads and writes the wrong data.
 foreach ( $site_ids as $site_id ) {
 	switch_to_blog( $site_id );
 	if ( ! acme_site_is_active( $site_id ) ) {
@@ -247,3 +249,10 @@ only".
 A network shares code and users but separates content, options, and uploads. Write code that
 asks WordPress for the current context instead of assuming it, restore every switch, and treat
 the choice to run multisite as an architectural commitment that is hard to undo.
+
+## Related
+
+- `knowledge/wordpress/19-database.md`
+- `knowledge/wordpress/20-users-and-capabilities.md`
+- `knowledge/wordpress/26-wp-cli.md`
+- `knowledge/wordpress/27-deployment.md`

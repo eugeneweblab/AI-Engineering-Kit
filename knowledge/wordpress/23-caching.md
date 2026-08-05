@@ -278,3 +278,11 @@ Alternatively, rebuild ahead of expiry from a scheduled job — see
 Pick the layer that matches the data's lifetime, key it by everything that changes the result,
 invalidate where the data is written rather than trusting expiry, and keep anything
 user-specific out of shared caches entirely.
+
+## Related
+
+- `knowledge/wordpress/05-performance.md`
+- `knowledge/wordpress/12-queries.md`
+- `knowledge/wordpress/19-database.md`
+- `knowledge/wordpress/27-deployment.md`
+- `knowledge/performance/08-caching.md`

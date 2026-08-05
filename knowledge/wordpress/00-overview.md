@@ -130,3 +130,11 @@ Before marking WordPress work complete, run it through
 WordPress is a convention-driven, hook-extended, shared-runtime platform with a deliberately
 generic data model. Code that respects those four facts survives updates and stays
 maintainable; code that fights them does not.
+
+## Related
+
+- `knowledge/wordpress/01-wordpress-architecture.md`
+- `knowledge/wordpress/02-project-structure.md`
+- `knowledge/wordpress/03-best-practices.md`
+- `knowledge/wordpress/08-hooks.md`
+- `knowledge/wordpress/30-engineering-principles.md`

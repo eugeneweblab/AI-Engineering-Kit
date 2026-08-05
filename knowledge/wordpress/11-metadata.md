@@ -234,6 +234,80 @@ update_meta_cache( 'post', $post_ids );   // one query for all of them
 
 ---
 
+## Examples
+
+**Good Example** — meta for attributes, a taxonomy for the listing dimension
+
+```php
+add_action( 'init', 'myplugin_register_event_storage' );
+
+function myplugin_register_event_storage() {
+	// An attribute read alongside the post → meta.
+	register_post_meta(
+		'myplugin_event',
+		'_event_start',
+		array(
+			'type'              => 'string',
+			'single'            => true,
+			'show_in_rest'      => true,
+			'sanitize_callback' => 'sanitize_text_field',
+			'auth_callback'     => 'myplugin_can_edit_events',
+		)
+	);
+
+	// The dimension archives are filtered by → a taxonomy, indexed through
+	// term_relationships rather than scanned in an unindexed LONGTEXT column.
+	register_taxonomy(
+		'event_month',
+		'myplugin_event',
+		array( 'public' => false, 'show_in_rest' => true, 'hierarchical' => false )
+	);
+}
+
+// Derive the term from the meta on save, so the two cannot drift apart.
+add_action( 'save_post_myplugin_event', 'myplugin_sync_event_month' );
+
+function myplugin_sync_event_month( int $post_id ) {
+	$start = get_post_meta( $post_id, '_event_start', true );
+	if ( $start ) {
+		wp_set_object_terms( $post_id, gmdate( 'Y-m', strtotime( $start ) ), 'event_month' );
+	}
+}
+
+// The archive query touches an indexed relationship.
+$september = new WP_Query(
+	array(
+		'post_type'      => 'myplugin_event',
+		'posts_per_page' => 20,
+		'no_found_rows'  => true,
+		'tax_query'      => array(
+			array( 'taxonomy' => 'event_month', 'field' => 'slug', 'terms' => '2026-09' ),
+		),
+	)
+);
+```
+
+**Bad Example** — unregistered meta used as the primary archive filter
+
+```php
+// No registration: invisible to the block editor and REST, and nothing sanitizes
+// what gets written.
+update_post_meta( $post_id, 'event_start', $_POST['start'] );
+
+// The archive now depends on a LIKE against an unindexed LONGTEXT column, on every
+// request. It is fast with 50 events and unusable with 50,000.
+$september = new WP_Query(
+	array(
+		'post_type'  => 'myplugin_event',
+		'meta_query' => array(
+			array( 'key' => 'event_start', 'value' => '2026-09', 'compare' => 'LIKE' ),
+		),
+	)
+);
+```
+
+---
+
 ## Common Mistakes
 
 - **Unregistered meta**, invisible to the editor and REST and unvalidated on write.
@@ -268,3 +342,10 @@ update_meta_cache( 'post', $post_ids );   // one query for all of them
 Meta is an indexed-by-key, unindexed-by-value store for attributes of a single object.
 Register it with sanitization and capability checks, keep queryable data out of serialized
 blobs, and move anything that becomes a primary filter into a taxonomy or a real table.
+
+## Related
+
+- `knowledge/wordpress/09-custom-post-types.md`
+- `knowledge/wordpress/10-taxonomies.md`
+- `knowledge/wordpress/12-queries.md`
+- `knowledge/wordpress/19-database.md`

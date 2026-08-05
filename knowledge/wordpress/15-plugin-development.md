@@ -271,6 +271,59 @@ the top level of `mu-plugins/` load automatically; subdirectories need a loader 
 
 ---
 
+## Examples
+
+**Good Example** — activation prepares state; registration happens on `init` either way
+
+```php
+// myplugin.php
+defined( 'ABSPATH' ) || exit;
+
+require_once __DIR__ . '/inc/class-myplugin-event-post-type.php';
+
+// The post type registers on every request, not only during activation.
+add_action( 'init', array( MyPlugin_Event_Post_Type::class, 'register' ) );
+
+register_activation_hook( __FILE__, 'myplugin_activate' );
+
+function myplugin_activate() {
+	// Register first, so the rewrite rules being flushed include this post type.
+	MyPlugin_Event_Post_Type::register();
+	flush_rewrite_rules();
+
+	add_option( 'myplugin_schema_version', MYPLUGIN_SCHEMA_VERSION );
+}
+
+register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
+```
+
+**Bad Example** — work at load time, and a post type that exists only during activation
+
+```php
+// myplugin.php
+require_once __DIR__ . '/inc/functions.php';
+
+// Runs on every single request, including admin-ajax and REST, before WordPress is ready.
+// get_option() here fires a query before the object cache is available.
+$settings = get_option( 'myplugin_settings' );
+$events   = new WP_Query( array( 'post_type' => 'myplugin_event' ) );
+
+register_activation_hook(
+	__FILE__,
+	function () {
+		// Registered once, during activation, then never again — so permalinks 404
+		// on the next request and the admin menu disappears.
+		register_post_type( 'myplugin_event', array( 'public' => true ) );
+		flush_rewrite_rules();
+	}
+);
+```
+
+`flush_rewrite_rules()` is expensive and belongs only in activation and deactivation. Calling
+it on `init` rewrites the option on every request.
+
+---
+
 ## Common Mistakes
 
 - **Work at file scope** — queries, output, or registration outside a hook.
@@ -306,3 +359,11 @@ the top level of `mu-plugins/` load automatically; subdirectories need a loader 
 A plugin's entry file registers and delegates; its lifecycle hooks each have one job;
 its data is removed only on uninstall; and its logic lives in classes that can be tested
 without loading WordPress.
+
+## Related
+
+- `knowledge/wordpress/08-hooks.md`
+- `knowledge/wordpress/02-project-structure.md`
+- `knowledge/wordpress/04-code-style.md`
+- `knowledge/wordpress/07-testing.md`
+- `knowledge/wordpress/24-internationalization.md`

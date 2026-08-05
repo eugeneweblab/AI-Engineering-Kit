@@ -300,3 +300,10 @@ attributes. Reach for a new block type only when the behavior genuinely does not
 Register through `block.json`, treat attributes and saved markup as a content contract, lean
 on block supports rather than reinventing controls, escape everything in dynamic renders, and
 never change static output without a deprecation.
+
+## Related
+
+- `knowledge/wordpress/17-block-themes.md`
+- `knowledge/wordpress/14-theme-development.md`
+- `knowledge/wordpress/18-rest-api.md`
+- `knowledge/workflows/11-build-gutenberg-block.md`

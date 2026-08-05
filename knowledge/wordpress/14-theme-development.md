@@ -252,3 +252,10 @@ See [Security](06-security.md) for the full escaping matrix.
 A theme is presentation and nothing else. Work in a child theme, enqueue assets through the
 queue with real versions and declared dependencies, declare support on `after_setup_theme`,
 and keep content modelling in plugins where it survives a redesign.
+
+## Related
+
+- `knowledge/wordpress/13-template-hierarchy.md`
+- `knowledge/wordpress/17-block-themes.md`
+- `knowledge/wordpress/16-block-editor.md`
+- `knowledge/wordpress/02-project-structure.md`

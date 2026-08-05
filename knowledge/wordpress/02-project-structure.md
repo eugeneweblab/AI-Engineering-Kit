@@ -7,7 +7,7 @@ type: doc
 order: 2
 status: ready
 tags: [wordpress, project-structure]
-related: []
+related: [wordpress/01-wordpress-architecture, wordpress/14-theme-development, wordpress/15-plugin-development, wordpress/04-code-style, wordpress/27-deployment]
 when_to_use: "Read before organizing files or deciding where new code belongs in a WordPress project."
 ---
 # WordPress Project Structure
@@ -741,6 +741,57 @@ Names should describe responsibilities.
 
 ---
 
+## Examples
+
+**Good Example** — directories named after responsibilities
+
+```text
+wp-content/plugins/myplugin/
+├── myplugin.php                  bootstrap: constants, autoloader, hook registration
+├── inc/
+│   ├── events/                   one feature, everything it owns
+│   │   ├── class-event-post-type.php
+│   │   ├── class-event-repository.php
+│   │   └── class-event-rest-controller.php
+│   ├── registrations/
+│   │   ├── class-registration-service.php
+│   │   └── class-registration-mailer.php
+│   └── shared/
+│       └── class-capability-map.php
+├── blocks/
+│   └── event-list/               block.json, index.js, render.php
+├── templates/
+│   └── single-myplugin_event.php
+└── tests/
+    └── events/EventRepositoryTest.php
+```
+
+A new engineer asked to change registration emails opens `inc/registrations/` and finds every
+file involved. Deleting the feature means deleting one directory.
+
+**Bad Example** — directories named after file types
+
+```text
+wp-content/plugins/myplugin/
+├── myplugin.php
+├── functions/
+│   ├── functions.php             1,800 lines, everything
+│   ├── functions-new.php         nobody remembers what "new" meant
+│   └── helpers2.php
+├── classes/
+│   ├── class-event.php
+│   ├── class-registration.php
+│   └── class-misc.php
+├── ajax/
+└── temp/
+```
+
+Nothing here says what the plugin *does*. Changing registration emails means searching all of
+`functions/`, and no directory can be deleted with confidence because responsibilities are
+spread across every one of them.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -778,3 +829,11 @@ A project structure is considered successful when:
 A well-organized project structure reduces cognitive load, improves maintainability, and helps both engineers and AI coding agents navigate the codebase efficiently.
 
 The goal is not to create the perfect folder hierarchy, but to create one that communicates architectural intent clearly.
+
+## Related
+
+- `knowledge/wordpress/01-wordpress-architecture.md`
+- `knowledge/wordpress/14-theme-development.md`
+- `knowledge/wordpress/15-plugin-development.md`
+- `knowledge/wordpress/04-code-style.md`
+- `knowledge/wordpress/27-deployment.md`

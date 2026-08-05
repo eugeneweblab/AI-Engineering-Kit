@@ -237,3 +237,11 @@ Choosing a prefixed, stable slug at registration time is considerably cheaper th
 A custom post type is a permanent contract expressed through registration arguments. Prefix
 the slug, register it from a plugin on `init`, declare `supports` and `show_in_rest`
 explicitly, and flush rewrite rules only on activation.
+
+## Related
+
+- `knowledge/wordpress/10-taxonomies.md`
+- `knowledge/wordpress/11-metadata.md`
+- `knowledge/wordpress/12-queries.md`
+- `knowledge/wordpress/13-template-hierarchy.md`
+- `knowledge/wordpress/18-rest-api.md`

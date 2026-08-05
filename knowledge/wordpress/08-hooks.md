@@ -297,3 +297,10 @@ in a debugger, or use the Query Monitor plugin — see [Debugging](28-debugging.
 Hooks are the contract between your code and everything else on the site. Choose the hook by
 what data exists at that moment, keep filters honest by always returning, guard callbacks
 that touch shared state, and keep the callback itself thin enough to be obviously correct.
+
+## Related
+
+- `knowledge/wordpress/15-plugin-development.md`
+- `knowledge/wordpress/12-queries.md`
+- `knowledge/wordpress/14-theme-development.md`
+- `knowledge/wordpress/01-wordpress-architecture.md`

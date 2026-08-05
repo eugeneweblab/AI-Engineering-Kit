@@ -238,6 +238,62 @@ The fastest general procedure, in order — each step eliminates a whole class o
 
 ---
 
+## Examples
+
+**Good Example** — log with context, isolate by bisection
+
+```php
+// Never echo. Write structured context to the log and keep the response valid.
+function myplugin_log( string $event, array $context = array() ): void {
+	if ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) {
+		return;
+	}
+	error_log( sprintf( '[myplugin] %s %s', $event, wp_json_encode( $context ) ) );
+}
+
+add_action( 'myplugin_signup_failed', function ( int $event_id, WP_Error $error ) {
+	myplugin_log(
+		'signup_failed',
+		array(
+			'event_id' => $event_id,
+			'code'     => $error->get_error_code(),
+			'user'     => get_current_user_id(),
+			'request'  => defined( 'REST_REQUEST' ) ? 'rest' : 'web',
+		)
+	);
+}, 10, 2 );
+```
+
+```bash
+# Bisect the cause instead of guessing: does it survive with no plugins and a core theme?
+wp --skip-plugins --skip-themes eval 'echo (int) is_user_logged_in();'
+
+# Re-enable in halves until the failure returns; the last one added is the cause.
+wp plugin deactivate --all
+wp plugin activate acme-events woocommerce
+```
+
+**Bad Example** — printing into the response and guessing
+
+```php
+function myplugin_create_signup( WP_REST_Request $request ) {
+	// Output before the JSON body: the response is no longer valid JSON, so the
+	// client reports a parse error and the real failure is never seen.
+	var_dump( $request->get_params() );
+	print_r( $GLOBALS['wpdb']->last_query );
+
+	// Silences the error that explains the bug, then returns a value that hides it.
+	$result = @myplugin_register( $request['id'] );
+
+	// Displaying errors on a production site leaks paths, versions, and query text.
+	ini_set( 'display_errors', '1' );
+
+	return $result ?: array( 'ok' => false );
+}
+```
+
+---
+
 ## Common Mistakes
 
 - **`WP_DEBUG_DISPLAY` enabled**, breaking REST, AJAX, and redirects — and leaking paths.
@@ -270,3 +326,10 @@ Turn logging on and display off, read the log before theorizing, and isolate by 
 themes and bisecting plugins. For values, trace the hook chain by priority; for slowness, read
 the query list with its callers; and for AJAX, REST, and cron, inspect the raw response rather
 than printing into it.
+
+## Related
+
+- `knowledge/wordpress/07-testing.md`
+- `knowledge/wordpress/29-maintenance.md`
+- `knowledge/wordpress/19-database.md`
+- `knowledge/wordpress/100-common-antipatterns.md`

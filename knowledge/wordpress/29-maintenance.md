@@ -211,6 +211,55 @@ Ongoing, not one-time:
 
 ---
 
+## Examples
+
+**Good Example** — updates rehearsed on a copy, backups proven by restoring
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+# 1. Refresh staging from production so the rehearsal is realistic.
+wp @production db export - | wp @staging db import -
+
+# 2. Apply updates there first, one layer at a time.
+wp @staging plugin update --all --dry-run     # report what would change
+wp @staging plugin update --all
+wp @staging core update
+
+# 3. Prove the site still works before touching production.
+wp @staging cron event run --due-now
+npx playwright test --config=tests/smoke.config.ts
+
+# 4. Only now, and with a restorable backup taken first.
+wp @production db export "backups/pre-update-$(date -u +%Y%m%dT%H%M%SZ).sql"
+wp @production plugin update --all
+```
+
+```bash
+# A backup is not a backup until it has been restored. Verify on a schedule.
+wp @scratch db import "backups/pre-update-20260801T030000Z.sql"
+wp @scratch post list --post_type=post --format=count   # non-zero = the dump is real
+```
+
+**Bad Example** — deferred updates, unverified backups
+
+```bash
+# "We will update after the release." Six months later this is one command that
+# crosses two major versions, and nothing here is individually reversible.
+wp plugin update --all && wp core update && wp theme update --all
+
+# Backup written to the same disk as the site: a disk failure loses both.
+mysqldump wordpress > /var/www/app/backup.sql
+
+# Nobody has ever restored it, so nobody knows the dump is truncated.
+```
+
+Auto-updates for security releases plus a scheduled window for everything else beats both
+extremes: unattended major updates, and updates deferred until they cannot be reasoned about.
+
+---
+
 ## Common Mistakes
 
 - **Deferring updates** until the backlog is too large to diagnose.
@@ -244,3 +293,10 @@ Ongoing, not one-time:
 Maintenance is a schedule, not a reaction: frequent small updates verified on staging, backups
 of both database and uploads proven by a tested restore, a plugin list kept short
 deliberately, and monitoring that tells you about failures before a client does.
+
+## Related
+
+- `knowledge/wordpress/27-deployment.md`
+- `knowledge/wordpress/26-wp-cli.md`
+- `knowledge/wordpress/22-cron-and-background-tasks.md`
+- `knowledge/wordpress/06-security.md`

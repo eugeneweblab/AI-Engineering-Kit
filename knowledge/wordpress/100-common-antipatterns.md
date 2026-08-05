@@ -7,7 +7,7 @@ type: doc
 order: 100
 status: ready
 tags: [wordpress, common-antipatterns]
-related: []
+related: [wordpress/03-best-practices, wordpress/06-security, wordpress/05-performance, wordpress/99-ai-review-checklist]
 when_to_use: "Read before writing WordPress code to avoid common implementation mistakes."
 ---
 # Common WordPress Antipatterns
@@ -627,3 +627,10 @@ Professional WordPress development is largely about avoiding predictable mistake
 Most technical debt is created through small architectural shortcuts rather than large design failures.
 
 Engineers and AI coding agents should continuously compare new code against these common mistakes before considering a task complete.
+
+## Related
+
+- `knowledge/wordpress/03-best-practices.md`
+- `knowledge/wordpress/06-security.md`
+- `knowledge/wordpress/05-performance.md`
+- `knowledge/wordpress/99-ai-review-checklist.md`

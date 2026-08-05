@@ -254,6 +254,71 @@ Note that a page builder such as Divi assumes a classic theme — see
 
 ---
 
+## Examples
+
+**Good Example** — one source of truth, consumed as generated custom properties
+
+```json
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "custom": false,
+      "palette": [
+        { "slug": "surface", "color": "#ffffff", "name": "Surface" },
+        { "slug": "ink", "color": "#111827", "name": "Ink" },
+        { "slug": "accent", "color": "#2563eb", "name": "Accent" }
+      ]
+    },
+    "spacing": {
+      "spacingScale": { "steps": 7 }
+    }
+  },
+  "styles": {
+    "color": { "background": "var(--wp--preset--color--surface)", "text": "var(--wp--preset--color--ink)" },
+    "blocks": {
+      "core/button": {
+        "color": { "background": "var(--wp--preset--color--accent)" },
+        "spacing": { "padding": { "top": "var(--wp--preset--spacing--30)" } }
+      }
+    }
+  }
+}
+```
+
+```css
+/* Any additional CSS consumes the same generated variables. */
+.acme-event-card {
+	background: var(--wp--preset--color--surface);
+	color: var(--wp--preset--color--ink);
+	padding: var(--wp--preset--spacing--40);
+}
+```
+
+Changing the accent colour is one edit in `theme.json`; the editor, the front end, and this
+stylesheet all follow.
+
+**Bad Example** — the palette declared twice, then forced with `!important`
+
+```css
+/* style.css — the same values retyped, now free to drift from theme.json */
+:root {
+	--brand-blue: #2563EB;
+}
+
+.wp-block-button__link {
+	background: #2563eb !important;   /* overrides whatever the editor shows */
+	padding: 9px 15px !important;     /* off the spacing scale entirely */
+}
+```
+
+The editor preview and the front end now disagree, and every future override needs another
+`!important` to win.
+
+---
+
 ## Common Mistakes
 
 - **Hardcoding colors and spacing in CSS** that `theme.json` already defines.
@@ -286,3 +351,9 @@ Note that a page builder such as Divi assumes a classic theme — see
 defaults, and presets become CSS variables you should reference everywhere. Templates are HTML
 following the same hierarchy — and once a user edits one, the database copy, not your file, is
 what renders.
+
+## Related
+
+- `knowledge/wordpress/16-block-editor.md`
+- `knowledge/wordpress/14-theme-development.md`
+- `knowledge/wordpress/13-template-hierarchy.md`

@@ -270,3 +270,11 @@ transaction.
 Prefer the API; when it cannot answer the question, prepare every statement, check every
 return value, index what you query, and treat a custom table as a permanent commitment that
 gives up WordPress's caching and tooling in exchange for a real schema.
+
+## Related
+
+- `knowledge/wordpress/12-queries.md`
+- `knowledge/wordpress/11-metadata.md`
+- `knowledge/wordpress/05-performance.md`
+- `knowledge/wordpress/25-multisite.md`
+- `knowledge/security/13-sql-injection.md`

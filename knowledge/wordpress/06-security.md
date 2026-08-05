@@ -7,7 +7,7 @@ type: doc
 order: 6
 status: ready
 tags: [wordpress, security]
-related: []
+related: [wordpress/20-users-and-capabilities, wordpress/18-rest-api, wordpress/19-database, security/09-input-validation, security/11-xss]
 when_to_use: "Read before handling input, endpoints, or authentication in a WordPress project."
 ---
 # WordPress Security
@@ -613,6 +613,77 @@ Update supported dependencies promptly after reviewing compatibility.
 
 ---
 
+## Examples
+
+**Good Example** — capability, nonce, sanitize on input, escape on output
+
+```php
+add_action( 'admin_post_myplugin_save_event', 'myplugin_handle_save_event' );
+
+function myplugin_handle_save_event() {
+	$event_id = isset( $_POST['event_id'] ) ? absint( $_POST['event_id'] ) : 0;
+
+	// 1. Authorisation: can THIS user edit THIS object?
+	if ( ! $event_id || ! current_user_can( 'edit_post', $event_id ) ) {
+		wp_die( esc_html__( 'You are not allowed to edit this event.', 'myplugin' ), 403 );
+	}
+
+	// 2. Intent: did the request come from our form? check_admin_referer dies on failure.
+	check_admin_referer( 'myplugin_save_event_' . $event_id );
+
+	// 3. Sanitize on the way in — never trust the shape or the type.
+	$title = sanitize_text_field( wp_unslash( $_POST['title'] ?? '' ) );
+	$notes = wp_kses_post( wp_unslash( $_POST['notes'] ?? '' ) );
+
+	wp_update_post(
+		array(
+			'ID'         => $event_id,
+			'post_title' => $title,
+		)
+	);
+	update_post_meta( $event_id, '_event_notes', $notes );
+
+	wp_safe_redirect( add_query_arg( 'updated', '1', wp_get_referer() ) );
+	exit;
+}
+```
+
+```php
+<?php // Escape on the way out, with the function that matches the context. ?>
+<h2><?php echo esc_html( get_the_title( $event_id ) ); ?></h2>
+<a href="<?php echo esc_url( get_permalink( $event_id ) ); ?>"
+   data-id="<?php echo esc_attr( $event_id ); ?>">
+	<?php esc_html_e( 'View event', 'myplugin' ); ?>
+</a>
+```
+
+**Bad Example** — trusted input, no checks, escaping in the wrong place
+
+```php
+add_action( 'admin_post_myplugin_save_event', 'myplugin_handle_save_event' );
+add_action( 'admin_post_nopriv_myplugin_save_event', 'myplugin_handle_save_event' ); // public!
+
+function myplugin_handle_save_event() {
+	global $wpdb;
+
+	// No capability check, no nonce: any visitor can post this form from anywhere.
+	$id = $_POST['event_id'];
+
+	// String interpolation into SQL — the classic injection point.
+	$wpdb->query( "UPDATE {$wpdb->posts} SET post_title = '{$_POST['title']}' WHERE ID = {$id}" );
+
+	// Escaping on write corrupts the stored value and still does not make output safe:
+	// the same data rendered in an attribute or a URL needs a different escaper.
+	update_post_meta( $id, '_event_notes', esc_html( $_POST['notes'] ) );
+}
+```
+
+Escape late, at the point of output, using the escaper that matches the context — `esc_html()`
+in body text, `esc_attr()` in an attribute, `esc_url()` in `href`. Escaping once on write
+cannot satisfy all three.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -654,3 +725,11 @@ A feature is considered secure when:
 Security is achieved through multiple layers of protection rather than a single defensive mechanism.
 
 Well-designed WordPress applications validate every request, authorize every action, protect every output, and minimize the impact of potential failures.
+
+## Related
+
+- `knowledge/wordpress/20-users-and-capabilities.md`
+- `knowledge/wordpress/18-rest-api.md`
+- `knowledge/wordpress/19-database.md`
+- `knowledge/security/09-input-validation.md`
+- `knowledge/security/11-xss.md`

@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [wordpress, wordpress-architecture]
-related: []
+related: [wordpress/02-project-structure, wordpress/08-hooks, wordpress/12-queries, wordpress/13-template-hierarchy, wordpress/19-database]
 when_to_use: "Read before designing or extending the architecture of a WordPress application."
 ---
 # WordPress Architecture
@@ -623,6 +623,77 @@ Optimize architecture before micro-optimizing code.
 
 ---
 
+## Examples
+
+**Good Example** — the template renders; a service decides
+
+```php
+// inc/class-myplugin-event-service.php — business rules live here, testable in isolation.
+class MyPlugin_Event_Service {
+
+	public function upcoming( int $limit = 5 ): array {
+		$cached = wp_cache_get( "upcoming_{$limit}", 'myplugin_events' );
+		if ( false !== $cached ) {
+			return $cached;
+		}
+
+		$query = new WP_Query(
+			array(
+				'post_type'      => 'myplugin_event',
+				'posts_per_page' => $limit,
+				'no_found_rows'  => true,   // skip SQL_CALC_FOUND_ROWS; no pagination needed
+			)
+		);
+
+		wp_cache_set( "upcoming_{$limit}", $query->posts, 'myplugin_events', 5 * MINUTE_IN_SECONDS );
+
+		return $query->posts;
+	}
+}
+```
+
+```php
+<?php
+// template-parts/upcoming-events.php — presentation only.
+$events = ( new MyPlugin_Event_Service() )->upcoming();
+?>
+<ul class="upcoming-events">
+	<?php foreach ( $events as $event ) : ?>
+		<li><?php echo esc_html( get_the_title( $event ) ); ?></li>
+	<?php endforeach; ?>
+</ul>
+```
+
+Swapping the data source, adding a test, or reusing the list in a REST endpoint touches one
+class. The template never changes.
+
+**Bad Example** — the template is the application
+
+```php
+<?php
+// template-parts/upcoming-events.php
+global $wpdb;
+
+// Direct SQL bypasses the object cache, the post-status rules, and every filter another
+// plugin registered. It cannot be unit-tested, and it cannot be reused by the REST layer.
+$rows = $wpdb->get_results(
+	"SELECT ID, post_title FROM {$wpdb->posts}
+	 WHERE post_type = 'myplugin_event' AND post_status = 'publish' LIMIT 5"
+);
+
+foreach ( $rows as $row ) {
+	// A business rule buried in markup, and unescaped output on top of it.
+	if ( get_post_meta( $row->ID, 'featured', true ) ) {
+		echo '<li class="featured">' . $row->post_title . '</li>';
+	}
+}
+```
+
+The rule "featured events render differently" now exists only inside one template file. The
+next place that needs it will reimplement it, and the two will drift.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -664,3 +735,11 @@ A WordPress implementation is considered architecturally correct when:
 Well-designed WordPress architecture is based on clear responsibilities, reuse, and integration with the WordPress ecosystem.
 
 Every new feature should strengthen the architecture rather than increase its complexity.
+
+## Related
+
+- `knowledge/wordpress/02-project-structure.md`
+- `knowledge/wordpress/08-hooks.md`
+- `knowledge/wordpress/12-queries.md`
+- `knowledge/wordpress/13-template-hierarchy.md`
+- `knowledge/wordpress/19-database.md`

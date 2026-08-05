@@ -7,7 +7,7 @@ type: doc
 order: 4
 status: ready
 tags: [wordpress, code-style]
-related: []
+related: [wordpress/03-best-practices, wordpress/15-plugin-development, wordpress/07-testing, php/22-clean-code, php/24-psr-standards]
 when_to_use: "Read before writing or formatting WordPress code to match the project's coding style."
 ---
 # WordPress Code Style
@@ -755,6 +755,62 @@ add_action( 'wp_head', 'acme_enqueue_assets' );
 
 ---
 
+## Examples
+
+**Good Example** — guard clauses, named values, one responsibility
+
+```php
+const MYPLUGIN_MAX_SEATS = 250;
+
+/**
+ * Decide whether a user may register for an event.
+ *
+ * @return true|WP_Error True when registration is allowed, WP_Error explaining why not.
+ */
+function myplugin_can_register( int $event_id, int $user_id ) {
+	if ( 'publish' !== get_post_status( $event_id ) ) {
+		return new WP_Error( 'event_unavailable', __( 'This event is not open.', 'myplugin' ) );
+	}
+
+	if ( myplugin_is_registered( $event_id, $user_id ) ) {
+		return new WP_Error( 'already_registered', __( 'You are already registered.', 'myplugin' ) );
+	}
+
+	if ( myplugin_seats_taken( $event_id ) >= MYPLUGIN_MAX_SEATS ) {
+		return new WP_Error( 'event_full', __( 'This event is full.', 'myplugin' ) );
+	}
+
+	return true;
+}
+```
+
+Each rule is one line at one indentation level, the failure reason reaches the caller, and the
+seat limit has a name instead of appearing as a number in three places.
+
+**Bad Example** — nesting, magic numbers, and a boolean that explains nothing
+
+```php
+function check( $id, $u ) {
+	$r = false;
+	if ( get_post_status( $id ) == 'publish' ) {
+		$d = get_post_meta( $id, 'regs', true );
+		if ( $d ) {
+			if ( ! in_array( $u, $d ) ) {          // loose comparison: "12" matches 12
+				if ( count( $d ) < 250 ) {         // why 250? it also appears in two other files
+					$r = true;
+				}
+			}
+		}
+	}
+	return $r;
+}
+```
+
+The caller receives `false` and cannot tell whether the event was unpublished, full, or already
+booked — so the user interface shows one vague message for three different situations.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -799,3 +855,11 @@ Good code style is invisible.
 It allows engineers to focus on solving business problems instead of decoding implementation details.
 
 Consistency across the project is more valuable than individual coding preferences.
+
+## Related
+
+- `knowledge/wordpress/03-best-practices.md`
+- `knowledge/wordpress/15-plugin-development.md`
+- `knowledge/wordpress/07-testing.md`
+- `knowledge/php/22-clean-code.md`
+- `knowledge/php/24-psr-standards.md`

@@ -246,6 +246,69 @@ most of the RTL work disappears.
 
 ---
 
+## Examples
+
+**Good Example** — literal strings, literal domain, escaped for the output context
+
+```php
+add_action( 'init', 'myplugin_load_textdomain' );
+
+function myplugin_load_textdomain() {
+	// Not needed for plugins hosted on WordPress.org since 4.6, but required for
+	// plugins distributed elsewhere.
+	load_plugin_textdomain( 'myplugin', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
+
+function myplugin_render_seat_notice( int $event_id ): string {
+	$remaining = myplugin_seats_remaining( $event_id );
+
+	return sprintf(
+		/* translators: %s: number of seats still available. */
+		esc_html(
+			_n( '%s seat left.', '%s seats left.', $remaining, 'myplugin' )
+		),
+		esc_html( number_format_i18n( $remaining ) )
+	);
+}
+```
+
+```php
+// Attribute context needs esc_attr, and the string still carries a translator note.
+printf(
+	'<button aria-label="%s">%s</button>',
+	esc_attr(
+		sprintf(
+			/* translators: %s: event title. */
+			__( 'Register for %s', 'myplugin' ),
+			get_the_title( $event_id )
+		)
+	),
+	esc_html__( 'Register', 'myplugin' )
+);
+```
+
+**Bad Example** — concatenation, a variable domain, and translation at load time
+
+```php
+// The text domain is a variable, so the string extractor cannot find this string
+// and it never appears in the .pot file.
+$domain = 'myplugin';
+echo __( 'Register', $domain );
+
+// Concatenation splits one sentence into fragments. Any language that reorders the
+// clause is untranslatable, and the number cannot be pluralized.
+echo __( 'There are ', 'myplugin' ) . $remaining . __( ' seats left.', 'myplugin' );
+
+// Runs while the plugin file loads, before the text domain is available, so it
+// returns the untranslated original and caches it in a constant forever.
+define( 'MYPLUGIN_LABEL', __( 'Events', 'myplugin' ) );
+
+// Unescaped: a translation is untrusted input like any other.
+echo __( 'Register for the event', 'myplugin' );
+```
+
+---
+
 ## Common Mistakes
 
 - **Hardcoded strings** in templates, admin notices, and error messages.
@@ -281,3 +344,9 @@ most of the RTL work disappears.
 Wrap every user-facing string with a literal text domain, escape for the output context, use
 numbered placeholders with translator comments, delegate plurals to `_n()`, and translate at
 the point of use rather than at load time.
+
+## Related
+
+- `knowledge/wordpress/15-plugin-development.md`
+- `knowledge/wordpress/14-theme-development.md`
+- `knowledge/wordpress/16-block-editor.md`

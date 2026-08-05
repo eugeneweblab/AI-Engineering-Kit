@@ -7,7 +7,7 @@ type: doc
 order: 99
 status: ready
 tags: [wordpress, ai-review-checklist]
-related: []
+related: [wordpress/98-production-checklist, wordpress/100-common-antipatterns, wordpress/03-best-practices]
 when_to_use: "Read before reviewing or merging WordPress code changes."
 ---
 # WordPress AI Review Checklist
@@ -328,3 +328,9 @@ A review is complete only when:
 A high-quality code review protects the project's architecture, prevents technical debt, and improves the overall engineering culture.
 
 The goal is not to criticize the author but to ensure that every merged change leaves the codebase in a better state than before.
+
+## Related
+
+- `knowledge/wordpress/98-production-checklist.md`
+- `knowledge/wordpress/100-common-antipatterns.md`
+- `knowledge/wordpress/03-best-practices.md`
