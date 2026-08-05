@@ -39,6 +39,15 @@ jobs:
       - name: Structure, links, and code blocks
         run: python3 scripts/check-knowledge.py knowledge
 
+      - name: SIGNALS is in sync with frontmatter
+        run: |
+          python3 scripts/build-signals.py
+          if ! git diff --quiet -- knowledge/SIGNALS.json; then
+            echo "::error::SIGNALS.json is stale. Run 'python3 scripts/build-signals.py' and commit the result."
+            exit 1
+          fi
+          echo "SIGNALS is up to date."
+
       - name: INDEX is in sync with frontmatter
         run: |
           python3 scripts/build-index.py

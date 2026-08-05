@@ -28,6 +28,28 @@ python3 scripts/build-index.py
 
 Both are safe to re-run; they only touch frontmatter and the two INDEX files.
 
+## `build-signals.py`
+
+Generates `knowledge/SIGNALS.json`, which answers the question an agent has *before*
+"which document" — namely "which rules apply to this repository at all":
+
+- **`stack`** — a curated list mapping a file or directory to the stack or variant it
+  identifies and the documents that govern it. `app/**/page.tsx` means App Router;
+  `pages/_app.tsx` means the legacy Pages Router; a theme with `theme.json` is a block
+  theme, the same theme without one is classic. Which files mean which variant is
+  judgement, so this list is hand-maintained here rather than derived.
+- **`symbols`** — generated from every document's `tags`: an API name in a diff
+  (`revalidateTag`, `switch_to_blog`, `autovacuum_freeze_max_age`) resolves to the
+  documents that state its rules. READMEs, `00` overviews, and the `98`/`99`
+  checklists are excluded — they index or verify rules rather than state them.
+
+```bash
+python3 scripts/build-signals.py
+```
+
+The build fails if a curated signal points at a document that does not exist, and CI
+fails if the committed file is stale.
+
 ## `check-ready-not-stub.py`
 
 Guardrail linter (read-only). Fails if any doc marked `status: ready` is actually a

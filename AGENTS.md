@@ -21,6 +21,13 @@ Follow this loop for any coding task:
    Filter to `status: "ready"`, match on `topic` / `tags` / `when_to_use`, then read
    the doc at its `path`.
 
+   [`knowledge/SIGNALS.json`](knowledge/SIGNALS.json) inverts this lookup. Its
+   `stack` list maps a file that identifies a stack or a variant — `app/**/page.tsx`
+   versus `pages/_app.tsx`, a theme with `theme.json` versus one without — to the
+   documents that govern it, so the applicable rule set is determined by the
+   repository rather than guessed. Its `symbols` index maps an API name to the
+   documents that state its rules.
+
    **Match from the code, not only from the task description.** After the topic and
    slug, `tags` lists the API names, directives, and configuration keys a document
    governs — `revalidateTag`, `add_filter`, `DISABLE_WP_CRON`, `autovacuum_freeze_max_age`.
@@ -80,6 +87,7 @@ filename** — the index already does this for you.
 | Path | What it holds |
 |------|---------------|
 | `knowledge/INDEX.json` / `INDEX.md` | Generated index of every doc — **your entrypoint**. |
+| `knowledge/SIGNALS.json` | Generated: repository file → applicable docs, and API symbol → the docs that govern it. |
 | `knowledge/<topic>/` | Standard topics (`00-overview` → `30-…`, `98/99/100`). |
 | `knowledge/engineering/` | Cross-cutting engineering principles (custom structure). |
 | `knowledge/ai/` | How AI should gather context, plan, generate, verify (custom). |
@@ -88,7 +96,7 @@ filename** — the index already does this for you.
 | `knowledge/TEMPLATE.md` | Scaffold (incl. required frontmatter) for a new doc. |
 | `agents/<tool>/` | Tool-specific integration notes — all redirect here. |
 | `docs/structure/` | Frozen canonical structure spec and file list. |
-| `scripts/` | `inject-frontmatter.py`, `build-index.py` (regenerate metadata/index). |
+| `scripts/` | `build-index.py`, `build-signals.py` (regenerate), `check-knowledge.py` (verify). |
 
 ---
 
@@ -110,7 +118,8 @@ When you add or edit a doc:
    and start from [`knowledge/TEMPLATE.md`](knowledge/TEMPLATE.md).
 2. Fill a `draft` stub with real content and flip `status` to `ready`; set
    `when_to_use` and `related`.
-3. Regenerate the index: `python3 scripts/build-index.py`.
+3. Regenerate the generated files: `python3 scripts/build-index.py` and
+   `python3 scripts/build-signals.py`.
 4. Keep the canonical filenames/numbering from `docs/structure/canonical-file-list.md`, and
    add the file to that list when you create one — the numeric prefix is the document's
    `order` and must be unique within its topic.
