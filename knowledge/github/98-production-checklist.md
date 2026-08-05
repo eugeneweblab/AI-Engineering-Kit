@@ -2,7 +2,7 @@
 id: github/98-production-checklist
 topic: github
 slug: production-checklist
-title: "Production Checklist"
+title: "GitHub Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [github, production-checklist]
 related: [github/17-branch-protection, github/13-security, github/08-actions, github/16-secret-scanning, github/30-engineering-principles]
 when_to_use: "Read before marking a GitHub repository production-ready or onboarding it to CI/CD."
 ---
-# Production Checklist
+# GitHub Production Checklist
 
 ## Purpose
 

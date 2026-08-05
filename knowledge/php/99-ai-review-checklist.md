@@ -2,7 +2,7 @@
 id: php/99-ai-review-checklist
 topic: php
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "PHP AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [php, ai-review-checklist]
 related: [php/100-common-antipatterns, php/22-clean-code, php/13-security, php/15-testing, php/30-engineering-principles]
 when_to_use: "Read when reviewing any PHP diff before approving or merging it."
 ---
-# AI Review Checklist
+# PHP AI Review Checklist
 
 ## Purpose
 

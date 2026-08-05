@@ -2,7 +2,7 @@
 id: git/29-tooling
 topic: git
 slug: tooling
-title: "Tooling"
+title: "Git Tooling"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [git, tooling]
 related: [git/20-hooks, git/02-installation, git/27-best-practices, git/17-conflict-resolution, git/28-security]
 when_to_use: "Read before configuring Git aliases, hooks, diff/merge tools, or CI integrations for a repo or team."
 ---
-# Tooling
+# Git Tooling
 
 ## Purpose
 

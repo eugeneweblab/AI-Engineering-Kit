@@ -2,7 +2,7 @@
 id: mysql/15-monitoring
 topic: mysql
 slug: monitoring
-title: "Monitoring"
+title: "MySQL Monitoring"
 type: doc
 order: 15
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, monitoring]
 related: [mysql/14-performance, mysql/05-query-optimization, mysql/09-replication, mysql/20-production]
 when_to_use: "Read before shipping a MySQL server to production, setting up alerting, or diagnosing a live performance or availability incident."
 ---
-# Monitoring
+# MySQL Monitoring
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: html/29-debugging
 topic: html
 slug: debugging
-title: "Debugging"
+title: "HTML Debugging"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [html, debugging]
 related: [html/22-validation, html/11-accessibility, html/20-browser-rendering, html/18-performance, html/99-ai-review-checklist]
 when_to_use: "Read before diagnosing why a page renders, reflows, or behaves incorrectly."
 ---
-# Debugging
+# HTML Debugging
 
 ## Purpose
 

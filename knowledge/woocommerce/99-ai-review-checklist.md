@@ -2,7 +2,7 @@
 id: woocommerce/99-ai-review-checklist
 topic: woocommerce
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "WooCommerce AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, ai-review-checklist]
 related: [woocommerce/29-ai-review, woocommerce/16-security, woocommerce/12-hooks, woocommerce/98-production-checklist, woocommerce/100-common-antipatterns]
 when_to_use: "Read when reviewing or generating any WooCommerce code change, before it is merged."
 ---
-# AI Review Checklist
+# WooCommerce AI Review Checklist
 
 ## Purpose
 

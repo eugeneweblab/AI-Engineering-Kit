@@ -2,7 +2,7 @@
 id: css/98-production-checklist
 topic: css
 slug: production-checklist
-title: "Production Checklist"
+title: "CSS Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [css, production-checklist]
 related: [css/22-performance, css/23-accessibility, css/26-browser-compatibility, css/17-responsive-design, css/30-engineering-principles]
 when_to_use: "Read before shipping a stylesheet, design system, or styled feature to production."
 ---
-# Production Checklist
+# CSS Production Checklist
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: rest-api/00-overview
 topic: rest-api
 slug: overview
-title: "Overview"
+title: "REST API Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, overview]
 related: [rest-api/01-http, rest-api/02-rest-principles, rest-api/03-resource-design, rest-api/04-endpoints, rest-api/07-status-codes]
 when_to_use: "Read first when starting or reviewing any HTTP/REST API to learn how this topic's docs fit together."
 ---
-# Overview
+# REST API Overview
 
 ## Purpose
 

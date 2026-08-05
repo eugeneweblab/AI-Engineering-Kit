@@ -2,7 +2,7 @@
 id: redis/28-observability
 topic: redis
 slug: observability
-title: "Observability"
+title: "Redis Observability"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, observability]
 related: [redis/22-monitoring, redis/23-performance, redis/25-debugging, redis/27-production, redis/29-tooling]
 when_to_use: "Read when setting up metrics, dashboards, or alerts for a Redis deployment, or defining what to watch."
 ---
-# Observability
+# Redis Observability
 
 ## Purpose
 

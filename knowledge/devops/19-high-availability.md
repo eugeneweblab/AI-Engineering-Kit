@@ -2,7 +2,7 @@
 id: devops/19-high-availability
 topic: devops
 slug: high-availability
-title: "High Availability"
+title: "DevOps High Availability"
 type: doc
 order: 19
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, high-availability]
 related: [devops/18-disaster-recovery, devops/20-scalability, devops/11-orchestration, devops/07-deployment-strategies, devops/27-sre-principles]
 when_to_use: "Read before designing redundancy, health checks, failover, or SLA targets for a production service."
 ---
-# High Availability
+# DevOps High Availability
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: frontend/13-error-handling
 topic: frontend
 slug: error-handling
-title: "Error Handling"
+title: "Frontend Error Handling"
 type: doc
 order: 13
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, error-handling]
 related: [frontend/06-data-fetching, frontend/12-forms, frontend/23-monitoring, frontend/14-security, frontend/04-state-management]
 when_to_use: "Read before writing any code that can fail: data fetches, form submits, render boundaries, or async effects."
 ---
-# Error Handling
+# Frontend Error Handling
 
 ## Purpose
 

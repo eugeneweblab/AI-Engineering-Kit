@@ -2,7 +2,7 @@
 id: graphql/99-ai-review-checklist
 topic: graphql
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "GraphQL AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, ai-review-checklist]
 related: [graphql/07-resolvers, graphql/15-n1-problem, graphql/17-security, graphql/20-error-handling, graphql/100-common-antipatterns]
 when_to_use: "Read when reviewing a GraphQL schema, resolver, or diff before approving it."
 ---
-# AI Review Checklist
+# GraphQL AI Review Checklist
 
 ## Purpose
 

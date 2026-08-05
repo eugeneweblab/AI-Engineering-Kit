@@ -2,7 +2,7 @@
 id: typescript/99-ai-review-checklist
 topic: typescript
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "TypeScript AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [typescript, ai-review-checklist]
 related: [typescript/12-type-guards, typescript/17-error-handling, typescript/23-clean-code, typescript/28-best-practices, typescript/100-common-antipatterns]
 when_to_use: "Read before reviewing a TypeScript pull request or AI-generated TypeScript."
 ---
-# AI Review Checklist
+# TypeScript AI Review Checklist
 
 ## Purpose
 

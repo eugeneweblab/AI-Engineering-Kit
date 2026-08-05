@@ -2,7 +2,7 @@
 id: seo/28-real-world-patterns
 topic: seo
 slug: real-world-patterns
-title: "Real World Patterns"
+title: "SEO Real World Patterns"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [seo, real-world-patterns]
 related: [seo/19-javascript-seo, seo/20-headless-seo, seo/04-rendering, seo/06-canonicalization, seo/18-pagination]
 when_to_use: "Read before implementing a common SEO-sensitive feature — SPA routing, faceted navigation, infinite scroll, pagination, or migrations."
 ---
-# Real World Patterns
+# SEO Real World Patterns
 
 ## Purpose
 

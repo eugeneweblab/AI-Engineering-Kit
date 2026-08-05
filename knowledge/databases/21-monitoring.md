@@ -2,7 +2,7 @@
 id: databases/21-monitoring
 topic: databases
 slug: monitoring
-title: "Monitoring"
+title: "Database Monitoring"
 type: doc
 order: 21
 status: ready
@@ -10,7 +10,7 @@ tags: [databases, monitoring]
 related: [databases/20-performance, databases/08-query-optimization, databases/22-high-availability, databases/18-backup-and-recovery, databases/14-replication]
 when_to_use: "Read before shipping a database to production, setting alerts, or diagnosing an incident where you need to know what the database was doing."
 ---
-# Monitoring
+# Database Monitoring
 
 ## Purpose
 

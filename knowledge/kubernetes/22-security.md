@@ -2,7 +2,7 @@
 id: kubernetes/22-security
 topic: kubernetes
 slug: security
-title: "Security"
+title: "Kubernetes Security"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [kubernetes, security]
 related: [kubernetes/18-rbac, kubernetes/17-network-policies, kubernetes/10-secrets, kubernetes/99-ai-review-checklist]
 when_to_use: "Read before deploying any workload to a shared or production cluster, or when reviewing a pod's securityContext, image, or privilege settings."
 ---
-# Security
+# Kubernetes Security
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: accessibility/29-documentation
 topic: accessibility
 slug: documentation
-title: "Documentation"
+title: "Accessibility Documentation"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, documentation]
 related: [accessibility/26-legal-requirements, accessibility/24-accessibility-testing, accessibility/25-remediation, accessibility/27-best-practices, accessibility/23-wcag]
 when_to_use: "Read before writing an accessibility statement, a VPAT/ACR, component a11y notes, or documenting a known accessibility gap."
 ---
-# Documentation
+# Accessibility Documentation
 
 ## Purpose
 

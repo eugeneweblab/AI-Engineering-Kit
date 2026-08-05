@@ -2,7 +2,7 @@
 id: devops/30-engineering-principles
 topic: devops
 slug: engineering-principles
-title: "Engineering Principles"
+title: "DevOps Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, engineering-principles]
 related: [devops/28-best-practices, devops/27-sre-principles, devops/08-infrastructure-as-code, devops/07-deployment-strategies, devops/100-common-antipatterns]
 when_to_use: "Read before designing a pipeline, deployment, or operational change, so the delivery trade-offs are reasoned rather than guessed."
 ---
-# Engineering Principles
+# DevOps Engineering Principles
 
 ## Purpose
 

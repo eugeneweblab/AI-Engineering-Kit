@@ -2,7 +2,7 @@
 id: nestjs/28-deployment
 topic: nestjs
 slug: deployment
-title: "Deployment"
+title: "NestJS Deployment"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [nestjs, deployment]
 related: [nestjs/14-configuration, nestjs/29-maintenance, docker/11-multi-stage-builds, cicd/10-deployment]
 when_to_use: "Read before setting up or reviewing build, containerization, CI/CD, or release processes for a NestJS application."
 ---
-# Deployment
+# NestJS Deployment
 
 ## Purpose
 

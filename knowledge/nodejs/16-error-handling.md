@@ -2,7 +2,7 @@
 id: nodejs/16-error-handling
 topic: nodejs
 slug: error-handling
-title: "Error Handling"
+title: "Node.js Error Handling"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [nodejs, error-handling]
 related: [nodejs/17-logging, nodejs/10-process, nodejs/08-events, nodejs/09-http, nodejs/06-streams]
 when_to_use: "Read before writing async error paths, process-level handlers, or deciding what to catch vs. crash on."
 ---
-# Error Handling
+# Node.js Error Handling
 
 ## Purpose
 

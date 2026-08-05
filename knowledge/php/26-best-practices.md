@@ -2,7 +2,7 @@
 id: php/26-best-practices
 topic: php
 slug: best-practices
-title: "Best Practices"
+title: "PHP Best Practices"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [php, best-practices]
 related: [php/23-modern-php, php/22-clean-code, php/02-types, php/09-exceptions, php/13-security]
 when_to_use: "Read before writing or reviewing any non-trivial PHP class or function."
 ---
-# Best Practices
+# PHP Best Practices
 
 ## Purpose
 

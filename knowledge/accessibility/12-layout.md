@@ -2,7 +2,7 @@
 id: accessibility/12-layout
 topic: accessibility
 slug: layout
-title: "Layout"
+title: "Accessibility Layout"
 type: doc
 order: 12
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, layout]
 related: [accessibility/13-responsive-accessibility, accessibility/04-keyboard-navigation, accessibility/05-focus-management, accessibility/03-semantic-html, accessibility/11-typography]
 when_to_use: "Read before building page structure, grids, columns, or any visual arrangement that could diverge from DOM order."
 ---
-# Layout
+# Accessibility Layout
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: git/00-overview
 topic: git
 slug: overview
-title: "Overview"
+title: "Git Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [git, overview]
 related: [git/01-version-control, git/03-repository, git/04-commits, git/05-branches, git/27-best-practices]
 when_to_use: "Read first to understand how the git docs fit together and where to go next."
 ---
-# Overview
+# Git Overview
 
 ## Purpose
 

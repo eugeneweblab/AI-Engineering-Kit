@@ -2,7 +2,7 @@
 id: rest-api/05-routing
 topic: rest-api
 slug: routing
-title: "Routing"
+title: "REST API Routing"
 type: doc
 order: 5
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, routing]
 related: [rest-api/04-endpoints, rest-api/03-resource-design, rest-api/14-versioning, rest-api/08-validation, rest-api/16-authorization]
 when_to_use: "Read before defining route paths, ordering routes, or wiring middleware for an HTTP API."
 ---
-# Routing
+# REST API Routing
 
 ## Purpose
 

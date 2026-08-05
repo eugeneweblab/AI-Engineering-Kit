@@ -2,7 +2,7 @@
 id: architecture/00-overview
 topic: architecture
 slug: overview
-title: "Overview"
+title: "Architecture Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, overview]
 related: [architecture/01-software-architecture, architecture/02-system-design, architecture/03-clean-architecture, architecture/28-best-practices, architecture/100-common-antipatterns]
 when_to_use: "Read first, before starting any design task, to find the right doc for the decision in front of you."
 ---
-# Overview
+# Architecture Overview
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: databases/30-engineering-principles
 topic: databases
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Database Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [databases, engineering-principles]
 related: [databases/09-transactions, databases/23-data-integrity, databases/17-migrations, databases/07-indexing, databases/28-best-practices]
 when_to_use: "Read before designing a schema, writing data-access code, or reviewing any change that touches the database."
 ---
-# Engineering Principles
+# Database Engineering Principles
 
 ## Purpose
 

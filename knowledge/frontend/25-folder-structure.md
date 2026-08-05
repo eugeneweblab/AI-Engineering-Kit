@@ -2,7 +2,7 @@
 id: frontend/25-folder-structure
 topic: frontend
 slug: folder-structure
-title: "Folder Structure"
+title: "Frontend Folder Structure"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, folder-structure]
 related: [frontend/01-frontend-architecture, frontend/02-component-driven-development, frontend/21-code-splitting, frontend/24-documentation, frontend/19-build-tools]
 when_to_use: "Read before creating a new frontend project or adding a feature that needs new directories."
 ---
-# Folder Structure
+# Frontend Folder Structure
 
 ## Purpose
 

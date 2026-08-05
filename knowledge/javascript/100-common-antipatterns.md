@@ -2,7 +2,7 @@
 id: javascript/100-common-antipatterns
 topic: javascript
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "JavaScript Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, common-antipatterns]
 related: [javascript/30-engineering-principles, javascript/14-error-handling, javascript/08-asynchronous-javascript, javascript/16-this-keyword, javascript/26-security]
 when_to_use: "Read when writing or reviewing JavaScript to recognize and remove recurring failure patterns."
 ---
-# Common Antipatterns
+# JavaScript Common Antipatterns
 
 ## Purpose
 

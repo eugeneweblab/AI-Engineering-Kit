@@ -2,7 +2,7 @@
 id: devops/28-best-practices
 topic: devops
 slug: best-practices
-title: "Best Practices"
+title: "DevOps Best Practices"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, best-practices]
 related: [devops/00-overview, devops/08-infrastructure-as-code, devops/27-sre-principles, devops/24-change-management, devops/100-common-antipatterns]
 when_to_use: "Read when setting up a delivery pipeline from scratch or auditing an existing DevOps practice against a baseline."
 ---
-# Best Practices
+# DevOps Best Practices
 
 ## Purpose
 

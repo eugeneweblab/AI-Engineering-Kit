@@ -2,7 +2,7 @@
 id: prisma/19-testing
 topic: prisma
 slug: testing
-title: "Testing"
+title: "Prisma Testing"
 type: doc
 order: 19
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, testing]
 related: [prisma/05-migrations, prisma/12-seeding, prisma/08-transactions, prisma/20-debugging]
 when_to_use: "Read before writing tests for any code that queries the database through Prisma."
 ---
-# Testing
+# Prisma Testing
 
 ## Purpose
 

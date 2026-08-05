@@ -2,7 +2,7 @@
 id: javascript/00-overview
 topic: javascript
 slug: overview
-title: "Overview"
+title: "JavaScript Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, overview]
 related: [javascript/01-language-fundamentals, javascript/02-execution-context, javascript/03-scope-and-closures, javascript/04-functions, javascript/05-objects-and-prototypes]
 when_to_use: "Read first when starting any JavaScript work to see how the topic's docs fit together."
 ---
-# Overview
+# JavaScript Overview
 
 ## Purpose
 

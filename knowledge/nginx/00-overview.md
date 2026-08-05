@@ -2,7 +2,7 @@
 id: nginx/00-overview
 topic: nginx
 slug: overview
-title: "Overview"
+title: "Nginx Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, overview]
 related: [nginx/01-installation, nginx/02-configuration, nginx/03-server-blocks, nginx/05-reverse-proxy, nginx/13-security]
 when_to_use: "Read first when starting any nginx task to find the right doc for the job."
 ---
-# Overview
+# Nginx Overview
 
 ## Purpose
 

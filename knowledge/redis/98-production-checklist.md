@@ -2,7 +2,7 @@
 id: redis/98-production-checklist
 topic: redis
 slug: production-checklist
-title: "Production Checklist"
+title: "Redis Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, production-checklist]
 related: [redis/20-persistence, redis/18-replication, redis/21-security, redis/22-monitoring, redis/27-production]
 when_to_use: "Read before promoting any Redis instance or Redis-backed feature to production."
 ---
-# Production Checklist
+# Redis Production Checklist
 
 ## Purpose
 

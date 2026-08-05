@@ -2,7 +2,7 @@
 id: postgresql/18-security
 topic: postgresql
 slug: security
-title: "Security"
+title: "PostgreSQL Security"
 type: doc
 order: 18
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, security]
 related: [postgresql/19-roles-and-permissions, postgresql/12-replication, postgresql/14-backups, postgresql/17-monitoring, postgresql/26-production]
 when_to_use: "Read before exposing a PostgreSQL instance to any network, wiring an app's database credentials, or reviewing connection, encryption, or data-access controls."
 ---
-# Security
+# PostgreSQL Security
 
 ## Purpose
 

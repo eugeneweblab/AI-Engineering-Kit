@@ -2,7 +2,7 @@
 id: javascript/29-tooling
 topic: javascript
 slug: tooling
-title: "Tooling"
+title: "JavaScript Tooling"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, tooling]
 related: [javascript/07-modules, javascript/24-testing, javascript/28-best-practices, javascript/26-security, javascript/25-performance]
 when_to_use: "Read before setting up or changing a JavaScript project's build, lint, format, or dependency tooling."
 ---
-# Tooling
+# JavaScript Tooling
 
 ## Purpose
 

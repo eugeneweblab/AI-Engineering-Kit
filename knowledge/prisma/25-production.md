@@ -2,7 +2,7 @@
 id: prisma/25-production
 topic: prisma
 slug: production
-title: "Production"
+title: "Prisma Production"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, production]
 related: [prisma/05-migrations, prisma/15-performance, prisma/26-observability, prisma/18-error-handling, prisma/98-production-checklist]
 when_to_use: "Read before deploying a Prisma app or reviewing its connection, migration, and runtime configuration for production."
 ---
-# Production
+# Prisma Production
 
 ## Purpose
 

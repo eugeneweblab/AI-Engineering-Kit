@@ -2,7 +2,7 @@
 id: nginx/26-best-practices
 topic: nginx
 slug: best-practices
-title: "Best Practices"
+title: "Nginx Best Practices"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, best-practices]
 related: [nginx/02-configuration, nginx/04-location-blocks, nginx/13-security, nginx/25-production, nginx/100-common-antipatterns]
 when_to_use: "Read before writing or reviewing any nginx config, to apply the conventions that keep it correct, secure, and maintainable."
 ---
-# Best Practices
+# Nginx Best Practices
 
 ## Purpose
 

@@ -29,7 +29,7 @@
         },
         {
           "id": "accessibility/00-overview",
-          "title": "Overview",
+          "title": "Accessibility Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -71,7 +71,7 @@
         },
         {
           "id": "accessibility/03-semantic-html",
-          "title": "Semantic HTML",
+          "title": "Accessibility Semantic HTML",
           "slug": "semantic-html",
           "type": "doc",
           "order": 3,
@@ -141,7 +141,7 @@
         },
         {
           "id": "accessibility/08-forms",
-          "title": "Forms",
+          "title": "Accessibility Forms",
           "slug": "forms",
           "type": "doc",
           "order": 8,
@@ -155,7 +155,7 @@
         },
         {
           "id": "accessibility/09-images",
-          "title": "Images",
+          "title": "Accessibility Images",
           "slug": "images",
           "type": "doc",
           "order": 9,
@@ -183,7 +183,7 @@
         },
         {
           "id": "accessibility/11-typography",
-          "title": "Typography",
+          "title": "Accessibility Typography",
           "slug": "typography",
           "type": "doc",
           "order": 11,
@@ -197,7 +197,7 @@
         },
         {
           "id": "accessibility/12-layout",
-          "title": "Layout",
+          "title": "Accessibility Layout",
           "slug": "layout",
           "type": "doc",
           "order": 12,
@@ -239,7 +239,7 @@
         },
         {
           "id": "accessibility/15-media",
-          "title": "Media",
+          "title": "Accessibility Media",
           "slug": "media",
           "type": "doc",
           "order": 15,
@@ -267,7 +267,7 @@
         },
         {
           "id": "accessibility/17-tables",
-          "title": "Tables",
+          "title": "Accessibility Tables",
           "slug": "tables",
           "type": "doc",
           "order": 17,
@@ -407,7 +407,7 @@
         },
         {
           "id": "accessibility/27-best-practices",
-          "title": "Best Practices",
+          "title": "Accessibility Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 27,
@@ -421,7 +421,7 @@
         },
         {
           "id": "accessibility/28-real-world-patterns",
-          "title": "Real World Patterns",
+          "title": "Accessibility Real World Patterns",
           "slug": "real-world-patterns",
           "type": "doc",
           "order": 28,
@@ -435,7 +435,7 @@
         },
         {
           "id": "accessibility/29-documentation",
-          "title": "Documentation",
+          "title": "Accessibility Documentation",
           "slug": "documentation",
           "type": "doc",
           "order": 29,
@@ -449,7 +449,7 @@
         },
         {
           "id": "accessibility/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Accessibility Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -463,7 +463,7 @@
         },
         {
           "id": "accessibility/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Accessibility Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -477,7 +477,7 @@
         },
         {
           "id": "accessibility/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Accessibility AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -491,7 +491,7 @@
         },
         {
           "id": "accessibility/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Accessibility Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -645,7 +645,7 @@
         },
         {
           "id": "architecture/00-overview",
-          "title": "Overview",
+          "title": "Architecture Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -687,7 +687,7 @@
         },
         {
           "id": "architecture/03-clean-architecture",
-          "title": "Clean Architecture",
+          "title": "Architecture Clean Architecture",
           "slug": "clean-architecture",
           "type": "doc",
           "order": 3,
@@ -701,7 +701,7 @@
         },
         {
           "id": "architecture/04-hexagonal-architecture",
-          "title": "Hexagonal Architecture",
+          "title": "Architecture Hexagonal Architecture",
           "slug": "hexagonal-architecture",
           "type": "doc",
           "order": 4,
@@ -715,7 +715,7 @@
         },
         {
           "id": "architecture/05-layered-architecture",
-          "title": "Layered Architecture",
+          "title": "Architecture Layered Architecture",
           "slug": "layered-architecture",
           "type": "doc",
           "order": 5,
@@ -771,7 +771,7 @@
         },
         {
           "id": "architecture/09-microservices",
-          "title": "Microservices",
+          "title": "Architecture Microservices",
           "slug": "microservices",
           "type": "doc",
           "order": 9,
@@ -827,7 +827,7 @@
         },
         {
           "id": "architecture/13-scalability",
-          "title": "Scalability",
+          "title": "Architecture Scalability",
           "slug": "scalability",
           "type": "doc",
           "order": 13,
@@ -841,7 +841,7 @@
         },
         {
           "id": "architecture/14-performance",
-          "title": "Performance",
+          "title": "Architecture Performance",
           "slug": "performance",
           "type": "doc",
           "order": 14,
@@ -855,7 +855,7 @@
         },
         {
           "id": "architecture/15-security",
-          "title": "Security",
+          "title": "Architecture Security",
           "slug": "security",
           "type": "doc",
           "order": 15,
@@ -869,7 +869,7 @@
         },
         {
           "id": "architecture/16-high-availability",
-          "title": "High Availability",
+          "title": "Architecture High Availability",
           "slug": "high-availability",
           "type": "doc",
           "order": 16,
@@ -897,7 +897,7 @@
         },
         {
           "id": "architecture/18-observability",
-          "title": "Observability",
+          "title": "Architecture Observability",
           "slug": "observability",
           "type": "doc",
           "order": 18,
@@ -925,7 +925,7 @@
         },
         {
           "id": "architecture/20-message-brokers",
-          "title": "Message Brokers",
+          "title": "Architecture Message Brokers",
           "slug": "message-brokers",
           "type": "doc",
           "order": 20,
@@ -939,7 +939,7 @@
         },
         {
           "id": "architecture/21-distributed-systems",
-          "title": "Distributed Systems",
+          "title": "Architecture Distributed Systems",
           "slug": "distributed-systems",
           "type": "doc",
           "order": 21,
@@ -981,7 +981,7 @@
         },
         {
           "id": "architecture/24-deployment",
-          "title": "Deployment",
+          "title": "Architecture Deployment",
           "slug": "deployment",
           "type": "doc",
           "order": 24,
@@ -995,7 +995,7 @@
         },
         {
           "id": "architecture/25-documentation",
-          "title": "Documentation",
+          "title": "Architecture Documentation",
           "slug": "documentation",
           "type": "doc",
           "order": 25,
@@ -1051,7 +1051,7 @@
         },
         {
           "id": "architecture/29-real-world-patterns",
-          "title": "Real World Patterns",
+          "title": "Architecture Real World Patterns",
           "slug": "real-world-patterns",
           "type": "doc",
           "order": 29,
@@ -1065,7 +1065,7 @@
         },
         {
           "id": "architecture/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Architecture Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -1079,7 +1079,7 @@
         },
         {
           "id": "architecture/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Architecture Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -1093,7 +1093,7 @@
         },
         {
           "id": "architecture/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Architecture AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -1107,7 +1107,7 @@
         },
         {
           "id": "architecture/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Architecture Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -1142,7 +1142,7 @@
         },
         {
           "id": "aws/00-overview",
-          "title": "Overview",
+          "title": "AWS Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -1492,7 +1492,7 @@
         },
         {
           "id": "aws/25-security",
-          "title": "Security",
+          "title": "AWS Security",
           "slug": "security",
           "type": "doc",
           "order": 25,
@@ -1506,7 +1506,7 @@
         },
         {
           "id": "aws/26-monitoring",
-          "title": "Monitoring",
+          "title": "AWS Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 26,
@@ -1520,7 +1520,7 @@
         },
         {
           "id": "aws/27-production",
-          "title": "Production",
+          "title": "AWS Production",
           "slug": "production",
           "type": "doc",
           "order": 27,
@@ -1534,7 +1534,7 @@
         },
         {
           "id": "aws/28-best-practices",
-          "title": "Best Practices",
+          "title": "AWS Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 28,
@@ -1562,7 +1562,7 @@
         },
         {
           "id": "aws/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "AWS Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -1576,7 +1576,7 @@
         },
         {
           "id": "aws/31-high-availability",
-          "title": "High Availability",
+          "title": "AWS High Availability",
           "slug": "high-availability",
           "type": "doc",
           "order": 31,
@@ -1590,7 +1590,7 @@
         },
         {
           "id": "aws/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "AWS Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -1604,7 +1604,7 @@
         },
         {
           "id": "aws/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "AWS AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -1618,7 +1618,7 @@
         },
         {
           "id": "aws/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "AWS Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -1653,7 +1653,7 @@
         },
         {
           "id": "backend/00-overview",
-          "title": "Overview",
+          "title": "Backend Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -1681,7 +1681,7 @@
         },
         {
           "id": "backend/02-layered-architecture",
-          "title": "Layered Architecture",
+          "title": "Backend Layered Architecture",
           "slug": "layered-architecture",
           "type": "doc",
           "order": 2,
@@ -1695,7 +1695,7 @@
         },
         {
           "id": "backend/03-clean-architecture",
-          "title": "Clean Architecture",
+          "title": "Backend Clean Architecture",
           "slug": "clean-architecture",
           "type": "doc",
           "order": 3,
@@ -1709,7 +1709,7 @@
         },
         {
           "id": "backend/04-hexagonal-architecture",
-          "title": "Hexagonal Architecture",
+          "title": "Backend Hexagonal Architecture",
           "slug": "hexagonal-architecture",
           "type": "doc",
           "order": 4,
@@ -1779,7 +1779,7 @@
         },
         {
           "id": "backend/09-validation",
-          "title": "Validation",
+          "title": "Backend Validation",
           "slug": "validation",
           "type": "doc",
           "order": 9,
@@ -1793,7 +1793,7 @@
         },
         {
           "id": "backend/10-authentication",
-          "title": "Authentication",
+          "title": "Backend Authentication",
           "slug": "authentication",
           "type": "doc",
           "order": 10,
@@ -1807,7 +1807,7 @@
         },
         {
           "id": "backend/11-authorization",
-          "title": "Authorization",
+          "title": "Backend Authorization",
           "slug": "authorization",
           "type": "doc",
           "order": 11,
@@ -1821,7 +1821,7 @@
         },
         {
           "id": "backend/12-error-handling",
-          "title": "Error Handling",
+          "title": "Backend Error Handling",
           "slug": "error-handling",
           "type": "doc",
           "order": 12,
@@ -1835,7 +1835,7 @@
         },
         {
           "id": "backend/13-caching",
-          "title": "Caching",
+          "title": "Backend Caching",
           "slug": "caching",
           "type": "doc",
           "order": 13,
@@ -1849,7 +1849,7 @@
         },
         {
           "id": "backend/14-events",
-          "title": "Events",
+          "title": "Backend Events",
           "slug": "events",
           "type": "doc",
           "order": 14,
@@ -1863,7 +1863,7 @@
         },
         {
           "id": "backend/15-message-brokers",
-          "title": "Message Brokers",
+          "title": "Backend Message Brokers",
           "slug": "message-brokers",
           "type": "doc",
           "order": 15,
@@ -1877,7 +1877,7 @@
         },
         {
           "id": "backend/16-background-jobs",
-          "title": "Background Jobs",
+          "title": "Backend Background Jobs",
           "slug": "background-jobs",
           "type": "doc",
           "order": 16,
@@ -1891,7 +1891,7 @@
         },
         {
           "id": "backend/17-transactions",
-          "title": "Transactions",
+          "title": "Backend Transactions",
           "slug": "transactions",
           "type": "doc",
           "order": 17,
@@ -1919,7 +1919,7 @@
         },
         {
           "id": "backend/19-performance",
-          "title": "Performance",
+          "title": "Backend Performance",
           "slug": "performance",
           "type": "doc",
           "order": 19,
@@ -1933,7 +1933,7 @@
         },
         {
           "id": "backend/20-scalability",
-          "title": "Scalability",
+          "title": "Backend Scalability",
           "slug": "scalability",
           "type": "doc",
           "order": 20,
@@ -1947,7 +1947,7 @@
         },
         {
           "id": "backend/21-security",
-          "title": "Security",
+          "title": "Backend Security",
           "slug": "security",
           "type": "doc",
           "order": 21,
@@ -1961,7 +1961,7 @@
         },
         {
           "id": "backend/22-observability",
-          "title": "Observability",
+          "title": "Backend Observability",
           "slug": "observability",
           "type": "doc",
           "order": 22,
@@ -1975,7 +1975,7 @@
         },
         {
           "id": "backend/23-testing",
-          "title": "Testing",
+          "title": "Backend Testing",
           "slug": "testing",
           "type": "doc",
           "order": 23,
@@ -1989,7 +1989,7 @@
         },
         {
           "id": "backend/24-documentation",
-          "title": "Documentation",
+          "title": "Backend Documentation",
           "slug": "documentation",
           "type": "doc",
           "order": 24,
@@ -2017,7 +2017,7 @@
         },
         {
           "id": "backend/26-deployment",
-          "title": "Deployment",
+          "title": "Backend Deployment",
           "slug": "deployment",
           "type": "doc",
           "order": 26,
@@ -2031,7 +2031,7 @@
         },
         {
           "id": "backend/27-production",
-          "title": "Production",
+          "title": "Backend Production",
           "slug": "production",
           "type": "doc",
           "order": 27,
@@ -2045,7 +2045,7 @@
         },
         {
           "id": "backend/28-best-practices",
-          "title": "Best Practices",
+          "title": "Backend Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 28,
@@ -2059,7 +2059,7 @@
         },
         {
           "id": "backend/29-architecture-review",
-          "title": "Architecture Review",
+          "title": "Backend Architecture Review",
           "slug": "architecture-review",
           "type": "doc",
           "order": 29,
@@ -2073,7 +2073,7 @@
         },
         {
           "id": "backend/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Backend Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -2087,7 +2087,7 @@
         },
         {
           "id": "backend/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Backend Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -2101,7 +2101,7 @@
         },
         {
           "id": "backend/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Backend AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -2115,7 +2115,7 @@
         },
         {
           "id": "backend/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Backend Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -2213,7 +2213,7 @@
         },
         {
           "id": "cicd/00-overview",
-          "title": "Overview",
+          "title": "CI/CD Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -2283,7 +2283,7 @@
         },
         {
           "id": "cicd/05-quality-gates",
-          "title": "Quality Gates",
+          "title": "CI/CD Quality Gates",
           "slug": "quality-gates",
           "type": "doc",
           "order": 5,
@@ -2325,7 +2325,7 @@
         },
         {
           "id": "cicd/08-versioning",
-          "title": "Versioning",
+          "title": "CI/CD Versioning",
           "slug": "versioning",
           "type": "doc",
           "order": 8,
@@ -2339,7 +2339,7 @@
         },
         {
           "id": "cicd/09-release-management",
-          "title": "Release Management",
+          "title": "CI/CD Release Management",
           "slug": "release-management",
           "type": "doc",
           "order": 9,
@@ -2353,7 +2353,7 @@
         },
         {
           "id": "cicd/10-deployment",
-          "title": "Deployment",
+          "title": "CI/CD Deployment",
           "slug": "deployment",
           "type": "doc",
           "order": 10,
@@ -2423,7 +2423,7 @@
         },
         {
           "id": "cicd/15-secrets",
-          "title": "Secrets",
+          "title": "CI/CD Secrets",
           "slug": "secrets",
           "type": "doc",
           "order": 15,
@@ -2535,7 +2535,7 @@
         },
         {
           "id": "cicd/23-monitoring",
-          "title": "Monitoring",
+          "title": "CI/CD Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 23,
@@ -2563,7 +2563,7 @@
         },
         {
           "id": "cicd/25-debugging",
-          "title": "Debugging",
+          "title": "CI/CD Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 25,
@@ -2577,7 +2577,7 @@
         },
         {
           "id": "cicd/26-performance",
-          "title": "Performance",
+          "title": "CI/CD Performance",
           "slug": "performance",
           "type": "doc",
           "order": 26,
@@ -2591,7 +2591,7 @@
         },
         {
           "id": "cicd/27-best-practices",
-          "title": "Best Practices",
+          "title": "CI/CD Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 27,
@@ -2605,7 +2605,7 @@
         },
         {
           "id": "cicd/28-production",
-          "title": "Production",
+          "title": "CI/CD Production",
           "slug": "production",
           "type": "doc",
           "order": 28,
@@ -2619,7 +2619,7 @@
         },
         {
           "id": "cicd/29-tooling",
-          "title": "Tooling",
+          "title": "CI/CD Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 29,
@@ -2633,7 +2633,7 @@
         },
         {
           "id": "cicd/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "CI/CD Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -2647,7 +2647,7 @@
         },
         {
           "id": "cicd/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "CI/CD Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -2661,7 +2661,7 @@
         },
         {
           "id": "cicd/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "CI/CD AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -2675,7 +2675,7 @@
         },
         {
           "id": "cicd/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "CI/CD Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -2710,7 +2710,7 @@
         },
         {
           "id": "css/00-overview",
-          "title": "Overview",
+          "title": "CSS Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -2794,7 +2794,7 @@
         },
         {
           "id": "css/06-flexbox",
-          "title": "Flexbox",
+          "title": "CSS Flexbox",
           "slug": "flexbox",
           "type": "doc",
           "order": 6,
@@ -2808,7 +2808,7 @@
         },
         {
           "id": "css/07-grid",
-          "title": "Grid",
+          "title": "CSS Grid",
           "slug": "grid",
           "type": "doc",
           "order": 7,
@@ -2822,7 +2822,7 @@
         },
         {
           "id": "css/08-sizing",
-          "title": "Sizing",
+          "title": "CSS Sizing",
           "slug": "sizing",
           "type": "doc",
           "order": 8,
@@ -2836,7 +2836,7 @@
         },
         {
           "id": "css/09-spacing",
-          "title": "Spacing",
+          "title": "CSS Spacing",
           "slug": "spacing",
           "type": "doc",
           "order": 9,
@@ -2850,7 +2850,7 @@
         },
         {
           "id": "css/10-typography",
-          "title": "Typography",
+          "title": "CSS Typography",
           "slug": "typography",
           "type": "doc",
           "order": 10,
@@ -2864,7 +2864,7 @@
         },
         {
           "id": "css/11-colors",
-          "title": "Colors",
+          "title": "CSS Colors",
           "slug": "colors",
           "type": "doc",
           "order": 11,
@@ -2934,7 +2934,7 @@
         },
         {
           "id": "css/16-animations",
-          "title": "Animations",
+          "title": "CSS Animations",
           "slug": "animations",
           "type": "doc",
           "order": 16,
@@ -2948,7 +2948,7 @@
         },
         {
           "id": "css/17-responsive-design",
-          "title": "Responsive Design",
+          "title": "CSS Responsive Design",
           "slug": "responsive-design",
           "type": "doc",
           "order": 17,
@@ -3004,7 +3004,7 @@
         },
         {
           "id": "css/21-architecture",
-          "title": "Architecture",
+          "title": "CSS Architecture",
           "slug": "architecture",
           "type": "doc",
           "order": 21,
@@ -3018,7 +3018,7 @@
         },
         {
           "id": "css/22-performance",
-          "title": "Performance",
+          "title": "CSS Performance",
           "slug": "performance",
           "type": "doc",
           "order": 22,
@@ -3032,7 +3032,7 @@
         },
         {
           "id": "css/23-accessibility",
-          "title": "Accessibility",
+          "title": "CSS Accessibility",
           "slug": "accessibility",
           "type": "doc",
           "order": 23,
@@ -3088,7 +3088,7 @@
         },
         {
           "id": "css/27-debugging",
-          "title": "Debugging",
+          "title": "CSS Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 27,
@@ -3102,7 +3102,7 @@
         },
         {
           "id": "css/28-best-practices",
-          "title": "Best Practices",
+          "title": "CSS Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 28,
@@ -3130,7 +3130,7 @@
         },
         {
           "id": "css/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "CSS Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -3144,7 +3144,7 @@
         },
         {
           "id": "css/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "CSS Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -3158,7 +3158,7 @@
         },
         {
           "id": "css/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "CSS AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -3172,7 +3172,7 @@
         },
         {
           "id": "css/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "CSS Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -3207,7 +3207,7 @@
         },
         {
           "id": "databases/00-overview",
-          "title": "Overview",
+          "title": "Database Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -3305,7 +3305,7 @@
         },
         {
           "id": "databases/07-indexing",
-          "title": "Indexing",
+          "title": "Database Indexing",
           "slug": "indexing",
           "type": "doc",
           "order": 7,
@@ -3319,7 +3319,7 @@
         },
         {
           "id": "databases/08-query-optimization",
-          "title": "Query Optimization",
+          "title": "Database Query Optimization",
           "slug": "query-optimization",
           "type": "doc",
           "order": 8,
@@ -3333,7 +3333,7 @@
         },
         {
           "id": "databases/09-transactions",
-          "title": "Transactions",
+          "title": "Database Transactions",
           "slug": "transactions",
           "type": "doc",
           "order": 9,
@@ -3361,7 +3361,7 @@
         },
         {
           "id": "databases/11-locking",
-          "title": "Locking",
+          "title": "Database Locking",
           "slug": "locking",
           "type": "doc",
           "order": 11,
@@ -3403,7 +3403,7 @@
         },
         {
           "id": "databases/14-replication",
-          "title": "Replication",
+          "title": "Database Replication",
           "slug": "replication",
           "type": "doc",
           "order": 14,
@@ -3431,7 +3431,7 @@
         },
         {
           "id": "databases/16-partitioning",
-          "title": "Partitioning",
+          "title": "Database Partitioning",
           "slug": "partitioning",
           "type": "doc",
           "order": 16,
@@ -3445,7 +3445,7 @@
         },
         {
           "id": "databases/17-migrations",
-          "title": "Migrations",
+          "title": "Database Migrations",
           "slug": "migrations",
           "type": "doc",
           "order": 17,
@@ -3473,7 +3473,7 @@
         },
         {
           "id": "databases/19-security",
-          "title": "Security",
+          "title": "Database Security",
           "slug": "security",
           "type": "doc",
           "order": 19,
@@ -3487,7 +3487,7 @@
         },
         {
           "id": "databases/20-performance",
-          "title": "Performance",
+          "title": "Database Performance",
           "slug": "performance",
           "type": "doc",
           "order": 20,
@@ -3501,7 +3501,7 @@
         },
         {
           "id": "databases/21-monitoring",
-          "title": "Monitoring",
+          "title": "Database Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 21,
@@ -3515,7 +3515,7 @@
         },
         {
           "id": "databases/22-high-availability",
-          "title": "High Availability",
+          "title": "Database High Availability",
           "slug": "high-availability",
           "type": "doc",
           "order": 22,
@@ -3543,7 +3543,7 @@
         },
         {
           "id": "databases/24-soft-delete",
-          "title": "Soft Delete",
+          "title": "Database Soft Delete",
           "slug": "soft-delete",
           "type": "doc",
           "order": 24,
@@ -3557,7 +3557,7 @@
         },
         {
           "id": "databases/25-multi-tenancy",
-          "title": "Multi Tenancy",
+          "title": "Database Multi Tenancy",
           "slug": "multi-tenancy",
           "type": "doc",
           "order": 25,
@@ -3585,7 +3585,7 @@
         },
         {
           "id": "databases/27-testing",
-          "title": "Testing",
+          "title": "Database Testing",
           "slug": "testing",
           "type": "doc",
           "order": 27,
@@ -3599,7 +3599,7 @@
         },
         {
           "id": "databases/28-best-practices",
-          "title": "Best Practices",
+          "title": "Database Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 28,
@@ -3613,7 +3613,7 @@
         },
         {
           "id": "databases/29-architecture",
-          "title": "Architecture",
+          "title": "Database Architecture",
           "slug": "architecture",
           "type": "doc",
           "order": 29,
@@ -3627,7 +3627,7 @@
         },
         {
           "id": "databases/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Database Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -3641,7 +3641,7 @@
         },
         {
           "id": "databases/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Database Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -3655,7 +3655,7 @@
         },
         {
           "id": "databases/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Database AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -3669,7 +3669,7 @@
         },
         {
           "id": "databases/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Database Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -3704,7 +3704,7 @@
         },
         {
           "id": "devops/00-overview",
-          "title": "Overview",
+          "title": "DevOps Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -3788,7 +3788,7 @@
         },
         {
           "id": "devops/06-release-management",
-          "title": "Release Management",
+          "title": "DevOps Release Management",
           "slug": "release-management",
           "type": "doc",
           "order": 6,
@@ -3858,7 +3858,7 @@
         },
         {
           "id": "devops/11-orchestration",
-          "title": "Orchestration",
+          "title": "DevOps Orchestration",
           "slug": "orchestration",
           "type": "doc",
           "order": 11,
@@ -3872,7 +3872,7 @@
         },
         {
           "id": "devops/12-monitoring",
-          "title": "Monitoring",
+          "title": "DevOps Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 12,
@@ -3886,7 +3886,7 @@
         },
         {
           "id": "devops/13-observability",
-          "title": "Observability",
+          "title": "DevOps Observability",
           "slug": "observability",
           "type": "doc",
           "order": 13,
@@ -3900,7 +3900,7 @@
         },
         {
           "id": "devops/14-logging",
-          "title": "Logging",
+          "title": "DevOps Logging",
           "slug": "logging",
           "type": "doc",
           "order": 14,
@@ -3928,7 +3928,7 @@
         },
         {
           "id": "devops/16-security",
-          "title": "Security",
+          "title": "DevOps Security",
           "slug": "security",
           "type": "doc",
           "order": 16,
@@ -3942,7 +3942,7 @@
         },
         {
           "id": "devops/17-secrets-management",
-          "title": "Secrets Management",
+          "title": "DevOps Secrets Management",
           "slug": "secrets-management",
           "type": "doc",
           "order": 17,
@@ -3956,7 +3956,7 @@
         },
         {
           "id": "devops/18-disaster-recovery",
-          "title": "Disaster Recovery",
+          "title": "DevOps Disaster Recovery",
           "slug": "disaster-recovery",
           "type": "doc",
           "order": 18,
@@ -3970,7 +3970,7 @@
         },
         {
           "id": "devops/19-high-availability",
-          "title": "High Availability",
+          "title": "DevOps High Availability",
           "slug": "high-availability",
           "type": "doc",
           "order": 19,
@@ -3984,7 +3984,7 @@
         },
         {
           "id": "devops/20-scalability",
-          "title": "Scalability",
+          "title": "DevOps Scalability",
           "slug": "scalability",
           "type": "doc",
           "order": 20,
@@ -3998,7 +3998,7 @@
         },
         {
           "id": "devops/21-performance",
-          "title": "Performance",
+          "title": "DevOps Performance",
           "slug": "performance",
           "type": "doc",
           "order": 21,
@@ -4012,7 +4012,7 @@
         },
         {
           "id": "devops/22-testing",
-          "title": "Testing",
+          "title": "DevOps Testing",
           "slug": "testing",
           "type": "doc",
           "order": 22,
@@ -4026,7 +4026,7 @@
         },
         {
           "id": "devops/23-quality-gates",
-          "title": "Quality Gates",
+          "title": "DevOps Quality Gates",
           "slug": "quality-gates",
           "type": "doc",
           "order": 23,
@@ -4096,7 +4096,7 @@
         },
         {
           "id": "devops/28-best-practices",
-          "title": "Best Practices",
+          "title": "DevOps Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 28,
@@ -4110,7 +4110,7 @@
         },
         {
           "id": "devops/29-tooling",
-          "title": "Tooling",
+          "title": "DevOps Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 29,
@@ -4124,7 +4124,7 @@
         },
         {
           "id": "devops/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "DevOps Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -4138,7 +4138,7 @@
         },
         {
           "id": "devops/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "DevOps Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -4152,7 +4152,7 @@
         },
         {
           "id": "devops/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "DevOps AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -4166,7 +4166,7 @@
         },
         {
           "id": "devops/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "DevOps Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -4201,7 +4201,7 @@
         },
         {
           "id": "divi/00-overview",
-          "title": "Overview",
+          "title": "Divi Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -4215,7 +4215,7 @@
         },
         {
           "id": "divi/01-architecture",
-          "title": "Architecture",
+          "title": "Divi Architecture",
           "slug": "architecture",
           "type": "doc",
           "order": 1,
@@ -4243,7 +4243,7 @@
         },
         {
           "id": "divi/03-modules",
-          "title": "Modules",
+          "title": "Divi Modules",
           "slug": "modules",
           "type": "doc",
           "order": 3,
@@ -4313,7 +4313,7 @@
         },
         {
           "id": "divi/08-templates",
-          "title": "Templates",
+          "title": "Divi Templates",
           "slug": "templates",
           "type": "doc",
           "order": 8,
@@ -4341,7 +4341,7 @@
         },
         {
           "id": "divi/10-performance",
-          "title": "Performance",
+          "title": "Divi Performance",
           "slug": "performance",
           "type": "doc",
           "order": 10,
@@ -4355,7 +4355,7 @@
         },
         {
           "id": "divi/11-responsive-design",
-          "title": "Responsive Design",
+          "title": "Divi Responsive Design",
           "slug": "responsive-design",
           "type": "doc",
           "order": 11,
@@ -4369,7 +4369,7 @@
         },
         {
           "id": "divi/12-accessibility",
-          "title": "Accessibility",
+          "title": "Divi Accessibility",
           "slug": "accessibility",
           "type": "doc",
           "order": 12,
@@ -4383,7 +4383,7 @@
         },
         {
           "id": "divi/13-seo",
-          "title": "SEO",
+          "title": "Divi SEO",
           "slug": "seo",
           "type": "doc",
           "order": 13,
@@ -4439,7 +4439,7 @@
         },
         {
           "id": "divi/17-rest-api",
-          "title": "REST API",
+          "title": "Divi REST API",
           "slug": "rest-api",
           "type": "doc",
           "order": 17,
@@ -4453,7 +4453,7 @@
         },
         {
           "id": "divi/18-headless",
-          "title": "Headless",
+          "title": "Divi Headless",
           "slug": "headless",
           "type": "doc",
           "order": 18,
@@ -4467,7 +4467,7 @@
         },
         {
           "id": "divi/19-security",
-          "title": "Security",
+          "title": "Divi Security",
           "slug": "security",
           "type": "doc",
           "order": 19,
@@ -4481,7 +4481,7 @@
         },
         {
           "id": "divi/20-debugging",
-          "title": "Debugging",
+          "title": "Divi Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 20,
@@ -4495,7 +4495,7 @@
         },
         {
           "id": "divi/21-testing",
-          "title": "Testing",
+          "title": "Divi Testing",
           "slug": "testing",
           "type": "doc",
           "order": 21,
@@ -4509,7 +4509,7 @@
         },
         {
           "id": "divi/22-deployment",
-          "title": "Deployment",
+          "title": "Divi Deployment",
           "slug": "deployment",
           "type": "doc",
           "order": 22,
@@ -4523,7 +4523,7 @@
         },
         {
           "id": "divi/23-maintenance",
-          "title": "Maintenance",
+          "title": "Divi Maintenance",
           "slug": "maintenance",
           "type": "doc",
           "order": 23,
@@ -4537,7 +4537,7 @@
         },
         {
           "id": "divi/24-best-practices",
-          "title": "Best Practices",
+          "title": "Divi Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 24,
@@ -4551,7 +4551,7 @@
         },
         {
           "id": "divi/25-production",
-          "title": "Production",
+          "title": "Divi Production",
           "slug": "production",
           "type": "doc",
           "order": 25,
@@ -4565,7 +4565,7 @@
         },
         {
           "id": "divi/26-real-world-patterns",
-          "title": "Real World Patterns",
+          "title": "Divi Real World Patterns",
           "slug": "real-world-patterns",
           "type": "doc",
           "order": 26,
@@ -4621,7 +4621,7 @@
         },
         {
           "id": "divi/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Divi Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -4635,7 +4635,7 @@
         },
         {
           "id": "divi/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Divi Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -4649,7 +4649,7 @@
         },
         {
           "id": "divi/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Divi AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -4663,7 +4663,7 @@
         },
         {
           "id": "divi/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Divi Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -4698,7 +4698,7 @@
         },
         {
           "id": "docker/00-overview",
-          "title": "Overview",
+          "title": "Docker Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -4712,7 +4712,7 @@
         },
         {
           "id": "docker/01-installation",
-          "title": "Installation",
+          "title": "Docker Installation",
           "slug": "installation",
           "type": "doc",
           "order": 1,
@@ -4740,7 +4740,7 @@
         },
         {
           "id": "docker/03-images",
-          "title": "Images",
+          "title": "Docker Images",
           "slug": "images",
           "type": "doc",
           "order": 3,
@@ -4754,7 +4754,7 @@
         },
         {
           "id": "docker/04-containers",
-          "title": "Containers",
+          "title": "Docker Containers",
           "slug": "containers",
           "type": "doc",
           "order": 4,
@@ -4768,7 +4768,7 @@
         },
         {
           "id": "docker/05-volumes",
-          "title": "Volumes",
+          "title": "Docker Volumes",
           "slug": "volumes",
           "type": "doc",
           "order": 5,
@@ -4894,7 +4894,7 @@
         },
         {
           "id": "docker/14-secrets",
-          "title": "Secrets",
+          "title": "Docker Secrets",
           "slug": "secrets",
           "type": "doc",
           "order": 14,
@@ -4922,7 +4922,7 @@
         },
         {
           "id": "docker/16-logging",
-          "title": "Logging",
+          "title": "Docker Logging",
           "slug": "logging",
           "type": "doc",
           "order": 16,
@@ -4950,7 +4950,7 @@
         },
         {
           "id": "docker/18-security",
-          "title": "Security",
+          "title": "Docker Security",
           "slug": "security",
           "type": "doc",
           "order": 18,
@@ -5006,7 +5006,7 @@
         },
         {
           "id": "docker/22-production",
-          "title": "Production",
+          "title": "Docker Production",
           "slug": "production",
           "type": "doc",
           "order": 22,
@@ -5020,7 +5020,7 @@
         },
         {
           "id": "docker/23-orchestration",
-          "title": "Orchestration",
+          "title": "Docker Orchestration",
           "slug": "orchestration",
           "type": "doc",
           "order": 23,
@@ -5034,7 +5034,7 @@
         },
         {
           "id": "docker/24-monitoring",
-          "title": "Monitoring",
+          "title": "Docker Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 24,
@@ -5048,7 +5048,7 @@
         },
         {
           "id": "docker/25-performance",
-          "title": "Performance",
+          "title": "Docker Performance",
           "slug": "performance",
           "type": "doc",
           "order": 25,
@@ -5062,7 +5062,7 @@
         },
         {
           "id": "docker/26-best-practices",
-          "title": "Best Practices",
+          "title": "Docker Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 26,
@@ -5076,7 +5076,7 @@
         },
         {
           "id": "docker/27-troubleshooting",
-          "title": "Troubleshooting",
+          "title": "Docker Troubleshooting",
           "slug": "troubleshooting",
           "type": "doc",
           "order": 27,
@@ -5090,7 +5090,7 @@
         },
         {
           "id": "docker/28-tooling",
-          "title": "Tooling",
+          "title": "Docker Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 28,
@@ -5118,7 +5118,7 @@
         },
         {
           "id": "docker/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Docker Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -5132,7 +5132,7 @@
         },
         {
           "id": "docker/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Docker Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -5146,7 +5146,7 @@
         },
         {
           "id": "docker/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Docker AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -5160,7 +5160,7 @@
         },
         {
           "id": "docker/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Docker Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -5545,7 +5545,7 @@
         },
         {
           "id": "figma/13-visual-regression",
-          "title": "Visual Regression",
+          "title": "Figma Visual Regression",
           "slug": "visual-regression",
           "type": "doc",
           "order": 13,
@@ -5678,7 +5678,7 @@
         },
         {
           "id": "frontend/00-overview",
-          "title": "Overview",
+          "title": "Frontend Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -5748,7 +5748,7 @@
         },
         {
           "id": "frontend/05-routing",
-          "title": "Routing",
+          "title": "Frontend Routing",
           "slug": "routing",
           "type": "doc",
           "order": 5,
@@ -5776,7 +5776,7 @@
         },
         {
           "id": "frontend/07-rendering",
-          "title": "Rendering",
+          "title": "Frontend Rendering",
           "slug": "rendering",
           "type": "doc",
           "order": 7,
@@ -5790,7 +5790,7 @@
         },
         {
           "id": "frontend/08-performance",
-          "title": "Performance",
+          "title": "Frontend Performance",
           "slug": "performance",
           "type": "doc",
           "order": 8,
@@ -5804,7 +5804,7 @@
         },
         {
           "id": "frontend/09-accessibility",
-          "title": "Accessibility",
+          "title": "Frontend Accessibility",
           "slug": "accessibility",
           "type": "doc",
           "order": 9,
@@ -5818,7 +5818,7 @@
         },
         {
           "id": "frontend/10-responsive-design",
-          "title": "Responsive Design",
+          "title": "Frontend Responsive Design",
           "slug": "responsive-design",
           "type": "doc",
           "order": 10,
@@ -5832,7 +5832,7 @@
         },
         {
           "id": "frontend/11-seo",
-          "title": "SEO",
+          "title": "Frontend SEO",
           "slug": "seo",
           "type": "doc",
           "order": 11,
@@ -5846,7 +5846,7 @@
         },
         {
           "id": "frontend/12-forms",
-          "title": "Forms",
+          "title": "Frontend Forms",
           "slug": "forms",
           "type": "doc",
           "order": 12,
@@ -5860,7 +5860,7 @@
         },
         {
           "id": "frontend/13-error-handling",
-          "title": "Error Handling",
+          "title": "Frontend Error Handling",
           "slug": "error-handling",
           "type": "doc",
           "order": 13,
@@ -5874,7 +5874,7 @@
         },
         {
           "id": "frontend/14-security",
-          "title": "Security",
+          "title": "Frontend Security",
           "slug": "security",
           "type": "doc",
           "order": 14,
@@ -5902,7 +5902,7 @@
         },
         {
           "id": "frontend/16-css-architecture",
-          "title": "CSS Architecture",
+          "title": "Frontend CSS Architecture",
           "slug": "css-architecture",
           "type": "doc",
           "order": 16,
@@ -5916,7 +5916,7 @@
         },
         {
           "id": "frontend/17-animations",
-          "title": "Animations",
+          "title": "Frontend Animations",
           "slug": "animations",
           "type": "doc",
           "order": 17,
@@ -5972,7 +5972,7 @@
         },
         {
           "id": "frontend/21-code-splitting",
-          "title": "Code Splitting",
+          "title": "Frontend Code Splitting",
           "slug": "code-splitting",
           "type": "doc",
           "order": 21,
@@ -5986,7 +5986,7 @@
         },
         {
           "id": "frontend/22-testing",
-          "title": "Testing",
+          "title": "Frontend Testing",
           "slug": "testing",
           "type": "doc",
           "order": 22,
@@ -6000,7 +6000,7 @@
         },
         {
           "id": "frontend/23-monitoring",
-          "title": "Monitoring",
+          "title": "Frontend Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 23,
@@ -6014,7 +6014,7 @@
         },
         {
           "id": "frontend/24-documentation",
-          "title": "Documentation",
+          "title": "Frontend Documentation",
           "slug": "documentation",
           "type": "doc",
           "order": 24,
@@ -6028,7 +6028,7 @@
         },
         {
           "id": "frontend/25-folder-structure",
-          "title": "Folder Structure",
+          "title": "Frontend Folder Structure",
           "slug": "folder-structure",
           "type": "doc",
           "order": 25,
@@ -6042,7 +6042,7 @@
         },
         {
           "id": "frontend/26-production",
-          "title": "Production",
+          "title": "Frontend Production",
           "slug": "production",
           "type": "doc",
           "order": 26,
@@ -6056,7 +6056,7 @@
         },
         {
           "id": "frontend/27-best-practices",
-          "title": "Best Practices",
+          "title": "Frontend Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 27,
@@ -6098,7 +6098,7 @@
         },
         {
           "id": "frontend/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Frontend Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -6112,7 +6112,7 @@
         },
         {
           "id": "frontend/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Frontend Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -6126,7 +6126,7 @@
         },
         {
           "id": "frontend/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Frontend AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -6140,7 +6140,7 @@
         },
         {
           "id": "frontend/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Frontend Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -6175,7 +6175,7 @@
         },
         {
           "id": "git/00-overview",
-          "title": "Overview",
+          "title": "Git Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -6203,7 +6203,7 @@
         },
         {
           "id": "git/02-installation",
-          "title": "Installation",
+          "title": "Git Installation",
           "slug": "installation",
           "type": "doc",
           "order": 2,
@@ -6455,7 +6455,7 @@
         },
         {
           "id": "git/20-hooks",
-          "title": "Hooks",
+          "title": "Git Hooks",
           "slug": "hooks",
           "type": "doc",
           "order": 20,
@@ -6539,7 +6539,7 @@
         },
         {
           "id": "git/26-debugging",
-          "title": "Debugging",
+          "title": "Git Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 26,
@@ -6553,7 +6553,7 @@
         },
         {
           "id": "git/27-best-practices",
-          "title": "Best Practices",
+          "title": "Git Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 27,
@@ -6567,7 +6567,7 @@
         },
         {
           "id": "git/28-security",
-          "title": "Security",
+          "title": "Git Security",
           "slug": "security",
           "type": "doc",
           "order": 28,
@@ -6581,7 +6581,7 @@
         },
         {
           "id": "git/29-tooling",
-          "title": "Tooling",
+          "title": "Git Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 29,
@@ -6595,7 +6595,7 @@
         },
         {
           "id": "git/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Git Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -6609,7 +6609,7 @@
         },
         {
           "id": "git/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Git Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -6623,7 +6623,7 @@
         },
         {
           "id": "git/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Git AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -6637,7 +6637,7 @@
         },
         {
           "id": "git/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Git Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -6672,7 +6672,7 @@
         },
         {
           "id": "github/00-overview",
-          "title": "Overview",
+          "title": "GitHub Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -6854,7 +6854,7 @@
         },
         {
           "id": "github/13-security",
-          "title": "Security",
+          "title": "GitHub Security",
           "slug": "security",
           "type": "doc",
           "order": 13,
@@ -6966,7 +6966,7 @@
         },
         {
           "id": "github/21-permissions",
-          "title": "Permissions",
+          "title": "GitHub Permissions",
           "slug": "permissions",
           "type": "doc",
           "order": 21,
@@ -6994,7 +6994,7 @@
         },
         {
           "id": "github/23-cli",
-          "title": "CLI",
+          "title": "GitHub CLI",
           "slug": "cli",
           "type": "doc",
           "order": 23,
@@ -7036,7 +7036,7 @@
         },
         {
           "id": "github/26-automation",
-          "title": "Automation",
+          "title": "GitHub Automation",
           "slug": "automation",
           "type": "doc",
           "order": 26,
@@ -7050,7 +7050,7 @@
         },
         {
           "id": "github/27-best-practices",
-          "title": "Best Practices",
+          "title": "GitHub Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 27,
@@ -7092,7 +7092,7 @@
         },
         {
           "id": "github/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "GitHub Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -7106,7 +7106,7 @@
         },
         {
           "id": "github/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "GitHub Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -7120,7 +7120,7 @@
         },
         {
           "id": "github/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "GitHub AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -7134,7 +7134,7 @@
         },
         {
           "id": "github/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "GitHub Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -7169,7 +7169,7 @@
         },
         {
           "id": "graphql/00-overview",
-          "title": "Overview",
+          "title": "GraphQL Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -7197,7 +7197,7 @@
         },
         {
           "id": "graphql/02-schema",
-          "title": "Schema",
+          "title": "GraphQL Schema",
           "slug": "schema",
           "type": "doc",
           "order": 2,
@@ -7211,7 +7211,7 @@
         },
         {
           "id": "graphql/03-types",
-          "title": "Types",
+          "title": "GraphQL Types",
           "slug": "types",
           "type": "doc",
           "order": 3,
@@ -7253,7 +7253,7 @@
         },
         {
           "id": "graphql/06-subscriptions",
-          "title": "Subscriptions",
+          "title": "GraphQL Subscriptions",
           "slug": "subscriptions",
           "type": "doc",
           "order": 6,
@@ -7351,7 +7351,7 @@
         },
         {
           "id": "graphql/13-pagination",
-          "title": "Pagination",
+          "title": "GraphQL Pagination",
           "slug": "pagination",
           "type": "doc",
           "order": 13,
@@ -7365,7 +7365,7 @@
         },
         {
           "id": "graphql/14-filtering",
-          "title": "Filtering",
+          "title": "GraphQL Filtering",
           "slug": "filtering",
           "type": "doc",
           "order": 14,
@@ -7407,7 +7407,7 @@
         },
         {
           "id": "graphql/17-security",
-          "title": "Security",
+          "title": "GraphQL Security",
           "slug": "security",
           "type": "doc",
           "order": 17,
@@ -7421,7 +7421,7 @@
         },
         {
           "id": "graphql/18-authentication",
-          "title": "Authentication",
+          "title": "GraphQL Authentication",
           "slug": "authentication",
           "type": "doc",
           "order": 18,
@@ -7435,7 +7435,7 @@
         },
         {
           "id": "graphql/19-authorization",
-          "title": "Authorization",
+          "title": "GraphQL Authorization",
           "slug": "authorization",
           "type": "doc",
           "order": 19,
@@ -7449,7 +7449,7 @@
         },
         {
           "id": "graphql/20-error-handling",
-          "title": "Error Handling",
+          "title": "GraphQL Error Handling",
           "slug": "error-handling",
           "type": "doc",
           "order": 20,
@@ -7463,7 +7463,7 @@
         },
         {
           "id": "graphql/21-caching",
-          "title": "Caching",
+          "title": "GraphQL Caching",
           "slug": "caching",
           "type": "doc",
           "order": 21,
@@ -7477,7 +7477,7 @@
         },
         {
           "id": "graphql/22-performance",
-          "title": "Performance",
+          "title": "GraphQL Performance",
           "slug": "performance",
           "type": "doc",
           "order": 22,
@@ -7505,7 +7505,7 @@
         },
         {
           "id": "graphql/24-testing",
-          "title": "Testing",
+          "title": "GraphQL Testing",
           "slug": "testing",
           "type": "doc",
           "order": 24,
@@ -7519,7 +7519,7 @@
         },
         {
           "id": "graphql/25-monitoring",
-          "title": "Monitoring",
+          "title": "GraphQL Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 25,
@@ -7533,7 +7533,7 @@
         },
         {
           "id": "graphql/26-best-practices",
-          "title": "Best Practices",
+          "title": "GraphQL Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 26,
@@ -7547,7 +7547,7 @@
         },
         {
           "id": "graphql/27-production",
-          "title": "Production",
+          "title": "GraphQL Production",
           "slug": "production",
           "type": "doc",
           "order": 27,
@@ -7561,7 +7561,7 @@
         },
         {
           "id": "graphql/28-tooling",
-          "title": "Tooling",
+          "title": "GraphQL Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 28,
@@ -7589,7 +7589,7 @@
         },
         {
           "id": "graphql/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "GraphQL Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -7603,7 +7603,7 @@
         },
         {
           "id": "graphql/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "GraphQL Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -7617,7 +7617,7 @@
         },
         {
           "id": "graphql/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "GraphQL AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -7631,7 +7631,7 @@
         },
         {
           "id": "graphql/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "GraphQL Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -7666,7 +7666,7 @@
         },
         {
           "id": "html/00-overview",
-          "title": "Overview",
+          "title": "HTML Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -7694,7 +7694,7 @@
         },
         {
           "id": "html/02-semantic-html",
-          "title": "Semantic HTML",
+          "title": "HTML Semantic HTML",
           "slug": "semantic-html",
           "type": "doc",
           "order": 2,
@@ -7722,7 +7722,7 @@
         },
         {
           "id": "html/04-links",
-          "title": "Links",
+          "title": "HTML Links",
           "slug": "links",
           "type": "doc",
           "order": 4,
@@ -7736,7 +7736,7 @@
         },
         {
           "id": "html/05-images",
-          "title": "Images",
+          "title": "HTML Images",
           "slug": "images",
           "type": "doc",
           "order": 5,
@@ -7750,7 +7750,7 @@
         },
         {
           "id": "html/06-lists",
-          "title": "Lists",
+          "title": "HTML Lists",
           "slug": "lists",
           "type": "doc",
           "order": 6,
@@ -7764,7 +7764,7 @@
         },
         {
           "id": "html/07-tables",
-          "title": "Tables",
+          "title": "HTML Tables",
           "slug": "tables",
           "type": "doc",
           "order": 7,
@@ -7778,7 +7778,7 @@
         },
         {
           "id": "html/08-forms",
-          "title": "Forms",
+          "title": "HTML Forms",
           "slug": "forms",
           "type": "doc",
           "order": 8,
@@ -7792,7 +7792,7 @@
         },
         {
           "id": "html/09-media",
-          "title": "Media",
+          "title": "HTML Media",
           "slug": "media",
           "type": "doc",
           "order": 9,
@@ -7806,7 +7806,7 @@
         },
         {
           "id": "html/10-metadata",
-          "title": "Metadata",
+          "title": "HTML Metadata",
           "slug": "metadata",
           "type": "doc",
           "order": 10,
@@ -7820,7 +7820,7 @@
         },
         {
           "id": "html/11-accessibility",
-          "title": "Accessibility",
+          "title": "HTML Accessibility",
           "slug": "accessibility",
           "type": "doc",
           "order": 11,
@@ -7834,7 +7834,7 @@
         },
         {
           "id": "html/12-seo",
-          "title": "SEO",
+          "title": "HTML SEO",
           "slug": "seo",
           "type": "doc",
           "order": 12,
@@ -7848,7 +7848,7 @@
         },
         {
           "id": "html/13-structured-data",
-          "title": "Structured Data",
+          "title": "HTML Structured Data",
           "slug": "structured-data",
           "type": "doc",
           "order": 13,
@@ -7918,7 +7918,7 @@
         },
         {
           "id": "html/18-performance",
-          "title": "Performance",
+          "title": "HTML Performance",
           "slug": "performance",
           "type": "doc",
           "order": 18,
@@ -7932,7 +7932,7 @@
         },
         {
           "id": "html/19-security",
-          "title": "Security",
+          "title": "HTML Security",
           "slug": "security",
           "type": "doc",
           "order": 19,
@@ -7960,7 +7960,7 @@
         },
         {
           "id": "html/21-best-practices",
-          "title": "Best Practices",
+          "title": "HTML Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 21,
@@ -7974,7 +7974,7 @@
         },
         {
           "id": "html/22-validation",
-          "title": "Validation",
+          "title": "HTML Validation",
           "slug": "validation",
           "type": "doc",
           "order": 22,
@@ -8072,7 +8072,7 @@
         },
         {
           "id": "html/29-debugging",
-          "title": "Debugging",
+          "title": "HTML Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 29,
@@ -8086,7 +8086,7 @@
         },
         {
           "id": "html/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "HTML Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -8100,7 +8100,7 @@
         },
         {
           "id": "html/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "HTML Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -8114,7 +8114,7 @@
         },
         {
           "id": "html/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "HTML AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -8128,7 +8128,7 @@
         },
         {
           "id": "html/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "HTML Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -8163,7 +8163,7 @@
         },
         {
           "id": "javascript/00-overview",
-          "title": "Overview",
+          "title": "JavaScript Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -8177,7 +8177,7 @@
         },
         {
           "id": "javascript/01-language-fundamentals",
-          "title": "Language Fundamentals",
+          "title": "JavaScript Language Fundamentals",
           "slug": "language-fundamentals",
           "type": "doc",
           "order": 1,
@@ -8219,7 +8219,7 @@
         },
         {
           "id": "javascript/04-functions",
-          "title": "Functions",
+          "title": "JavaScript Functions",
           "slug": "functions",
           "type": "doc",
           "order": 4,
@@ -8261,7 +8261,7 @@
         },
         {
           "id": "javascript/07-modules",
-          "title": "Modules",
+          "title": "JavaScript Modules",
           "slug": "modules",
           "type": "doc",
           "order": 7,
@@ -8303,7 +8303,7 @@
         },
         {
           "id": "javascript/10-event-loop",
-          "title": "Event Loop",
+          "title": "JavaScript Event Loop",
           "slug": "event-loop",
           "type": "doc",
           "order": 10,
@@ -8359,7 +8359,7 @@
         },
         {
           "id": "javascript/14-error-handling",
-          "title": "Error Handling",
+          "title": "JavaScript Error Handling",
           "slug": "error-handling",
           "type": "doc",
           "order": 14,
@@ -8373,7 +8373,7 @@
         },
         {
           "id": "javascript/15-memory-management",
-          "title": "Memory Management",
+          "title": "JavaScript Memory Management",
           "slug": "memory-management",
           "type": "doc",
           "order": 15,
@@ -8457,7 +8457,7 @@
         },
         {
           "id": "javascript/21-functional-programming",
-          "title": "Functional Programming",
+          "title": "JavaScript Functional Programming",
           "slug": "functional-programming",
           "type": "doc",
           "order": 21,
@@ -8471,7 +8471,7 @@
         },
         {
           "id": "javascript/22-design-patterns",
-          "title": "Design Patterns",
+          "title": "JavaScript Design Patterns",
           "slug": "design-patterns",
           "type": "doc",
           "order": 22,
@@ -8485,7 +8485,7 @@
         },
         {
           "id": "javascript/23-clean-code",
-          "title": "Clean Code",
+          "title": "JavaScript Clean Code",
           "slug": "clean-code",
           "type": "doc",
           "order": 23,
@@ -8499,7 +8499,7 @@
         },
         {
           "id": "javascript/24-testing",
-          "title": "Testing",
+          "title": "JavaScript Testing",
           "slug": "testing",
           "type": "doc",
           "order": 24,
@@ -8513,7 +8513,7 @@
         },
         {
           "id": "javascript/25-performance",
-          "title": "Performance",
+          "title": "JavaScript Performance",
           "slug": "performance",
           "type": "doc",
           "order": 25,
@@ -8527,7 +8527,7 @@
         },
         {
           "id": "javascript/26-security",
-          "title": "Security",
+          "title": "JavaScript Security",
           "slug": "security",
           "type": "doc",
           "order": 26,
@@ -8555,7 +8555,7 @@
         },
         {
           "id": "javascript/28-best-practices",
-          "title": "Best Practices",
+          "title": "JavaScript Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 28,
@@ -8569,7 +8569,7 @@
         },
         {
           "id": "javascript/29-tooling",
-          "title": "Tooling",
+          "title": "JavaScript Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 29,
@@ -8583,7 +8583,7 @@
         },
         {
           "id": "javascript/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "JavaScript Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -8597,7 +8597,7 @@
         },
         {
           "id": "javascript/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "JavaScript Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -8611,7 +8611,7 @@
         },
         {
           "id": "javascript/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "JavaScript AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -8625,7 +8625,7 @@
         },
         {
           "id": "javascript/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "JavaScript Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -8660,7 +8660,7 @@
         },
         {
           "id": "kubernetes/00-overview",
-          "title": "Overview",
+          "title": "Kubernetes Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -8674,7 +8674,7 @@
         },
         {
           "id": "kubernetes/01-architecture",
-          "title": "Architecture",
+          "title": "Kubernetes Architecture",
           "slug": "architecture",
           "type": "doc",
           "order": 1,
@@ -8688,7 +8688,7 @@
         },
         {
           "id": "kubernetes/02-cluster",
-          "title": "Cluster",
+          "title": "Kubernetes Cluster",
           "slug": "cluster",
           "type": "doc",
           "order": 2,
@@ -8758,7 +8758,7 @@
         },
         {
           "id": "kubernetes/07-services",
-          "title": "Services",
+          "title": "Kubernetes Services",
           "slug": "services",
           "type": "doc",
           "order": 7,
@@ -8800,7 +8800,7 @@
         },
         {
           "id": "kubernetes/10-secrets",
-          "title": "Secrets",
+          "title": "Kubernetes Secrets",
           "slug": "secrets",
           "type": "doc",
           "order": 10,
@@ -8814,7 +8814,7 @@
         },
         {
           "id": "kubernetes/11-volumes",
-          "title": "Volumes",
+          "title": "Kubernetes Volumes",
           "slug": "volumes",
           "type": "doc",
           "order": 11,
@@ -8954,7 +8954,7 @@
         },
         {
           "id": "kubernetes/21-observability",
-          "title": "Observability",
+          "title": "Kubernetes Observability",
           "slug": "observability",
           "type": "doc",
           "order": 21,
@@ -8968,7 +8968,7 @@
         },
         {
           "id": "kubernetes/22-security",
-          "title": "Security",
+          "title": "Kubernetes Security",
           "slug": "security",
           "type": "doc",
           "order": 22,
@@ -8982,7 +8982,7 @@
         },
         {
           "id": "kubernetes/23-monitoring",
-          "title": "Monitoring",
+          "title": "Kubernetes Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 23,
@@ -8996,7 +8996,7 @@
         },
         {
           "id": "kubernetes/24-debugging",
-          "title": "Debugging",
+          "title": "Kubernetes Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 24,
@@ -9024,7 +9024,7 @@
         },
         {
           "id": "kubernetes/26-production",
-          "title": "Production",
+          "title": "Kubernetes Production",
           "slug": "production",
           "type": "doc",
           "order": 26,
@@ -9038,7 +9038,7 @@
         },
         {
           "id": "kubernetes/27-best-practices",
-          "title": "Best Practices",
+          "title": "Kubernetes Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 27,
@@ -9052,7 +9052,7 @@
         },
         {
           "id": "kubernetes/28-disaster-recovery",
-          "title": "Disaster Recovery",
+          "title": "Kubernetes Disaster Recovery",
           "slug": "disaster-recovery",
           "type": "doc",
           "order": 28,
@@ -9066,7 +9066,7 @@
         },
         {
           "id": "kubernetes/29-tooling",
-          "title": "Tooling",
+          "title": "Kubernetes Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 29,
@@ -9080,7 +9080,7 @@
         },
         {
           "id": "kubernetes/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Kubernetes Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -9094,7 +9094,7 @@
         },
         {
           "id": "kubernetes/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Kubernetes Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -9108,7 +9108,7 @@
         },
         {
           "id": "kubernetes/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Kubernetes AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -9122,7 +9122,7 @@
         },
         {
           "id": "kubernetes/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Kubernetes Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -9157,7 +9157,7 @@
         },
         {
           "id": "linux/00-overview",
-          "title": "Overview",
+          "title": "Linux Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -9227,7 +9227,7 @@
         },
         {
           "id": "linux/05-permissions",
-          "title": "Permissions",
+          "title": "Linux Permissions",
           "slug": "permissions",
           "type": "doc",
           "order": 5,
@@ -9255,7 +9255,7 @@
         },
         {
           "id": "linux/07-services",
-          "title": "Services",
+          "title": "Linux Services",
           "slug": "services",
           "type": "doc",
           "order": 7,
@@ -9325,7 +9325,7 @@
         },
         {
           "id": "linux/12-package-management",
-          "title": "Package Management",
+          "title": "Linux Package Management",
           "slug": "package-management",
           "type": "doc",
           "order": 12,
@@ -9339,7 +9339,7 @@
         },
         {
           "id": "linux/13-environment",
-          "title": "Environment",
+          "title": "Linux Environment",
           "slug": "environment",
           "type": "doc",
           "order": 13,
@@ -9367,7 +9367,7 @@
         },
         {
           "id": "linux/15-logging",
-          "title": "Logging",
+          "title": "Linux Logging",
           "slug": "logging",
           "type": "doc",
           "order": 15,
@@ -9381,7 +9381,7 @@
         },
         {
           "id": "linux/16-monitoring",
-          "title": "Monitoring",
+          "title": "Linux Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 16,
@@ -9395,7 +9395,7 @@
         },
         {
           "id": "linux/17-security",
-          "title": "Security",
+          "title": "Linux Security",
           "slug": "security",
           "type": "doc",
           "order": 17,
@@ -9409,7 +9409,7 @@
         },
         {
           "id": "linux/18-performance",
-          "title": "Performance",
+          "title": "Linux Performance",
           "slug": "performance",
           "type": "doc",
           "order": 18,
@@ -9423,7 +9423,7 @@
         },
         {
           "id": "linux/19-debugging",
-          "title": "Debugging",
+          "title": "Linux Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 19,
@@ -9437,7 +9437,7 @@
         },
         {
           "id": "linux/20-backups",
-          "title": "Backups",
+          "title": "Linux Backups",
           "slug": "backups",
           "type": "doc",
           "order": 20,
@@ -9465,7 +9465,7 @@
         },
         {
           "id": "linux/22-containers",
-          "title": "Containers",
+          "title": "Linux Containers",
           "slug": "containers",
           "type": "doc",
           "order": 22,
@@ -9479,7 +9479,7 @@
         },
         {
           "id": "linux/23-automation",
-          "title": "Automation",
+          "title": "Linux Automation",
           "slug": "automation",
           "type": "doc",
           "order": 23,
@@ -9507,7 +9507,7 @@
         },
         {
           "id": "linux/25-production",
-          "title": "Production",
+          "title": "Linux Production",
           "slug": "production",
           "type": "doc",
           "order": 25,
@@ -9521,7 +9521,7 @@
         },
         {
           "id": "linux/26-best-practices",
-          "title": "Best Practices",
+          "title": "Linux Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 26,
@@ -9535,7 +9535,7 @@
         },
         {
           "id": "linux/27-troubleshooting",
-          "title": "Troubleshooting",
+          "title": "Linux Troubleshooting",
           "slug": "troubleshooting",
           "type": "doc",
           "order": 27,
@@ -9549,7 +9549,7 @@
         },
         {
           "id": "linux/28-tooling",
-          "title": "Tooling",
+          "title": "Linux Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 28,
@@ -9577,7 +9577,7 @@
         },
         {
           "id": "linux/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Linux Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -9591,7 +9591,7 @@
         },
         {
           "id": "linux/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Linux Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -9605,7 +9605,7 @@
         },
         {
           "id": "linux/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Linux AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -9619,7 +9619,7 @@
         },
         {
           "id": "linux/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Linux Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -9654,7 +9654,7 @@
         },
         {
           "id": "mysql/00-overview",
-          "title": "Overview",
+          "title": "MySQL Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -9668,7 +9668,7 @@
         },
         {
           "id": "mysql/01-installation",
-          "title": "Installation",
+          "title": "MySQL Installation",
           "slug": "installation",
           "type": "doc",
           "order": 1,
@@ -9682,7 +9682,7 @@
         },
         {
           "id": "mysql/02-configuration",
-          "title": "Configuration",
+          "title": "MySQL Configuration",
           "slug": "configuration",
           "type": "doc",
           "order": 2,
@@ -9696,7 +9696,7 @@
         },
         {
           "id": "mysql/03-data-types",
-          "title": "Data Types",
+          "title": "MySQL Data Types",
           "slug": "data-types",
           "type": "doc",
           "order": 3,
@@ -9710,7 +9710,7 @@
         },
         {
           "id": "mysql/04-indexes",
-          "title": "Indexes",
+          "title": "MySQL Indexes",
           "slug": "indexes",
           "type": "doc",
           "order": 4,
@@ -9724,7 +9724,7 @@
         },
         {
           "id": "mysql/05-query-optimization",
-          "title": "Query Optimization",
+          "title": "MySQL Query Optimization",
           "slug": "query-optimization",
           "type": "doc",
           "order": 5,
@@ -9738,7 +9738,7 @@
         },
         {
           "id": "mysql/06-transactions",
-          "title": "Transactions",
+          "title": "MySQL Transactions",
           "slug": "transactions",
           "type": "doc",
           "order": 6,
@@ -9752,7 +9752,7 @@
         },
         {
           "id": "mysql/07-locking",
-          "title": "Locking",
+          "title": "MySQL Locking",
           "slug": "locking",
           "type": "doc",
           "order": 7,
@@ -9780,7 +9780,7 @@
         },
         {
           "id": "mysql/09-replication",
-          "title": "Replication",
+          "title": "MySQL Replication",
           "slug": "replication",
           "type": "doc",
           "order": 9,
@@ -9794,7 +9794,7 @@
         },
         {
           "id": "mysql/10-clustering",
-          "title": "Clustering",
+          "title": "MySQL Clustering",
           "slug": "clustering",
           "type": "doc",
           "order": 10,
@@ -9808,7 +9808,7 @@
         },
         {
           "id": "mysql/11-backups",
-          "title": "Backups",
+          "title": "MySQL Backups",
           "slug": "backups",
           "type": "doc",
           "order": 11,
@@ -9822,7 +9822,7 @@
         },
         {
           "id": "mysql/12-security",
-          "title": "Security",
+          "title": "MySQL Security",
           "slug": "security",
           "type": "doc",
           "order": 12,
@@ -9850,7 +9850,7 @@
         },
         {
           "id": "mysql/14-performance",
-          "title": "Performance",
+          "title": "MySQL Performance",
           "slug": "performance",
           "type": "doc",
           "order": 14,
@@ -9864,7 +9864,7 @@
         },
         {
           "id": "mysql/15-monitoring",
-          "title": "Monitoring",
+          "title": "MySQL Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 15,
@@ -9878,7 +9878,7 @@
         },
         {
           "id": "mysql/16-migrations",
-          "title": "Migrations",
+          "title": "MySQL Migrations",
           "slug": "migrations",
           "type": "doc",
           "order": 16,
@@ -9892,7 +9892,7 @@
         },
         {
           "id": "mysql/17-testing",
-          "title": "Testing",
+          "title": "MySQL Testing",
           "slug": "testing",
           "type": "doc",
           "order": 17,
@@ -9906,7 +9906,7 @@
         },
         {
           "id": "mysql/18-debugging",
-          "title": "Debugging",
+          "title": "MySQL Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 18,
@@ -9920,7 +9920,7 @@
         },
         {
           "id": "mysql/19-best-practices",
-          "title": "Best Practices",
+          "title": "MySQL Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 19,
@@ -9934,7 +9934,7 @@
         },
         {
           "id": "mysql/20-production",
-          "title": "Production",
+          "title": "MySQL Production",
           "slug": "production",
           "type": "doc",
           "order": 20,
@@ -9948,7 +9948,7 @@
         },
         {
           "id": "mysql/21-high-availability",
-          "title": "High Availability",
+          "title": "MySQL High Availability",
           "slug": "high-availability",
           "type": "doc",
           "order": 21,
@@ -9962,7 +9962,7 @@
         },
         {
           "id": "mysql/22-partitioning",
-          "title": "Partitioning",
+          "title": "MySQL Partitioning",
           "slug": "partitioning",
           "type": "doc",
           "order": 22,
@@ -9976,7 +9976,7 @@
         },
         {
           "id": "mysql/23-full-text-search",
-          "title": "Full Text Search",
+          "title": "MySQL Full Text Search",
           "slug": "full-text-search",
           "type": "doc",
           "order": 23,
@@ -10004,7 +10004,7 @@
         },
         {
           "id": "mysql/25-events",
-          "title": "Events",
+          "title": "MySQL Events",
           "slug": "events",
           "type": "doc",
           "order": 25,
@@ -10018,7 +10018,7 @@
         },
         {
           "id": "mysql/26-triggers",
-          "title": "Triggers",
+          "title": "MySQL Triggers",
           "slug": "triggers",
           "type": "doc",
           "order": 26,
@@ -10046,7 +10046,7 @@
         },
         {
           "id": "mysql/28-architecture",
-          "title": "Architecture",
+          "title": "MySQL Architecture",
           "slug": "architecture",
           "type": "doc",
           "order": 28,
@@ -10060,7 +10060,7 @@
         },
         {
           "id": "mysql/29-tooling",
-          "title": "Tooling",
+          "title": "MySQL Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 29,
@@ -10074,7 +10074,7 @@
         },
         {
           "id": "mysql/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "MySQL Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -10088,7 +10088,7 @@
         },
         {
           "id": "mysql/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "MySQL Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -10102,7 +10102,7 @@
         },
         {
           "id": "mysql/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "MySQL AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -10116,7 +10116,7 @@
         },
         {
           "id": "mysql/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "MySQL Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -10473,7 +10473,7 @@
         },
         {
           "id": "nestjs/23-distributed-systems",
-          "title": "Distributed Systems",
+          "title": "NestJS Distributed Systems",
           "slug": "distributed-systems",
           "type": "doc",
           "order": 23,
@@ -10487,7 +10487,7 @@
         },
         {
           "id": "nestjs/24-observability",
-          "title": "Observability",
+          "title": "NestJS Observability",
           "slug": "observability",
           "type": "doc",
           "order": 24,
@@ -10501,7 +10501,7 @@
         },
         {
           "id": "nestjs/25-testing",
-          "title": "Testing",
+          "title": "NestJS Testing",
           "slug": "testing",
           "type": "doc",
           "order": 25,
@@ -10515,7 +10515,7 @@
         },
         {
           "id": "nestjs/26-security",
-          "title": "Security",
+          "title": "NestJS Security",
           "slug": "security",
           "type": "doc",
           "order": 26,
@@ -10543,7 +10543,7 @@
         },
         {
           "id": "nestjs/28-deployment",
-          "title": "Deployment",
+          "title": "NestJS Deployment",
           "slug": "deployment",
           "type": "doc",
           "order": 28,
@@ -10557,7 +10557,7 @@
         },
         {
           "id": "nestjs/29-maintenance",
-          "title": "Maintenance",
+          "title": "NestJS Maintenance",
           "slug": "maintenance",
           "type": "doc",
           "order": 29,
@@ -10571,7 +10571,7 @@
         },
         {
           "id": "nestjs/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "NestJS Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -10648,7 +10648,7 @@
         },
         {
           "id": "nextjs/00-overview",
-          "title": "Overview",
+          "title": "Next.js Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -10858,7 +10858,7 @@
         },
         {
           "id": "nextjs/15-authorization",
-          "title": "Authorization",
+          "title": "Next.js Authorization",
           "slug": "authorization",
           "type": "doc",
           "order": 15,
@@ -10984,7 +10984,7 @@
         },
         {
           "id": "nextjs/24-security",
-          "title": "Security",
+          "title": "Next.js Security",
           "slug": "security",
           "type": "doc",
           "order": 24,
@@ -10998,7 +10998,7 @@
         },
         {
           "id": "nextjs/25-accessibility",
-          "title": "Accessibility",
+          "title": "Next.js Accessibility",
           "slug": "accessibility",
           "type": "doc",
           "order": 25,
@@ -11026,7 +11026,7 @@
         },
         {
           "id": "nextjs/27-folder-structure",
-          "title": "Folder Structure",
+          "title": "Next.js Folder Structure",
           "slug": "folder-structure",
           "type": "doc",
           "order": 27,
@@ -11054,7 +11054,7 @@
         },
         {
           "id": "nextjs/29-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Next.js Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 29,
@@ -11096,7 +11096,7 @@
         },
         {
           "id": "nextjs/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Next.js AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -11145,7 +11145,7 @@
         },
         {
           "id": "nginx/00-overview",
-          "title": "Overview",
+          "title": "Nginx Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -11159,7 +11159,7 @@
         },
         {
           "id": "nginx/01-installation",
-          "title": "Installation",
+          "title": "Nginx Installation",
           "slug": "installation",
           "type": "doc",
           "order": 1,
@@ -11173,7 +11173,7 @@
         },
         {
           "id": "nginx/02-configuration",
-          "title": "Configuration",
+          "title": "Nginx Configuration",
           "slug": "configuration",
           "type": "doc",
           "order": 2,
@@ -11257,7 +11257,7 @@
         },
         {
           "id": "nginx/08-caching",
-          "title": "Caching",
+          "title": "Nginx Caching",
           "slug": "caching",
           "type": "doc",
           "order": 8,
@@ -11327,7 +11327,7 @@
         },
         {
           "id": "nginx/13-security",
-          "title": "Security",
+          "title": "Nginx Security",
           "slug": "security",
           "type": "doc",
           "order": 13,
@@ -11341,7 +11341,7 @@
         },
         {
           "id": "nginx/14-rate-limiting",
-          "title": "Rate Limiting",
+          "title": "Nginx Rate Limiting",
           "slug": "rate-limiting",
           "type": "doc",
           "order": 14,
@@ -11355,7 +11355,7 @@
         },
         {
           "id": "nginx/15-authentication",
-          "title": "Authentication",
+          "title": "Nginx Authentication",
           "slug": "authentication",
           "type": "doc",
           "order": 15,
@@ -11369,7 +11369,7 @@
         },
         {
           "id": "nginx/16-logging",
-          "title": "Logging",
+          "title": "Nginx Logging",
           "slug": "logging",
           "type": "doc",
           "order": 16,
@@ -11383,7 +11383,7 @@
         },
         {
           "id": "nginx/17-monitoring",
-          "title": "Monitoring",
+          "title": "Nginx Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 17,
@@ -11397,7 +11397,7 @@
         },
         {
           "id": "nginx/18-performance",
-          "title": "Performance",
+          "title": "Nginx Performance",
           "slug": "performance",
           "type": "doc",
           "order": 18,
@@ -11481,7 +11481,7 @@
         },
         {
           "id": "nginx/24-debugging",
-          "title": "Debugging",
+          "title": "Nginx Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 24,
@@ -11495,7 +11495,7 @@
         },
         {
           "id": "nginx/25-production",
-          "title": "Production",
+          "title": "Nginx Production",
           "slug": "production",
           "type": "doc",
           "order": 25,
@@ -11509,7 +11509,7 @@
         },
         {
           "id": "nginx/26-best-practices",
-          "title": "Best Practices",
+          "title": "Nginx Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 26,
@@ -11523,7 +11523,7 @@
         },
         {
           "id": "nginx/27-high-availability",
-          "title": "High Availability",
+          "title": "Nginx High Availability",
           "slug": "high-availability",
           "type": "doc",
           "order": 27,
@@ -11537,7 +11537,7 @@
         },
         {
           "id": "nginx/28-tooling",
-          "title": "Tooling",
+          "title": "Nginx Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 28,
@@ -11551,7 +11551,7 @@
         },
         {
           "id": "nginx/29-troubleshooting",
-          "title": "Troubleshooting",
+          "title": "Nginx Troubleshooting",
           "slug": "troubleshooting",
           "type": "doc",
           "order": 29,
@@ -11565,7 +11565,7 @@
         },
         {
           "id": "nginx/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Nginx Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -11579,7 +11579,7 @@
         },
         {
           "id": "nginx/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Nginx Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -11593,7 +11593,7 @@
         },
         {
           "id": "nginx/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Nginx AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -11607,7 +11607,7 @@
         },
         {
           "id": "nginx/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Nginx Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -11642,7 +11642,7 @@
         },
         {
           "id": "nodejs/00-overview",
-          "title": "Overview",
+          "title": "Node.js Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -11670,7 +11670,7 @@
         },
         {
           "id": "nodejs/02-event-loop",
-          "title": "Event Loop",
+          "title": "Node.js Event Loop",
           "slug": "event-loop",
           "type": "doc",
           "order": 2,
@@ -11684,7 +11684,7 @@
         },
         {
           "id": "nodejs/03-modules",
-          "title": "Modules",
+          "title": "Node.js Modules",
           "slug": "modules",
           "type": "doc",
           "order": 3,
@@ -11698,7 +11698,7 @@
         },
         {
           "id": "nodejs/04-package-management",
-          "title": "Package Management",
+          "title": "Node.js Package Management",
           "slug": "package-management",
           "type": "doc",
           "order": 4,
@@ -11726,7 +11726,7 @@
         },
         {
           "id": "nodejs/06-streams",
-          "title": "Streams",
+          "title": "Node.js Streams",
           "slug": "streams",
           "type": "doc",
           "order": 6,
@@ -11754,7 +11754,7 @@
         },
         {
           "id": "nodejs/08-events",
-          "title": "Events",
+          "title": "Node.js Events",
           "slug": "events",
           "type": "doc",
           "order": 8,
@@ -11768,7 +11768,7 @@
         },
         {
           "id": "nodejs/09-http",
-          "title": "HTTP",
+          "title": "Node.js HTTP",
           "slug": "http",
           "type": "doc",
           "order": 9,
@@ -11824,7 +11824,7 @@
         },
         {
           "id": "nodejs/13-cluster",
-          "title": "Cluster",
+          "title": "Node.js Cluster",
           "slug": "cluster",
           "type": "doc",
           "order": 13,
@@ -11838,7 +11838,7 @@
         },
         {
           "id": "nodejs/14-environment",
-          "title": "Environment",
+          "title": "Node.js Environment",
           "slug": "environment",
           "type": "doc",
           "order": 14,
@@ -11852,7 +11852,7 @@
         },
         {
           "id": "nodejs/15-configuration",
-          "title": "Configuration",
+          "title": "Node.js Configuration",
           "slug": "configuration",
           "type": "doc",
           "order": 15,
@@ -11866,7 +11866,7 @@
         },
         {
           "id": "nodejs/16-error-handling",
-          "title": "Error Handling",
+          "title": "Node.js Error Handling",
           "slug": "error-handling",
           "type": "doc",
           "order": 16,
@@ -11880,7 +11880,7 @@
         },
         {
           "id": "nodejs/17-logging",
-          "title": "Logging",
+          "title": "Node.js Logging",
           "slug": "logging",
           "type": "doc",
           "order": 17,
@@ -11894,7 +11894,7 @@
         },
         {
           "id": "nodejs/18-security",
-          "title": "Security",
+          "title": "Node.js Security",
           "slug": "security",
           "type": "doc",
           "order": 18,
@@ -11908,7 +11908,7 @@
         },
         {
           "id": "nodejs/19-performance",
-          "title": "Performance",
+          "title": "Node.js Performance",
           "slug": "performance",
           "type": "doc",
           "order": 19,
@@ -11922,7 +11922,7 @@
         },
         {
           "id": "nodejs/20-memory-management",
-          "title": "Memory Management",
+          "title": "Node.js Memory Management",
           "slug": "memory-management",
           "type": "doc",
           "order": 20,
@@ -11936,7 +11936,7 @@
         },
         {
           "id": "nodejs/21-testing",
-          "title": "Testing",
+          "title": "Node.js Testing",
           "slug": "testing",
           "type": "doc",
           "order": 21,
@@ -11950,7 +11950,7 @@
         },
         {
           "id": "nodejs/22-debugging",
-          "title": "Debugging",
+          "title": "Node.js Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 22,
@@ -11978,7 +11978,7 @@
         },
         {
           "id": "nodejs/24-background-jobs",
-          "title": "Background Jobs",
+          "title": "Node.js Background Jobs",
           "slug": "background-jobs",
           "type": "doc",
           "order": 24,
@@ -11992,7 +11992,7 @@
         },
         {
           "id": "nodejs/25-microservices",
-          "title": "Microservices",
+          "title": "Node.js Microservices",
           "slug": "microservices",
           "type": "doc",
           "order": 25,
@@ -12006,7 +12006,7 @@
         },
         {
           "id": "nodejs/26-deployment",
-          "title": "Deployment",
+          "title": "Node.js Deployment",
           "slug": "deployment",
           "type": "doc",
           "order": 26,
@@ -12020,7 +12020,7 @@
         },
         {
           "id": "nodejs/27-monitoring",
-          "title": "Monitoring",
+          "title": "Node.js Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 27,
@@ -12034,7 +12034,7 @@
         },
         {
           "id": "nodejs/28-best-practices",
-          "title": "Best Practices",
+          "title": "Node.js Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 28,
@@ -12048,7 +12048,7 @@
         },
         {
           "id": "nodejs/29-tooling",
-          "title": "Tooling",
+          "title": "Node.js Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 29,
@@ -12062,7 +12062,7 @@
         },
         {
           "id": "nodejs/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Node.js Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -12076,7 +12076,7 @@
         },
         {
           "id": "nodejs/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Node.js Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -12090,7 +12090,7 @@
         },
         {
           "id": "nodejs/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Node.js AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -12104,7 +12104,7 @@
         },
         {
           "id": "nodejs/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Node.js Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -12139,7 +12139,7 @@
         },
         {
           "id": "performance/00-overview",
-          "title": "Overview",
+          "title": "Performance Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -12223,7 +12223,7 @@
         },
         {
           "id": "performance/06-rendering",
-          "title": "Rendering",
+          "title": "Performance Rendering",
           "slug": "rendering",
           "type": "doc",
           "order": 6,
@@ -12251,7 +12251,7 @@
         },
         {
           "id": "performance/08-caching",
-          "title": "Caching",
+          "title": "Performance Caching",
           "slug": "caching",
           "type": "doc",
           "order": 8,
@@ -12279,7 +12279,7 @@
         },
         {
           "id": "performance/10-code-splitting",
-          "title": "Code Splitting",
+          "title": "Performance Code Splitting",
           "slug": "code-splitting",
           "type": "doc",
           "order": 10,
@@ -12293,7 +12293,7 @@
         },
         {
           "id": "performance/11-images",
-          "title": "Images",
+          "title": "Performance Images",
           "slug": "images",
           "type": "doc",
           "order": 11,
@@ -12321,7 +12321,7 @@
         },
         {
           "id": "performance/13-database-performance",
-          "title": "Database Performance",
+          "title": "Performance — Database Access",
           "slug": "database-performance",
           "type": "doc",
           "order": 13,
@@ -12349,7 +12349,7 @@
         },
         {
           "id": "performance/15-query-optimization",
-          "title": "Query Optimization",
+          "title": "Performance Query Optimization",
           "slug": "query-optimization",
           "type": "doc",
           "order": 15,
@@ -12377,7 +12377,7 @@
         },
         {
           "id": "performance/17-monitoring",
-          "title": "Monitoring",
+          "title": "Performance Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 17,
@@ -12433,7 +12433,7 @@
         },
         {
           "id": "performance/21-scalability",
-          "title": "Scalability",
+          "title": "Performance Scalability",
           "slug": "scalability",
           "type": "doc",
           "order": 21,
@@ -12447,7 +12447,7 @@
         },
         {
           "id": "performance/22-load-testing",
-          "title": "Load Testing",
+          "title": "Performance Load Testing",
           "slug": "load-testing",
           "type": "doc",
           "order": 22,
@@ -12559,7 +12559,7 @@
         },
         {
           "id": "performance/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Performance Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -12573,7 +12573,7 @@
         },
         {
           "id": "performance/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Performance Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -12587,7 +12587,7 @@
         },
         {
           "id": "performance/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Performance AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -12601,7 +12601,7 @@
         },
         {
           "id": "performance/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Performance Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -12636,7 +12636,7 @@
         },
         {
           "id": "php/00-overview",
-          "title": "Overview",
+          "title": "PHP Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -12650,7 +12650,7 @@
         },
         {
           "id": "php/01-language-fundamentals",
-          "title": "Language Fundamentals",
+          "title": "PHP Language Fundamentals",
           "slug": "language-fundamentals",
           "type": "doc",
           "order": 1,
@@ -12664,7 +12664,7 @@
         },
         {
           "id": "php/02-types",
-          "title": "Types",
+          "title": "PHP Types",
           "slug": "types",
           "type": "doc",
           "order": 2,
@@ -12678,7 +12678,7 @@
         },
         {
           "id": "php/03-functions",
-          "title": "Functions",
+          "title": "PHP Functions",
           "slug": "functions",
           "type": "doc",
           "order": 3,
@@ -12748,7 +12748,7 @@
         },
         {
           "id": "php/08-error-handling",
-          "title": "Error Handling",
+          "title": "PHP Error Handling",
           "slug": "error-handling",
           "type": "doc",
           "order": 8,
@@ -12790,7 +12790,7 @@
         },
         {
           "id": "php/11-http",
-          "title": "HTTP",
+          "title": "PHP HTTP",
           "slug": "http",
           "type": "doc",
           "order": 11,
@@ -12818,7 +12818,7 @@
         },
         {
           "id": "php/13-security",
-          "title": "Security",
+          "title": "PHP Security",
           "slug": "security",
           "type": "doc",
           "order": 13,
@@ -12832,7 +12832,7 @@
         },
         {
           "id": "php/14-performance",
-          "title": "Performance",
+          "title": "PHP Performance",
           "slug": "performance",
           "type": "doc",
           "order": 14,
@@ -12846,7 +12846,7 @@
         },
         {
           "id": "php/15-testing",
-          "title": "Testing",
+          "title": "PHP Testing",
           "slug": "testing",
           "type": "doc",
           "order": 15,
@@ -12860,7 +12860,7 @@
         },
         {
           "id": "php/16-cli",
-          "title": "CLI",
+          "title": "PHP CLI",
           "slug": "cli",
           "type": "doc",
           "order": 16,
@@ -12930,7 +12930,7 @@
         },
         {
           "id": "php/21-design-patterns",
-          "title": "Design Patterns",
+          "title": "PHP Design Patterns",
           "slug": "design-patterns",
           "type": "doc",
           "order": 21,
@@ -12944,7 +12944,7 @@
         },
         {
           "id": "php/22-clean-code",
-          "title": "Clean Code",
+          "title": "PHP Clean Code",
           "slug": "clean-code",
           "type": "doc",
           "order": 22,
@@ -12986,7 +12986,7 @@
         },
         {
           "id": "php/25-debugging",
-          "title": "Debugging",
+          "title": "PHP Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 25,
@@ -13000,7 +13000,7 @@
         },
         {
           "id": "php/26-best-practices",
-          "title": "Best Practices",
+          "title": "PHP Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 26,
@@ -13014,7 +13014,7 @@
         },
         {
           "id": "php/27-production",
-          "title": "Production",
+          "title": "PHP Production",
           "slug": "production",
           "type": "doc",
           "order": 27,
@@ -13028,7 +13028,7 @@
         },
         {
           "id": "php/28-tooling",
-          "title": "Tooling",
+          "title": "PHP Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 28,
@@ -13042,7 +13042,7 @@
         },
         {
           "id": "php/29-architecture",
-          "title": "Architecture",
+          "title": "PHP Architecture",
           "slug": "architecture",
           "type": "doc",
           "order": 29,
@@ -13056,7 +13056,7 @@
         },
         {
           "id": "php/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "PHP Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -13070,7 +13070,7 @@
         },
         {
           "id": "php/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "PHP Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -13084,7 +13084,7 @@
         },
         {
           "id": "php/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "PHP AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -13098,7 +13098,7 @@
         },
         {
           "id": "php/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "PHP Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -13196,7 +13196,7 @@
         },
         {
           "id": "postgresql/00-overview",
-          "title": "Overview",
+          "title": "PostgreSQL Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -13210,7 +13210,7 @@
         },
         {
           "id": "postgresql/01-installation",
-          "title": "Installation",
+          "title": "PostgreSQL Installation",
           "slug": "installation",
           "type": "doc",
           "order": 1,
@@ -13224,7 +13224,7 @@
         },
         {
           "id": "postgresql/02-configuration",
-          "title": "Configuration",
+          "title": "PostgreSQL Configuration",
           "slug": "configuration",
           "type": "doc",
           "order": 2,
@@ -13238,7 +13238,7 @@
         },
         {
           "id": "postgresql/03-data-types",
-          "title": "Data Types",
+          "title": "PostgreSQL Data Types",
           "slug": "data-types",
           "type": "doc",
           "order": 3,
@@ -13252,7 +13252,7 @@
         },
         {
           "id": "postgresql/04-indexes",
-          "title": "Indexes",
+          "title": "PostgreSQL Indexes",
           "slug": "indexes",
           "type": "doc",
           "order": 4,
@@ -13280,7 +13280,7 @@
         },
         {
           "id": "postgresql/06-transactions",
-          "title": "Transactions",
+          "title": "PostgreSQL Transactions",
           "slug": "transactions",
           "type": "doc",
           "order": 6,
@@ -13294,7 +13294,7 @@
         },
         {
           "id": "postgresql/07-locking",
-          "title": "Locking",
+          "title": "PostgreSQL Locking",
           "slug": "locking",
           "type": "doc",
           "order": 7,
@@ -13336,7 +13336,7 @@
         },
         {
           "id": "postgresql/10-full-text-search",
-          "title": "Full Text Search",
+          "title": "PostgreSQL Full Text Search",
           "slug": "full-text-search",
           "type": "doc",
           "order": 10,
@@ -13350,7 +13350,7 @@
         },
         {
           "id": "postgresql/11-partitioning",
-          "title": "Partitioning",
+          "title": "PostgreSQL Partitioning",
           "slug": "partitioning",
           "type": "doc",
           "order": 11,
@@ -13364,7 +13364,7 @@
         },
         {
           "id": "postgresql/12-replication",
-          "title": "Replication",
+          "title": "PostgreSQL Replication",
           "slug": "replication",
           "type": "doc",
           "order": 12,
@@ -13378,7 +13378,7 @@
         },
         {
           "id": "postgresql/13-high-availability",
-          "title": "High Availability",
+          "title": "PostgreSQL High Availability",
           "slug": "high-availability",
           "type": "doc",
           "order": 13,
@@ -13392,7 +13392,7 @@
         },
         {
           "id": "postgresql/14-backups",
-          "title": "Backups",
+          "title": "PostgreSQL Backups",
           "slug": "backups",
           "type": "doc",
           "order": 14,
@@ -13406,7 +13406,7 @@
         },
         {
           "id": "postgresql/15-extensions",
-          "title": "Extensions",
+          "title": "PostgreSQL Extensions",
           "slug": "extensions",
           "type": "doc",
           "order": 15,
@@ -13420,7 +13420,7 @@
         },
         {
           "id": "postgresql/16-performance",
-          "title": "Performance",
+          "title": "PostgreSQL Performance",
           "slug": "performance",
           "type": "doc",
           "order": 16,
@@ -13434,7 +13434,7 @@
         },
         {
           "id": "postgresql/17-monitoring",
-          "title": "Monitoring",
+          "title": "PostgreSQL Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 17,
@@ -13448,7 +13448,7 @@
         },
         {
           "id": "postgresql/18-security",
-          "title": "Security",
+          "title": "PostgreSQL Security",
           "slug": "security",
           "type": "doc",
           "order": 18,
@@ -13504,7 +13504,7 @@
         },
         {
           "id": "postgresql/22-migrations",
-          "title": "Migrations",
+          "title": "PostgreSQL Migrations",
           "slug": "migrations",
           "type": "doc",
           "order": 22,
@@ -13518,7 +13518,7 @@
         },
         {
           "id": "postgresql/23-testing",
-          "title": "Testing",
+          "title": "PostgreSQL Testing",
           "slug": "testing",
           "type": "doc",
           "order": 23,
@@ -13532,7 +13532,7 @@
         },
         {
           "id": "postgresql/24-debugging",
-          "title": "Debugging",
+          "title": "PostgreSQL Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 24,
@@ -13546,7 +13546,7 @@
         },
         {
           "id": "postgresql/25-best-practices",
-          "title": "Best Practices",
+          "title": "PostgreSQL Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 25,
@@ -13560,7 +13560,7 @@
         },
         {
           "id": "postgresql/26-production",
-          "title": "Production",
+          "title": "PostgreSQL Production",
           "slug": "production",
           "type": "doc",
           "order": 26,
@@ -13588,7 +13588,7 @@
         },
         {
           "id": "postgresql/28-architecture",
-          "title": "Architecture",
+          "title": "PostgreSQL Architecture",
           "slug": "architecture",
           "type": "doc",
           "order": 28,
@@ -13602,7 +13602,7 @@
         },
         {
           "id": "postgresql/29-tooling",
-          "title": "Tooling",
+          "title": "PostgreSQL Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 29,
@@ -13616,7 +13616,7 @@
         },
         {
           "id": "postgresql/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "PostgreSQL Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -13630,7 +13630,7 @@
         },
         {
           "id": "postgresql/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "PostgreSQL Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -13644,7 +13644,7 @@
         },
         {
           "id": "postgresql/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "PostgreSQL AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -13658,7 +13658,7 @@
         },
         {
           "id": "postgresql/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "PostgreSQL Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -13693,7 +13693,7 @@
         },
         {
           "id": "prisma/00-overview",
-          "title": "Overview",
+          "title": "Prisma Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -13707,7 +13707,7 @@
         },
         {
           "id": "prisma/01-installation",
-          "title": "Installation",
+          "title": "Prisma Installation",
           "slug": "installation",
           "type": "doc",
           "order": 1,
@@ -13721,7 +13721,7 @@
         },
         {
           "id": "prisma/02-schema",
-          "title": "Schema",
+          "title": "Prisma Schema",
           "slug": "schema",
           "type": "doc",
           "order": 2,
@@ -13763,7 +13763,7 @@
         },
         {
           "id": "prisma/05-migrations",
-          "title": "Migrations",
+          "title": "Prisma Migrations",
           "slug": "migrations",
           "type": "doc",
           "order": 5,
@@ -13805,7 +13805,7 @@
         },
         {
           "id": "prisma/08-transactions",
-          "title": "Transactions",
+          "title": "Prisma Transactions",
           "slug": "transactions",
           "type": "doc",
           "order": 8,
@@ -13819,7 +13819,7 @@
         },
         {
           "id": "prisma/09-filtering",
-          "title": "Filtering",
+          "title": "Prisma Filtering",
           "slug": "filtering",
           "type": "doc",
           "order": 9,
@@ -13833,7 +13833,7 @@
         },
         {
           "id": "prisma/10-pagination",
-          "title": "Pagination",
+          "title": "Prisma Pagination",
           "slug": "pagination",
           "type": "doc",
           "order": 10,
@@ -13889,7 +13889,7 @@
         },
         {
           "id": "prisma/14-extensions",
-          "title": "Extensions",
+          "title": "Prisma Extensions",
           "slug": "extensions",
           "type": "doc",
           "order": 14,
@@ -13903,7 +13903,7 @@
         },
         {
           "id": "prisma/15-performance",
-          "title": "Performance",
+          "title": "Prisma Performance",
           "slug": "performance",
           "type": "doc",
           "order": 15,
@@ -13917,7 +13917,7 @@
         },
         {
           "id": "prisma/16-indexes",
-          "title": "Indexes",
+          "title": "Prisma Indexes",
           "slug": "indexes",
           "type": "doc",
           "order": 16,
@@ -13945,7 +13945,7 @@
         },
         {
           "id": "prisma/18-error-handling",
-          "title": "Error Handling",
+          "title": "Prisma Error Handling",
           "slug": "error-handling",
           "type": "doc",
           "order": 18,
@@ -13959,7 +13959,7 @@
         },
         {
           "id": "prisma/19-testing",
-          "title": "Testing",
+          "title": "Prisma Testing",
           "slug": "testing",
           "type": "doc",
           "order": 19,
@@ -13973,7 +13973,7 @@
         },
         {
           "id": "prisma/20-debugging",
-          "title": "Debugging",
+          "title": "Prisma Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 20,
@@ -13987,7 +13987,7 @@
         },
         {
           "id": "prisma/21-security",
-          "title": "Security",
+          "title": "Prisma Security",
           "slug": "security",
           "type": "doc",
           "order": 21,
@@ -14001,7 +14001,7 @@
         },
         {
           "id": "prisma/22-multi-tenancy",
-          "title": "Multi Tenancy",
+          "title": "Prisma Multi Tenancy",
           "slug": "multi-tenancy",
           "type": "doc",
           "order": 22,
@@ -14015,7 +14015,7 @@
         },
         {
           "id": "prisma/23-soft-delete",
-          "title": "Soft Delete",
+          "title": "Prisma Soft Delete",
           "slug": "soft-delete",
           "type": "doc",
           "order": 23,
@@ -14029,7 +14029,7 @@
         },
         {
           "id": "prisma/24-best-practices",
-          "title": "Best Practices",
+          "title": "Prisma Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 24,
@@ -14043,7 +14043,7 @@
         },
         {
           "id": "prisma/25-production",
-          "title": "Production",
+          "title": "Prisma Production",
           "slug": "production",
           "type": "doc",
           "order": 25,
@@ -14057,7 +14057,7 @@
         },
         {
           "id": "prisma/26-observability",
-          "title": "Observability",
+          "title": "Prisma Observability",
           "slug": "observability",
           "type": "doc",
           "order": 26,
@@ -14071,7 +14071,7 @@
         },
         {
           "id": "prisma/27-tooling",
-          "title": "Tooling",
+          "title": "Prisma Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 27,
@@ -14085,7 +14085,7 @@
         },
         {
           "id": "prisma/28-patterns",
-          "title": "Patterns",
+          "title": "Prisma Patterns",
           "slug": "patterns",
           "type": "doc",
           "order": 28,
@@ -14099,7 +14099,7 @@
         },
         {
           "id": "prisma/29-architecture",
-          "title": "Architecture",
+          "title": "Prisma Architecture",
           "slug": "architecture",
           "type": "doc",
           "order": 29,
@@ -14113,7 +14113,7 @@
         },
         {
           "id": "prisma/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Prisma Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -14127,7 +14127,7 @@
         },
         {
           "id": "prisma/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Prisma Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -14141,7 +14141,7 @@
         },
         {
           "id": "prisma/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Prisma AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -14155,7 +14155,7 @@
         },
         {
           "id": "prisma/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Prisma Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -14253,7 +14253,7 @@
         },
         {
           "id": "react/00-overview",
-          "title": "Overview",
+          "title": "React Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -14309,7 +14309,7 @@
         },
         {
           "id": "react/04-components",
-          "title": "Components",
+          "title": "React Components",
           "slug": "components",
           "type": "doc",
           "order": 4,
@@ -14365,7 +14365,7 @@
         },
         {
           "id": "react/08-hooks",
-          "title": "Hooks",
+          "title": "React Hooks",
           "slug": "hooks",
           "type": "doc",
           "order": 8,
@@ -14449,7 +14449,7 @@
         },
         {
           "id": "react/14-patterns",
-          "title": "Patterns",
+          "title": "React Patterns",
           "slug": "patterns",
           "type": "doc",
           "order": 14,
@@ -14491,7 +14491,7 @@
         },
         {
           "id": "react/17-routing",
-          "title": "Routing",
+          "title": "React Routing",
           "slug": "routing",
           "type": "doc",
           "order": 17,
@@ -14589,7 +14589,7 @@
         },
         {
           "id": "react/24-design-patterns",
-          "title": "Design Patterns",
+          "title": "React Design Patterns",
           "slug": "design-patterns",
           "type": "doc",
           "order": 24,
@@ -14603,7 +14603,7 @@
         },
         {
           "id": "react/25-security",
-          "title": "Security",
+          "title": "React Security",
           "slug": "security",
           "type": "doc",
           "order": 25,
@@ -14617,7 +14617,7 @@
         },
         {
           "id": "react/26-best-practices",
-          "title": "Best Practices",
+          "title": "React Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 26,
@@ -14631,7 +14631,7 @@
         },
         {
           "id": "react/27-debugging",
-          "title": "Debugging",
+          "title": "React Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 27,
@@ -14645,7 +14645,7 @@
         },
         {
           "id": "react/28-production",
-          "title": "Production",
+          "title": "React Production",
           "slug": "production",
           "type": "doc",
           "order": 28,
@@ -14659,7 +14659,7 @@
         },
         {
           "id": "react/29-tooling",
-          "title": "Tooling",
+          "title": "React Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 29,
@@ -14673,7 +14673,7 @@
         },
         {
           "id": "react/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "React Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -14687,7 +14687,7 @@
         },
         {
           "id": "react/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "React Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -14750,7 +14750,7 @@
         },
         {
           "id": "redis/00-overview",
-          "title": "Overview",
+          "title": "Redis Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -14764,7 +14764,7 @@
         },
         {
           "id": "redis/01-installation",
-          "title": "Installation",
+          "title": "Redis Installation",
           "slug": "installation",
           "type": "doc",
           "order": 1,
@@ -14778,7 +14778,7 @@
         },
         {
           "id": "redis/02-data-types",
-          "title": "Data Types",
+          "title": "Redis Data Types",
           "slug": "data-types",
           "type": "doc",
           "order": 2,
@@ -14806,7 +14806,7 @@
         },
         {
           "id": "redis/04-lists",
-          "title": "Lists",
+          "title": "Redis Lists",
           "slug": "lists",
           "type": "doc",
           "order": 4,
@@ -14862,7 +14862,7 @@
         },
         {
           "id": "redis/08-streams",
-          "title": "Streams",
+          "title": "Redis Streams",
           "slug": "streams",
           "type": "doc",
           "order": 8,
@@ -14890,7 +14890,7 @@
         },
         {
           "id": "redis/10-transactions",
-          "title": "Transactions",
+          "title": "Redis Transactions",
           "slug": "transactions",
           "type": "doc",
           "order": 10,
@@ -14932,7 +14932,7 @@
         },
         {
           "id": "redis/13-caching",
-          "title": "Caching",
+          "title": "Redis Caching",
           "slug": "caching",
           "type": "doc",
           "order": 13,
@@ -14946,7 +14946,7 @@
         },
         {
           "id": "redis/14-rate-limiting",
-          "title": "Rate Limiting",
+          "title": "Redis Rate Limiting",
           "slug": "rate-limiting",
           "type": "doc",
           "order": 14,
@@ -15002,7 +15002,7 @@
         },
         {
           "id": "redis/18-replication",
-          "title": "Replication",
+          "title": "Redis Replication",
           "slug": "replication",
           "type": "doc",
           "order": 18,
@@ -15016,7 +15016,7 @@
         },
         {
           "id": "redis/19-clustering",
-          "title": "Clustering",
+          "title": "Redis Clustering",
           "slug": "clustering",
           "type": "doc",
           "order": 19,
@@ -15044,7 +15044,7 @@
         },
         {
           "id": "redis/21-security",
-          "title": "Security",
+          "title": "Redis Security",
           "slug": "security",
           "type": "doc",
           "order": 21,
@@ -15058,7 +15058,7 @@
         },
         {
           "id": "redis/22-monitoring",
-          "title": "Monitoring",
+          "title": "Redis Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 22,
@@ -15072,7 +15072,7 @@
         },
         {
           "id": "redis/23-performance",
-          "title": "Performance",
+          "title": "Redis Performance",
           "slug": "performance",
           "type": "doc",
           "order": 23,
@@ -15086,7 +15086,7 @@
         },
         {
           "id": "redis/24-testing",
-          "title": "Testing",
+          "title": "Redis Testing",
           "slug": "testing",
           "type": "doc",
           "order": 24,
@@ -15100,7 +15100,7 @@
         },
         {
           "id": "redis/25-debugging",
-          "title": "Debugging",
+          "title": "Redis Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 25,
@@ -15114,7 +15114,7 @@
         },
         {
           "id": "redis/26-best-practices",
-          "title": "Best Practices",
+          "title": "Redis Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 26,
@@ -15128,7 +15128,7 @@
         },
         {
           "id": "redis/27-production",
-          "title": "Production",
+          "title": "Redis Production",
           "slug": "production",
           "type": "doc",
           "order": 27,
@@ -15142,7 +15142,7 @@
         },
         {
           "id": "redis/28-observability",
-          "title": "Observability",
+          "title": "Redis Observability",
           "slug": "observability",
           "type": "doc",
           "order": 28,
@@ -15156,7 +15156,7 @@
         },
         {
           "id": "redis/29-tooling",
-          "title": "Tooling",
+          "title": "Redis Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 29,
@@ -15170,7 +15170,7 @@
         },
         {
           "id": "redis/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Redis Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -15184,7 +15184,7 @@
         },
         {
           "id": "redis/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Redis Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -15198,7 +15198,7 @@
         },
         {
           "id": "redis/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Redis AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -15212,7 +15212,7 @@
         },
         {
           "id": "redis/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Redis Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -15247,7 +15247,7 @@
         },
         {
           "id": "rest-api/00-overview",
-          "title": "Overview",
+          "title": "REST API Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -15261,7 +15261,7 @@
         },
         {
           "id": "rest-api/01-http",
-          "title": "HTTP",
+          "title": "REST API HTTP",
           "slug": "http",
           "type": "doc",
           "order": 1,
@@ -15317,7 +15317,7 @@
         },
         {
           "id": "rest-api/05-routing",
-          "title": "Routing",
+          "title": "REST API Routing",
           "slug": "routing",
           "type": "doc",
           "order": 5,
@@ -15359,7 +15359,7 @@
         },
         {
           "id": "rest-api/08-validation",
-          "title": "Validation",
+          "title": "REST API Validation",
           "slug": "validation",
           "type": "doc",
           "order": 8,
@@ -15373,7 +15373,7 @@
         },
         {
           "id": "rest-api/09-error-handling",
-          "title": "Error Handling",
+          "title": "REST API Error Handling",
           "slug": "error-handling",
           "type": "doc",
           "order": 9,
@@ -15387,7 +15387,7 @@
         },
         {
           "id": "rest-api/10-pagination",
-          "title": "Pagination",
+          "title": "REST API Pagination",
           "slug": "pagination",
           "type": "doc",
           "order": 10,
@@ -15401,7 +15401,7 @@
         },
         {
           "id": "rest-api/11-filtering",
-          "title": "Filtering",
+          "title": "REST API Filtering",
           "slug": "filtering",
           "type": "doc",
           "order": 11,
@@ -15415,7 +15415,7 @@
         },
         {
           "id": "rest-api/12-sorting",
-          "title": "Sorting",
+          "title": "REST API Sorting",
           "slug": "sorting",
           "type": "doc",
           "order": 12,
@@ -15443,7 +15443,7 @@
         },
         {
           "id": "rest-api/14-versioning",
-          "title": "Versioning",
+          "title": "REST API Versioning",
           "slug": "versioning",
           "type": "doc",
           "order": 14,
@@ -15457,7 +15457,7 @@
         },
         {
           "id": "rest-api/15-authentication",
-          "title": "Authentication",
+          "title": "REST API Authentication",
           "slug": "authentication",
           "type": "doc",
           "order": 15,
@@ -15471,7 +15471,7 @@
         },
         {
           "id": "rest-api/16-authorization",
-          "title": "Authorization",
+          "title": "REST API Authorization",
           "slug": "authorization",
           "type": "doc",
           "order": 16,
@@ -15485,7 +15485,7 @@
         },
         {
           "id": "rest-api/17-rate-limiting",
-          "title": "Rate Limiting",
+          "title": "REST API Rate Limiting",
           "slug": "rate-limiting",
           "type": "doc",
           "order": 17,
@@ -15513,7 +15513,7 @@
         },
         {
           "id": "rest-api/19-caching",
-          "title": "Caching",
+          "title": "REST API Caching",
           "slug": "caching",
           "type": "doc",
           "order": 19,
@@ -15569,7 +15569,7 @@
         },
         {
           "id": "rest-api/23-testing",
-          "title": "Testing",
+          "title": "REST API Testing",
           "slug": "testing",
           "type": "doc",
           "order": 23,
@@ -15583,7 +15583,7 @@
         },
         {
           "id": "rest-api/24-security",
-          "title": "Security",
+          "title": "REST API Security",
           "slug": "security",
           "type": "doc",
           "order": 24,
@@ -15597,7 +15597,7 @@
         },
         {
           "id": "rest-api/25-performance",
-          "title": "Performance",
+          "title": "REST API Performance",
           "slug": "performance",
           "type": "doc",
           "order": 25,
@@ -15611,7 +15611,7 @@
         },
         {
           "id": "rest-api/26-monitoring",
-          "title": "Monitoring",
+          "title": "REST API Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 26,
@@ -15625,7 +15625,7 @@
         },
         {
           "id": "rest-api/27-best-practices",
-          "title": "Best Practices",
+          "title": "REST API Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 27,
@@ -15639,7 +15639,7 @@
         },
         {
           "id": "rest-api/28-production",
-          "title": "Production",
+          "title": "REST API Production",
           "slug": "production",
           "type": "doc",
           "order": 28,
@@ -15667,7 +15667,7 @@
         },
         {
           "id": "rest-api/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "REST API Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -15681,7 +15681,7 @@
         },
         {
           "id": "rest-api/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "REST API Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -15695,7 +15695,7 @@
         },
         {
           "id": "rest-api/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "REST API AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -15709,7 +15709,7 @@
         },
         {
           "id": "rest-api/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "REST API Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -15744,7 +15744,7 @@
         },
         {
           "id": "security/00-overview",
-          "title": "Overview",
+          "title": "Security Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -15786,7 +15786,7 @@
         },
         {
           "id": "security/03-authentication",
-          "title": "Authentication",
+          "title": "Security Authentication",
           "slug": "authentication",
           "type": "doc",
           "order": 3,
@@ -15800,7 +15800,7 @@
         },
         {
           "id": "security/04-authorization",
-          "title": "Authorization",
+          "title": "Security Authorization",
           "slug": "authorization",
           "type": "doc",
           "order": 4,
@@ -15968,7 +15968,7 @@
         },
         {
           "id": "security/16-secrets-management",
-          "title": "Secrets Management",
+          "title": "Security Secrets Management",
           "slug": "secrets-management",
           "type": "doc",
           "order": 16,
@@ -16038,7 +16038,7 @@
         },
         {
           "id": "security/21-rate-limiting",
-          "title": "Rate Limiting",
+          "title": "Security Rate Limiting",
           "slug": "rate-limiting",
           "type": "doc",
           "order": 21,
@@ -16094,7 +16094,7 @@
         },
         {
           "id": "security/25-monitoring",
-          "title": "Monitoring",
+          "title": "Security Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 25,
@@ -16122,7 +16122,7 @@
         },
         {
           "id": "security/27-best-practices",
-          "title": "Best Practices",
+          "title": "Security Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 27,
@@ -16164,7 +16164,7 @@
         },
         {
           "id": "security/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Security Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -16178,7 +16178,7 @@
         },
         {
           "id": "security/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Security Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -16192,7 +16192,7 @@
         },
         {
           "id": "security/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Security AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -16206,7 +16206,7 @@
         },
         {
           "id": "security/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Security Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -16241,7 +16241,7 @@
         },
         {
           "id": "seo/00-overview",
-          "title": "Overview",
+          "title": "SEO Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -16283,7 +16283,7 @@
         },
         {
           "id": "seo/03-indexing",
-          "title": "Indexing",
+          "title": "SEO Indexing",
           "slug": "indexing",
           "type": "doc",
           "order": 3,
@@ -16297,7 +16297,7 @@
         },
         {
           "id": "seo/04-rendering",
-          "title": "Rendering",
+          "title": "SEO Rendering",
           "slug": "rendering",
           "type": "doc",
           "order": 4,
@@ -16311,7 +16311,7 @@
         },
         {
           "id": "seo/05-metadata",
-          "title": "Metadata",
+          "title": "SEO Metadata",
           "slug": "metadata",
           "type": "doc",
           "order": 5,
@@ -16367,7 +16367,7 @@
         },
         {
           "id": "seo/09-structured-data",
-          "title": "Structured Data",
+          "title": "SEO Structured Data",
           "slug": "structured-data",
           "type": "doc",
           "order": 9,
@@ -16409,7 +16409,7 @@
         },
         {
           "id": "seo/12-performance",
-          "title": "Performance",
+          "title": "SEO Performance",
           "slug": "performance",
           "type": "doc",
           "order": 12,
@@ -16465,7 +16465,7 @@
         },
         {
           "id": "seo/16-images",
-          "title": "Images",
+          "title": "SEO Images",
           "slug": "images",
           "type": "doc",
           "order": 16,
@@ -16479,7 +16479,7 @@
         },
         {
           "id": "seo/17-links",
-          "title": "Links",
+          "title": "SEO Links",
           "slug": "links",
           "type": "doc",
           "order": 17,
@@ -16493,7 +16493,7 @@
         },
         {
           "id": "seo/18-pagination",
-          "title": "Pagination",
+          "title": "SEO Pagination",
           "slug": "pagination",
           "type": "doc",
           "order": 18,
@@ -16577,7 +16577,7 @@
         },
         {
           "id": "seo/24-monitoring",
-          "title": "Monitoring",
+          "title": "SEO Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 24,
@@ -16605,7 +16605,7 @@
         },
         {
           "id": "seo/26-best-practices",
-          "title": "Best Practices",
+          "title": "SEO Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 26,
@@ -16633,7 +16633,7 @@
         },
         {
           "id": "seo/28-real-world-patterns",
-          "title": "Real World Patterns",
+          "title": "SEO Real World Patterns",
           "slug": "real-world-patterns",
           "type": "doc",
           "order": 28,
@@ -16661,7 +16661,7 @@
         },
         {
           "id": "seo/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "SEO Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -16675,7 +16675,7 @@
         },
         {
           "id": "seo/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "SEO Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -16689,7 +16689,7 @@
         },
         {
           "id": "seo/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "SEO AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -16703,7 +16703,7 @@
         },
         {
           "id": "seo/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "SEO Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -16801,7 +16801,7 @@
         },
         {
           "id": "sql/00-overview",
-          "title": "Overview",
+          "title": "SQL Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -16829,7 +16829,7 @@
         },
         {
           "id": "sql/02-filtering",
-          "title": "Filtering",
+          "title": "SQL Filtering",
           "slug": "filtering",
           "type": "doc",
           "order": 2,
@@ -16843,7 +16843,7 @@
         },
         {
           "id": "sql/03-sorting",
-          "title": "Sorting",
+          "title": "SQL Sorting",
           "slug": "sorting",
           "type": "doc",
           "order": 3,
@@ -16941,7 +16941,7 @@
         },
         {
           "id": "sql/10-functions",
-          "title": "Functions",
+          "title": "SQL Functions",
           "slug": "functions",
           "type": "doc",
           "order": 10,
@@ -16955,7 +16955,7 @@
         },
         {
           "id": "sql/11-data-types",
-          "title": "Data Types",
+          "title": "SQL Data Types",
           "slug": "data-types",
           "type": "doc",
           "order": 11,
@@ -16997,7 +16997,7 @@
         },
         {
           "id": "sql/14-transactions",
-          "title": "Transactions",
+          "title": "SQL Transactions",
           "slug": "transactions",
           "type": "doc",
           "order": 14,
@@ -17011,7 +17011,7 @@
         },
         {
           "id": "sql/15-indexes",
-          "title": "Indexes",
+          "title": "SQL Indexes",
           "slug": "indexes",
           "type": "doc",
           "order": 15,
@@ -17039,7 +17039,7 @@
         },
         {
           "id": "sql/17-query-optimization",
-          "title": "Query Optimization",
+          "title": "SQL Query Optimization",
           "slug": "query-optimization",
           "type": "doc",
           "order": 17,
@@ -17095,7 +17095,7 @@
         },
         {
           "id": "sql/21-triggers",
-          "title": "Triggers",
+          "title": "SQL Triggers",
           "slug": "triggers",
           "type": "doc",
           "order": 21,
@@ -17109,7 +17109,7 @@
         },
         {
           "id": "sql/22-security",
-          "title": "Security",
+          "title": "SQL Security",
           "slug": "security",
           "type": "doc",
           "order": 22,
@@ -17123,7 +17123,7 @@
         },
         {
           "id": "sql/23-performance",
-          "title": "Performance",
+          "title": "SQL Performance",
           "slug": "performance",
           "type": "doc",
           "order": 23,
@@ -17137,7 +17137,7 @@
         },
         {
           "id": "sql/24-testing",
-          "title": "Testing",
+          "title": "SQL Testing",
           "slug": "testing",
           "type": "doc",
           "order": 24,
@@ -17151,7 +17151,7 @@
         },
         {
           "id": "sql/25-debugging",
-          "title": "Debugging",
+          "title": "SQL Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 25,
@@ -17165,7 +17165,7 @@
         },
         {
           "id": "sql/26-best-practices",
-          "title": "Best Practices",
+          "title": "SQL Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 26,
@@ -17193,7 +17193,7 @@
         },
         {
           "id": "sql/28-architecture",
-          "title": "Architecture",
+          "title": "SQL Architecture",
           "slug": "architecture",
           "type": "doc",
           "order": 28,
@@ -17207,7 +17207,7 @@
         },
         {
           "id": "sql/29-tooling",
-          "title": "Tooling",
+          "title": "SQL Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 29,
@@ -17221,7 +17221,7 @@
         },
         {
           "id": "sql/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "SQL Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -17235,7 +17235,7 @@
         },
         {
           "id": "sql/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "SQL Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -17249,7 +17249,7 @@
         },
         {
           "id": "sql/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "SQL AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -17263,7 +17263,7 @@
         },
         {
           "id": "sql/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "SQL Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -17298,7 +17298,7 @@
         },
         {
           "id": "tailwind/00-overview",
-          "title": "Overview",
+          "title": "Tailwind CSS Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -17312,7 +17312,7 @@
         },
         {
           "id": "tailwind/01-installation",
-          "title": "Installation",
+          "title": "Tailwind CSS Installation",
           "slug": "installation",
           "type": "doc",
           "order": 1,
@@ -17354,7 +17354,7 @@
         },
         {
           "id": "tailwind/04-layout",
-          "title": "Layout",
+          "title": "Tailwind CSS Layout",
           "slug": "layout",
           "type": "doc",
           "order": 4,
@@ -17368,7 +17368,7 @@
         },
         {
           "id": "tailwind/05-flexbox",
-          "title": "Flexbox",
+          "title": "Tailwind CSS Flexbox",
           "slug": "flexbox",
           "type": "doc",
           "order": 5,
@@ -17382,7 +17382,7 @@
         },
         {
           "id": "tailwind/06-grid",
-          "title": "Grid",
+          "title": "Tailwind CSS Grid",
           "slug": "grid",
           "type": "doc",
           "order": 6,
@@ -17396,7 +17396,7 @@
         },
         {
           "id": "tailwind/07-spacing",
-          "title": "Spacing",
+          "title": "Tailwind CSS Spacing",
           "slug": "spacing",
           "type": "doc",
           "order": 7,
@@ -17410,7 +17410,7 @@
         },
         {
           "id": "tailwind/08-sizing",
-          "title": "Sizing",
+          "title": "Tailwind CSS Sizing",
           "slug": "sizing",
           "type": "doc",
           "order": 8,
@@ -17424,7 +17424,7 @@
         },
         {
           "id": "tailwind/09-typography",
-          "title": "Typography",
+          "title": "Tailwind CSS Typography",
           "slug": "typography",
           "type": "doc",
           "order": 9,
@@ -17438,7 +17438,7 @@
         },
         {
           "id": "tailwind/10-colors",
-          "title": "Colors",
+          "title": "Tailwind CSS Colors",
           "slug": "colors",
           "type": "doc",
           "order": 10,
@@ -17452,7 +17452,7 @@
         },
         {
           "id": "tailwind/11-responsive-design",
-          "title": "Responsive Design",
+          "title": "Tailwind CSS Responsive Design",
           "slug": "responsive-design",
           "type": "doc",
           "order": 11,
@@ -17508,7 +17508,7 @@
         },
         {
           "id": "tailwind/15-customization",
-          "title": "Customization",
+          "title": "Tailwind CSS Customization",
           "slug": "customization",
           "type": "doc",
           "order": 15,
@@ -17536,7 +17536,7 @@
         },
         {
           "id": "tailwind/17-components",
-          "title": "Components",
+          "title": "Tailwind CSS Components",
           "slug": "components",
           "type": "doc",
           "order": 17,
@@ -17564,7 +17564,7 @@
         },
         {
           "id": "tailwind/19-performance",
-          "title": "Performance",
+          "title": "Tailwind CSS Performance",
           "slug": "performance",
           "type": "doc",
           "order": 19,
@@ -17606,7 +17606,7 @@
         },
         {
           "id": "tailwind/22-accessibility",
-          "title": "Accessibility",
+          "title": "Tailwind CSS Accessibility",
           "slug": "accessibility",
           "type": "doc",
           "order": 22,
@@ -17648,7 +17648,7 @@
         },
         {
           "id": "tailwind/25-debugging",
-          "title": "Debugging",
+          "title": "Tailwind CSS Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 25,
@@ -17662,7 +17662,7 @@
         },
         {
           "id": "tailwind/26-best-practices",
-          "title": "Best Practices",
+          "title": "Tailwind CSS Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 26,
@@ -17676,7 +17676,7 @@
         },
         {
           "id": "tailwind/27-production",
-          "title": "Production",
+          "title": "Tailwind CSS Production",
           "slug": "production",
           "type": "doc",
           "order": 27,
@@ -17690,7 +17690,7 @@
         },
         {
           "id": "tailwind/28-patterns",
-          "title": "Patterns",
+          "title": "Tailwind CSS Patterns",
           "slug": "patterns",
           "type": "doc",
           "order": 28,
@@ -17704,7 +17704,7 @@
         },
         {
           "id": "tailwind/29-tooling",
-          "title": "Tooling",
+          "title": "Tailwind CSS Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 29,
@@ -17718,7 +17718,7 @@
         },
         {
           "id": "tailwind/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Tailwind CSS Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -17732,7 +17732,7 @@
         },
         {
           "id": "tailwind/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Tailwind CSS Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -17746,7 +17746,7 @@
         },
         {
           "id": "tailwind/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Tailwind CSS AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -17760,7 +17760,7 @@
         },
         {
           "id": "tailwind/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Tailwind CSS Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -17782,7 +17782,7 @@
       "docs": [
         {
           "id": "templates/readme",
-          "title": "Templates",
+          "title": "Template Templates",
           "slug": "readme",
           "type": "index",
           "order": -1,
@@ -17858,7 +17858,7 @@
         },
         {
           "id": "testing/00-overview",
-          "title": "Overview",
+          "title": "Testing Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -18054,7 +18054,7 @@
         },
         {
           "id": "testing/14-visual-regression",
-          "title": "Visual Regression",
+          "title": "Testing Visual Regression",
           "slug": "visual-regression",
           "type": "doc",
           "order": 14,
@@ -18082,7 +18082,7 @@
         },
         {
           "id": "testing/16-load-testing",
-          "title": "Load Testing",
+          "title": "Testing Load Testing",
           "slug": "load-testing",
           "type": "doc",
           "order": 16,
@@ -18110,7 +18110,7 @@
         },
         {
           "id": "testing/18-accessibility-testing",
-          "title": "Accessibility Testing",
+          "title": "Testing Accessibility Testing",
           "slug": "accessibility-testing",
           "type": "doc",
           "order": 18,
@@ -18194,7 +18194,7 @@
         },
         {
           "id": "testing/24-best-practices",
-          "title": "Best Practices",
+          "title": "Testing Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 24,
@@ -18222,7 +18222,7 @@
         },
         {
           "id": "testing/26-observability",
-          "title": "Observability",
+          "title": "Testing Observability",
           "slug": "observability",
           "type": "doc",
           "order": 26,
@@ -18236,7 +18236,7 @@
         },
         {
           "id": "testing/27-quality-gates",
-          "title": "Quality Gates",
+          "title": "Testing Quality Gates",
           "slug": "quality-gates",
           "type": "doc",
           "order": 27,
@@ -18278,7 +18278,7 @@
         },
         {
           "id": "testing/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Testing Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -18292,7 +18292,7 @@
         },
         {
           "id": "testing/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Testing Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -18306,7 +18306,7 @@
         },
         {
           "id": "testing/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Testing AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -18320,7 +18320,7 @@
         },
         {
           "id": "testing/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Testing Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -18579,7 +18579,7 @@
         },
         {
           "id": "tools/16-git-hooks",
-          "title": "Git Hooks",
+          "title": "Tools — Git Hooks",
           "slug": "git-hooks",
           "type": "doc",
           "order": 16,
@@ -18775,7 +18775,7 @@
         },
         {
           "id": "tools/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "Tools Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -18789,7 +18789,7 @@
         },
         {
           "id": "tools/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "Tools Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -18803,7 +18803,7 @@
         },
         {
           "id": "tools/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "Tools AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -18817,7 +18817,7 @@
         },
         {
           "id": "tools/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "Tools Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -18852,7 +18852,7 @@
         },
         {
           "id": "typescript/00-overview",
-          "title": "Overview",
+          "title": "TypeScript Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -18866,7 +18866,7 @@
         },
         {
           "id": "typescript/01-language-fundamentals",
-          "title": "Language Fundamentals",
+          "title": "TypeScript Language Fundamentals",
           "slug": "language-fundamentals",
           "type": "doc",
           "order": 1,
@@ -18908,7 +18908,7 @@
         },
         {
           "id": "typescript/04-functions",
-          "title": "Functions",
+          "title": "TypeScript Functions",
           "slug": "functions",
           "type": "doc",
           "order": 4,
@@ -19048,7 +19048,7 @@
         },
         {
           "id": "typescript/14-modules",
-          "title": "Modules",
+          "title": "TypeScript Modules",
           "slug": "modules",
           "type": "doc",
           "order": 14,
@@ -19076,7 +19076,7 @@
         },
         {
           "id": "typescript/16-configuration",
-          "title": "Configuration",
+          "title": "TypeScript Configuration",
           "slug": "configuration",
           "type": "doc",
           "order": 16,
@@ -19090,7 +19090,7 @@
         },
         {
           "id": "typescript/17-error-handling",
-          "title": "Error Handling",
+          "title": "TypeScript Error Handling",
           "slug": "error-handling",
           "type": "doc",
           "order": 17,
@@ -19146,7 +19146,7 @@
         },
         {
           "id": "typescript/21-functional-programming",
-          "title": "Functional Programming",
+          "title": "TypeScript Functional Programming",
           "slug": "functional-programming",
           "type": "doc",
           "order": 21,
@@ -19160,7 +19160,7 @@
         },
         {
           "id": "typescript/22-design-patterns",
-          "title": "Design Patterns",
+          "title": "TypeScript Design Patterns",
           "slug": "design-patterns",
           "type": "doc",
           "order": 22,
@@ -19174,7 +19174,7 @@
         },
         {
           "id": "typescript/23-clean-code",
-          "title": "Clean Code",
+          "title": "TypeScript Clean Code",
           "slug": "clean-code",
           "type": "doc",
           "order": 23,
@@ -19188,7 +19188,7 @@
         },
         {
           "id": "typescript/24-testing",
-          "title": "Testing",
+          "title": "TypeScript Testing",
           "slug": "testing",
           "type": "doc",
           "order": 24,
@@ -19202,7 +19202,7 @@
         },
         {
           "id": "typescript/25-performance",
-          "title": "Performance",
+          "title": "TypeScript Performance",
           "slug": "performance",
           "type": "doc",
           "order": 25,
@@ -19216,7 +19216,7 @@
         },
         {
           "id": "typescript/26-security",
-          "title": "Security",
+          "title": "TypeScript Security",
           "slug": "security",
           "type": "doc",
           "order": 26,
@@ -19244,7 +19244,7 @@
         },
         {
           "id": "typescript/28-best-practices",
-          "title": "Best Practices",
+          "title": "TypeScript Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 28,
@@ -19258,7 +19258,7 @@
         },
         {
           "id": "typescript/29-tooling",
-          "title": "Tooling",
+          "title": "TypeScript Tooling",
           "slug": "tooling",
           "type": "doc",
           "order": 29,
@@ -19272,7 +19272,7 @@
         },
         {
           "id": "typescript/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "TypeScript Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -19286,7 +19286,7 @@
         },
         {
           "id": "typescript/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "TypeScript Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -19300,7 +19300,7 @@
         },
         {
           "id": "typescript/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "TypeScript AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -19314,7 +19314,7 @@
         },
         {
           "id": "typescript/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "TypeScript Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -19349,7 +19349,7 @@
         },
         {
           "id": "woocommerce/00-overview",
-          "title": "Overview",
+          "title": "WooCommerce Overview",
           "slug": "overview",
           "type": "doc",
           "order": 0,
@@ -19363,7 +19363,7 @@
         },
         {
           "id": "woocommerce/01-architecture",
-          "title": "Architecture",
+          "title": "WooCommerce Architecture",
           "slug": "architecture",
           "type": "doc",
           "order": 1,
@@ -19377,7 +19377,7 @@
         },
         {
           "id": "woocommerce/02-installation",
-          "title": "Installation",
+          "title": "WooCommerce Installation",
           "slug": "installation",
           "type": "doc",
           "order": 2,
@@ -19517,7 +19517,7 @@
         },
         {
           "id": "woocommerce/12-hooks",
-          "title": "Hooks",
+          "title": "WooCommerce Hooks",
           "slug": "hooks",
           "type": "doc",
           "order": 12,
@@ -19545,7 +19545,7 @@
         },
         {
           "id": "woocommerce/14-headless",
-          "title": "Headless",
+          "title": "WooCommerce Headless",
           "slug": "headless",
           "type": "doc",
           "order": 14,
@@ -19559,7 +19559,7 @@
         },
         {
           "id": "woocommerce/15-performance",
-          "title": "Performance",
+          "title": "WooCommerce Performance",
           "slug": "performance",
           "type": "doc",
           "order": 15,
@@ -19573,7 +19573,7 @@
         },
         {
           "id": "woocommerce/16-security",
-          "title": "Security",
+          "title": "WooCommerce Security",
           "slug": "security",
           "type": "doc",
           "order": 16,
@@ -19587,7 +19587,7 @@
         },
         {
           "id": "woocommerce/17-customization",
-          "title": "Customization",
+          "title": "WooCommerce Customization",
           "slug": "customization",
           "type": "doc",
           "order": 17,
@@ -19615,7 +19615,7 @@
         },
         {
           "id": "woocommerce/19-subscriptions",
-          "title": "Subscriptions",
+          "title": "WooCommerce Subscriptions",
           "slug": "subscriptions",
           "type": "doc",
           "order": 19,
@@ -19629,7 +19629,7 @@
         },
         {
           "id": "woocommerce/20-multisite",
-          "title": "Multisite",
+          "title": "WooCommerce Multisite",
           "slug": "multisite",
           "type": "doc",
           "order": 20,
@@ -19643,7 +19643,7 @@
         },
         {
           "id": "woocommerce/21-testing",
-          "title": "Testing",
+          "title": "WooCommerce Testing",
           "slug": "testing",
           "type": "doc",
           "order": 21,
@@ -19657,7 +19657,7 @@
         },
         {
           "id": "woocommerce/22-deployment",
-          "title": "Deployment",
+          "title": "WooCommerce Deployment",
           "slug": "deployment",
           "type": "doc",
           "order": 22,
@@ -19671,7 +19671,7 @@
         },
         {
           "id": "woocommerce/23-monitoring",
-          "title": "Monitoring",
+          "title": "WooCommerce Monitoring",
           "slug": "monitoring",
           "type": "doc",
           "order": 23,
@@ -19699,7 +19699,7 @@
         },
         {
           "id": "woocommerce/25-best-practices",
-          "title": "Best Practices",
+          "title": "WooCommerce Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 25,
@@ -19713,7 +19713,7 @@
         },
         {
           "id": "woocommerce/26-debugging",
-          "title": "Debugging",
+          "title": "WooCommerce Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 26,
@@ -19727,7 +19727,7 @@
         },
         {
           "id": "woocommerce/27-production",
-          "title": "Production",
+          "title": "WooCommerce Production",
           "slug": "production",
           "type": "doc",
           "order": 27,
@@ -19741,7 +19741,7 @@
         },
         {
           "id": "woocommerce/28-real-world-patterns",
-          "title": "Real World Patterns",
+          "title": "WooCommerce Real World Patterns",
           "slug": "real-world-patterns",
           "type": "doc",
           "order": 28,
@@ -19769,7 +19769,7 @@
         },
         {
           "id": "woocommerce/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "WooCommerce Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
@@ -19783,7 +19783,7 @@
         },
         {
           "id": "woocommerce/98-production-checklist",
-          "title": "Production Checklist",
+          "title": "WooCommerce Production Checklist",
           "slug": "production-checklist",
           "type": "doc",
           "order": 98,
@@ -19797,7 +19797,7 @@
         },
         {
           "id": "woocommerce/99-ai-review-checklist",
-          "title": "AI Review Checklist",
+          "title": "WooCommerce AI Review Checklist",
           "slug": "ai-review-checklist",
           "type": "doc",
           "order": 99,
@@ -19811,7 +19811,7 @@
         },
         {
           "id": "woocommerce/100-common-antipatterns",
-          "title": "Common Antipatterns",
+          "title": "WooCommerce Common Antipatterns",
           "slug": "common-antipatterns",
           "type": "doc",
           "order": 100,
@@ -20000,7 +20000,7 @@
         },
         {
           "id": "wordpress/11-metadata",
-          "title": "Metadata",
+          "title": "WordPress Metadata",
           "slug": "metadata",
           "type": "doc",
           "order": 11,
@@ -20098,7 +20098,7 @@
         },
         {
           "id": "wordpress/18-rest-api",
-          "title": "REST API",
+          "title": "WordPress REST API",
           "slug": "rest-api",
           "type": "doc",
           "order": 18,
@@ -20168,7 +20168,7 @@
         },
         {
           "id": "wordpress/23-caching",
-          "title": "Caching",
+          "title": "WordPress Caching",
           "slug": "caching",
           "type": "doc",
           "order": 23,
@@ -20196,7 +20196,7 @@
         },
         {
           "id": "wordpress/25-multisite",
-          "title": "Multisite",
+          "title": "WordPress Multisite",
           "slug": "multisite",
           "type": "doc",
           "order": 25,
@@ -20224,7 +20224,7 @@
         },
         {
           "id": "wordpress/27-deployment",
-          "title": "Deployment",
+          "title": "WordPress Deployment",
           "slug": "deployment",
           "type": "doc",
           "order": 27,
@@ -20238,7 +20238,7 @@
         },
         {
           "id": "wordpress/28-debugging",
-          "title": "Debugging",
+          "title": "WordPress Debugging",
           "slug": "debugging",
           "type": "doc",
           "order": 28,
@@ -20252,7 +20252,7 @@
         },
         {
           "id": "wordpress/29-maintenance",
-          "title": "Maintenance",
+          "title": "WordPress Maintenance",
           "slug": "maintenance",
           "type": "doc",
           "order": 29,
@@ -20266,7 +20266,7 @@
         },
         {
           "id": "wordpress/30-engineering-principles",
-          "title": "Engineering Principles",
+          "title": "WordPress Engineering Principles",
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,

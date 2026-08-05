@@ -2,7 +2,7 @@
 id: tailwind/100-common-antipatterns
 topic: tailwind
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Tailwind CSS Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, common-antipatterns]
 related: [tailwind/03-utility-first, tailwind/26-best-practices, tailwind/30-engineering-principles, tailwind/19-performance, tailwind/22-accessibility]
 when_to_use: "Read when writing or reviewing Tailwind markup to recognize and avoid the recurring failure patterns below."
 ---
-# Common Antipatterns
+# Tailwind CSS Common Antipatterns
 
 ## Purpose
 

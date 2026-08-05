@@ -2,7 +2,7 @@
 id: performance/98-production-checklist
 topic: performance
 slug: production-checklist
-title: "Production Checklist"
+title: "Performance Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [performance, production-checklist]
 related: [performance/25-production-monitoring, performance/17-monitoring, performance/22-load-testing, performance/20-capacity-planning, performance/99-ai-review-checklist]
 when_to_use: "Read before promoting any performance-sensitive service or change to production."
 ---
-# Production Checklist
+# Performance Production Checklist
 
 ## Purpose
 

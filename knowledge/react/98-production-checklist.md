@@ -2,7 +2,7 @@
 id: react/98-production-checklist
 topic: react
 slug: production-checklist
-title: "Production Checklist"
+title: "React Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [react, production-checklist]
 related: [react/12-performance, react/16-data-fetching, react/19-error-handling, react/20-accessibility, react/99-ai-review-checklist]
 when_to_use: "Read before shipping a React app or a significant feature to production."
 ---
-# Production Checklist
+# React Production Checklist
 
 ## Purpose
 

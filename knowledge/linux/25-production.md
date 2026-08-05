@@ -2,7 +2,7 @@
 id: linux/25-production
 topic: linux
 slug: production
-title: "Production"
+title: "Linux Production"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [linux, production]
 related: [linux/08-systemd, linux/16-monitoring, linux/15-logging, linux/17-security, linux/98-production-checklist]
 when_to_use: "Read before promoting a Linux host or service to production, or reviewing a deployment for operational readiness."
 ---
-# Production
+# Linux Production
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: wordpress/30-engineering-principles
 topic: wordpress
 slug: engineering-principles
-title: "Engineering Principles"
+title: "WordPress Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [wordpress, engineering-principles]
 related: [wordpress/01-wordpress-architecture, wordpress/06-security, wordpress/08-hooks, wordpress/99-ai-review-checklist, wordpress/100-common-antipatterns]
 when_to_use: "Read before writing or reviewing any WordPress code, as the baseline every file must satisfy regardless of whether it is a theme, plugin, or block."
 ---
-# Engineering Principles
+# WordPress Engineering Principles
 
 ## Purpose
 

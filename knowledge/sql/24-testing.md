@@ -2,7 +2,7 @@
 id: sql/24-testing
 topic: sql
 slug: testing
-title: "Testing"
+title: "SQL Testing"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [sql, testing]
 related: [sql/25-debugging, sql/12-ddl, sql/14-transactions, sql/23-performance, sql/29-tooling]
 when_to_use: "Read before writing a migration, a stored routine, or any query whose result other code depends on."
 ---
-# Testing
+# SQL Testing
 
 ## Purpose
 

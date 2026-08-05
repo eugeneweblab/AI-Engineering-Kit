@@ -2,7 +2,7 @@
 id: css/16-animations
 topic: css
 slug: animations
-title: "Animations"
+title: "CSS Animations"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [css, animations]
 related: [css/15-transitions, css/14-transforms, css/22-performance, css/23-accessibility]
 when_to_use: "Read before building keyframe animations, loops, spinners, or multi-step motion."
 ---
-# Animations
+# CSS Animations
 
 ## Purpose
 

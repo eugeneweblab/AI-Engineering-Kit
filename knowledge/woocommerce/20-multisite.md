@@ -2,7 +2,7 @@
 id: woocommerce/20-multisite
 topic: woocommerce
 slug: multisite
-title: "Multisite"
+title: "WooCommerce Multisite"
 type: doc
 order: 20
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, multisite]
 related: [woocommerce/01-architecture, woocommerce/16-security, woocommerce/15-performance, woocommerce/22-deployment]
 when_to_use: "Read before running WooCommerce on a WordPress Multisite network or writing code that touches more than one site."
 ---
-# Multisite
+# WooCommerce Multisite
 
 ## Purpose
 

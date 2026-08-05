@@ -2,7 +2,7 @@
 id: seo/03-indexing
 topic: seo
 slug: indexing
-title: "Indexing"
+title: "SEO Indexing"
 type: doc
 order: 3
 status: ready
@@ -10,7 +10,7 @@ tags: [seo, indexing]
 related: [seo/02-crawling, seo/06-canonicalization, seo/04-rendering, seo/08-robots-txt, seo/22-search-console]
 when_to_use: "Read before adding noindex, canonical tags, or anything that decides whether a URL enters search results."
 ---
-# Indexing
+# SEO Indexing
 
 ## Purpose
 

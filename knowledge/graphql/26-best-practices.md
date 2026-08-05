@@ -2,7 +2,7 @@
 id: graphql/26-best-practices
 topic: graphql
 slug: best-practices
-title: "Best Practices"
+title: "GraphQL Best Practices"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, best-practices]
 related: [graphql/02-schema, graphql/13-pagination, graphql/16-dataloader, graphql/20-error-handling, graphql/29-schema-evolution]
 when_to_use: "Read before designing a new GraphQL schema or reviewing an existing one for design quality."
 ---
-# Best Practices
+# GraphQL Best Practices
 
 ## Purpose
 

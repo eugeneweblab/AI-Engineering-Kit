@@ -2,7 +2,7 @@
 id: devops/17-secrets-management
 topic: devops
 slug: secrets-management
-title: "Secrets Management"
+title: "DevOps Secrets Management"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, secrets-management]
 related: [devops/16-security, devops/09-configuration-management, devops/05-build-pipelines, devops/10-containerization, devops/14-logging]
 when_to_use: "Read before handling any credential, API key, token, or certificate in code, config, CI, or infrastructure."
 ---
-# Secrets Management
+# DevOps Secrets Management
 
 ## Purpose
 

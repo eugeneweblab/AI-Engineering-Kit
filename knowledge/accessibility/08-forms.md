@@ -2,7 +2,7 @@
 id: accessibility/08-forms
 topic: accessibility
 slug: forms
-title: "Forms"
+title: "Accessibility Forms"
 type: doc
 order: 8
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, forms]
 related: [accessibility/03-semantic-html, accessibility/18-error-messages, accessibility/07-aria, accessibility/05-focus-management, accessibility/10-color-and-contrast]
 when_to_use: "Read before building or reviewing any form: inputs, labels, validation, or error handling."
 ---
-# Forms
+# Accessibility Forms
 
 ## Purpose
 

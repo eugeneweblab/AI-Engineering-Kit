@@ -2,7 +2,7 @@
 id: html/05-images
 topic: html
 slug: images
-title: "Images"
+title: "HTML Images"
 type: doc
 order: 5
 status: ready
@@ -10,7 +10,7 @@ tags: [html, images]
 related: [html/04-links, html/11-accessibility, html/16-svg, html/18-performance, html/12-seo]
 when_to_use: "Read before adding an <img>, <picture>, or reviewing image alt text, sizing, or loading."
 ---
-# Images
+# HTML Images
 
 ## Purpose
 

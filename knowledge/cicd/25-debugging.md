@@ -2,7 +2,7 @@
 id: cicd/25-debugging
 topic: cicd
 slug: debugging
-title: "Debugging"
+title: "CI/CD Debugging"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [cicd, debugging]
 related: [cicd/04-test-stage, cicd/26-performance, cicd/24-notifications, cicd/03-build-stage, cicd/21-docker-integration]
 when_to_use: "Read before diagnosing a failing, flaky, or 'works on my machine' pipeline run."
 ---
-# Debugging
+# CI/CD Debugging
 
 ## Purpose
 

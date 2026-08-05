@@ -2,7 +2,7 @@
 id: html/12-seo
 topic: html
 slug: seo
-title: "SEO"
+title: "HTML SEO"
 type: doc
 order: 12
 status: ready
@@ -10,7 +10,7 @@ tags: [html, seo]
 related: [html/10-metadata, html/13-structured-data, html/02-semantic-html, html/11-accessibility, html/05-images, html/18-performance]
 when_to_use: "Read before shipping any public page that should rank in search or preview correctly when shared."
 ---
-# SEO
+# HTML SEO
 
 ## Purpose
 

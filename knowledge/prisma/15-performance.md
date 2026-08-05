@@ -2,7 +2,7 @@
 id: prisma/15-performance
 topic: prisma
 slug: performance
-title: "Performance"
+title: "Prisma Performance"
 type: doc
 order: 15
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, performance]
 related: [prisma/16-indexes, prisma/11-relations-loading, prisma/10-pagination, prisma/17-raw-sql, prisma/26-observability]
 when_to_use: "Read before diagnosing slow Prisma queries, N+1 problems, connection exhaustion, or high database load."
 ---
-# Performance
+# Prisma Performance
 
 ## Purpose
 

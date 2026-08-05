@@ -2,7 +2,7 @@
 id: tailwind/98-production-checklist
 topic: tailwind
 slug: production-checklist
-title: "Production Checklist"
+title: "Tailwind CSS Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, production-checklist]
 related: [tailwind/27-production, tailwind/19-performance, tailwind/20-optimization, tailwind/22-accessibility, tailwind/99-ai-review-checklist]
 when_to_use: "Read before shipping a Tailwind build to production or cutting a release that changes styling."
 ---
-# Production Checklist
+# Tailwind CSS Production Checklist
 
 ## Purpose
 

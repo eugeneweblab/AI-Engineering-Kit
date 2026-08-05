@@ -2,7 +2,7 @@
 id: postgresql/03-data-types
 topic: postgresql
 slug: data-types
-title: "Data Types"
+title: "PostgreSQL Data Types"
 type: doc
 order: 3
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, data-types]
 related: [postgresql/04-indexes, postgresql/08-jsonb, postgresql/09-arrays, postgresql/22-migrations, postgresql/25-best-practices]
 when_to_use: "Read before designing a table or choosing a column type in a migration."
 ---
-# Data Types
+# PostgreSQL Data Types
 
 ## Purpose
 

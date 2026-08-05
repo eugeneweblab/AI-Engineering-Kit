@@ -2,7 +2,7 @@
 id: linux/26-best-practices
 topic: linux
 slug: best-practices
-title: "Best Practices"
+title: "Linux Best Practices"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [linux, best-practices]
 related: [linux/05-permissions, linux/24-scripting, linux/17-security, linux/23-automation, linux/30-engineering-principles]
 when_to_use: "Read before operating on a Linux host or reviewing shell/ops work, to apply the habits that prevent avoidable outages."
 ---
-# Best Practices
+# Linux Best Practices
 
 ## Purpose
 

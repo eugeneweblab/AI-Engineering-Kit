@@ -2,7 +2,7 @@
 id: prisma/28-patterns
 topic: prisma
 slug: patterns
-title: "Patterns"
+title: "Prisma Patterns"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, patterns]
 related: [prisma/08-transactions, prisma/14-extensions, prisma/22-multi-tenancy, prisma/23-soft-delete, prisma/29-architecture]
 when_to_use: "Read when choosing a reusable Prisma pattern — repository wrapper, transaction scoping, pagination, upsert, extensions — for a feature."
 ---
-# Patterns
+# Prisma Patterns
 
 ## Purpose
 

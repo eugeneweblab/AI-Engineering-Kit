@@ -2,7 +2,7 @@
 id: typescript/01-language-fundamentals
 topic: typescript
 slug: language-fundamentals
-title: "Language Fundamentals"
+title: "TypeScript Language Fundamentals"
 type: doc
 order: 1
 status: ready
@@ -10,7 +10,7 @@ tags: [typescript, language-fundamentals]
 related: [typescript/02-type-system, typescript/03-type-inference, typescript/04-functions, typescript/20-immutability]
 when_to_use: "Read before writing variables, control flow, or any everyday TypeScript syntax."
 ---
-# Language Fundamentals
+# TypeScript Language Fundamentals
 
 ## Purpose
 

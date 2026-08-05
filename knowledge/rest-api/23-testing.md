@@ -2,7 +2,7 @@
 id: rest-api/23-testing
 topic: rest-api
 slug: testing
-title: "Testing"
+title: "REST API Testing"
 type: doc
 order: 23
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, testing]
 related: [rest-api/09-error-handling, rest-api/08-validation, rest-api/21-openapi, rest-api/16-authorization, rest-api/07-status-codes]
 when_to_use: "Read before writing tests for a REST API — endpoint behavior, contracts, auth, or error paths."
 ---
-# Testing
+# REST API Testing
 
 ## Purpose
 

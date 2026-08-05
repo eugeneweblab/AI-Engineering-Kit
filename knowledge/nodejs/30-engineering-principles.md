@@ -2,7 +2,7 @@
 id: nodejs/30-engineering-principles
 topic: nodejs
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Node.js Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [nodejs, engineering-principles]
 related: [nodejs/02-event-loop, nodejs/16-error-handling, nodejs/28-best-practices, nodejs/06-streams, nodejs/19-performance]
 when_to_use: "Read before designing a new Node.js service or reviewing how existing Node code is structured."
 ---
-# Engineering Principles
+# Node.js Engineering Principles
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: woocommerce/12-hooks
 topic: woocommerce
 slug: hooks
-title: "Hooks"
+title: "WooCommerce Hooks"
 type: doc
 order: 12
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, hooks]
 related: [woocommerce/01-architecture, woocommerce/17-customization, woocommerce/15-performance, woocommerce/16-security, woocommerce/100-common-antipatterns]
 when_to_use: "Read before adding, filtering, or overriding any WooCommerce behavior with actions or filters."
 ---
-# Hooks
+# WooCommerce Hooks
 
 ## Purpose
 

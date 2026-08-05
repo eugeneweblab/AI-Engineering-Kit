@@ -2,7 +2,7 @@
 id: typescript/17-error-handling
 topic: typescript
 slug: error-handling
-title: "Error Handling"
+title: "TypeScript Error Handling"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [typescript, error-handling]
 related: [typescript/12-type-guards, typescript/18-asynchronous-programming, typescript/11-unions-and-intersections, typescript/16-configuration]
 when_to_use: "Read before writing a `try/catch`, typing a `catch` binding, or designing how a function reports failure."
 ---
-# Error Handling
+# TypeScript Error Handling
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: html/08-forms
 topic: html
 slug: forms
-title: "Forms"
+title: "HTML Forms"
 type: doc
 order: 8
 status: ready
@@ -10,7 +10,7 @@ tags: [html, forms]
 related: [html/11-accessibility, html/19-security, html/22-validation, html/23-progressive-enhancement]
 when_to_use: "Read before building or reviewing any input, form, login, checkout, or data-entry UI."
 ---
-# Forms
+# HTML Forms
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: devops/21-performance
 topic: devops
 slug: performance
-title: "Performance"
+title: "DevOps Performance"
 type: doc
 order: 21
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, performance]
 related: [devops/20-scalability, devops/12-monitoring, devops/13-observability, devops/05-build-pipelines, devops/22-testing]
 when_to_use: "Read before optimizing latency/throughput, setting SLOs, or diagnosing a slow service."
 ---
-# Performance
+# DevOps Performance
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: security/99-ai-review-checklist
 topic: security
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Security AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [security, ai-review-checklist]
 related: [security/29-security-review, security/28-owasp-top10, security/09-input-validation, security/04-authorization, security/98-production-checklist]
 when_to_use: "Read before reviewing a diff or generating code that touches auth, input handling, secrets, or network surfaces."
 ---
-# AI Review Checklist
+# Security AI Review Checklist
 
 ## Purpose
 

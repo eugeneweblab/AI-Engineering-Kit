@@ -2,7 +2,7 @@
 id: mysql/11-backups
 topic: mysql
 slug: backups
-title: "Backups"
+title: "MySQL Backups"
 type: doc
 order: 11
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, backups]
 related: [mysql/09-replication, mysql/06-transactions, mysql/20-production, mysql/08-storage-engines]
 when_to_use: "Read before setting up a backup job, planning disaster recovery, or reviewing an existing backup strategy."
 ---
-# Backups
+# MySQL Backups
 
 ## Purpose
 

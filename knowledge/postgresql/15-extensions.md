@@ -2,7 +2,7 @@
 id: postgresql/15-extensions
 topic: postgresql
 slug: extensions
-title: "Extensions"
+title: "PostgreSQL Extensions"
 type: doc
 order: 15
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, extensions]
 related: [postgresql/04-indexes, postgresql/17-monitoring, postgresql/22-migrations, postgresql/18-security]
 when_to_use: "Read before installing, upgrading, or reviewing a PostgreSQL extension such as pgvector, PostGIS, or pg_stat_statements."
 ---
-# Extensions
+# PostgreSQL Extensions
 
 ## Purpose
 

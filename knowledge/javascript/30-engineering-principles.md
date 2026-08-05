@@ -2,7 +2,7 @@
 id: javascript/30-engineering-principles
 topic: javascript
 slug: engineering-principles
-title: "Engineering Principles"
+title: "JavaScript Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, engineering-principles]
 related: [javascript/23-clean-code, javascript/14-error-handling, javascript/08-asynchronous-javascript, javascript/28-best-practices, javascript/24-testing]
 when_to_use: "Read before making a JavaScript design decision or reviewing code for long-term maintainability."
 ---
-# Engineering Principles
+# JavaScript Engineering Principles
 
 ## Purpose
 

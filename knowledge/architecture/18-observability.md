@@ -2,7 +2,7 @@
 id: architecture/18-observability
 topic: architecture
 slug: observability
-title: "Observability"
+title: "Architecture Observability"
 type: doc
 order: 18
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, observability]
 related: [architecture/17-fault-tolerance, architecture/16-high-availability, architecture/09-microservices, architecture/21-distributed-systems, architecture/14-performance]
 when_to_use: "Read before adding logging, metrics, or tracing to a service, or when a production incident is hard to diagnose."
 ---
-# Observability
+# Architecture Observability
 
 ## Purpose
 

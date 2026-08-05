@@ -2,7 +2,7 @@
 id: sql/15-indexes
 topic: sql
 slug: indexes
-title: "Indexes"
+title: "SQL Indexes"
 type: doc
 order: 15
 status: ready
@@ -10,7 +10,7 @@ tags: [sql, indexes]
 related: [sql/16-query-planning, sql/17-query-optimization, sql/12-ddl, sql/23-performance, sql/100-common-antipatterns]
 when_to_use: "Read before adding or removing an index, or when a query is slow and you suspect it is scanning too many rows."
 ---
-# Indexes
+# SQL Indexes
 
 ## Purpose
 

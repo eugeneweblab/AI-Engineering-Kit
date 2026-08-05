@@ -2,7 +2,7 @@
 id: html/100-common-antipatterns
 topic: html
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "HTML Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [html, common-antipatterns]
 related: [html/30-engineering-principles, html/02-semantic-html, html/11-accessibility, html/08-forms, html/99-ai-review-checklist]
 when_to_use: "Read when writing or reviewing HTML, to recognize and reject the recurring mistakes that pass visual review but break real users."
 ---
-# Common Antipatterns
+# HTML Common Antipatterns
 
 ## Purpose
 

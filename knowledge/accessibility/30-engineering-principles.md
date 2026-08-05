@@ -2,7 +2,7 @@
 id: accessibility/30-engineering-principles
 topic: accessibility
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Accessibility Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, engineering-principles]
 related: [accessibility/03-semantic-html, accessibility/07-aria, accessibility/05-focus-management, accessibility/24-accessibility-testing, accessibility/27-best-practices]
 when_to_use: "Read before building any UI component or feature, to internalize the engineering habits that make accessibility a default rather than a retrofit."
 ---
-# Engineering Principles
+# Accessibility Engineering Principles
 
 ## Purpose
 

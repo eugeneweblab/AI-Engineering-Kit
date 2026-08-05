@@ -2,7 +2,7 @@
 id: javascript/24-testing
 topic: javascript
 slug: testing
-title: "Testing"
+title: "JavaScript Testing"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, testing]
 related: [javascript/14-error-handling, javascript/08-asynchronous-javascript, javascript/23-clean-code, javascript/28-best-practices, javascript/29-tooling]
 when_to_use: "Read before writing, reviewing, or restructuring any JavaScript test suite."
 ---
-# Testing
+# JavaScript Testing
 
 ## Purpose
 

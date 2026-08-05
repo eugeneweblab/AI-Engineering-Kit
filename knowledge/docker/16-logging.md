@@ -2,7 +2,7 @@
 id: docker/16-logging
 topic: docker
 slug: logging
-title: "Logging"
+title: "Docker Logging"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [docker, logging]
 related: [docker/15-healthchecks, docker/24-monitoring, docker/17-resource-limits, docker/22-production, docker/14-secrets]
 when_to_use: "Read before deciding where a containerized app writes logs or how a host retains and ships them."
 ---
-# Logging
+# Docker Logging
 
 ## Purpose
 

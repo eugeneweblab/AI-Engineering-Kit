@@ -2,7 +2,7 @@
 id: postgresql/17-monitoring
 topic: postgresql
 slug: monitoring
-title: "Monitoring"
+title: "PostgreSQL Monitoring"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, monitoring]
 related: [postgresql/16-performance, postgresql/12-replication, postgresql/20-vacuum, postgresql/26-production]
 when_to_use: "Read before setting up PostgreSQL metrics, alerts, or dashboards, or when diagnosing a live database incident."
 ---
-# Monitoring
+# PostgreSQL Monitoring
 
 ## Purpose
 

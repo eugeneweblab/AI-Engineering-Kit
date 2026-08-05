@@ -2,7 +2,7 @@
 id: git/28-security
 topic: git
 slug: security
-title: "Security"
+title: "Git Security"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [git, security]
 related: [git/20-hooks, git/18-history, git/16-push, git/27-best-practices, git/13-remote-repositories]
 when_to_use: "Read before committing anything sensitive, handling a leaked secret, or hardening a repository."
 ---
-# Security
+# Git Security
 
 ## Purpose
 

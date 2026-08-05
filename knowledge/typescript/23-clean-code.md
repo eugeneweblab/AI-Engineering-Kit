@@ -2,7 +2,7 @@
 id: typescript/23-clean-code
 topic: typescript
 slug: clean-code
-title: "Clean Code"
+title: "TypeScript Clean Code"
 type: doc
 order: 23
 status: ready
@@ -10,7 +10,7 @@ tags: [typescript, clean-code]
 related: [typescript/04-functions, typescript/17-error-handling, typescript/28-best-practices, typescript/30-engineering-principles, typescript/21-functional-programming]
 when_to_use: "Read before writing or reviewing everyday application code — naming, function shape, control flow, and readability."
 ---
-# Clean Code
+# TypeScript Clean Code
 
 ## Purpose
 

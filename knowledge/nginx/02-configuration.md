@@ -2,7 +2,7 @@
 id: nginx/02-configuration
 topic: nginx
 slug: configuration
-title: "Configuration"
+title: "Nginx Configuration"
 type: doc
 order: 2
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, configuration]
 related: [nginx/03-server-blocks, nginx/04-location-blocks, nginx/00-overview, nginx/24-debugging, nginx/26-best-practices]
 when_to_use: "Read before editing nginx.conf, adding include files, or reasoning about directive inheritance."
 ---
-# Configuration
+# Nginx Configuration
 
 ## Purpose
 

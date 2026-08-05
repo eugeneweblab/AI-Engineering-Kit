@@ -2,7 +2,7 @@
 id: html/00-overview
 topic: html
 slug: overview
-title: "Overview"
+title: "HTML Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [html, overview]
 related: [html/01-document-structure, html/02-semantic-html, html/11-accessibility, html/21-best-practices, html/99-ai-review-checklist]
 when_to_use: "Read first when writing or reviewing any HTML, to orient yourself in this topic and find the right detail doc."
 ---
-# Overview
+# HTML Overview
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: accessibility/27-best-practices
 topic: accessibility
 slug: best-practices
-title: "Best Practices"
+title: "Accessibility Best Practices"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, best-practices]
 related: [accessibility/03-semantic-html, accessibility/07-aria, accessibility/04-keyboard-navigation, accessibility/24-accessibility-testing, accessibility/100-common-antipatterns]
 when_to_use: "Read before writing any user-facing markup or component so accessibility is built in rather than retrofitted."
 ---
-# Best Practices
+# Accessibility Best Practices
 
 ## Purpose
 

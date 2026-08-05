@@ -2,7 +2,7 @@
 id: tailwind/00-overview
 topic: tailwind
 slug: overview
-title: "Overview"
+title: "Tailwind CSS Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, overview]
 related: [tailwind/01-installation, tailwind/02-core-concepts, tailwind/03-utility-first, tailwind/04-layout, tailwind/05-flexbox]
 when_to_use: "Read first when starting any Tailwind work to see how the topic's docs fit together."
 ---
-# Overview
+# Tailwind CSS Overview
 
 ## Purpose
 

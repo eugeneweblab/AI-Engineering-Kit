@@ -2,7 +2,7 @@
 id: redis/04-lists
 topic: redis
 slug: lists
-title: "Lists"
+title: "Redis Lists"
 type: doc
 order: 4
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, lists]
 related: [redis/02-data-types, redis/05-sets, redis/08-streams, redis/16-message-queues]
 when_to_use: "Read before using Redis lists for queues, stacks, or recent-item feeds, or when choosing between a list and a stream."
 ---
-# Lists
+# Redis Lists
 
 ## Purpose
 

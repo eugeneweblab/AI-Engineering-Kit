@@ -2,7 +2,7 @@
 id: git/98-production-checklist
 topic: git
 slug: production-checklist
-title: "Production Checklist"
+title: "Git Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [git, production-checklist]
 related: [git/12-tags, git/16-push, git/20-hooks, git/28-security, git/27-best-practices]
 when_to_use: "Read before cutting a release, setting up branch protection, or hardening a repository for a team."
 ---
-# Production Checklist
+# Git Production Checklist
 
 ## Purpose
 

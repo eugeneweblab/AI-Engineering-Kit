@@ -2,7 +2,7 @@
 id: kubernetes/23-monitoring
 topic: kubernetes
 slug: monitoring
-title: "Monitoring"
+title: "Kubernetes Monitoring"
 type: doc
 order: 23
 status: ready
@@ -10,7 +10,7 @@ tags: [kubernetes, monitoring]
 related: [kubernetes/21-observability, kubernetes/20-autoscaling, kubernetes/19-resource-management, kubernetes/26-production]
 when_to_use: "Read before defining alerts, dashboards, or SLOs for a cluster or workload, or when alerts are noisy, missing, or not actionable."
 ---
-# Monitoring
+# Kubernetes Monitoring
 
 ## Purpose
 

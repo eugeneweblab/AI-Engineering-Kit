@@ -2,7 +2,7 @@
 id: security/25-monitoring
 topic: security
 slug: monitoring
-title: "Monitoring"
+title: "Security Monitoring"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [security, monitoring]
 related: [security/26-incident-response, security/03-authentication, security/21-rate-limiting, security/16-secrets-management, security/29-security-review]
 when_to_use: "Read before adding logging, audit trails, or alerting to any security-relevant flow."
 ---
-# Monitoring
+# Security Monitoring
 
 ## Purpose
 

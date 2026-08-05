@@ -2,7 +2,7 @@
 id: graphql/22-performance
 topic: graphql
 slug: performance
-title: "Performance"
+title: "GraphQL Performance"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, performance]
 related: [graphql/15-n1-problem, graphql/16-dataloader, graphql/21-caching, graphql/13-pagination, graphql/17-security]
 when_to_use: "Read before optimizing a slow GraphQL resolver, or hardening an API against expensive queries."
 ---
-# Performance
+# GraphQL Performance
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: kubernetes/07-services
 topic: kubernetes
 slug: services
-title: "Services"
+title: "Kubernetes Services"
 type: doc
 order: 7
 status: ready
@@ -10,7 +10,7 @@ tags: [kubernetes, services]
 related: [kubernetes/08-ingress, kubernetes/05-deployments, kubernetes/04-pods, kubernetes/17-network-policies, kubernetes/13-statefulsets]
 when_to_use: "Read before exposing a workload to other Pods or the network, or debugging why traffic never reaches your Pods."
 ---
-# Services
+# Kubernetes Services
 
 ## Purpose
 

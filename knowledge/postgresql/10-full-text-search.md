@@ -2,7 +2,7 @@
 id: postgresql/10-full-text-search
 topic: postgresql
 slug: full-text-search
-title: "Full Text Search"
+title: "PostgreSQL Full Text Search"
 type: doc
 order: 10
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, full-text-search]
 related: [postgresql/04-indexes, postgresql/08-jsonb, postgresql/15-extensions, postgresql/05-query-planner]
 when_to_use: "Read before building search over text columns, or when LIKE '%term%' queries are slow or matching poorly."
 ---
-# Full Text Search
+# PostgreSQL Full Text Search
 
 ## Purpose
 

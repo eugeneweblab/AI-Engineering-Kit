@@ -2,7 +2,7 @@
 id: databases/07-indexing
 topic: databases
 slug: indexing
-title: "Indexing"
+title: "Database Indexing"
 type: doc
 order: 7
 status: ready
@@ -10,7 +10,7 @@ tags: [databases, indexing]
 related: [databases/08-query-optimization, databases/06-schema-design, databases/20-performance, databases/11-locking, databases/17-migrations]
 when_to_use: "Read before adding an index, diagnosing a slow query, or reviewing a query plan."
 ---
-# Indexing
+# Database Indexing
 
 ## Purpose
 

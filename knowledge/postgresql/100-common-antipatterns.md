@@ -2,7 +2,7 @@
 id: postgresql/100-common-antipatterns
 topic: postgresql
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "PostgreSQL Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, common-antipatterns]
 related: [postgresql/30-engineering-principles, postgresql/04-indexes, postgresql/06-transactions, postgresql/05-query-planner, postgresql/22-migrations]
 when_to_use: "Read before writing schema or queries, and when reviewing a change that feels slow or fragile."
 ---
-# Common Antipatterns
+# PostgreSQL Common Antipatterns
 
 ## Purpose
 

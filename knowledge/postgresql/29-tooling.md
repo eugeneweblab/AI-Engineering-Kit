@@ -2,7 +2,7 @@
 id: postgresql/29-tooling
 topic: postgresql
 slug: tooling
-title: "Tooling"
+title: "PostgreSQL Tooling"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, tooling]
 related: [postgresql/22-migrations, postgresql/17-monitoring, postgresql/14-backups, postgresql/23-testing, postgresql/24-debugging]
 when_to_use: "Read before choosing tools for migrations, backups, monitoring, connection pooling, or local PostgreSQL development."
 ---
-# Tooling
+# PostgreSQL Tooling
 
 ## Purpose
 

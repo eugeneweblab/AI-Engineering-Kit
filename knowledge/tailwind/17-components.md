@@ -2,7 +2,7 @@
 id: tailwind/17-components
 topic: tailwind
 slug: components
-title: "Components"
+title: "Tailwind CSS Components"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, components]
 related: [tailwind/03-utility-first, tailwind/24-react, tailwind/15-customization, tailwind/28-patterns, tailwind/21-design-system]
 when_to_use: "Read before extracting repeated utility markup into a reusable component or class."
 ---
-# Components
+# Tailwind CSS Components
 
 ## Purpose
 

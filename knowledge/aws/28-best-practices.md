@@ -2,7 +2,7 @@
 id: aws/28-best-practices
 topic: aws
 slug: best-practices
-title: "Best Practices"
+title: "AWS Best Practices"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [aws, best-practices]
 related: [aws/24-cost-optimization, aws/25-security, aws/26-monitoring, aws/27-production, aws/29-well-architected-framework]
 when_to_use: "Read before designing an AWS solution or reviewing infrastructure code, as a cross-cutting checklist of the habits that separate durable systems from demos."
 ---
-# Best Practices
+# AWS Best Practices
 
 ## Purpose
 

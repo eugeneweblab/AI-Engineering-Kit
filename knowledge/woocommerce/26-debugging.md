@@ -2,7 +2,7 @@
 id: woocommerce/26-debugging
 topic: woocommerce
 slug: debugging
-title: "Debugging"
+title: "WooCommerce Debugging"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, debugging]
 related: [woocommerce/23-monitoring, woocommerce/21-testing, woocommerce/27-production, woocommerce/12-hooks, woocommerce/29-ai-review]
 when_to_use: "Read before diagnosing a broken checkout, a fatal error, a stuck background job, or an intermittent order bug."
 ---
-# Debugging
+# WooCommerce Debugging
 
 ## Purpose
 

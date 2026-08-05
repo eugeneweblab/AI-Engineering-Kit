@@ -2,7 +2,7 @@
 id: frontend/21-code-splitting
 topic: frontend
 slug: code-splitting
-title: "Code Splitting"
+title: "Frontend Code Splitting"
 type: doc
 order: 21
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, code-splitting]
 related: [frontend/20-bundling, frontend/05-routing, frontend/07-rendering, frontend/08-performance]
 when_to_use: "Read before adding lazy-loaded routes or components, or reviewing why the initial JavaScript payload is large."
 ---
-# Code Splitting
+# Frontend Code Splitting
 
 ## Purpose
 

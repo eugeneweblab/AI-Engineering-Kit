@@ -2,7 +2,7 @@
 id: architecture/98-production-checklist
 topic: architecture
 slug: production-checklist
-title: "Production Checklist"
+title: "Architecture Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, production-checklist]
 related: [architecture/16-high-availability, architecture/17-fault-tolerance, architecture/18-observability, architecture/24-deployment, architecture/99-ai-review-checklist]
 when_to_use: "Read before promoting any service or significant change to production."
 ---
-# Production Checklist
+# Architecture Production Checklist
 
 ## Purpose
 

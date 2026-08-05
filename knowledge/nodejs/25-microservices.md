@@ -2,7 +2,7 @@
 id: nodejs/25-microservices
 topic: nodejs
 slug: microservices
-title: "Microservices"
+title: "Node.js Microservices"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [nodejs, microservices]
 related: [nodejs/09-http, nodejs/16-error-handling, nodejs/24-background-jobs, nodejs/26-deployment, nodejs/27-monitoring]
 when_to_use: "Read before splitting a Node.js system into independently deployed services, or reviewing service-to-service communication."
 ---
-# Microservices
+# Node.js Microservices
 
 ## Purpose
 

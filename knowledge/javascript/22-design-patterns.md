@@ -2,7 +2,7 @@
 id: javascript/22-design-patterns
 topic: javascript
 slug: design-patterns
-title: "Design Patterns"
+title: "JavaScript Design Patterns"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, design-patterns]
 related: [javascript/21-functional-programming, javascript/05-objects-and-prototypes, javascript/06-classes, javascript/23-clean-code, javascript/07-modules]
 when_to_use: "Read before reaching for a classical design pattern, or when a problem repeats and you need a proven, idiomatic structure."
 ---
-# Design Patterns
+# JavaScript Design Patterns
 
 ## Purpose
 

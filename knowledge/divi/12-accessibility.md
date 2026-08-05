@@ -2,7 +2,7 @@
 id: divi/12-accessibility
 topic: divi
 slug: accessibility
-title: "Accessibility"
+title: "Divi Accessibility"
 type: doc
 order: 12
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, accessibility]
 related: [divi/03-modules, divi/09-custom-css, divi/11-responsive-design, divi/29-review, divi/99-ai-review-checklist]
 when_to_use: "Read before shipping any Divi page or custom module that users navigate, read, or fill in."
 ---
-# Accessibility
+# Divi Accessibility
 
 ## Purpose
 

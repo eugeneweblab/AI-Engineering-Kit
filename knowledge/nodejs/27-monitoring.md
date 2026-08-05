@@ -2,7 +2,7 @@
 id: nodejs/27-monitoring
 topic: nodejs
 slug: monitoring
-title: "Monitoring"
+title: "Node.js Monitoring"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [nodejs, monitoring]
 related: [nodejs/16-error-handling, nodejs/17-logging, nodejs/19-performance, nodejs/20-memory-management, nodejs/26-deployment]
 when_to_use: "Read before adding metrics, tracing, or health checks — or when a production issue is invisible in your telemetry."
 ---
-# Monitoring
+# Node.js Monitoring
 
 ## Purpose
 

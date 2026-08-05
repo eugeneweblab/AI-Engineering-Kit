@@ -2,7 +2,7 @@
 id: typescript/100-common-antipatterns
 topic: typescript
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "TypeScript Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [typescript, common-antipatterns]
 related: [typescript/02-type-system, typescript/12-type-guards, typescript/17-error-handling, typescript/23-clean-code, typescript/28-best-practices]
 when_to_use: "Read before writing or reviewing TypeScript to avoid common type-safety traps."
 ---
-# Common Antipatterns
+# TypeScript Common Antipatterns
 
 ## Purpose
 

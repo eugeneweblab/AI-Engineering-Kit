@@ -2,7 +2,7 @@
 id: graphql/18-authentication
 topic: graphql
 slug: authentication
-title: "Authentication"
+title: "GraphQL Authentication"
 type: doc
 order: 18
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, authentication]
 related: [graphql/19-authorization, graphql/08-context, graphql/17-security, graphql/20-error-handling, graphql/07-resolvers]
 when_to_use: "Read before wiring login, tokens, or identity into a GraphQL server or gateway."
 ---
-# Authentication
+# GraphQL Authentication
 
 ## Purpose
 

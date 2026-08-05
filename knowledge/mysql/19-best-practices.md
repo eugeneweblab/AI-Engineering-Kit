@@ -2,7 +2,7 @@
 id: mysql/19-best-practices
 topic: mysql
 slug: best-practices
-title: "Best Practices"
+title: "MySQL Best Practices"
 type: doc
 order: 19
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, best-practices]
 related: [mysql/03-data-types, mysql/04-indexes, mysql/05-query-optimization, mysql/06-transactions, mysql/12-security]
 when_to_use: "Read before designing a schema, writing queries, or reviewing MySQL code for general correctness and durability."
 ---
-# Best Practices
+# MySQL Best Practices
 
 ## Purpose
 

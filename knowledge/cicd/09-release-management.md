@@ -2,7 +2,7 @@
 id: cicd/09-release-management
 topic: cicd
 slug: release-management
-title: "Release Management"
+title: "CI/CD Release Management"
 type: doc
 order: 9
 status: ready
@@ -10,7 +10,7 @@ tags: [cicd, release-management]
 related: [cicd/08-versioning, cicd/10-deployment, cicd/13-feature-flags, cicd/14-rollbacks]
 when_to_use: "Read before defining how changes are cut, approved, and shipped as releases."
 ---
-# Release Management
+# CI/CD Release Management
 
 ## Purpose
 

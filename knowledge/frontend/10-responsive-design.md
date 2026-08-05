@@ -2,7 +2,7 @@
 id: frontend/10-responsive-design
 topic: frontend
 slug: responsive-design
-title: "Responsive Design"
+title: "Frontend Responsive Design"
 type: doc
 order: 10
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, responsive-design]
 related: [frontend/09-accessibility, frontend/15-styling, frontend/16-css-architecture, frontend/08-performance, frontend/18-assets]
 when_to_use: "Read before building any layout or component that must work across phone, tablet, and desktop."
 ---
-# Responsive Design
+# Frontend Responsive Design
 
 ## Purpose
 

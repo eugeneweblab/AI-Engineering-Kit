@@ -2,7 +2,7 @@
 id: accessibility/09-images
 topic: accessibility
 slug: images
-title: "Images"
+title: "Accessibility Images"
 type: doc
 order: 9
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, images]
 related: [accessibility/03-semantic-html, accessibility/06-screen-readers, accessibility/07-aria, accessibility/10-color-and-contrast, accessibility/15-media]
 when_to_use: "Read before adding any image, icon, chart, or graphic — or when writing alt text."
 ---
-# Images
+# Accessibility Images
 
 ## Purpose
 

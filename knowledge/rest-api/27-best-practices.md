@@ -2,7 +2,7 @@
 id: rest-api/27-best-practices
 topic: rest-api
 slug: best-practices
-title: "Best Practices"
+title: "REST API Best Practices"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, best-practices]
 related: [rest-api/02-rest-principles, rest-api/03-resource-design, rest-api/07-status-codes, rest-api/14-versioning, rest-api/24-security]
 when_to_use: "Read before designing a new REST API or reviewing one for consistency and long-term maintainability."
 ---
-# Best Practices
+# REST API Best Practices
 
 ## Purpose
 

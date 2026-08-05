@@ -2,7 +2,7 @@
 id: performance/11-images
 topic: performance
 slug: images
-title: "Images"
+title: "Performance Images"
 type: doc
 order: 11
 status: ready
@@ -10,7 +10,7 @@ tags: [performance, images]
 related: [performance/07-loading, performance/09-lazy-loading, performance/08-caching, performance/18-web-vitals, performance/06-rendering]
 when_to_use: "Read before adding, serving, or reviewing any image on a page — especially hero images, thumbnails, and galleries."
 ---
-# Images
+# Performance Images
 
 ## Purpose
 

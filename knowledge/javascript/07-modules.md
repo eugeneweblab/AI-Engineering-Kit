@@ -2,7 +2,7 @@
 id: javascript/07-modules
 topic: javascript
 slug: modules
-title: "Modules"
+title: "JavaScript Modules"
 type: doc
 order: 7
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, modules]
 related: [javascript/03-scope-and-closures, javascript/17-es6-features, javascript/29-tooling, javascript/15-memory-management]
 when_to_use: "Read before creating, importing, or refactoring module files, or configuring ESM/CommonJS interop."
 ---
-# Modules
+# JavaScript Modules
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: mysql/20-production
 topic: mysql
 slug: production
-title: "Production"
+title: "MySQL Production"
 type: doc
 order: 20
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, production]
 related: [mysql/02-configuration, mysql/11-backups, mysql/15-monitoring, mysql/21-high-availability, mysql/09-replication]
 when_to_use: "Read before deploying MySQL to production or reviewing a production database's configuration and operational readiness."
 ---
-# Production
+# MySQL Production
 
 ## Purpose
 

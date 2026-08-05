@@ -2,7 +2,7 @@
 id: aws/98-production-checklist
 topic: aws
 slug: production-checklist
-title: "Production Checklist"
+title: "AWS Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [aws, production-checklist]
 related: [aws/27-production, aws/29-well-architected-framework, aws/25-security, aws/26-monitoring, aws/24-cost-optimization]
 when_to_use: "Read before promoting any AWS workload to production or signing off a go-live."
 ---
-# Production Checklist
+# AWS Production Checklist
 
 ## Purpose
 

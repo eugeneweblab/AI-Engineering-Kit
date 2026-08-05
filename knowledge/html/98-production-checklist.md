@@ -2,7 +2,7 @@
 id: html/98-production-checklist
 topic: html
 slug: production-checklist
-title: "Production Checklist"
+title: "HTML Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [html, production-checklist]
 related: [html/30-engineering-principles, html/11-accessibility, html/18-performance, html/12-seo, html/19-security]
 when_to_use: "Read before shipping any HTML page or template to production, as the final gate on markup quality."
 ---
-# Production Checklist
+# HTML Production Checklist
 
 ## Purpose
 

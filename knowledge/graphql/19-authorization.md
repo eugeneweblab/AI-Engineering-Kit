@@ -2,7 +2,7 @@
 id: graphql/19-authorization
 topic: graphql
 slug: authorization
-title: "Authorization"
+title: "GraphQL Authorization"
 type: doc
 order: 19
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, authorization]
 related: [graphql/18-authentication, graphql/07-resolvers, graphql/16-dataloader, graphql/17-security, graphql/20-error-handling]
 when_to_use: "Read before deciding which fields, objects, or mutations a caller may access in a GraphQL API."
 ---
-# Authorization
+# GraphQL Authorization
 
 ## Purpose
 

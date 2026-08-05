@@ -2,7 +2,7 @@
 id: mysql/09-replication
 topic: mysql
 slug: replication
-title: "Replication"
+title: "MySQL Replication"
 type: doc
 order: 9
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, replication]
 related: [mysql/10-clustering, mysql/11-backups, mysql/21-high-availability, mysql/06-transactions]
 when_to_use: "Read before setting up read replicas, planning failover, or debugging replica lag."
 ---
-# Replication
+# MySQL Replication
 
 ## Purpose
 

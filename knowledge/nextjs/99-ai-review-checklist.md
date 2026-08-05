@@ -2,7 +2,7 @@
 id: nextjs/99-ai-review-checklist
 topic: nextjs
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Next.js AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [nextjs, ai-review-checklist]
 related: [nextjs/06-server-components, nextjs/10-caching, nextjs/11-server-actions, nextjs/24-security, nextjs/100-common-antipatterns]
 when_to_use: "Read when reviewing or self-reviewing any Next.js App Router pull request before it merges."
 ---
-# AI Review Checklist
+# Next.js AI Review Checklist
 
 ## Purpose
 

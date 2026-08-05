@@ -2,7 +2,7 @@
 id: docker/28-tooling
 topic: docker
 slug: tooling
-title: "Tooling"
+title: "Docker Tooling"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [docker, tooling]
 related: [docker/10-buildkit, docker/18-security, docker/09-image-optimization, docker/29-ci-integration, docker/26-best-practices]
 when_to_use: "Read when choosing which tools to build, lint, scan, or inspect Docker images with."
 ---
-# Tooling
+# Docker Tooling
 
 ## Purpose
 

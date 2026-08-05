@@ -2,7 +2,7 @@
 id: rest-api/09-error-handling
 topic: rest-api
 slug: error-handling
-title: "Error Handling"
+title: "REST API Error Handling"
 type: doc
 order: 9
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, error-handling]
 related: [rest-api/07-status-codes, rest-api/08-validation, rest-api/06-request-response, rest-api/24-security, rest-api/26-monitoring]
 when_to_use: "Read before designing how an API reports failures — error bodies, error codes, and exception handling."
 ---
-# Error Handling
+# REST API Error Handling
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: linux/27-troubleshooting
 topic: linux
 slug: troubleshooting
-title: "Troubleshooting"
+title: "Linux Troubleshooting"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [linux, troubleshooting]
 related: [linux/19-debugging, linux/16-monitoring, linux/15-logging, linux/06-processes, linux/18-performance]
 when_to_use: "Read when a Linux host or service is broken, slow, or behaving unexpectedly and you need a systematic way to find the cause."
 ---
-# Troubleshooting
+# Linux Troubleshooting
 
 ## Purpose
 

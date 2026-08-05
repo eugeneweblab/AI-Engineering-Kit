@@ -2,7 +2,7 @@
 id: backend/10-authentication
 topic: backend
 slug: authentication
-title: "Authentication"
+title: "Backend Authentication"
 type: doc
 order: 10
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, authentication]
 related: [backend/11-authorization, backend/09-validation, backend/06-api-design, backend/21-security, backend/22-observability]
 when_to_use: "Read before building or reviewing login, signup, session, token, or credential-handling code in a backend service."
 ---
-# Authentication
+# Backend Authentication
 
 ## Purpose
 

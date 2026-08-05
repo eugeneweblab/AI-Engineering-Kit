@@ -2,7 +2,7 @@
 id: woocommerce/27-production
 topic: woocommerce
 slug: production
-title: "Production"
+title: "WooCommerce Production"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, production]
 related: [woocommerce/22-deployment, woocommerce/23-monitoring, woocommerce/16-security, woocommerce/24-scaling, woocommerce/26-debugging]
 when_to_use: "Read before taking a WooCommerce store live or reviewing whether an existing one is production-ready."
 ---
-# Production
+# WooCommerce Production
 
 ## Purpose
 

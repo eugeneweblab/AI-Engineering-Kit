@@ -2,7 +2,7 @@
 id: databases/11-locking
 topic: databases
 slug: locking
-title: "Locking"
+title: "Database Locking"
 type: doc
 order: 11
 status: ready
@@ -10,7 +10,7 @@ tags: [databases, locking]
 related: [databases/10-concurrency, databases/09-transactions, databases/12-acid, databases/07-indexing, databases/17-migrations]
 when_to_use: "Read before using explicit row locks, diagnosing a deadlock, or running DDL on a live table."
 ---
-# Locking
+# Database Locking
 
 ## Purpose
 

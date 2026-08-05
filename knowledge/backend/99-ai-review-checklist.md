@@ -2,7 +2,7 @@
 id: backend/99-ai-review-checklist
 topic: backend
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Backend AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, ai-review-checklist]
 related: [backend/30-engineering-principles, backend/12-error-handling, backend/23-testing, backend/29-architecture-review, backend/100-common-antipatterns]
 when_to_use: "Read before reviewing or generating any backend code change, as the final pass."
 ---
-# AI Review Checklist
+# Backend AI Review Checklist
 
 ## Purpose
 

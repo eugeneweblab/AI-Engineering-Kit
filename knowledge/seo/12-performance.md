@@ -2,7 +2,7 @@
 id: seo/12-performance
 topic: seo
 slug: performance
-title: "Performance"
+title: "SEO Performance"
 type: doc
 order: 12
 status: ready
@@ -10,7 +10,7 @@ tags: [seo, performance]
 related: [seo/13-core-web-vitals, seo/16-images, seo/04-rendering, seo/19-javascript-seo, seo/24-monitoring]
 when_to_use: "Read before optimizing page load speed, shipping large bundles, or diagnosing a crawl-budget or ranking drop tied to slowness."
 ---
-# Performance
+# SEO Performance
 
 ## Purpose
 

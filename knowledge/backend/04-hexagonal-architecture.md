@@ -2,7 +2,7 @@
 id: backend/04-hexagonal-architecture
 topic: backend
 slug: hexagonal-architecture
-title: "Hexagonal Architecture"
+title: "Backend Hexagonal Architecture"
 type: doc
 order: 4
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, hexagonal-architecture]
 related: [backend/01-backend-architecture, backend/03-clean-architecture, backend/05-ddd, backend/23-testing]
 when_to_use: "Read before building a service whose core logic must be driven by many transports or backed by many providers."
 ---
-# Hexagonal Architecture
+# Backend Hexagonal Architecture
 
 ## Purpose
 

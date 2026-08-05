@@ -2,7 +2,7 @@
 id: prisma/30-engineering-principles
 topic: prisma
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Prisma Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, engineering-principles]
 related: [prisma/15-performance, prisma/08-transactions, prisma/05-migrations, prisma/11-relations-loading, prisma/21-security]
 when_to_use: "Read before designing a data-access layer with Prisma or reviewing how the app talks to the database."
 ---
-# Engineering Principles
+# Prisma Engineering Principles
 
 ## Purpose
 

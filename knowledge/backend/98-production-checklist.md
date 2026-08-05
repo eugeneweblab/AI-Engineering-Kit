@@ -2,7 +2,7 @@
 id: backend/98-production-checklist
 topic: backend
 slug: production-checklist
-title: "Production Checklist"
+title: "Backend Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, production-checklist]
 related: [backend/27-production, backend/26-deployment, backend/22-observability, backend/21-security, backend/17-transactions]
 when_to_use: "Read before shipping a backend service, endpoint, or job to production."
 ---
-# Production Checklist
+# Backend Production Checklist
 
 ## Purpose
 

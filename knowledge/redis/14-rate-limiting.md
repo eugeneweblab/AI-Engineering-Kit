@@ -2,7 +2,7 @@
 id: redis/14-rate-limiting
 topic: redis
 slug: rate-limiting
-title: "Rate Limiting"
+title: "Redis Rate Limiting"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, rate-limiting]
 related: [redis/11-lua-scripting, redis/12-expiration, redis/06-sorted-sets, redis/10-transactions, redis/17-distributed-locks]
 when_to_use: "Read before building an API throttle, login-attempt limiter, or any per-user quota on Redis."
 ---
-# Rate Limiting
+# Redis Rate Limiting
 
 ## Purpose
 

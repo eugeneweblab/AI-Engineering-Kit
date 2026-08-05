@@ -2,7 +2,7 @@
 id: tailwind/08-sizing
 topic: tailwind
 slug: sizing
-title: "Sizing"
+title: "Tailwind CSS Sizing"
 type: doc
 order: 8
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, sizing]
 related: [tailwind/07-spacing, tailwind/06-grid, tailwind/05-flexbox, tailwind/11-responsive-design, tailwind/04-layout]
 when_to_use: "Read before setting widths, heights, or constraints — especially when content length is unknown or the element must stay responsive."
 ---
-# Sizing
+# Tailwind CSS Sizing
 
 ## Purpose
 

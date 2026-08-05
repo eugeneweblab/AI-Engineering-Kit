@@ -2,7 +2,7 @@
 id: php/14-performance
 topic: php
 slug: performance
-title: "Performance"
+title: "PHP Performance"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [php, performance]
 related: [php/12-database, php/18-generators, php/27-production, php/15-testing]
 when_to_use: "Read before optimizing PHP code or diagnosing a slow request, high memory use, or a scaling problem."
 ---
-# Performance
+# PHP Performance
 
 ## Purpose
 

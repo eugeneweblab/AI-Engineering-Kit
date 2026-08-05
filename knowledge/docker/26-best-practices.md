@@ -2,7 +2,7 @@
 id: docker/26-best-practices
 topic: docker
 slug: best-practices
-title: "Best Practices"
+title: "Docker Best Practices"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [docker, best-practices]
 related: [docker/08-dockerfile, docker/18-security, docker/11-multi-stage-builds, docker/15-healthchecks, docker/100-common-antipatterns]
 when_to_use: "Read before authoring or reviewing any Dockerfile or container run configuration."
 ---
-# Best Practices
+# Docker Best Practices
 
 ## Purpose
 

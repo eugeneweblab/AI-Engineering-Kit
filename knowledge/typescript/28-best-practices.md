@@ -2,7 +2,7 @@
 id: typescript/28-best-practices
 topic: typescript
 slug: best-practices
-title: "Best Practices"
+title: "TypeScript Best Practices"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [typescript, best-practices]
 related: [typescript/02-type-system, typescript/12-type-guards, typescript/17-error-handling, typescript/23-clean-code, typescript/16-configuration]
 when_to_use: "Read before writing or reviewing everyday TypeScript to apply the type-safety practices that prevent whole classes of bugs."
 ---
-# Best Practices
+# TypeScript Best Practices
 
 ## Purpose
 

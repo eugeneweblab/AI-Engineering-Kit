@@ -2,7 +2,7 @@
 id: cicd/98-production-checklist
 topic: cicd
 slug: production-checklist
-title: "Production Checklist"
+title: "CI/CD Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [cicd, production-checklist]
 related: [cicd/09-release-management, cicd/10-deployment, cicd/14-rollbacks, cicd/15-secrets, cicd/23-monitoring]
 when_to_use: "Read before promoting a CI/CD pipeline or a release path to production."
 ---
-# Production Checklist
+# CI/CD Production Checklist
 
 ## Purpose
 

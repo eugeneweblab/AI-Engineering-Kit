@@ -2,7 +2,7 @@
 id: cicd/30-engineering-principles
 topic: cicd
 slug: engineering-principles
-title: "Engineering Principles"
+title: "CI/CD Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [cicd, engineering-principles]
 related: [cicd/02-pipeline-design, cicd/05-quality-gates, cicd/09-release-management, cicd/14-rollbacks, cicd/27-best-practices]
 when_to_use: "Read before designing, refactoring, or reviewing any CI/CD pipeline or delivery workflow."
 ---
-# Engineering Principles
+# CI/CD Engineering Principles
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: redis/19-clustering
 topic: redis
 slug: clustering
-title: "Clustering"
+title: "Redis Clustering"
 type: doc
 order: 19
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, clustering]
 related: [redis/18-replication, redis/10-transactions, redis/17-distributed-locks, redis/23-performance]
 when_to_use: "Read before sharding Redis across multiple primaries or when a single node can no longer hold the dataset."
 ---
-# Clustering
+# Redis Clustering
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: tailwind/01-installation
 topic: tailwind
 slug: installation
-title: "Installation"
+title: "Tailwind CSS Installation"
 type: doc
 order: 1
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, installation]
 related: [tailwind/00-overview, tailwind/02-core-concepts, tailwind/15-customization, tailwind/16-theme, tailwind/23-nextjs]
 when_to_use: "Read before setting up Tailwind in a new project or upgrading an existing build."
 ---
-# Installation
+# Tailwind CSS Installation
 
 ## Purpose
 

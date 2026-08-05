@@ -2,7 +2,7 @@
 id: mysql/26-triggers
 topic: mysql
 slug: triggers
-title: "Triggers"
+title: "MySQL Triggers"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, triggers]
 related: [mysql/27-procedures, mysql/25-events, mysql/06-transactions, mysql/19-best-practices]
 when_to_use: "Read before adding a trigger, or when debugging why a simple INSERT/UPDATE has surprising side effects."
 ---
-# Triggers
+# MySQL Triggers
 
 ## Purpose
 

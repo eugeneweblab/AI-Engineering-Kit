@@ -2,7 +2,7 @@
 id: mysql/16-migrations
 topic: mysql
 slug: migrations
-title: "Migrations"
+title: "MySQL Migrations"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, migrations]
 related: [mysql/13-users-and-roles, mysql/06-transactions, mysql/11-backups, mysql/17-testing]
 when_to_use: "Read before writing or reviewing any schema-change migration against a live MySQL database."
 ---
-# Migrations
+# MySQL Migrations
 
 ## Purpose
 

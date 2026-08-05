@@ -2,7 +2,7 @@
 id: aws/27-production
 topic: aws
 slug: production
-title: "Production"
+title: "AWS Production"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [aws, production]
 related: [aws/25-security, aws/26-monitoring, aws/28-best-practices, aws/29-well-architected-framework, aws/98-production-checklist]
 when_to_use: "Read before promoting any AWS workload to production or reviewing whether a system is actually ready to serve real users."
 ---
-# Production
+# AWS Production
 
 ## Purpose
 

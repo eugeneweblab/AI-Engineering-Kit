@@ -2,7 +2,7 @@
 id: mysql/100-common-antipatterns
 topic: mysql
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "MySQL Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, common-antipatterns]
 related: [mysql/04-indexes, mysql/05-query-optimization, mysql/06-transactions, mysql/16-migrations, mysql/30-engineering-principles]
 when_to_use: "Read when writing or reviewing MySQL code to recognize and avoid the recurring failure patterns below."
 ---
-# Common Antipatterns
+# MySQL Common Antipatterns
 
 ## Purpose
 

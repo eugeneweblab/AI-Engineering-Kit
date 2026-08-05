@@ -2,7 +2,7 @@
 id: tailwind/26-best-practices
 topic: tailwind
 slug: best-practices
-title: "Best Practices"
+title: "Tailwind CSS Best Practices"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, best-practices]
 related: [tailwind/03-utility-first, tailwind/21-design-system, tailwind/17-components, tailwind/28-patterns, tailwind/100-common-antipatterns]
 when_to_use: "Read before writing or reviewing Tailwind markup to keep it consistent, themeable, and maintainable."
 ---
-# Best Practices
+# Tailwind CSS Best Practices
 
 ## Purpose
 

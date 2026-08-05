@@ -2,7 +2,7 @@
 id: css/10-typography
 topic: css
 slug: typography
-title: "Typography"
+title: "CSS Typography"
 type: doc
 order: 10
 status: ready
@@ -10,7 +10,7 @@ tags: [css, typography]
 related: [css/08-sizing, css/11-colors, css/23-accessibility, css/17-responsive-design, css/20-css-variables]
 when_to_use: "Read before setting font-size, line-height, font-family, or loading web fonts."
 ---
-# Typography
+# CSS Typography
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: nestjs/30-engineering-principles
 topic: nestjs
 slug: engineering-principles
-title: "Engineering Principles"
+title: "NestJS Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [nestjs, engineering-principles]
 related: [nestjs/01-architecture, nestjs/100-common-antipatterns, nestjs/99-ai-review-checklist, architecture/30-engineering-principles]
 when_to_use: "Read for the universal engineering principles that should guide any NestJS design or implementation decision."
 ---
-# Engineering Principles
+# NestJS Engineering Principles
 
 ## Purpose
 

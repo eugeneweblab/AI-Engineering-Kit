@@ -2,7 +2,7 @@
 id: graphql/20-error-handling
 topic: graphql
 slug: error-handling
-title: "Error Handling"
+title: "GraphQL Error Handling"
 type: doc
 order: 20
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, error-handling]
 related: [graphql/18-authentication, graphql/19-authorization, graphql/07-resolvers, graphql/17-security, graphql/25-monitoring]
 when_to_use: "Read before designing how a GraphQL API reports failures to clients or logs them internally."
 ---
-# Error Handling
+# GraphQL Error Handling
 
 ## Purpose
 

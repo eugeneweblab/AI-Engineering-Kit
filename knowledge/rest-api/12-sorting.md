@@ -2,7 +2,7 @@
 id: rest-api/12-sorting
 topic: rest-api
 slug: sorting
-title: "Sorting"
+title: "REST API Sorting"
 type: doc
 order: 12
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, sorting]
 related: [rest-api/10-pagination, rest-api/11-filtering, rest-api/13-search, rest-api/08-validation, rest-api/25-performance]
 when_to_use: "Read before adding a `sort` parameter to any list or collection endpoint."
 ---
-# Sorting
+# REST API Sorting
 
 ## Purpose
 

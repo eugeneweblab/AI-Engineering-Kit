@@ -2,7 +2,7 @@
 id: css/28-best-practices
 topic: css
 slug: best-practices
-title: "Best Practices"
+title: "CSS Best Practices"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [css, best-practices]
 related: [css/21-architecture, css/29-css-methodologies, css/03-specificity, css/30-engineering-principles, css/99-ai-review-checklist]
 when_to_use: "Read before writing or reviewing any stylesheet, and when a codebase's CSS has become hard to change safely."
 ---
-# Best Practices
+# CSS Best Practices
 
 ## Purpose
 

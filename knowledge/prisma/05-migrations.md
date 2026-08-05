@@ -2,7 +2,7 @@
 id: prisma/05-migrations
 topic: prisma
 slug: migrations
-title: "Migrations"
+title: "Prisma Migrations"
 type: doc
 order: 5
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, migrations]
 related: [prisma/02-schema, prisma/03-models, prisma/04-relations, prisma/25-production]
 when_to_use: "Read before changing the schema of any shared or production database, or wiring migrations into CI/CD."
 ---
-# Migrations
+# Prisma Migrations
 
 ## Purpose
 

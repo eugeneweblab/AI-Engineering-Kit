@@ -2,7 +2,7 @@
 id: performance/10-code-splitting
 topic: performance
 slug: code-splitting
-title: "Code Splitting"
+title: "Performance Code Splitting"
 type: doc
 order: 10
 status: ready
@@ -10,7 +10,7 @@ tags: [performance, code-splitting]
 related: [performance/07-loading, performance/09-lazy-loading, performance/08-caching, performance/23-performance-budget, performance/18-web-vitals]
 when_to_use: "Read before structuring a JavaScript bundle, adding a heavy dependency, or configuring a bundler's chunking."
 ---
-# Code Splitting
+# Performance Code Splitting
 
 ## Purpose
 

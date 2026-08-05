@@ -2,7 +2,7 @@
 id: accessibility/28-real-world-patterns
 topic: accessibility
 slug: real-world-patterns
-title: "Real World Patterns"
+title: "Accessibility Real World Patterns"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, real-world-patterns]
 related: [accessibility/16-dialogs, accessibility/08-forms, accessibility/19-live-regions, accessibility/05-focus-management, accessibility/07-aria]
 when_to_use: "Read before implementing a common interactive widget (modal, menu, tabs, autocomplete, toast, infinite scroll) so you follow the accessible pattern instead of inventing one."
 ---
-# Real World Patterns
+# Accessibility Real World Patterns
 
 ## Purpose
 

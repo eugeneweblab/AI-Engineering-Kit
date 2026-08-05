@@ -2,7 +2,7 @@
 id: tailwind/04-layout
 topic: tailwind
 slug: layout
-title: "Layout"
+title: "Tailwind CSS Layout"
 type: doc
 order: 4
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, layout]
 related: [tailwind/05-flexbox, tailwind/06-grid, tailwind/07-spacing, tailwind/11-responsive-design, tailwind/02-core-concepts]
 when_to_use: "Read before structuring page or component layout with display, position, and container utilities."
 ---
-# Layout
+# Tailwind CSS Layout
 
 ## Purpose
 

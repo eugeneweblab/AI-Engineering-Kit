@@ -2,7 +2,7 @@
 id: performance/22-load-testing
 topic: performance
 slug: load-testing
-title: "Load Testing"
+title: "Performance Load Testing"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [performance, load-testing]
 related: [performance/20-capacity-planning, performance/21-scalability, performance/02-metrics, performance/19-benchmarking, performance/25-production-monitoring]
 when_to_use: "Read before running a load, stress, soak, or spike test against a service."
 ---
-# Load Testing
+# Performance Load Testing
 
 ## Purpose
 

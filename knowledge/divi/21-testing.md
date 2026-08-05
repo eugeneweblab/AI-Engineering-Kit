@@ -2,7 +2,7 @@
 id: divi/21-testing
 topic: divi
 slug: testing
-title: "Testing"
+title: "Divi Testing"
 type: doc
 order: 21
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, testing]
 related: [divi/20-debugging, divi/04-custom-modules, divi/11-responsive-design, divi/12-accessibility, divi/22-deployment]
 when_to_use: "Read before shipping a Divi change, custom module, or theme update to verify nothing regressed."
 ---
-# Testing
+# Divi Testing
 
 ## Purpose
 

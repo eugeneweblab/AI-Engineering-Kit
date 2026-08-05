@@ -2,7 +2,7 @@
 id: nextjs/29-engineering-principles
 topic: nextjs
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Next.js Engineering Principles"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [nextjs, engineering-principles]
 related: [nextjs/06-server-components, nextjs/07-client-components, nextjs/10-caching, nextjs/11-server-actions, nextjs/28-best-practices]
 when_to_use: "Read before designing a new Next.js feature or reviewing an architectural decision in an App Router codebase."
 ---
-# Engineering Principles
+# Next.js Engineering Principles
 
 ## Purpose
 

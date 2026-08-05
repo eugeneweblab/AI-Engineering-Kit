@@ -2,7 +2,7 @@
 id: frontend/100-common-antipatterns
 topic: frontend
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Frontend Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, common-antipatterns]
 related: [frontend/30-engineering-principles, frontend/04-state-management, frontend/07-rendering, frontend/08-performance, frontend/09-accessibility]
 when_to_use: "Read when reviewing or refactoring frontend code that feels slow, buggy, or hard to change — to name the smell and apply the fix."
 ---
-# Common Antipatterns
+# Frontend Common Antipatterns
 
 ## Purpose
 

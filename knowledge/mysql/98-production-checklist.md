@@ -2,7 +2,7 @@
 id: mysql/98-production-checklist
 topic: mysql
 slug: production-checklist
-title: "Production Checklist"
+title: "MySQL Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, production-checklist]
 related: [mysql/20-production, mysql/11-backups, mysql/09-replication, mysql/15-monitoring, mysql/12-security]
 when_to_use: "Read before promoting a MySQL instance or schema change to production, or during a go-live review."
 ---
-# Production Checklist
+# MySQL Production Checklist
 
 ## Purpose
 

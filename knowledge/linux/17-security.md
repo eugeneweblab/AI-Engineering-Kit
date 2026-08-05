@@ -2,7 +2,7 @@
 id: linux/17-security
 topic: linux
 slug: security
-title: "Security"
+title: "Linux Security"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [linux, security]
 related: [linux/05-permissions, linux/10-ssh, linux/21-firewall, linux/04-users-and-groups]
 when_to_use: "Read before hardening a Linux host, granting privileges, or reviewing anything that runs as root."
 ---
-# Security
+# Linux Security
 
 ## Purpose
 

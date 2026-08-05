@@ -2,7 +2,7 @@
 id: graphql/00-overview
 topic: graphql
 slug: overview
-title: "Overview"
+title: "GraphQL Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, overview]
 related: [graphql/01-graphql-fundamentals, graphql/02-schema, graphql/04-queries, graphql/05-mutations, graphql/07-resolvers]
 when_to_use: "Read first when starting any GraphQL work, to see how the topic's docs fit together."
 ---
-# Overview
+# GraphQL Overview
 
 ## Purpose
 

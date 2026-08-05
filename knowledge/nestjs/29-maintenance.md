@@ -2,7 +2,7 @@
 id: nestjs/29-maintenance
 topic: nestjs
 slug: maintenance
-title: "Maintenance"
+title: "NestJS Maintenance"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [nestjs, maintenance]
 related: [nestjs/28-deployment, nestjs/24-observability, nestjs/25-testing]
 when_to_use: "Read when maintaining, upgrading, or managing technical debt in a NestJS application after deployment."
 ---
-# Maintenance
+# NestJS Maintenance
 
 ## Purpose
 

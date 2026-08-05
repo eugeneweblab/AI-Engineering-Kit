@@ -2,7 +2,7 @@
 id: woocommerce/21-testing
 topic: woocommerce
 slug: testing
-title: "Testing"
+title: "WooCommerce Testing"
 type: doc
 order: 21
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, testing]
 related: [woocommerce/05-orders, woocommerce/08-payments, woocommerce/12-hooks, woocommerce/22-deployment]
 when_to_use: "Read before writing or reviewing tests for WooCommerce code, or before shipping a change with no test coverage."
 ---
-# Testing
+# WooCommerce Testing
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: tailwind/19-performance
 topic: tailwind
 slug: performance
-title: "Performance"
+title: "Tailwind CSS Performance"
 type: doc
 order: 19
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, performance]
 related: [tailwind/20-optimization, tailwind/27-production, tailwind/03-utility-first, tailwind/23-nextjs, tailwind/17-components]
 when_to_use: "Read before diagnosing slow builds, large CSS output, or render jank in a Tailwind app."
 ---
-# Performance
+# Tailwind CSS Performance
 
 ## Purpose
 

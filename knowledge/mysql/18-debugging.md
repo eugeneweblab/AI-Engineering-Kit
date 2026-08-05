@@ -2,7 +2,7 @@
 id: mysql/18-debugging
 topic: mysql
 slug: debugging
-title: "Debugging"
+title: "MySQL Debugging"
 type: doc
 order: 18
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, debugging]
 related: [mysql/05-query-optimization, mysql/07-locking, mysql/15-monitoring, mysql/14-performance, mysql/06-transactions]
 when_to_use: "Read before diagnosing a slow query, a deadlock, a lock wait timeout, or unexpected query results in MySQL."
 ---
-# Debugging
+# MySQL Debugging
 
 ## Purpose
 

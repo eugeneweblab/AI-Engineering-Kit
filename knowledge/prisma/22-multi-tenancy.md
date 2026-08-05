@@ -2,7 +2,7 @@
 id: prisma/22-multi-tenancy
 topic: prisma
 slug: multi-tenancy
-title: "Multi Tenancy"
+title: "Prisma Multi Tenancy"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, multi-tenancy]
 related: [prisma/21-security, prisma/14-extensions, prisma/23-soft-delete, prisma/06-client]
 when_to_use: "Read before designing or reviewing any Prisma schema and queries where one database serves multiple customers."
 ---
-# Multi Tenancy
+# Prisma Multi Tenancy
 
 ## Purpose
 

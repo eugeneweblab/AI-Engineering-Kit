@@ -2,7 +2,7 @@
 id: docker/98-production-checklist
 topic: docker
 slug: production-checklist
-title: "Production Checklist"
+title: "Docker Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [docker, production-checklist]
 related: [docker/18-security, docker/15-healthchecks, docker/17-resource-limits, docker/22-production, docker/14-secrets]
 when_to_use: "Read before promoting a container image or Compose stack to production, or when reviewing a deployment PR."
 ---
-# Production Checklist
+# Docker Production Checklist
 
 ## Purpose
 

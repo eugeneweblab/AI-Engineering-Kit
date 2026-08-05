@@ -2,7 +2,7 @@
 id: backend/13-caching
 topic: backend
 slug: caching
-title: "Caching"
+title: "Backend Caching"
 type: doc
 order: 13
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, caching]
 related: [backend/19-performance, backend/20-scalability, backend/18-database-design, backend/14-events, backend/17-transactions]
 when_to_use: "Read before adding a cache in front of a database, API, or expensive computation."
 ---
-# Caching
+# Backend Caching
 
 ## Purpose
 

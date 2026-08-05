@@ -2,7 +2,7 @@
 id: rest-api/25-performance
 topic: rest-api
 slug: performance
-title: "Performance"
+title: "REST API Performance"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, performance]
 related: [rest-api/19-caching, rest-api/10-pagination, rest-api/17-rate-limiting, rest-api/06-request-response, rest-api/26-monitoring]
 when_to_use: "Read before designing a high-traffic endpoint or diagnosing a slow, memory-heavy, or database-bound REST API."
 ---
-# Performance
+# REST API Performance
 
 ## Purpose
 

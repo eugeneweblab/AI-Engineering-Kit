@@ -2,7 +2,7 @@
 id: divi/98-production-checklist
 topic: divi
 slug: production-checklist
-title: "Production Checklist"
+title: "Divi Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, production-checklist]
 related: [divi/25-production, divi/10-performance, divi/22-deployment, divi/19-security, divi/13-seo]
 when_to_use: "Read and run through before launching or handing off any Divi site, to confirm every non-negotiable is in place."
 ---
-# Production Checklist
+# Divi Production Checklist
 
 ## Purpose
 

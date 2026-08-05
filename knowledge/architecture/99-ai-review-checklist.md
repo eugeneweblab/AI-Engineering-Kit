@@ -2,7 +2,7 @@
 id: architecture/99-ai-review-checklist
 topic: architecture
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Architecture AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, ai-review-checklist]
 related: [architecture/27-architecture-review, architecture/28-best-practices, architecture/30-engineering-principles, architecture/100-common-antipatterns, architecture/98-production-checklist]
 when_to_use: "Read before reviewing or generating any change that adds, moves, or removes an architectural boundary."
 ---
-# AI Review Checklist
+# Architecture AI Review Checklist
 
 ## Purpose
 

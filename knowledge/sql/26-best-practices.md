@@ -2,7 +2,7 @@
 id: sql/26-best-practices
 topic: sql
 slug: best-practices
-title: "Best Practices"
+title: "SQL Best Practices"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [sql, best-practices]
 related: [sql/13-dml, sql/15-indexes, sql/22-security, sql/17-query-optimization, sql/100-common-antipatterns]
 when_to_use: "Read before writing or reviewing any non-trivial query, DML statement, or schema change."
 ---
-# Best Practices
+# SQL Best Practices
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: linux/100-common-antipatterns
 topic: linux
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Linux Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [linux, common-antipatterns]
 related: [linux/24-scripting, linux/05-permissions, linux/08-systemd, linux/17-security, linux/99-ai-review-checklist]
 when_to_use: "Read when writing or reviewing Linux scripts, permissions, or service config to recognize and avoid the classic mistakes."
 ---
-# Common Antipatterns
+# Linux Common Antipatterns
 
 ## Purpose
 

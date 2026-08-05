@@ -2,7 +2,7 @@
 id: mysql/04-indexes
 topic: mysql
 slug: indexes
-title: "Indexes"
+title: "MySQL Indexes"
 type: doc
 order: 4
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, indexes]
 related: [mysql/05-query-optimization, mysql/03-data-types, mysql/14-performance, mysql/00-overview, mysql/23-full-text-search]
 when_to_use: "Read before adding, removing, or ordering an index, or when a query is slow."
 ---
-# Indexes
+# MySQL Indexes
 
 ## Purpose
 

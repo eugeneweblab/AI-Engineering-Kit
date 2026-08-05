@@ -2,7 +2,7 @@
 id: php/08-error-handling
 topic: php
 slug: error-handling
-title: "Error Handling"
+title: "PHP Error Handling"
 type: doc
 order: 8
 status: ready
@@ -10,7 +10,7 @@ tags: [php, error-handling]
 related: [php/09-exceptions, php/11-http, php/27-production, php/25-debugging]
 when_to_use: "Read before configuring error reporting, writing a global handler, or deciding how a failure should surface."
 ---
-# Error Handling
+# PHP Error Handling
 
 ## Purpose
 

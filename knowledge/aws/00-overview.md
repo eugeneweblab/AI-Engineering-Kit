@@ -2,7 +2,7 @@
 id: aws/00-overview
 topic: aws
 slug: overview
-title: "Overview"
+title: "AWS Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [aws, overview]
 related: [aws/02-iam, aws/01-global-infrastructure, aws/29-well-architected-framework, aws/25-security, aws/100-common-antipatterns]
 when_to_use: "Read first when starting any AWS work, to orient on which doc covers your task."
 ---
-# Overview
+# AWS Overview
 
 ## Purpose
 

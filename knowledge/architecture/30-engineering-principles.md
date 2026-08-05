@@ -2,7 +2,7 @@
 id: architecture/30-engineering-principles
 topic: architecture
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Architecture Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, engineering-principles]
 related: [architecture/28-best-practices, architecture/03-clean-architecture, architecture/26-architecture-decision-records, architecture/100-common-antipatterns, architecture/14-performance]
 when_to_use: "Read before making any non-trivial design decision, so trade-offs are reasoned rather than guessed."
 ---
-# Engineering Principles
+# Architecture Engineering Principles
 
 ## Purpose
 

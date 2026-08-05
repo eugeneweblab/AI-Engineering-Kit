@@ -2,7 +2,7 @@
 id: mysql/30-engineering-principles
 topic: mysql
 slug: engineering-principles
-title: "Engineering Principles"
+title: "MySQL Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, engineering-principles]
 related: [mysql/04-indexes, mysql/06-transactions, mysql/05-query-optimization, mysql/19-best-practices, mysql/16-migrations]
 when_to_use: "Read before designing a schema, writing queries, or reviewing any MySQL data-access code."
 ---
-# Engineering Principles
+# MySQL Engineering Principles
 
 ## Purpose
 

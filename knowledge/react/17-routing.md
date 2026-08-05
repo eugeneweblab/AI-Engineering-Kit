@@ -2,7 +2,7 @@
 id: react/17-routing
 topic: react
 slug: routing
-title: "Routing"
+title: "React Routing"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [react, routing]
 related: [react/16-data-fetching, react/19-error-handling, react/18-state-management, react/12-performance, react/28-production]
 when_to_use: "Read before adding routes, navigation, route-level data loading, or protected pages."
 ---
-# Routing
+# React Routing
 
 ## Purpose
 

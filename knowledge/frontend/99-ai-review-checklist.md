@@ -2,7 +2,7 @@
 id: frontend/99-ai-review-checklist
 topic: frontend
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Frontend AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, ai-review-checklist]
 related: [frontend/30-engineering-principles, frontend/100-common-antipatterns, frontend/98-production-checklist, frontend/22-testing, frontend/27-best-practices]
 when_to_use: "Read before reviewing a frontend diff or pull request; run each group against the changed code."
 ---
-# AI Review Checklist
+# Frontend AI Review Checklist
 
 ## Purpose
 

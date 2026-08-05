@@ -2,7 +2,7 @@
 id: html/06-lists
 topic: html
 slug: lists
-title: "Lists"
+title: "HTML Lists"
 type: doc
 order: 6
 status: ready
@@ -10,7 +10,7 @@ tags: [html, lists]
 related: [html/02-semantic-html, html/03-text-elements, html/11-accessibility, html/04-links]
 when_to_use: "Read before marking up any sequence, menu, navigation set, or key-value pairs."
 ---
-# Lists
+# HTML Lists
 
 ## Purpose
 

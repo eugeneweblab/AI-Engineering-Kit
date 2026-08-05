@@ -2,7 +2,7 @@
 id: databases/08-query-optimization
 topic: databases
 slug: query-optimization
-title: "Query Optimization"
+title: "Database Query Optimization"
 type: doc
 order: 8
 status: ready
@@ -10,7 +10,7 @@ tags: [databases, query-optimization]
 related: [databases/07-indexing, databases/20-performance, databases/06-schema-design, databases/21-monitoring, databases/10-concurrency]
 when_to_use: "Read before optimizing a slow query, reviewing an N+1 pattern, or reading a query plan."
 ---
-# Query Optimization
+# Database Query Optimization
 
 ## Purpose
 

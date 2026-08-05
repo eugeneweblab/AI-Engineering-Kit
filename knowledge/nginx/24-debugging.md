@@ -2,7 +2,7 @@
 id: nginx/24-debugging
 topic: nginx
 slug: debugging
-title: "Debugging"
+title: "Nginx Debugging"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, debugging]
 related: [nginx/16-logging, nginx/29-troubleshooting, nginx/05-reverse-proxy, nginx/17-monitoring, nginx/02-configuration]
 when_to_use: "Read before diagnosing a misbehaving nginx config — 502s, wrong routing, unexpected rewrites, or requests that never reach the backend."
 ---
-# Debugging
+# Nginx Debugging
 
 ## Purpose
 

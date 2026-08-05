@@ -2,7 +2,7 @@
 id: woocommerce/22-deployment
 topic: woocommerce
 slug: deployment
-title: "Deployment"
+title: "WooCommerce Deployment"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, deployment]
 related: [woocommerce/21-testing, woocommerce/23-monitoring, woocommerce/15-performance, woocommerce/16-security]
 when_to_use: "Read before releasing WooCommerce code to production or changing how a store is deployed and updated."
 ---
-# Deployment
+# WooCommerce Deployment
 
 ## Purpose
 

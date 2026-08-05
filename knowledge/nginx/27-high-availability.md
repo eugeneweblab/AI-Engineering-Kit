@@ -2,7 +2,7 @@
 id: nginx/27-high-availability
 topic: nginx
 slug: high-availability
-title: "High Availability"
+title: "Nginx High Availability"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, high-availability]
 related: [nginx/06-load-balancing, nginx/25-production, nginx/05-reverse-proxy, nginx/17-monitoring, nginx/08-caching]
 when_to_use: "Read before designing an nginx tier that must survive a node failure, or when reviewing whether a single nginx instance is a hidden single point of failure."
 ---
-# High Availability
+# Nginx High Availability
 
 ## Purpose
 

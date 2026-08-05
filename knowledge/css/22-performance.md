@@ -2,7 +2,7 @@
 id: css/22-performance
 topic: css
 slug: performance
-title: "Performance"
+title: "CSS Performance"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [css, performance]
 related: [css/16-animations, css/14-transforms, css/21-architecture, css/15-transitions, css/26-browser-compatibility]
 when_to_use: "Read before shipping CSS that could affect load time or runtime smoothness — large stylesheets, animations, or anything on the critical rendering path."
 ---
-# Performance
+# CSS Performance
 
 ## Purpose
 

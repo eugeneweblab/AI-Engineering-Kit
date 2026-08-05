@@ -2,7 +2,7 @@
 id: kubernetes/98-production-checklist
 topic: kubernetes
 slug: production-checklist
-title: "Production Checklist"
+title: "Kubernetes Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [kubernetes, production-checklist]
 related: [kubernetes/26-production, kubernetes/19-resource-management, kubernetes/22-security, kubernetes/28-disaster-recovery, kubernetes/21-observability]
 when_to_use: "Read before promoting any Kubernetes workload to production or signing off a go-live review."
 ---
-# Production Checklist
+# Kubernetes Production Checklist
 
 ## Purpose
 

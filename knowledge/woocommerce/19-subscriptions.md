@@ -2,7 +2,7 @@
 id: woocommerce/19-subscriptions
 topic: woocommerce
 slug: subscriptions
-title: "Subscriptions"
+title: "WooCommerce Subscriptions"
 type: doc
 order: 19
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, subscriptions]
 related: [woocommerce/05-orders, woocommerce/08-payments, woocommerce/12-hooks, woocommerce/23-monitoring]
 when_to_use: "Read before building, extending, or debugging any recurring-billing flow with WooCommerce Subscriptions."
 ---
-# Subscriptions
+# WooCommerce Subscriptions
 
 ## Purpose
 

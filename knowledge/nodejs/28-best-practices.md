@@ -2,7 +2,7 @@
 id: nodejs/28-best-practices
 topic: nodejs
 slug: best-practices
-title: "Best Practices"
+title: "Node.js Best Practices"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [nodejs, best-practices]
 related: [nodejs/16-error-handling, nodejs/18-security, nodejs/21-testing, nodejs/29-tooling, nodejs/30-engineering-principles]
 when_to_use: "Read before writing or reviewing any Node.js service code you intend to run in production."
 ---
-# Best Practices
+# Node.js Best Practices
 
 ## Purpose
 

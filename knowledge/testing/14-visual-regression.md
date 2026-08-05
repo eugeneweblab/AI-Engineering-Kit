@@ -2,7 +2,7 @@
 id: testing/14-visual-regression
 topic: testing
 slug: visual-regression
-title: "Visual Regression"
+title: "Testing Visual Regression"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [testing, visual-regression]
 related: [testing/13-ui-testing, testing/04-e2e-testing, testing/22-flaky-tests, testing/18-accessibility-testing, testing/20-test-maintenance]
 when_to_use: "Read before adding screenshot-based tests that guard the rendered appearance of a component or page."
 ---
-# Visual Regression
+# Testing Visual Regression
 
 ## Purpose
 

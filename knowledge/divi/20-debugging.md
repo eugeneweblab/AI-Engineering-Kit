@@ -2,7 +2,7 @@
 id: divi/20-debugging
 topic: divi
 slug: debugging
-title: "Debugging"
+title: "Divi Debugging"
 type: doc
 order: 20
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, debugging]
 related: [divi/09-custom-css, divi/04-custom-modules, divi/10-performance, divi/21-testing, divi/19-security]
 when_to_use: "Read when the Visual Builder fails to load, styles don't apply, or custom code misbehaves."
 ---
-# Debugging
+# Divi Debugging
 
 ## Purpose
 

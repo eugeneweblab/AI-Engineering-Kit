@@ -2,7 +2,7 @@
 id: woocommerce/02-installation
 topic: woocommerce
 slug: installation
-title: "Installation"
+title: "WooCommerce Installation"
 type: doc
 order: 2
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, installation]
 related: [woocommerce/00-overview, woocommerce/01-architecture, woocommerce/22-deployment, woocommerce/15-performance, woocommerce/16-security]
 when_to_use: "Read before installing, upgrading, or provisioning an environment for a WooCommerce store."
 ---
-# Installation
+# WooCommerce Installation
 
 ## Purpose
 

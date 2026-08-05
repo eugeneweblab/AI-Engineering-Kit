@@ -2,7 +2,7 @@
 id: accessibility/03-semantic-html
 topic: accessibility
 slug: semantic-html
-title: "Semantic HTML"
+title: "Accessibility Semantic HTML"
 type: doc
 order: 3
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, semantic-html]
 related: [accessibility/07-aria, accessibility/04-keyboard-navigation, accessibility/06-screen-readers, accessibility/08-forms, accessibility/02-pour-principles]
 when_to_use: "Read before writing any markup or building a component, to choose the element that carries the right role and behavior."
 ---
-# Semantic HTML
+# Accessibility Semantic HTML
 
 ## Purpose
 

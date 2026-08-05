@@ -2,7 +2,7 @@
 id: performance/13-database-performance
 topic: performance
 slug: database-performance
-title: "Database Performance"
+title: "Performance — Database Access"
 type: doc
 order: 13
 status: ready
@@ -10,7 +10,7 @@ tags: [performance, database-performance]
 related: [performance/15-query-optimization, performance/14-api-performance, performance/08-caching, performance/16-profiling, performance/05-network]
 when_to_use: "Read before designing schema, adding indexes, or diagnosing a slow database-backed endpoint."
 ---
-# Database Performance
+# Performance — Database Access
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: javascript/04-functions
 topic: javascript
 slug: functions
-title: "Functions"
+title: "JavaScript Functions"
 type: doc
 order: 4
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, functions]
 related: [javascript/00-overview, javascript/02-execution-context, javascript/03-scope-and-closures, javascript/16-this-keyword, javascript/21-functional-programming]
 when_to_use: "Read before defining functions, choosing arrow vs. regular, or writing higher-order callbacks."
 ---
-# Functions
+# JavaScript Functions
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: accessibility/17-tables
 topic: accessibility
 slug: tables
-title: "Tables"
+title: "Accessibility Tables"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, tables]
 related: [accessibility/03-semantic-html, accessibility/12-layout, accessibility/07-aria, accessibility/13-responsive-accessibility, accessibility/06-screen-readers]
 when_to_use: "Read before building any data table, grid of tabular data, or when tempted to use a table for layout."
 ---
-# Tables
+# Accessibility Tables
 
 ## Purpose
 

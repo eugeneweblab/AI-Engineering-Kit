@@ -2,7 +2,7 @@
 id: docker/18-security
 topic: docker
 slug: security
-title: "Security"
+title: "Docker Security"
 type: doc
 order: 18
 status: ready
@@ -10,7 +10,7 @@ tags: [docker, security]
 related: [docker/14-secrets, docker/03-images, docker/17-resource-limits, docker/22-production, docker/09-image-optimization]
 when_to_use: "Read before writing a Dockerfile or running any container that will reach staging or production."
 ---
-# Security
+# Docker Security
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: databases/25-multi-tenancy
 topic: databases
 slug: multi-tenancy
-title: "Multi Tenancy"
+title: "Database Multi Tenancy"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [databases, multi-tenancy]
 related: [databases/19-security, databases/15-sharding, databases/06-schema-design, databases/24-soft-delete, databases/23-data-integrity]
 when_to_use: "Read before designing how one database serves multiple customers/organizations without leaking data between them."
 ---
-# Multi Tenancy
+# Database Multi Tenancy
 
 ## Purpose
 

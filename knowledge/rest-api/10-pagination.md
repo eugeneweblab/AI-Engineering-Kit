@@ -2,7 +2,7 @@
 id: rest-api/10-pagination
 topic: rest-api
 slug: pagination
-title: "Pagination"
+title: "REST API Pagination"
 type: doc
 order: 10
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, pagination]
 related: [rest-api/11-filtering, rest-api/12-sorting, rest-api/06-request-response, rest-api/25-performance, rest-api/19-caching]
 when_to_use: "Read before building or reviewing any endpoint that returns a list or collection."
 ---
-# Pagination
+# REST API Pagination
 
 ## Purpose
 

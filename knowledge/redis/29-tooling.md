@@ -2,7 +2,7 @@
 id: redis/29-tooling
 topic: redis
 slug: tooling
-title: "Tooling"
+title: "Redis Tooling"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, tooling]
 related: [redis/01-installation, redis/23-performance, redis/25-debugging, redis/28-observability, redis/26-best-practices]
 when_to_use: "Read when choosing a Redis client library, CLI, benchmark, or inspection tool for development or operations."
 ---
-# Tooling
+# Redis Tooling
 
 ## Purpose
 

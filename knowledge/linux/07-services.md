@@ -2,7 +2,7 @@
 id: linux/07-services
 topic: linux
 slug: services
-title: "Services"
+title: "Linux Services"
 type: doc
 order: 7
 status: ready
@@ -10,7 +10,7 @@ tags: [linux, services]
 related: [linux/06-processes, linux/08-systemd, linux/15-logging, linux/16-monitoring, linux/25-production]
 when_to_use: "Read before turning a program into a long-running, self-restarting Linux service."
 ---
-# Services
+# Linux Services
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: databases/16-partitioning
 topic: databases
 slug: partitioning
-title: "Partitioning"
+title: "Database Partitioning"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [databases, partitioning]
 related: [databases/15-sharding, databases/07-indexing, databases/08-query-optimization, databases/20-performance, databases/24-soft-delete]
 when_to_use: "Read before splitting a large table into partitions, especially for time-series or fast-growing tables."
 ---
-# Partitioning
+# Database Partitioning
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: devops/29-tooling
 topic: devops
 slug: tooling
-title: "Tooling"
+title: "DevOps Tooling"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, tooling]
 related: [devops/05-build-pipelines, devops/08-infrastructure-as-code, devops/10-containerization, devops/12-monitoring, devops/28-best-practices]
 when_to_use: "Read before selecting or reviewing a DevOps tool for CI/CD, IaC, orchestration, or observability."
 ---
-# Tooling
+# DevOps Tooling
 
 ## Purpose
 

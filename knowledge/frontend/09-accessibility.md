@@ -2,7 +2,7 @@
 id: frontend/09-accessibility
 topic: frontend
 slug: accessibility
-title: "Accessibility"
+title: "Frontend Accessibility"
 type: doc
 order: 9
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, accessibility]
 related: [frontend/12-forms, frontend/02-component-driven-development, frontend/10-responsive-design, frontend/07-rendering, frontend/28-ui-patterns]
 when_to_use: "Read before building any interactive component, form, modal, or custom control."
 ---
-# Accessibility
+# Frontend Accessibility
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: prisma/18-error-handling
 topic: prisma
 slug: error-handling
-title: "Error Handling"
+title: "Prisma Error Handling"
 type: doc
 order: 18
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, error-handling]
 related: [prisma/07-crud, prisma/08-transactions, prisma/20-debugging, prisma/24-best-practices]
 when_to_use: "Read before writing any code that catches a Prisma query failure or maps it to an API response."
 ---
-# Error Handling
+# Prisma Error Handling
 
 ## Purpose
 

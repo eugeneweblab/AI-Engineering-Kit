@@ -2,7 +2,7 @@
 id: javascript/26-security
 topic: javascript
 slug: security
-title: "Security"
+title: "JavaScript Security"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, security]
 related: [javascript/13-fetch-api, javascript/12-dom, javascript/14-error-handling, javascript/29-tooling, javascript/28-best-practices]
 when_to_use: "Read before writing JavaScript that handles untrusted input, renders HTML, builds queries, or pulls in dependencies."
 ---
-# Security
+# JavaScript Security
 
 ## Purpose
 

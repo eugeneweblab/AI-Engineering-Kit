@@ -2,7 +2,7 @@
 id: woocommerce/01-architecture
 topic: woocommerce
 slug: architecture
-title: "Architecture"
+title: "WooCommerce Architecture"
 type: doc
 order: 1
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, architecture]
 related: [woocommerce/00-overview, woocommerce/04-product-management, woocommerce/05-orders, woocommerce/12-hooks, woocommerce/13-rest-api]
 when_to_use: "Read before writing any code that reads or writes WooCommerce products, orders, or store data."
 ---
-# Architecture
+# WooCommerce Architecture
 
 ## Purpose
 

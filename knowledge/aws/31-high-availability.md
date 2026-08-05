@@ -2,7 +2,7 @@
 id: aws/31-high-availability
 topic: aws
 slug: high-availability
-title: "High Availability"
+title: "AWS High Availability"
 type: doc
 order: 31
 status: ready
@@ -10,7 +10,7 @@ tags: [aws, high-availability]
 related: [aws/01-global-infrastructure, aws/05-rds, aws/06-vpc, aws/07-route53, aws/10-elastic-load-balancer, aws/11-auto-scaling, aws/29-well-architected-framework]
 when_to_use: "Read before designing a workload to survive an Availability Zone or Region failure — Multi-AZ layout, failover behavior, health checks, and the RTO/RPO the design actually delivers."
 ---
-# High Availability
+# AWS High Availability
 
 ## Purpose
 

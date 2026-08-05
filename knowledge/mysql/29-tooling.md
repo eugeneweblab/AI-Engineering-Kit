@@ -2,7 +2,7 @@
 id: mysql/29-tooling
 topic: mysql
 slug: tooling
-title: "Tooling"
+title: "MySQL Tooling"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, tooling]
 related: [mysql/16-migrations, mysql/11-backups, mysql/15-monitoring, mysql/14-performance]
 when_to_use: "Read before choosing tools for migrations, backups, online schema changes, or diagnosing a slow production database."
 ---
-# Tooling
+# MySQL Tooling
 
 ## Purpose
 

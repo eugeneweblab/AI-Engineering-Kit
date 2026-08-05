@@ -2,7 +2,7 @@
 id: kubernetes/99-ai-review-checklist
 topic: kubernetes
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Kubernetes AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [kubernetes, ai-review-checklist]
 related: [kubernetes/30-engineering-principles, kubernetes/100-common-antipatterns, kubernetes/22-security, kubernetes/18-rbac, kubernetes/19-resource-management]
 when_to_use: "Read before reviewing any pull request that adds or changes Kubernetes manifests, Helm charts, or operators."
 ---
-# AI Review Checklist
+# Kubernetes AI Review Checklist
 
 ## Purpose
 

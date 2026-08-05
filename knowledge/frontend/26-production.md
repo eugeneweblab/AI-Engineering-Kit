@@ -2,7 +2,7 @@
 id: frontend/26-production
 topic: frontend
 slug: production
-title: "Production"
+title: "Frontend Production"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, production]
 related: [frontend/08-performance, frontend/13-error-handling, frontend/23-monitoring, frontend/20-bundling, frontend/98-production-checklist]
 when_to_use: "Read before shipping a frontend build to real users or promoting it to a production environment."
 ---
-# Production
+# Frontend Production
 
 ## Purpose
 

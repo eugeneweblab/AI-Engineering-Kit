@@ -2,7 +2,7 @@
 id: testing/30-engineering-principles
 topic: testing
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Testing Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [testing, engineering-principles]
 related: [testing/01-testing-fundamentals, testing/24-best-practices, testing/28-testing-strategy, testing/22-flaky-tests, testing/02-unit-testing]
 when_to_use: "Read before designing a test suite, or when deciding what and how much to test."
 ---
-# Engineering Principles
+# Testing Engineering Principles
 
 ## Purpose
 

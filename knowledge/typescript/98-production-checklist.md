@@ -2,7 +2,7 @@
 id: typescript/98-production-checklist
 topic: typescript
 slug: production-checklist
-title: "Production Checklist"
+title: "TypeScript Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [typescript, production-checklist]
 related: [typescript/16-configuration, typescript/24-testing, typescript/25-performance, typescript/26-security, typescript/29-tooling]
 when_to_use: "Read before shipping a TypeScript service or library to production."
 ---
-# Production Checklist
+# TypeScript Production Checklist
 
 ## Purpose
 

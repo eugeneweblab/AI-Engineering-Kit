@@ -2,7 +2,7 @@
 id: backend/03-clean-architecture
 topic: backend
 slug: clean-architecture
-title: "Clean Architecture"
+title: "Backend Clean Architecture"
 type: doc
 order: 3
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, clean-architecture]
 related: [backend/01-backend-architecture, backend/02-layered-architecture, backend/04-hexagonal-architecture, backend/05-ddd]
 when_to_use: "Read before structuring a service whose business rules are complex and must outlast its framework or database."
 ---
-# Clean Architecture
+# Backend Clean Architecture
 
 ## Purpose
 

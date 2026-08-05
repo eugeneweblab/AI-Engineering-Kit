@@ -2,7 +2,7 @@
 id: kubernetes/21-observability
 topic: kubernetes
 slug: observability
-title: "Observability"
+title: "Kubernetes Observability"
 type: doc
 order: 21
 status: ready
@@ -10,7 +10,7 @@ tags: [kubernetes, observability]
 related: [kubernetes/23-monitoring, kubernetes/24-debugging, kubernetes/04-pods, kubernetes/26-production]
 when_to_use: "Read before instrumenting a workload with logs, metrics, or traces, or when an incident cannot be diagnosed from the data the cluster emits."
 ---
-# Observability
+# Kubernetes Observability
 
 ## Purpose
 

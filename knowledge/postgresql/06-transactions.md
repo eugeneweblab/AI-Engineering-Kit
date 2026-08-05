@@ -2,7 +2,7 @@
 id: postgresql/06-transactions
 topic: postgresql
 slug: transactions
-title: "Transactions"
+title: "PostgreSQL Transactions"
 type: doc
 order: 6
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, transactions]
 related: [postgresql/07-locking, postgresql/05-query-planner, postgresql/04-indexes, postgresql/20-vacuum]
 when_to_use: "Read before writing any multi-statement write, choosing an isolation level, or handling a serialization/deadlock error."
 ---
-# Transactions
+# PostgreSQL Transactions
 
 ## Purpose
 

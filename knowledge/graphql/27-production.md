@@ -2,7 +2,7 @@
 id: graphql/27-production
 topic: graphql
 slug: production
-title: "Production"
+title: "GraphQL Production"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, production]
 related: [graphql/17-security, graphql/22-performance, graphql/25-monitoring, graphql/21-caching, graphql/29-schema-evolution]
 when_to_use: "Read before exposing a GraphQL API to untrusted traffic or promoting it to production."
 ---
-# Production
+# GraphQL Production
 
 ## Purpose
 

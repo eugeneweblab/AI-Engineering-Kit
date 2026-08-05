@@ -2,7 +2,7 @@
 id: graphql/03-types
 topic: graphql
 slug: types
-title: "Types"
+title: "GraphQL Types"
 type: doc
 order: 3
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, types]
 related: [graphql/02-schema, graphql/09-scalars, graphql/10-input-types, graphql/11-directives, graphql/29-schema-evolution]
 when_to_use: "Read when defining objects, enums, interfaces, unions, or choosing nullability for a field."
 ---
-# Types
+# GraphQL Types
 
 ## Purpose
 

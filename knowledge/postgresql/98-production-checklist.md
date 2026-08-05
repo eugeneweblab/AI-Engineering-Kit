@@ -2,7 +2,7 @@
 id: postgresql/98-production-checklist
 topic: postgresql
 slug: production-checklist
-title: "Production Checklist"
+title: "PostgreSQL Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, production-checklist]
 related: [postgresql/14-backups, postgresql/12-replication, postgresql/17-monitoring, postgresql/18-security, postgresql/27-tuning]
 when_to_use: "Read before promoting a PostgreSQL database to production or signing off a go-live."
 ---
-# Production Checklist
+# PostgreSQL Production Checklist
 
 ## Purpose
 

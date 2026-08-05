@@ -2,7 +2,7 @@
 id: woocommerce/00-overview
 topic: woocommerce
 slug: overview
-title: "Overview"
+title: "WooCommerce Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, overview]
 related: [woocommerce/01-architecture, woocommerce/02-installation, woocommerce/03-product-types, woocommerce/12-hooks, woocommerce/13-rest-api]
 when_to_use: "Read first when starting any WooCommerce task, to orient yourself and find the right specific doc."
 ---
-# Overview
+# WooCommerce Overview
 
 ## Purpose
 

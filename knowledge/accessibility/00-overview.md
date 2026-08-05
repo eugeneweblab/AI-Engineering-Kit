@@ -2,7 +2,7 @@
 id: accessibility/00-overview
 topic: accessibility
 slug: overview
-title: "Overview"
+title: "Accessibility Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, overview]
 related: [accessibility/01-accessibility-fundamentals, accessibility/02-pour-principles, accessibility/03-semantic-html, accessibility/07-aria, accessibility/23-wcag]
 when_to_use: "Read first when starting any UI work, to see how the accessibility docs fit together and where to go next."
 ---
-# Overview
+# Accessibility Overview
 
 ## Purpose
 

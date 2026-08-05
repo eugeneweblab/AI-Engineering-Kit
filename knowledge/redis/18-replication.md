@@ -2,7 +2,7 @@
 id: redis/18-replication
 topic: redis
 slug: replication
-title: "Replication"
+title: "Redis Replication"
 type: doc
 order: 18
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, replication]
 related: [redis/19-clustering, redis/20-persistence, redis/22-monitoring, redis/27-production]
 when_to_use: "Read before deploying Redis with replicas, adding read scaling, or configuring failover."
 ---
-# Replication
+# Redis Replication
 
 ## Purpose
 

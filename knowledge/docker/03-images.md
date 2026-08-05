@@ -2,7 +2,7 @@
 id: docker/03-images
 topic: docker
 slug: images
-title: "Images"
+title: "Docker Images"
 type: doc
 order: 3
 status: ready
@@ -10,7 +10,7 @@ tags: [docker, images]
 related: [docker/04-containers, docker/08-dockerfile, docker/09-image-optimization, docker/11-multi-stage-builds, docker/19-registry]
 when_to_use: "Read before building, tagging, or referencing an image, or when a build is slow, huge, or non-reproducible."
 ---
-# Images
+# Docker Images
 
 ## Purpose
 

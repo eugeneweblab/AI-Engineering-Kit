@@ -2,7 +2,7 @@
 id: architecture/29-real-world-patterns
 topic: architecture
 slug: real-world-patterns
-title: "Real World Patterns"
+title: "Architecture Real World Patterns"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, real-world-patterns]
 related: [architecture/12-integration-patterns, architecture/08-event-driven-architecture, architecture/17-fault-tolerance, architecture/28-best-practices, architecture/100-common-antipatterns]
 when_to_use: "Read before designing a flow that spans services, needs reliable messaging, or must stay consistent across a boundary — reach for a proven pattern first."
 ---
-# Real World Patterns
+# Architecture Real World Patterns
 
 ## Purpose
 

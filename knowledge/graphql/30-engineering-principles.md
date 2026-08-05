@@ -2,7 +2,7 @@
 id: graphql/30-engineering-principles
 topic: graphql
 slug: engineering-principles
-title: "Engineering Principles"
+title: "GraphQL Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, engineering-principles]
 related: [graphql/02-schema, graphql/07-resolvers, graphql/15-n1-problem, graphql/17-security, graphql/29-schema-evolution]
 when_to_use: "Read before designing a new GraphQL schema or service, or when reviewing whether an existing one follows sound engineering foundations."
 ---
-# Engineering Principles
+# GraphQL Engineering Principles
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: mysql/12-security
 topic: mysql
 slug: security
-title: "Security"
+title: "MySQL Security"
 type: doc
 order: 12
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, security]
 related: [mysql/13-users-and-roles, mysql/02-configuration, mysql/11-backups, mysql/15-monitoring]
 when_to_use: "Read before exposing a MySQL server to any network, wiring an application to it, or reviewing DB connection and privilege code."
 ---
-# Security
+# MySQL Security
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: typescript/16-configuration
 topic: typescript
 slug: configuration
-title: "Configuration"
+title: "TypeScript Configuration"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [typescript, configuration]
 related: [typescript/14-modules, typescript/29-tooling, typescript/15-decorators, typescript/28-best-practices]
 when_to_use: "Read before creating or editing a `tsconfig.json`, or when type errors differ between machines."
 ---
-# Configuration
+# TypeScript Configuration
 
 ## Purpose
 

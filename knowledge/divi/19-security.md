@@ -2,7 +2,7 @@
 id: divi/19-security
 topic: divi
 slug: security
-title: "Security"
+title: "Divi Security"
 type: doc
 order: 19
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, security]
 related: [divi/04-custom-modules, divi/16-wordpress-hooks, divi/17-rest-api, divi/23-maintenance, divi/99-ai-review-checklist]
 when_to_use: "Read before writing any Divi custom module, AJAX handler, code module, or granting builder access."
 ---
-# Security
+# Divi Security
 
 ## Purpose
 

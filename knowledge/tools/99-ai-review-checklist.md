@@ -2,7 +2,7 @@
 id: tools/99-ai-review-checklist
 topic: tools
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Tools AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [tools, ai-review-checklist]
 related: [tools/98-production-checklist, tools/100-common-antipatterns, tools/30-engineering-principles, tools/27-dependency-management, tools/26-ai-coding-tools, engineering/02-code-review]
 when_to_use: "Read when reviewing a change that touches tooling — configuration, CI workflows, dependencies, hooks, or build setup."
 ---
-# AI Review Checklist
+# Tools AI Review Checklist
 
 ## Purpose
 

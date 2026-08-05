@@ -2,7 +2,7 @@
 id: seo/99-ai-review-checklist
 topic: seo
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "SEO AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [seo, ai-review-checklist]
 related: [seo/00-overview, seo/30-engineering-principles, seo/29-seo-review, seo/03-indexing, seo/06-canonicalization]
 when_to_use: "Read when reviewing a diff that touches routing, rendering, metadata, or any crawl/index signal."
 ---
-# AI Review Checklist
+# SEO AI Review Checklist
 
 ## Purpose
 

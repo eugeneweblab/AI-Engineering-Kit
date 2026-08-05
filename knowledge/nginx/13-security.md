@@ -2,7 +2,7 @@
 id: nginx/13-security
 topic: nginx
 slug: security
-title: "Security"
+title: "Nginx Security"
 type: doc
 order: 13
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, security]
 related: [nginx/12-ssl-tls, nginx/14-rate-limiting, nginx/15-authentication, nginx/05-reverse-proxy, nginx/16-logging]
 when_to_use: "Read before exposing any nginx server to the internet or reviewing its hardening and header configuration."
 ---
-# Security
+# Nginx Security
 
 ## Purpose
 

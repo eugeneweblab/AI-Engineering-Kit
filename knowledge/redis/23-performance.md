@@ -2,7 +2,7 @@
 id: redis/23-performance
 topic: redis
 slug: performance
-title: "Performance"
+title: "Redis Performance"
 type: doc
 order: 23
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, performance]
 related: [redis/22-monitoring, redis/02-data-types, redis/13-caching, redis/12-expiration]
 when_to_use: "Read before optimizing Redis throughput or latency, or when a command is blocking the server."
 ---
-# Performance
+# Redis Performance
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: backend/22-observability
 topic: backend
 slug: observability
-title: "Observability"
+title: "Backend Observability"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, observability]
 related: [backend/12-error-handling, backend/19-performance, backend/20-scalability, backend/27-production, backend/16-background-jobs]
 when_to_use: "Read before adding logging, metrics, or tracing to a service, or when an incident could not be diagnosed from what the system emitted."
 ---
-# Observability
+# Backend Observability
 
 ## Purpose
 

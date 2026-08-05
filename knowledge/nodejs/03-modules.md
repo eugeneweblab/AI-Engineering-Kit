@@ -2,7 +2,7 @@
 id: nodejs/03-modules
 topic: nodejs
 slug: modules
-title: "Modules"
+title: "Node.js Modules"
 type: doc
 order: 3
 status: ready
@@ -10,7 +10,7 @@ tags: [nodejs, modules]
 related: [nodejs/04-package-management, nodejs/01-nodejs-runtime, nodejs/00-overview, nodejs/18-security, nodejs/15-configuration]
 when_to_use: "Read before creating a new project, adding imports/exports, or debugging 'cannot use import statement' or ESM/CommonJS interop errors."
 ---
-# Modules
+# Node.js Modules
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: github/13-security
 topic: github
 slug: security
-title: "Security"
+title: "GitHub Security"
 type: doc
 order: 13
 status: ready
@@ -10,7 +10,7 @@ tags: [github, security]
 related: [github/14-codeql, github/15-dependabot, github/16-secret-scanning, github/17-branch-protection, github/21-permissions]
 when_to_use: "Read before configuring repository security or hardening a CI/CD supply chain on GitHub."
 ---
-# Security
+# GitHub Security
 
 ## Purpose
 

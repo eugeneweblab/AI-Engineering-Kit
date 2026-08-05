@@ -2,7 +2,7 @@
 id: react/14-patterns
 topic: react
 slug: patterns
-title: "Patterns"
+title: "React Patterns"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [react, patterns]
 related: [react/13-component-composition, react/24-design-patterns, react/09-custom-hooks, react/05-props, react/10-context-api]
 when_to_use: "Read before choosing how to structure a reusable component or share logic across components."
 ---
-# Patterns
+# React Patterns
 
 ## Purpose
 

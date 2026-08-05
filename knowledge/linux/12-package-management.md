@@ -2,7 +2,7 @@
 id: linux/12-package-management
 topic: linux
 slug: package-management
-title: "Package Management"
+title: "Linux Package Management"
 type: doc
 order: 12
 status: ready
@@ -10,7 +10,7 @@ tags: [linux, package-management]
 related: [linux/17-security, linux/25-production, linux/23-automation, linux/22-containers]
 when_to_use: "Read before installing software, writing a Dockerfile, or scripting provisioning on a Linux host."
 ---
-# Package Management
+# Linux Package Management
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: nextjs/25-accessibility
 topic: nextjs
 slug: accessibility
-title: "Accessibility"
+title: "Next.js Accessibility"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [nextjs, accessibility]
 related: [nextjs/07-client-components, nextjs/05-layouts, nextjs/16-images, nextjs/17-fonts, nextjs/22-testing]
 when_to_use: "Read before building any UI, form, navigation, or interactive component in a Next.js app."
 ---
-# Accessibility
+# Next.js Accessibility
 
 ## Purpose
 

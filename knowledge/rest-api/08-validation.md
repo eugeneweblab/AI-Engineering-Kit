@@ -2,7 +2,7 @@
 id: rest-api/08-validation
 topic: rest-api
 slug: validation
-title: "Validation"
+title: "REST API Validation"
 type: doc
 order: 8
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, validation]
 related: [rest-api/09-error-handling, rest-api/07-status-codes, rest-api/06-request-response, rest-api/24-security, rest-api/21-openapi]
 when_to_use: "Read before accepting any client-supplied input into an endpoint — body, query, path, or headers."
 ---
-# Validation
+# REST API Validation
 
 ## Purpose
 

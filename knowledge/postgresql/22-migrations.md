@@ -2,7 +2,7 @@
 id: postgresql/22-migrations
 topic: postgresql
 slug: migrations
-title: "Migrations"
+title: "PostgreSQL Migrations"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, migrations]
 related: [postgresql/23-testing, postgresql/07-locking, postgresql/19-roles-and-permissions, postgresql/06-transactions, postgresql/26-production]
 when_to_use: "Read before writing any schema-change migration, especially one that alters, locks, or backfills a large or high-traffic table."
 ---
-# Migrations
+# PostgreSQL Migrations
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: mysql/06-transactions
 topic: mysql
 slug: transactions
-title: "Transactions"
+title: "MySQL Transactions"
 type: doc
 order: 6
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, transactions]
 related: [mysql/07-locking, mysql/08-storage-engines, mysql/09-replication, mysql/05-query-optimization]
 when_to_use: "Read before writing any code that modifies more than one row or table and must be all-or-nothing."
 ---
-# Transactions
+# MySQL Transactions
 
 ## Purpose
 

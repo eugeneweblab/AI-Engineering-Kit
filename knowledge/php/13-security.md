@@ -2,7 +2,7 @@
 id: php/13-security
 topic: php
 slug: security
-title: "Security"
+title: "PHP Security"
 type: doc
 order: 13
 status: ready
@@ -10,7 +10,7 @@ tags: [php, security]
 related: [php/12-database, php/11-http, php/08-error-handling, php/27-production]
 when_to_use: "Read before writing or reviewing PHP that handles user input, passwords, output rendering, file uploads, or secrets."
 ---
-# Security
+# PHP Security
 
 ## Purpose
 

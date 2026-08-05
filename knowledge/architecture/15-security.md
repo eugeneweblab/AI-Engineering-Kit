@@ -2,7 +2,7 @@
 id: architecture/15-security
 topic: architecture
 slug: security
-title: "Security"
+title: "Architecture Security"
 type: doc
 order: 15
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, security]
 related: [architecture/11-api-first, architecture/12-integration-patterns, architecture/17-fault-tolerance, architecture/18-observability, architecture/22-cloud-architecture]
 when_to_use: "Read when designing the security posture of a system: trust boundaries, secrets, data protection, and defense in depth."
 ---
-# Security
+# Architecture Security
 
 ## Purpose
 

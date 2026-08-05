@@ -2,7 +2,7 @@
 id: graphql/100-common-antipatterns
 topic: graphql
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "GraphQL Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, common-antipatterns]
 related: [graphql/13-pagination, graphql/15-n1-problem, graphql/16-dataloader, graphql/17-security, graphql/20-error-handling]
 when_to_use: "Read when designing or reviewing a GraphQL schema or resolver to avoid the recurring mistakes below."
 ---
-# Common Antipatterns
+# GraphQL Common Antipatterns
 
 ## Purpose
 

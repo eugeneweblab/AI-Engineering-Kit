@@ -2,7 +2,7 @@
 id: performance/30-engineering-principles
 topic: performance
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Performance Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [performance, engineering-principles]
 related: [performance/01-performance-fundamentals, performance/27-best-practices, performance/24-optimization-workflow, performance/23-performance-budget, performance/100-common-antipatterns]
 when_to_use: "Read before making any decision that trades speed against complexity, correctness, or cost."
 ---
-# Engineering Principles
+# Performance Engineering Principles
 
 ## Purpose
 

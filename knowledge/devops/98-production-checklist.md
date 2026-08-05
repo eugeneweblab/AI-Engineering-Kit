@@ -2,7 +2,7 @@
 id: devops/98-production-checklist
 topic: devops
 slug: production-checklist
-title: "Production Checklist"
+title: "DevOps Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, production-checklist]
 related: [devops/07-deployment-strategies, devops/17-secrets-management, devops/18-disaster-recovery, devops/25-incident-management, devops/99-ai-review-checklist]
 when_to_use: "Read before promoting any service, pipeline, or infrastructure change to production."
 ---
-# Production Checklist
+# DevOps Production Checklist
 
 ## Purpose
 

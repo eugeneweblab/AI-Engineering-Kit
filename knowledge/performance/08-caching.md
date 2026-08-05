@@ -2,7 +2,7 @@
 id: performance/08-caching
 topic: performance
 slug: caching
-title: "Caching"
+title: "Performance Caching"
 type: doc
 order: 8
 status: ready
@@ -10,7 +10,7 @@ tags: [performance, caching]
 related: [performance/07-loading, performance/05-network, performance/14-api-performance, performance/13-database-performance, performance/11-images]
 when_to_use: "Read before adding, configuring, or reviewing any cache — HTTP headers, CDN, application, or database layer."
 ---
-# Caching
+# Performance Caching
 
 ## Purpose
 

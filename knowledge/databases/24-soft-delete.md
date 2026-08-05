@@ -2,7 +2,7 @@
 id: databases/24-soft-delete
 topic: databases
 slug: soft-delete
-title: "Soft Delete"
+title: "Database Soft Delete"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [databases, soft-delete]
 related: [databases/23-data-integrity, databases/07-indexing, databases/26-auditing, databases/19-security, databases/08-query-optimization]
 when_to_use: "Read before adding a deleted_at flag or any 'don't really delete it' requirement to a table."
 ---
-# Soft Delete
+# Database Soft Delete
 
 ## Purpose
 

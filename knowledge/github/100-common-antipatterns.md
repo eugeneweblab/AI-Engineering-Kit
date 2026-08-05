@@ -2,7 +2,7 @@
 id: github/100-common-antipatterns
 topic: github
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "GitHub Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [github, common-antipatterns]
 related: [github/08-actions, github/17-branch-protection, github/16-secret-scanning, github/06-pull-requests, github/30-engineering-principles]
 when_to_use: "Read before configuring GitHub workflows, branch rules, or access, to avoid known failure modes."
 ---
-# Common Antipatterns
+# GitHub Common Antipatterns
 
 ## Purpose
 

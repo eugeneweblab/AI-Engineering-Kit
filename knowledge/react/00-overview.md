@@ -2,7 +2,7 @@
 id: react/00-overview
 topic: react
 slug: overview
-title: "Overview"
+title: "React Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [react, overview]
 related: [react/01-react-philosophy, react/04-components, react/08-hooks, react/06-state, react/11-rendering]
 when_to_use: "Read first when starting any React work, to find which doc in this topic answers your question."
 ---
-# Overview
+# React Overview
 
 ## Purpose
 

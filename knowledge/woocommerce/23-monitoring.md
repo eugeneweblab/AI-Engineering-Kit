@@ -2,7 +2,7 @@
 id: woocommerce/23-monitoring
 topic: woocommerce
 slug: monitoring
-title: "Monitoring"
+title: "WooCommerce Monitoring"
 type: doc
 order: 23
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, monitoring]
 related: [woocommerce/22-deployment, woocommerce/08-payments, woocommerce/15-performance, woocommerce/05-orders]
 when_to_use: "Read before shipping a store to production or when deciding what to log, measure, and alert on for WooCommerce."
 ---
-# Monitoring
+# WooCommerce Monitoring
 
 ## Purpose
 

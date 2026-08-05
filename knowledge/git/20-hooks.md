@@ -2,7 +2,7 @@
 id: git/20-hooks
 topic: git
 slug: hooks
-title: "Hooks"
+title: "Git Hooks"
 type: doc
 order: 20
 status: ready
@@ -10,7 +10,7 @@ tags: [git, hooks]
 related: [git/04-commits, git/16-push, git/28-security, git/29-tooling, git/27-best-practices]
 when_to_use: "Read before adding pre-commit, commit-msg, or pre-push automation, or reviewing a repo's hook setup."
 ---
-# Hooks
+# Git Hooks
 
 ## Purpose
 

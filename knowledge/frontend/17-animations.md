@@ -2,7 +2,7 @@
 id: frontend/17-animations
 topic: frontend
 slug: animations
-title: "Animations"
+title: "Frontend Animations"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, animations]
 related: [frontend/15-styling, frontend/08-performance, frontend/09-accessibility, frontend/16-css-architecture, frontend/10-responsive-design]
 when_to_use: "Read before adding transitions, motion, or animated feedback to a UI."
 ---
-# Animations
+# Frontend Animations
 
 ## Purpose
 

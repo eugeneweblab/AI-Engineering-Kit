@@ -2,7 +2,7 @@
 id: mysql/02-configuration
 topic: mysql
 slug: configuration
-title: "Configuration"
+title: "MySQL Configuration"
 type: doc
 order: 2
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, configuration]
 related: [mysql/01-installation, mysql/06-transactions, mysql/14-performance, mysql/20-production, mysql/15-monitoring]
 when_to_use: "Read before editing my.cnf or tuning buffer pool, durability, or charset settings."
 ---
-# Configuration
+# MySQL Configuration
 
 ## Purpose
 

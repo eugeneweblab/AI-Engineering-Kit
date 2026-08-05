@@ -2,7 +2,7 @@
 id: redis/10-transactions
 topic: redis
 slug: transactions
-title: "Transactions"
+title: "Redis Transactions"
 type: doc
 order: 10
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, transactions]
 related: [redis/11-lua-scripting, redis/17-distributed-locks, redis/06-sorted-sets, redis/23-performance, redis/100-common-antipatterns]
 when_to_use: "Read before using MULTI/EXEC or WATCH, or when you need several Redis commands to run without another client interleaving."
 ---
-# Transactions
+# Redis Transactions
 
 ## Purpose
 

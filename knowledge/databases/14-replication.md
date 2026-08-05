@@ -2,7 +2,7 @@
 id: databases/14-replication
 topic: databases
 slug: replication
-title: "Replication"
+title: "Database Replication"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [databases, replication]
 related: [databases/13-eventual-consistency, databases/22-high-availability, databases/12-acid, databases/18-backup-and-recovery, databases/15-sharding]
 when_to_use: "Read before adding read replicas, configuring failover, or routing reads and writes across database nodes."
 ---
-# Replication
+# Database Replication
 
 ## Purpose
 

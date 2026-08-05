@@ -2,7 +2,7 @@
 id: rest-api/17-rate-limiting
 topic: rest-api
 slug: rate-limiting
-title: "Rate Limiting"
+title: "REST API Rate Limiting"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, rate-limiting]
 related: [rest-api/15-authentication, rest-api/16-authorization, rest-api/07-status-codes, rest-api/24-security, rest-api/25-performance]
 when_to_use: "Read before exposing any public or authenticated endpoint that could be called in a loop."
 ---
-# Rate Limiting
+# REST API Rate Limiting
 
 ## Purpose
 

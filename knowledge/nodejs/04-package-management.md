@@ -2,7 +2,7 @@
 id: nodejs/04-package-management
 topic: nodejs
 slug: package-management
-title: "Package Management"
+title: "Node.js Package Management"
 type: doc
 order: 4
 status: ready
@@ -10,7 +10,7 @@ tags: [nodejs, package-management]
 related: [nodejs/03-modules, nodejs/18-security, nodejs/26-deployment, nodejs/00-overview, nodejs/14-environment]
 when_to_use: "Read before adding a dependency, editing package.json, setting up CI installs, or auditing the supply chain."
 ---
-# Package Management
+# Node.js Package Management
 
 ## Purpose
 

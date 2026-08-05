@@ -2,7 +2,7 @@
 id: prisma/98-production-checklist
 topic: prisma
 slug: production-checklist
-title: "Production Checklist"
+title: "Prisma Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, production-checklist]
 related: [prisma/25-production, prisma/05-migrations, prisma/15-performance, prisma/26-observability, prisma/21-security]
 when_to_use: "Read before deploying a Prisma-backed service to production or promoting a database change."
 ---
-# Production Checklist
+# Prisma Production Checklist
 
 ## Purpose
 

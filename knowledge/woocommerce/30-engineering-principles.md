@@ -2,7 +2,7 @@
 id: woocommerce/30-engineering-principles
 topic: woocommerce
 slug: engineering-principles
-title: "Engineering Principles"
+title: "WooCommerce Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, engineering-principles]
 related: [woocommerce/01-architecture, woocommerce/12-hooks, woocommerce/25-best-practices, woocommerce/16-security, woocommerce/100-common-antipatterns]
 when_to_use: "Read before making any non-trivial WooCommerce design decision, so choices are reasoned against the platform's conventions rather than guessed."
 ---
-# Engineering Principles
+# WooCommerce Engineering Principles
 
 ## Purpose
 

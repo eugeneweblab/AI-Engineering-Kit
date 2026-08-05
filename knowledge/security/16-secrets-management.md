@@ -2,7 +2,7 @@
 id: security/16-secrets-management
 topic: security
 slug: secrets-management
-title: "Secrets Management"
+title: "Security Secrets Management"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [security, secrets-management]
 related: [security/17-encryption, security/18-https, security/23-dependency-security, security/24-supply-chain-security]
 when_to_use: "Read before adding an API key, database password, token, or signing key to any code, config, or deploy pipeline."
 ---
-# Secrets Management
+# Security Secrets Management
 
 ## Purpose
 

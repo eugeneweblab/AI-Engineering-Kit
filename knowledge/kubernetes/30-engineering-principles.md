@@ -2,7 +2,7 @@
 id: kubernetes/30-engineering-principles
 topic: kubernetes
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Kubernetes Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [kubernetes, engineering-principles]
 related: [kubernetes/19-resource-management, kubernetes/27-best-practices, kubernetes/22-security, kubernetes/21-observability, kubernetes/26-production]
 when_to_use: "Read before designing or reviewing any workload manifest, Helm chart, or controller that runs on Kubernetes."
 ---
-# Engineering Principles
+# Kubernetes Engineering Principles
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: javascript/99-ai-review-checklist
 topic: javascript
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "JavaScript AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, ai-review-checklist]
 related: [javascript/30-engineering-principles, javascript/100-common-antipatterns, javascript/14-error-handling, javascript/26-security, javascript/23-clean-code]
 when_to_use: "Read when reviewing JavaScript code — human-written or AI-generated — before approval."
 ---
-# AI Review Checklist
+# JavaScript AI Review Checklist
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: kubernetes/28-disaster-recovery
 topic: kubernetes
 slug: disaster-recovery
-title: "Disaster Recovery"
+title: "Kubernetes Disaster Recovery"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [kubernetes, disaster-recovery]
 related: [kubernetes/25-upgrades, kubernetes/12-persistent-volumes, kubernetes/13-statefulsets, kubernetes/26-production, kubernetes/23-monitoring]
 when_to_use: "Read before designing backups, recovery procedures, or reviewing a cluster's DR posture."
 ---
-# Disaster Recovery
+# Kubernetes Disaster Recovery
 
 ## Purpose
 

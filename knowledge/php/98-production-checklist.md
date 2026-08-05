@@ -2,7 +2,7 @@
 id: php/98-production-checklist
 topic: php
 slug: production-checklist
-title: "Production Checklist"
+title: "PHP Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [php, production-checklist]
 related: [php/27-production, php/13-security, php/14-performance, php/28-tooling, php/25-debugging]
 when_to_use: "Read before promoting a PHP application to production or cutting a release."
 ---
-# Production Checklist
+# PHP Production Checklist
 
 ## Purpose
 

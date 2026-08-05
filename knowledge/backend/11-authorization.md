@@ -2,7 +2,7 @@
 id: backend/11-authorization
 topic: backend
 slug: authorization
-title: "Authorization"
+title: "Backend Authorization"
 type: doc
 order: 11
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, authorization]
 related: [backend/10-authentication, backend/07-business-logic, backend/06-api-design, backend/21-security, backend/22-observability]
 when_to_use: "Read before adding or reviewing any permission check, role, ownership rule, or access-control decision."
 ---
-# Authorization
+# Backend Authorization
 
 ## Purpose
 

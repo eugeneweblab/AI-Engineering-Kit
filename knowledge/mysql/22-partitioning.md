@@ -2,7 +2,7 @@
 id: mysql/22-partitioning
 topic: mysql
 slug: partitioning
-title: "Partitioning"
+title: "MySQL Partitioning"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, partitioning]
 related: [mysql/04-indexes, mysql/05-query-optimization, mysql/14-performance, mysql/03-data-types, mysql/16-migrations]
 when_to_use: "Read before adding table partitioning to manage very large tables or time-series data, or when reviewing a proposed partitioning scheme."
 ---
-# Partitioning
+# MySQL Partitioning
 
 ## Purpose
 

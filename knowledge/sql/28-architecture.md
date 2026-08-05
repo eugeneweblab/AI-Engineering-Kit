@@ -2,7 +2,7 @@
 id: sql/28-architecture
 topic: sql
 slug: architecture
-title: "Architecture"
+title: "SQL Architecture"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [sql, architecture]
 related: [sql/12-ddl, sql/18-views, sql/20-stored-procedures, sql/14-transactions, sql/23-performance]
 when_to_use: "Read before designing a schema, choosing where business logic lives, or planning how the database scales."
 ---
-# Architecture
+# SQL Architecture
 
 ## Purpose
 

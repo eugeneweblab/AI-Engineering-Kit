@@ -2,7 +2,7 @@
 id: prisma/26-observability
 topic: prisma
 slug: observability
-title: "Observability"
+title: "Prisma Observability"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, observability]
 related: [prisma/15-performance, prisma/20-debugging, prisma/25-production, prisma/18-error-handling, prisma/13-middleware]
 when_to_use: "Read before instrumenting a Prisma app with logging, metrics, or tracing, or when diagnosing slow or failing queries in production."
 ---
-# Observability
+# Prisma Observability
 
 ## Purpose
 

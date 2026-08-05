@@ -2,7 +2,7 @@
 id: css/17-responsive-design
 topic: css
 slug: responsive-design
-title: "Responsive Design"
+title: "CSS Responsive Design"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [css, responsive-design]
 related: [css/18-media-queries, css/19-container-queries, css/06-flexbox, css/07-grid, css/08-sizing]
 when_to_use: "Read before building any layout that must work across phone, tablet, and desktop widths."
 ---
-# Responsive Design
+# CSS Responsive Design
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: nodejs/100-common-antipatterns
 topic: nodejs
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Node.js Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [nodejs, common-antipatterns]
 related: [nodejs/02-event-loop, nodejs/16-error-handling, nodejs/06-streams, nodejs/30-engineering-principles, nodejs/19-performance]
 when_to_use: "Read when writing or reviewing Node.js code to recognize and avoid the recurring failure patterns below."
 ---
-# Common Antipatterns
+# Node.js Common Antipatterns
 
 ## Purpose
 

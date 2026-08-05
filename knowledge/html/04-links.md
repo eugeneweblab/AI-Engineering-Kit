@@ -2,7 +2,7 @@
 id: html/04-links
 topic: html
 slug: links
-title: "Links"
+title: "HTML Links"
 type: doc
 order: 4
 status: ready
@@ -10,7 +10,7 @@ tags: [html, links]
 related: [html/02-semantic-html, html/03-text-elements, html/11-accessibility, html/19-security, html/12-seo]
 when_to_use: "Read before adding, reviewing, or refactoring any <a> element, navigation, or anchor target."
 ---
-# Links
+# HTML Links
 
 ## Purpose
 

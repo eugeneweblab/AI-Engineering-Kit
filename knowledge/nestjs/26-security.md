@@ -2,7 +2,7 @@
 id: nestjs/26-security
 topic: nestjs
 slug: security
-title: "Security"
+title: "NestJS Security"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [nestjs, security]
 related: [nestjs/15-authentication, nestjs/16-authorization, nestjs/08-validation, security/28-owasp-top10]
 when_to_use: "Read before building or reviewing any code with security implications, or when hardening a NestJS application."
 ---
-# Security
+# NestJS Security
 
 ## Purpose
 

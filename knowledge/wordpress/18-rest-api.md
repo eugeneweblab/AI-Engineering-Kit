@@ -2,7 +2,7 @@
 id: wordpress/18-rest-api
 topic: wordpress
 slug: rest-api
-title: "REST API"
+title: "WordPress REST API"
 type: doc
 order: 18
 status: ready
@@ -10,7 +10,7 @@ tags: [wordpress, rest-api]
 related: [wordpress/06-security, wordpress/20-users-and-capabilities, wordpress/11-metadata, wordpress/16-block-editor, wordpress/23-caching, wordpress/09-custom-post-types, rest-api/24-security]
 when_to_use: "Read before exposing or consuming WordPress REST endpoints — registering a route, adding fields to core responses, or securing an API used by a headless front end."
 ---
-# REST API
+# WordPress REST API
 
 ## Purpose
 

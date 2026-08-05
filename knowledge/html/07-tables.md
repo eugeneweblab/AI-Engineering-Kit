@@ -2,7 +2,7 @@
 id: html/07-tables
 topic: html
 slug: tables
-title: "Tables"
+title: "HTML Tables"
 type: doc
 order: 7
 status: ready
@@ -10,7 +10,7 @@ tags: [html, tables]
 related: [html/11-accessibility, html/02-semantic-html, html/08-forms, html/06-lists]
 when_to_use: "Read before rendering any tabular data grid or reviewing a data table's markup."
 ---
-# Tables
+# HTML Tables
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: graphql/02-schema
 topic: graphql
 slug: schema
-title: "Schema"
+title: "GraphQL Schema"
 type: doc
 order: 2
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, schema]
 related: [graphql/03-types, graphql/10-input-types, graphql/29-schema-evolution, graphql/04-queries, graphql/05-mutations]
 when_to_use: "Read before writing or changing any SDL, so the schema is designed around the domain and stays evolvable."
 ---
-# Schema
+# GraphQL Schema
 
 ## Purpose
 

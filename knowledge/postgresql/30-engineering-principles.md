@@ -2,7 +2,7 @@
 id: postgresql/30-engineering-principles
 topic: postgresql
 slug: engineering-principles
-title: "Engineering Principles"
+title: "PostgreSQL Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, engineering-principles]
 related: [postgresql/06-transactions, postgresql/04-indexes, postgresql/22-migrations, postgresql/05-query-planner, postgresql/25-best-practices]
 when_to_use: "Read before designing a schema, writing migrations, or making any decision that affects how the database enforces correctness."
 ---
-# Engineering Principles
+# PostgreSQL Engineering Principles
 
 ## Purpose
 

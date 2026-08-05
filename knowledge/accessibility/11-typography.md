@@ -2,7 +2,7 @@
 id: accessibility/11-typography
 topic: accessibility
 slug: typography
-title: "Typography"
+title: "Accessibility Typography"
 type: doc
 order: 11
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, typography]
 related: [accessibility/10-color-and-contrast, accessibility/12-layout, accessibility/13-responsive-accessibility, accessibility/02-pour-principles, accessibility/23-wcag]
 when_to_use: "Read before setting font sizes, line spacing, or building any text-heavy layout or theme."
 ---
-# Typography
+# Accessibility Typography
 
 ## Purpose
 

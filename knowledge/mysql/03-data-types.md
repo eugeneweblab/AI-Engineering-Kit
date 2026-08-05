@@ -2,7 +2,7 @@
 id: mysql/03-data-types
 topic: mysql
 slug: data-types
-title: "Data Types"
+title: "MySQL Data Types"
 type: doc
 order: 3
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, data-types]
 related: [mysql/04-indexes, mysql/00-overview, mysql/24-json, mysql/16-migrations, mysql/05-query-optimization]
 when_to_use: "Read before designing a table schema or choosing a column type."
 ---
-# Data Types
+# MySQL Data Types
 
 ## Purpose
 

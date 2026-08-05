@@ -2,7 +2,7 @@
 id: architecture/20-message-brokers
 topic: architecture
 slug: message-brokers
-title: "Message Brokers"
+title: "Architecture Message Brokers"
 type: doc
 order: 20
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, message-brokers]
 related: [architecture/08-event-driven-architecture, architecture/12-integration-patterns, architecture/09-microservices, architecture/21-distributed-systems, architecture/17-fault-tolerance]
 when_to_use: "Read before adding a queue or event stream, or when designing how services communicate asynchronously."
 ---
-# Message Brokers
+# Architecture Message Brokers
 
 ## Purpose
 

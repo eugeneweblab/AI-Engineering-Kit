@@ -2,7 +2,7 @@
 id: security/21-rate-limiting
 topic: security
 slug: rate-limiting
-title: "Rate Limiting"
+title: "Security Rate Limiting"
 type: doc
 order: 21
 status: ready
@@ -10,7 +10,7 @@ tags: [security, rate-limiting]
 related: [security/03-authentication, security/22-security-headers, security/25-monitoring, security/26-incident-response]
 when_to_use: "Read before protecting login, signup, password-reset, or any expensive endpoint from abuse."
 ---
-# Rate Limiting
+# Security Rate Limiting
 
 ## Purpose
 

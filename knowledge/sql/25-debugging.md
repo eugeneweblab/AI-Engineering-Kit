@@ -2,7 +2,7 @@
 id: sql/25-debugging
 topic: sql
 slug: debugging
-title: "Debugging"
+title: "SQL Debugging"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [sql, debugging]
 related: [sql/16-query-planning, sql/17-query-optimization, sql/23-performance, sql/14-transactions, sql/24-testing]
 when_to_use: "Read when a query returns wrong rows, runs slowly, deadlocks, or a migration fails."
 ---
-# Debugging
+# SQL Debugging
 
 ## Purpose
 

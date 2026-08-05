@@ -2,7 +2,7 @@
 id: databases/00-overview
 topic: databases
 slug: overview
-title: "Overview"
+title: "Database Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [databases, overview]
 related: [databases/01-database-fundamentals, databases/02-relational-vs-nosql, databases/03-data-modeling, databases/09-transactions, databases/07-indexing]
 when_to_use: "Read first to orient yourself in the databases topic and find the right doc for the decision in front of you."
 ---
-# Overview
+# Database Overview
 
 ## Purpose
 

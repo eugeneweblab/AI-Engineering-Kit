@@ -2,7 +2,7 @@
 id: devops/12-monitoring
 topic: devops
 slug: monitoring
-title: "Monitoring"
+title: "DevOps Monitoring"
 type: doc
 order: 12
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, monitoring]
 related: [devops/13-observability, devops/15-alerting, devops/14-logging, devops/27-sre-principles, devops/25-incident-management]
 when_to_use: "Read before adding metrics, dashboards, or health checks to a service, or reviewing a service's readiness for production."
 ---
-# Monitoring
+# DevOps Monitoring
 
 ## Purpose
 

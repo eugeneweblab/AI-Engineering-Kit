@@ -2,7 +2,7 @@
 id: nginx/99-ai-review-checklist
 topic: nginx
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Nginx AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, ai-review-checklist]
 related: [nginx/30-engineering-principles, nginx/26-best-practices, nginx/13-security, nginx/05-reverse-proxy, nginx/100-common-antipatterns]
 when_to_use: "Read before reviewing or approving any nginx config change in a pull request or agent-generated diff."
 ---
-# AI Review Checklist
+# Nginx AI Review Checklist
 
 ## Purpose
 

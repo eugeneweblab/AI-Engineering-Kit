@@ -2,7 +2,7 @@
 id: performance/15-query-optimization
 topic: performance
 slug: query-optimization
-title: "Query Optimization"
+title: "Performance Query Optimization"
 type: doc
 order: 15
 status: ready
@@ -10,7 +10,7 @@ tags: [performance, query-optimization]
 related: [performance/13-database-performance, performance/16-profiling, performance/14-api-performance, performance/08-caching, performance/02-metrics]
 when_to_use: "Read before writing a complex SQL query, adding an index, or diagnosing one specific slow statement."
 ---
-# Query Optimization
+# Performance Query Optimization
 
 ## Purpose
 

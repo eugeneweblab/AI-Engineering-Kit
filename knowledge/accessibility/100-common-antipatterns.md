@@ -2,7 +2,7 @@
 id: accessibility/100-common-antipatterns
 topic: accessibility
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Accessibility Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, common-antipatterns]
 related: [accessibility/03-semantic-html, accessibility/07-aria, accessibility/05-focus-management, accessibility/10-color-and-contrast, accessibility/99-ai-review-checklist]
 when_to_use: "Read when writing or reviewing UI, to recognize the recurring accessibility mistakes and apply their fixes before they ship."
 ---
-# Common Antipatterns
+# Accessibility Common Antipatterns
 
 ## Purpose
 

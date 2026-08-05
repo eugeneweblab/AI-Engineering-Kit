@@ -2,7 +2,7 @@
 id: frontend/16-css-architecture
 topic: frontend
 slug: css-architecture
-title: "CSS Architecture"
+title: "Frontend CSS Architecture"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, css-architecture]
 related: [frontend/15-styling, frontend/03-design-systems, frontend/02-component-driven-development, frontend/25-folder-structure, frontend/08-performance]
 when_to_use: "Read before establishing how CSS is organized, layered, and scaled across a codebase."
 ---
-# CSS Architecture
+# Frontend CSS Architecture
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: devops/22-testing
 topic: devops
 slug: testing
-title: "Testing"
+title: "DevOps Testing"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, testing]
 related: [devops/23-quality-gates, devops/05-build-pipelines, devops/07-deployment-strategies, devops/21-performance, devops/16-security]
 when_to_use: "Read before writing a test suite or CI test stage, or reviewing test coverage for a change."
 ---
-# Testing
+# DevOps Testing
 
 ## Purpose
 

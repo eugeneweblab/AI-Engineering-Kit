@@ -2,7 +2,7 @@
 id: divi/26-real-world-patterns
 topic: divi
 slug: real-world-patterns
-title: "Real World Patterns"
+title: "Divi Real World Patterns"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, real-world-patterns]
 related: [divi/02-theme-builder, divi/07-dynamic-content, divi/14-woocommerce, divi/15-custom-fields, divi/09-custom-css]
 when_to_use: "Read when implementing a common Divi feature (dynamic archive, mega menu, pricing table, gated content) to use the proven approach instead of improvising."
 ---
-# Real World Patterns
+# Divi Real World Patterns
 
 ## Purpose
 

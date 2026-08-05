@@ -2,7 +2,7 @@
 id: accessibility/15-media
 topic: accessibility
 slug: media
-title: "Media"
+title: "Accessibility Media"
 type: doc
 order: 15
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, media]
 related: [accessibility/14-motion-and-animation, accessibility/09-images, accessibility/04-keyboard-navigation, accessibility/07-aria, accessibility/23-wcag]
 when_to_use: "Read before embedding audio, video, players, or auto-playing media."
 ---
-# Media
+# Accessibility Media
 
 ## Purpose
 

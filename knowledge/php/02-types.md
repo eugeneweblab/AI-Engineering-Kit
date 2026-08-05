@@ -2,7 +2,7 @@
 id: php/02-types
 topic: php
 slug: types
-title: "Types"
+title: "PHP Types"
 type: doc
 order: 2
 status: ready
@@ -10,7 +10,7 @@ tags: [php, types]
 related: [php/01-language-fundamentals, php/03-functions, php/04-oop, php/19-enums, php/23-modern-php]
 when_to_use: "Read before declaring any parameter, property, or return type, or when a TypeError appears."
 ---
-# Types
+# PHP Types
 
 ## Purpose
 

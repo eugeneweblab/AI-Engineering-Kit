@@ -2,7 +2,7 @@
 id: databases/29-architecture
 topic: databases
 slug: architecture
-title: "Architecture"
+title: "Database Architecture"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [databases, architecture]
 related: [databases/02-relational-vs-nosql, databases/14-replication, databases/15-sharding, databases/22-high-availability, databases/20-performance]
 when_to_use: "Read before choosing a database, or when deciding how the data layer of a system should be structured, scaled, and made resilient."
 ---
-# Architecture
+# Database Architecture
 
 ## Purpose
 

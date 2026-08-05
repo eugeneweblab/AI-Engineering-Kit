@@ -2,7 +2,7 @@
 id: php/22-clean-code
 topic: php
 slug: clean-code
-title: "Clean Code"
+title: "PHP Clean Code"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [php, clean-code]
 related: [php/03-functions, php/04-oop, php/26-best-practices, php/24-psr-standards]
 when_to_use: "Read before writing or reviewing everyday PHP for readability, naming, and function/class structure."
 ---
-# Clean Code
+# PHP Clean Code
 
 ## Purpose
 

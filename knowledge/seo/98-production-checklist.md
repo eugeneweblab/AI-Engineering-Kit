@@ -2,7 +2,7 @@
 id: seo/98-production-checklist
 topic: seo
 slug: production-checklist
-title: "Production Checklist"
+title: "SEO Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [seo, production-checklist]
 related: [seo/00-overview, seo/27-production-checks, seo/07-sitemaps, seo/08-robots-txt, seo/13-core-web-vitals]
 when_to_use: "Read before launching a new site or a routing/rendering change, to verify search engines can crawl, render, and index it."
 ---
-# Production Checklist
+# SEO Production Checklist
 
 ## Purpose
 

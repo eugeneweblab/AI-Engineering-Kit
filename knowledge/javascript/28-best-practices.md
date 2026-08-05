@@ -2,7 +2,7 @@
 id: javascript/28-best-practices
 topic: javascript
 slug: best-practices
-title: "Best Practices"
+title: "JavaScript Best Practices"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, best-practices]
 related: [javascript/23-clean-code, javascript/14-error-handling, javascript/01-language-fundamentals, javascript/17-es6-features, javascript/26-security]
 when_to_use: "Read before writing everyday JavaScript, or when reviewing a PR for baseline code quality."
 ---
-# Best Practices
+# JavaScript Best Practices
 
 ## Purpose
 

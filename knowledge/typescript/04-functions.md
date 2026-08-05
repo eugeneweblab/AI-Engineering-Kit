@@ -2,7 +2,7 @@
 id: typescript/04-functions
 topic: typescript
 slug: functions
-title: "Functions"
+title: "TypeScript Functions"
 type: doc
 order: 4
 status: ready
@@ -10,7 +10,7 @@ tags: [typescript, functions]
 related: [typescript/03-type-inference, typescript/08-generics, typescript/17-error-handling, typescript/18-asynchronous-programming]
 when_to_use: "Read before writing or reviewing any function signature, callback, or overload."
 ---
-# Functions
+# TypeScript Functions
 
 ## Purpose
 

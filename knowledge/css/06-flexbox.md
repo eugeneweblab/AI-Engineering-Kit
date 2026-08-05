@@ -2,7 +2,7 @@
 id: css/06-flexbox
 topic: css
 slug: flexbox
-title: "Flexbox"
+title: "CSS Flexbox"
 type: doc
 order: 6
 status: ready
@@ -10,7 +10,7 @@ tags: [css, flexbox]
 related: [css/07-grid, css/08-sizing, css/09-spacing, css/05-positioning, css/17-responsive-design]
 when_to_use: "Read before laying out a component's children in a single row or column, or centering content."
 ---
-# Flexbox
+# CSS Flexbox
 
 ## Purpose
 

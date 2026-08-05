@@ -2,7 +2,7 @@
 id: divi/11-responsive-design
 topic: divi
 slug: responsive-design
-title: "Responsive Design"
+title: "Divi Responsive Design"
 type: doc
 order: 11
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, responsive-design]
 related: [divi/09-custom-css, divi/10-performance, divi/12-accessibility, divi/08-templates, divi/03-modules]
 when_to_use: "Read before adjusting any layout for phone/tablet or when a Divi page looks broken on mobile."
 ---
-# Responsive Design
+# Divi Responsive Design
 
 ## Purpose
 

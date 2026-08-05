@@ -2,7 +2,7 @@
 id: redis/13-caching
 topic: redis
 slug: caching
-title: "Caching"
+title: "Redis Caching"
 type: doc
 order: 13
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, caching]
 related: [redis/12-expiration, redis/17-distributed-locks, redis/03-strings, redis/23-performance, redis/100-common-antipatterns]
 when_to_use: "Read before putting Redis in front of a database or API to cache reads."
 ---
-# Caching
+# Redis Caching
 
 ## Purpose
 

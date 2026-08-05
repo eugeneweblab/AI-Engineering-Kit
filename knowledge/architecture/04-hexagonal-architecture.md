@@ -2,7 +2,7 @@
 id: architecture/04-hexagonal-architecture
 topic: architecture
 slug: hexagonal-architecture
-title: "Hexagonal Architecture"
+title: "Architecture Hexagonal Architecture"
 type: doc
 order: 4
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, hexagonal-architecture]
 related: [architecture/03-clean-architecture, architecture/05-layered-architecture, architecture/06-domain-driven-design, architecture/12-integration-patterns, architecture/01-software-architecture]
 when_to_use: "Read before building a service that must be driven by multiple inputs (HTTP, CLI, queue) or swap infrastructure without touching business logic."
 ---
-# Hexagonal Architecture
+# Architecture Hexagonal Architecture
 
 ## Purpose
 

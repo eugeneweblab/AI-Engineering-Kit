@@ -2,7 +2,7 @@
 id: devops/100-common-antipatterns
 topic: devops
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "DevOps Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, common-antipatterns]
 related: [devops/08-infrastructure-as-code, devops/07-deployment-strategies, devops/17-secrets-management, devops/30-engineering-principles, devops/99-ai-review-checklist]
 when_to_use: "Read before writing a pipeline, deploy config, or infra change, to check you are not walking into a known trap."
 ---
-# Common Antipatterns
+# DevOps Common Antipatterns
 
 ## Purpose
 

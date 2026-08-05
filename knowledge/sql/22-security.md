@@ -2,7 +2,7 @@
 id: sql/22-security
 topic: sql
 slug: security
-title: "Security"
+title: "SQL Security"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [sql, security]
 related: [sql/20-stored-procedures, sql/18-views, sql/13-dml, sql/14-transactions, sql/26-best-practices]
 when_to_use: "Read before writing any query that includes user input, granting database privileges, or exposing tables to an application role."
 ---
-# Security
+# SQL Security
 
 ## Purpose
 

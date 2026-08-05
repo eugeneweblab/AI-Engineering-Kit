@@ -2,7 +2,7 @@
 id: css/27-debugging
 topic: css
 slug: debugging
-title: "Debugging"
+title: "CSS Debugging"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [css, debugging]
 related: [css/03-specificity, css/04-box-model, css/22-performance, css/26-browser-compatibility]
 when_to_use: "Read when a style is not applying, an element is the wrong size or position, or the layout overflows and you cannot see why."
 ---
-# Debugging
+# CSS Debugging
 
 ## Purpose
 

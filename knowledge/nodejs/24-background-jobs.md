@@ -2,7 +2,7 @@
 id: nodejs/24-background-jobs
 topic: nodejs
 slug: background-jobs
-title: "Background Jobs"
+title: "Node.js Background Jobs"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [nodejs, background-jobs]
 related: [nodejs/12-worker-threads, nodejs/16-error-handling, nodejs/17-logging, nodejs/25-microservices, nodejs/27-monitoring]
 when_to_use: "Read before moving slow or unreliable work (email, image processing, webhooks, scheduled tasks) out of the request path."
 ---
-# Background Jobs
+# Node.js Background Jobs
 
 ## Purpose
 

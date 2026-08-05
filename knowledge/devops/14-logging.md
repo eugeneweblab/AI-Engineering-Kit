@@ -2,7 +2,7 @@
 id: devops/14-logging
 topic: devops
 slug: logging
-title: "Logging"
+title: "DevOps Logging"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, logging]
 related: [devops/13-observability, devops/12-monitoring, devops/15-alerting, devops/16-security, devops/25-incident-management]
 when_to_use: "Read before adding, changing, or reviewing any log statement, or when designing a service's log format and pipeline."
 ---
-# Logging
+# DevOps Logging
 
 ## Purpose
 

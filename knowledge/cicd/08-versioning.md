@@ -2,7 +2,7 @@
 id: cicd/08-versioning
 topic: cicd
 slug: versioning
-title: "Versioning"
+title: "CI/CD Versioning"
 type: doc
 order: 8
 status: ready
@@ -10,7 +10,7 @@ tags: [cicd, versioning]
 related: [cicd/07-artifacts, cicd/09-release-management, cicd/10-deployment, cicd/14-rollbacks]
 when_to_use: "Read before choosing a version scheme or automating version bumps in a pipeline."
 ---
-# Versioning
+# CI/CD Versioning
 
 ## Purpose
 

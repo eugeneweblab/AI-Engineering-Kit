@@ -2,7 +2,7 @@
 id: typescript/14-modules
 topic: typescript
 slug: modules
-title: "Modules"
+title: "TypeScript Modules"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [typescript, modules]
 related: [typescript/16-configuration, typescript/27-library-design, typescript/29-tooling, typescript/13-advanced-types]
 when_to_use: "Read before setting up imports/exports, package `exports` maps, or debugging ESM/CJS interop."
 ---
-# Modules
+# TypeScript Modules
 
 ## Purpose
 

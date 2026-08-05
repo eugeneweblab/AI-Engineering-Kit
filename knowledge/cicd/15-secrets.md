@@ -2,7 +2,7 @@
 id: cicd/15-secrets
 topic: cicd
 slug: secrets
-title: "Secrets"
+title: "CI/CD Secrets"
 type: doc
 order: 15
 status: ready
@@ -10,7 +10,7 @@ tags: [cicd, secrets]
 related: [cicd/16-environments, cicd/06-security-scanning, cicd/17-github-actions, cicd/03-build-stage, cicd/28-production]
 when_to_use: "Read before handling any credential, token, or key in a pipeline, build, or deployment."
 ---
-# Secrets
+# CI/CD Secrets
 
 ## Purpose
 

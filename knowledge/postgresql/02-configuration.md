@@ -2,7 +2,7 @@
 id: postgresql/02-configuration
 topic: postgresql
 slug: configuration
-title: "Configuration"
+title: "PostgreSQL Configuration"
 type: doc
 order: 2
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, configuration]
 related: [postgresql/01-installation, postgresql/27-tuning, postgresql/16-performance, postgresql/18-security, postgresql/17-monitoring]
 when_to_use: "Read before changing postgresql.conf, pg_hba.conf, or memory/connection settings."
 ---
-# Configuration
+# PostgreSQL Configuration
 
 ## Purpose
 

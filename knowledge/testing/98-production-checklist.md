@@ -2,7 +2,7 @@
 id: testing/98-production-checklist
 topic: testing
 slug: production-checklist
-title: "Production Checklist"
+title: "Testing Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [testing, production-checklist]
 related: [testing/21-cicd, testing/22-flaky-tests, testing/19-test-coverage, testing/27-quality-gates, testing/25-production-testing]
 when_to_use: "Read before merging to a release branch or promoting a build to production."
 ---
-# Production Checklist
+# Testing Production Checklist
 
 ## Purpose
 

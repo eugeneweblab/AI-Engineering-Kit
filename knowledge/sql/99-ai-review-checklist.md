@@ -2,7 +2,7 @@
 id: sql/99-ai-review-checklist
 topic: sql
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "SQL AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [sql, ai-review-checklist]
 related: [sql/17-query-optimization, sql/22-security, sql/24-testing, sql/25-debugging, sql/30-engineering-principles]
 when_to_use: "Read when reviewing any SQL diff — schema, query, or migration — before approving it."
 ---
-# AI Review Checklist
+# SQL AI Review Checklist
 
 ## Purpose
 

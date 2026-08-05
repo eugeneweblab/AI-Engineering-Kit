@@ -2,7 +2,7 @@
 id: nextjs/27-folder-structure
 topic: nextjs
 slug: folder-structure
-title: "Folder Structure"
+title: "Next.js Folder Structure"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [nextjs, folder-structure]
 related: [nextjs/02-project-structure, nextjs/03-app-router, nextjs/04-routing, nextjs/05-layouts, nextjs/06-server-components]
 when_to_use: "Read before creating routes, special files, or route groups inside the app/ directory."
 ---
-# Folder Structure
+# Next.js Folder Structure
 
 ## Purpose
 

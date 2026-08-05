@@ -2,7 +2,7 @@
 id: mysql/99-ai-review-checklist
 topic: mysql
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "MySQL AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, ai-review-checklist]
 related: [mysql/04-indexes, mysql/05-query-optimization, mysql/06-transactions, mysql/12-security, mysql/100-common-antipatterns]
 when_to_use: "Read when reviewing any pull request that adds or changes MySQL schema, queries, or data-access code."
 ---
-# AI Review Checklist
+# MySQL AI Review Checklist
 
 ## Purpose
 

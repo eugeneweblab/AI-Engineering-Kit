@@ -2,7 +2,7 @@
 id: redis/26-best-practices
 topic: redis
 slug: best-practices
-title: "Best Practices"
+title: "Redis Best Practices"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, best-practices]
 related: [redis/12-expiration, redis/13-caching, redis/23-performance, redis/27-production, redis/100-common-antipatterns]
 when_to_use: "Read before writing any new Redis access code or reviewing how an app uses Redis."
 ---
-# Best Practices
+# Redis Best Practices
 
 ## Purpose
 

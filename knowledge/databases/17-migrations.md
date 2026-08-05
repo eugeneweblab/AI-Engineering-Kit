@@ -2,7 +2,7 @@
 id: databases/17-migrations
 topic: databases
 slug: migrations
-title: "Migrations"
+title: "Database Migrations"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [databases, migrations]
 related: [databases/06-schema-design, databases/09-transactions, databases/11-locking, databases/18-backup-and-recovery, databases/27-testing]
 when_to_use: "Read before writing, reviewing, or deploying any schema change against a database that has data or live traffic."
 ---
-# Migrations
+# Database Migrations
 
 ## Purpose
 

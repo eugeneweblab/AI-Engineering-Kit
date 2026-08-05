@@ -2,7 +2,7 @@
 id: performance/100-common-antipatterns
 topic: performance
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Performance Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [performance, common-antipatterns]
 related: [performance/01-performance-fundamentals, performance/13-database-performance, performance/08-caching, performance/30-engineering-principles, performance/99-ai-review-checklist]
 when_to_use: "Read before optimizing a loop, a query, or a cache, to check you are not walking into a known trap."
 ---
-# Common Antipatterns
+# Performance Common Antipatterns
 
 ## Purpose
 

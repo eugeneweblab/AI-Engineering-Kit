@@ -2,7 +2,7 @@
 id: redis/02-data-types
 topic: redis
 slug: data-types
-title: "Data Types"
+title: "Redis Data Types"
 type: doc
 order: 2
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, data-types]
 related: [redis/03-strings, redis/04-lists, redis/05-sets, redis/06-sorted-sets, redis/07-hashes]
 when_to_use: "Read before choosing how to store a value in Redis, so the data type matches the access pattern."
 ---
-# Data Types
+# Redis Data Types
 
 ## Purpose
 

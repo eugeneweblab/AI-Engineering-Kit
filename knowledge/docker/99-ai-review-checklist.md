@@ -2,7 +2,7 @@
 id: docker/99-ai-review-checklist
 topic: docker
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Docker AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [docker, ai-review-checklist]
 related: [docker/08-dockerfile, docker/09-image-optimization, docker/18-security, docker/26-best-practices, docker/100-common-antipatterns]
 when_to_use: "Read when reviewing a Dockerfile, Compose file, or container-related diff, to catch defects before merge."
 ---
-# AI Review Checklist
+# Docker AI Review Checklist
 
 ## Purpose
 

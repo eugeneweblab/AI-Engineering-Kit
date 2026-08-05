@@ -2,7 +2,7 @@
 id: devops/06-release-management
 topic: devops
 slug: release-management
-title: "Release Management"
+title: "DevOps Release Management"
 type: doc
 order: 6
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, release-management]
 related: [devops/05-build-pipelines, devops/07-deployment-strategies, devops/04-branching-strategies, devops/24-change-management, devops/25-incident-management]
 when_to_use: "Read before cutting a release, versioning an artifact, or designing how changes reach production."
 ---
-# Release Management
+# DevOps Release Management
 
 ## Purpose
 

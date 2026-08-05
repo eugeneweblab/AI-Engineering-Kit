@@ -2,7 +2,7 @@
 id: docker/30-engineering-principles
 topic: docker
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Docker Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [docker, engineering-principles]
 related: [docker/08-dockerfile, docker/11-multi-stage-builds, docker/18-security, docker/22-production, docker/26-best-practices]
 when_to_use: "Read before writing a Dockerfile or shaping how an app is containerized, to internalize the reasoning behind the rules."
 ---
-# Engineering Principles
+# Docker Engineering Principles
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: backend/100-common-antipatterns
 topic: backend
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Backend Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, common-antipatterns]
 related: [backend/30-engineering-principles, backend/12-error-handling, backend/17-transactions, backend/19-performance, backend/99-ai-review-checklist]
 when_to_use: "Read before writing backend code, to recognize and avoid the recurring failure patterns."
 ---
-# Common Antipatterns
+# Backend Common Antipatterns
 
 ## Purpose
 

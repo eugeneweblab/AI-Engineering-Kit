@@ -2,7 +2,7 @@
 id: woocommerce/17-customization
 topic: woocommerce
 slug: customization
-title: "Customization"
+title: "WooCommerce Customization"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, customization]
 related: [woocommerce/12-hooks, woocommerce/16-security, woocommerce/15-performance, woocommerce/02-installation, woocommerce/100-common-antipatterns]
 when_to_use: "Read before overriding templates, adding custom fields, or changing WooCommerce UI/behavior."
 ---
-# Customization
+# WooCommerce Customization
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: typescript/24-testing
 topic: typescript
 slug: testing
-title: "Testing"
+title: "TypeScript Testing"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [typescript, testing]
 related: [typescript/17-error-handling, typescript/18-asynchronous-programming, typescript/29-tooling, typescript/08-generics]
 when_to_use: "Read before writing or reviewing unit, integration, or type-level tests for TypeScript code."
 ---
-# Testing
+# TypeScript Testing
 
 ## Purpose
 

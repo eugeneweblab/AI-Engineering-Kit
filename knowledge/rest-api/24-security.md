@@ -2,7 +2,7 @@
 id: rest-api/24-security
 topic: rest-api
 slug: security
-title: "Security"
+title: "REST API Security"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, security]
 related: [rest-api/15-authentication, rest-api/16-authorization, rest-api/17-rate-limiting, rest-api/08-validation, rest-api/09-error-handling]
 when_to_use: "Read before exposing any REST endpoint to untrusted clients or reviewing an API for security defects."
 ---
-# Security
+# REST API Security
 
 ## Purpose
 

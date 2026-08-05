@@ -2,7 +2,7 @@
 id: javascript/25-performance
 topic: javascript
 slug: performance
-title: "Performance"
+title: "JavaScript Performance"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, performance]
 related: [javascript/10-event-loop, javascript/15-memory-management, javascript/08-asynchronous-javascript, javascript/27-browser-performance, javascript/24-testing]
 when_to_use: "Read before optimizing JavaScript execution speed, throughput, or memory in Node or the browser."
 ---
-# Performance
+# JavaScript Performance
 
 ## Purpose
 

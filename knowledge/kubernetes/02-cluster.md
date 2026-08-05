@@ -2,7 +2,7 @@
 id: kubernetes/02-cluster
 topic: kubernetes
 slug: cluster
-title: "Cluster"
+title: "Kubernetes Cluster"
 type: doc
 order: 2
 status: ready
@@ -10,7 +10,7 @@ tags: [kubernetes, cluster]
 related: [kubernetes/01-architecture, kubernetes/03-nodes, kubernetes/18-rbac, kubernetes/25-upgrades, kubernetes/28-disaster-recovery]
 when_to_use: "Read before provisioning, configuring, or making cluster-wide changes such as namespaces, upgrades, or multi-tenancy."
 ---
-# Cluster
+# Kubernetes Cluster
 
 ## Purpose
 

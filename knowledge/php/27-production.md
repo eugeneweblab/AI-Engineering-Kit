@@ -2,7 +2,7 @@
 id: php/27-production
 topic: php
 slug: production
-title: "Production"
+title: "PHP Production"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [php, production]
 related: [php/14-performance, php/13-security, php/08-error-handling, php/25-debugging, php/98-production-checklist]
 when_to_use: "Read before deploying a PHP app or reviewing its runtime, config, and deployment setup."
 ---
-# Production
+# PHP Production
 
 ## Purpose
 

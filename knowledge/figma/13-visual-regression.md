@@ -2,7 +2,7 @@
 id: figma/13-visual-regression
 topic: figma
 slug: visual-regression
-title: "Visual Regression"
+title: "Figma Visual Regression"
 type: doc
 order: 13
 status: ready
@@ -19,7 +19,7 @@ related: [figma/15-screenshot-comparison, figma/10-design-qa, testing/14-visual-
   - performance/18-web-vitals
 when_to_use: "Read before approving frontend changes, to check that new work has not visually regressed existing pages."
 ---
-# Visual Regression
+# Figma Visual Regression
 
 ## Purpose
 

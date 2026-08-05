@@ -2,7 +2,7 @@
 id: nodejs/18-security
 topic: nodejs
 slug: security
-title: "Security"
+title: "Node.js Security"
 type: doc
 order: 18
 status: ready
@@ -10,7 +10,7 @@ tags: [nodejs, security]
 related: [nodejs/16-error-handling, nodejs/14-environment, nodejs/09-http, nodejs/04-package-management, nodejs/17-logging]
 when_to_use: "Read before shipping any Node.js service that handles user input, secrets, dependencies, or network traffic."
 ---
-# Security
+# Node.js Security
 
 ## Purpose
 

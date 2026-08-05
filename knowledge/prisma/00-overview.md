@@ -2,7 +2,7 @@
 id: prisma/00-overview
 topic: prisma
 slug: overview
-title: "Overview"
+title: "Prisma Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, overview]
 related: [prisma/01-installation, prisma/02-schema, prisma/04-relations, prisma/05-migrations, prisma/06-client]
 when_to_use: "Read first when starting Prisma work or deciding which Prisma doc answers your question."
 ---
-# Overview
+# Prisma Overview
 
 ## Purpose
 

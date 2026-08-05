@@ -2,7 +2,7 @@
 id: nodejs/08-events
 topic: nodejs
 slug: events
-title: "Events"
+title: "Node.js Events"
 type: doc
 order: 8
 status: ready
@@ -10,7 +10,7 @@ tags: [nodejs, events]
 related: [nodejs/06-streams, nodejs/16-error-handling, nodejs/02-event-loop, nodejs/20-memory-management, nodejs/11-child-process]
 when_to_use: "Read before building or subscribing to any EventEmitter-based API, or before adding listeners in a long-lived process."
 ---
-# Events
+# Node.js Events
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: backend/19-performance
 topic: backend
 slug: performance
-title: "Performance"
+title: "Backend Performance"
 type: doc
 order: 19
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, performance]
 related: [backend/13-caching, backend/18-database-design, backend/20-scalability, backend/22-observability, backend/16-background-jobs]
 when_to_use: "Read before optimizing an endpoint, chasing a latency regression, or when a query or handler is measurably too slow."
 ---
-# Performance
+# Backend Performance
 
 ## Purpose
 

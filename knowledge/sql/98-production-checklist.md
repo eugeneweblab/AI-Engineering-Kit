@@ -2,7 +2,7 @@
 id: sql/98-production-checklist
 topic: sql
 slug: production-checklist
-title: "Production Checklist"
+title: "SQL Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [sql, production-checklist]
 related: [sql/14-transactions, sql/15-indexes, sql/22-security, sql/23-performance, sql/30-engineering-principles]
 when_to_use: "Read before shipping a schema, migration, or query change to a production database."
 ---
-# Production Checklist
+# SQL Production Checklist
 
 ## Purpose
 

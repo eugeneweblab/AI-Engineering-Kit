@@ -2,7 +2,7 @@
 id: tailwind/05-flexbox
 topic: tailwind
 slug: flexbox
-title: "Flexbox"
+title: "Tailwind CSS Flexbox"
 type: doc
 order: 5
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, flexbox]
 related: [tailwind/04-layout, tailwind/06-grid, tailwind/07-spacing, tailwind/11-responsive-design, tailwind/02-core-concepts]
 when_to_use: "Read before laying out a one-dimensional row or column of items with flex utilities."
 ---
-# Flexbox
+# Tailwind CSS Flexbox
 
 ## Purpose
 

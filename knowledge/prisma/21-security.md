@@ -2,7 +2,7 @@
 id: prisma/21-security
 topic: prisma
 slug: security
-title: "Security"
+title: "Prisma Security"
 type: doc
 order: 21
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, security]
 related: [prisma/17-raw-sql, prisma/09-filtering, prisma/07-crud, prisma/22-multi-tenancy]
 when_to_use: "Read before accepting any user input into a Prisma query or exposing query results over an API."
 ---
-# Security
+# Prisma Security
 
 ## Purpose
 

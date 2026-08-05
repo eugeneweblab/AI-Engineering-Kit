@@ -2,7 +2,7 @@
 id: linux/28-tooling
 topic: linux
 slug: tooling
-title: "Tooling"
+title: "Linux Tooling"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [linux, tooling]
 related: [linux/02-shell, linux/19-debugging, linux/16-monitoring, linux/24-scripting, linux/18-performance]
 when_to_use: "Read when choosing which command-line tool to reach for on Linux, or reviewing which tool a script or diagnosis relies on."
 ---
-# Tooling
+# Linux Tooling
 
 ## Purpose
 

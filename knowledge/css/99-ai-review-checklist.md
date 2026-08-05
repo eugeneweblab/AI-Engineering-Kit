@@ -2,7 +2,7 @@
 id: css/99-ai-review-checklist
 topic: css
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "CSS AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [css, ai-review-checklist]
 related: [css/03-specificity, css/30-engineering-principles, css/100-common-antipatterns, css/23-accessibility, css/22-performance]
 when_to_use: "Read when reviewing a CSS diff or pull request before approving it."
 ---
-# AI Review Checklist
+# CSS AI Review Checklist
 
 ## Purpose
 

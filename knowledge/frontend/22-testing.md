@@ -2,7 +2,7 @@
 id: frontend/22-testing
 topic: frontend
 slug: testing
-title: "Testing"
+title: "Frontend Testing"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, testing]
 related: [frontend/02-component-driven-development, frontend/09-accessibility, frontend/13-error-handling, frontend/19-build-tools]
 when_to_use: "Read before writing or reviewing tests for frontend components, hooks, pages, or user flows."
 ---
-# Testing
+# Frontend Testing
 
 ## Purpose
 

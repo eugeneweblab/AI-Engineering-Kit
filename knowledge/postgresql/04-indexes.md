@@ -2,7 +2,7 @@
 id: postgresql/04-indexes
 topic: postgresql
 slug: indexes
-title: "Indexes"
+title: "PostgreSQL Indexes"
 type: doc
 order: 4
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, indexes]
 related: [postgresql/05-query-planner, postgresql/03-data-types, postgresql/16-performance, postgresql/08-jsonb, postgresql/20-vacuum]
 when_to_use: "Read before adding, removing, or diagnosing an index, or when a query is slow."
 ---
-# Indexes
+# PostgreSQL Indexes
 
 ## Purpose
 

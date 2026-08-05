@@ -2,7 +2,7 @@
 id: nginx/98-production-checklist
 topic: nginx
 slug: production-checklist
-title: "Production Checklist"
+title: "Nginx Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, production-checklist]
 related: [nginx/25-production, nginx/12-ssl-tls, nginx/13-security, nginx/17-monitoring, nginx/27-high-availability]
 when_to_use: "Read before promoting any nginx configuration to production or signing off a launch/hardening review."
 ---
-# Production Checklist
+# Nginx Production Checklist
 
 ## Purpose
 

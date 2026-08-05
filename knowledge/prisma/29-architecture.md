@@ -2,7 +2,7 @@
 id: prisma/29-architecture
 topic: prisma
 slug: architecture
-title: "Architecture"
+title: "Prisma Architecture"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, architecture]
 related: [prisma/28-patterns, prisma/06-client, prisma/22-multi-tenancy, prisma/19-testing, prisma/24-best-practices]
 when_to_use: "Read when deciding where Prisma sits in an application's layers — repositories, services, dependency boundaries — before building a new module."
 ---
-# Architecture
+# Prisma Architecture
 
 ## Purpose
 

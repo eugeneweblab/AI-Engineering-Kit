@@ -2,7 +2,7 @@
 id: prisma/24-best-practices
 topic: prisma
 slug: best-practices
-title: "Best Practices"
+title: "Prisma Best Practices"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, best-practices]
 related: [prisma/06-client, prisma/15-performance, prisma/08-transactions, prisma/18-error-handling, prisma/29-architecture]
 when_to_use: "Read before writing or reviewing any Prisma-backed data-access code, to apply the day-to-day rules that keep queries correct and cheap."
 ---
-# Best Practices
+# Prisma Best Practices
 
 ## Purpose
 

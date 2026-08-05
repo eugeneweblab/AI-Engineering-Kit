@@ -2,7 +2,7 @@
 id: backend/29-architecture-review
 topic: backend
 slug: architecture-review
-title: "Architecture Review"
+title: "Backend Architecture Review"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, architecture-review]
 related: [backend/01-backend-architecture, backend/03-clean-architecture, backend/25-code-organization, backend/28-best-practices, backend/99-ai-review-checklist]
 when_to_use: "Read before reviewing a design doc, a new service proposal, or a large PR that changes system structure."
 ---
-# Architecture Review
+# Backend Architecture Review
 
 ## Purpose
 

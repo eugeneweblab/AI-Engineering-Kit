@@ -2,7 +2,7 @@
 id: react/08-hooks
 topic: react
 slug: hooks
-title: "Hooks"
+title: "React Hooks"
 type: doc
 order: 8
 status: ready
@@ -10,7 +10,7 @@ tags: [react, hooks]
 related: [react/06-state, react/07-lifecycle, react/09-custom-hooks, react/12-performance, react/10-context-api]
 when_to_use: "Read before using any use* hook or debugging a 'rules of hooks' or stale-closure error."
 ---
-# Hooks
+# React Hooks
 
 ## Purpose
 

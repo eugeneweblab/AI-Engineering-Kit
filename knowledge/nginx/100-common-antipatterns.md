@@ -2,7 +2,7 @@
 id: nginx/100-common-antipatterns
 topic: nginx
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Nginx Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, common-antipatterns]
 related: [nginx/30-engineering-principles, nginx/05-reverse-proxy, nginx/13-security, nginx/04-location-blocks, nginx/08-caching]
 when_to_use: "Read before writing or reviewing nginx config to recognize the failure patterns that pass nginx -t but break production."
 ---
-# Common Antipatterns
+# Nginx Common Antipatterns
 
 ## Purpose
 

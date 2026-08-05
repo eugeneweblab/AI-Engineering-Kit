@@ -2,7 +2,7 @@
 id: nestjs/24-observability
 topic: nestjs
 slug: observability
-title: "Observability"
+title: "NestJS Observability"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [nestjs, observability]
 related: [nestjs/10-interceptors, nestjs/29-maintenance, architecture/18-observability, nodejs/17-logging]
 when_to_use: "Read before adding or reviewing logging, metrics, tracing, or health checks for a NestJS service."
 ---
-# Observability
+# NestJS Observability
 
 ## Purpose
 

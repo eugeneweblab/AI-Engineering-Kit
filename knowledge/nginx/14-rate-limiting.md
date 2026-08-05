@@ -2,7 +2,7 @@
 id: nginx/14-rate-limiting
 topic: nginx
 slug: rate-limiting
-title: "Rate Limiting"
+title: "Nginx Rate Limiting"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, rate-limiting]
 related: [nginx/13-security, nginx/15-authentication, nginx/05-reverse-proxy, nginx/17-monitoring]
 when_to_use: "Read before adding `limit_req` / `limit_conn` throttling in nginx or reviewing abuse-protection config."
 ---
-# Rate Limiting
+# Nginx Rate Limiting
 
 ## Purpose
 

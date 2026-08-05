@@ -2,7 +2,7 @@
 id: kubernetes/01-architecture
 topic: kubernetes
 slug: architecture
-title: "Architecture"
+title: "Kubernetes Architecture"
 type: doc
 order: 1
 status: ready
@@ -10,7 +10,7 @@ tags: [kubernetes, architecture]
 related: [kubernetes/00-overview, kubernetes/02-cluster, kubernetes/03-nodes, kubernetes/04-pods, kubernetes/18-rbac]
 when_to_use: "Read before reasoning about how the control plane reconciles state, or when debugging why an object is not converging."
 ---
-# Architecture
+# Kubernetes Architecture
 
 ## Purpose
 

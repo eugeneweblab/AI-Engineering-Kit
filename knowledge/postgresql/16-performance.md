@@ -2,7 +2,7 @@
 id: postgresql/16-performance
 topic: postgresql
 slug: performance
-title: "Performance"
+title: "PostgreSQL Performance"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, performance]
 related: [postgresql/04-indexes, postgresql/05-query-planner, postgresql/17-monitoring, postgresql/20-vacuum, postgresql/27-tuning]
 when_to_use: "Read before optimizing a slow query, adding an index, or diagnosing high database load in PostgreSQL."
 ---
-# Performance
+# PostgreSQL Performance
 
 ## Purpose
 

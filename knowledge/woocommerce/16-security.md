@@ -2,7 +2,7 @@
 id: woocommerce/16-security
 topic: woocommerce
 slug: security
-title: "Security"
+title: "WooCommerce Security"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, security]
 related: [woocommerce/13-rest-api, woocommerce/08-payments, woocommerce/07-checkout, woocommerce/12-hooks, woocommerce/100-common-antipatterns]
 when_to_use: "Read before handling any user input, form, AJAX handler, or database query in a WooCommerce store."
 ---
-# Security
+# WooCommerce Security
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: divi/99-ai-review-checklist
 topic: divi
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Divi AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, ai-review-checklist]
 related: [divi/29-review, divi/24-best-practices, divi/30-engineering-principles, divi/04-custom-modules, divi/09-custom-css]
 when_to_use: "Read when reviewing Divi work — your own or another agent's — before it is committed, merged, or handed off."
 ---
-# AI Review Checklist
+# Divi AI Review Checklist
 
 ## Purpose
 

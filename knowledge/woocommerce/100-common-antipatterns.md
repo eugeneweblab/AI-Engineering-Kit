@@ -2,7 +2,7 @@
 id: woocommerce/100-common-antipatterns
 topic: woocommerce
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "WooCommerce Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, common-antipatterns]
 related: [woocommerce/01-architecture, woocommerce/12-hooks, woocommerce/16-security, woocommerce/30-engineering-principles, woocommerce/99-ai-review-checklist]
 when_to_use: "Read before customizing WooCommerce data access, checkout, or payments, to check you are not walking into a known trap."
 ---
-# Common Antipatterns
+# WooCommerce Common Antipatterns
 
 ## Purpose
 

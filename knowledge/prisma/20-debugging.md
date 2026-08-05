@@ -2,7 +2,7 @@
 id: prisma/20-debugging
 topic: prisma
 slug: debugging
-title: "Debugging"
+title: "Prisma Debugging"
 type: doc
 order: 20
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, debugging]
 related: [prisma/15-performance, prisma/17-raw-sql, prisma/18-error-handling, prisma/26-observability]
 when_to_use: "Read when a Prisma query returns wrong data, runs slow, or fails and you need to see the actual SQL."
 ---
-# Debugging
+# Prisma Debugging
 
 ## Purpose
 

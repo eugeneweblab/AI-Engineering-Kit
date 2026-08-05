@@ -2,7 +2,7 @@
 id: divi/30-engineering-principles
 topic: divi
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Divi Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, engineering-principles]
 related: [divi/24-best-practices, divi/01-architecture, divi/10-performance, divi/16-wordpress-hooks, divi/09-custom-css]
 when_to_use: "Read before making any non-trivial Divi decision to apply the durable principles that keep a build correct, fast, and update-safe."
 ---
-# Engineering Principles
+# Divi Engineering Principles
 
 ## Purpose
 

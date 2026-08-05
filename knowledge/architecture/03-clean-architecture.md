@@ -2,7 +2,7 @@
 id: architecture/03-clean-architecture
 topic: architecture
 slug: clean-architecture
-title: "Clean Architecture"
+title: "Architecture Clean Architecture"
 type: doc
 order: 3
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, clean-architecture]
 related: [architecture/04-hexagonal-architecture, architecture/05-layered-architecture, architecture/06-domain-driven-design, architecture/01-software-architecture, architecture/100-common-antipatterns]
 when_to_use: "Read before structuring a service whose business rules must outlive its framework, database, or delivery mechanism."
 ---
-# Clean Architecture
+# Architecture Clean Architecture
 
 ## Purpose
 

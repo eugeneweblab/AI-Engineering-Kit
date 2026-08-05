@@ -2,7 +2,7 @@
 id: prisma/100-common-antipatterns
 topic: prisma
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Prisma Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, common-antipatterns]
 related: [prisma/30-engineering-principles, prisma/11-relations-loading, prisma/08-transactions, prisma/15-performance, prisma/17-raw-sql]
 when_to_use: "Read before writing Prisma code, or when a query is slow, leaks connections, or corrupts data."
 ---
-# Common Antipatterns
+# Prisma Common Antipatterns
 
 ## Purpose
 

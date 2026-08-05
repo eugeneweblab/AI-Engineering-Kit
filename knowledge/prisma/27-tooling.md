@@ -2,7 +2,7 @@
 id: prisma/27-tooling
 topic: prisma
 slug: tooling
-title: "Tooling"
+title: "Prisma Tooling"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, tooling]
 related: [prisma/05-migrations, prisma/12-seeding, prisma/19-testing, prisma/25-production, prisma/24-best-practices]
 when_to_use: "Read before setting up the Prisma CLI, generator config, seeding, or CI steps for a project."
 ---
-# Tooling
+# Prisma Tooling
 
 ## Purpose
 

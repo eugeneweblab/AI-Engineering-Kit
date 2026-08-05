@@ -2,7 +2,7 @@
 id: testing/100-common-antipatterns
 topic: testing
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Testing Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [testing, common-antipatterns]
 related: [testing/22-flaky-tests, testing/05-test-doubles, testing/06-mocking, testing/19-test-coverage, testing/24-best-practices]
 when_to_use: "Read when writing or reviewing tests to recognize and avoid the failure patterns below."
 ---
-# Common Antipatterns
+# Testing Common Antipatterns
 
 ## Purpose
 

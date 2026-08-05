@@ -2,7 +2,7 @@
 id: mysql/05-query-optimization
 topic: mysql
 slug: query-optimization
-title: "Query Optimization"
+title: "MySQL Query Optimization"
 type: doc
 order: 5
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, query-optimization]
 related: [mysql/04-indexes, mysql/03-data-types, mysql/14-performance, mysql/15-monitoring, mysql/06-transactions]
 when_to_use: "Read before writing a query on a large table or when diagnosing a slow query."
 ---
-# Query Optimization
+# MySQL Query Optimization
 
 ## Purpose
 

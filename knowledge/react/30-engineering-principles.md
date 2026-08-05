@@ -2,7 +2,7 @@
 id: react/30-engineering-principles
 topic: react
 slug: engineering-principles
-title: "Engineering Principles"
+title: "React Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [react, engineering-principles]
 related: [react/13-component-composition, react/26-best-practices, react/24-design-patterns, react/02-component-architecture, react/09-custom-hooks]
 when_to_use: "Read when making design decisions about component structure, boundaries, or where logic belongs."
 ---
-# Engineering Principles
+# React Engineering Principles
 
 ## Purpose
 

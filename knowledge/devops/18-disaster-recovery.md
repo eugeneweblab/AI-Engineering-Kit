@@ -2,7 +2,7 @@
 id: devops/18-disaster-recovery
 topic: devops
 slug: disaster-recovery
-title: "Disaster Recovery"
+title: "DevOps Disaster Recovery"
 type: doc
 order: 18
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, disaster-recovery]
 related: [devops/19-high-availability, devops/25-incident-management, devops/27-sre-principles, devops/12-monitoring, devops/17-secrets-management]
 when_to_use: "Read before designing backups, restore procedures, or a recovery plan for any stateful system."
 ---
-# Disaster Recovery
+# DevOps Disaster Recovery
 
 ## Purpose
 

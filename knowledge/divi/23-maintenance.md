@@ -2,7 +2,7 @@
 id: divi/23-maintenance
 topic: divi
 slug: maintenance
-title: "Maintenance"
+title: "Divi Maintenance"
 type: doc
 order: 23
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, maintenance]
 related: [divi/22-deployment, divi/21-testing, divi/19-security, divi/10-performance, divi/20-debugging]
 when_to_use: "Read before updating Divi, WordPress, or plugins, or when planning a site's ongoing upkeep."
 ---
-# Maintenance
+# Divi Maintenance
 
 ## Purpose
 

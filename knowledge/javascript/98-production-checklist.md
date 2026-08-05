@@ -2,7 +2,7 @@
 id: javascript/98-production-checklist
 topic: javascript
 slug: production-checklist
-title: "Production Checklist"
+title: "JavaScript Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, production-checklist]
 related: [javascript/14-error-handling, javascript/26-security, javascript/25-performance, javascript/29-tooling, javascript/24-testing]
 when_to_use: "Read before shipping JavaScript to production or approving a release."
 ---
-# Production Checklist
+# JavaScript Production Checklist
 
 ## Purpose
 

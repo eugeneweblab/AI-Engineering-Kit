@@ -2,7 +2,7 @@
 id: testing/16-load-testing
 topic: testing
 slug: load-testing
-title: "Load Testing"
+title: "Testing Load Testing"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [testing, load-testing]
 related: [testing/15-performance-testing, testing/12-api-testing, testing/26-observability, testing/25-production-testing, testing/04-e2e-testing]
 when_to_use: "Read before designing a test that drives a system with concurrent traffic to find its capacity or breaking point."
 ---
-# Load Testing
+# Testing Load Testing
 
 ## Purpose
 

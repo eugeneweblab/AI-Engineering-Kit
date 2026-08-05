@@ -2,7 +2,7 @@
 id: devops/13-observability
 topic: devops
 slug: observability
-title: "Observability"
+title: "DevOps Observability"
 type: doc
 order: 13
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, observability]
 related: [devops/12-monitoring, devops/14-logging, devops/15-alerting, devops/25-incident-management, devops/27-sre-principles]
 when_to_use: "Read before instrumenting a service with traces, spans, or context propagation, or when debugging why a distributed request is slow or failing."
 ---
-# Observability
+# DevOps Observability
 
 ## Purpose
 

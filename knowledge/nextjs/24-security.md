@@ -2,7 +2,7 @@
 id: nextjs/24-security
 topic: nextjs
 slug: security
-title: "Security"
+title: "Next.js Security"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [nextjs, security]
 related: [nextjs/15-authorization, nextjs/14-authentication, nextjs/11-server-actions, nextjs/21-environment-variables, nextjs/13-middleware]
 when_to_use: "Read before shipping any Next.js feature that handles user input, secrets, headers, or external requests."
 ---
-# Security
+# Next.js Security
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: github/27-best-practices
 topic: github
 slug: best-practices
-title: "Best Practices"
+title: "GitHub Best Practices"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [github, best-practices]
 related: [github/17-branch-protection, github/07-code-review, github/13-security, github/08-actions, github/30-engineering-principles]
 when_to_use: "Read when setting up a new repository or auditing an existing one against GitHub hygiene standards."
 ---
-# Best Practices
+# GitHub Best Practices
 
 ## Purpose
 

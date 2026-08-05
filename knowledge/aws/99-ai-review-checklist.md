@@ -2,7 +2,7 @@
 id: aws/99-ai-review-checklist
 topic: aws
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "AWS AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [aws, ai-review-checklist]
 related: [aws/98-production-checklist, aws/02-iam, aws/25-security, aws/100-common-antipatterns, aws/30-engineering-principles]
 when_to_use: "Read when reviewing AWS infrastructure code (Terraform/CDK/CloudFormation) or a proposed AWS change."
 ---
-# AI Review Checklist
+# AWS AI Review Checklist
 
 ## Purpose
 

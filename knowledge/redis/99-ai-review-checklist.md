@@ -2,7 +2,7 @@
 id: redis/99-ai-review-checklist
 topic: redis
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Redis AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, ai-review-checklist]
 related: [redis/30-engineering-principles, redis/98-production-checklist, redis/100-common-antipatterns, redis/10-transactions, redis/12-expiration]
 when_to_use: "Read when reviewing any diff that reads from, writes to, or coordinates through Redis."
 ---
-# AI Review Checklist
+# Redis AI Review Checklist
 
 ## Purpose
 

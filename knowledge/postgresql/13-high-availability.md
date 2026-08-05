@@ -2,7 +2,7 @@
 id: postgresql/13-high-availability
 topic: postgresql
 slug: high-availability
-title: "High Availability"
+title: "PostgreSQL High Availability"
 type: doc
 order: 13
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, high-availability]
 related: [postgresql/12-replication, postgresql/14-backups, postgresql/17-monitoring, postgresql/26-production]
 when_to_use: "Read before designing automatic failover, promotion, or connection routing for a PostgreSQL cluster that must survive node loss."
 ---
-# High Availability
+# PostgreSQL High Availability
 
 ## Purpose
 

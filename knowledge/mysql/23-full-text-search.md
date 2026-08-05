@@ -2,7 +2,7 @@
 id: mysql/23-full-text-search
 topic: mysql
 slug: full-text-search
-title: "Full Text Search"
+title: "MySQL Full Text Search"
 type: doc
 order: 23
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, full-text-search]
 related: [mysql/04-indexes, mysql/05-query-optimization, mysql/03-data-types, mysql/14-performance, mysql/24-json]
 when_to_use: "Read before adding text search to a MySQL table, or when reviewing a LIKE-based search that needs to scale."
 ---
-# Full Text Search
+# MySQL Full Text Search
 
 ## Purpose
 

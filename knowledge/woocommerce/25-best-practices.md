@@ -2,7 +2,7 @@
 id: woocommerce/25-best-practices
 topic: woocommerce
 slug: best-practices
-title: "Best Practices"
+title: "WooCommerce Best Practices"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, best-practices]
 related: [woocommerce/12-hooks, woocommerce/16-security, woocommerce/17-customization, woocommerce/15-performance, woocommerce/29-ai-review]
 when_to_use: "Read before writing or reviewing any custom WooCommerce plugin, theme, or extension code."
 ---
-# Best Practices
+# WooCommerce Best Practices
 
 ## Purpose
 

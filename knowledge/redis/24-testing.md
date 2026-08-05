@@ -2,7 +2,7 @@
 id: redis/24-testing
 topic: redis
 slug: testing
-title: "Testing"
+title: "Redis Testing"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, testing]
 related: [redis/25-debugging, redis/26-best-practices, redis/12-expiration, redis/13-caching, redis/17-distributed-locks]
 when_to_use: "Read before writing or reviewing tests for any code that reads from or writes to Redis."
 ---
-# Testing
+# Redis Testing
 
 ## Purpose
 

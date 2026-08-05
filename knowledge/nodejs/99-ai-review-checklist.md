@@ -2,7 +2,7 @@
 id: nodejs/99-ai-review-checklist
 topic: nodejs
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Node.js AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [nodejs, ai-review-checklist]
 related: [nodejs/30-engineering-principles, nodejs/100-common-antipatterns, nodejs/16-error-handling, nodejs/18-security, nodejs/06-streams]
 when_to_use: "Read when reviewing a Node.js pull request or auditing a Node.js file for correctness."
 ---
-# AI Review Checklist
+# Node.js AI Review Checklist
 
 ## Purpose
 

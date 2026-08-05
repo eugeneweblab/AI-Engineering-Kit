@@ -2,7 +2,7 @@
 id: redis/08-streams
 topic: redis
 slug: streams
-title: "Streams"
+title: "Redis Streams"
 type: doc
 order: 8
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, streams]
 related: [redis/09-pub-sub, redis/16-message-queues, redis/06-sorted-sets, redis/12-expiration, redis/100-common-antipatterns]
 when_to_use: "Read before building an event log, a durable work queue, or any consumer that must not lose messages on restart."
 ---
-# Streams
+# Redis Streams
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: woocommerce/15-performance
 topic: woocommerce
 slug: performance
-title: "Performance"
+title: "WooCommerce Performance"
 type: doc
 order: 15
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, performance]
 related: [woocommerce/24-scaling, woocommerce/12-hooks, woocommerce/13-rest-api, woocommerce/01-architecture, woocommerce/100-common-antipatterns]
 when_to_use: "Read before adding queries, hooks, or caching to a WooCommerce store, or when diagnosing slow pages."
 ---
-# Performance
+# WooCommerce Performance
 
 ## Purpose
 

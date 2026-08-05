@@ -2,7 +2,7 @@
 id: sql/100-common-antipatterns
 topic: sql
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "SQL Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [sql, common-antipatterns]
 related: [sql/15-indexes, sql/17-query-optimization, sql/22-security, sql/14-transactions, sql/30-engineering-principles]
 when_to_use: "Read when writing or reviewing SQL to recognize and avoid the recurring mistakes that fail at scale."
 ---
-# Common Antipatterns
+# SQL Common Antipatterns
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: tools/16-git-hooks
 topic: tools
 slug: git-hooks
-title: "Git Hooks"
+title: "Tools — Git Hooks"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [tools, git-hooks]
 related: [tools/17-commit-conventions, tools/04-eslint, tools/05-prettier, tools/19-task-runners, tools/30-engineering-principles, git/20-hooks]
 when_to_use: "Read before adding pre-commit or pre-push automation — choosing a hook manager, deciding what belongs in each hook, and keeping hooks fast enough to survive."
 ---
-# Git Hooks
+# Tools — Git Hooks
 
 ## Purpose
 

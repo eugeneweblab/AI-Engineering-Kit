@@ -2,7 +2,7 @@
 id: rest-api/30-engineering-principles
 topic: rest-api
 slug: engineering-principles
-title: "Engineering Principles"
+title: "REST API Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, engineering-principles]
 related: [rest-api/02-rest-principles, rest-api/07-status-codes, rest-api/14-versioning, rest-api/18-idempotency, rest-api/27-best-practices]
 when_to_use: "Read before designing a new REST API or making a cross-cutting change that many endpoints will inherit."
 ---
-# Engineering Principles
+# REST API Engineering Principles
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: tools/30-engineering-principles
 topic: tools
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Tools Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [tools, engineering-principles]
 related: [tools/00-overview, tools/19-task-runners, tools/16-git-hooks, tools/99-ai-review-checklist, tools/100-common-antipatterns]
 when_to_use: "Read before adding, replacing, or configuring any development tool, as the baseline every tooling decision must satisfy."
 ---
-# Engineering Principles
+# Tools Engineering Principles
 
 ## Purpose
 

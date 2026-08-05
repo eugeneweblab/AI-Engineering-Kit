@@ -2,7 +2,7 @@
 id: architecture/16-high-availability
 topic: architecture
 slug: high-availability
-title: "High Availability"
+title: "Architecture High Availability"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, high-availability]
 related: [architecture/17-fault-tolerance, architecture/13-scalability, architecture/21-distributed-systems, architecture/22-cloud-architecture, architecture/24-deployment]
 when_to_use: "Read when a system has an uptime target and must survive the loss of a node, zone, or dependency."
 ---
-# High Availability
+# Architecture High Availability
 
 ## Purpose
 

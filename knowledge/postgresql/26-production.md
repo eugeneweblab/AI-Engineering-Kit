@@ -2,7 +2,7 @@
 id: postgresql/26-production
 topic: postgresql
 slug: production
-title: "Production"
+title: "PostgreSQL Production"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, production]
 related: [postgresql/13-high-availability, postgresql/14-backups, postgresql/17-monitoring, postgresql/12-replication, postgresql/98-production-checklist]
 when_to_use: "Read before deploying a PostgreSQL database to production or reviewing its operational readiness."
 ---
-# Production
+# PostgreSQL Production
 
 ## Purpose
 

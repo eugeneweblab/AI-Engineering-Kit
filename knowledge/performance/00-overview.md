@@ -2,7 +2,7 @@
 id: performance/00-overview
 topic: performance
 slug: overview
-title: "Overview"
+title: "Performance Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [performance, overview]
 related: [performance/01-performance-fundamentals, performance/02-metrics, performance/16-profiling, performance/24-optimization-workflow, performance/23-performance-budget]
 when_to_use: "Read first when starting any performance work, to see which doc in this topic answers your question."
 ---
-# Overview
+# Performance Overview
 
 ## Purpose
 

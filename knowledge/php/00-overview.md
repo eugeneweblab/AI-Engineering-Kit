@@ -2,7 +2,7 @@
 id: php/00-overview
 topic: php
 slug: overview
-title: "Overview"
+title: "PHP Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [php, overview]
 related: [php/01-language-fundamentals, php/02-types, php/04-oop, php/23-modern-php, php/24-psr-standards]
 when_to_use: "Read first when starting or reviewing any PHP work to orient yourself among the topic's docs."
 ---
-# Overview
+# PHP Overview
 
 ## Purpose
 

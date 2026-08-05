@@ -2,7 +2,7 @@
 id: architecture/21-distributed-systems
 topic: architecture
 slug: distributed-systems
-title: "Distributed Systems"
+title: "Architecture Distributed Systems"
 type: doc
 order: 21
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, distributed-systems]
 related: [architecture/17-fault-tolerance, architecture/16-high-availability, architecture/09-microservices, architecture/20-message-brokers, architecture/18-observability]
 when_to_use: "Read before designing any system where components communicate over a network, or when debugging inconsistency, partial failure, or race conditions across services."
 ---
-# Distributed Systems
+# Architecture Distributed Systems
 
 ## Purpose
 

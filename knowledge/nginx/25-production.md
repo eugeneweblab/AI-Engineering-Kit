@@ -2,7 +2,7 @@
 id: nginx/25-production
 topic: nginx
 slug: production
-title: "Production"
+title: "Nginx Production"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, production]
 related: [nginx/98-production-checklist, nginx/13-security, nginx/18-performance, nginx/27-high-availability, nginx/16-logging]
 when_to_use: "Read before putting an nginx config in front of real traffic, or when reviewing whether an existing deployment is production-ready."
 ---
-# Production
+# Nginx Production
 
 ## Purpose
 

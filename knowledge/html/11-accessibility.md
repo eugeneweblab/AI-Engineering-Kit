@@ -2,7 +2,7 @@
 id: html/11-accessibility
 topic: html
 slug: accessibility
-title: "Accessibility"
+title: "HTML Accessibility"
 type: doc
 order: 11
 status: ready
@@ -10,7 +10,7 @@ tags: [html, accessibility]
 related: [html/02-semantic-html, html/08-forms, html/07-tables, html/05-images]
 when_to_use: "Read before shipping any UI, and when reviewing markup for screen-reader or keyboard support."
 ---
-# Accessibility
+# HTML Accessibility
 
 ## Purpose
 

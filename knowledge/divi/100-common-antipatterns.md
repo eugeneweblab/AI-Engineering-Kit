@@ -2,7 +2,7 @@
 id: divi/100-common-antipatterns
 topic: divi
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Divi Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, common-antipatterns]
 related: [divi/24-best-practices, divi/30-engineering-principles, divi/09-custom-css, divi/10-performance, divi/16-wordpress-hooks]
 when_to_use: "Read before or during a Divi build to recognize and avoid the recurring mistakes that corrupt, slow, or break a site."
 ---
-# Common Antipatterns
+# Divi Common Antipatterns
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: backend/30-engineering-principles
 topic: backend
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Backend Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, engineering-principles]
 related: [backend/01-backend-architecture, backend/12-error-handling, backend/23-testing, backend/22-observability, backend/28-best-practices]
 when_to_use: "Read before making a design decision on the backend and you need a default to reason from."
 ---
-# Engineering Principles
+# Backend Engineering Principles
 
 ## Purpose
 

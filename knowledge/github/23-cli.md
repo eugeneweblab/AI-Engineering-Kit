@@ -2,7 +2,7 @@
 id: github/23-cli
 topic: github
 slug: cli
-title: "CLI"
+title: "GitHub CLI"
 type: doc
 order: 23
 status: ready
@@ -10,7 +10,7 @@ tags: [github, cli]
 related: [github/22-api, github/26-automation, github/08-actions, github/06-pull-requests, github/21-permissions]
 when_to_use: "Read before scripting with the gh CLI, automating GitHub tasks in shell, or using gh inside Actions."
 ---
-# CLI
+# GitHub CLI
 
 ## Purpose
 

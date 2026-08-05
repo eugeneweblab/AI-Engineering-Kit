@@ -2,7 +2,7 @@
 id: wordpress/29-maintenance
 topic: wordpress
 slug: maintenance
-title: "Maintenance"
+title: "WordPress Maintenance"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [wordpress, maintenance]
 related: [wordpress/27-deployment, wordpress/26-wp-cli, wordpress/06-security, wordpress/23-caching, wordpress/98-production-checklist, wordpress/22-cron-and-background-tasks]
 when_to_use: "Read when planning ongoing care of a WordPress site — update strategy, backups, plugin audits, database hygiene, and monitoring."
 ---
-# Maintenance
+# WordPress Maintenance
 
 ## Purpose
 

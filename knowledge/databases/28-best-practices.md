@@ -2,7 +2,7 @@
 id: databases/28-best-practices
 topic: databases
 slug: best-practices
-title: "Best Practices"
+title: "Database Best Practices"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [databases, best-practices]
 related: [databases/00-overview, databases/23-data-integrity, databases/17-migrations, databases/09-transactions, databases/07-indexing]
 when_to_use: "Read before designing, changing, or reviewing any database schema, query, or access path."
 ---
-# Best Practices
+# Database Best Practices
 
 ## Purpose
 

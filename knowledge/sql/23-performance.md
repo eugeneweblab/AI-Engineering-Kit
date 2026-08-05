@@ -2,7 +2,7 @@
 id: sql/23-performance
 topic: sql
 slug: performance
-title: "Performance"
+title: "SQL Performance"
 type: doc
 order: 23
 status: ready
@@ -10,7 +10,7 @@ tags: [sql, performance]
 related: [sql/15-indexes, sql/16-query-planning, sql/17-query-optimization, sql/19-materialized-views, sql/100-common-antipatterns]
 when_to_use: "Read before optimizing a slow query, sizing a query for scale, or reviewing SQL that will run against large or growing tables."
 ---
-# Performance
+# SQL Performance
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: devops/00-overview
 topic: devops
 slug: overview
-title: "Overview"
+title: "DevOps Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, overview]
 related: [devops/01-devops-culture, devops/02-development-lifecycle, devops/03-git-workflow, devops/05-build-pipelines, devops/07-deployment-strategies]
 when_to_use: "Read first to understand how the devops docs fit together and where to go next."
 ---
-# Overview
+# DevOps Overview
 
 ## Purpose
 

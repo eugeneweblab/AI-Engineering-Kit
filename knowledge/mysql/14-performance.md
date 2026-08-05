@@ -2,7 +2,7 @@
 id: mysql/14-performance
 topic: mysql
 slug: performance
-title: "Performance"
+title: "MySQL Performance"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, performance]
 related: [mysql/04-indexes, mysql/05-query-optimization, mysql/02-configuration, mysql/15-monitoring]
 when_to_use: "Read before tuning a slow MySQL workload, sizing server memory, or reviewing schema and query changes for scale."
 ---
-# Performance
+# MySQL Performance
 
 ## Purpose
 

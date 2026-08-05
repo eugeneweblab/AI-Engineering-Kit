@@ -2,7 +2,7 @@
 id: cicd/99-ai-review-checklist
 topic: cicd
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "CI/CD AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [cicd, ai-review-checklist]
 related: [cicd/02-pipeline-design, cicd/05-quality-gates, cicd/06-security-scanning, cicd/15-secrets, cicd/30-engineering-principles]
 when_to_use: "Read when reviewing a pull request that adds or changes CI/CD pipeline configuration."
 ---
-# AI Review Checklist
+# CI/CD AI Review Checklist
 
 ## Purpose
 

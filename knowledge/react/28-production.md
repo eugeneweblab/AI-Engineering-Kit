@@ -2,7 +2,7 @@
 id: react/28-production
 topic: react
 slug: production
-title: "Production"
+title: "React Production"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [react, production]
 related: [react/12-performance, react/19-error-handling, react/25-security, react/29-tooling, react/98-production-checklist]
 when_to_use: "Read before shipping a React build to real users or setting up its deploy pipeline."
 ---
-# Production
+# React Production
 
 ## Purpose
 

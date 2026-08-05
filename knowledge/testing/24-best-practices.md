@@ -2,7 +2,7 @@
 id: testing/24-best-practices
 topic: testing
 slug: best-practices
-title: "Best Practices"
+title: "Testing Best Practices"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [testing, best-practices]
 related: [testing/01-testing-fundamentals, testing/09-assertions, testing/08-test-organization, testing/22-flaky-tests, testing/29-test-review]
 when_to_use: "Read before writing or reviewing any test, to keep the suite fast, clear, and trustworthy."
 ---
-# Best Practices
+# Testing Best Practices
 
 ## Purpose
 

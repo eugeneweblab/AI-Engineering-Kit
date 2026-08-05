@@ -2,7 +2,7 @@
 id: php/11-http
 topic: php
 slug: http
-title: "HTTP"
+title: "PHP HTTP"
 type: doc
 order: 11
 status: ready
@@ -10,7 +10,7 @@ tags: [php, http]
 related: [php/13-security, php/08-error-handling, php/24-psr-standards, php/10-files]
 when_to_use: "Read before handling a request, building a response, or making an outbound HTTP call."
 ---
-# HTTP
+# PHP HTTP
 
 ## Purpose
 

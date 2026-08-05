@@ -2,7 +2,7 @@
 id: tailwind/09-typography
 topic: tailwind
 slug: typography
-title: "Typography"
+title: "Tailwind CSS Typography"
 type: doc
 order: 9
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, typography]
 related: [tailwind/10-colors, tailwind/08-sizing, tailwind/16-theme, tailwind/22-accessibility, tailwind/11-responsive-design]
 when_to_use: "Read before styling any text — headings, body copy, labels, or long-form article content."
 ---
-# Typography
+# Tailwind CSS Typography
 
 ## Purpose
 

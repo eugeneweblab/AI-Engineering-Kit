@@ -2,7 +2,7 @@
 id: sql/29-tooling
 topic: sql
 slug: tooling
-title: "Tooling"
+title: "SQL Tooling"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [sql, tooling]
 related: [sql/12-ddl, sql/16-query-planning, sql/24-testing, sql/25-debugging, sql/23-performance]
 when_to_use: "Read when setting up migrations, linting, or observability for a SQL codebase."
 ---
-# Tooling
+# SQL Tooling
 
 ## Purpose
 

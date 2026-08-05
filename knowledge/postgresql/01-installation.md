@@ -2,7 +2,7 @@
 id: postgresql/01-installation
 topic: postgresql
 slug: installation
-title: "Installation"
+title: "PostgreSQL Installation"
 type: doc
 order: 1
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, installation]
 related: [postgresql/02-configuration, postgresql/18-security, postgresql/19-roles-and-permissions, postgresql/26-production]
 when_to_use: "Read before installing PostgreSQL for a new project, environment, or CI pipeline."
 ---
-# Installation
+# PostgreSQL Installation
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: linux/05-permissions
 topic: linux
 slug: permissions
-title: "Permissions"
+title: "Linux Permissions"
 type: doc
 order: 5
 status: ready
@@ -10,7 +10,7 @@ tags: [linux, permissions]
 related: [linux/04-users-and-groups, linux/01-filesystem, linux/00-overview, linux/03-bash, linux/02-shell]
 when_to_use: "Read before setting a file mode, chowning a file, choosing a umask, or debugging a 'permission denied' error."
 ---
-# Permissions
+# Linux Permissions
 
 ## Purpose
 

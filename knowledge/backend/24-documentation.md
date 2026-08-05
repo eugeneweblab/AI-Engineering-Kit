@@ -2,7 +2,7 @@
 id: backend/24-documentation
 topic: backend
 slug: documentation
-title: "Documentation"
+title: "Backend Documentation"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, documentation]
 related: [backend/06-api-design, backend/25-code-organization, backend/22-observability, backend/28-best-practices]
 when_to_use: "Read before shipping an API, writing a README, or documenting a service others will run or call."
 ---
-# Documentation
+# Backend Documentation
 
 ## Purpose
 

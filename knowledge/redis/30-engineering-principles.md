@@ -2,7 +2,7 @@
 id: redis/30-engineering-principles
 topic: redis
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Redis Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, engineering-principles]
 related: [redis/13-caching, redis/12-expiration, redis/17-distributed-locks, redis/23-performance, redis/10-transactions]
 when_to_use: "Read before designing any feature that stores or coordinates state in Redis."
 ---
-# Engineering Principles
+# Redis Engineering Principles
 
 ## Purpose
 

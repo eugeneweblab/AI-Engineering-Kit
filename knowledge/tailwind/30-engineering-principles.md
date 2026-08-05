@@ -2,7 +2,7 @@
 id: tailwind/30-engineering-principles
 topic: tailwind
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Tailwind CSS Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, engineering-principles]
 related: [tailwind/03-utility-first, tailwind/21-design-system, tailwind/26-best-practices, tailwind/19-performance, tailwind/100-common-antipatterns]
 when_to_use: "Read before starting or reviewing any Tailwind codebase to set the design-system and utility conventions the rest of the work follows."
 ---
-# Engineering Principles
+# Tailwind CSS Engineering Principles
 
 ## Purpose
 

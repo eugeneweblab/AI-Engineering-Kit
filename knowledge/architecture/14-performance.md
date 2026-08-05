@@ -2,7 +2,7 @@
 id: architecture/14-performance
 topic: architecture
 slug: performance
-title: "Performance"
+title: "Architecture Performance"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, performance]
 related: [architecture/13-scalability, architecture/19-caching-strategies, architecture/18-observability, architecture/21-distributed-systems, architecture/20-message-brokers]
 when_to_use: "Read before optimizing latency or throughput, or when a system feels slow and you need to find why."
 ---
-# Performance
+# Architecture Performance
 
 ## Purpose
 

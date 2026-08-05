@@ -2,7 +2,7 @@
 id: cicd/00-overview
 topic: cicd
 slug: overview
-title: "Overview"
+title: "CI/CD Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [cicd, overview]
 related: [cicd/01-ci-cd-fundamentals, cicd/02-pipeline-design, cicd/05-quality-gates, cicd/10-deployment, cicd/100-common-antipatterns]
 when_to_use: "Read first when setting up, reviewing, or reasoning about any CI/CD pipeline in this repo."
 ---
-# Overview
+# CI/CD Overview
 
 ## Purpose
 

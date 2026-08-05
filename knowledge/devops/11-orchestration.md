@@ -2,7 +2,7 @@
 id: devops/11-orchestration
 topic: devops
 slug: orchestration
-title: "Orchestration"
+title: "DevOps Orchestration"
 type: doc
 order: 11
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, orchestration]
 related: [devops/10-containerization, devops/07-deployment-strategies, devops/09-configuration-management, devops/19-high-availability, devops/20-scalability]
 when_to_use: "Read before writing or reviewing Kubernetes manifests, or deciding how containers are scheduled, scaled, and kept healthy."
 ---
-# Orchestration
+# DevOps Orchestration
 
 ## Purpose
 

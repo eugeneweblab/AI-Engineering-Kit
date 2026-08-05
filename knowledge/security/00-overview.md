@@ -2,7 +2,7 @@
 id: security/00-overview
 topic: security
 slug: overview
-title: "Overview"
+title: "Security Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [security, overview]
 related: [security/01-security-fundamentals, security/02-threat-modeling, security/03-authentication, security/28-owasp-top10, security/99-ai-review-checklist]
 when_to_use: "Read first to orient yourself in the security topic and find the right doc for a task."
 ---
-# Overview
+# Security Overview
 
 ## Purpose
 

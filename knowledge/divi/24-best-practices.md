@@ -2,7 +2,7 @@
 id: divi/24-best-practices
 topic: divi
 slug: best-practices
-title: "Best Practices"
+title: "Divi Best Practices"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, best-practices]
 related: [divi/00-overview, divi/09-custom-css, divi/10-performance, divi/06-global-elements, divi/16-wordpress-hooks]
 when_to_use: "Read before starting or reviewing any Divi build to apply the conventions that keep a site fast, maintainable, and update-safe."
 ---
-# Best Practices
+# Divi Best Practices
 
 ## Purpose
 

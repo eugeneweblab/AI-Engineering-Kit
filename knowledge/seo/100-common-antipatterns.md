@@ -2,7 +2,7 @@
 id: seo/100-common-antipatterns
 topic: seo
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "SEO Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [seo, common-antipatterns]
 related: [seo/00-overview, seo/04-rendering, seo/06-canonicalization, seo/08-robots-txt, seo/19-javascript-seo]
 when_to_use: "Read when debugging a traffic drop or reviewing code, to recognize the failure patterns that silently harm search visibility."
 ---
-# Common Antipatterns
+# SEO Common Antipatterns
 
 ## Purpose
 

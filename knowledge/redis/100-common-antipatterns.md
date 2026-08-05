@@ -2,7 +2,7 @@
 id: redis/100-common-antipatterns
 topic: redis
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Redis Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [redis, common-antipatterns]
 related: [redis/30-engineering-principles, redis/17-distributed-locks, redis/13-caching, redis/14-rate-limiting, redis/23-performance]
 when_to_use: "Read before writing Redis code, and when reviewing a diff that touches Redis, to catch known failure shapes."
 ---
-# Common Antipatterns
+# Redis Common Antipatterns
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: tailwind/15-customization
 topic: tailwind
 slug: customization
-title: "Customization"
+title: "Tailwind CSS Customization"
 type: doc
 order: 15
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, customization]
 related: [tailwind/16-theme, tailwind/21-design-system, tailwind/10-colors, tailwind/18-plugins, tailwind/02-core-concepts]
 when_to_use: "Read before extending Tailwind — adding tokens, custom utilities, variants, or arbitrary values."
 ---
-# Customization
+# Tailwind CSS Customization
 
 ## Purpose
 

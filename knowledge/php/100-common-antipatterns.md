@@ -2,7 +2,7 @@
 id: php/100-common-antipatterns
 topic: php
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "PHP Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [php, common-antipatterns]
 related: [php/99-ai-review-checklist, php/13-security, php/08-error-handling, php/22-clean-code, php/30-engineering-principles]
 when_to_use: "Read when writing or reviewing PHP to recognize and remove recurring failure patterns."
 ---
-# Common Antipatterns
+# PHP Common Antipatterns
 
 ## Purpose
 

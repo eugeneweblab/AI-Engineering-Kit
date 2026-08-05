@@ -2,7 +2,7 @@
 id: tailwind/99-ai-review-checklist
 topic: tailwind
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Tailwind CSS AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [tailwind, ai-review-checklist]
 related: [tailwind/26-best-practices, tailwind/30-engineering-principles, tailwind/100-common-antipatterns, tailwind/22-accessibility, tailwind/98-production-checklist]
 when_to_use: "Read when reviewing a diff or PR that adds or changes Tailwind markup, before approving it."
 ---
-# AI Review Checklist
+# Tailwind CSS AI Review Checklist
 
 ## Purpose
 

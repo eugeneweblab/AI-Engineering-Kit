@@ -2,7 +2,7 @@
 id: graphql/14-filtering
 topic: graphql
 slug: filtering
-title: "Filtering"
+title: "GraphQL Filtering"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, filtering]
 related: [graphql/13-pagination, graphql/10-input-types, graphql/17-security, graphql/22-performance, graphql/04-queries]
 when_to_use: "Read before adding filter, search, or sort arguments to a list field, or when reviewing how filter inputs reach the database."
 ---
-# Filtering
+# GraphQL Filtering
 
 ## Purpose
 

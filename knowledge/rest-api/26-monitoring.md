@@ -2,7 +2,7 @@
 id: rest-api/26-monitoring
 topic: rest-api
 slug: monitoring
-title: "Monitoring"
+title: "REST API Monitoring"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, monitoring]
 related: [rest-api/09-error-handling, rest-api/07-status-codes, rest-api/28-production, rest-api/25-performance, rest-api/24-security]
 when_to_use: "Read before shipping an API to production or when an incident can't be diagnosed because the signals aren't there."
 ---
-# Monitoring
+# REST API Monitoring
 
 ## Purpose
 

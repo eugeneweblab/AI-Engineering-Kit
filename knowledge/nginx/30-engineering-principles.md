@@ -2,7 +2,7 @@
 id: nginx/30-engineering-principles
 topic: nginx
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Nginx Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, engineering-principles]
 related: [nginx/26-best-practices, nginx/13-security, nginx/18-performance, nginx/25-production, nginx/29-troubleshooting]
 when_to_use: "Read before designing, editing, or reviewing any nginx configuration that will serve production traffic."
 ---
-# Engineering Principles
+# Nginx Engineering Principles
 
 ## Purpose
 

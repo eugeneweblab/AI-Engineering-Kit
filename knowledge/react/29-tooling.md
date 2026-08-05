@@ -2,7 +2,7 @@
 id: react/29-tooling
 topic: react
 slug: tooling
-title: "Tooling"
+title: "React Tooling"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [react, tooling]
 related: [react/23-code-style, react/21-testing, react/28-production, react/12-performance, react/22-folder-structure]
 when_to_use: "Read when setting up a React project's build, lint, format, type-check, or CI toolchain."
 ---
-# Tooling
+# React Tooling
 
 ## Purpose
 

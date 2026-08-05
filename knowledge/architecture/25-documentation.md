@@ -2,7 +2,7 @@
 id: architecture/25-documentation
 topic: architecture
 slug: documentation
-title: "Documentation"
+title: "Architecture Documentation"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [architecture, documentation]
 related: [architecture/26-architecture-decision-records, architecture/00-overview, architecture/11-api-first, architecture/27-architecture-review, architecture/28-best-practices]
 when_to_use: "Read before writing or reviewing architecture documentation — diagrams, READMEs, API contracts, and ADRs."
 ---
-# Documentation
+# Architecture Documentation
 
 ## Purpose
 

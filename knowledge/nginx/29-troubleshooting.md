@@ -2,7 +2,7 @@
 id: nginx/29-troubleshooting
 topic: nginx
 slug: troubleshooting
-title: "Troubleshooting"
+title: "Nginx Troubleshooting"
 type: doc
 order: 29
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, troubleshooting]
 related: [nginx/24-debugging, nginx/05-reverse-proxy, nginx/16-logging, nginx/12-ssl-tls, nginx/25-production]
 when_to_use: "Read when nginx returns a specific error — 502/504, 413, 404, TLS handshake failure, or 'address already in use' — and you need the known cause and fix."
 ---
-# Troubleshooting
+# Nginx Troubleshooting
 
 ## Purpose
 

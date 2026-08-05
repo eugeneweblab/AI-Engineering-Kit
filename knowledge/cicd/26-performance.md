@@ -2,7 +2,7 @@
 id: cicd/26-performance
 topic: cicd
 slug: performance
-title: "Performance"
+title: "CI/CD Performance"
 type: doc
 order: 26
 status: ready
@@ -10,7 +10,7 @@ tags: [cicd, performance]
 related: [cicd/03-build-stage, cicd/04-test-stage, cicd/02-pipeline-design, cicd/21-docker-integration, cicd/07-artifacts]
 when_to_use: "Read before optimizing a slow pipeline or when CI feedback time is hurting developer throughput."
 ---
-# Performance
+# CI/CD Performance
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: html/18-performance
 topic: html
 slug: performance
-title: "Performance"
+title: "HTML Performance"
 type: doc
 order: 18
 status: ready
@@ -10,7 +10,7 @@ tags: [html, performance]
 related: [html/05-images, html/09-media, html/10-metadata, html/20-browser-rendering, html/23-progressive-enhancement]
 when_to_use: "Read before writing or reviewing markup that affects page load, Core Web Vitals, or resource fetching."
 ---
-# Performance
+# HTML Performance
 
 ## Purpose
 

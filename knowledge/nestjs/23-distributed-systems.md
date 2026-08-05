@@ -2,7 +2,7 @@
 id: nestjs/23-distributed-systems
 topic: nestjs
 slug: distributed-systems
-title: "Distributed Systems"
+title: "NestJS Distributed Systems"
 type: doc
 order: 23
 status: ready
@@ -10,7 +10,7 @@ tags: [nestjs, distributed-systems]
 related: [nestjs/20-queues, nestjs/24-observability, architecture/21-distributed-systems, architecture/17-fault-tolerance]
 when_to_use: "Read before designing or reviewing microservices, inter-service communication, or other distributed-system concerns."
 ---
-# Distributed Systems
+# NestJS Distributed Systems
 
 ## Purpose
 

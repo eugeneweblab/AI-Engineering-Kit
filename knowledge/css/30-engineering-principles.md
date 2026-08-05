@@ -2,7 +2,7 @@
 id: css/30-engineering-principles
 topic: css
 slug: engineering-principles
-title: "Engineering Principles"
+title: "CSS Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [css, engineering-principles]
 related: [css/21-architecture, css/29-css-methodologies, css/20-css-variables, css/22-performance, css/23-accessibility]
 when_to_use: "Read before writing or reviewing any non-trivial stylesheet, design system, or component styling strategy."
 ---
-# Engineering Principles
+# CSS Engineering Principles
 
 ## Purpose
 

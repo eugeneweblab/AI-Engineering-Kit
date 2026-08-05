@@ -2,7 +2,7 @@
 id: php/15-testing
 topic: php
 slug: testing
-title: "Testing"
+title: "PHP Testing"
 type: doc
 order: 15
 status: ready
@@ -10,7 +10,7 @@ tags: [php, testing]
 related: [php/09-exceptions, php/20-dependency-injection, php/14-performance, php/28-tooling]
 when_to_use: "Read before writing or reviewing PHPUnit/Pest tests, or when deciding what and how to test in PHP."
 ---
-# Testing
+# PHP Testing
 
 ## Purpose
 

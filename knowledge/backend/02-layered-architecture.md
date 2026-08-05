@@ -2,7 +2,7 @@
 id: backend/02-layered-architecture
 topic: backend
 slug: layered-architecture
-title: "Layered Architecture"
+title: "Backend Layered Architecture"
 type: doc
 order: 2
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, layered-architecture]
 related: [backend/01-backend-architecture, backend/03-clean-architecture, backend/07-business-logic, backend/18-database-design]
 when_to_use: "Read before structuring a typical CRUD service, or when logic is leaking across controller, service, and data layers."
 ---
-# Layered Architecture
+# Backend Layered Architecture
 
 ## Purpose
 

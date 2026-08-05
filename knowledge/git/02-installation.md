@@ -2,7 +2,7 @@
 id: git/02-installation
 topic: git
 slug: installation
-title: "Installation"
+title: "Git Installation"
 type: doc
 order: 2
 status: ready
@@ -10,7 +10,7 @@ tags: [git, installation]
 related: [git/00-overview, git/03-repository, git/04-commits, git/28-security, git/29-tooling]
 when_to_use: "Read before setting up git on a new machine or CI runner, or when commits show the wrong author or line-ending noise."
 ---
-# Installation
+# Git Installation
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: mysql/07-locking
 topic: mysql
 slug: locking
-title: "Locking"
+title: "MySQL Locking"
 type: doc
 order: 7
 status: ready
@@ -10,7 +10,7 @@ tags: [mysql, locking]
 related: [mysql/06-transactions, mysql/08-storage-engines, mysql/04-indexes, mysql/14-performance]
 when_to_use: "Read before writing concurrent writes, diagnosing deadlocks, or adding SELECT ... FOR UPDATE."
 ---
-# Locking
+# MySQL Locking
 
 ## Purpose
 

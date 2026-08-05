@@ -2,7 +2,7 @@
 id: seo/18-pagination
 topic: seo
 slug: pagination
-title: "Pagination"
+title: "SEO Pagination"
 type: doc
 order: 18
 status: ready
@@ -10,7 +10,7 @@ tags: [seo, pagination]
 related: [seo/03-indexing, seo/06-canonicalization, seo/17-links, seo/02-crawling]
 when_to_use: "Read before building or reviewing any paginated list, archive, category, or infinite-scroll page."
 ---
-# Pagination
+# SEO Pagination
 
 ## Purpose
 

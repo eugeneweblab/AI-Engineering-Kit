@@ -2,7 +2,7 @@
 id: frontend/24-documentation
 topic: frontend
 slug: documentation
-title: "Documentation"
+title: "Frontend Documentation"
 type: doc
 order: 24
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, documentation]
 related: [frontend/03-design-systems, frontend/02-component-driven-development, frontend/25-folder-structure, frontend/27-best-practices, frontend/22-testing]
 when_to_use: "Read before adding, reviewing, or restructuring docs for a component, package, or frontend app."
 ---
-# Documentation
+# Frontend Documentation
 
 ## Purpose
 

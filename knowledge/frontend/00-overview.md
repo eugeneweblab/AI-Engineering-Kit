@@ -2,7 +2,7 @@
 id: frontend/00-overview
 topic: frontend
 slug: overview
-title: "Overview"
+title: "Frontend Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, overview]
 related: [frontend/01-frontend-architecture, frontend/02-component-driven-development, frontend/04-state-management, frontend/05-routing, frontend/03-design-systems]
 when_to_use: "Read first when starting any frontend work to orient yourself in this topic and pick the right document."
 ---
-# Overview
+# Frontend Overview
 
 ## Purpose
 

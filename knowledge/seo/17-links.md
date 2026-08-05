@@ -2,7 +2,7 @@
 id: seo/17-links
 topic: seo
 slug: links
-title: "Links"
+title: "SEO Links"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [seo, links]
 related: [seo/06-canonicalization, seo/02-crawling, seo/18-pagination, seo/03-indexing, seo/09-structured-data]
 when_to_use: "Read before building navigation, internal linking, anchor markup, or handling outbound/user-generated links."
 ---
-# Links
+# SEO Links
 
 ## Purpose
 

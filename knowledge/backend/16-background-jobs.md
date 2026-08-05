@@ -2,7 +2,7 @@
 id: backend/16-background-jobs
 topic: backend
 slug: background-jobs
-title: "Background Jobs"
+title: "Backend Background Jobs"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, background-jobs]
 related: [backend/15-message-brokers, backend/14-events, backend/17-transactions, backend/22-observability, backend/12-error-handling]
 when_to_use: "Read before moving work off the request path — emails, exports, webhooks, scheduled tasks, or long jobs."
 ---
-# Background Jobs
+# Backend Background Jobs
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: css/11-colors
 topic: css
 slug: colors
-title: "Colors"
+title: "CSS Colors"
 type: doc
 order: 11
 status: ready
@@ -10,7 +10,7 @@ tags: [css, colors]
 related: [css/10-typography, css/23-accessibility, css/20-css-variables, css/12-backgrounds, css/25-modern-css]
 when_to_use: "Read before choosing color values, defining a palette, or building dark mode."
 ---
-# Colors
+# CSS Colors
 
 ## Purpose
 

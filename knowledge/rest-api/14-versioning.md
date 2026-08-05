@@ -2,7 +2,7 @@
 id: rest-api/14-versioning
 topic: rest-api
 slug: versioning
-title: "Versioning"
+title: "REST API Versioning"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, versioning]
 related: [rest-api/03-resource-design, rest-api/06-request-response, rest-api/09-error-handling, rest-api/21-openapi, rest-api/27-best-practices]
 when_to_use: "Read before shipping a public API or making a change that could break existing clients."
 ---
-# Versioning
+# REST API Versioning
 
 ## Purpose
 

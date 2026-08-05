@@ -2,7 +2,7 @@
 id: docker/22-production
 topic: docker
 slug: production
-title: "Production"
+title: "Docker Production"
 type: doc
 order: 22
 status: ready
@@ -10,7 +10,7 @@ tags: [docker, production]
 related: [docker/15-healthchecks, docker/17-resource-limits, docker/18-security, docker/16-logging, docker/23-orchestration]
 when_to_use: "Read before shipping any container to a production environment or reviewing a production deployment config."
 ---
-# Production
+# Docker Production
 
 ## Purpose
 

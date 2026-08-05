@@ -2,7 +2,7 @@
 id: javascript/14-error-handling
 topic: javascript
 slug: error-handling
-title: "Error Handling"
+title: "JavaScript Error Handling"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, error-handling]
 related: [javascript/09-promises, javascript/08-asynchronous-javascript, javascript/13-fetch-api, javascript/30-engineering-principles, javascript/23-clean-code]
 when_to_use: "Read before writing or reviewing any try/catch, Promise rejection handling, or custom error class."
 ---
-# Error Handling
+# JavaScript Error Handling
 
 ## Purpose
 

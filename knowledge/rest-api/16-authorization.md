@@ -2,7 +2,7 @@
 id: rest-api/16-authorization
 topic: rest-api
 slug: authorization
-title: "Authorization"
+title: "REST API Authorization"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, authorization]
 related: [rest-api/15-authentication, rest-api/24-security, rest-api/07-status-codes, rest-api/04-endpoints, rest-api/09-error-handling]
 when_to_use: "Read before adding or reviewing any check that decides whether a caller may access a resource or action."
 ---
-# Authorization
+# REST API Authorization
 
 ## Purpose
 

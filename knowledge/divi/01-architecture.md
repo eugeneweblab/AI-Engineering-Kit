@@ -2,7 +2,7 @@
 id: divi/01-architecture
 topic: divi
 slug: architecture
-title: "Architecture"
+title: "Divi Architecture"
 type: doc
 order: 1
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, architecture]
 related: [divi/00-overview, divi/03-modules, divi/04-custom-modules, divi/05-layouts, divi/10-performance]
 when_to_use: "Read before editing Divi content or writing module code, to understand the content model and render pipeline."
 ---
-# Architecture
+# Divi Architecture
 
 ## Purpose
 

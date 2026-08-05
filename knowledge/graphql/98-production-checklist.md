@@ -2,7 +2,7 @@
 id: graphql/98-production-checklist
 topic: graphql
 slug: production-checklist
-title: "Production Checklist"
+title: "GraphQL Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [graphql, production-checklist]
 related: [graphql/17-security, graphql/22-performance, graphql/25-monitoring, graphql/27-production, graphql/29-schema-evolution]
 when_to_use: "Read before shipping a GraphQL API to production or promoting it to a new environment."
 ---
-# Production Checklist
+# GraphQL Production Checklist
 
 ## Purpose
 

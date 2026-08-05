@@ -2,7 +2,7 @@
 id: postgresql/14-backups
 topic: postgresql
 slug: backups
-title: "Backups"
+title: "PostgreSQL Backups"
 type: doc
 order: 14
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, backups]
 related: [postgresql/12-replication, postgresql/13-high-availability, postgresql/22-migrations, postgresql/26-production]
 when_to_use: "Read before designing a backup strategy, choosing pg_dump vs physical backups, or setting up point-in-time recovery."
 ---
-# Backups
+# PostgreSQL Backups
 
 ## Purpose
 

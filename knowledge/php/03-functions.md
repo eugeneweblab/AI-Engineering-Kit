@@ -2,7 +2,7 @@
 id: php/03-functions
 topic: php
 slug: functions
-title: "Functions"
+title: "PHP Functions"
 type: doc
 order: 3
 status: ready
@@ -10,7 +10,7 @@ tags: [php, functions]
 related: [php/02-types, php/04-oop, php/18-generators, php/22-clean-code, php/01-language-fundamentals]
 when_to_use: "Read before writing or refactoring any function, closure, or callable."
 ---
-# Functions
+# PHP Functions
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: security/04-authorization
 topic: security
 slug: authorization
-title: "Authorization"
+title: "Security Authorization"
 type: doc
 order: 4
 status: ready
@@ -10,7 +10,7 @@ tags: [security, authorization]
 related: [security/03-authentication, security/01-security-fundamentals, security/06-session-management, security/29-security-review, security/28-owasp-top10]
 when_to_use: "Read before building or reviewing any code that decides what an authenticated user is allowed to do."
 ---
-# Authorization
+# Security Authorization
 
 ## Purpose
 

@@ -12,24 +12,24 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Accessibility Engineering Standards | ✅ ready | `knowledge/accessibility/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/accessibility/00-overview.md` |
+| 0 | Accessibility Overview | ✅ ready | `knowledge/accessibility/00-overview.md` |
 | 1 | Accessibility Fundamentals | ✅ ready | `knowledge/accessibility/01-accessibility-fundamentals.md` |
 | 2 | POUR Principles | ✅ ready | `knowledge/accessibility/02-pour-principles.md` |
-| 3 | Semantic HTML | ✅ ready | `knowledge/accessibility/03-semantic-html.md` |
+| 3 | Accessibility Semantic HTML | ✅ ready | `knowledge/accessibility/03-semantic-html.md` |
 | 4 | Keyboard Navigation | ✅ ready | `knowledge/accessibility/04-keyboard-navigation.md` |
 | 5 | Focus Management | ✅ ready | `knowledge/accessibility/05-focus-management.md` |
 | 6 | Screen Readers | ✅ ready | `knowledge/accessibility/06-screen-readers.md` |
 | 7 | ARIA | ✅ ready | `knowledge/accessibility/07-aria.md` |
-| 8 | Forms | ✅ ready | `knowledge/accessibility/08-forms.md` |
-| 9 | Images | ✅ ready | `knowledge/accessibility/09-images.md` |
+| 8 | Accessibility Forms | ✅ ready | `knowledge/accessibility/08-forms.md` |
+| 9 | Accessibility Images | ✅ ready | `knowledge/accessibility/09-images.md` |
 | 10 | Color and Contrast | ✅ ready | `knowledge/accessibility/10-color-and-contrast.md` |
-| 11 | Typography | ✅ ready | `knowledge/accessibility/11-typography.md` |
-| 12 | Layout | ✅ ready | `knowledge/accessibility/12-layout.md` |
+| 11 | Accessibility Typography | ✅ ready | `knowledge/accessibility/11-typography.md` |
+| 12 | Accessibility Layout | ✅ ready | `knowledge/accessibility/12-layout.md` |
 | 13 | Responsive Accessibility | ✅ ready | `knowledge/accessibility/13-responsive-accessibility.md` |
 | 14 | Motion And Animation | ✅ ready | `knowledge/accessibility/14-motion-and-animation.md` |
-| 15 | Media | ✅ ready | `knowledge/accessibility/15-media.md` |
+| 15 | Accessibility Media | ✅ ready | `knowledge/accessibility/15-media.md` |
 | 16 | Dialogs | ✅ ready | `knowledge/accessibility/16-dialogs.md` |
-| 17 | Tables | ✅ ready | `knowledge/accessibility/17-tables.md` |
+| 17 | Accessibility Tables | ✅ ready | `knowledge/accessibility/17-tables.md` |
 | 18 | Error Messages | ✅ ready | `knowledge/accessibility/18-error-messages.md` |
 | 19 | Live Regions | ✅ ready | `knowledge/accessibility/19-live-regions.md` |
 | 20 | Testing Tools | ✅ ready | `knowledge/accessibility/20-testing-tools.md` |
@@ -39,13 +39,13 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 24 | Accessibility Testing | ✅ ready | `knowledge/accessibility/24-accessibility-testing.md` |
 | 25 | Remediation | ✅ ready | `knowledge/accessibility/25-remediation.md` |
 | 26 | Legal Requirements | ✅ ready | `knowledge/accessibility/26-legal-requirements.md` |
-| 27 | Best Practices | ✅ ready | `knowledge/accessibility/27-best-practices.md` |
-| 28 | Real World Patterns | ✅ ready | `knowledge/accessibility/28-real-world-patterns.md` |
-| 29 | Documentation | ✅ ready | `knowledge/accessibility/29-documentation.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/accessibility/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/accessibility/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/accessibility/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/accessibility/100-common-antipatterns.md` |
+| 27 | Accessibility Best Practices | ✅ ready | `knowledge/accessibility/27-best-practices.md` |
+| 28 | Accessibility Real World Patterns | ✅ ready | `knowledge/accessibility/28-real-world-patterns.md` |
+| 29 | Accessibility Documentation | ✅ ready | `knowledge/accessibility/29-documentation.md` |
+| 30 | Accessibility Engineering Principles | ✅ ready | `knowledge/accessibility/30-engineering-principles.md` |
+| 98 | Accessibility Production Checklist | ✅ ready | `knowledge/accessibility/98-production-checklist.md` |
+| 99 | Accessibility AI Review Checklist | ✅ ready | `knowledge/accessibility/99-ai-review-checklist.md` |
+| 100 | Accessibility Common Antipatterns | ✅ ready | `knowledge/accessibility/100-common-antipatterns.md` |
 
 ## ai  (8/8 ready)
 
@@ -65,47 +65,47 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Architecture Engineering Standards | ✅ ready | `knowledge/architecture/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/architecture/00-overview.md` |
+| 0 | Architecture Overview | ✅ ready | `knowledge/architecture/00-overview.md` |
 | 1 | Software Architecture | ✅ ready | `knowledge/architecture/01-software-architecture.md` |
 | 2 | System Design | ✅ ready | `knowledge/architecture/02-system-design.md` |
-| 3 | Clean Architecture | ✅ ready | `knowledge/architecture/03-clean-architecture.md` |
-| 4 | Hexagonal Architecture | ✅ ready | `knowledge/architecture/04-hexagonal-architecture.md` |
-| 5 | Layered Architecture | ✅ ready | `knowledge/architecture/05-layered-architecture.md` |
+| 3 | Architecture Clean Architecture | ✅ ready | `knowledge/architecture/03-clean-architecture.md` |
+| 4 | Architecture Hexagonal Architecture | ✅ ready | `knowledge/architecture/04-hexagonal-architecture.md` |
+| 5 | Architecture Layered Architecture | ✅ ready | `knowledge/architecture/05-layered-architecture.md` |
 | 6 | Domain Driven Design | ✅ ready | `knowledge/architecture/06-domain-driven-design.md` |
 | 7 | CQRS | ✅ ready | `knowledge/architecture/07-cqrs.md` |
 | 8 | Event Driven Architecture | ✅ ready | `knowledge/architecture/08-event-driven-architecture.md` |
-| 9 | Microservices | ✅ ready | `knowledge/architecture/09-microservices.md` |
+| 9 | Architecture Microservices | ✅ ready | `knowledge/architecture/09-microservices.md` |
 | 10 | Modular Monolith | ✅ ready | `knowledge/architecture/10-modular-monolith.md` |
 | 11 | API First | ✅ ready | `knowledge/architecture/11-api-first.md` |
 | 12 | Integration Patterns | ✅ ready | `knowledge/architecture/12-integration-patterns.md` |
-| 13 | Scalability | ✅ ready | `knowledge/architecture/13-scalability.md` |
-| 14 | Performance | ✅ ready | `knowledge/architecture/14-performance.md` |
-| 15 | Security | ✅ ready | `knowledge/architecture/15-security.md` |
-| 16 | High Availability | ✅ ready | `knowledge/architecture/16-high-availability.md` |
+| 13 | Architecture Scalability | ✅ ready | `knowledge/architecture/13-scalability.md` |
+| 14 | Architecture Performance | ✅ ready | `knowledge/architecture/14-performance.md` |
+| 15 | Architecture Security | ✅ ready | `knowledge/architecture/15-security.md` |
+| 16 | Architecture High Availability | ✅ ready | `knowledge/architecture/16-high-availability.md` |
 | 17 | Fault Tolerance | ✅ ready | `knowledge/architecture/17-fault-tolerance.md` |
-| 18 | Observability | ✅ ready | `knowledge/architecture/18-observability.md` |
+| 18 | Architecture Observability | ✅ ready | `knowledge/architecture/18-observability.md` |
 | 19 | Caching Strategies | ✅ ready | `knowledge/architecture/19-caching-strategies.md` |
-| 20 | Message Brokers | ✅ ready | `knowledge/architecture/20-message-brokers.md` |
-| 21 | Distributed Systems | ✅ ready | `knowledge/architecture/21-distributed-systems.md` |
+| 20 | Architecture Message Brokers | ✅ ready | `knowledge/architecture/20-message-brokers.md` |
+| 21 | Architecture Distributed Systems | ✅ ready | `knowledge/architecture/21-distributed-systems.md` |
 | 22 | Cloud Architecture | ✅ ready | `knowledge/architecture/22-cloud-architecture.md` |
 | 23 | Infrastructure | ✅ ready | `knowledge/architecture/23-infrastructure.md` |
-| 24 | Deployment | ✅ ready | `knowledge/architecture/24-deployment.md` |
-| 25 | Documentation | ✅ ready | `knowledge/architecture/25-documentation.md` |
+| 24 | Architecture Deployment | ✅ ready | `knowledge/architecture/24-deployment.md` |
+| 25 | Architecture Documentation | ✅ ready | `knowledge/architecture/25-documentation.md` |
 | 26 | Architecture Decision Records | ✅ ready | `knowledge/architecture/26-architecture-decision-records.md` |
 | 27 | Architecture Review | ✅ ready | `knowledge/architecture/27-architecture-review.md` |
 | 28 | Architecture Best Practices | ✅ ready | `knowledge/architecture/28-best-practices.md` |
-| 29 | Real World Patterns | ✅ ready | `knowledge/architecture/29-real-world-patterns.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/architecture/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/architecture/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/architecture/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/architecture/100-common-antipatterns.md` |
+| 29 | Architecture Real World Patterns | ✅ ready | `knowledge/architecture/29-real-world-patterns.md` |
+| 30 | Architecture Engineering Principles | ✅ ready | `knowledge/architecture/30-engineering-principles.md` |
+| 98 | Architecture Production Checklist | ✅ ready | `knowledge/architecture/98-production-checklist.md` |
+| 99 | Architecture AI Review Checklist | ✅ ready | `knowledge/architecture/99-ai-review-checklist.md` |
+| 100 | Architecture Common Antipatterns | ✅ ready | `knowledge/architecture/100-common-antipatterns.md` |
 
 ## aws  (36/36 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | AWS Engineering Standards | ✅ ready | `knowledge/aws/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/aws/00-overview.md` |
+| 0 | AWS Overview | ✅ ready | `knowledge/aws/00-overview.md` |
 | 1 | Global Infrastructure | ✅ ready | `knowledge/aws/01-global-infrastructure.md` |
 | 2 | IAM | ✅ ready | `knowledge/aws/02-iam.md` |
 | 3 | EC2 | ✅ ready | `knowledge/aws/03-ec2.md` |
@@ -130,56 +130,56 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 22 | SNS | ✅ ready | `knowledge/aws/22-sns.md` |
 | 23 | EventBridge | ✅ ready | `knowledge/aws/23-eventbridge.md` |
 | 24 | Cost Optimization | ✅ ready | `knowledge/aws/24-cost-optimization.md` |
-| 25 | Security | ✅ ready | `knowledge/aws/25-security.md` |
-| 26 | Monitoring | ✅ ready | `knowledge/aws/26-monitoring.md` |
-| 27 | Production | ✅ ready | `knowledge/aws/27-production.md` |
-| 28 | Best Practices | ✅ ready | `knowledge/aws/28-best-practices.md` |
+| 25 | AWS Security | ✅ ready | `knowledge/aws/25-security.md` |
+| 26 | AWS Monitoring | ✅ ready | `knowledge/aws/26-monitoring.md` |
+| 27 | AWS Production | ✅ ready | `knowledge/aws/27-production.md` |
+| 28 | AWS Best Practices | ✅ ready | `knowledge/aws/28-best-practices.md` |
 | 29 | Well Architected Framework | ✅ ready | `knowledge/aws/29-well-architected-framework.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/aws/30-engineering-principles.md` |
-| 31 | High Availability | ✅ ready | `knowledge/aws/31-high-availability.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/aws/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/aws/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/aws/100-common-antipatterns.md` |
+| 30 | AWS Engineering Principles | ✅ ready | `knowledge/aws/30-engineering-principles.md` |
+| 31 | AWS High Availability | ✅ ready | `knowledge/aws/31-high-availability.md` |
+| 98 | AWS Production Checklist | ✅ ready | `knowledge/aws/98-production-checklist.md` |
+| 99 | AWS AI Review Checklist | ✅ ready | `knowledge/aws/99-ai-review-checklist.md` |
+| 100 | AWS Common Antipatterns | ✅ ready | `knowledge/aws/100-common-antipatterns.md` |
 
 ## backend  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Backend Engineering Standards | ✅ ready | `knowledge/backend/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/backend/00-overview.md` |
+| 0 | Backend Overview | ✅ ready | `knowledge/backend/00-overview.md` |
 | 1 | Backend Architecture | ✅ ready | `knowledge/backend/01-backend-architecture.md` |
-| 2 | Layered Architecture | ✅ ready | `knowledge/backend/02-layered-architecture.md` |
-| 3 | Clean Architecture | ✅ ready | `knowledge/backend/03-clean-architecture.md` |
-| 4 | Hexagonal Architecture | ✅ ready | `knowledge/backend/04-hexagonal-architecture.md` |
+| 2 | Backend Layered Architecture | ✅ ready | `knowledge/backend/02-layered-architecture.md` |
+| 3 | Backend Clean Architecture | ✅ ready | `knowledge/backend/03-clean-architecture.md` |
+| 4 | Backend Hexagonal Architecture | ✅ ready | `knowledge/backend/04-hexagonal-architecture.md` |
 | 5 | DDD | ✅ ready | `knowledge/backend/05-ddd.md` |
 | 6 | API Design | ✅ ready | `knowledge/backend/06-api-design.md` |
 | 7 | Business Logic | ✅ ready | `knowledge/backend/07-business-logic.md` |
 | 8 | Domain Modeling | ✅ ready | `knowledge/backend/08-domain-modeling.md` |
-| 9 | Validation | ✅ ready | `knowledge/backend/09-validation.md` |
-| 10 | Authentication | ✅ ready | `knowledge/backend/10-authentication.md` |
-| 11 | Authorization | ✅ ready | `knowledge/backend/11-authorization.md` |
-| 12 | Error Handling | ✅ ready | `knowledge/backend/12-error-handling.md` |
-| 13 | Caching | ✅ ready | `knowledge/backend/13-caching.md` |
-| 14 | Events | ✅ ready | `knowledge/backend/14-events.md` |
-| 15 | Message Brokers | ✅ ready | `knowledge/backend/15-message-brokers.md` |
-| 16 | Background Jobs | ✅ ready | `knowledge/backend/16-background-jobs.md` |
-| 17 | Transactions | ✅ ready | `knowledge/backend/17-transactions.md` |
+| 9 | Backend Validation | ✅ ready | `knowledge/backend/09-validation.md` |
+| 10 | Backend Authentication | ✅ ready | `knowledge/backend/10-authentication.md` |
+| 11 | Backend Authorization | ✅ ready | `knowledge/backend/11-authorization.md` |
+| 12 | Backend Error Handling | ✅ ready | `knowledge/backend/12-error-handling.md` |
+| 13 | Backend Caching | ✅ ready | `knowledge/backend/13-caching.md` |
+| 14 | Backend Events | ✅ ready | `knowledge/backend/14-events.md` |
+| 15 | Backend Message Brokers | ✅ ready | `knowledge/backend/15-message-brokers.md` |
+| 16 | Backend Background Jobs | ✅ ready | `knowledge/backend/16-background-jobs.md` |
+| 17 | Backend Transactions | ✅ ready | `knowledge/backend/17-transactions.md` |
 | 18 | Database Design | ✅ ready | `knowledge/backend/18-database-design.md` |
-| 19 | Performance | ✅ ready | `knowledge/backend/19-performance.md` |
-| 20 | Scalability | ✅ ready | `knowledge/backend/20-scalability.md` |
-| 21 | Security | ✅ ready | `knowledge/backend/21-security.md` |
-| 22 | Observability | ✅ ready | `knowledge/backend/22-observability.md` |
-| 23 | Testing | ✅ ready | `knowledge/backend/23-testing.md` |
-| 24 | Documentation | ✅ ready | `knowledge/backend/24-documentation.md` |
+| 19 | Backend Performance | ✅ ready | `knowledge/backend/19-performance.md` |
+| 20 | Backend Scalability | ✅ ready | `knowledge/backend/20-scalability.md` |
+| 21 | Backend Security | ✅ ready | `knowledge/backend/21-security.md` |
+| 22 | Backend Observability | ✅ ready | `knowledge/backend/22-observability.md` |
+| 23 | Backend Testing | ✅ ready | `knowledge/backend/23-testing.md` |
+| 24 | Backend Documentation | ✅ ready | `knowledge/backend/24-documentation.md` |
 | 25 | Code Organization | ✅ ready | `knowledge/backend/25-code-organization.md` |
-| 26 | Deployment | ✅ ready | `knowledge/backend/26-deployment.md` |
-| 27 | Production | ✅ ready | `knowledge/backend/27-production.md` |
-| 28 | Best Practices | ✅ ready | `knowledge/backend/28-best-practices.md` |
-| 29 | Architecture Review | ✅ ready | `knowledge/backend/29-architecture-review.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/backend/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/backend/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/backend/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/backend/100-common-antipatterns.md` |
+| 26 | Backend Deployment | ✅ ready | `knowledge/backend/26-deployment.md` |
+| 27 | Backend Production | ✅ ready | `knowledge/backend/27-production.md` |
+| 28 | Backend Best Practices | ✅ ready | `knowledge/backend/28-best-practices.md` |
+| 29 | Backend Architecture Review | ✅ ready | `knowledge/backend/29-architecture-review.md` |
+| 30 | Backend Engineering Principles | ✅ ready | `knowledge/backend/30-engineering-principles.md` |
+| 98 | Backend Production Checklist | ✅ ready | `knowledge/backend/98-production-checklist.md` |
+| 99 | Backend AI Review Checklist | ✅ ready | `knowledge/backend/99-ai-review-checklist.md` |
+| 100 | Backend Common Antipatterns | ✅ ready | `knowledge/backend/100-common-antipatterns.md` |
 
 ## checklists  (4/4 ready)
 
@@ -195,22 +195,22 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | CI/CD Engineering Standards | ✅ ready | `knowledge/cicd/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/cicd/00-overview.md` |
+| 0 | CI/CD Overview | ✅ ready | `knowledge/cicd/00-overview.md` |
 | 1 | CI CD Fundamentals | ✅ ready | `knowledge/cicd/01-ci-cd-fundamentals.md` |
 | 2 | Pipeline Design | ✅ ready | `knowledge/cicd/02-pipeline-design.md` |
 | 3 | Build Stage | ✅ ready | `knowledge/cicd/03-build-stage.md` |
 | 4 | Test Stage | ✅ ready | `knowledge/cicd/04-test-stage.md` |
-| 5 | Quality Gates | ✅ ready | `knowledge/cicd/05-quality-gates.md` |
+| 5 | CI/CD Quality Gates | ✅ ready | `knowledge/cicd/05-quality-gates.md` |
 | 6 | Security Scanning | ✅ ready | `knowledge/cicd/06-security-scanning.md` |
 | 7 | Artifacts | ✅ ready | `knowledge/cicd/07-artifacts.md` |
-| 8 | Versioning | ✅ ready | `knowledge/cicd/08-versioning.md` |
-| 9 | Release Management | ✅ ready | `knowledge/cicd/09-release-management.md` |
-| 10 | Deployment | ✅ ready | `knowledge/cicd/10-deployment.md` |
+| 8 | CI/CD Versioning | ✅ ready | `knowledge/cicd/08-versioning.md` |
+| 9 | CI/CD Release Management | ✅ ready | `knowledge/cicd/09-release-management.md` |
+| 10 | CI/CD Deployment | ✅ ready | `knowledge/cicd/10-deployment.md` |
 | 11 | Blue Green Deployment | ✅ ready | `knowledge/cicd/11-blue-green-deployment.md` |
 | 12 | Canary Deployment | ✅ ready | `knowledge/cicd/12-canary-deployment.md` |
 | 13 | Feature Flags | ✅ ready | `knowledge/cicd/13-feature-flags.md` |
 | 14 | Rollbacks | ✅ ready | `knowledge/cicd/14-rollbacks.md` |
-| 15 | Secrets | ✅ ready | `knowledge/cicd/15-secrets.md` |
+| 15 | CI/CD Secrets | ✅ ready | `knowledge/cicd/15-secrets.md` |
 | 16 | Environments | ✅ ready | `knowledge/cicd/16-environments.md` |
 | 17 | GitHub Actions | ✅ ready | `knowledge/cicd/17-github-actions.md` |
 | 18 | GitLab CI | ✅ ready | `knowledge/cicd/18-gitlab-ci.md` |
@@ -218,189 +218,189 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 20 | Jenkins | ✅ ready | `knowledge/cicd/20-jenkins.md` |
 | 21 | Docker Integration | ✅ ready | `knowledge/cicd/21-docker-integration.md` |
 | 22 | Kubernetes Integration | ✅ ready | `knowledge/cicd/22-kubernetes-integration.md` |
-| 23 | Monitoring | ✅ ready | `knowledge/cicd/23-monitoring.md` |
+| 23 | CI/CD Monitoring | ✅ ready | `knowledge/cicd/23-monitoring.md` |
 | 24 | Notifications | ✅ ready | `knowledge/cicd/24-notifications.md` |
-| 25 | Debugging | ✅ ready | `knowledge/cicd/25-debugging.md` |
-| 26 | Performance | ✅ ready | `knowledge/cicd/26-performance.md` |
-| 27 | Best Practices | ✅ ready | `knowledge/cicd/27-best-practices.md` |
-| 28 | Production | ✅ ready | `knowledge/cicd/28-production.md` |
-| 29 | Tooling | ✅ ready | `knowledge/cicd/29-tooling.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/cicd/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/cicd/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/cicd/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/cicd/100-common-antipatterns.md` |
+| 25 | CI/CD Debugging | ✅ ready | `knowledge/cicd/25-debugging.md` |
+| 26 | CI/CD Performance | ✅ ready | `knowledge/cicd/26-performance.md` |
+| 27 | CI/CD Best Practices | ✅ ready | `knowledge/cicd/27-best-practices.md` |
+| 28 | CI/CD Production | ✅ ready | `knowledge/cicd/28-production.md` |
+| 29 | CI/CD Tooling | ✅ ready | `knowledge/cicd/29-tooling.md` |
+| 30 | CI/CD Engineering Principles | ✅ ready | `knowledge/cicd/30-engineering-principles.md` |
+| 98 | CI/CD Production Checklist | ✅ ready | `knowledge/cicd/98-production-checklist.md` |
+| 99 | CI/CD AI Review Checklist | ✅ ready | `knowledge/cicd/99-ai-review-checklist.md` |
+| 100 | CI/CD Common Antipatterns | ✅ ready | `knowledge/cicd/100-common-antipatterns.md` |
 
 ## css  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | CSS Engineering Standards | ✅ ready | `knowledge/css/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/css/00-overview.md` |
+| 0 | CSS Overview | ✅ ready | `knowledge/css/00-overview.md` |
 | 1 | CSS Fundamentals | ✅ ready | `knowledge/css/01-css-fundamentals.md` |
 | 2 | Selectors | ✅ ready | `knowledge/css/02-selectors.md` |
 | 3 | Specificity | ✅ ready | `knowledge/css/03-specificity.md` |
 | 4 | Box Model | ✅ ready | `knowledge/css/04-box-model.md` |
 | 5 | Positioning | ✅ ready | `knowledge/css/05-positioning.md` |
-| 6 | Flexbox | ✅ ready | `knowledge/css/06-flexbox.md` |
-| 7 | Grid | ✅ ready | `knowledge/css/07-grid.md` |
-| 8 | Sizing | ✅ ready | `knowledge/css/08-sizing.md` |
-| 9 | Spacing | ✅ ready | `knowledge/css/09-spacing.md` |
-| 10 | Typography | ✅ ready | `knowledge/css/10-typography.md` |
-| 11 | Colors | ✅ ready | `knowledge/css/11-colors.md` |
+| 6 | CSS Flexbox | ✅ ready | `knowledge/css/06-flexbox.md` |
+| 7 | CSS Grid | ✅ ready | `knowledge/css/07-grid.md` |
+| 8 | CSS Sizing | ✅ ready | `knowledge/css/08-sizing.md` |
+| 9 | CSS Spacing | ✅ ready | `knowledge/css/09-spacing.md` |
+| 10 | CSS Typography | ✅ ready | `knowledge/css/10-typography.md` |
+| 11 | CSS Colors | ✅ ready | `knowledge/css/11-colors.md` |
 | 12 | Backgrounds | ✅ ready | `knowledge/css/12-backgrounds.md` |
 | 13 | Borders | ✅ ready | `knowledge/css/13-borders.md` |
 | 14 | Transforms | ✅ ready | `knowledge/css/14-transforms.md` |
 | 15 | Transitions | ✅ ready | `knowledge/css/15-transitions.md` |
-| 16 | Animations | ✅ ready | `knowledge/css/16-animations.md` |
-| 17 | Responsive Design | ✅ ready | `knowledge/css/17-responsive-design.md` |
+| 16 | CSS Animations | ✅ ready | `knowledge/css/16-animations.md` |
+| 17 | CSS Responsive Design | ✅ ready | `knowledge/css/17-responsive-design.md` |
 | 18 | Media Queries | ✅ ready | `knowledge/css/18-media-queries.md` |
 | 19 | Container Queries | ✅ ready | `knowledge/css/19-container-queries.md` |
 | 20 | CSS Variables | ✅ ready | `knowledge/css/20-css-variables.md` |
-| 21 | Architecture | ✅ ready | `knowledge/css/21-architecture.md` |
-| 22 | Performance | ✅ ready | `knowledge/css/22-performance.md` |
-| 23 | Accessibility | ✅ ready | `knowledge/css/23-accessibility.md` |
+| 21 | CSS Architecture | ✅ ready | `knowledge/css/21-architecture.md` |
+| 22 | CSS Performance | ✅ ready | `knowledge/css/22-performance.md` |
+| 23 | CSS Accessibility | ✅ ready | `knowledge/css/23-accessibility.md` |
 | 24 | Print Styles | ✅ ready | `knowledge/css/24-print-styles.md` |
 | 25 | Modern CSS | ✅ ready | `knowledge/css/25-modern-css.md` |
 | 26 | Browser Compatibility | ✅ ready | `knowledge/css/26-browser-compatibility.md` |
-| 27 | Debugging | ✅ ready | `knowledge/css/27-debugging.md` |
-| 28 | Best Practices | ✅ ready | `knowledge/css/28-best-practices.md` |
+| 27 | CSS Debugging | ✅ ready | `knowledge/css/27-debugging.md` |
+| 28 | CSS Best Practices | ✅ ready | `knowledge/css/28-best-practices.md` |
 | 29 | CSS Methodologies | ✅ ready | `knowledge/css/29-css-methodologies.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/css/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/css/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/css/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/css/100-common-antipatterns.md` |
+| 30 | CSS Engineering Principles | ✅ ready | `knowledge/css/30-engineering-principles.md` |
+| 98 | CSS Production Checklist | ✅ ready | `knowledge/css/98-production-checklist.md` |
+| 99 | CSS AI Review Checklist | ✅ ready | `knowledge/css/99-ai-review-checklist.md` |
+| 100 | CSS Common Antipatterns | ✅ ready | `knowledge/css/100-common-antipatterns.md` |
 
 ## databases  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Databases Engineering Standards | ✅ ready | `knowledge/databases/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/databases/00-overview.md` |
+| 0 | Database Overview | ✅ ready | `knowledge/databases/00-overview.md` |
 | 1 | Database Fundamentals | ✅ ready | `knowledge/databases/01-database-fundamentals.md` |
 | 2 | Relational vs NoSQL | ✅ ready | `knowledge/databases/02-relational-vs-nosql.md` |
 | 3 | Data Modeling | ✅ ready | `knowledge/databases/03-data-modeling.md` |
 | 4 | Normalization | ✅ ready | `knowledge/databases/04-normalization.md` |
 | 5 | Denormalization | ✅ ready | `knowledge/databases/05-denormalization.md` |
 | 6 | Schema Design | ✅ ready | `knowledge/databases/06-schema-design.md` |
-| 7 | Indexing | ✅ ready | `knowledge/databases/07-indexing.md` |
-| 8 | Query Optimization | ✅ ready | `knowledge/databases/08-query-optimization.md` |
-| 9 | Transactions | ✅ ready | `knowledge/databases/09-transactions.md` |
+| 7 | Database Indexing | ✅ ready | `knowledge/databases/07-indexing.md` |
+| 8 | Database Query Optimization | ✅ ready | `knowledge/databases/08-query-optimization.md` |
+| 9 | Database Transactions | ✅ ready | `knowledge/databases/09-transactions.md` |
 | 10 | Concurrency | ✅ ready | `knowledge/databases/10-concurrency.md` |
-| 11 | Locking | ✅ ready | `knowledge/databases/11-locking.md` |
+| 11 | Database Locking | ✅ ready | `knowledge/databases/11-locking.md` |
 | 12 | ACID | ✅ ready | `knowledge/databases/12-acid.md` |
 | 13 | Eventual Consistency | ✅ ready | `knowledge/databases/13-eventual-consistency.md` |
-| 14 | Replication | ✅ ready | `knowledge/databases/14-replication.md` |
+| 14 | Database Replication | ✅ ready | `knowledge/databases/14-replication.md` |
 | 15 | Sharding | ✅ ready | `knowledge/databases/15-sharding.md` |
-| 16 | Partitioning | ✅ ready | `knowledge/databases/16-partitioning.md` |
-| 17 | Migrations | ✅ ready | `knowledge/databases/17-migrations.md` |
+| 16 | Database Partitioning | ✅ ready | `knowledge/databases/16-partitioning.md` |
+| 17 | Database Migrations | ✅ ready | `knowledge/databases/17-migrations.md` |
 | 18 | Backup And Recovery | ✅ ready | `knowledge/databases/18-backup-and-recovery.md` |
-| 19 | Security | ✅ ready | `knowledge/databases/19-security.md` |
-| 20 | Performance | ✅ ready | `knowledge/databases/20-performance.md` |
-| 21 | Monitoring | ✅ ready | `knowledge/databases/21-monitoring.md` |
-| 22 | High Availability | ✅ ready | `knowledge/databases/22-high-availability.md` |
+| 19 | Database Security | ✅ ready | `knowledge/databases/19-security.md` |
+| 20 | Database Performance | ✅ ready | `knowledge/databases/20-performance.md` |
+| 21 | Database Monitoring | ✅ ready | `knowledge/databases/21-monitoring.md` |
+| 22 | Database High Availability | ✅ ready | `knowledge/databases/22-high-availability.md` |
 | 23 | Data Integrity | ✅ ready | `knowledge/databases/23-data-integrity.md` |
-| 24 | Soft Delete | ✅ ready | `knowledge/databases/24-soft-delete.md` |
-| 25 | Multi Tenancy | ✅ ready | `knowledge/databases/25-multi-tenancy.md` |
+| 24 | Database Soft Delete | ✅ ready | `knowledge/databases/24-soft-delete.md` |
+| 25 | Database Multi Tenancy | ✅ ready | `knowledge/databases/25-multi-tenancy.md` |
 | 26 | Auditing | ✅ ready | `knowledge/databases/26-auditing.md` |
-| 27 | Testing | ✅ ready | `knowledge/databases/27-testing.md` |
-| 28 | Best Practices | ✅ ready | `knowledge/databases/28-best-practices.md` |
-| 29 | Architecture | ✅ ready | `knowledge/databases/29-architecture.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/databases/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/databases/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/databases/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/databases/100-common-antipatterns.md` |
+| 27 | Database Testing | ✅ ready | `knowledge/databases/27-testing.md` |
+| 28 | Database Best Practices | ✅ ready | `knowledge/databases/28-best-practices.md` |
+| 29 | Database Architecture | ✅ ready | `knowledge/databases/29-architecture.md` |
+| 30 | Database Engineering Principles | ✅ ready | `knowledge/databases/30-engineering-principles.md` |
+| 98 | Database Production Checklist | ✅ ready | `knowledge/databases/98-production-checklist.md` |
+| 99 | Database AI Review Checklist | ✅ ready | `knowledge/databases/99-ai-review-checklist.md` |
+| 100 | Database Common Antipatterns | ✅ ready | `knowledge/databases/100-common-antipatterns.md` |
 
 ## devops  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | DevOps Engineering Standards | ✅ ready | `knowledge/devops/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/devops/00-overview.md` |
+| 0 | DevOps Overview | ✅ ready | `knowledge/devops/00-overview.md` |
 | 1 | Devops Culture | ✅ ready | `knowledge/devops/01-devops-culture.md` |
 | 2 | Development Lifecycle | ✅ ready | `knowledge/devops/02-development-lifecycle.md` |
 | 3 | Git Workflow | ✅ ready | `knowledge/devops/03-git-workflow.md` |
 | 4 | Branching Strategies | ✅ ready | `knowledge/devops/04-branching-strategies.md` |
 | 5 | Build Pipelines | ✅ ready | `knowledge/devops/05-build-pipelines.md` |
-| 6 | Release Management | ✅ ready | `knowledge/devops/06-release-management.md` |
+| 6 | DevOps Release Management | ✅ ready | `knowledge/devops/06-release-management.md` |
 | 7 | Deployment Strategies | ✅ ready | `knowledge/devops/07-deployment-strategies.md` |
 | 8 | Infrastructure As Code | ✅ ready | `knowledge/devops/08-infrastructure-as-code.md` |
 | 9 | Configuration Management | ✅ ready | `knowledge/devops/09-configuration-management.md` |
 | 10 | Containerization | ✅ ready | `knowledge/devops/10-containerization.md` |
-| 11 | Orchestration | ✅ ready | `knowledge/devops/11-orchestration.md` |
-| 12 | Monitoring | ✅ ready | `knowledge/devops/12-monitoring.md` |
-| 13 | Observability | ✅ ready | `knowledge/devops/13-observability.md` |
-| 14 | Logging | ✅ ready | `knowledge/devops/14-logging.md` |
+| 11 | DevOps Orchestration | ✅ ready | `knowledge/devops/11-orchestration.md` |
+| 12 | DevOps Monitoring | ✅ ready | `knowledge/devops/12-monitoring.md` |
+| 13 | DevOps Observability | ✅ ready | `knowledge/devops/13-observability.md` |
+| 14 | DevOps Logging | ✅ ready | `knowledge/devops/14-logging.md` |
 | 15 | Alerting | ✅ ready | `knowledge/devops/15-alerting.md` |
-| 16 | Security | ✅ ready | `knowledge/devops/16-security.md` |
-| 17 | Secrets Management | ✅ ready | `knowledge/devops/17-secrets-management.md` |
-| 18 | Disaster Recovery | ✅ ready | `knowledge/devops/18-disaster-recovery.md` |
-| 19 | High Availability | ✅ ready | `knowledge/devops/19-high-availability.md` |
-| 20 | Scalability | ✅ ready | `knowledge/devops/20-scalability.md` |
-| 21 | Performance | ✅ ready | `knowledge/devops/21-performance.md` |
-| 22 | Testing | ✅ ready | `knowledge/devops/22-testing.md` |
-| 23 | Quality Gates | ✅ ready | `knowledge/devops/23-quality-gates.md` |
+| 16 | DevOps Security | ✅ ready | `knowledge/devops/16-security.md` |
+| 17 | DevOps Secrets Management | ✅ ready | `knowledge/devops/17-secrets-management.md` |
+| 18 | DevOps Disaster Recovery | ✅ ready | `knowledge/devops/18-disaster-recovery.md` |
+| 19 | DevOps High Availability | ✅ ready | `knowledge/devops/19-high-availability.md` |
+| 20 | DevOps Scalability | ✅ ready | `knowledge/devops/20-scalability.md` |
+| 21 | DevOps Performance | ✅ ready | `knowledge/devops/21-performance.md` |
+| 22 | DevOps Testing | ✅ ready | `knowledge/devops/22-testing.md` |
+| 23 | DevOps Quality Gates | ✅ ready | `knowledge/devops/23-quality-gates.md` |
 | 24 | Change Management | ✅ ready | `knowledge/devops/24-change-management.md` |
 | 25 | Incident Management | ✅ ready | `knowledge/devops/25-incident-management.md` |
 | 26 | Postmortems | ✅ ready | `knowledge/devops/26-postmortems.md` |
 | 27 | SRE Principles | ✅ ready | `knowledge/devops/27-sre-principles.md` |
-| 28 | Best Practices | ✅ ready | `knowledge/devops/28-best-practices.md` |
-| 29 | Tooling | ✅ ready | `knowledge/devops/29-tooling.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/devops/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/devops/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/devops/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/devops/100-common-antipatterns.md` |
+| 28 | DevOps Best Practices | ✅ ready | `knowledge/devops/28-best-practices.md` |
+| 29 | DevOps Tooling | ✅ ready | `knowledge/devops/29-tooling.md` |
+| 30 | DevOps Engineering Principles | ✅ ready | `knowledge/devops/30-engineering-principles.md` |
+| 98 | DevOps Production Checklist | ✅ ready | `knowledge/devops/98-production-checklist.md` |
+| 99 | DevOps AI Review Checklist | ✅ ready | `knowledge/devops/99-ai-review-checklist.md` |
+| 100 | DevOps Common Antipatterns | ✅ ready | `knowledge/devops/100-common-antipatterns.md` |
 
 ## divi  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Divi Engineering Standards | ✅ ready | `knowledge/divi/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/divi/00-overview.md` |
-| 1 | Architecture | ✅ ready | `knowledge/divi/01-architecture.md` |
+| 0 | Divi Overview | ✅ ready | `knowledge/divi/00-overview.md` |
+| 1 | Divi Architecture | ✅ ready | `knowledge/divi/01-architecture.md` |
 | 2 | Theme Builder | ✅ ready | `knowledge/divi/02-theme-builder.md` |
-| 3 | Modules | ✅ ready | `knowledge/divi/03-modules.md` |
+| 3 | Divi Modules | ✅ ready | `knowledge/divi/03-modules.md` |
 | 4 | Custom Modules | ✅ ready | `knowledge/divi/04-custom-modules.md` |
 | 5 | Layouts | ✅ ready | `knowledge/divi/05-layouts.md` |
 | 6 | Global Elements | ✅ ready | `knowledge/divi/06-global-elements.md` |
 | 7 | Dynamic Content | ✅ ready | `knowledge/divi/07-dynamic-content.md` |
-| 8 | Templates | ✅ ready | `knowledge/divi/08-templates.md` |
+| 8 | Divi Templates | ✅ ready | `knowledge/divi/08-templates.md` |
 | 9 | Custom CSS | ✅ ready | `knowledge/divi/09-custom-css.md` |
-| 10 | Performance | ✅ ready | `knowledge/divi/10-performance.md` |
-| 11 | Responsive Design | ✅ ready | `knowledge/divi/11-responsive-design.md` |
-| 12 | Accessibility | ✅ ready | `knowledge/divi/12-accessibility.md` |
-| 13 | SEO | ✅ ready | `knowledge/divi/13-seo.md` |
+| 10 | Divi Performance | ✅ ready | `knowledge/divi/10-performance.md` |
+| 11 | Divi Responsive Design | ✅ ready | `knowledge/divi/11-responsive-design.md` |
+| 12 | Divi Accessibility | ✅ ready | `knowledge/divi/12-accessibility.md` |
+| 13 | Divi SEO | ✅ ready | `knowledge/divi/13-seo.md` |
 | 14 | WooCommerce | ✅ ready | `knowledge/divi/14-woocommerce.md` |
 | 15 | Custom Fields | ✅ ready | `knowledge/divi/15-custom-fields.md` |
 | 16 | WordPress Hooks | ✅ ready | `knowledge/divi/16-wordpress-hooks.md` |
-| 17 | REST API | ✅ ready | `knowledge/divi/17-rest-api.md` |
-| 18 | Headless | ✅ ready | `knowledge/divi/18-headless.md` |
-| 19 | Security | ✅ ready | `knowledge/divi/19-security.md` |
-| 20 | Debugging | ✅ ready | `knowledge/divi/20-debugging.md` |
-| 21 | Testing | ✅ ready | `knowledge/divi/21-testing.md` |
-| 22 | Deployment | ✅ ready | `knowledge/divi/22-deployment.md` |
-| 23 | Maintenance | ✅ ready | `knowledge/divi/23-maintenance.md` |
-| 24 | Best Practices | ✅ ready | `knowledge/divi/24-best-practices.md` |
-| 25 | Production | ✅ ready | `knowledge/divi/25-production.md` |
-| 26 | Real World Patterns | ✅ ready | `knowledge/divi/26-real-world-patterns.md` |
+| 17 | Divi REST API | ✅ ready | `knowledge/divi/17-rest-api.md` |
+| 18 | Divi Headless | ✅ ready | `knowledge/divi/18-headless.md` |
+| 19 | Divi Security | ✅ ready | `knowledge/divi/19-security.md` |
+| 20 | Divi Debugging | ✅ ready | `knowledge/divi/20-debugging.md` |
+| 21 | Divi Testing | ✅ ready | `knowledge/divi/21-testing.md` |
+| 22 | Divi Deployment | ✅ ready | `knowledge/divi/22-deployment.md` |
+| 23 | Divi Maintenance | ✅ ready | `knowledge/divi/23-maintenance.md` |
+| 24 | Divi Best Practices | ✅ ready | `knowledge/divi/24-best-practices.md` |
+| 25 | Divi Production | ✅ ready | `knowledge/divi/25-production.md` |
+| 26 | Divi Real World Patterns | ✅ ready | `knowledge/divi/26-real-world-patterns.md` |
 | 27 | Client Projects | ✅ ready | `knowledge/divi/27-client-projects.md` |
 | 28 | AI Workflow | ✅ ready | `knowledge/divi/28-ai-workflow.md` |
 | 29 | Review | ✅ ready | `knowledge/divi/29-review.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/divi/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/divi/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/divi/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/divi/100-common-antipatterns.md` |
+| 30 | Divi Engineering Principles | ✅ ready | `knowledge/divi/30-engineering-principles.md` |
+| 98 | Divi Production Checklist | ✅ ready | `knowledge/divi/98-production-checklist.md` |
+| 99 | Divi AI Review Checklist | ✅ ready | `knowledge/divi/99-ai-review-checklist.md` |
+| 100 | Divi Common Antipatterns | ✅ ready | `knowledge/divi/100-common-antipatterns.md` |
 
 ## docker  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Docker Engineering Standards | ✅ ready | `knowledge/docker/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/docker/00-overview.md` |
-| 1 | Installation | ✅ ready | `knowledge/docker/01-installation.md` |
+| 0 | Docker Overview | ✅ ready | `knowledge/docker/00-overview.md` |
+| 1 | Docker Installation | ✅ ready | `knowledge/docker/01-installation.md` |
 | 2 | Docker Architecture | ✅ ready | `knowledge/docker/02-docker-architecture.md` |
-| 3 | Images | ✅ ready | `knowledge/docker/03-images.md` |
-| 4 | Containers | ✅ ready | `knowledge/docker/04-containers.md` |
-| 5 | Volumes | ✅ ready | `knowledge/docker/05-volumes.md` |
+| 3 | Docker Images | ✅ ready | `knowledge/docker/03-images.md` |
+| 4 | Docker Containers | ✅ ready | `knowledge/docker/04-containers.md` |
+| 5 | Docker Volumes | ✅ ready | `knowledge/docker/05-volumes.md` |
 | 6 | Bind Mounts | ✅ ready | `knowledge/docker/06-bind-mounts.md` |
 | 7 | Networks | ✅ ready | `knowledge/docker/07-networks.md` |
 | 8 | Dockerfile | ✅ ready | `knowledge/docker/08-dockerfile.md` |
@@ -409,26 +409,26 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 11 | Multi Stage Builds | ✅ ready | `knowledge/docker/11-multi-stage-builds.md` |
 | 12 | Docker Compose | ✅ ready | `knowledge/docker/12-docker-compose.md` |
 | 13 | Environment Variables | ✅ ready | `knowledge/docker/13-environment-variables.md` |
-| 14 | Secrets | ✅ ready | `knowledge/docker/14-secrets.md` |
+| 14 | Docker Secrets | ✅ ready | `knowledge/docker/14-secrets.md` |
 | 15 | Healthchecks | ✅ ready | `knowledge/docker/15-healthchecks.md` |
-| 16 | Logging | ✅ ready | `knowledge/docker/16-logging.md` |
+| 16 | Docker Logging | ✅ ready | `knowledge/docker/16-logging.md` |
 | 17 | Resource Limits | ✅ ready | `knowledge/docker/17-resource-limits.md` |
-| 18 | Security | ✅ ready | `knowledge/docker/18-security.md` |
+| 18 | Docker Security | ✅ ready | `knowledge/docker/18-security.md` |
 | 19 | Registry | ✅ ready | `knowledge/docker/19-registry.md` |
 | 20 | Container Debugging | ✅ ready | `knowledge/docker/20-container-debugging.md` |
 | 21 | Development Workflow | ✅ ready | `knowledge/docker/21-development-workflow.md` |
-| 22 | Production | ✅ ready | `knowledge/docker/22-production.md` |
-| 23 | Orchestration | ✅ ready | `knowledge/docker/23-orchestration.md` |
-| 24 | Monitoring | ✅ ready | `knowledge/docker/24-monitoring.md` |
-| 25 | Performance | ✅ ready | `knowledge/docker/25-performance.md` |
-| 26 | Best Practices | ✅ ready | `knowledge/docker/26-best-practices.md` |
-| 27 | Troubleshooting | ✅ ready | `knowledge/docker/27-troubleshooting.md` |
-| 28 | Tooling | ✅ ready | `knowledge/docker/28-tooling.md` |
+| 22 | Docker Production | ✅ ready | `knowledge/docker/22-production.md` |
+| 23 | Docker Orchestration | ✅ ready | `knowledge/docker/23-orchestration.md` |
+| 24 | Docker Monitoring | ✅ ready | `knowledge/docker/24-monitoring.md` |
+| 25 | Docker Performance | ✅ ready | `knowledge/docker/25-performance.md` |
+| 26 | Docker Best Practices | ✅ ready | `knowledge/docker/26-best-practices.md` |
+| 27 | Docker Troubleshooting | ✅ ready | `knowledge/docker/27-troubleshooting.md` |
+| 28 | Docker Tooling | ✅ ready | `knowledge/docker/28-tooling.md` |
 | 29 | CI Integration | ✅ ready | `knowledge/docker/29-ci-integration.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/docker/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/docker/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/docker/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/docker/100-common-antipatterns.md` |
+| 30 | Docker Engineering Principles | ✅ ready | `knowledge/docker/30-engineering-principles.md` |
+| 98 | Docker Production Checklist | ✅ ready | `knowledge/docker/98-production-checklist.md` |
+| 99 | Docker AI Review Checklist | ✅ ready | `knowledge/docker/99-ai-review-checklist.md` |
+| 100 | Docker Common Antipatterns | ✅ ready | `knowledge/docker/100-common-antipatterns.md` |
 
 ## engineering  (8/8 ready)
 
@@ -469,7 +469,7 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 10 | Design QA | ✅ ready | `knowledge/figma/10-design-qa.md` |
 | 11 | AI Design Review Protocol | ✅ ready | `knowledge/figma/11-ai-design-review.md` |
 | 12 | AI Prompting Standard for Figma Tasks | ✅ ready | `knowledge/figma/12-ai-prompts.md` |
-| 13 | Visual Regression | ✅ ready | `knowledge/figma/13-visual-regression.md` |
+| 13 | Figma Visual Regression | ✅ ready | `knowledge/figma/13-visual-regression.md` |
 | 14 | Figma Inspection Checklist | ✅ ready | `knowledge/figma/14-figma-inspection-checklist.md` |
 | 15 | Screenshot Comparison | ✅ ready | `knowledge/figma/15-screenshot-comparison.md` |
 | 16 | Accessibility from Figma | ✅ ready | `knowledge/figma/16-accessibility-from-figma.md` |
@@ -483,49 +483,49 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Frontend Engineering Standards | ✅ ready | `knowledge/frontend/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/frontend/00-overview.md` |
+| 0 | Frontend Overview | ✅ ready | `knowledge/frontend/00-overview.md` |
 | 1 | Frontend Architecture | ✅ ready | `knowledge/frontend/01-frontend-architecture.md` |
 | 2 | Component Driven Development | ✅ ready | `knowledge/frontend/02-component-driven-development.md` |
 | 3 | Design Systems | ✅ ready | `knowledge/frontend/03-design-systems.md` |
 | 4 | State Management | ✅ ready | `knowledge/frontend/04-state-management.md` |
-| 5 | Routing | ✅ ready | `knowledge/frontend/05-routing.md` |
+| 5 | Frontend Routing | ✅ ready | `knowledge/frontend/05-routing.md` |
 | 6 | Data Fetching | ✅ ready | `knowledge/frontend/06-data-fetching.md` |
-| 7 | Rendering | ✅ ready | `knowledge/frontend/07-rendering.md` |
-| 8 | Performance | ✅ ready | `knowledge/frontend/08-performance.md` |
-| 9 | Accessibility | ✅ ready | `knowledge/frontend/09-accessibility.md` |
-| 10 | Responsive Design | ✅ ready | `knowledge/frontend/10-responsive-design.md` |
-| 11 | SEO | ✅ ready | `knowledge/frontend/11-seo.md` |
-| 12 | Forms | ✅ ready | `knowledge/frontend/12-forms.md` |
-| 13 | Error Handling | ✅ ready | `knowledge/frontend/13-error-handling.md` |
-| 14 | Security | ✅ ready | `knowledge/frontend/14-security.md` |
+| 7 | Frontend Rendering | ✅ ready | `knowledge/frontend/07-rendering.md` |
+| 8 | Frontend Performance | ✅ ready | `knowledge/frontend/08-performance.md` |
+| 9 | Frontend Accessibility | ✅ ready | `knowledge/frontend/09-accessibility.md` |
+| 10 | Frontend Responsive Design | ✅ ready | `knowledge/frontend/10-responsive-design.md` |
+| 11 | Frontend SEO | ✅ ready | `knowledge/frontend/11-seo.md` |
+| 12 | Frontend Forms | ✅ ready | `knowledge/frontend/12-forms.md` |
+| 13 | Frontend Error Handling | ✅ ready | `knowledge/frontend/13-error-handling.md` |
+| 14 | Frontend Security | ✅ ready | `knowledge/frontend/14-security.md` |
 | 15 | Styling | ✅ ready | `knowledge/frontend/15-styling.md` |
-| 16 | CSS Architecture | ✅ ready | `knowledge/frontend/16-css-architecture.md` |
-| 17 | Animations | ✅ ready | `knowledge/frontend/17-animations.md` |
+| 16 | Frontend CSS Architecture | ✅ ready | `knowledge/frontend/16-css-architecture.md` |
+| 17 | Frontend Animations | ✅ ready | `knowledge/frontend/17-animations.md` |
 | 18 | Assets | ✅ ready | `knowledge/frontend/18-assets.md` |
 | 19 | Build Tools | ✅ ready | `knowledge/frontend/19-build-tools.md` |
 | 20 | Bundling | ✅ ready | `knowledge/frontend/20-bundling.md` |
-| 21 | Code Splitting | ✅ ready | `knowledge/frontend/21-code-splitting.md` |
-| 22 | Testing | ✅ ready | `knowledge/frontend/22-testing.md` |
-| 23 | Monitoring | ✅ ready | `knowledge/frontend/23-monitoring.md` |
-| 24 | Documentation | ✅ ready | `knowledge/frontend/24-documentation.md` |
-| 25 | Folder Structure | ✅ ready | `knowledge/frontend/25-folder-structure.md` |
-| 26 | Production | ✅ ready | `knowledge/frontend/26-production.md` |
-| 27 | Best Practices | ✅ ready | `knowledge/frontend/27-best-practices.md` |
+| 21 | Frontend Code Splitting | ✅ ready | `knowledge/frontend/21-code-splitting.md` |
+| 22 | Frontend Testing | ✅ ready | `knowledge/frontend/22-testing.md` |
+| 23 | Frontend Monitoring | ✅ ready | `knowledge/frontend/23-monitoring.md` |
+| 24 | Frontend Documentation | ✅ ready | `knowledge/frontend/24-documentation.md` |
+| 25 | Frontend Folder Structure | ✅ ready | `knowledge/frontend/25-folder-structure.md` |
+| 26 | Frontend Production | ✅ ready | `knowledge/frontend/26-production.md` |
+| 27 | Frontend Best Practices | ✅ ready | `knowledge/frontend/27-best-practices.md` |
 | 28 | UI Patterns | ✅ ready | `knowledge/frontend/28-ui-patterns.md` |
 | 29 | Design Review | ✅ ready | `knowledge/frontend/29-design-review.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/frontend/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/frontend/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/frontend/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/frontend/100-common-antipatterns.md` |
+| 30 | Frontend Engineering Principles | ✅ ready | `knowledge/frontend/30-engineering-principles.md` |
+| 98 | Frontend Production Checklist | ✅ ready | `knowledge/frontend/98-production-checklist.md` |
+| 99 | Frontend AI Review Checklist | ✅ ready | `knowledge/frontend/99-ai-review-checklist.md` |
+| 100 | Frontend Common Antipatterns | ✅ ready | `knowledge/frontend/100-common-antipatterns.md` |
 
 ## git  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Git Engineering Standards | ✅ ready | `knowledge/git/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/git/00-overview.md` |
+| 0 | Git Overview | ✅ ready | `knowledge/git/00-overview.md` |
 | 1 | Version Control | ✅ ready | `knowledge/git/01-version-control.md` |
-| 2 | Installation | ✅ ready | `knowledge/git/02-installation.md` |
+| 2 | Git Installation | ✅ ready | `knowledge/git/02-installation.md` |
 | 3 | Repository | ✅ ready | `knowledge/git/03-repository.md` |
 | 4 | Commits | ✅ ready | `knowledge/git/04-commits.md` |
 | 5 | Branches | ✅ ready | `knowledge/git/05-branches.md` |
@@ -543,27 +543,27 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 17 | Conflict Resolution | ✅ ready | `knowledge/git/17-conflict-resolution.md` |
 | 18 | History | ✅ ready | `knowledge/git/18-history.md` |
 | 19 | Reflog | ✅ ready | `knowledge/git/19-reflog.md` |
-| 20 | Hooks | ✅ ready | `knowledge/git/20-hooks.md` |
+| 20 | Git Hooks | ✅ ready | `knowledge/git/20-hooks.md` |
 | 21 | Submodules | ✅ ready | `knowledge/git/21-submodules.md` |
 | 22 | Git Flow | ✅ ready | `knowledge/git/22-git-flow.md` |
 | 23 | Trunk Based Development | ✅ ready | `knowledge/git/23-trunk-based-development.md` |
 | 24 | Monorepo | ✅ ready | `knowledge/git/24-monorepo.md` |
 | 25 | LFS | ✅ ready | `knowledge/git/25-lfs.md` |
-| 26 | Debugging | ✅ ready | `knowledge/git/26-debugging.md` |
-| 27 | Best Practices | ✅ ready | `knowledge/git/27-best-practices.md` |
-| 28 | Security | ✅ ready | `knowledge/git/28-security.md` |
-| 29 | Tooling | ✅ ready | `knowledge/git/29-tooling.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/git/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/git/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/git/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/git/100-common-antipatterns.md` |
+| 26 | Git Debugging | ✅ ready | `knowledge/git/26-debugging.md` |
+| 27 | Git Best Practices | ✅ ready | `knowledge/git/27-best-practices.md` |
+| 28 | Git Security | ✅ ready | `knowledge/git/28-security.md` |
+| 29 | Git Tooling | ✅ ready | `knowledge/git/29-tooling.md` |
+| 30 | Git Engineering Principles | ✅ ready | `knowledge/git/30-engineering-principles.md` |
+| 98 | Git Production Checklist | ✅ ready | `knowledge/git/98-production-checklist.md` |
+| 99 | Git AI Review Checklist | ✅ ready | `knowledge/git/99-ai-review-checklist.md` |
+| 100 | Git Common Antipatterns | ✅ ready | `knowledge/git/100-common-antipatterns.md` |
 
 ## github  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | GitHub Engineering Standards | ✅ ready | `knowledge/github/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/github/00-overview.md` |
+| 0 | GitHub Overview | ✅ ready | `knowledge/github/00-overview.md` |
 | 1 | GitHub Platform | ✅ ready | `knowledge/github/01-github-platform.md` |
 | 2 | Repositories | ✅ ready | `knowledge/github/02-repositories.md` |
 | 3 | Issues | ✅ ready | `knowledge/github/03-issues.md` |
@@ -576,7 +576,7 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 10 | Packages | ✅ ready | `knowledge/github/10-packages.md` |
 | 11 | Releases | ✅ ready | `knowledge/github/11-releases.md` |
 | 12 | Pages | ✅ ready | `knowledge/github/12-pages.md` |
-| 13 | Security | ✅ ready | `knowledge/github/13-security.md` |
+| 13 | GitHub Security | ✅ ready | `knowledge/github/13-security.md` |
 | 14 | CodeQL | ✅ ready | `knowledge/github/14-codeql.md` |
 | 15 | Dependabot | ✅ ready | `knowledge/github/15-dependabot.md` |
 | 16 | Secret Scanning | ✅ ready | `knowledge/github/16-secret-scanning.md` |
@@ -584,157 +584,157 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 18 | Rulesets | ✅ ready | `knowledge/github/18-rulesets.md` |
 | 19 | Organizations | ✅ ready | `knowledge/github/19-organizations.md` |
 | 20 | Teams | ✅ ready | `knowledge/github/20-teams.md` |
-| 21 | Permissions | ✅ ready | `knowledge/github/21-permissions.md` |
+| 21 | GitHub Permissions | ✅ ready | `knowledge/github/21-permissions.md` |
 | 22 | API | ✅ ready | `knowledge/github/22-api.md` |
-| 23 | CLI | ✅ ready | `knowledge/github/23-cli.md` |
+| 23 | GitHub CLI | ✅ ready | `knowledge/github/23-cli.md` |
 | 24 | Codespaces | ✅ ready | `knowledge/github/24-codespaces.md` |
 | 25 | Copilot | ✅ ready | `knowledge/github/25-copilot.md` |
-| 26 | Automation | ✅ ready | `knowledge/github/26-automation.md` |
-| 27 | Best Practices | ✅ ready | `knowledge/github/27-best-practices.md` |
+| 26 | GitHub Automation | ✅ ready | `knowledge/github/26-automation.md` |
+| 27 | GitHub Best Practices | ✅ ready | `knowledge/github/27-best-practices.md` |
 | 28 | Enterprise | ✅ ready | `knowledge/github/28-enterprise.md` |
 | 29 | Integrations | ✅ ready | `knowledge/github/29-integrations.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/github/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/github/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/github/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/github/100-common-antipatterns.md` |
+| 30 | GitHub Engineering Principles | ✅ ready | `knowledge/github/30-engineering-principles.md` |
+| 98 | GitHub Production Checklist | ✅ ready | `knowledge/github/98-production-checklist.md` |
+| 99 | GitHub AI Review Checklist | ✅ ready | `knowledge/github/99-ai-review-checklist.md` |
+| 100 | GitHub Common Antipatterns | ✅ ready | `knowledge/github/100-common-antipatterns.md` |
 
 ## graphql  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | GraphQL Engineering Standards | ✅ ready | `knowledge/graphql/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/graphql/00-overview.md` |
+| 0 | GraphQL Overview | ✅ ready | `knowledge/graphql/00-overview.md` |
 | 1 | GraphQL Fundamentals | ✅ ready | `knowledge/graphql/01-graphql-fundamentals.md` |
-| 2 | Schema | ✅ ready | `knowledge/graphql/02-schema.md` |
-| 3 | Types | ✅ ready | `knowledge/graphql/03-types.md` |
+| 2 | GraphQL Schema | ✅ ready | `knowledge/graphql/02-schema.md` |
+| 3 | GraphQL Types | ✅ ready | `knowledge/graphql/03-types.md` |
 | 4 | Queries | ✅ ready | `knowledge/graphql/04-queries.md` |
 | 5 | Mutations | ✅ ready | `knowledge/graphql/05-mutations.md` |
-| 6 | Subscriptions | ✅ ready | `knowledge/graphql/06-subscriptions.md` |
+| 6 | GraphQL Subscriptions | ✅ ready | `knowledge/graphql/06-subscriptions.md` |
 | 7 | Resolvers | ✅ ready | `knowledge/graphql/07-resolvers.md` |
 | 8 | Context | ✅ ready | `knowledge/graphql/08-context.md` |
 | 9 | Scalars | ✅ ready | `knowledge/graphql/09-scalars.md` |
 | 10 | Input Types | ✅ ready | `knowledge/graphql/10-input-types.md` |
 | 11 | Directives | ✅ ready | `knowledge/graphql/11-directives.md` |
 | 12 | Fragments | ✅ ready | `knowledge/graphql/12-fragments.md` |
-| 13 | Pagination | ✅ ready | `knowledge/graphql/13-pagination.md` |
-| 14 | Filtering | ✅ ready | `knowledge/graphql/14-filtering.md` |
+| 13 | GraphQL Pagination | ✅ ready | `knowledge/graphql/13-pagination.md` |
+| 14 | GraphQL Filtering | ✅ ready | `knowledge/graphql/14-filtering.md` |
 | 15 | N+1 Problem | ✅ ready | `knowledge/graphql/15-n1-problem.md` |
 | 16 | DataLoader | ✅ ready | `knowledge/graphql/16-dataloader.md` |
-| 17 | Security | ✅ ready | `knowledge/graphql/17-security.md` |
-| 18 | Authentication | ✅ ready | `knowledge/graphql/18-authentication.md` |
-| 19 | Authorization | ✅ ready | `knowledge/graphql/19-authorization.md` |
-| 20 | Error Handling | ✅ ready | `knowledge/graphql/20-error-handling.md` |
-| 21 | Caching | ✅ ready | `knowledge/graphql/21-caching.md` |
-| 22 | Performance | ✅ ready | `knowledge/graphql/22-performance.md` |
+| 17 | GraphQL Security | ✅ ready | `knowledge/graphql/17-security.md` |
+| 18 | GraphQL Authentication | ✅ ready | `knowledge/graphql/18-authentication.md` |
+| 19 | GraphQL Authorization | ✅ ready | `knowledge/graphql/19-authorization.md` |
+| 20 | GraphQL Error Handling | ✅ ready | `knowledge/graphql/20-error-handling.md` |
+| 21 | GraphQL Caching | ✅ ready | `knowledge/graphql/21-caching.md` |
+| 22 | GraphQL Performance | ✅ ready | `knowledge/graphql/22-performance.md` |
 | 23 | Federation | ✅ ready | `knowledge/graphql/23-federation.md` |
-| 24 | Testing | ✅ ready | `knowledge/graphql/24-testing.md` |
-| 25 | Monitoring | ✅ ready | `knowledge/graphql/25-monitoring.md` |
-| 26 | Best Practices | ✅ ready | `knowledge/graphql/26-best-practices.md` |
-| 27 | Production | ✅ ready | `knowledge/graphql/27-production.md` |
-| 28 | Tooling | ✅ ready | `knowledge/graphql/28-tooling.md` |
+| 24 | GraphQL Testing | ✅ ready | `knowledge/graphql/24-testing.md` |
+| 25 | GraphQL Monitoring | ✅ ready | `knowledge/graphql/25-monitoring.md` |
+| 26 | GraphQL Best Practices | ✅ ready | `knowledge/graphql/26-best-practices.md` |
+| 27 | GraphQL Production | ✅ ready | `knowledge/graphql/27-production.md` |
+| 28 | GraphQL Tooling | ✅ ready | `knowledge/graphql/28-tooling.md` |
 | 29 | Schema Evolution | ✅ ready | `knowledge/graphql/29-schema-evolution.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/graphql/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/graphql/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/graphql/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/graphql/100-common-antipatterns.md` |
+| 30 | GraphQL Engineering Principles | ✅ ready | `knowledge/graphql/30-engineering-principles.md` |
+| 98 | GraphQL Production Checklist | ✅ ready | `knowledge/graphql/98-production-checklist.md` |
+| 99 | GraphQL AI Review Checklist | ✅ ready | `knowledge/graphql/99-ai-review-checklist.md` |
+| 100 | GraphQL Common Antipatterns | ✅ ready | `knowledge/graphql/100-common-antipatterns.md` |
 
 ## html  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | HTML Engineering Standards | ✅ ready | `knowledge/html/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/html/00-overview.md` |
+| 0 | HTML Overview | ✅ ready | `knowledge/html/00-overview.md` |
 | 1 | Document Structure | ✅ ready | `knowledge/html/01-document-structure.md` |
-| 2 | Semantic HTML | ✅ ready | `knowledge/html/02-semantic-html.md` |
+| 2 | HTML Semantic HTML | ✅ ready | `knowledge/html/02-semantic-html.md` |
 | 3 | Text Elements | ✅ ready | `knowledge/html/03-text-elements.md` |
-| 4 | Links | ✅ ready | `knowledge/html/04-links.md` |
-| 5 | Images | ✅ ready | `knowledge/html/05-images.md` |
-| 6 | Lists | ✅ ready | `knowledge/html/06-lists.md` |
-| 7 | Tables | ✅ ready | `knowledge/html/07-tables.md` |
-| 8 | Forms | ✅ ready | `knowledge/html/08-forms.md` |
-| 9 | Media | ✅ ready | `knowledge/html/09-media.md` |
-| 10 | Metadata | ✅ ready | `knowledge/html/10-metadata.md` |
-| 11 | Accessibility | ✅ ready | `knowledge/html/11-accessibility.md` |
-| 12 | SEO | ✅ ready | `knowledge/html/12-seo.md` |
-| 13 | Structured Data | ✅ ready | `knowledge/html/13-structured-data.md` |
+| 4 | HTML Links | ✅ ready | `knowledge/html/04-links.md` |
+| 5 | HTML Images | ✅ ready | `knowledge/html/05-images.md` |
+| 6 | HTML Lists | ✅ ready | `knowledge/html/06-lists.md` |
+| 7 | HTML Tables | ✅ ready | `knowledge/html/07-tables.md` |
+| 8 | HTML Forms | ✅ ready | `knowledge/html/08-forms.md` |
+| 9 | HTML Media | ✅ ready | `knowledge/html/09-media.md` |
+| 10 | HTML Metadata | ✅ ready | `knowledge/html/10-metadata.md` |
+| 11 | HTML Accessibility | ✅ ready | `knowledge/html/11-accessibility.md` |
+| 12 | HTML SEO | ✅ ready | `knowledge/html/12-seo.md` |
+| 13 | HTML Structured Data | ✅ ready | `knowledge/html/13-structured-data.md` |
 | 14 | Custom Data Attributes | ✅ ready | `knowledge/html/14-custom-data-attributes.md` |
 | 15 | Iframes | ✅ ready | `knowledge/html/15-iframes.md` |
 | 16 | SVG | ✅ ready | `knowledge/html/16-svg.md` |
 | 17 | Canvas | ✅ ready | `knowledge/html/17-canvas.md` |
-| 18 | Performance | ✅ ready | `knowledge/html/18-performance.md` |
-| 19 | Security | ✅ ready | `knowledge/html/19-security.md` |
+| 18 | HTML Performance | ✅ ready | `knowledge/html/18-performance.md` |
+| 19 | HTML Security | ✅ ready | `knowledge/html/19-security.md` |
 | 20 | Browser Rendering | ✅ ready | `knowledge/html/20-browser-rendering.md` |
-| 21 | Best Practices | ✅ ready | `knowledge/html/21-best-practices.md` |
-| 22 | Validation | ✅ ready | `knowledge/html/22-validation.md` |
+| 21 | HTML Best Practices | ✅ ready | `knowledge/html/21-best-practices.md` |
+| 22 | HTML Validation | ✅ ready | `knowledge/html/22-validation.md` |
 | 23 | Progressive Enhancement | ✅ ready | `knowledge/html/23-progressive-enhancement.md` |
 | 24 | HTML Email | ✅ ready | `knowledge/html/24-html-email.md` |
 | 25 | Web Components | ✅ ready | `knowledge/html/25-web-components.md` |
 | 26 | Microdata | ✅ ready | `knowledge/html/26-microdata.md` |
 | 27 | HTML APIs | ✅ ready | `knowledge/html/27-html-apis.md` |
 | 28 | Common Patterns | ✅ ready | `knowledge/html/28-common-patterns.md` |
-| 29 | Debugging | ✅ ready | `knowledge/html/29-debugging.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/html/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/html/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/html/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/html/100-common-antipatterns.md` |
+| 29 | HTML Debugging | ✅ ready | `knowledge/html/29-debugging.md` |
+| 30 | HTML Engineering Principles | ✅ ready | `knowledge/html/30-engineering-principles.md` |
+| 98 | HTML Production Checklist | ✅ ready | `knowledge/html/98-production-checklist.md` |
+| 99 | HTML AI Review Checklist | ✅ ready | `knowledge/html/99-ai-review-checklist.md` |
+| 100 | HTML Common Antipatterns | ✅ ready | `knowledge/html/100-common-antipatterns.md` |
 
 ## javascript  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | JavaScript Engineering Standards | ✅ ready | `knowledge/javascript/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/javascript/00-overview.md` |
-| 1 | Language Fundamentals | ✅ ready | `knowledge/javascript/01-language-fundamentals.md` |
+| 0 | JavaScript Overview | ✅ ready | `knowledge/javascript/00-overview.md` |
+| 1 | JavaScript Language Fundamentals | ✅ ready | `knowledge/javascript/01-language-fundamentals.md` |
 | 2 | Execution Context | ✅ ready | `knowledge/javascript/02-execution-context.md` |
 | 3 | Scope And Closures | ✅ ready | `knowledge/javascript/03-scope-and-closures.md` |
-| 4 | Functions | ✅ ready | `knowledge/javascript/04-functions.md` |
+| 4 | JavaScript Functions | ✅ ready | `knowledge/javascript/04-functions.md` |
 | 5 | Objects And Prototypes | ✅ ready | `knowledge/javascript/05-objects-and-prototypes.md` |
 | 6 | Classes | ✅ ready | `knowledge/javascript/06-classes.md` |
-| 7 | Modules | ✅ ready | `knowledge/javascript/07-modules.md` |
+| 7 | JavaScript Modules | ✅ ready | `knowledge/javascript/07-modules.md` |
 | 8 | Asynchronous JavaScript | ✅ ready | `knowledge/javascript/08-asynchronous-javascript.md` |
 | 9 | Promises | ✅ ready | `knowledge/javascript/09-promises.md` |
-| 10 | Event Loop | ✅ ready | `knowledge/javascript/10-event-loop.md` |
+| 10 | JavaScript Event Loop | ✅ ready | `knowledge/javascript/10-event-loop.md` |
 | 11 | Browser API | ✅ ready | `knowledge/javascript/11-browser-api.md` |
 | 12 | Dom | ✅ ready | `knowledge/javascript/12-dom.md` |
 | 13 | Fetch API | ✅ ready | `knowledge/javascript/13-fetch-api.md` |
-| 14 | Error Handling | ✅ ready | `knowledge/javascript/14-error-handling.md` |
-| 15 | Memory Management | ✅ ready | `knowledge/javascript/15-memory-management.md` |
+| 14 | JavaScript Error Handling | ✅ ready | `knowledge/javascript/14-error-handling.md` |
+| 15 | JavaScript Memory Management | ✅ ready | `knowledge/javascript/15-memory-management.md` |
 | 16 | This Keyword | ✅ ready | `knowledge/javascript/16-this-keyword.md` |
 | 17 | Es6 Features | ✅ ready | `knowledge/javascript/17-es6-features.md` |
 | 18 | Iterators And Generators | ✅ ready | `knowledge/javascript/18-iterators-and-generators.md` |
 | 19 | Symbols | ✅ ready | `knowledge/javascript/19-symbols.md` |
 | 20 | Proxies And Reflect | ✅ ready | `knowledge/javascript/20-proxies-and-reflect.md` |
-| 21 | Functional Programming | ✅ ready | `knowledge/javascript/21-functional-programming.md` |
-| 22 | Design Patterns | ✅ ready | `knowledge/javascript/22-design-patterns.md` |
-| 23 | Clean Code | ✅ ready | `knowledge/javascript/23-clean-code.md` |
-| 24 | Testing | ✅ ready | `knowledge/javascript/24-testing.md` |
-| 25 | Performance | ✅ ready | `knowledge/javascript/25-performance.md` |
-| 26 | Security | ✅ ready | `knowledge/javascript/26-security.md` |
+| 21 | JavaScript Functional Programming | ✅ ready | `knowledge/javascript/21-functional-programming.md` |
+| 22 | JavaScript Design Patterns | ✅ ready | `knowledge/javascript/22-design-patterns.md` |
+| 23 | JavaScript Clean Code | ✅ ready | `knowledge/javascript/23-clean-code.md` |
+| 24 | JavaScript Testing | ✅ ready | `knowledge/javascript/24-testing.md` |
+| 25 | JavaScript Performance | ✅ ready | `knowledge/javascript/25-performance.md` |
+| 26 | JavaScript Security | ✅ ready | `knowledge/javascript/26-security.md` |
 | 27 | Browser Performance | ✅ ready | `knowledge/javascript/27-browser-performance.md` |
-| 28 | Best Practices | ✅ ready | `knowledge/javascript/28-best-practices.md` |
-| 29 | Tooling | ✅ ready | `knowledge/javascript/29-tooling.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/javascript/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/javascript/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/javascript/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/javascript/100-common-antipatterns.md` |
+| 28 | JavaScript Best Practices | ✅ ready | `knowledge/javascript/28-best-practices.md` |
+| 29 | JavaScript Tooling | ✅ ready | `knowledge/javascript/29-tooling.md` |
+| 30 | JavaScript Engineering Principles | ✅ ready | `knowledge/javascript/30-engineering-principles.md` |
+| 98 | JavaScript Production Checklist | ✅ ready | `knowledge/javascript/98-production-checklist.md` |
+| 99 | JavaScript AI Review Checklist | ✅ ready | `knowledge/javascript/99-ai-review-checklist.md` |
+| 100 | JavaScript Common Antipatterns | ✅ ready | `knowledge/javascript/100-common-antipatterns.md` |
 
 ## kubernetes  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Kubernetes Engineering Standards | ✅ ready | `knowledge/kubernetes/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/kubernetes/00-overview.md` |
-| 1 | Architecture | ✅ ready | `knowledge/kubernetes/01-architecture.md` |
-| 2 | Cluster | ✅ ready | `knowledge/kubernetes/02-cluster.md` |
+| 0 | Kubernetes Overview | ✅ ready | `knowledge/kubernetes/00-overview.md` |
+| 1 | Kubernetes Architecture | ✅ ready | `knowledge/kubernetes/01-architecture.md` |
+| 2 | Kubernetes Cluster | ✅ ready | `knowledge/kubernetes/02-cluster.md` |
 | 3 | Nodes | ✅ ready | `knowledge/kubernetes/03-nodes.md` |
 | 4 | Pods | ✅ ready | `knowledge/kubernetes/04-pods.md` |
 | 5 | Deployments | ✅ ready | `knowledge/kubernetes/05-deployments.md` |
 | 6 | Replicasets | ✅ ready | `knowledge/kubernetes/06-replicasets.md` |
-| 7 | Services | ✅ ready | `knowledge/kubernetes/07-services.md` |
+| 7 | Kubernetes Services | ✅ ready | `knowledge/kubernetes/07-services.md` |
 | 8 | Ingress | ✅ ready | `knowledge/kubernetes/08-ingress.md` |
 | 9 | Configmaps | ✅ ready | `knowledge/kubernetes/09-configmaps.md` |
-| 10 | Secrets | ✅ ready | `knowledge/kubernetes/10-secrets.md` |
-| 11 | Volumes | ✅ ready | `knowledge/kubernetes/11-volumes.md` |
+| 10 | Kubernetes Secrets | ✅ ready | `knowledge/kubernetes/10-secrets.md` |
+| 11 | Kubernetes Volumes | ✅ ready | `knowledge/kubernetes/11-volumes.md` |
 | 12 | Persistent Volumes | ✅ ready | `knowledge/kubernetes/12-persistent-volumes.md` |
 | 13 | Statefulsets | ✅ ready | `knowledge/kubernetes/13-statefulsets.md` |
 | 14 | Daemonsets | ✅ ready | `knowledge/kubernetes/14-daemonsets.md` |
@@ -744,99 +744,99 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 18 | RBAC | ✅ ready | `knowledge/kubernetes/18-rbac.md` |
 | 19 | Resource Management | ✅ ready | `knowledge/kubernetes/19-resource-management.md` |
 | 20 | Autoscaling | ✅ ready | `knowledge/kubernetes/20-autoscaling.md` |
-| 21 | Observability | ✅ ready | `knowledge/kubernetes/21-observability.md` |
-| 22 | Security | ✅ ready | `knowledge/kubernetes/22-security.md` |
-| 23 | Monitoring | ✅ ready | `knowledge/kubernetes/23-monitoring.md` |
-| 24 | Debugging | ✅ ready | `knowledge/kubernetes/24-debugging.md` |
+| 21 | Kubernetes Observability | ✅ ready | `knowledge/kubernetes/21-observability.md` |
+| 22 | Kubernetes Security | ✅ ready | `knowledge/kubernetes/22-security.md` |
+| 23 | Kubernetes Monitoring | ✅ ready | `knowledge/kubernetes/23-monitoring.md` |
+| 24 | Kubernetes Debugging | ✅ ready | `knowledge/kubernetes/24-debugging.md` |
 | 25 | Upgrades | ✅ ready | `knowledge/kubernetes/25-upgrades.md` |
-| 26 | Production | ✅ ready | `knowledge/kubernetes/26-production.md` |
-| 27 | Best Practices | ✅ ready | `knowledge/kubernetes/27-best-practices.md` |
-| 28 | Disaster Recovery | ✅ ready | `knowledge/kubernetes/28-disaster-recovery.md` |
-| 29 | Tooling | ✅ ready | `knowledge/kubernetes/29-tooling.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/kubernetes/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/kubernetes/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/kubernetes/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/kubernetes/100-common-antipatterns.md` |
+| 26 | Kubernetes Production | ✅ ready | `knowledge/kubernetes/26-production.md` |
+| 27 | Kubernetes Best Practices | ✅ ready | `knowledge/kubernetes/27-best-practices.md` |
+| 28 | Kubernetes Disaster Recovery | ✅ ready | `knowledge/kubernetes/28-disaster-recovery.md` |
+| 29 | Kubernetes Tooling | ✅ ready | `knowledge/kubernetes/29-tooling.md` |
+| 30 | Kubernetes Engineering Principles | ✅ ready | `knowledge/kubernetes/30-engineering-principles.md` |
+| 98 | Kubernetes Production Checklist | ✅ ready | `knowledge/kubernetes/98-production-checklist.md` |
+| 99 | Kubernetes AI Review Checklist | ✅ ready | `knowledge/kubernetes/99-ai-review-checklist.md` |
+| 100 | Kubernetes Common Antipatterns | ✅ ready | `knowledge/kubernetes/100-common-antipatterns.md` |
 
 ## linux  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Linux Engineering Standards | ✅ ready | `knowledge/linux/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/linux/00-overview.md` |
+| 0 | Linux Overview | ✅ ready | `knowledge/linux/00-overview.md` |
 | 1 | Filesystem | ✅ ready | `knowledge/linux/01-filesystem.md` |
 | 2 | Shell | ✅ ready | `knowledge/linux/02-shell.md` |
 | 3 | Bash | ✅ ready | `knowledge/linux/03-bash.md` |
 | 4 | Users And Groups | ✅ ready | `knowledge/linux/04-users-and-groups.md` |
-| 5 | Permissions | ✅ ready | `knowledge/linux/05-permissions.md` |
+| 5 | Linux Permissions | ✅ ready | `knowledge/linux/05-permissions.md` |
 | 6 | Processes | ✅ ready | `knowledge/linux/06-processes.md` |
-| 7 | Services | ✅ ready | `knowledge/linux/07-services.md` |
+| 7 | Linux Services | ✅ ready | `knowledge/linux/07-services.md` |
 | 8 | Systemd | ✅ ready | `knowledge/linux/08-systemd.md` |
 | 9 | Networking | ✅ ready | `knowledge/linux/09-networking.md` |
 | 10 | SSH | ✅ ready | `knowledge/linux/10-ssh.md` |
 | 11 | Storage | ✅ ready | `knowledge/linux/11-storage.md` |
-| 12 | Package Management | ✅ ready | `knowledge/linux/12-package-management.md` |
-| 13 | Environment | ✅ ready | `knowledge/linux/13-environment.md` |
+| 12 | Linux Package Management | ✅ ready | `knowledge/linux/12-package-management.md` |
+| 13 | Linux Environment | ✅ ready | `knowledge/linux/13-environment.md` |
 | 14 | Cron | ✅ ready | `knowledge/linux/14-cron.md` |
-| 15 | Logging | ✅ ready | `knowledge/linux/15-logging.md` |
-| 16 | Monitoring | ✅ ready | `knowledge/linux/16-monitoring.md` |
-| 17 | Security | ✅ ready | `knowledge/linux/17-security.md` |
-| 18 | Performance | ✅ ready | `knowledge/linux/18-performance.md` |
-| 19 | Debugging | ✅ ready | `knowledge/linux/19-debugging.md` |
-| 20 | Backups | ✅ ready | `knowledge/linux/20-backups.md` |
+| 15 | Linux Logging | ✅ ready | `knowledge/linux/15-logging.md` |
+| 16 | Linux Monitoring | ✅ ready | `knowledge/linux/16-monitoring.md` |
+| 17 | Linux Security | ✅ ready | `knowledge/linux/17-security.md` |
+| 18 | Linux Performance | ✅ ready | `knowledge/linux/18-performance.md` |
+| 19 | Linux Debugging | ✅ ready | `knowledge/linux/19-debugging.md` |
+| 20 | Linux Backups | ✅ ready | `knowledge/linux/20-backups.md` |
 | 21 | Firewall | ✅ ready | `knowledge/linux/21-firewall.md` |
-| 22 | Containers | ✅ ready | `knowledge/linux/22-containers.md` |
-| 23 | Automation | ✅ ready | `knowledge/linux/23-automation.md` |
+| 22 | Linux Containers | ✅ ready | `knowledge/linux/22-containers.md` |
+| 23 | Linux Automation | ✅ ready | `knowledge/linux/23-automation.md` |
 | 24 | Scripting | ✅ ready | `knowledge/linux/24-scripting.md` |
-| 25 | Production | ✅ ready | `knowledge/linux/25-production.md` |
-| 26 | Best Practices | ✅ ready | `knowledge/linux/26-best-practices.md` |
-| 27 | Troubleshooting | ✅ ready | `knowledge/linux/27-troubleshooting.md` |
-| 28 | Tooling | ✅ ready | `knowledge/linux/28-tooling.md` |
+| 25 | Linux Production | ✅ ready | `knowledge/linux/25-production.md` |
+| 26 | Linux Best Practices | ✅ ready | `knowledge/linux/26-best-practices.md` |
+| 27 | Linux Troubleshooting | ✅ ready | `knowledge/linux/27-troubleshooting.md` |
+| 28 | Linux Tooling | ✅ ready | `knowledge/linux/28-tooling.md` |
 | 29 | System Administration | ✅ ready | `knowledge/linux/29-system-administration.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/linux/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/linux/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/linux/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/linux/100-common-antipatterns.md` |
+| 30 | Linux Engineering Principles | ✅ ready | `knowledge/linux/30-engineering-principles.md` |
+| 98 | Linux Production Checklist | ✅ ready | `knowledge/linux/98-production-checklist.md` |
+| 99 | Linux AI Review Checklist | ✅ ready | `knowledge/linux/99-ai-review-checklist.md` |
+| 100 | Linux Common Antipatterns | ✅ ready | `knowledge/linux/100-common-antipatterns.md` |
 
 ## mysql  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | MySQL Engineering Standards | ✅ ready | `knowledge/mysql/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/mysql/00-overview.md` |
-| 1 | Installation | ✅ ready | `knowledge/mysql/01-installation.md` |
-| 2 | Configuration | ✅ ready | `knowledge/mysql/02-configuration.md` |
-| 3 | Data Types | ✅ ready | `knowledge/mysql/03-data-types.md` |
-| 4 | Indexes | ✅ ready | `knowledge/mysql/04-indexes.md` |
-| 5 | Query Optimization | ✅ ready | `knowledge/mysql/05-query-optimization.md` |
-| 6 | Transactions | ✅ ready | `knowledge/mysql/06-transactions.md` |
-| 7 | Locking | ✅ ready | `knowledge/mysql/07-locking.md` |
+| 0 | MySQL Overview | ✅ ready | `knowledge/mysql/00-overview.md` |
+| 1 | MySQL Installation | ✅ ready | `knowledge/mysql/01-installation.md` |
+| 2 | MySQL Configuration | ✅ ready | `knowledge/mysql/02-configuration.md` |
+| 3 | MySQL Data Types | ✅ ready | `knowledge/mysql/03-data-types.md` |
+| 4 | MySQL Indexes | ✅ ready | `knowledge/mysql/04-indexes.md` |
+| 5 | MySQL Query Optimization | ✅ ready | `knowledge/mysql/05-query-optimization.md` |
+| 6 | MySQL Transactions | ✅ ready | `knowledge/mysql/06-transactions.md` |
+| 7 | MySQL Locking | ✅ ready | `knowledge/mysql/07-locking.md` |
 | 8 | Storage Engines | ✅ ready | `knowledge/mysql/08-storage-engines.md` |
-| 9 | Replication | ✅ ready | `knowledge/mysql/09-replication.md` |
-| 10 | Clustering | ✅ ready | `knowledge/mysql/10-clustering.md` |
-| 11 | Backups | ✅ ready | `knowledge/mysql/11-backups.md` |
-| 12 | Security | ✅ ready | `knowledge/mysql/12-security.md` |
+| 9 | MySQL Replication | ✅ ready | `knowledge/mysql/09-replication.md` |
+| 10 | MySQL Clustering | ✅ ready | `knowledge/mysql/10-clustering.md` |
+| 11 | MySQL Backups | ✅ ready | `knowledge/mysql/11-backups.md` |
+| 12 | MySQL Security | ✅ ready | `knowledge/mysql/12-security.md` |
 | 13 | Users And Roles | ✅ ready | `knowledge/mysql/13-users-and-roles.md` |
-| 14 | Performance | ✅ ready | `knowledge/mysql/14-performance.md` |
-| 15 | Monitoring | ✅ ready | `knowledge/mysql/15-monitoring.md` |
-| 16 | Migrations | ✅ ready | `knowledge/mysql/16-migrations.md` |
-| 17 | Testing | ✅ ready | `knowledge/mysql/17-testing.md` |
-| 18 | Debugging | ✅ ready | `knowledge/mysql/18-debugging.md` |
-| 19 | Best Practices | ✅ ready | `knowledge/mysql/19-best-practices.md` |
-| 20 | Production | ✅ ready | `knowledge/mysql/20-production.md` |
-| 21 | High Availability | ✅ ready | `knowledge/mysql/21-high-availability.md` |
-| 22 | Partitioning | ✅ ready | `knowledge/mysql/22-partitioning.md` |
-| 23 | Full Text Search | ✅ ready | `knowledge/mysql/23-full-text-search.md` |
+| 14 | MySQL Performance | ✅ ready | `knowledge/mysql/14-performance.md` |
+| 15 | MySQL Monitoring | ✅ ready | `knowledge/mysql/15-monitoring.md` |
+| 16 | MySQL Migrations | ✅ ready | `knowledge/mysql/16-migrations.md` |
+| 17 | MySQL Testing | ✅ ready | `knowledge/mysql/17-testing.md` |
+| 18 | MySQL Debugging | ✅ ready | `knowledge/mysql/18-debugging.md` |
+| 19 | MySQL Best Practices | ✅ ready | `knowledge/mysql/19-best-practices.md` |
+| 20 | MySQL Production | ✅ ready | `knowledge/mysql/20-production.md` |
+| 21 | MySQL High Availability | ✅ ready | `knowledge/mysql/21-high-availability.md` |
+| 22 | MySQL Partitioning | ✅ ready | `knowledge/mysql/22-partitioning.md` |
+| 23 | MySQL Full Text Search | ✅ ready | `knowledge/mysql/23-full-text-search.md` |
 | 24 | JSON | ✅ ready | `knowledge/mysql/24-json.md` |
-| 25 | Events | ✅ ready | `knowledge/mysql/25-events.md` |
-| 26 | Triggers | ✅ ready | `knowledge/mysql/26-triggers.md` |
+| 25 | MySQL Events | ✅ ready | `knowledge/mysql/25-events.md` |
+| 26 | MySQL Triggers | ✅ ready | `knowledge/mysql/26-triggers.md` |
 | 27 | Procedures | ✅ ready | `knowledge/mysql/27-procedures.md` |
-| 28 | Architecture | ✅ ready | `knowledge/mysql/28-architecture.md` |
-| 29 | Tooling | ✅ ready | `knowledge/mysql/29-tooling.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/mysql/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/mysql/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/mysql/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/mysql/100-common-antipatterns.md` |
+| 28 | MySQL Architecture | ✅ ready | `knowledge/mysql/28-architecture.md` |
+| 29 | MySQL Tooling | ✅ ready | `knowledge/mysql/29-tooling.md` |
+| 30 | MySQL Engineering Principles | ✅ ready | `knowledge/mysql/30-engineering-principles.md` |
+| 98 | MySQL Production Checklist | ✅ ready | `knowledge/mysql/98-production-checklist.md` |
+| 99 | MySQL AI Review Checklist | ✅ ready | `knowledge/mysql/99-ai-review-checklist.md` |
+| 100 | MySQL Common Antipatterns | ✅ ready | `knowledge/mysql/100-common-antipatterns.md` |
 
 ## nestjs  (35/35 ready)
 
@@ -866,14 +866,14 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 20 | NestJS Queues | ✅ ready | `knowledge/nestjs/20-queues.md` |
 | 21 | Event-Driven Architecture | ✅ ready | `knowledge/nestjs/21-events.md` |
 | 22 | CQRS (Command Query Responsibility Segregation) | ✅ ready | `knowledge/nestjs/22-cqrs.md` |
-| 23 | Distributed Systems | ✅ ready | `knowledge/nestjs/23-distributed-systems.md` |
-| 24 | Observability | ✅ ready | `knowledge/nestjs/24-observability.md` |
-| 25 | Testing | ✅ ready | `knowledge/nestjs/25-testing.md` |
-| 26 | Security | ✅ ready | `knowledge/nestjs/26-security.md` |
+| 23 | NestJS Distributed Systems | ✅ ready | `knowledge/nestjs/23-distributed-systems.md` |
+| 24 | NestJS Observability | ✅ ready | `knowledge/nestjs/24-observability.md` |
+| 25 | NestJS Testing | ✅ ready | `knowledge/nestjs/25-testing.md` |
+| 26 | NestJS Security | ✅ ready | `knowledge/nestjs/26-security.md` |
 | 27 | Performance Engineering | ✅ ready | `knowledge/nestjs/27-performance.md` |
-| 28 | Deployment | ✅ ready | `knowledge/nestjs/28-deployment.md` |
-| 29 | Maintenance | ✅ ready | `knowledge/nestjs/29-maintenance.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/nestjs/30-engineering-principles.md` |
+| 28 | NestJS Deployment | ✅ ready | `knowledge/nestjs/28-deployment.md` |
+| 29 | NestJS Maintenance | ✅ ready | `knowledge/nestjs/29-maintenance.md` |
+| 30 | NestJS Engineering Principles | ✅ ready | `knowledge/nestjs/30-engineering-principles.md` |
 | 98 | Production Readiness Checklist | ✅ ready | `knowledge/nestjs/98-production-checklist.md` |
 | 99 | AI Engineering Review Checklist | ✅ ready | `knowledge/nestjs/99-ai-review-checklist.md` |
 | 100 | Common Engineering Antipatterns | ✅ ready | `knowledge/nestjs/100-common-antipatterns.md` |
@@ -883,7 +883,7 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Next.js Engineering Standards | ✅ ready | `knowledge/nextjs/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/nextjs/00-overview.md` |
+| 0 | Next.js Overview | ✅ ready | `knowledge/nextjs/00-overview.md` |
 | 1 | Next.js Architecture | ✅ ready | `knowledge/nextjs/01-architecture.md` |
 | 2 | Project Structure | ✅ ready | `knowledge/nextjs/02-project-structure.md` |
 | 3 | Next.js App Router | ✅ ready | `knowledge/nextjs/03-app-router.md` |
@@ -898,7 +898,7 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 12 | Next.js API Routes | ✅ ready | `knowledge/nextjs/12-api-routes.md` |
 | 13 | Next.js Middleware | ✅ ready | `knowledge/nextjs/13-middleware.md` |
 | 14 | Next.js Authentication | ✅ ready | `knowledge/nextjs/14-authentication.md` |
-| 15 | Authorization | ✅ ready | `knowledge/nextjs/15-authorization.md` |
+| 15 | Next.js Authorization | ✅ ready | `knowledge/nextjs/15-authorization.md` |
 | 16 | Next.js Images | ✅ ready | `knowledge/nextjs/16-images.md` |
 | 17 | Next.js Fonts | ✅ ready | `knowledge/nextjs/17-fonts.md` |
 | 18 | Next.js Metadata | ✅ ready | `knowledge/nextjs/18-metadata.md` |
@@ -907,15 +907,15 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 21 | Next.js Environment Variables | ✅ ready | `knowledge/nextjs/21-environment-variables.md` |
 | 22 | Next.js Testing | ✅ ready | `knowledge/nextjs/22-testing.md` |
 | 23 | Next.js Observability | ✅ ready | `knowledge/nextjs/23-observability.md` |
-| 24 | Security | ✅ ready | `knowledge/nextjs/24-security.md` |
-| 25 | Accessibility | ✅ ready | `knowledge/nextjs/25-accessibility.md` |
+| 24 | Next.js Security | ✅ ready | `knowledge/nextjs/24-security.md` |
+| 25 | Next.js Accessibility | ✅ ready | `knowledge/nextjs/25-accessibility.md` |
 | 26 | Next.js Deployment | ✅ ready | `knowledge/nextjs/26-deployment.md` |
-| 27 | Folder Structure | ✅ ready | `knowledge/nextjs/27-folder-structure.md` |
+| 27 | Next.js Folder Structure | ✅ ready | `knowledge/nextjs/27-folder-structure.md` |
 | 28 | Next.js Best Practices | ✅ ready | `knowledge/nextjs/28-best-practices.md` |
-| 29 | Engineering Principles | ✅ ready | `knowledge/nextjs/29-engineering-principles.md` |
+| 29 | Next.js Engineering Principles | ✅ ready | `knowledge/nextjs/29-engineering-principles.md` |
 | 30 | Migration Guide | ✅ ready | `knowledge/nextjs/30-migration-guide.md` |
 | 98 | Next.js Production Checklist | ✅ ready | `knowledge/nextjs/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/nextjs/99-ai-review-checklist.md` |
+| 99 | Next.js AI Review Checklist | ✅ ready | `knowledge/nextjs/99-ai-review-checklist.md` |
 | 100 | Common Anti-Patterns | ✅ ready | `knowledge/nextjs/100-common-antipatterns.md` |
 
 ## nginx  (35/35 ready)
@@ -923,109 +923,109 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Nginx Engineering Standards | ✅ ready | `knowledge/nginx/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/nginx/00-overview.md` |
-| 1 | Installation | ✅ ready | `knowledge/nginx/01-installation.md` |
-| 2 | Configuration | ✅ ready | `knowledge/nginx/02-configuration.md` |
+| 0 | Nginx Overview | ✅ ready | `knowledge/nginx/00-overview.md` |
+| 1 | Nginx Installation | ✅ ready | `knowledge/nginx/01-installation.md` |
+| 2 | Nginx Configuration | ✅ ready | `knowledge/nginx/02-configuration.md` |
 | 3 | Server Blocks | ✅ ready | `knowledge/nginx/03-server-blocks.md` |
 | 4 | Location Blocks | ✅ ready | `knowledge/nginx/04-location-blocks.md` |
 | 5 | Reverse Proxy | ✅ ready | `knowledge/nginx/05-reverse-proxy.md` |
 | 6 | Load Balancing | ✅ ready | `knowledge/nginx/06-load-balancing.md` |
 | 7 | Static Files | ✅ ready | `knowledge/nginx/07-static-files.md` |
-| 8 | Caching | ✅ ready | `knowledge/nginx/08-caching.md` |
+| 8 | Nginx Caching | ✅ ready | `knowledge/nginx/08-caching.md` |
 | 9 | Compression | ✅ ready | `knowledge/nginx/09-compression.md` |
 | 10 | HTTP/2 | ✅ ready | `knowledge/nginx/10-http2.md` |
 | 11 | HTTP/3 | ✅ ready | `knowledge/nginx/11-http3.md` |
 | 12 | SSL TLS | ✅ ready | `knowledge/nginx/12-ssl-tls.md` |
-| 13 | Security | ✅ ready | `knowledge/nginx/13-security.md` |
-| 14 | Rate Limiting | ✅ ready | `knowledge/nginx/14-rate-limiting.md` |
-| 15 | Authentication | ✅ ready | `knowledge/nginx/15-authentication.md` |
-| 16 | Logging | ✅ ready | `knowledge/nginx/16-logging.md` |
-| 17 | Monitoring | ✅ ready | `knowledge/nginx/17-monitoring.md` |
-| 18 | Performance | ✅ ready | `knowledge/nginx/18-performance.md` |
+| 13 | Nginx Security | ✅ ready | `knowledge/nginx/13-security.md` |
+| 14 | Nginx Rate Limiting | ✅ ready | `knowledge/nginx/14-rate-limiting.md` |
+| 15 | Nginx Authentication | ✅ ready | `knowledge/nginx/15-authentication.md` |
+| 16 | Nginx Logging | ✅ ready | `knowledge/nginx/16-logging.md` |
+| 17 | Nginx Monitoring | ✅ ready | `knowledge/nginx/17-monitoring.md` |
+| 18 | Nginx Performance | ✅ ready | `knowledge/nginx/18-performance.md` |
 | 19 | Proxying Applications | ✅ ready | `knowledge/nginx/19-proxying-applications.md` |
 | 20 | Websockets | ✅ ready | `knowledge/nginx/20-websockets.md` |
 | 21 | FastCGI | ✅ ready | `knowledge/nginx/21-fastcgi.md` |
 | 22 | Php FPM | ✅ ready | `knowledge/nginx/22-php-fpm.md` |
 | 23 | Docker | ✅ ready | `knowledge/nginx/23-docker.md` |
-| 24 | Debugging | ✅ ready | `knowledge/nginx/24-debugging.md` |
-| 25 | Production | ✅ ready | `knowledge/nginx/25-production.md` |
-| 26 | Best Practices | ✅ ready | `knowledge/nginx/26-best-practices.md` |
-| 27 | High Availability | ✅ ready | `knowledge/nginx/27-high-availability.md` |
-| 28 | Tooling | ✅ ready | `knowledge/nginx/28-tooling.md` |
-| 29 | Troubleshooting | ✅ ready | `knowledge/nginx/29-troubleshooting.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/nginx/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/nginx/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/nginx/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/nginx/100-common-antipatterns.md` |
+| 24 | Nginx Debugging | ✅ ready | `knowledge/nginx/24-debugging.md` |
+| 25 | Nginx Production | ✅ ready | `knowledge/nginx/25-production.md` |
+| 26 | Nginx Best Practices | ✅ ready | `knowledge/nginx/26-best-practices.md` |
+| 27 | Nginx High Availability | ✅ ready | `knowledge/nginx/27-high-availability.md` |
+| 28 | Nginx Tooling | ✅ ready | `knowledge/nginx/28-tooling.md` |
+| 29 | Nginx Troubleshooting | ✅ ready | `knowledge/nginx/29-troubleshooting.md` |
+| 30 | Nginx Engineering Principles | ✅ ready | `knowledge/nginx/30-engineering-principles.md` |
+| 98 | Nginx Production Checklist | ✅ ready | `knowledge/nginx/98-production-checklist.md` |
+| 99 | Nginx AI Review Checklist | ✅ ready | `knowledge/nginx/99-ai-review-checklist.md` |
+| 100 | Nginx Common Antipatterns | ✅ ready | `knowledge/nginx/100-common-antipatterns.md` |
 
 ## nodejs  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Node.js Engineering Standards | ✅ ready | `knowledge/nodejs/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/nodejs/00-overview.md` |
+| 0 | Node.js Overview | ✅ ready | `knowledge/nodejs/00-overview.md` |
 | 1 | Node.js Runtime | ✅ ready | `knowledge/nodejs/01-nodejs-runtime.md` |
-| 2 | Event Loop | ✅ ready | `knowledge/nodejs/02-event-loop.md` |
-| 3 | Modules | ✅ ready | `knowledge/nodejs/03-modules.md` |
-| 4 | Package Management | ✅ ready | `knowledge/nodejs/04-package-management.md` |
+| 2 | Node.js Event Loop | ✅ ready | `knowledge/nodejs/02-event-loop.md` |
+| 3 | Node.js Modules | ✅ ready | `knowledge/nodejs/03-modules.md` |
+| 4 | Node.js Package Management | ✅ ready | `knowledge/nodejs/04-package-management.md` |
 | 5 | File System | ✅ ready | `knowledge/nodejs/05-file-system.md` |
-| 6 | Streams | ✅ ready | `knowledge/nodejs/06-streams.md` |
+| 6 | Node.js Streams | ✅ ready | `knowledge/nodejs/06-streams.md` |
 | 7 | Buffers | ✅ ready | `knowledge/nodejs/07-buffers.md` |
-| 8 | Events | ✅ ready | `knowledge/nodejs/08-events.md` |
-| 9 | HTTP | ✅ ready | `knowledge/nodejs/09-http.md` |
+| 8 | Node.js Events | ✅ ready | `knowledge/nodejs/08-events.md` |
+| 9 | Node.js HTTP | ✅ ready | `knowledge/nodejs/09-http.md` |
 | 10 | Process | ✅ ready | `knowledge/nodejs/10-process.md` |
 | 11 | Child Process | ✅ ready | `knowledge/nodejs/11-child-process.md` |
 | 12 | Worker Threads | ✅ ready | `knowledge/nodejs/12-worker-threads.md` |
-| 13 | Cluster | ✅ ready | `knowledge/nodejs/13-cluster.md` |
-| 14 | Environment | ✅ ready | `knowledge/nodejs/14-environment.md` |
-| 15 | Configuration | ✅ ready | `knowledge/nodejs/15-configuration.md` |
-| 16 | Error Handling | ✅ ready | `knowledge/nodejs/16-error-handling.md` |
-| 17 | Logging | ✅ ready | `knowledge/nodejs/17-logging.md` |
-| 18 | Security | ✅ ready | `knowledge/nodejs/18-security.md` |
-| 19 | Performance | ✅ ready | `knowledge/nodejs/19-performance.md` |
-| 20 | Memory Management | ✅ ready | `knowledge/nodejs/20-memory-management.md` |
-| 21 | Testing | ✅ ready | `knowledge/nodejs/21-testing.md` |
-| 22 | Debugging | ✅ ready | `knowledge/nodejs/22-debugging.md` |
+| 13 | Node.js Cluster | ✅ ready | `knowledge/nodejs/13-cluster.md` |
+| 14 | Node.js Environment | ✅ ready | `knowledge/nodejs/14-environment.md` |
+| 15 | Node.js Configuration | ✅ ready | `knowledge/nodejs/15-configuration.md` |
+| 16 | Node.js Error Handling | ✅ ready | `knowledge/nodejs/16-error-handling.md` |
+| 17 | Node.js Logging | ✅ ready | `knowledge/nodejs/17-logging.md` |
+| 18 | Node.js Security | ✅ ready | `knowledge/nodejs/18-security.md` |
+| 19 | Node.js Performance | ✅ ready | `knowledge/nodejs/19-performance.md` |
+| 20 | Node.js Memory Management | ✅ ready | `knowledge/nodejs/20-memory-management.md` |
+| 21 | Node.js Testing | ✅ ready | `knowledge/nodejs/21-testing.md` |
+| 22 | Node.js Debugging | ✅ ready | `knowledge/nodejs/22-debugging.md` |
 | 23 | CLI Development | ✅ ready | `knowledge/nodejs/23-cli-development.md` |
-| 24 | Background Jobs | ✅ ready | `knowledge/nodejs/24-background-jobs.md` |
-| 25 | Microservices | ✅ ready | `knowledge/nodejs/25-microservices.md` |
-| 26 | Deployment | ✅ ready | `knowledge/nodejs/26-deployment.md` |
-| 27 | Monitoring | ✅ ready | `knowledge/nodejs/27-monitoring.md` |
-| 28 | Best Practices | ✅ ready | `knowledge/nodejs/28-best-practices.md` |
-| 29 | Tooling | ✅ ready | `knowledge/nodejs/29-tooling.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/nodejs/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/nodejs/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/nodejs/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/nodejs/100-common-antipatterns.md` |
+| 24 | Node.js Background Jobs | ✅ ready | `knowledge/nodejs/24-background-jobs.md` |
+| 25 | Node.js Microservices | ✅ ready | `knowledge/nodejs/25-microservices.md` |
+| 26 | Node.js Deployment | ✅ ready | `knowledge/nodejs/26-deployment.md` |
+| 27 | Node.js Monitoring | ✅ ready | `knowledge/nodejs/27-monitoring.md` |
+| 28 | Node.js Best Practices | ✅ ready | `knowledge/nodejs/28-best-practices.md` |
+| 29 | Node.js Tooling | ✅ ready | `knowledge/nodejs/29-tooling.md` |
+| 30 | Node.js Engineering Principles | ✅ ready | `knowledge/nodejs/30-engineering-principles.md` |
+| 98 | Node.js Production Checklist | ✅ ready | `knowledge/nodejs/98-production-checklist.md` |
+| 99 | Node.js AI Review Checklist | ✅ ready | `knowledge/nodejs/99-ai-review-checklist.md` |
+| 100 | Node.js Common Antipatterns | ✅ ready | `knowledge/nodejs/100-common-antipatterns.md` |
 
 ## performance  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Performance Engineering Standards | ✅ ready | `knowledge/performance/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/performance/00-overview.md` |
+| 0 | Performance Overview | ✅ ready | `knowledge/performance/00-overview.md` |
 | 1 | Performance Fundamentals | ✅ ready | `knowledge/performance/01-performance-fundamentals.md` |
 | 2 | Metrics | ✅ ready | `knowledge/performance/02-metrics.md` |
 | 3 | CPU | ✅ ready | `knowledge/performance/03-cpu.md` |
 | 4 | Memory | ✅ ready | `knowledge/performance/04-memory.md` |
 | 5 | Network | ✅ ready | `knowledge/performance/05-network.md` |
-| 6 | Rendering | ✅ ready | `knowledge/performance/06-rendering.md` |
+| 6 | Performance Rendering | ✅ ready | `knowledge/performance/06-rendering.md` |
 | 7 | Loading | ✅ ready | `knowledge/performance/07-loading.md` |
-| 8 | Caching | ✅ ready | `knowledge/performance/08-caching.md` |
+| 8 | Performance Caching | ✅ ready | `knowledge/performance/08-caching.md` |
 | 9 | Lazy Loading | ✅ ready | `knowledge/performance/09-lazy-loading.md` |
-| 10 | Code Splitting | ✅ ready | `knowledge/performance/10-code-splitting.md` |
-| 11 | Images | ✅ ready | `knowledge/performance/11-images.md` |
+| 10 | Performance Code Splitting | ✅ ready | `knowledge/performance/10-code-splitting.md` |
+| 11 | Performance Images | ✅ ready | `knowledge/performance/11-images.md` |
 | 12 | Fonts | ✅ ready | `knowledge/performance/12-fonts.md` |
-| 13 | Database Performance | ✅ ready | `knowledge/performance/13-database-performance.md` |
+| 13 | Performance — Database Access | ✅ ready | `knowledge/performance/13-database-performance.md` |
 | 14 | API Performance | ✅ ready | `knowledge/performance/14-api-performance.md` |
-| 15 | Query Optimization | ✅ ready | `knowledge/performance/15-query-optimization.md` |
+| 15 | Performance Query Optimization | ✅ ready | `knowledge/performance/15-query-optimization.md` |
 | 16 | Profiling | ✅ ready | `knowledge/performance/16-profiling.md` |
-| 17 | Monitoring | ✅ ready | `knowledge/performance/17-monitoring.md` |
+| 17 | Performance Monitoring | ✅ ready | `knowledge/performance/17-monitoring.md` |
 | 18 | Web Vitals | ✅ ready | `knowledge/performance/18-web-vitals.md` |
 | 19 | Benchmarking | ✅ ready | `knowledge/performance/19-benchmarking.md` |
 | 20 | Capacity Planning | ✅ ready | `knowledge/performance/20-capacity-planning.md` |
-| 21 | Scalability | ✅ ready | `knowledge/performance/21-scalability.md` |
-| 22 | Load Testing | ✅ ready | `knowledge/performance/22-load-testing.md` |
+| 21 | Performance Scalability | ✅ ready | `knowledge/performance/21-scalability.md` |
+| 22 | Performance Load Testing | ✅ ready | `knowledge/performance/22-load-testing.md` |
 | 23 | Performance Budget | ✅ ready | `knowledge/performance/23-performance-budget.md` |
 | 24 | Optimization Workflow | ✅ ready | `knowledge/performance/24-optimization-workflow.md` |
 | 25 | Production Monitoring | ✅ ready | `knowledge/performance/25-production-monitoring.md` |
@@ -1033,50 +1033,50 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 27 | Performance Best Practices | ✅ ready | `knowledge/performance/27-best-practices.md` |
 | 28 | Real World Performance Patterns | ✅ ready | `knowledge/performance/28-real-world-patterns.md` |
 | 29 | Performance Review | ✅ ready | `knowledge/performance/29-performance-review.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/performance/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/performance/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/performance/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/performance/100-common-antipatterns.md` |
+| 30 | Performance Engineering Principles | ✅ ready | `knowledge/performance/30-engineering-principles.md` |
+| 98 | Performance Production Checklist | ✅ ready | `knowledge/performance/98-production-checklist.md` |
+| 99 | Performance AI Review Checklist | ✅ ready | `knowledge/performance/99-ai-review-checklist.md` |
+| 100 | Performance Common Antipatterns | ✅ ready | `knowledge/performance/100-common-antipatterns.md` |
 
 ## php  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | PHP Engineering Standards | ✅ ready | `knowledge/php/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/php/00-overview.md` |
-| 1 | Language Fundamentals | ✅ ready | `knowledge/php/01-language-fundamentals.md` |
-| 2 | Types | ✅ ready | `knowledge/php/02-types.md` |
-| 3 | Functions | ✅ ready | `knowledge/php/03-functions.md` |
+| 0 | PHP Overview | ✅ ready | `knowledge/php/00-overview.md` |
+| 1 | PHP Language Fundamentals | ✅ ready | `knowledge/php/01-language-fundamentals.md` |
+| 2 | PHP Types | ✅ ready | `knowledge/php/02-types.md` |
+| 3 | PHP Functions | ✅ ready | `knowledge/php/03-functions.md` |
 | 4 | OOP | ✅ ready | `knowledge/php/04-oop.md` |
 | 5 | Namespaces | ✅ ready | `knowledge/php/05-namespaces.md` |
 | 6 | Autoloading | ✅ ready | `knowledge/php/06-autoloading.md` |
 | 7 | Composer | ✅ ready | `knowledge/php/07-composer.md` |
-| 8 | Error Handling | ✅ ready | `knowledge/php/08-error-handling.md` |
+| 8 | PHP Error Handling | ✅ ready | `knowledge/php/08-error-handling.md` |
 | 9 | Exceptions | ✅ ready | `knowledge/php/09-exceptions.md` |
 | 10 | Files | ✅ ready | `knowledge/php/10-files.md` |
-| 11 | HTTP | ✅ ready | `knowledge/php/11-http.md` |
+| 11 | PHP HTTP | ✅ ready | `knowledge/php/11-http.md` |
 | 12 | Database | ✅ ready | `knowledge/php/12-database.md` |
-| 13 | Security | ✅ ready | `knowledge/php/13-security.md` |
-| 14 | Performance | ✅ ready | `knowledge/php/14-performance.md` |
-| 15 | Testing | ✅ ready | `knowledge/php/15-testing.md` |
-| 16 | CLI | ✅ ready | `knowledge/php/16-cli.md` |
+| 13 | PHP Security | ✅ ready | `knowledge/php/13-security.md` |
+| 14 | PHP Performance | ✅ ready | `knowledge/php/14-performance.md` |
+| 15 | PHP Testing | ✅ ready | `knowledge/php/15-testing.md` |
+| 16 | PHP CLI | ✅ ready | `knowledge/php/16-cli.md` |
 | 17 | Attributes | ✅ ready | `knowledge/php/17-attributes.md` |
 | 18 | Generators | ✅ ready | `knowledge/php/18-generators.md` |
 | 19 | Enums | ✅ ready | `knowledge/php/19-enums.md` |
 | 20 | Dependency Injection | ✅ ready | `knowledge/php/20-dependency-injection.md` |
-| 21 | Design Patterns | ✅ ready | `knowledge/php/21-design-patterns.md` |
-| 22 | Clean Code | ✅ ready | `knowledge/php/22-clean-code.md` |
+| 21 | PHP Design Patterns | ✅ ready | `knowledge/php/21-design-patterns.md` |
+| 22 | PHP Clean Code | ✅ ready | `knowledge/php/22-clean-code.md` |
 | 23 | Modern PHP | ✅ ready | `knowledge/php/23-modern-php.md` |
 | 24 | PSR Standards | ✅ ready | `knowledge/php/24-psr-standards.md` |
-| 25 | Debugging | ✅ ready | `knowledge/php/25-debugging.md` |
-| 26 | Best Practices | ✅ ready | `knowledge/php/26-best-practices.md` |
-| 27 | Production | ✅ ready | `knowledge/php/27-production.md` |
-| 28 | Tooling | ✅ ready | `knowledge/php/28-tooling.md` |
-| 29 | Architecture | ✅ ready | `knowledge/php/29-architecture.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/php/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/php/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/php/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/php/100-common-antipatterns.md` |
+| 25 | PHP Debugging | ✅ ready | `knowledge/php/25-debugging.md` |
+| 26 | PHP Best Practices | ✅ ready | `knowledge/php/26-best-practices.md` |
+| 27 | PHP Production | ✅ ready | `knowledge/php/27-production.md` |
+| 28 | PHP Tooling | ✅ ready | `knowledge/php/28-tooling.md` |
+| 29 | PHP Architecture | ✅ ready | `knowledge/php/29-architecture.md` |
+| 30 | PHP Engineering Principles | ✅ ready | `knowledge/php/30-engineering-principles.md` |
+| 98 | PHP Production Checklist | ✅ ready | `knowledge/php/98-production-checklist.md` |
+| 99 | PHP AI Review Checklist | ✅ ready | `knowledge/php/99-ai-review-checklist.md` |
+| 100 | PHP Common Antipatterns | ✅ ready | `knowledge/php/100-common-antipatterns.md` |
 
 ## playbooks  (4/4 ready)
 
@@ -1092,80 +1092,80 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | PostgreSQL Engineering Standards | ✅ ready | `knowledge/postgresql/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/postgresql/00-overview.md` |
-| 1 | Installation | ✅ ready | `knowledge/postgresql/01-installation.md` |
-| 2 | Configuration | ✅ ready | `knowledge/postgresql/02-configuration.md` |
-| 3 | Data Types | ✅ ready | `knowledge/postgresql/03-data-types.md` |
-| 4 | Indexes | ✅ ready | `knowledge/postgresql/04-indexes.md` |
+| 0 | PostgreSQL Overview | ✅ ready | `knowledge/postgresql/00-overview.md` |
+| 1 | PostgreSQL Installation | ✅ ready | `knowledge/postgresql/01-installation.md` |
+| 2 | PostgreSQL Configuration | ✅ ready | `knowledge/postgresql/02-configuration.md` |
+| 3 | PostgreSQL Data Types | ✅ ready | `knowledge/postgresql/03-data-types.md` |
+| 4 | PostgreSQL Indexes | ✅ ready | `knowledge/postgresql/04-indexes.md` |
 | 5 | Query Planner | ✅ ready | `knowledge/postgresql/05-query-planner.md` |
-| 6 | Transactions | ✅ ready | `knowledge/postgresql/06-transactions.md` |
-| 7 | Locking | ✅ ready | `knowledge/postgresql/07-locking.md` |
+| 6 | PostgreSQL Transactions | ✅ ready | `knowledge/postgresql/06-transactions.md` |
+| 7 | PostgreSQL Locking | ✅ ready | `knowledge/postgresql/07-locking.md` |
 | 8 | JSONB | ✅ ready | `knowledge/postgresql/08-jsonb.md` |
 | 9 | Arrays | ✅ ready | `knowledge/postgresql/09-arrays.md` |
-| 10 | Full Text Search | ✅ ready | `knowledge/postgresql/10-full-text-search.md` |
-| 11 | Partitioning | ✅ ready | `knowledge/postgresql/11-partitioning.md` |
-| 12 | Replication | ✅ ready | `knowledge/postgresql/12-replication.md` |
-| 13 | High Availability | ✅ ready | `knowledge/postgresql/13-high-availability.md` |
-| 14 | Backups | ✅ ready | `knowledge/postgresql/14-backups.md` |
-| 15 | Extensions | ✅ ready | `knowledge/postgresql/15-extensions.md` |
-| 16 | Performance | ✅ ready | `knowledge/postgresql/16-performance.md` |
-| 17 | Monitoring | ✅ ready | `knowledge/postgresql/17-monitoring.md` |
-| 18 | Security | ✅ ready | `knowledge/postgresql/18-security.md` |
+| 10 | PostgreSQL Full Text Search | ✅ ready | `knowledge/postgresql/10-full-text-search.md` |
+| 11 | PostgreSQL Partitioning | ✅ ready | `knowledge/postgresql/11-partitioning.md` |
+| 12 | PostgreSQL Replication | ✅ ready | `knowledge/postgresql/12-replication.md` |
+| 13 | PostgreSQL High Availability | ✅ ready | `knowledge/postgresql/13-high-availability.md` |
+| 14 | PostgreSQL Backups | ✅ ready | `knowledge/postgresql/14-backups.md` |
+| 15 | PostgreSQL Extensions | ✅ ready | `knowledge/postgresql/15-extensions.md` |
+| 16 | PostgreSQL Performance | ✅ ready | `knowledge/postgresql/16-performance.md` |
+| 17 | PostgreSQL Monitoring | ✅ ready | `knowledge/postgresql/17-monitoring.md` |
+| 18 | PostgreSQL Security | ✅ ready | `knowledge/postgresql/18-security.md` |
 | 19 | Roles And Permissions | ✅ ready | `knowledge/postgresql/19-roles-and-permissions.md` |
 | 20 | Vacuum | ✅ ready | `knowledge/postgresql/20-vacuum.md` |
 | 21 | Analyze | ✅ ready | `knowledge/postgresql/21-analyze.md` |
-| 22 | Migrations | ✅ ready | `knowledge/postgresql/22-migrations.md` |
-| 23 | Testing | ✅ ready | `knowledge/postgresql/23-testing.md` |
-| 24 | Debugging | ✅ ready | `knowledge/postgresql/24-debugging.md` |
-| 25 | Best Practices | ✅ ready | `knowledge/postgresql/25-best-practices.md` |
-| 26 | Production | ✅ ready | `knowledge/postgresql/26-production.md` |
+| 22 | PostgreSQL Migrations | ✅ ready | `knowledge/postgresql/22-migrations.md` |
+| 23 | PostgreSQL Testing | ✅ ready | `knowledge/postgresql/23-testing.md` |
+| 24 | PostgreSQL Debugging | ✅ ready | `knowledge/postgresql/24-debugging.md` |
+| 25 | PostgreSQL Best Practices | ✅ ready | `knowledge/postgresql/25-best-practices.md` |
+| 26 | PostgreSQL Production | ✅ ready | `knowledge/postgresql/26-production.md` |
 | 27 | Tuning | ✅ ready | `knowledge/postgresql/27-tuning.md` |
-| 28 | Architecture | ✅ ready | `knowledge/postgresql/28-architecture.md` |
-| 29 | Tooling | ✅ ready | `knowledge/postgresql/29-tooling.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/postgresql/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/postgresql/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/postgresql/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/postgresql/100-common-antipatterns.md` |
+| 28 | PostgreSQL Architecture | ✅ ready | `knowledge/postgresql/28-architecture.md` |
+| 29 | PostgreSQL Tooling | ✅ ready | `knowledge/postgresql/29-tooling.md` |
+| 30 | PostgreSQL Engineering Principles | ✅ ready | `knowledge/postgresql/30-engineering-principles.md` |
+| 98 | PostgreSQL Production Checklist | ✅ ready | `knowledge/postgresql/98-production-checklist.md` |
+| 99 | PostgreSQL AI Review Checklist | ✅ ready | `knowledge/postgresql/99-ai-review-checklist.md` |
+| 100 | PostgreSQL Common Antipatterns | ✅ ready | `knowledge/postgresql/100-common-antipatterns.md` |
 
 ## prisma  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Prisma Engineering Standards | ✅ ready | `knowledge/prisma/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/prisma/00-overview.md` |
-| 1 | Installation | ✅ ready | `knowledge/prisma/01-installation.md` |
-| 2 | Schema | ✅ ready | `knowledge/prisma/02-schema.md` |
+| 0 | Prisma Overview | ✅ ready | `knowledge/prisma/00-overview.md` |
+| 1 | Prisma Installation | ✅ ready | `knowledge/prisma/01-installation.md` |
+| 2 | Prisma Schema | ✅ ready | `knowledge/prisma/02-schema.md` |
 | 3 | Models | ✅ ready | `knowledge/prisma/03-models.md` |
 | 4 | Relations | ✅ ready | `knowledge/prisma/04-relations.md` |
-| 5 | Migrations | ✅ ready | `knowledge/prisma/05-migrations.md` |
+| 5 | Prisma Migrations | ✅ ready | `knowledge/prisma/05-migrations.md` |
 | 6 | Client | ✅ ready | `knowledge/prisma/06-client.md` |
 | 7 | CRUD | ✅ ready | `knowledge/prisma/07-crud.md` |
-| 8 | Transactions | ✅ ready | `knowledge/prisma/08-transactions.md` |
-| 9 | Filtering | ✅ ready | `knowledge/prisma/09-filtering.md` |
-| 10 | Pagination | ✅ ready | `knowledge/prisma/10-pagination.md` |
+| 8 | Prisma Transactions | ✅ ready | `knowledge/prisma/08-transactions.md` |
+| 9 | Prisma Filtering | ✅ ready | `knowledge/prisma/09-filtering.md` |
+| 10 | Prisma Pagination | ✅ ready | `knowledge/prisma/10-pagination.md` |
 | 11 | Relations Loading | ✅ ready | `knowledge/prisma/11-relations-loading.md` |
 | 12 | Seeding | ✅ ready | `knowledge/prisma/12-seeding.md` |
 | 13 | Middleware | ✅ ready | `knowledge/prisma/13-middleware.md` |
-| 14 | Extensions | ✅ ready | `knowledge/prisma/14-extensions.md` |
-| 15 | Performance | ✅ ready | `knowledge/prisma/15-performance.md` |
-| 16 | Indexes | ✅ ready | `knowledge/prisma/16-indexes.md` |
+| 14 | Prisma Extensions | ✅ ready | `knowledge/prisma/14-extensions.md` |
+| 15 | Prisma Performance | ✅ ready | `knowledge/prisma/15-performance.md` |
+| 16 | Prisma Indexes | ✅ ready | `knowledge/prisma/16-indexes.md` |
 | 17 | Raw SQL | ✅ ready | `knowledge/prisma/17-raw-sql.md` |
-| 18 | Error Handling | ✅ ready | `knowledge/prisma/18-error-handling.md` |
-| 19 | Testing | ✅ ready | `knowledge/prisma/19-testing.md` |
-| 20 | Debugging | ✅ ready | `knowledge/prisma/20-debugging.md` |
-| 21 | Security | ✅ ready | `knowledge/prisma/21-security.md` |
-| 22 | Multi Tenancy | ✅ ready | `knowledge/prisma/22-multi-tenancy.md` |
-| 23 | Soft Delete | ✅ ready | `knowledge/prisma/23-soft-delete.md` |
-| 24 | Best Practices | ✅ ready | `knowledge/prisma/24-best-practices.md` |
-| 25 | Production | ✅ ready | `knowledge/prisma/25-production.md` |
-| 26 | Observability | ✅ ready | `knowledge/prisma/26-observability.md` |
-| 27 | Tooling | ✅ ready | `knowledge/prisma/27-tooling.md` |
-| 28 | Patterns | ✅ ready | `knowledge/prisma/28-patterns.md` |
-| 29 | Architecture | ✅ ready | `knowledge/prisma/29-architecture.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/prisma/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/prisma/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/prisma/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/prisma/100-common-antipatterns.md` |
+| 18 | Prisma Error Handling | ✅ ready | `knowledge/prisma/18-error-handling.md` |
+| 19 | Prisma Testing | ✅ ready | `knowledge/prisma/19-testing.md` |
+| 20 | Prisma Debugging | ✅ ready | `knowledge/prisma/20-debugging.md` |
+| 21 | Prisma Security | ✅ ready | `knowledge/prisma/21-security.md` |
+| 22 | Prisma Multi Tenancy | ✅ ready | `knowledge/prisma/22-multi-tenancy.md` |
+| 23 | Prisma Soft Delete | ✅ ready | `knowledge/prisma/23-soft-delete.md` |
+| 24 | Prisma Best Practices | ✅ ready | `knowledge/prisma/24-best-practices.md` |
+| 25 | Prisma Production | ✅ ready | `knowledge/prisma/25-production.md` |
+| 26 | Prisma Observability | ✅ ready | `knowledge/prisma/26-observability.md` |
+| 27 | Prisma Tooling | ✅ ready | `knowledge/prisma/27-tooling.md` |
+| 28 | Prisma Patterns | ✅ ready | `knowledge/prisma/28-patterns.md` |
+| 29 | Prisma Architecture | ✅ ready | `knowledge/prisma/29-architecture.md` |
+| 30 | Prisma Engineering Principles | ✅ ready | `knowledge/prisma/30-engineering-principles.md` |
+| 98 | Prisma Production Checklist | ✅ ready | `knowledge/prisma/98-production-checklist.md` |
+| 99 | Prisma AI Review Checklist | ✅ ready | `knowledge/prisma/99-ai-review-checklist.md` |
+| 100 | Prisma Common Antipatterns | ✅ ready | `knowledge/prisma/100-common-antipatterns.md` |
 
 ## prompts  (4/4 ready)
 
@@ -1181,38 +1181,38 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | React Engineering Standards | ✅ ready | `knowledge/react/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/react/00-overview.md` |
+| 0 | React Overview | ✅ ready | `knowledge/react/00-overview.md` |
 | 1 | React Philosophy | ✅ ready | `knowledge/react/01-react-philosophy.md` |
 | 2 | React Component Architecture | ✅ ready | `knowledge/react/02-component-architecture.md` |
 | 3 | JSX | ✅ ready | `knowledge/react/03-jsx.md` |
-| 4 | Components | ✅ ready | `knowledge/react/04-components.md` |
+| 4 | React Components | ✅ ready | `knowledge/react/04-components.md` |
 | 5 | Props and Component API Design | ✅ ready | `knowledge/react/05-props.md` |
 | 6 | State | ✅ ready | `knowledge/react/06-state.md` |
 | 7 | Lifecycle | ✅ ready | `knowledge/react/07-lifecycle.md` |
-| 8 | Hooks | ✅ ready | `knowledge/react/08-hooks.md` |
+| 8 | React Hooks | ✅ ready | `knowledge/react/08-hooks.md` |
 | 9 | Custom Hooks | ✅ ready | `knowledge/react/09-custom-hooks.md` |
 | 10 | Context API | ✅ ready | `knowledge/react/10-context-api.md` |
 | 11 | React Rendering Patterns | ✅ ready | `knowledge/react/11-rendering.md` |
 | 12 | React Performance | ✅ ready | `knowledge/react/12-performance.md` |
 | 13 | Component Composition | ✅ ready | `knowledge/react/13-component-composition.md` |
-| 14 | Patterns | ✅ ready | `knowledge/react/14-patterns.md` |
+| 14 | React Patterns | ✅ ready | `knowledge/react/14-patterns.md` |
 | 15 | React Forms | ✅ ready | `knowledge/react/15-forms.md` |
 | 16 | React Data Fetching | ✅ ready | `knowledge/react/16-data-fetching.md` |
-| 17 | Routing | ✅ ready | `knowledge/react/17-routing.md` |
+| 17 | React Routing | ✅ ready | `knowledge/react/17-routing.md` |
 | 18 | React State Management | ✅ ready | `knowledge/react/18-state-management.md` |
 | 19 | React Error Handling | ✅ ready | `knowledge/react/19-error-handling.md` |
 | 20 | React Accessibility | ✅ ready | `knowledge/react/20-accessibility.md` |
 | 21 | React Testing | ✅ ready | `knowledge/react/21-testing.md` |
 | 22 | React Folder Structure | ✅ ready | `knowledge/react/22-folder-structure.md` |
 | 23 | Code Style | ✅ ready | `knowledge/react/23-code-style.md` |
-| 24 | Design Patterns | ✅ ready | `knowledge/react/24-design-patterns.md` |
-| 25 | Security | ✅ ready | `knowledge/react/25-security.md` |
-| 26 | Best Practices | ✅ ready | `knowledge/react/26-best-practices.md` |
-| 27 | Debugging | ✅ ready | `knowledge/react/27-debugging.md` |
-| 28 | Production | ✅ ready | `knowledge/react/28-production.md` |
-| 29 | Tooling | ✅ ready | `knowledge/react/29-tooling.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/react/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/react/98-production-checklist.md` |
+| 24 | React Design Patterns | ✅ ready | `knowledge/react/24-design-patterns.md` |
+| 25 | React Security | ✅ ready | `knowledge/react/25-security.md` |
+| 26 | React Best Practices | ✅ ready | `knowledge/react/26-best-practices.md` |
+| 27 | React Debugging | ✅ ready | `knowledge/react/27-debugging.md` |
+| 28 | React Production | ✅ ready | `knowledge/react/28-production.md` |
+| 29 | React Tooling | ✅ ready | `knowledge/react/29-tooling.md` |
+| 30 | React Engineering Principles | ✅ ready | `knowledge/react/30-engineering-principles.md` |
+| 98 | React Production Checklist | ✅ ready | `knowledge/react/98-production-checklist.md` |
 | 99 | React Definition of Done | ✅ ready | `knowledge/react/99-ai-review-checklist.md` |
 | 100 | React Anti-Patterns | ✅ ready | `knowledge/react/100-common-antipatterns.md` |
 
@@ -1221,91 +1221,91 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Redis Engineering Standards | ✅ ready | `knowledge/redis/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/redis/00-overview.md` |
-| 1 | Installation | ✅ ready | `knowledge/redis/01-installation.md` |
-| 2 | Data Types | ✅ ready | `knowledge/redis/02-data-types.md` |
+| 0 | Redis Overview | ✅ ready | `knowledge/redis/00-overview.md` |
+| 1 | Redis Installation | ✅ ready | `knowledge/redis/01-installation.md` |
+| 2 | Redis Data Types | ✅ ready | `knowledge/redis/02-data-types.md` |
 | 3 | Strings | ✅ ready | `knowledge/redis/03-strings.md` |
-| 4 | Lists | ✅ ready | `knowledge/redis/04-lists.md` |
+| 4 | Redis Lists | ✅ ready | `knowledge/redis/04-lists.md` |
 | 5 | Sets | ✅ ready | `knowledge/redis/05-sets.md` |
 | 6 | Sorted Sets | ✅ ready | `knowledge/redis/06-sorted-sets.md` |
 | 7 | Hashes | ✅ ready | `knowledge/redis/07-hashes.md` |
-| 8 | Streams | ✅ ready | `knowledge/redis/08-streams.md` |
+| 8 | Redis Streams | ✅ ready | `knowledge/redis/08-streams.md` |
 | 9 | Pub Sub | ✅ ready | `knowledge/redis/09-pub-sub.md` |
-| 10 | Transactions | ✅ ready | `knowledge/redis/10-transactions.md` |
+| 10 | Redis Transactions | ✅ ready | `knowledge/redis/10-transactions.md` |
 | 11 | Lua Scripting | ✅ ready | `knowledge/redis/11-lua-scripting.md` |
 | 12 | Expiration | ✅ ready | `knowledge/redis/12-expiration.md` |
-| 13 | Caching | ✅ ready | `knowledge/redis/13-caching.md` |
-| 14 | Rate Limiting | ✅ ready | `knowledge/redis/14-rate-limiting.md` |
+| 13 | Redis Caching | ✅ ready | `knowledge/redis/13-caching.md` |
+| 14 | Redis Rate Limiting | ✅ ready | `knowledge/redis/14-rate-limiting.md` |
 | 15 | Session Storage | ✅ ready | `knowledge/redis/15-session-storage.md` |
 | 16 | Message Queues | ✅ ready | `knowledge/redis/16-message-queues.md` |
 | 17 | Distributed Locks | ✅ ready | `knowledge/redis/17-distributed-locks.md` |
-| 18 | Replication | ✅ ready | `knowledge/redis/18-replication.md` |
-| 19 | Clustering | ✅ ready | `knowledge/redis/19-clustering.md` |
+| 18 | Redis Replication | ✅ ready | `knowledge/redis/18-replication.md` |
+| 19 | Redis Clustering | ✅ ready | `knowledge/redis/19-clustering.md` |
 | 20 | Persistence | ✅ ready | `knowledge/redis/20-persistence.md` |
-| 21 | Security | ✅ ready | `knowledge/redis/21-security.md` |
-| 22 | Monitoring | ✅ ready | `knowledge/redis/22-monitoring.md` |
-| 23 | Performance | ✅ ready | `knowledge/redis/23-performance.md` |
-| 24 | Testing | ✅ ready | `knowledge/redis/24-testing.md` |
-| 25 | Debugging | ✅ ready | `knowledge/redis/25-debugging.md` |
-| 26 | Best Practices | ✅ ready | `knowledge/redis/26-best-practices.md` |
-| 27 | Production | ✅ ready | `knowledge/redis/27-production.md` |
-| 28 | Observability | ✅ ready | `knowledge/redis/28-observability.md` |
-| 29 | Tooling | ✅ ready | `knowledge/redis/29-tooling.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/redis/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/redis/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/redis/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/redis/100-common-antipatterns.md` |
+| 21 | Redis Security | ✅ ready | `knowledge/redis/21-security.md` |
+| 22 | Redis Monitoring | ✅ ready | `knowledge/redis/22-monitoring.md` |
+| 23 | Redis Performance | ✅ ready | `knowledge/redis/23-performance.md` |
+| 24 | Redis Testing | ✅ ready | `knowledge/redis/24-testing.md` |
+| 25 | Redis Debugging | ✅ ready | `knowledge/redis/25-debugging.md` |
+| 26 | Redis Best Practices | ✅ ready | `knowledge/redis/26-best-practices.md` |
+| 27 | Redis Production | ✅ ready | `knowledge/redis/27-production.md` |
+| 28 | Redis Observability | ✅ ready | `knowledge/redis/28-observability.md` |
+| 29 | Redis Tooling | ✅ ready | `knowledge/redis/29-tooling.md` |
+| 30 | Redis Engineering Principles | ✅ ready | `knowledge/redis/30-engineering-principles.md` |
+| 98 | Redis Production Checklist | ✅ ready | `knowledge/redis/98-production-checklist.md` |
+| 99 | Redis AI Review Checklist | ✅ ready | `knowledge/redis/99-ai-review-checklist.md` |
+| 100 | Redis Common Antipatterns | ✅ ready | `knowledge/redis/100-common-antipatterns.md` |
 
 ## rest-api  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | REST API Engineering Standards | ✅ ready | `knowledge/rest-api/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/rest-api/00-overview.md` |
-| 1 | HTTP | ✅ ready | `knowledge/rest-api/01-http.md` |
+| 0 | REST API Overview | ✅ ready | `knowledge/rest-api/00-overview.md` |
+| 1 | REST API HTTP | ✅ ready | `knowledge/rest-api/01-http.md` |
 | 2 | Rest Principles | ✅ ready | `knowledge/rest-api/02-rest-principles.md` |
 | 3 | Resource Design | ✅ ready | `knowledge/rest-api/03-resource-design.md` |
 | 4 | Endpoints | ✅ ready | `knowledge/rest-api/04-endpoints.md` |
-| 5 | Routing | ✅ ready | `knowledge/rest-api/05-routing.md` |
+| 5 | REST API Routing | ✅ ready | `knowledge/rest-api/05-routing.md` |
 | 6 | Request Response | ✅ ready | `knowledge/rest-api/06-request-response.md` |
 | 7 | Status Codes | ✅ ready | `knowledge/rest-api/07-status-codes.md` |
-| 8 | Validation | ✅ ready | `knowledge/rest-api/08-validation.md` |
-| 9 | Error Handling | ✅ ready | `knowledge/rest-api/09-error-handling.md` |
-| 10 | Pagination | ✅ ready | `knowledge/rest-api/10-pagination.md` |
-| 11 | Filtering | ✅ ready | `knowledge/rest-api/11-filtering.md` |
-| 12 | Sorting | ✅ ready | `knowledge/rest-api/12-sorting.md` |
+| 8 | REST API Validation | ✅ ready | `knowledge/rest-api/08-validation.md` |
+| 9 | REST API Error Handling | ✅ ready | `knowledge/rest-api/09-error-handling.md` |
+| 10 | REST API Pagination | ✅ ready | `knowledge/rest-api/10-pagination.md` |
+| 11 | REST API Filtering | ✅ ready | `knowledge/rest-api/11-filtering.md` |
+| 12 | REST API Sorting | ✅ ready | `knowledge/rest-api/12-sorting.md` |
 | 13 | Search | ✅ ready | `knowledge/rest-api/13-search.md` |
-| 14 | Versioning | ✅ ready | `knowledge/rest-api/14-versioning.md` |
-| 15 | Authentication | ✅ ready | `knowledge/rest-api/15-authentication.md` |
-| 16 | Authorization | ✅ ready | `knowledge/rest-api/16-authorization.md` |
-| 17 | Rate Limiting | ✅ ready | `knowledge/rest-api/17-rate-limiting.md` |
+| 14 | REST API Versioning | ✅ ready | `knowledge/rest-api/14-versioning.md` |
+| 15 | REST API Authentication | ✅ ready | `knowledge/rest-api/15-authentication.md` |
+| 16 | REST API Authorization | ✅ ready | `knowledge/rest-api/16-authorization.md` |
+| 17 | REST API Rate Limiting | ✅ ready | `knowledge/rest-api/17-rate-limiting.md` |
 | 18 | Idempotency | ✅ ready | `knowledge/rest-api/18-idempotency.md` |
-| 19 | Caching | ✅ ready | `knowledge/rest-api/19-caching.md` |
+| 19 | REST API Caching | ✅ ready | `knowledge/rest-api/19-caching.md` |
 | 20 | File Upload | ✅ ready | `knowledge/rest-api/20-file-upload.md` |
 | 21 | OpenAPI | ✅ ready | `knowledge/rest-api/21-openapi.md` |
 | 22 | Swagger | ✅ ready | `knowledge/rest-api/22-swagger.md` |
-| 23 | Testing | ✅ ready | `knowledge/rest-api/23-testing.md` |
-| 24 | Security | ✅ ready | `knowledge/rest-api/24-security.md` |
-| 25 | Performance | ✅ ready | `knowledge/rest-api/25-performance.md` |
-| 26 | Monitoring | ✅ ready | `knowledge/rest-api/26-monitoring.md` |
-| 27 | Best Practices | ✅ ready | `knowledge/rest-api/27-best-practices.md` |
-| 28 | Production | ✅ ready | `knowledge/rest-api/28-production.md` |
+| 23 | REST API Testing | ✅ ready | `knowledge/rest-api/23-testing.md` |
+| 24 | REST API Security | ✅ ready | `knowledge/rest-api/24-security.md` |
+| 25 | REST API Performance | ✅ ready | `knowledge/rest-api/25-performance.md` |
+| 26 | REST API Monitoring | ✅ ready | `knowledge/rest-api/26-monitoring.md` |
+| 27 | REST API Best Practices | ✅ ready | `knowledge/rest-api/27-best-practices.md` |
+| 28 | REST API Production | ✅ ready | `knowledge/rest-api/28-production.md` |
 | 29 | API Design Review | ✅ ready | `knowledge/rest-api/29-api-design-review.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/rest-api/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/rest-api/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/rest-api/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/rest-api/100-common-antipatterns.md` |
+| 30 | REST API Engineering Principles | ✅ ready | `knowledge/rest-api/30-engineering-principles.md` |
+| 98 | REST API Production Checklist | ✅ ready | `knowledge/rest-api/98-production-checklist.md` |
+| 99 | REST API AI Review Checklist | ✅ ready | `knowledge/rest-api/99-ai-review-checklist.md` |
+| 100 | REST API Common Antipatterns | ✅ ready | `knowledge/rest-api/100-common-antipatterns.md` |
 
 ## security  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Security Engineering Standards | ✅ ready | `knowledge/security/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/security/00-overview.md` |
+| 0 | Security Overview | ✅ ready | `knowledge/security/00-overview.md` |
 | 1 | Security Fundamentals | ✅ ready | `knowledge/security/01-security-fundamentals.md` |
 | 2 | Threat Modeling | ✅ ready | `knowledge/security/02-threat-modeling.md` |
-| 3 | Authentication | ✅ ready | `knowledge/security/03-authentication.md` |
-| 4 | Authorization | ✅ ready | `knowledge/security/04-authorization.md` |
+| 3 | Security Authentication | ✅ ready | `knowledge/security/03-authentication.md` |
+| 4 | Security Authorization | ✅ ready | `knowledge/security/04-authorization.md` |
 | 5 | Password Security | ✅ ready | `knowledge/security/05-password-security.md` |
 | 6 | Session Management | ✅ ready | `knowledge/security/06-session-management.md` |
 | 7 | JWT | ✅ ready | `knowledge/security/07-jwt.md` |
@@ -1317,64 +1317,64 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 13 | SQL Injection | ✅ ready | `knowledge/security/13-sql-injection.md` |
 | 14 | Command Injection | ✅ ready | `knowledge/security/14-command-injection.md` |
 | 15 | File Upload Security | ✅ ready | `knowledge/security/15-file-upload-security.md` |
-| 16 | Secrets Management | ✅ ready | `knowledge/security/16-secrets-management.md` |
+| 16 | Security Secrets Management | ✅ ready | `knowledge/security/16-secrets-management.md` |
 | 17 | Encryption | ✅ ready | `knowledge/security/17-encryption.md` |
 | 18 | HTTPS | ✅ ready | `knowledge/security/18-https.md` |
 | 19 | CORS | ✅ ready | `knowledge/security/19-cors.md` |
 | 20 | CSP | ✅ ready | `knowledge/security/20-csp.md` |
-| 21 | Rate Limiting | ✅ ready | `knowledge/security/21-rate-limiting.md` |
+| 21 | Security Rate Limiting | ✅ ready | `knowledge/security/21-rate-limiting.md` |
 | 22 | Security Headers | ✅ ready | `knowledge/security/22-security-headers.md` |
 | 23 | Dependency Security | ✅ ready | `knowledge/security/23-dependency-security.md` |
 | 24 | Supply Chain Security | ✅ ready | `knowledge/security/24-supply-chain-security.md` |
-| 25 | Monitoring | ✅ ready | `knowledge/security/25-monitoring.md` |
+| 25 | Security Monitoring | ✅ ready | `knowledge/security/25-monitoring.md` |
 | 26 | Incident Response | ✅ ready | `knowledge/security/26-incident-response.md` |
-| 27 | Best Practices | ✅ ready | `knowledge/security/27-best-practices.md` |
+| 27 | Security Best Practices | ✅ ready | `knowledge/security/27-best-practices.md` |
 | 28 | OWASP Top 10 | ✅ ready | `knowledge/security/28-owasp-top10.md` |
 | 29 | Security Review | ✅ ready | `knowledge/security/29-security-review.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/security/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/security/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/security/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/security/100-common-antipatterns.md` |
+| 30 | Security Engineering Principles | ✅ ready | `knowledge/security/30-engineering-principles.md` |
+| 98 | Security Production Checklist | ✅ ready | `knowledge/security/98-production-checklist.md` |
+| 99 | Security AI Review Checklist | ✅ ready | `knowledge/security/99-ai-review-checklist.md` |
+| 100 | Security Common Antipatterns | ✅ ready | `knowledge/security/100-common-antipatterns.md` |
 
 ## seo  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | SEO Engineering Standards | ✅ ready | `knowledge/seo/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/seo/00-overview.md` |
+| 0 | SEO Overview | ✅ ready | `knowledge/seo/00-overview.md` |
 | 1 | SEO Fundamentals | ✅ ready | `knowledge/seo/01-seo-fundamentals.md` |
 | 2 | Crawling | ✅ ready | `knowledge/seo/02-crawling.md` |
-| 3 | Indexing | ✅ ready | `knowledge/seo/03-indexing.md` |
-| 4 | Rendering | ✅ ready | `knowledge/seo/04-rendering.md` |
-| 5 | Metadata | ✅ ready | `knowledge/seo/05-metadata.md` |
+| 3 | SEO Indexing | ✅ ready | `knowledge/seo/03-indexing.md` |
+| 4 | SEO Rendering | ✅ ready | `knowledge/seo/04-rendering.md` |
+| 5 | SEO Metadata | ✅ ready | `knowledge/seo/05-metadata.md` |
 | 6 | Canonicalization | ✅ ready | `knowledge/seo/06-canonicalization.md` |
 | 7 | Sitemaps | ✅ ready | `knowledge/seo/07-sitemaps.md` |
 | 8 | Robots Txt | ✅ ready | `knowledge/seo/08-robots-txt.md` |
-| 9 | Structured Data | ✅ ready | `knowledge/seo/09-structured-data.md` |
+| 9 | SEO Structured Data | ✅ ready | `knowledge/seo/09-structured-data.md` |
 | 10 | Open Graph | ✅ ready | `knowledge/seo/10-open-graph.md` |
 | 11 | Twitter Cards | ✅ ready | `knowledge/seo/11-twitter-cards.md` |
-| 12 | Performance | ✅ ready | `knowledge/seo/12-performance.md` |
+| 12 | SEO Performance | ✅ ready | `knowledge/seo/12-performance.md` |
 | 13 | Core Web Vitals | ✅ ready | `knowledge/seo/13-core-web-vitals.md` |
 | 14 | International SEO | ✅ ready | `knowledge/seo/14-international-seo.md` |
 | 15 | Local SEO | ✅ ready | `knowledge/seo/15-local-seo.md` |
-| 16 | Images | ✅ ready | `knowledge/seo/16-images.md` |
-| 17 | Links | ✅ ready | `knowledge/seo/17-links.md` |
-| 18 | Pagination | ✅ ready | `knowledge/seo/18-pagination.md` |
+| 16 | SEO Images | ✅ ready | `knowledge/seo/16-images.md` |
+| 17 | SEO Links | ✅ ready | `knowledge/seo/17-links.md` |
+| 18 | SEO Pagination | ✅ ready | `knowledge/seo/18-pagination.md` |
 | 19 | JavaScript SEO | ✅ ready | `knowledge/seo/19-javascript-seo.md` |
 | 20 | Headless SEO | ✅ ready | `knowledge/seo/20-headless-seo.md` |
 | 21 | Analytics | ✅ ready | `knowledge/seo/21-analytics.md` |
 | 22 | Search Console | ✅ ready | `knowledge/seo/22-search-console.md` |
 | 23 | Audits | ✅ ready | `knowledge/seo/23-audits.md` |
-| 24 | Monitoring | ✅ ready | `knowledge/seo/24-monitoring.md` |
+| 24 | SEO Monitoring | ✅ ready | `knowledge/seo/24-monitoring.md` |
 | 25 | Content Quality | ✅ ready | `knowledge/seo/25-content-quality.md` |
-| 26 | Best Practices | ✅ ready | `knowledge/seo/26-best-practices.md` |
+| 26 | SEO Best Practices | ✅ ready | `knowledge/seo/26-best-practices.md` |
 | 27 | Production Checks | ✅ ready | `knowledge/seo/27-production-checks.md` |
-| 28 | Real World Patterns | ✅ ready | `knowledge/seo/28-real-world-patterns.md` |
+| 28 | SEO Real World Patterns | ✅ ready | `knowledge/seo/28-real-world-patterns.md` |
 | 29 | SEO Review | ✅ ready | `knowledge/seo/29-seo-review.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/seo/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/seo/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/seo/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/seo/100-common-antipatterns.md` |
+| 30 | SEO Engineering Principles | ✅ ready | `knowledge/seo/30-engineering-principles.md` |
+| 98 | SEO Production Checklist | ✅ ready | `knowledge/seo/98-production-checklist.md` |
+| 99 | SEO AI Review Checklist | ✅ ready | `knowledge/seo/99-ai-review-checklist.md` |
+| 100 | SEO Common Antipatterns | ✅ ready | `knowledge/seo/100-common-antipatterns.md` |
 
 ## snippets  (4/4 ready)
 
@@ -1390,86 +1390,86 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | SQL Engineering Standards | ✅ ready | `knowledge/sql/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/sql/00-overview.md` |
+| 0 | SQL Overview | ✅ ready | `knowledge/sql/00-overview.md` |
 | 1 | Select | ✅ ready | `knowledge/sql/01-select.md` |
-| 2 | Filtering | ✅ ready | `knowledge/sql/02-filtering.md` |
-| 3 | Sorting | ✅ ready | `knowledge/sql/03-sorting.md` |
+| 2 | SQL Filtering | ✅ ready | `knowledge/sql/02-filtering.md` |
+| 3 | SQL Sorting | ✅ ready | `knowledge/sql/03-sorting.md` |
 | 4 | Grouping | ✅ ready | `knowledge/sql/04-grouping.md` |
 | 5 | Joins | ✅ ready | `knowledge/sql/05-joins.md` |
 | 6 | Subqueries | ✅ ready | `knowledge/sql/06-subqueries.md` |
 | 7 | Common Table Expressions | ✅ ready | `knowledge/sql/07-common-table-expressions.md` |
 | 8 | Window Functions | ✅ ready | `knowledge/sql/08-window-functions.md` |
 | 9 | Aggregate Functions | ✅ ready | `knowledge/sql/09-aggregate-functions.md` |
-| 10 | Functions | ✅ ready | `knowledge/sql/10-functions.md` |
-| 11 | Data Types | ✅ ready | `knowledge/sql/11-data-types.md` |
+| 10 | SQL Functions | ✅ ready | `knowledge/sql/10-functions.md` |
+| 11 | SQL Data Types | ✅ ready | `knowledge/sql/11-data-types.md` |
 | 12 | DDL | ✅ ready | `knowledge/sql/12-ddl.md` |
 | 13 | DML | ✅ ready | `knowledge/sql/13-dml.md` |
-| 14 | Transactions | ✅ ready | `knowledge/sql/14-transactions.md` |
-| 15 | Indexes | ✅ ready | `knowledge/sql/15-indexes.md` |
+| 14 | SQL Transactions | ✅ ready | `knowledge/sql/14-transactions.md` |
+| 15 | SQL Indexes | ✅ ready | `knowledge/sql/15-indexes.md` |
 | 16 | Query Planning | ✅ ready | `knowledge/sql/16-query-planning.md` |
-| 17 | Query Optimization | ✅ ready | `knowledge/sql/17-query-optimization.md` |
+| 17 | SQL Query Optimization | ✅ ready | `knowledge/sql/17-query-optimization.md` |
 | 18 | Views | ✅ ready | `knowledge/sql/18-views.md` |
 | 19 | Materialized Views | ✅ ready | `knowledge/sql/19-materialized-views.md` |
 | 20 | Stored Procedures | ✅ ready | `knowledge/sql/20-stored-procedures.md` |
-| 21 | Triggers | ✅ ready | `knowledge/sql/21-triggers.md` |
-| 22 | Security | ✅ ready | `knowledge/sql/22-security.md` |
-| 23 | Performance | ✅ ready | `knowledge/sql/23-performance.md` |
-| 24 | Testing | ✅ ready | `knowledge/sql/24-testing.md` |
-| 25 | Debugging | ✅ ready | `knowledge/sql/25-debugging.md` |
-| 26 | Best Practices | ✅ ready | `knowledge/sql/26-best-practices.md` |
+| 21 | SQL Triggers | ✅ ready | `knowledge/sql/21-triggers.md` |
+| 22 | SQL Security | ✅ ready | `knowledge/sql/22-security.md` |
+| 23 | SQL Performance | ✅ ready | `knowledge/sql/23-performance.md` |
+| 24 | SQL Testing | ✅ ready | `knowledge/sql/24-testing.md` |
+| 25 | SQL Debugging | ✅ ready | `knowledge/sql/25-debugging.md` |
+| 26 | SQL Best Practices | ✅ ready | `knowledge/sql/26-best-practices.md` |
 | 27 | Portability | ✅ ready | `knowledge/sql/27-portability.md` |
-| 28 | Architecture | ✅ ready | `knowledge/sql/28-architecture.md` |
-| 29 | Tooling | ✅ ready | `knowledge/sql/29-tooling.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/sql/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/sql/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/sql/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/sql/100-common-antipatterns.md` |
+| 28 | SQL Architecture | ✅ ready | `knowledge/sql/28-architecture.md` |
+| 29 | SQL Tooling | ✅ ready | `knowledge/sql/29-tooling.md` |
+| 30 | SQL Engineering Principles | ✅ ready | `knowledge/sql/30-engineering-principles.md` |
+| 98 | SQL Production Checklist | ✅ ready | `knowledge/sql/98-production-checklist.md` |
+| 99 | SQL AI Review Checklist | ✅ ready | `knowledge/sql/99-ai-review-checklist.md` |
+| 100 | SQL Common Antipatterns | ✅ ready | `knowledge/sql/100-common-antipatterns.md` |
 
 ## tailwind  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Tailwind CSS Engineering Standards | ✅ ready | `knowledge/tailwind/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/tailwind/00-overview.md` |
-| 1 | Installation | ✅ ready | `knowledge/tailwind/01-installation.md` |
+| 0 | Tailwind CSS Overview | ✅ ready | `knowledge/tailwind/00-overview.md` |
+| 1 | Tailwind CSS Installation | ✅ ready | `knowledge/tailwind/01-installation.md` |
 | 2 | Core Concepts | ✅ ready | `knowledge/tailwind/02-core-concepts.md` |
 | 3 | Utility First | ✅ ready | `knowledge/tailwind/03-utility-first.md` |
-| 4 | Layout | ✅ ready | `knowledge/tailwind/04-layout.md` |
-| 5 | Flexbox | ✅ ready | `knowledge/tailwind/05-flexbox.md` |
-| 6 | Grid | ✅ ready | `knowledge/tailwind/06-grid.md` |
-| 7 | Spacing | ✅ ready | `knowledge/tailwind/07-spacing.md` |
-| 8 | Sizing | ✅ ready | `knowledge/tailwind/08-sizing.md` |
-| 9 | Typography | ✅ ready | `knowledge/tailwind/09-typography.md` |
-| 10 | Colors | ✅ ready | `knowledge/tailwind/10-colors.md` |
-| 11 | Responsive Design | ✅ ready | `knowledge/tailwind/11-responsive-design.md` |
+| 4 | Tailwind CSS Layout | ✅ ready | `knowledge/tailwind/04-layout.md` |
+| 5 | Tailwind CSS Flexbox | ✅ ready | `knowledge/tailwind/05-flexbox.md` |
+| 6 | Tailwind CSS Grid | ✅ ready | `knowledge/tailwind/06-grid.md` |
+| 7 | Tailwind CSS Spacing | ✅ ready | `knowledge/tailwind/07-spacing.md` |
+| 8 | Tailwind CSS Sizing | ✅ ready | `knowledge/tailwind/08-sizing.md` |
+| 9 | Tailwind CSS Typography | ✅ ready | `knowledge/tailwind/09-typography.md` |
+| 10 | Tailwind CSS Colors | ✅ ready | `knowledge/tailwind/10-colors.md` |
+| 11 | Tailwind CSS Responsive Design | ✅ ready | `knowledge/tailwind/11-responsive-design.md` |
 | 12 | Dark Mode | ✅ ready | `knowledge/tailwind/12-dark-mode.md` |
 | 13 | State Variants | ✅ ready | `knowledge/tailwind/13-state-variants.md` |
 | 14 | Pseudo Classes | ✅ ready | `knowledge/tailwind/14-pseudo-classes.md` |
-| 15 | Customization | ✅ ready | `knowledge/tailwind/15-customization.md` |
+| 15 | Tailwind CSS Customization | ✅ ready | `knowledge/tailwind/15-customization.md` |
 | 16 | Theme | ✅ ready | `knowledge/tailwind/16-theme.md` |
-| 17 | Components | ✅ ready | `knowledge/tailwind/17-components.md` |
+| 17 | Tailwind CSS Components | ✅ ready | `knowledge/tailwind/17-components.md` |
 | 18 | Plugins | ✅ ready | `knowledge/tailwind/18-plugins.md` |
-| 19 | Performance | ✅ ready | `knowledge/tailwind/19-performance.md` |
+| 19 | Tailwind CSS Performance | ✅ ready | `knowledge/tailwind/19-performance.md` |
 | 20 | Optimization | ✅ ready | `knowledge/tailwind/20-optimization.md` |
 | 21 | Design System | ✅ ready | `knowledge/tailwind/21-design-system.md` |
-| 22 | Accessibility | ✅ ready | `knowledge/tailwind/22-accessibility.md` |
+| 22 | Tailwind CSS Accessibility | ✅ ready | `knowledge/tailwind/22-accessibility.md` |
 | 23 | Next.js | ✅ ready | `knowledge/tailwind/23-nextjs.md` |
 | 24 | React | ✅ ready | `knowledge/tailwind/24-react.md` |
-| 25 | Debugging | ✅ ready | `knowledge/tailwind/25-debugging.md` |
-| 26 | Best Practices | ✅ ready | `knowledge/tailwind/26-best-practices.md` |
-| 27 | Production | ✅ ready | `knowledge/tailwind/27-production.md` |
-| 28 | Patterns | ✅ ready | `knowledge/tailwind/28-patterns.md` |
-| 29 | Tooling | ✅ ready | `knowledge/tailwind/29-tooling.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/tailwind/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/tailwind/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/tailwind/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/tailwind/100-common-antipatterns.md` |
+| 25 | Tailwind CSS Debugging | ✅ ready | `knowledge/tailwind/25-debugging.md` |
+| 26 | Tailwind CSS Best Practices | ✅ ready | `knowledge/tailwind/26-best-practices.md` |
+| 27 | Tailwind CSS Production | ✅ ready | `knowledge/tailwind/27-production.md` |
+| 28 | Tailwind CSS Patterns | ✅ ready | `knowledge/tailwind/28-patterns.md` |
+| 29 | Tailwind CSS Tooling | ✅ ready | `knowledge/tailwind/29-tooling.md` |
+| 30 | Tailwind CSS Engineering Principles | ✅ ready | `knowledge/tailwind/30-engineering-principles.md` |
+| 98 | Tailwind CSS Production Checklist | ✅ ready | `knowledge/tailwind/98-production-checklist.md` |
+| 99 | Tailwind CSS AI Review Checklist | ✅ ready | `knowledge/tailwind/99-ai-review-checklist.md` |
+| 100 | Tailwind CSS Common Antipatterns | ✅ ready | `knowledge/tailwind/100-common-antipatterns.md` |
 
 ## templates  (4/4 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
-|  | Templates | ✅ ready | `knowledge/templates/README.md` |
+|  | Template Templates | ✅ ready | `knowledge/templates/README.md` |
 | 1 | Pull Request Template | ✅ ready | `knowledge/templates/01-pull-request.md` |
 | 2 | Architecture Decision Record Template | ✅ ready | `knowledge/templates/02-architecture-decision-record.md` |
 | 3 | Incident Report Template | ✅ ready | `knowledge/templates/03-incident-report.md` |
@@ -1479,7 +1479,7 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | Testing Engineering Standards | ✅ ready | `knowledge/testing/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/testing/00-overview.md` |
+| 0 | Testing Overview | ✅ ready | `knowledge/testing/00-overview.md` |
 | 1 | Testing Fundamentals | ✅ ready | `knowledge/testing/01-testing-fundamentals.md` |
 | 2 | Unit Testing | ✅ ready | `knowledge/testing/02-unit-testing.md` |
 | 3 | Integration Testing | ✅ ready | `knowledge/testing/03-integration-testing.md` |
@@ -1493,26 +1493,26 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 11 | Contract Testing | ✅ ready | `knowledge/testing/11-contract-testing.md` |
 | 12 | API Testing | ✅ ready | `knowledge/testing/12-api-testing.md` |
 | 13 | UI Testing | ✅ ready | `knowledge/testing/13-ui-testing.md` |
-| 14 | Visual Regression | ✅ ready | `knowledge/testing/14-visual-regression.md` |
+| 14 | Testing Visual Regression | ✅ ready | `knowledge/testing/14-visual-regression.md` |
 | 15 | Performance Testing | ✅ ready | `knowledge/testing/15-performance-testing.md` |
-| 16 | Load Testing | ✅ ready | `knowledge/testing/16-load-testing.md` |
+| 16 | Testing Load Testing | ✅ ready | `knowledge/testing/16-load-testing.md` |
 | 17 | Security Testing | ✅ ready | `knowledge/testing/17-security-testing.md` |
-| 18 | Accessibility Testing | ✅ ready | `knowledge/testing/18-accessibility-testing.md` |
+| 18 | Testing Accessibility Testing | ✅ ready | `knowledge/testing/18-accessibility-testing.md` |
 | 19 | Test Coverage | ✅ ready | `knowledge/testing/19-test-coverage.md` |
 | 20 | Test Maintenance | ✅ ready | `knowledge/testing/20-test-maintenance.md` |
 | 21 | CI/CD | ✅ ready | `knowledge/testing/21-cicd.md` |
 | 22 | Flaky Tests | ✅ ready | `knowledge/testing/22-flaky-tests.md` |
 | 23 | Debugging Tests | ✅ ready | `knowledge/testing/23-debugging-tests.md` |
-| 24 | Best Practices | ✅ ready | `knowledge/testing/24-best-practices.md` |
+| 24 | Testing Best Practices | ✅ ready | `knowledge/testing/24-best-practices.md` |
 | 25 | Production Testing | ✅ ready | `knowledge/testing/25-production-testing.md` |
-| 26 | Observability | ✅ ready | `knowledge/testing/26-observability.md` |
-| 27 | Quality Gates | ✅ ready | `knowledge/testing/27-quality-gates.md` |
+| 26 | Testing Observability | ✅ ready | `knowledge/testing/26-observability.md` |
+| 27 | Testing Quality Gates | ✅ ready | `knowledge/testing/27-quality-gates.md` |
 | 28 | Testing Strategy | ✅ ready | `knowledge/testing/28-testing-strategy.md` |
 | 29 | Test Review | ✅ ready | `knowledge/testing/29-test-review.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/testing/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/testing/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/testing/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/testing/100-common-antipatterns.md` |
+| 30 | Testing Engineering Principles | ✅ ready | `knowledge/testing/30-engineering-principles.md` |
+| 98 | Testing Production Checklist | ✅ ready | `knowledge/testing/98-production-checklist.md` |
+| 99 | Testing AI Review Checklist | ✅ ready | `knowledge/testing/99-ai-review-checklist.md` |
+| 100 | Testing Common Antipatterns | ✅ ready | `knowledge/testing/100-common-antipatterns.md` |
 
 ## tools  (35/35 ready)
 
@@ -1535,7 +1535,7 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 13 | Test Runners | ✅ ready | `knowledge/tools/13-test-runners.md` |
 | 14 | Playwright | ✅ ready | `knowledge/tools/14-playwright.md` |
 | 15 | Storybook | ✅ ready | `knowledge/tools/15-storybook.md` |
-| 16 | Git Hooks | ✅ ready | `knowledge/tools/16-git-hooks.md` |
+| 16 | Tools — Git Hooks | ✅ ready | `knowledge/tools/16-git-hooks.md` |
 | 17 | Commit Conventions | ✅ ready | `knowledge/tools/17-commit-conventions.md` |
 | 18 | Monorepo Tools | ✅ ready | `knowledge/tools/18-monorepo-tools.md` |
 | 19 | Task Runners | ✅ ready | `knowledge/tools/19-task-runners.md` |
@@ -1549,21 +1549,21 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 27 | Dependency Management | ✅ ready | `knowledge/tools/27-dependency-management.md` |
 | 28 | Release Tools | ✅ ready | `knowledge/tools/28-release-tools.md` |
 | 29 | Observability Tools | ✅ ready | `knowledge/tools/29-observability-tools.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/tools/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/tools/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/tools/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/tools/100-common-antipatterns.md` |
+| 30 | Tools Engineering Principles | ✅ ready | `knowledge/tools/30-engineering-principles.md` |
+| 98 | Tools Production Checklist | ✅ ready | `knowledge/tools/98-production-checklist.md` |
+| 99 | Tools AI Review Checklist | ✅ ready | `knowledge/tools/99-ai-review-checklist.md` |
+| 100 | Tools Common Antipatterns | ✅ ready | `knowledge/tools/100-common-antipatterns.md` |
 
 ## typescript  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | TypeScript Engineering Standards | ✅ ready | `knowledge/typescript/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/typescript/00-overview.md` |
-| 1 | Language Fundamentals | ✅ ready | `knowledge/typescript/01-language-fundamentals.md` |
+| 0 | TypeScript Overview | ✅ ready | `knowledge/typescript/00-overview.md` |
+| 1 | TypeScript Language Fundamentals | ✅ ready | `knowledge/typescript/01-language-fundamentals.md` |
 | 2 | Type System | ✅ ready | `knowledge/typescript/02-type-system.md` |
 | 3 | Type Inference | ✅ ready | `knowledge/typescript/03-type-inference.md` |
-| 4 | Functions | ✅ ready | `knowledge/typescript/04-functions.md` |
+| 4 | TypeScript Functions | ✅ ready | `knowledge/typescript/04-functions.md` |
 | 5 | Objects | ✅ ready | `knowledge/typescript/05-objects.md` |
 | 6 | Interfaces | ✅ ready | `knowledge/typescript/06-interfaces.md` |
 | 7 | Type Aliases | ✅ ready | `knowledge/typescript/07-type-aliases.md` |
@@ -1573,35 +1573,35 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 11 | Unions And Intersections | ✅ ready | `knowledge/typescript/11-unions-and-intersections.md` |
 | 12 | Type Guards | ✅ ready | `knowledge/typescript/12-type-guards.md` |
 | 13 | Advanced Types | ✅ ready | `knowledge/typescript/13-advanced-types.md` |
-| 14 | Modules | ✅ ready | `knowledge/typescript/14-modules.md` |
+| 14 | TypeScript Modules | ✅ ready | `knowledge/typescript/14-modules.md` |
 | 15 | Decorators | ✅ ready | `knowledge/typescript/15-decorators.md` |
-| 16 | Configuration | ✅ ready | `knowledge/typescript/16-configuration.md` |
-| 17 | Error Handling | ✅ ready | `knowledge/typescript/17-error-handling.md` |
+| 16 | TypeScript Configuration | ✅ ready | `knowledge/typescript/16-configuration.md` |
+| 17 | TypeScript Error Handling | ✅ ready | `knowledge/typescript/17-error-handling.md` |
 | 18 | Asynchronous Programming | ✅ ready | `knowledge/typescript/18-asynchronous-programming.md` |
 | 19 | Collections | ✅ ready | `knowledge/typescript/19-collections.md` |
 | 20 | Immutability | ✅ ready | `knowledge/typescript/20-immutability.md` |
-| 21 | Functional Programming | ✅ ready | `knowledge/typescript/21-functional-programming.md` |
-| 22 | Design Patterns | ✅ ready | `knowledge/typescript/22-design-patterns.md` |
-| 23 | Clean Code | ✅ ready | `knowledge/typescript/23-clean-code.md` |
-| 24 | Testing | ✅ ready | `knowledge/typescript/24-testing.md` |
-| 25 | Performance | ✅ ready | `knowledge/typescript/25-performance.md` |
-| 26 | Security | ✅ ready | `knowledge/typescript/26-security.md` |
+| 21 | TypeScript Functional Programming | ✅ ready | `knowledge/typescript/21-functional-programming.md` |
+| 22 | TypeScript Design Patterns | ✅ ready | `knowledge/typescript/22-design-patterns.md` |
+| 23 | TypeScript Clean Code | ✅ ready | `knowledge/typescript/23-clean-code.md` |
+| 24 | TypeScript Testing | ✅ ready | `knowledge/typescript/24-testing.md` |
+| 25 | TypeScript Performance | ✅ ready | `knowledge/typescript/25-performance.md` |
+| 26 | TypeScript Security | ✅ ready | `knowledge/typescript/26-security.md` |
 | 27 | Library Design | ✅ ready | `knowledge/typescript/27-library-design.md` |
-| 28 | Best Practices | ✅ ready | `knowledge/typescript/28-best-practices.md` |
-| 29 | Tooling | ✅ ready | `knowledge/typescript/29-tooling.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/typescript/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/typescript/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/typescript/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/typescript/100-common-antipatterns.md` |
+| 28 | TypeScript Best Practices | ✅ ready | `knowledge/typescript/28-best-practices.md` |
+| 29 | TypeScript Tooling | ✅ ready | `knowledge/typescript/29-tooling.md` |
+| 30 | TypeScript Engineering Principles | ✅ ready | `knowledge/typescript/30-engineering-principles.md` |
+| 98 | TypeScript Production Checklist | ✅ ready | `knowledge/typescript/98-production-checklist.md` |
+| 99 | TypeScript AI Review Checklist | ✅ ready | `knowledge/typescript/99-ai-review-checklist.md` |
+| 100 | TypeScript Common Antipatterns | ✅ ready | `knowledge/typescript/100-common-antipatterns.md` |
 
 ## woocommerce  (35/35 ready)
 
 | # | Title | Status | Path |
 |---|-------|--------|------|
 |  | WooCommerce Engineering Standards | ✅ ready | `knowledge/woocommerce/README.md` |
-| 0 | Overview | ✅ ready | `knowledge/woocommerce/00-overview.md` |
-| 1 | Architecture | ✅ ready | `knowledge/woocommerce/01-architecture.md` |
-| 2 | Installation | ✅ ready | `knowledge/woocommerce/02-installation.md` |
+| 0 | WooCommerce Overview | ✅ ready | `knowledge/woocommerce/00-overview.md` |
+| 1 | WooCommerce Architecture | ✅ ready | `knowledge/woocommerce/01-architecture.md` |
+| 2 | WooCommerce Installation | ✅ ready | `knowledge/woocommerce/02-installation.md` |
 | 3 | Product Types | ✅ ready | `knowledge/woocommerce/03-product-types.md` |
 | 4 | Product Management | ✅ ready | `knowledge/woocommerce/04-product-management.md` |
 | 5 | Orders | ✅ ready | `knowledge/woocommerce/05-orders.md` |
@@ -1611,28 +1611,28 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 9 | Shipping | ✅ ready | `knowledge/woocommerce/09-shipping.md` |
 | 10 | Taxes | ✅ ready | `knowledge/woocommerce/10-taxes.md` |
 | 11 | Coupons | ✅ ready | `knowledge/woocommerce/11-coupons.md` |
-| 12 | Hooks | ✅ ready | `knowledge/woocommerce/12-hooks.md` |
+| 12 | WooCommerce Hooks | ✅ ready | `knowledge/woocommerce/12-hooks.md` |
 | 13 | Rest API | ✅ ready | `knowledge/woocommerce/13-rest-api.md` |
-| 14 | Headless | ✅ ready | `knowledge/woocommerce/14-headless.md` |
-| 15 | Performance | ✅ ready | `knowledge/woocommerce/15-performance.md` |
-| 16 | Security | ✅ ready | `knowledge/woocommerce/16-security.md` |
-| 17 | Customization | ✅ ready | `knowledge/woocommerce/17-customization.md` |
+| 14 | WooCommerce Headless | ✅ ready | `knowledge/woocommerce/14-headless.md` |
+| 15 | WooCommerce Performance | ✅ ready | `knowledge/woocommerce/15-performance.md` |
+| 16 | WooCommerce Security | ✅ ready | `knowledge/woocommerce/16-security.md` |
+| 17 | WooCommerce Customization | ✅ ready | `knowledge/woocommerce/17-customization.md` |
 | 18 | Emails | ✅ ready | `knowledge/woocommerce/18-emails.md` |
-| 19 | Subscriptions | ✅ ready | `knowledge/woocommerce/19-subscriptions.md` |
-| 20 | Multisite | ✅ ready | `knowledge/woocommerce/20-multisite.md` |
-| 21 | Testing | ✅ ready | `knowledge/woocommerce/21-testing.md` |
-| 22 | Deployment | ✅ ready | `knowledge/woocommerce/22-deployment.md` |
-| 23 | Monitoring | ✅ ready | `knowledge/woocommerce/23-monitoring.md` |
+| 19 | WooCommerce Subscriptions | ✅ ready | `knowledge/woocommerce/19-subscriptions.md` |
+| 20 | WooCommerce Multisite | ✅ ready | `knowledge/woocommerce/20-multisite.md` |
+| 21 | WooCommerce Testing | ✅ ready | `knowledge/woocommerce/21-testing.md` |
+| 22 | WooCommerce Deployment | ✅ ready | `knowledge/woocommerce/22-deployment.md` |
+| 23 | WooCommerce Monitoring | ✅ ready | `knowledge/woocommerce/23-monitoring.md` |
 | 24 | Scaling | ✅ ready | `knowledge/woocommerce/24-scaling.md` |
-| 25 | Best Practices | ✅ ready | `knowledge/woocommerce/25-best-practices.md` |
-| 26 | Debugging | ✅ ready | `knowledge/woocommerce/26-debugging.md` |
-| 27 | Production | ✅ ready | `knowledge/woocommerce/27-production.md` |
-| 28 | Real World Patterns | ✅ ready | `knowledge/woocommerce/28-real-world-patterns.md` |
+| 25 | WooCommerce Best Practices | ✅ ready | `knowledge/woocommerce/25-best-practices.md` |
+| 26 | WooCommerce Debugging | ✅ ready | `knowledge/woocommerce/26-debugging.md` |
+| 27 | WooCommerce Production | ✅ ready | `knowledge/woocommerce/27-production.md` |
+| 28 | WooCommerce Real World Patterns | ✅ ready | `knowledge/woocommerce/28-real-world-patterns.md` |
 | 29 | AI Review | ✅ ready | `knowledge/woocommerce/29-ai-review.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/woocommerce/30-engineering-principles.md` |
-| 98 | Production Checklist | ✅ ready | `knowledge/woocommerce/98-production-checklist.md` |
-| 99 | AI Review Checklist | ✅ ready | `knowledge/woocommerce/99-ai-review-checklist.md` |
-| 100 | Common Antipatterns | ✅ ready | `knowledge/woocommerce/100-common-antipatterns.md` |
+| 30 | WooCommerce Engineering Principles | ✅ ready | `knowledge/woocommerce/30-engineering-principles.md` |
+| 98 | WooCommerce Production Checklist | ✅ ready | `knowledge/woocommerce/98-production-checklist.md` |
+| 99 | WooCommerce AI Review Checklist | ✅ ready | `knowledge/woocommerce/99-ai-review-checklist.md` |
+| 100 | WooCommerce Common Antipatterns | ✅ ready | `knowledge/woocommerce/100-common-antipatterns.md` |
 
 ## wordpress  (35/35 ready)
 
@@ -1650,26 +1650,26 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 8 | Hooks — Actions and Filters | ✅ ready | `knowledge/wordpress/08-hooks.md` |
 | 9 | Custom Post Types | ✅ ready | `knowledge/wordpress/09-custom-post-types.md` |
 | 10 | Taxonomies | ✅ ready | `knowledge/wordpress/10-taxonomies.md` |
-| 11 | Metadata | ✅ ready | `knowledge/wordpress/11-metadata.md` |
+| 11 | WordPress Metadata | ✅ ready | `knowledge/wordpress/11-metadata.md` |
 | 12 | Queries and The Loop | ✅ ready | `knowledge/wordpress/12-queries.md` |
 | 13 | Template Hierarchy | ✅ ready | `knowledge/wordpress/13-template-hierarchy.md` |
 | 14 | Theme Development | ✅ ready | `knowledge/wordpress/14-theme-development.md` |
 | 15 | Plugin Development | ✅ ready | `knowledge/wordpress/15-plugin-development.md` |
 | 16 | Block Editor | ✅ ready | `knowledge/wordpress/16-block-editor.md` |
 | 17 | Block Themes and theme.json | ✅ ready | `knowledge/wordpress/17-block-themes.md` |
-| 18 | REST API | ✅ ready | `knowledge/wordpress/18-rest-api.md` |
+| 18 | WordPress REST API | ✅ ready | `knowledge/wordpress/18-rest-api.md` |
 | 19 | Database and $wpdb | ✅ ready | `knowledge/wordpress/19-database.md` |
 | 20 | Users and Capabilities | ✅ ready | `knowledge/wordpress/20-users-and-capabilities.md` |
 | 21 | Media and Uploads | ✅ ready | `knowledge/wordpress/21-media-and-uploads.md` |
 | 22 | Cron and Background Tasks | ✅ ready | `knowledge/wordpress/22-cron-and-background-tasks.md` |
-| 23 | Caching | ✅ ready | `knowledge/wordpress/23-caching.md` |
+| 23 | WordPress Caching | ✅ ready | `knowledge/wordpress/23-caching.md` |
 | 24 | Internationalization | ✅ ready | `knowledge/wordpress/24-internationalization.md` |
-| 25 | Multisite | ✅ ready | `knowledge/wordpress/25-multisite.md` |
+| 25 | WordPress Multisite | ✅ ready | `knowledge/wordpress/25-multisite.md` |
 | 26 | WP-CLI | ✅ ready | `knowledge/wordpress/26-wp-cli.md` |
-| 27 | Deployment | ✅ ready | `knowledge/wordpress/27-deployment.md` |
-| 28 | Debugging | ✅ ready | `knowledge/wordpress/28-debugging.md` |
-| 29 | Maintenance | ✅ ready | `knowledge/wordpress/29-maintenance.md` |
-| 30 | Engineering Principles | ✅ ready | `knowledge/wordpress/30-engineering-principles.md` |
+| 27 | WordPress Deployment | ✅ ready | `knowledge/wordpress/27-deployment.md` |
+| 28 | WordPress Debugging | ✅ ready | `knowledge/wordpress/28-debugging.md` |
+| 29 | WordPress Maintenance | ✅ ready | `knowledge/wordpress/29-maintenance.md` |
+| 30 | WordPress Engineering Principles | ✅ ready | `knowledge/wordpress/30-engineering-principles.md` |
 | 98 | WordPress Production Checklist | ✅ ready | `knowledge/wordpress/98-production-checklist.md` |
 | 99 | WordPress AI Review Checklist | ✅ ready | `knowledge/wordpress/99-ai-review-checklist.md` |
 | 100 | Common WordPress Antipatterns | ✅ ready | `knowledge/wordpress/100-common-antipatterns.md` |

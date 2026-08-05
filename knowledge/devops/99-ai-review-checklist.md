@@ -2,7 +2,7 @@
 id: devops/99-ai-review-checklist
 topic: devops
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "DevOps AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, ai-review-checklist]
 related: [devops/05-build-pipelines, devops/08-infrastructure-as-code, devops/30-engineering-principles, devops/100-common-antipatterns, devops/98-production-checklist]
 when_to_use: "Read before reviewing or generating any change to a pipeline, deployment, or infrastructure definition."
 ---
-# AI Review Checklist
+# DevOps AI Review Checklist
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: nestjs/25-testing
 topic: nestjs
 slug: testing
-title: "Testing"
+title: "NestJS Testing"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [nestjs, testing]
 related: [nestjs/03-dependency-injection, nestjs/05-services, testing/02-unit-testing, testing/03-integration-testing]
 when_to_use: "Read before writing or reviewing unit, integration, or end-to-end tests for NestJS code."
 ---
-# Testing
+# NestJS Testing
 
 ## Purpose
 

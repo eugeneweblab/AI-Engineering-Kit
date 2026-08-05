@@ -2,7 +2,7 @@
 id: prisma/02-schema
 topic: prisma
 slug: schema
-title: "Schema"
+title: "Prisma Schema"
 type: doc
 order: 2
 status: ready
@@ -10,7 +10,7 @@ tags: [prisma, schema]
 related: [prisma/00-overview, prisma/03-models, prisma/04-relations, prisma/05-migrations]
 when_to_use: "Read before editing schema.prisma or configuring the datasource and generator."
 ---
-# Schema
+# Prisma Schema
 
 ## Purpose
 

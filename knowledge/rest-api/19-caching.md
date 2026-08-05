@@ -2,7 +2,7 @@
 id: rest-api/19-caching
 topic: rest-api
 slug: caching
-title: "Caching"
+title: "REST API Caching"
 type: doc
 order: 19
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, caching]
 related: [rest-api/07-status-codes, rest-api/06-request-response, rest-api/18-idempotency, rest-api/25-performance, rest-api/26-monitoring]
 when_to_use: "Read before adding HTTP caching, ETags, or a CDN in front of any read-heavy endpoint."
 ---
-# Caching
+# REST API Caching
 
 ## Purpose
 

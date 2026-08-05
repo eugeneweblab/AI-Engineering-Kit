@@ -2,7 +2,7 @@
 id: security/100-common-antipatterns
 topic: security
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Security Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [security, common-antipatterns]
 related: [security/13-sql-injection, security/04-authorization, security/16-secrets-management, security/11-xss, security/28-owasp-top10]
 when_to_use: "Read when writing or reviewing security-sensitive code, to recognize a dangerous pattern before it ships."
 ---
-# Common Antipatterns
+# Security Common Antipatterns
 
 ## Purpose
 

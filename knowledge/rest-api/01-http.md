@@ -2,7 +2,7 @@
 id: rest-api/01-http
 topic: rest-api
 slug: http
-title: "HTTP"
+title: "REST API HTTP"
 type: doc
 order: 1
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, http]
 related: [rest-api/02-rest-principles, rest-api/07-status-codes, rest-api/06-request-response, rest-api/18-idempotency, rest-api/19-caching]
 when_to_use: "Read before choosing an HTTP method, status code, or header, or when reviewing how an endpoint uses the protocol."
 ---
-# HTTP
+# REST API HTTP
 
 ## Purpose
 

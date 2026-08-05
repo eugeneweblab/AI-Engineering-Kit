@@ -2,7 +2,7 @@
 id: cicd/28-production
 topic: cicd
 slug: production
-title: "Production"
+title: "CI/CD Production"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [cicd, production]
 related: [cicd/10-deployment, cicd/14-rollbacks, cicd/12-canary-deployment, cicd/16-environments, cicd/23-monitoring]
 when_to_use: "Read before shipping a pipeline that deploys to production, or before a production release changes hands."
 ---
-# Production
+# CI/CD Production
 
 ## Purpose
 

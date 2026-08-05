@@ -2,7 +2,7 @@
 id: sql/30-engineering-principles
 topic: sql
 slug: engineering-principles
-title: "Engineering Principles"
+title: "SQL Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [sql, engineering-principles]
 related: [sql/14-transactions, sql/15-indexes, sql/17-query-optimization, sql/22-security, sql/26-best-practices]
 when_to_use: "Read before designing a schema, writing non-trivial queries, or reviewing SQL that will run against production data."
 ---
-# Engineering Principles
+# SQL Engineering Principles
 
 ## Purpose
 

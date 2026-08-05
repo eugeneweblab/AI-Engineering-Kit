@@ -2,7 +2,7 @@
 id: frontend/27-best-practices
 topic: frontend
 slug: best-practices
-title: "Best Practices"
+title: "Frontend Best Practices"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [frontend, best-practices]
 related: [frontend/02-component-driven-development, frontend/04-state-management, frontend/09-accessibility, frontend/08-performance, frontend/30-engineering-principles]
 when_to_use: "Read before writing or reviewing any component, hook, or view to check it against the baseline the whole codebase expects."
 ---
-# Best Practices
+# Frontend Best Practices
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: kubernetes/27-best-practices
 topic: kubernetes
 slug: best-practices
-title: "Best Practices"
+title: "Kubernetes Best Practices"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [kubernetes, best-practices]
 related: [kubernetes/26-production, kubernetes/22-security, kubernetes/18-rbac, kubernetes/19-resource-management, kubernetes/09-configmaps]
 when_to_use: "Read before authoring or reviewing any Kubernetes manifest for correctness and maintainability."
 ---
-# Best Practices
+# Kubernetes Best Practices
 
 ## Purpose
 

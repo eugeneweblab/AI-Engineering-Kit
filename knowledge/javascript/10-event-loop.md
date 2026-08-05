@@ -2,7 +2,7 @@
 id: javascript/10-event-loop
 topic: javascript
 slug: event-loop
-title: "Event Loop"
+title: "JavaScript Event Loop"
 type: doc
 order: 10
 status: ready
@@ -10,7 +10,7 @@ tags: [javascript, event-loop]
 related: [javascript/08-asynchronous-javascript, javascript/09-promises, javascript/02-execution-context, javascript/25-performance]
 when_to_use: "Read before reasoning about ordering, blocking, timers, or why async code runs in a surprising sequence."
 ---
-# Event Loop
+# JavaScript Event Loop
 
 ## Purpose
 

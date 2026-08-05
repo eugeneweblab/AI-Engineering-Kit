@@ -2,7 +2,7 @@
 id: rest-api/98-production-checklist
 topic: rest-api
 slug: production-checklist
-title: "Production Checklist"
+title: "REST API Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, production-checklist]
 related: [rest-api/24-security, rest-api/17-rate-limiting, rest-api/19-caching, rest-api/26-monitoring, rest-api/28-production]
 when_to_use: "Read before promoting a REST API to production or sign off on a release that changes the public surface."
 ---
-# Production Checklist
+# REST API Production Checklist
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: rest-api/99-ai-review-checklist
 topic: rest-api
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "REST API AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [rest-api, ai-review-checklist]
 related: [rest-api/09-error-handling, rest-api/08-validation, rest-api/16-authorization, rest-api/18-idempotency, rest-api/07-status-codes]
 when_to_use: "Read when reviewing a pull request that adds or changes a REST endpoint, before approving it."
 ---
-# AI Review Checklist
+# REST API AI Review Checklist
 
 ## Purpose
 

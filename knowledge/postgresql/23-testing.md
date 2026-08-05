@@ -2,7 +2,7 @@
 id: postgresql/23-testing
 topic: postgresql
 slug: testing
-title: "Testing"
+title: "PostgreSQL Testing"
 type: doc
 order: 23
 status: ready
@@ -10,7 +10,7 @@ tags: [postgresql, testing]
 related: [postgresql/22-migrations, postgresql/06-transactions, postgresql/19-roles-and-permissions, postgresql/24-debugging, postgresql/25-best-practices]
 when_to_use: "Read before writing tests that touch the database, setting up a test database/fixtures, or reviewing whether data-access code is actually covered."
 ---
-# Testing
+# PostgreSQL Testing
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: backend/12-error-handling
 topic: backend
 slug: error-handling
-title: "Error Handling"
+title: "Backend Error Handling"
 type: doc
 order: 12
 status: ready
@@ -10,7 +10,7 @@ tags: [backend, error-handling]
 related: [backend/09-validation, backend/17-transactions, backend/22-observability, backend/19-performance, backend/100-common-antipatterns]
 when_to_use: "Read before writing or reviewing any code that can fail — I/O, external calls, parsing, or business rules."
 ---
-# Error Handling
+# Backend Error Handling
 
 ## Purpose
 

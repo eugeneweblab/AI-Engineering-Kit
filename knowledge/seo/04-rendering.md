@@ -2,7 +2,7 @@
 id: seo/04-rendering
 topic: seo
 slug: rendering
-title: "Rendering"
+title: "SEO Rendering"
 type: doc
 order: 4
 status: ready
@@ -10,7 +10,7 @@ tags: [seo, rendering]
 related: [seo/19-javascript-seo, seo/03-indexing, seo/13-core-web-vitals, seo/20-headless-seo, seo/02-crawling]
 when_to_use: "Read before building or reviewing any page whose content is produced by client-side JavaScript."
 ---
-# Rendering
+# SEO Rendering
 
 ## Purpose
 

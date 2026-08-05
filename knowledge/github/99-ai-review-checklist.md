@@ -2,7 +2,7 @@
 id: github/99-ai-review-checklist
 topic: github
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "GitHub AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [github, ai-review-checklist]
 related: [github/06-pull-requests, github/07-code-review, github/08-actions, github/17-branch-protection, github/100-common-antipatterns]
 when_to_use: "Read before an AI agent reviews a pull request or repository configuration change on GitHub."
 ---
-# AI Review Checklist
+# GitHub AI Review Checklist
 
 ## Purpose
 

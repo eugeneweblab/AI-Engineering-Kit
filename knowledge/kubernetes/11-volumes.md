@@ -2,7 +2,7 @@
 id: kubernetes/11-volumes
 topic: kubernetes
 slug: volumes
-title: "Volumes"
+title: "Kubernetes Volumes"
 type: doc
 order: 11
 status: ready
@@ -10,7 +10,7 @@ tags: [kubernetes, volumes]
 related: [kubernetes/12-persistent-volumes, kubernetes/13-statefulsets, kubernetes/09-configmaps, kubernetes/10-secrets, kubernetes/04-pods]
 when_to_use: "Read before adding storage to a Pod, sharing files between containers, or deciding whether data must survive a restart."
 ---
-# Volumes
+# Kubernetes Volumes
 
 ## Purpose
 

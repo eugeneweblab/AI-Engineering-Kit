@@ -2,7 +2,7 @@
 id: woocommerce/28-real-world-patterns
 topic: woocommerce
 slug: real-world-patterns
-title: "Real World Patterns"
+title: "WooCommerce Real World Patterns"
 type: doc
 order: 28
 status: ready
@@ -10,7 +10,7 @@ tags: [woocommerce, real-world-patterns]
 related: [woocommerce/05-orders, woocommerce/12-hooks, woocommerce/13-rest-api, woocommerce/24-scaling, woocommerce/25-best-practices]
 when_to_use: "Read before implementing a common store customization — custom order status, ERP sync, programmatic orders, or checkout fields."
 ---
-# Real World Patterns
+# WooCommerce Real World Patterns
 
 ## Purpose
 

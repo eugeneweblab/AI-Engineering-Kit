@@ -2,7 +2,7 @@
 id: docker/25-performance
 topic: docker
 slug: performance
-title: "Performance"
+title: "Docker Performance"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [docker, performance]
 related: [docker/09-image-optimization, docker/10-buildkit, docker/17-resource-limits, docker/11-multi-stage-builds, docker/24-monitoring]
 when_to_use: "Read when builds are slow, images are bloated, or containers run slower than the same process on the host."
 ---
-# Performance
+# Docker Performance
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: nginx/15-authentication
 topic: nginx
 slug: authentication
-title: "Authentication"
+title: "Nginx Authentication"
 type: doc
 order: 15
 status: ready
@@ -10,7 +10,7 @@ tags: [nginx, authentication]
 related: [nginx/12-ssl-tls, nginx/13-security, nginx/05-reverse-proxy, nginx/14-rate-limiting]
 when_to_use: "Read before adding basic auth, client-certificate, or forward/subrequest auth in nginx."
 ---
-# Authentication
+# Nginx Authentication
 
 ## Purpose
 

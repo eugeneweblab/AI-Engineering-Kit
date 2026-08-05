@@ -2,7 +2,7 @@
 id: security/98-production-checklist
 topic: security
 slug: production-checklist
-title: "Production Checklist"
+title: "Security Production Checklist"
 type: doc
 order: 98
 status: ready
@@ -10,7 +10,7 @@ tags: [security, production-checklist]
 related: [security/27-best-practices, security/28-owasp-top10, security/16-secrets-management, security/22-security-headers, security/25-monitoring, security/99-ai-review-checklist]
 when_to_use: "Read before shipping any service to production or signing off a release that changes an auth, data, or network surface."
 ---
-# Production Checklist
+# Security Production Checklist
 
 ## Purpose
 

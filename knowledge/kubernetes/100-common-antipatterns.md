@@ -2,7 +2,7 @@
 id: kubernetes/100-common-antipatterns
 topic: kubernetes
 slug: common-antipatterns
-title: "Common Antipatterns"
+title: "Kubernetes Common Antipatterns"
 type: doc
 order: 100
 status: ready
@@ -10,7 +10,7 @@ tags: [kubernetes, common-antipatterns]
 related: [kubernetes/30-engineering-principles, kubernetes/99-ai-review-checklist, kubernetes/19-resource-management, kubernetes/22-security, kubernetes/04-pods]
 when_to_use: "Read before writing Kubernetes manifests, and when a workload behaves badly under load, rollout, or node failure."
 ---
-# Common Antipatterns
+# Kubernetes Common Antipatterns
 
 ## Purpose
 

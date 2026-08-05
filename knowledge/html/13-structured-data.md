@@ -2,7 +2,7 @@
 id: html/13-structured-data
 topic: html
 slug: structured-data
-title: "Structured Data"
+title: "HTML Structured Data"
 type: doc
 order: 13
 status: ready
@@ -10,7 +10,7 @@ tags: [html, structured-data]
 related: [html/12-seo, html/26-microdata, html/10-metadata, html/02-semantic-html]
 when_to_use: "Read before adding Schema.org / JSON-LD markup to make a page eligible for rich results."
 ---
-# Structured Data
+# HTML Structured Data
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: devops/16-security
 topic: devops
 slug: security
-title: "Security"
+title: "DevOps Security"
 type: doc
 order: 16
 status: ready
@@ -10,7 +10,7 @@ tags: [devops, security]
 related: [devops/17-secrets-management, devops/10-containerization, devops/05-build-pipelines, devops/08-infrastructure-as-code, devops/14-logging]
 when_to_use: "Read before designing or reviewing a CI/CD pipeline, container image, cloud IAM policy, or any deployment path for security."
 ---
-# Security
+# DevOps Security
 
 ## Purpose
 

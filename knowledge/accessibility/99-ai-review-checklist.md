@@ -2,7 +2,7 @@
 id: accessibility/99-ai-review-checklist
 topic: accessibility
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Accessibility AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [accessibility, ai-review-checklist]
 related: [accessibility/07-aria, accessibility/03-semantic-html, accessibility/04-keyboard-navigation, accessibility/08-forms, accessibility/98-production-checklist]
 when_to_use: "Read when reviewing a diff or PR that touches UI, to catch accessibility defects that automated scanners and happy-path tests miss."
 ---
-# AI Review Checklist
+# Accessibility AI Review Checklist
 
 ## Purpose
 

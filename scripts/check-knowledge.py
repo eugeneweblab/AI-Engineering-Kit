@@ -21,7 +21,7 @@ Checks
   structure   every standard topic has README/00/98/99/100 and no gap in 01..30
   frontmatter id/topic/order agree with the path; status/when_to_use present; title
               matches the document's H1
-  duplicates  no duplicate `id`, no duplicate `order` inside a topic
+  duplicates  no duplicate `id`, no duplicate `title`, no duplicate `order` in a topic
   links       markdown links, `related:` ids, and `knowledge/...md` paths resolve
   fences      every ``` fence is closed
   blocks      each fenced block parses as the language it is tagged with
@@ -360,6 +360,7 @@ def check_planning_docs(root: Path, problems: list[str]) -> None:
 def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
     seen_ids: dict[str, str] = {}
     seen_orders: dict[tuple[str, int], str] = {}
+    seen_titles: dict[str, str] = {}
     for doc in docs:
         rel = doc.rel
         if not doc.has_frontmatter:
@@ -397,12 +398,19 @@ def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
             # H1 it is usually an automated title-casing pass mangling an acronym —
             # "Oauth", "Cicd", "Aria" all reached the index that way.
             heading = re.search(r"^#\s+(.+)$", doc.body, re.MULTILINE)
+            title = fm["title"].strip("\"'")
             if heading:
                 want = heading.group(1).strip().replace("`", "")
-                if fm["title"].strip("\"'") != want:
-                    problems.append(
-                        f"{rel}: title is {fm['title']!r} but the H1 is {want!r}"
-                    )
+                if title != want:
+                    problems.append(f"{rel}: title is {title!r} but the H1 is {want!r}")
+            # Titles are unique across the base: 36 documents called "Overview" make the
+            # index unusable the moment a title is quoted outside its topic. Qualify a
+            # generic name with its topic — "AWS Overview", "Docker Best Practices".
+            if title in seen_titles:
+                problems.append(
+                    f"{rel}: title {title!r} is already used by {seen_titles[title]}"
+                )
+            seen_titles[title] = str(rel)
         if not fm.get("when_to_use", "").strip('"\' '):
             problems.append(f"{rel}: when_to_use is empty")
 

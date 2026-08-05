@@ -2,7 +2,7 @@
 id: security/03-authentication
 topic: security
 slug: authentication
-title: "Authentication"
+title: "Security Authentication"
 type: doc
 order: 3
 status: ready
@@ -10,7 +10,7 @@ tags: [security, authentication]
 related: [security/04-authorization, security/05-password-security, security/06-session-management, security/07-jwt, security/21-rate-limiting]
 when_to_use: "Read before building or reviewing any login, signup, session, or credential-handling code."
 ---
-# Authentication
+# Security Authentication
 
 ## Purpose
 

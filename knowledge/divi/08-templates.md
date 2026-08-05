@@ -2,7 +2,7 @@
 id: divi/08-templates
 topic: divi
 slug: templates
-title: "Templates"
+title: "Divi Templates"
 type: doc
 order: 8
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, templates]
 related: [divi/02-theme-builder, divi/07-dynamic-content, divi/05-layouts, divi/06-global-elements, divi/11-responsive-design]
 when_to_use: "Read before creating or scoping a Theme Builder template for a post type, archive, or 404."
 ---
-# Templates
+# Divi Templates
 
 ## Purpose
 

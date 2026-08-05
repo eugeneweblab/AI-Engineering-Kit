@@ -2,7 +2,7 @@
 id: git/30-engineering-principles
 topic: git
 slug: engineering-principles
-title: "Engineering Principles"
+title: "Git Engineering Principles"
 type: doc
 order: 30
 status: ready
@@ -10,7 +10,7 @@ tags: [git, engineering-principles]
 related: [git/04-commits, git/05-branches, git/07-rebasing, git/23-trunk-based-development, git/27-best-practices]
 when_to_use: "Read before designing a team's git workflow or when deciding how to structure commits, branches, and history."
 ---
-# Engineering Principles
+# Git Engineering Principles
 
 ## Purpose
 

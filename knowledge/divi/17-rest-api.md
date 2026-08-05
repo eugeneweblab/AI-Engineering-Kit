@@ -2,7 +2,7 @@
 id: divi/17-rest-api
 topic: divi
 slug: rest-api
-title: "REST API"
+title: "Divi REST API"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, rest-api]
 related: [divi/18-headless, divi/16-wordpress-hooks, divi/19-security, divi/15-custom-fields, divi/07-dynamic-content]
 when_to_use: "Read before exposing or consuming WordPress REST endpoints for a Divi site, headless or otherwise."
 ---
-# REST API
+# Divi REST API
 
 ## Purpose
 

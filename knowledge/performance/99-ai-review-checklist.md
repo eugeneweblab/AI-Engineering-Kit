@@ -2,7 +2,7 @@
 id: performance/99-ai-review-checklist
 topic: performance
 slug: ai-review-checklist
-title: "AI Review Checklist"
+title: "Performance AI Review Checklist"
 type: doc
 order: 99
 status: ready
@@ -10,7 +10,7 @@ tags: [performance, ai-review-checklist]
 related: [performance/29-performance-review, performance/27-best-practices, performance/30-engineering-principles, performance/100-common-antipatterns, performance/98-production-checklist]
 when_to_use: "Read before reviewing or generating any change that touches a hot path, a query, a cache, or a loop over data."
 ---
-# AI Review Checklist
+# Performance AI Review Checklist
 
 ## Purpose
 

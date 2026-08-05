@@ -2,7 +2,7 @@
 id: divi/25-production
 topic: divi
 slug: production
-title: "Production"
+title: "Divi Production"
 type: doc
 order: 25
 status: ready
@@ -10,7 +10,7 @@ tags: [divi, production]
 related: [divi/10-performance, divi/22-deployment, divi/19-security, divi/98-production-checklist, divi/13-seo]
 when_to_use: "Read before launching or hardening a Divi site so it ships fast, secure, and safe to update in production."
 ---
-# Production
+# Divi Production
 
 ## Purpose
 

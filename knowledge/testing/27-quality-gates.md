@@ -2,7 +2,7 @@
 id: testing/27-quality-gates
 topic: testing
 slug: quality-gates
-title: "Quality Gates"
+title: "Testing Quality Gates"
 type: doc
 order: 27
 status: ready
@@ -10,7 +10,7 @@ tags: [testing, quality-gates]
 related: [testing/21-cicd, testing/19-test-coverage, testing/22-flaky-tests, testing/29-test-review, testing/25-production-testing]
 when_to_use: "Read before configuring what CI blocks a merge on, or when tuning coverage and check thresholds."
 ---
-# Quality Gates
+# Testing Quality Gates
 
 ## Purpose
 

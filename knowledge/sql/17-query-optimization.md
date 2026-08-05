@@ -2,7 +2,7 @@
 id: sql/17-query-optimization
 topic: sql
 slug: query-optimization
-title: "Query Optimization"
+title: "SQL Query Optimization"
 type: doc
 order: 17
 status: ready
@@ -10,7 +10,7 @@ tags: [sql, query-optimization]
 related: [sql/16-query-planning, sql/15-indexes, sql/05-joins, sql/23-performance, sql/100-common-antipatterns]
 when_to_use: "Read before rewriting a slow query, tuning a hot read path, or reviewing SQL for performance."
 ---
-# Query Optimization
+# SQL Query Optimization
 
 ## Purpose
 

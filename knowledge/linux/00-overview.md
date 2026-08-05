@@ -2,7 +2,7 @@
 id: linux/00-overview
 topic: linux
 slug: overview
-title: "Overview"
+title: "Linux Overview"
 type: doc
 order: 0
 status: ready
@@ -10,7 +10,7 @@ tags: [linux, overview]
 related: [linux/01-filesystem, linux/02-shell, linux/03-bash, linux/04-users-and-groups, linux/05-permissions]
 when_to_use: "Read before writing any Linux command, shell script, or server automation, to find the right topic doc."
 ---
-# Overview
+# Linux Overview
 
 ## Purpose
 
