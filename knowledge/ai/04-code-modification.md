@@ -7,7 +7,7 @@ type: doc
 order: 4
 status: ready
 tags: [ai, code-modification]
-related: []
+related: [ai/03-code-generation, ai/06-self-verification, workflows/04-refactor-existing-code]
 when_to_use: "Read before modifying existing code to make the smallest safe change without breaking behavior."
 ---
 # Code Modification
@@ -501,3 +501,9 @@ AI coding agents should optimize for confidence, predictability, and maintainabi
 Safe modifications build trust.
 
 Trust enables effective AI-assisted engineering.
+
+## Related
+
+- `knowledge/ai/03-code-generation.md`
+- `knowledge/ai/06-self-verification.md`
+- `knowledge/workflows/04-refactor-existing-code.md`

@@ -7,7 +7,7 @@ type: doc
 order: 2
 status: ready
 tags: [figma, layout-analysis]
-related: []
+related: [figma/04-auto-layout, figma/05-responsive-analysis, figma/07-figma-to-html, css/06-flexbox]
 when_to_use: "Read before implementing a Figma screen, to understand how its layout structure is built rather than how it looks."
 ---
 # Figma Layout Analysis
@@ -391,6 +391,74 @@ Mirroring Figma layer names in code.
 
 ---
 
+## Examples
+
+**Good Example** — describe the layout as constraints, not as pixel positions
+
+```text
+Card / Product (node 44:12)
+
+Direction     vertical
+Gap           16
+Padding       24 all sides
+Sizing        width: fill container   height: hug contents
+Children      Image  — fill width, fixed 4:3
+              Title  — fill width, hug height
+              Price  — hug, aligned end
+Alignment     cross-axis: stretch, main-axis: start
+```
+
+```css
+/* The constraints translate directly; nothing is measured off a screenshot. */
+.product-card {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;              /* 16 */
+	padding: 1.5rem;        /* 24 */
+	align-items: stretch;
+}
+
+.product-card__image {
+	aspect-ratio: 4 / 3;
+	width: 100%;
+	object-fit: cover;
+}
+
+.product-card__price {
+	align-self: flex-end;
+}
+```
+
+**Bad Example** — absolute positions copied from the inspector
+
+```css
+/* Every value is the measurement of one instance at one viewport width.
+   The card cannot grow, cannot wrap, and breaks with longer text. */
+.product-card {
+	position: relative;
+	width: 328px;
+	height: 412px;
+}
+
+.product-card__title {
+	position: absolute;
+	top: 268px;
+	left: 24px;
+	width: 280px;
+}
+
+.product-card__price {
+	position: absolute;
+	top: 340px;
+	left: 232px;
+}
+```
+
+The inspector reports where things happen to sit; auto layout reports why they sit there.
+Only the second survives a translation, a longer product name, or a narrower screen.
+
+---
+
 ## Completion Criteria
 
 A layout analysis is complete when:
@@ -409,3 +477,10 @@ A layout analysis is complete when:
 Professional frontend development starts by understanding the structure behind the design.
 
 The best implementations recreate the layout system—not the pixels—resulting in cleaner HTML, simpler CSS, and significantly fewer revisions during development.
+
+## Related
+
+- `knowledge/figma/04-auto-layout.md`
+- `knowledge/figma/05-responsive-analysis.md`
+- `knowledge/figma/07-figma-to-html.md`
+- `knowledge/css/06-flexbox.md`

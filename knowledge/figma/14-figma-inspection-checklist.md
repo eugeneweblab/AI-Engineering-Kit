@@ -7,7 +7,7 @@ type: doc
 order: 14
 status: ready
 tags: [figma, figma-inspection-checklist]
-related:
+related: [figma/01-figma-analysis, figma/03-design-token-extraction, figma/19-design-handoff]
   - figma/01-figma-analysis
   - figma/03-design-token-extraction
   - figma/05-responsive-analysis
@@ -471,6 +471,44 @@ Ignoring interaction states.
 Ignoring accessibility.
 
 Starting implementation before planning.
+
+---
+
+## Examples
+
+**Good Example** — the inspection is recorded as answers, not as ticks
+
+```text
+Inspection — Checkout / Desktop (node 12:340), 2026-08-04
+
+Frames          1440 only. 768 and 375 absent.                     → ASK
+Type styles     Heading/XL, Body/M — both named styles              → OK
+Colour styles   Surface/Card, Ink/Primary, Accent/Blue              → OK
+Raw fills       2 nodes use a fill with no style (12:91, 12:104)    → ASK
+Spacing         all multiples of 8 except 12:88 (padding 17)        → ASK
+Components      Button/Primary, Field/Text — component sets         → OK
+States          hover and disabled present; focus NOT designed      → ASK
+Empty states    cart-empty missing                                  → ASK
+Images          hero is 3200×1800 PNG, 4.1 MB                       → export as WebP
+Contrast        Accent/Blue on Surface/Card = 5.17:1                → OK for text ≥ 16px
+```
+
+Seven questions were produced before a line of code was written. Each one is cheaper to answer
+now than to discover as a review comment later.
+
+**Bad Example** — a checklist ticked without evidence
+
+```text
+[x] Frames checked
+[x] Styles checked
+[x] Spacing checked
+[x] Components checked
+[x] Accessibility checked
+```
+
+Nothing here can be verified or disagreed with. "Accessibility checked" does not say what was
+measured, so the 17px padding, the missing focus state, and the absent mobile frame all pass
+inspection and surface during implementation instead.
 
 ---
 

@@ -7,7 +7,7 @@ type: doc
 order: 7
 status: ready
 tags: [figma, figma-to-html]
-related: []
+related: [figma/02-layout-analysis, figma/03-design-token-extraction, html/02-semantic-html, css/17-responsive-design]
 when_to_use: "Read before converting a Figma design into clean, accessible, semantic HTML markup."
 ---
 # Figma to Semantic HTML
@@ -470,6 +470,60 @@ Ignoring accessibility.
 
 ---
 
+## Examples
+
+**Good Example** — the visual hierarchy translated into document structure
+
+```html
+<article class="product">
+	<h2 class="product__title">Ceramic table lamp</h2>
+
+	<img
+		class="product__image"
+		src="/images/lamp-800.webp"
+		srcset="/images/lamp-400.webp 400w, /images/lamp-800.webp 800w"
+		sizes="(max-width: 40rem) 100vw, 24rem"
+		width="800"
+		height="600"
+		alt="Ceramic table lamp with a linen shade, lit, on a wooden desk"
+	/>
+
+	<p class="product__price">
+		<span class="visually-hidden">Price:</span>
+		<data value="89.00">£89.00</data>
+	</p>
+
+	<button class="button button--primary" type="button">Add to basket</button>
+</article>
+```
+
+The heading level reflects the page outline, the image carries dimensions so nothing shifts as
+it loads, and the control is a `button` — so it is focusable, operable with Enter and Space,
+and announced correctly, without a single ARIA attribute.
+
+**Bad Example** — the visual hierarchy translated into nested divs
+
+```html
+<div class="product">
+	<!-- Styled to look like a heading. It is not one: it does not appear in the
+	     document outline and cannot be navigated to by heading. -->
+	<div class="text-xl bold">Ceramic table lamp</div>
+
+	<!-- No dimensions: the page reflows when the image loads.
+	     No alt: a screen reader announces the file name, or nothing. -->
+	<img src="/images/lamp.png" />
+
+	<div class="price">£89.00</div>
+
+	<!-- A div with a click handler: not focusable, not keyboard-operable, and
+	     announced as plain text. The role and tabindex bolted on afterwards
+	     still do not give it Enter/Space handling. -->
+	<div class="button button--primary" onclick="addToBasket()">Add to basket</div>
+</div>
+```
+
+---
+
 ## Completion Criteria
 
 Semantic HTML is complete when:
@@ -490,3 +544,10 @@ Great frontend development begins with excellent HTML.
 Semantic markup creates a solid foundation for accessibility, maintainability, SEO, and responsive layouts.
 
 The best implementations translate the meaning of a design—not its layer structure.
+
+## Related
+
+- `knowledge/figma/02-layout-analysis.md`
+- `knowledge/figma/03-design-token-extraction.md`
+- `knowledge/html/02-semantic-html.md`
+- `knowledge/css/17-responsive-design.md`

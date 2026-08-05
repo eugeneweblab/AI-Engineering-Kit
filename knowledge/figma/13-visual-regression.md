@@ -7,7 +7,7 @@ type: doc
 order: 13
 status: ready
 tags: [figma, visual-regression]
-related:
+related: [figma/15-screenshot-comparison, figma/10-design-qa, testing/14-visual-regression]
   - figma/10-design-qa
   - figma/15-screenshot-comparison
   - figma/20-implementation-definition-of-done

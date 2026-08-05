@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [figma, design-token-extraction]
-related: []
+related: [figma/01-figma-analysis, figma/19-design-handoff, tailwind/16-theme, css/20-css-variables]
 when_to_use: "Read before extracting design tokens (colors, spacing, typography) from a Figma file instead of hardcoding values."
 ---
 # Design Token Extraction
@@ -374,6 +374,73 @@ Creating component-specific tokens that should be global.
 
 ---
 
+## Examples
+
+**Good Example** — extract the named styles, map them once, consume the variables
+
+```bash
+# Named styles carry the design decision. Node fills do not.
+curl -sS -H "X-Figma-Token: $FIGMA_TOKEN" \
+  "https://api.figma.com/v1/files/$FILE_KEY/styles" \
+  | jq -r '.meta.styles[] | select(.style_type=="FILL") | "\(.name)\t\(.node_id)"'
+```
+
+```json
+{
+  "color": {
+    "surface":  { "value": "#FFFFFF", "figma": "Surface/Card" },
+    "ink":      { "value": "#111827", "figma": "Ink/Primary" },
+    "accent":   { "value": "#2563EB", "figma": "Accent/Blue" }
+  },
+  "space": { "sm": "0.5rem", "md": "1rem", "lg": "1.5rem", "xl": "2rem" },
+  "radius": { "sm": "0.25rem", "md": "0.5rem", "lg": "0.75rem" }
+}
+```
+
+```css
+/* One generated layer. Components reference the variable, never the literal. */
+:root {
+	--color-surface: #ffffff;
+	--color-ink: #111827;
+	--color-accent: #2563eb;
+	--space-md: 1rem;
+	--radius-lg: 0.75rem;
+}
+
+.card {
+	background: var(--color-surface);
+	color: var(--color-ink);
+	padding: var(--space-md);
+	border-radius: var(--radius-lg);
+}
+```
+
+The Figma style name is kept alongside each token, so a reviewer can trace any value back to
+the decision it came from.
+
+**Bad Example** — hex values copied per component
+
+```css
+.card {
+	background: #ffffff;
+	color: #111827;
+	padding: 17px;            /* measured off one instance, not on the scale */
+	border-radius: 12px;
+}
+
+.panel {
+	background: #fff;         /* the same colour, written differently */
+	color: #111827;
+	padding: 16px;
+	border-radius: 11px;      /* nearly the same radius, now a second value */
+}
+```
+
+Six components later there are four whites, three near-identical radii, and no way to change
+the brand colour without a find-and-replace that also touches unrelated values.
+
+---
+
 ## Completion Criteria
 
 Token extraction is complete when:
@@ -391,3 +458,10 @@ Token extraction is complete when:
 A professional implementation does not reproduce individual values from Figma.
 
 It identifies the design language behind the interface and translates it into a reusable system of design tokens that improves consistency, scalability, and long-term maintainability.
+
+## Related
+
+- `knowledge/figma/01-figma-analysis.md`
+- `knowledge/figma/19-design-handoff.md`
+- `knowledge/tailwind/16-theme.md`
+- `knowledge/css/20-css-variables.md`

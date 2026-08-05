@@ -7,7 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [workflows, review-pull-request]
-related:
+related: [engineering/02-code-review, checklists/02-pull-request-author, templates/01-pull-request]
   - engineering/02-code-review
   - github/07-code-review
   - github/06-pull-requests
@@ -459,3 +459,9 @@ Request Changes
 A pull request review is an engineering quality gate.
 
 Its purpose is to improve software quality, reduce future maintenance costs, and help engineers produce reliable, maintainable, and production-ready code.
+
+## Related
+
+- `knowledge/engineering/02-code-review.md`
+- `knowledge/checklists/02-pull-request-author.md`
+- `knowledge/templates/01-pull-request.md`

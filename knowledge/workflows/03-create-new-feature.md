@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [workflows, create-new-feature]
-related:
+related: [engineering/04-task-execution, ai/02-task-planning, workflows/07-add-api-endpoint]
   - engineering/05-context-first-development
   - engineering/00-engineering-principles
   - architecture/00-overview
@@ -463,3 +463,9 @@ and [`../accessibility/99-ai-review-checklist.md`](../accessibility/99-ai-review
 A successful feature is not measured by the amount of new code.
 
 It is measured by how naturally it integrates into the existing product while remaining maintainable, consistent, and easy to extend.
+
+## Related
+
+- `knowledge/engineering/04-task-execution.md`
+- `knowledge/ai/02-task-planning.md`
+- `knowledge/workflows/07-add-api-endpoint.md`

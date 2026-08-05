@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [ai, code-generation]
-related: []
+related: [ai/02-task-planning, ai/04-code-modification, ai/06-self-verification]
 when_to_use: "Read before generating new code so it integrates naturally with the existing project."
 ---
 # Code Generation
@@ -492,3 +492,9 @@ AI should generate code that belongs.
 Every generated line should respect the architecture, conventions, and engineering philosophy of the repository.
 
 Successful AI-assisted development is measured not by the amount of generated code, but by how seamlessly that code integrates into the existing system.
+
+## Related
+
+- `knowledge/ai/02-task-planning.md`
+- `knowledge/ai/04-code-modification.md`
+- `knowledge/ai/06-self-verification.md`

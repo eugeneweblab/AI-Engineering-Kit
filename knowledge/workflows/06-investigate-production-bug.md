@@ -7,7 +7,7 @@ type: doc
 order: 6
 status: ready
 tags: [workflows, investigate-production-bug]
-related:
+related: [workflows/02-fix-a-bug, playbooks/01-site-down, templates/03-incident-report]
   - devops/25-incident-management
   - devops/26-postmortems
   - devops/13-observability
@@ -424,3 +424,9 @@ Preventive Recommendations
 Production incidents require discipline, evidence, and careful decision-making.
 
 The objective is not simply to restore service, but to understand why the incident occurred and strengthen the system to reduce the likelihood of future failures.
+
+## Related
+
+- `knowledge/workflows/02-fix-a-bug.md`
+- `knowledge/playbooks/01-site-down.md`
+- `knowledge/templates/03-incident-report.md`

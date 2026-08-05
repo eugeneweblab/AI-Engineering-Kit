@@ -7,7 +7,7 @@ type: doc
 order: 15
 status: ready
 tags: [figma, screenshot-comparison]
-related:
+related: [figma/13-visual-regression, figma/10-design-qa, testing/14-visual-regression]
   - figma/10-design-qa
   - figma/13-visual-regression
   - figma/05-responsive-analysis
@@ -449,6 +449,64 @@ Ignoring responsive layouts.
 Ignoring interaction states.
 
 Approving pages without side-by-side comparison.
+
+---
+
+## Examples
+
+**Good Example** — deterministic capture, then a numeric threshold
+
+```ts
+// Fix everything that varies between runs, or the diff reports noise.
+import { test, expect } from '@playwright/test';
+
+test('product card matches the reference', async ({ page }) => {
+  await page.goto('/products/lamp');
+
+  // Freeze animations and blinking carets.
+  await page.addStyleTag({
+    content: `*, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+      caret-color: transparent !important;
+    }`,
+  });
+
+  // Wait for the actual condition, not for a fixed duration.
+  await page.getByRole('img', { name: /ceramic table lamp/i }).waitFor({ state: 'visible' });
+  await page.evaluate(() => document.fonts.ready);
+
+  await expect(page.getByTestId('product-card')).toHaveScreenshot('product-card.png', {
+    maxDiffPixelRatio: 0.01,      // a stated tolerance, not "looks the same"
+    animations: 'disabled',
+  });
+});
+```
+
+```bash
+# The comparison runs in the same container as CI, so the font rendering matches.
+docker run --rm -v "$PWD:/work" -w /work mcr.microsoft.com/playwright:v1.50.0-noble \
+  npx playwright test --update-snapshots
+```
+
+**Bad Example** — eyeballing two screenshots side by side
+
+```ts
+test('product card looks right', async ({ page }) => {
+  await page.goto('/products/lamp');
+
+  // An arbitrary sleep instead of a condition: too short under load, wasted
+  // time otherwise, and the fonts may still be swapping when the shot is taken.
+  await page.waitForTimeout(2000);
+
+  // No threshold: a single antialiased pixel fails the test, so the suite is
+  // marked flaky and eventually skipped.
+  await expect(page).toHaveScreenshot();
+});
+```
+
+Baselines generated on a developer's macOS machine and compared on a Linux runner differ in
+font rasterisation on every glyph. The comparison is not wrong — the environment is.
 
 ---
 

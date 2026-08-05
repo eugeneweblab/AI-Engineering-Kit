@@ -7,7 +7,7 @@ type: doc
 order: 12
 status: ready
 tags: [figma, ai-prompts]
-related: []
+related: [figma/01-figma-analysis, figma/11-ai-design-review, prompts/01-code-review]
 when_to_use: "Read when writing prompts for an AI coding assistant to implement Figma tasks with minimal ambiguity."
 ---
 # AI Prompting Standard for Figma Tasks
@@ -396,6 +396,42 @@ Before finishing:
 
 ---
 
+## Examples
+
+**Good Example** — the prompt carries the node, the constraints, and the definition of done
+
+```text
+Implement the Product Card from Figma file KEY, node 44:12.
+
+Context
+  - Tokens already exist in src/styles/tokens.css as CSS custom properties.
+  - Use the existing <Button> component from src/components/button.tsx.
+  - The project uses CSS modules; no utility framework.
+
+Constraints
+  - Semantic HTML: the title is an <h3>, the action is a <button>.
+  - Auto layout maps to flexbox; do not use absolute positioning.
+  - Only 1440 and 375 frames exist. Do not invent an intermediate breakpoint —
+    make the layout fluid between them.
+
+Done when
+  - Every colour and spacing value references a token, no literals.
+  - The image declares width and height and has meaningful alt text.
+  - npm run verify passes (typecheck, lint, unit tests).
+```
+
+**Bad Example** — a request with no anchor and no constraints
+
+```text
+Build the product card from the Figma design, make it look good and responsive.
+```
+
+There is no node id, so the wrong component may be built; no token instruction, so hex values
+will be hardcoded; no breakpoint policy, so intermediate breakpoints will be invented; and no
+definition of done, so "responsive" is settled by whoever reviews it.
+
+---
+
 ## Summary
 
 High-quality AI output begins with high-quality instructions.
@@ -403,3 +439,9 @@ High-quality AI output begins with high-quality instructions.
 The purpose of this standard is not to make prompts longer.
 
 The purpose is to provide enough engineering context for AI to make correct decisions before writing code.
+
+## Related
+
+- `knowledge/figma/01-figma-analysis.md`
+- `knowledge/figma/11-ai-design-review.md`
+- `knowledge/prompts/01-code-review.md`

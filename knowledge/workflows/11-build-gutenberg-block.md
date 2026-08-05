@@ -7,7 +7,7 @@ type: doc
 order: 11
 status: ready
 tags: [workflows, build-gutenberg-block]
-related:
+related: [wordpress/16-block-editor, wordpress/17-block-themes, figma/08-figma-to-wordpress]
   - wordpress/01-wordpress-architecture
   - wordpress/03-best-practices
   - wordpress/06-security
@@ -497,3 +497,9 @@ blocks built from a design close with
 A professional Gutenberg block is a complete editing experience rather than simply a UI component.
 
 It should integrate naturally into the Block Editor, respect WordPress architecture, produce semantic frontend output, and remain maintainable throughout the lifetime of the project.
+
+## Related
+
+- `knowledge/wordpress/16-block-editor.md`
+- `knowledge/wordpress/17-block-themes.md`
+- `knowledge/figma/08-figma-to-wordpress.md`

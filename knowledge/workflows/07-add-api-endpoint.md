@@ -7,7 +7,7 @@ type: doc
 order: 7
 status: ready
 tags: [workflows, add-api-endpoint]
-related:
+related: [rest-api/04-endpoints, nestjs/04-controllers, examples/01-rest-endpoint]
   - rest-api/03-resource-design
   - rest-api/06-request-response
   - rest-api/07-status-codes
@@ -486,3 +486,9 @@ database queries, also review
 A well-designed API endpoint is predictable, secure, and easy to maintain.
 
 The endpoint should integrate seamlessly into the existing API, follow established conventions, and provide a stable contract for all consumers.
+
+## Related
+
+- `knowledge/rest-api/04-endpoints.md`
+- `knowledge/nestjs/04-controllers.md`
+- `knowledge/examples/01-rest-endpoint.md`

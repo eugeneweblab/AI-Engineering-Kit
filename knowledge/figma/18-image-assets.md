@@ -7,7 +7,7 @@ type: doc
 order: 18
 status: ready
 tags: [figma, image-assets]
-related: []
+related: [figma/07-figma-to-html, performance/11-images, nextjs/16-images]
 when_to_use: "Read before exporting and implementing image assets from Figma, to keep them optimized, responsive, and production-ready."
 ---
 # Image Assets
@@ -383,6 +383,48 @@ Using generic filenames.
 
 ---
 
+## Examples
+
+**Good Example** — exported at the sizes used, in the format the browser prefers
+
+```bash
+# Export the node at the scales the layout actually renders.
+curl -sS -H "X-Figma-Token: $FIGMA_TOKEN" \
+  "https://api.figma.com/v1/images/$FILE_KEY?ids=44:12&format=svg" | jq -r '.images["44:12"]'
+
+# Raster: generate the candidates once, at build time, not per request.
+for w in 400 800 1600; do
+  npx sharp-cli --input hero.png --output "hero-${w}.webp" resize "$w" --format webp --quality 78
+done
+```
+
+```html
+<picture>
+	<source type="image/avif" srcset="/img/hero-400.avif 400w, /img/hero-800.avif 800w, /img/hero-1600.avif 1600w" sizes="100vw">
+	<source type="image/webp" srcset="/img/hero-400.webp 400w, /img/hero-800.webp 800w, /img/hero-1600.webp 1600w" sizes="100vw">
+	<img src="/img/hero-800.jpg" width="1600" height="900" alt="" fetchpriority="high" decoding="async">
+</picture>
+```
+
+Icons are exported as SVG and inlined so they inherit `currentColor`; photographs are raster
+with explicit dimensions so nothing shifts as they load.
+
+**Bad Example** — one enormous PNG, scaled by the browser
+
+```html
+<!-- A 3200×1800 PNG at 4.1 MB, displayed at 800 px wide. The browser downloads
+     all of it, decodes all of it, then throws three quarters away.
+     No dimensions, so the page reflows when it lands.
+     No alt, so a screen reader announces the file name. -->
+<img src="/wp-content/uploads/2026/03/Hero_FINAL_v3@2x.png" style="width:100%">
+
+<!-- An icon exported as a 512×512 PNG: cannot inherit colour, cannot scale
+     crisply, and costs a request each. -->
+<img src="/img/icon-check.png" width="16" height="16">
+```
+
+---
+
 ## Completion Criteria
 
 Image asset preparation is complete when:
@@ -401,3 +443,9 @@ Image asset preparation is complete when:
 Well-managed image assets improve frontend performance, accessibility, maintainability, and editor experience.
 
 A structured asset workflow prevents unnecessary exports, duplicate files, and performance regressions while ensuring visual consistency across the project.
+
+## Related
+
+- `knowledge/figma/07-figma-to-html.md`
+- `knowledge/performance/11-images.md`
+- `knowledge/nextjs/16-images.md`

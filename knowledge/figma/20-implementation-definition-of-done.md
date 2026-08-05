@@ -7,7 +7,7 @@ type: doc
 order: 20
 status: ready
 tags: [figma, implementation-definition-of-done]
-related:
+related: [figma/10-design-qa, figma/19-design-handoff, checklists/01-pre-launch]
   - figma/10-design-qa
   - figma/13-visual-regression
   - figma/15-screenshot-comparison
@@ -469,6 +469,45 @@ Leaving TODO comments without explanation.
 Ignoring performance regressions.
 
 Marking incomplete work as finished.
+
+---
+
+## Examples
+
+**Good Example** — observable criteria, each one checkable by someone else
+
+```markdown
+## Definition of done — Product Card (node 44:12)
+
+- [ ] Every colour and spacing value references a token; no literal hex or px
+      outside `tokens.css`.
+- [ ] Layout uses flexbox/grid mapped from auto layout; no absolute positioning.
+- [ ] Renders correctly at 375, 768, and 1440 with no horizontal scroll.
+- [ ] Longest supported product name (64 chars) does not overflow or clip.
+- [ ] Image declares width and height; CLS contribution is 0 in Lighthouse.
+- [ ] Title is an `<h3>`; the action is a `<button>` with an accessible name.
+- [ ] Keyboard: the action is reachable by Tab and has a visible focus ring.
+- [ ] axe reports zero violations on the component in its default and hover states.
+- [ ] Visual diff against `product-card.png` is under 1% at CI's container image.
+- [ ] `npm run verify` passes (typecheck, lint, unit tests).
+```
+
+Each line can be answered yes or no by a reviewer who did not write the code, and most of them
+are answered by a command rather than an opinion.
+
+**Bad Example** — criteria that cannot fail
+
+```markdown
+- [ ] Matches the design
+- [ ] Responsive
+- [ ] Accessible
+- [ ] Good performance
+- [ ] Clean code
+```
+
+"Matches the design" has no tolerance, so a 4 px difference is arguable in both directions.
+"Accessible" names no standard and no tool. "Clean code" is the reviewer's taste. A checklist
+of these is ticked in full by work that fails every one of them.
 
 ---
 

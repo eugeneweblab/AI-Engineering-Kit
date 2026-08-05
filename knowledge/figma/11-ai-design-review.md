@@ -7,7 +7,7 @@ type: doc
 order: 11
 status: ready
 tags: [figma, ai-design-review]
-related:
+related: [figma/10-design-qa, figma/16-accessibility-from-figma, ai/06-self-verification]
   - figma/01-figma-analysis
   - figma/03-design-token-extraction
   - figma/06-component-detection
@@ -519,6 +519,45 @@ Ignore responsiveness.
 Duplicate existing components.
 
 Implement before planning.
+
+---
+
+## Examples
+
+**Good Example** — the review states evidence and confidence separately
+
+```text
+Review of PR #482 — Checkout page against Checkout / Desktop (node 12:340)
+
+VERIFIED (measured against the file)
+  ✓ palette matches Surface/Card, Ink/Primary, Accent/Blue
+  ✓ spacing uses the 8-point scale throughout
+  ✗ submit button 36×32, design says 44×44                    → change requested
+
+NOT VERIFIABLE (absent from the design)
+  ? mobile layout — no frame below 1440 exists in the file
+  ? field error state — not designed; the implementation invented one
+  → both raised as questions, not as findings
+
+OUT OF SCOPE
+  · the type scale differs from the design system doc; that is a system-level
+    decision, not a defect in this PR
+```
+
+Separating "measured against the file" from "absent from the file" is what makes the review
+usable: the first list is actionable now, the second is a question for the designer.
+
+**Bad Example** — confident assertions with no source
+
+```text
+The design looks mostly implemented correctly. The spacing seems a bit tight in
+places and the colours might be slightly off. The mobile version should probably
+use a single column. Overall looks good, approving.
+```
+
+Every sentence hedges, none cites a node, and the mobile claim is invented — there is no
+mobile frame to compare against. An approval on this basis records that a review happened
+without any of the checking it implies.
 
 ---
 

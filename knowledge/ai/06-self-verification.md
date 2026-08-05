@@ -7,7 +7,7 @@ type: doc
 order: 6
 status: ready
 tags: [ai, self-verification]
-related: []
+related: [ai/03-code-generation, ai/04-code-modification, engineering/02-code-review]
 when_to_use: "Read before marking any AI-assisted task complete to self-verify the implementation."
 ---
 # Self Verification
@@ -494,3 +494,9 @@ Self-verification is the final engineering discipline before task completion.
 AI should never assume that generated code is correct.
 
 Instead, AI should systematically challenge its own implementation until there is sufficient evidence that the solution is correct, maintainable, and safe to integrate into the project.
+
+## Related
+
+- `knowledge/ai/03-code-generation.md`
+- `knowledge/ai/04-code-modification.md`
+- `knowledge/engineering/02-code-review.md`

@@ -7,7 +7,7 @@ type: doc
 order: 2
 status: ready
 tags: [workflows, fix-a-bug]
-related:
+related: [engineering/03-debugging-methodology, ai/05-bug-fixing, workflows/06-investigate-production-bug]
   - engineering/03-debugging-methodology
   - engineering/02-code-review
   - testing/02-unit-testing
@@ -421,3 +421,9 @@ If the fix lives in a specific stack, use that topic's equivalent `98`/`99`/`100
 A professional bug fix is the result of investigation, not intuition.
 
 The safest fix is the one that changes only what is necessary, preserves the project's architecture, and eliminates the root cause rather than masking the symptom.
+
+## Related
+
+- `knowledge/engineering/03-debugging-methodology.md`
+- `knowledge/ai/05-bug-fixing.md`
+- `knowledge/workflows/06-investigate-production-bug.md`

@@ -7,7 +7,7 @@ type: doc
 order: 4
 status: ready
 tags: [figma, auto-layout]
-related: []
+related: [figma/02-layout-analysis, figma/05-responsive-analysis, css/06-flexbox]
 when_to_use: "Read before translating Figma Auto Layout into flexbox/grid, to correctly reproduce growth, alignment, and spacing behavior."
 ---
 # Figma Auto Layout
@@ -427,6 +427,73 @@ Copying the visual appearance instead of the layout behavior.
 
 ---
 
+## Examples
+
+**Good Example** — auto layout properties mapped to flexbox, one to one
+
+```text
+Figma                              CSS
+────────────────────────────────   ──────────────────────────────────
+Direction: horizontal              flex-direction: row
+Gap: 12                            gap: 0.75rem
+Padding: 16 / 24                   padding: 1rem 1.5rem
+Distribute: space between          justify-content: space-between
+Align: center                      align-items: center
+Resizing: fill container           flex: 1 1 auto   (or width: 100%)
+Resizing: hug contents             width: max-content / default
+Clip content: on                   overflow: hidden
+```
+
+```css
+.toolbar {
+	display: flex;
+	flex-direction: row;
+	gap: 0.75rem;
+	padding: 1rem 1.5rem;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.toolbar__search {
+	flex: 1 1 auto;        /* "fill container" */
+}
+
+.toolbar__actions {
+	width: max-content;    /* "hug contents" */
+	display: flex;
+	gap: 0.5rem;
+}
+```
+
+**Bad Example** — auto layout ignored, spacing faked with margins
+
+```css
+.toolbar {
+	/* No flex container, so "space between" is reproduced by pushing one child
+	   with a margin that has to be recalculated whenever the content changes. */
+	display: block;
+	padding: 16px 24px;
+}
+
+.toolbar__search {
+	display: inline-block;
+	width: 640px;              /* a measured width, not "fill" */
+	margin-right: 180px;       /* the gap and the distribution, guessed together */
+}
+
+.toolbar__actions {
+	display: inline-block;
+	vertical-align: middle;    /* approximates "align: center" and drifts by a pixel */
+}
+
+.toolbar__actions > * + * {
+	margin-left: 12px;         /* gap reimplemented, and it leaks past the last child
+	                              the moment someone writes `> *` instead */
+}
+```
+
+---
+
 ## Completion Criteria
 
 An Auto Layout implementation is complete when:
@@ -446,3 +513,9 @@ Auto Layout is the blueprint for implementation.
 The best frontend code mirrors the structural behavior defined in Figma rather than reproducing its visual appearance through manual positioning.
 
 Correct interpretation of Auto Layout leads to simpler HTML, cleaner CSS, and significantly fewer layout regressions.
+
+## Related
+
+- `knowledge/figma/02-layout-analysis.md`
+- `knowledge/figma/05-responsive-analysis.md`
+- `knowledge/css/06-flexbox.md`

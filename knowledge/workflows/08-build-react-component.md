@@ -7,7 +7,7 @@ type: doc
 order: 8
 status: ready
 tags: [workflows, build-react-component]
-related:
+related: [react/13-component-composition, react/21-testing, examples/02-react-component]
   - react/02-component-architecture
   - react/05-props
   - react/09-custom-hooks
@@ -492,3 +492,9 @@ Tailwind codebase, close with
 A high-quality React component is more than a rendered UI.
 
 It is a reusable, maintainable, accessible building block that integrates naturally into the application's architecture and design system.
+
+## Related
+
+- `knowledge/react/13-component-composition.md`
+- `knowledge/react/21-testing.md`
+- `knowledge/examples/02-react-component.md`

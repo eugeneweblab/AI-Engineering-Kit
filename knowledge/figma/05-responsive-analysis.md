@@ -7,7 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [figma, responsive-analysis]
-related: []
+related: [figma/02-layout-analysis, figma/04-auto-layout, css/17-responsive-design]
 when_to_use: "Read before implementing responsive behavior from a Figma design across breakpoints and viewport sizes."
 ---
 # Responsive Design Analysis
@@ -386,6 +386,72 @@ Adding breakpoint-specific fixes instead of improving the layout.
 
 ---
 
+## Examples
+
+**Good Example** — state which breakpoints exist and what changes between them
+
+```text
+Frames present in the file
+  Desktop 1440   3-column grid, sidebar visible, gap 32
+  Tablet   768   2-column grid, sidebar collapses to a top bar, gap 24
+  Mobile   375   1 column, sidebar becomes a drawer, gap 16
+
+Not in the file: anything between 376 and 767, and anything above 1440.
+Decision needed: does the 3-column grid keep growing past 1440, or is the
+container capped? Asked in the handoff thread; answered "cap at 1280".
+```
+
+```css
+/* Fluid by default; breakpoints only where the layout genuinely changes. */
+.grid {
+	display: grid;
+	gap: 1rem;                                   /* 375 */
+	grid-template-columns: 1fr;
+}
+
+@media (width >= 48rem) {                        /* 768 */
+	.grid {
+		gap: 1.5rem;
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (width >= 90rem) {                        /* 1440 */
+	.grid {
+		gap: 2rem;
+		grid-template-columns: repeat(3, 1fr);
+		max-width: 80rem;                        /* the answer from the handoff thread */
+		margin-inline: auto;
+	}
+}
+```
+
+**Bad Example** — one frame implemented, the rest invented
+
+```css
+/* Built from the 1440 frame only. The two breakpoints below were guessed at
+   implementation time, so they match nothing in the design and will be
+   re-guessed differently by the next person. */
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 32px;
+}
+
+@media (max-width: 1024px) {         /* no 1024 frame exists */
+	.grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {          /* no 600 frame exists either */
+	.grid { grid-template-columns: 1fr; }
+}
+```
+
+Guessing is sometimes unavoidable; doing it silently is not. Record the guess and ask, so the
+answer lands in the file rather than in someone's memory.
+
+---
+
 ## Completion Criteria
 
 Responsive analysis is complete when:
@@ -403,3 +469,9 @@ Responsive analysis is complete when:
 Responsive implementation should reproduce the behavior of the design system rather than individual layouts.
 
 A well-planned responsive strategy produces cleaner code, fewer media queries, and a more consistent user experience across all devices.
+
+## Related
+
+- `knowledge/figma/02-layout-analysis.md`
+- `knowledge/figma/04-auto-layout.md`
+- `knowledge/css/17-responsive-design.md`

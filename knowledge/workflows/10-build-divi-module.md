@@ -7,7 +7,7 @@ type: doc
 order: 10
 status: ready
 tags: [workflows, build-divi-module]
-related:
+related: [divi/04-custom-modules, divi/03-modules, figma/09-figma-to-divi]
   - divi/01-architecture
   - divi/03-modules
   - divi/04-custom-modules
@@ -491,3 +491,9 @@ with [Figma — Implementation Definition of Done](../figma/20-implementation-de
 A professional Divi module is more than a custom block of content.
 
 It is a reusable, editor-friendly, maintainable component that integrates seamlessly into the project's architecture, respects the design system, and provides a reliable editing experience in both the Visual Builder and the frontend.
+
+## Related
+
+- `knowledge/divi/04-custom-modules.md`
+- `knowledge/divi/03-modules.md`
+- `knowledge/figma/09-figma-to-divi.md`

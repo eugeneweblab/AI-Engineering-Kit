@@ -382,3 +382,9 @@ for a structural change.
 Refactoring is the disciplined process of improving code without changing what it does.
 
 A successful refactoring is often invisible to users but highly valuable to future engineers because it makes the system easier to understand, maintain, and extend.
+
+## Related
+
+- `knowledge/ai/04-code-modification.md`
+- `knowledge/engineering/02-code-review.md`
+- `knowledge/testing/20-test-maintenance.md`

@@ -7,7 +7,7 @@ type: doc
 order: 0
 status: ready
 tags: [engineering, engineering-principles]
-related: []
+related: [engineering/01-decision-framework, engineering/04-task-execution, engineering/05-context-first-development, architecture/30-engineering-principles]
 when_to_use: "Read before making any engineering decision to apply the kit's foundational principles."
 ---
 # Engineering Principles
@@ -458,3 +458,10 @@ Every document in AI Engineering Kit builds upon these principles.
 Technology-specific recommendations should never contradict them.
 
 When uncertainty exists, these principles should guide the final engineering decision.
+
+## Related
+
+- `knowledge/engineering/01-decision-framework.md`
+- `knowledge/engineering/04-task-execution.md`
+- `knowledge/engineering/05-context-first-development.md`
+- `knowledge/architecture/30-engineering-principles.md`

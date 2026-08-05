@@ -7,7 +7,7 @@ type: doc
 order: 2
 status: ready
 tags: [ai, task-planning]
-related: []
+related: [ai/01-context-gathering, ai/03-code-generation, engineering/04-task-execution]
 when_to_use: "Read before planning an AI-assisted task and prior to making any code changes."
 ---
 # Task Planning
@@ -372,3 +372,9 @@ The second example contains no engineering thinking: no file scope, no ordering,
 Planning is an engineering activity, not administrative overhead.
 
 A good implementation plan reduces defects, improves consistency, simplifies code review, and enables AI coding agents to make predictable engineering decisions.
+
+## Related
+
+- `knowledge/ai/01-context-gathering.md`
+- `knowledge/ai/03-code-generation.md`
+- `knowledge/engineering/04-task-execution.md`

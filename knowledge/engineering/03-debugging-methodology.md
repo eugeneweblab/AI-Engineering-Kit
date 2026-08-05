@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [engineering, debugging-methodology]
-related: []
+related: [engineering/04-task-execution, workflows/02-fix-a-bug, workflows/06-investigate-production-bug]
 when_to_use: "Read before debugging a defect to investigate the root cause systematically."
 ---
 # Debugging Methodology
@@ -430,3 +430,9 @@ Effective debugging is a disciplined engineering process.
 The fastest fix is rarely the best fix.
 
 Understanding the problem thoroughly almost always leads to a simpler, safer, and more maintainable solution.
+
+## Related
+
+- `knowledge/engineering/04-task-execution.md`
+- `knowledge/workflows/02-fix-a-bug.md`
+- `knowledge/workflows/06-investigate-production-bug.md`

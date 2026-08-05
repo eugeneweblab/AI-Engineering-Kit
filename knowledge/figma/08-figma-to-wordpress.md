@@ -7,7 +7,7 @@ type: doc
 order: 8
 status: ready
 tags: [figma, figma-to-wordpress]
-related: []
+related: [figma/07-figma-to-html, wordpress/14-theme-development, wordpress/16-block-editor, workflows/09-build-wordpress-feature]
 when_to_use: "Read before converting a Figma design into a maintainable, editable WordPress implementation."
 ---
 # Figma to WordPress
@@ -455,6 +455,72 @@ Building layouts that only developers can maintain.
 
 ---
 
+## Examples
+
+**Good Example** — design decisions land in `theme.json`, structure in a block template
+
+```json
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "color": {
+      "custom": false,
+      "palette": [
+        { "slug": "surface", "color": "#ffffff", "name": "Surface" },
+        { "slug": "ink", "color": "#111827", "name": "Ink" },
+        { "slug": "accent", "color": "#2563eb", "name": "Accent" }
+      ]
+    },
+    "typography": {
+      "fontSizes": [
+        { "slug": "body", "size": "1rem", "name": "Body" },
+        { "slug": "heading", "size": "1.5rem", "name": "Heading" }
+      ]
+    }
+  }
+}
+```
+
+```php
+<?php
+// A repeated design component becomes a block pattern, so editors reuse it
+// instead of rebuilding it — and it inherits the palette automatically.
+register_block_pattern(
+	'acme/product-card',
+	array(
+		'title'      => __( 'Product card', 'acme' ),
+		'categories' => array( 'acme' ),
+		'content'    => '<!-- wp:group {"backgroundColor":"surface","layout":{"type":"flex","orientation":"vertical"}} -->
+			<div class="wp-block-group has-surface-background-color has-background">
+			<!-- wp:post-featured-image /-->
+			<!-- wp:post-title {"level":3,"fontSize":"heading"} /-->
+			</div>
+			<!-- /wp:group -->',
+	)
+);
+```
+
+**Bad Example** — the design pasted into a page as fixed markup
+
+```php
+<?php
+// A static template with the content baked in: the editor cannot change a word,
+// the palette lives in a stylesheet nobody else can see, and every new product
+// means another copy of this file.
+?>
+<div style="background:#ffffff;color:#111827;padding:17px">
+	<img src="/wp-content/uploads/2026/03/lamp.png">
+	<div style="font-size:24px;font-weight:700">Ceramic table lamp</div>
+	<div style="font-size:16px">£89.00</div>
+</div>
+```
+
+Inline styles also lose to `theme.json`-generated rules in some contexts and win in others, so
+the editor preview and the front end stop matching.
+
+---
+
 ## Completion Criteria
 
 A Figma-to-WordPress implementation is complete when:
@@ -473,3 +539,10 @@ A Figma-to-WordPress implementation is complete when:
 Professional WordPress development is not about converting pixels into HTML.
 
 It is about transforming a design into a maintainable content management experience that remains flexible as the website evolves.
+
+## Related
+
+- `knowledge/figma/07-figma-to-html.md`
+- `knowledge/wordpress/14-theme-development.md`
+- `knowledge/wordpress/16-block-editor.md`
+- `knowledge/workflows/09-build-wordpress-feature.md`

@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [engineering, decision-framework]
-related: []
+related: [engineering/00-engineering-principles, architecture/26-architecture-decision-records, templates/02-architecture-decision-record]
 when_to_use: "Read before writing or modifying code to work through engineering decisions systematically."
 ---
 # Engineering Decision Framework
@@ -374,3 +374,9 @@ No new abstraction, no widened token lifetime — the smallest change that fixes
 Good engineering decisions are rarely the result of writing code quickly.
 
 They are the result of understanding the problem deeply, respecting the existing system, and making deliberate, verifiable changes.
+
+## Related
+
+- `knowledge/engineering/00-engineering-principles.md`
+- `knowledge/architecture/26-architecture-decision-records.md`
+- `knowledge/templates/02-architecture-decision-record.md`

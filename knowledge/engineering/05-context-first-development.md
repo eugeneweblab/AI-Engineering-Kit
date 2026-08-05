@@ -7,7 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [engineering, context-first-development]
-related: []
+related: [engineering/04-task-execution, ai/01-context-gathering, engineering/00-engineering-principles]
 when_to_use: "Read before modifying an unfamiliar codebase to gather context before making changes."
 ---
 # Context-First Development
@@ -374,3 +374,9 @@ Strong engineers spend significant time building context before writing code.
 The larger the system becomes, the more valuable context becomes.
 
 Understanding the system first consistently produces simpler, safer, and more maintainable solutions than implementation driven by assumptions.
+
+## Related
+
+- `knowledge/engineering/04-task-execution.md`
+- `knowledge/ai/01-context-gathering.md`
+- `knowledge/engineering/00-engineering-principles.md`

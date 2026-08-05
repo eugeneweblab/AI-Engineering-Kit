@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [ai, context-gathering]
-related: []
+related: [ai/02-task-planning, engineering/05-context-first-development, workflows/02-fix-a-bug]
 when_to_use: "Read before gathering context for any AI-assisted coding task."
 ---
 # Context Gathering
@@ -382,3 +382,9 @@ Context gathering is the highest return activity in AI-assisted software develop
 The best AI agents are not those that generate code the fastest.
 
 They are the ones that understand the repository the best before generating a single line of code.
+
+## Related
+
+- `knowledge/ai/02-task-planning.md`
+- `knowledge/engineering/05-context-first-development.md`
+- `knowledge/workflows/02-fix-a-bug.md`

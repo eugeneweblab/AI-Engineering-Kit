@@ -7,7 +7,7 @@ type: doc
 order: 17
 status: ready
 tags: [figma, animation-analysis]
-related: []
+related: [figma/02-layout-analysis, css/16-animations, accessibility/14-motion-and-animation]
 when_to_use: "Read before implementing animations or motion from a Figma design, to understand their intent and reuse patterns."
 ---
 # Animation Analysis
@@ -331,6 +331,67 @@ Blocking user interaction with animations.
 
 ---
 
+## Examples
+
+**Good Example** — durations and easing recorded as tokens, motion made optional
+
+```text
+Smart Animate: Card / collapsed → Card / expanded
+  Property   height 88 → 240
+  Duration   240 ms
+  Easing     Ease Out  → cubic-bezier(0, 0, 0.2, 1)
+  Trigger    on click
+  Purpose    reveals the detail; not decorative
+```
+
+```css
+:root {
+	--motion-fast: 120ms;
+	--motion-base: 240ms;
+	--motion-ease-out: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.card__details {
+	overflow: hidden;
+	/* Animating a composited property; height would trigger layout on every frame. */
+	transform-origin: top;
+	transition: grid-template-rows var(--motion-base) var(--motion-ease-out);
+}
+
+/* Respect the operating-system setting. This is a correctness requirement,
+   not a nicety: motion triggers nausea and migraines for some people. */
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+```
+
+**Bad Example** — durations invented per component, layout animated, no opt-out
+
+```css
+.card__details {
+	/* Animating height and top forces layout and paint on every frame; on a long
+	   list this drops frames on mid-range hardware. */
+	transition: height 0.35s ease-in-out, top 0.35s ease-in-out;
+}
+
+.banner {
+	transition: all 500ms;      /* `all` animates properties nobody intended */
+}
+
+.modal {
+	animation: bounce 800ms infinite;   /* runs forever, ignores the OS setting */
+}
+```
+
+Three durations, three easings, none from the design, and no `prefers-reduced-motion` block
+anywhere in the stylesheet.
+
+---
+
 ## Completion Criteria
 
 Animation analysis is complete when:
@@ -348,3 +409,9 @@ Animation analysis is complete when:
 Effective animation enhances usability by communicating change, guiding attention, and providing feedback.
 
 A disciplined analysis process ensures that motion remains purposeful, accessible, performant, and consistent throughout the project.
+
+## Related
+
+- `knowledge/figma/02-layout-analysis.md`
+- `knowledge/css/16-animations.md`
+- `knowledge/accessibility/14-motion-and-animation.md`

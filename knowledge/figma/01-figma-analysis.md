@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [figma, figma-analysis]
-related:
+related: [figma/02-layout-analysis, figma/03-design-token-extraction, figma/06-component-detection, workflows/01-implement-figma-design]
   - figma/02-layout-analysis
   - figma/03-design-token-extraction
   - figma/05-responsive-analysis
@@ -436,6 +436,48 @@ Ignoring responsive layouts.
 Ignoring interaction states.
 
 Ignoring dynamic content.
+
+---
+
+## Examples
+
+**Good Example** — read the file, then state what it contains
+
+```bash
+# One request returns the node tree; depth keeps the payload reviewable.
+curl -sS -H "X-Figma-Token: $FIGMA_TOKEN" \
+  "https://api.figma.com/v1/files/$FILE_KEY?depth=3" > design.json
+
+# Named styles are design decisions that already exist — reuse them, do not invent names.
+curl -sS -H "X-Figma-Token: $FIGMA_TOKEN" \
+  "https://api.figma.com/v1/files/$FILE_KEY/styles" | jq '.meta.styles[] | {name, style_type, node_id}'
+```
+
+```text
+Analysis of Checkout / Desktop (node 12:340)
+
+Layout      3 sections, vertical auto layout, gap 32, padding 48/24
+Breakpoints only 1440 present; 768 and 375 are NOT in the file  ← ask before assuming
+Components  Button/Primary (4 uses), Field/Text (6 uses), Card/Summary (1 use)
+Styles      Surface/Card, Ink/Primary, Accent/Blue — all named, all reusable
+Missing     empty cart state, field error state, loading state for "Place order"
+Risks       "Place order" is 44×44 at 1440; below 44 on mobile it fails the touch target
+```
+
+Naming what is absent is the point of the analysis: the three missing states are the ones an
+implementer would otherwise invent, and the missing breakpoints are the question to ask before
+any code is written.
+
+**Bad Example** — open the file and start building
+
+```text
+"Implemented the checkout page from the Figma design."
+```
+
+Nothing was recorded, so nobody can tell which node was used, whether the mobile layout was
+guessed, or what the error state should look like. The first review comment is "this is not
+what the design says", and the answer is unavailable because the design was never read as a
+document — only glanced at.
 
 ---
 

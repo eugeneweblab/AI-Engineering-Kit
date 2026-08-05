@@ -7,7 +7,7 @@ type: doc
 order: 6
 status: ready
 tags: [figma, component-detection]
-related: []
+related: [figma/01-figma-analysis, figma/19-design-handoff, react/13-component-composition]
 when_to_use: "Read before coding, to identify reusable UI components and repeated patterns in a Figma design."
 ---
 # Component Detection
@@ -400,6 +400,60 @@ Ignoring composition.
 
 ---
 
+## Examples
+
+**Good Example** — one Figma component becomes one code component with a typed API
+
+```text
+Figma: Button (component set)
+  Variant  variant = primary | secondary | danger
+  Variant  size    = sm | md
+  Variant  state   = default | hover | disabled     ← CSS states, not props
+  Instances found: 34 across 6 frames
+```
+
+```tsx
+// The variant axes become the prop type; the state axis becomes CSS.
+type ButtonProps = {
+  variant?: 'primary' | 'secondary' | 'danger';
+  size?: 'sm' | 'md';
+  children: React.ReactNode;
+} & React.ComponentPropsWithoutRef<'button'>;
+
+export function Button({ variant = 'primary', size = 'md', children, ...rest }: ButtonProps) {
+  return (
+    <button className={cx(styles.button, styles[variant], styles[size])} {...rest}>
+      {children}
+    </button>
+  );
+}
+```
+
+```css
+/* hover and disabled are states of the same component, not separate components. */
+.button:hover:not(:disabled) { filter: brightness(0.95); }
+.button:disabled { opacity: 0.5; cursor: not-allowed; }
+```
+
+34 instances now share one implementation, and a variant that does not exist in the design
+fails to compile.
+
+**Bad Example** — one component per visual difference
+
+```tsx
+// Each of these was created from a different frame, and they have already drifted:
+// two use 12px radius, one uses 11px, and only one handles the disabled state.
+export function PrimaryButton({ label }: { label: string }) { /* … */ }
+export function PrimaryButtonSmall({ label }: { label: string }) { /* … */ }
+export function SecondaryButton({ label }: { label: string }) { /* … */ }
+export function DangerButtonSmallDisabled({ label }: { label: string }) { /* … */ }
+```
+
+The design has one component with three axes. The code has eight components with no
+relationship, and the ninth combination will be written from scratch.
+
+---
+
 ## Completion Criteria
 
 Component detection is complete when:
@@ -417,3 +471,9 @@ Component detection is complete when:
 The quality of a frontend architecture depends largely on component design.
 
 Well-designed components reduce duplication, simplify maintenance, improve consistency, and enable AI coding assistants to generate significantly higher-quality implementations.
+
+## Related
+
+- `knowledge/figma/01-figma-analysis.md`
+- `knowledge/figma/19-design-handoff.md`
+- `knowledge/react/13-component-composition.md`

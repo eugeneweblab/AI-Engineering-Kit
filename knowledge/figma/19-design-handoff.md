@@ -7,7 +7,7 @@ type: doc
 order: 19
 status: ready
 tags: [figma, design-handoff]
-related:
+related: [figma/03-design-token-extraction, figma/06-component-detection, figma/20-implementation-definition-of-done]
   - figma/14-figma-inspection-checklist
   - figma/01-figma-analysis
   - figma/03-design-token-extraction
@@ -446,6 +446,51 @@ Hardcoding editable content.
 Skipping accessibility discussions.
 
 Beginning development without an implementation plan.
+
+---
+
+## Examples
+
+**Good Example** — a handoff that answers the questions before they are asked
+
+```markdown
+## Checkout — handoff
+
+**Figma**   file KEY, page "Checkout", frame `Desktop 1440` (node `12:340`)
+**Status**  final; changes after 2026-08-04 go through a new ticket
+
+### Included
+- Desktop 1440, Mobile 375
+- States: default, loading, field error, empty cart
+- Components: Button/Primary, Field/Text (both component sets)
+
+### Not included — decided, not forgotten
+- Tablet: fluid between 375 and 1440, no dedicated frame. Agreed with design.
+- Focus states: use the project's existing focus ring token, not a designed one.
+
+### Tokens
+Colours and spacing come from the published library; no raw hex in this frame
+except `12:91` and `12:104`, which are **defects** — use `Surface/Card`.
+
+### Content
+Copy is final. Longest product name to support: 64 characters (see `12:402`).
+
+### Definition of done
+See [Implementation Definition of Done](20-implementation-definition-of-done.md).
+```
+
+**Bad Example** — a link and a hope
+
+```markdown
+Design is ready: https://figma.com/file/KEY
+
+Let me know if you have questions.
+```
+
+No node id, so the right frame has to be guessed among twelve. No statement of what is final.
+No list of states, so the implementer discovers the missing error state halfway through. No
+token guidance, so hex values get copied. Every one of these becomes a message thread that
+blocks the work.
 
 ---
 

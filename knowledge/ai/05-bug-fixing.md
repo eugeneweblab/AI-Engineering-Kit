@@ -7,7 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [ai, bug-fixing]
-related: []
+related: [ai/01-context-gathering, engineering/03-debugging-methodology, workflows/02-fix-a-bug]
 when_to_use: "Read before investigating and fixing a bug to find the root cause and avoid regressions."
 ---
 # Bug Fixing
@@ -406,3 +406,9 @@ A bug fix is successful when:
 Professional bug fixing is a structured investigation process.
 
 The quality of a bug fix is determined not by how quickly code was changed, but by how confidently the underlying problem was understood and resolved.
+
+## Related
+
+- `knowledge/ai/01-context-gathering.md`
+- `knowledge/engineering/03-debugging-methodology.md`
+- `knowledge/workflows/02-fix-a-bug.md`

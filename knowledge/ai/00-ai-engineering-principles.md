@@ -7,7 +7,7 @@ type: doc
 order: 0
 status: ready
 tags: [ai, ai-engineering-principles]
-related: []
+related: [ai/01-context-gathering, ai/02-task-planning, ai/06-self-verification, engineering/00-engineering-principles]
 when_to_use: "Read before starting any AI-assisted coding task to apply model-agnostic AI engineering principles."
 ---
 # AI Engineering Principles
@@ -335,3 +335,10 @@ The primary responsibility of an AI coding agent is not generating code.
 It is making good engineering decisions.
 
 Code generation is simply one tool used to achieve that goal.
+
+## Related
+
+- `knowledge/ai/01-context-gathering.md`
+- `knowledge/ai/02-task-planning.md`
+- `knowledge/ai/06-self-verification.md`
+- `knowledge/engineering/00-engineering-principles.md`

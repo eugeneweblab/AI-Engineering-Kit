@@ -527,3 +527,9 @@ It is a specification of a design system.
 AI coding agents should implement the design system rather than reproducing individual screens.
 
 Understanding the complete design before writing code consistently produces higher-quality implementations with fewer revision cycles.
+
+## Related
+
+- `knowledge/figma/01-figma-analysis.md`
+- `knowledge/figma/19-design-handoff.md`
+- `knowledge/workflows/08-build-react-component.md`

@@ -7,7 +7,7 @@ type: doc
 order: 9
 status: ready
 tags: [figma, figma-to-divi]
-related: []
+related: [figma/07-figma-to-html, divi/05-layouts, divi/04-custom-modules, workflows/10-build-divi-module]
 when_to_use: "Read before building a Figma design as an editable layout in the Divi Builder."
 ---
 # Figma to Divi Builder
@@ -349,6 +349,54 @@ Building pages that only developers can maintain.
 
 ---
 
+## Examples
+
+**Good Example** — global presets carry the design, layouts carry the structure
+
+```text
+Design decision            Divi mechanism
+─────────────────────────  ────────────────────────────────────────────
+Colour palette             Theme Options → global colours
+Type scale                 Theme Builder → global body/heading presets
+Repeated card              Library layout, referenced globally
+Section spacing            Module preset (padding/margin), applied by name
+One-off tweak              Custom CSS on that module only, documented
+```
+
+```css
+/* Divi > Theme Options > Custom CSS — tokens once, referenced everywhere. */
+:root {
+	--acme-surface: #ffffff;
+	--acme-ink: #111827;
+	--acme-accent: #2563eb;
+	--acme-space-md: 1rem;
+}
+
+.acme-card .et_pb_text_inner {
+	color: var(--acme-ink);
+	padding: var(--acme-space-md);
+}
+```
+
+A global library layout means the card is edited once. A preset means a spacing change does
+not require opening forty modules.
+
+**Bad Example** — every value typed into every module
+
+```css
+/* Custom CSS added per module, in the module's own settings panel, with
+   !important to beat the inline styles Divi generates. Forty copies of this
+   exist across the site and none of them can be found by searching the repo. */
+.et_pb_text_0 { color: #111827 !important; padding: 17px !important; }
+.et_pb_text_1 { color: #111827 !important; padding: 16px !important; }
+.et_pb_text_2 { color: #111828 !important; padding: 17px !important; }
+```
+
+The numbered selectors also change when a module is reordered, so the styling silently detaches
+from the element it was written for.
+
+---
+
 ## Completion Criteria
 
 A Figma-to-Divi implementation is complete when:
@@ -366,3 +414,10 @@ A Figma-to-Divi implementation is complete when:
 Professional Divi development is not measured by how little custom code is written.
 
 It is measured by how effectively Divi, WordPress, and custom engineering work together to create a maintainable product.
+
+## Related
+
+- `knowledge/figma/07-figma-to-html.md`
+- `knowledge/divi/05-layouts.md`
+- `knowledge/divi/04-custom-modules.md`
+- `knowledge/workflows/10-build-divi-module.md`

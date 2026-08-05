@@ -7,7 +7,7 @@ type: doc
 order: 4
 status: ready
 tags: [engineering, task-execution]
-related: []
+related: [engineering/05-context-first-development, ai/02-task-planning, workflows/03-create-new-feature]
 when_to_use: "Read before starting any engineering task to follow the standard execution process."
 ---
 # Task Execution Workflow
@@ -409,3 +409,9 @@ Professional engineering is not defined by writing code quickly.
 It is defined by consistently making correct decisions throughout the entire lifecycle of a task.
 
 Following a structured workflow reduces defects, improves maintainability, and produces predictable engineering outcomes for both humans and AI coding agents.
+
+## Related
+
+- `knowledge/engineering/05-context-first-development.md`
+- `knowledge/ai/02-task-planning.md`
+- `knowledge/workflows/03-create-new-feature.md`

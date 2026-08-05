@@ -7,7 +7,7 @@ type: doc
 order: 2
 status: ready
 tags: [engineering, code-review]
-related: []
+related: [engineering/00-engineering-principles, workflows/05-review-pull-request, checklists/02-pull-request-author]
 when_to_use: "Read before reviewing a pull request or self-reviewing changes for correctness and consistency."
 ---
 # Engineering Code Review
@@ -498,3 +498,9 @@ Excellent engineering reviews improve software quality, reduce long-term mainten
 The goal of a review is not to find fault.
 
 The goal is to leave the codebase in a better state than before.
+
+## Related
+
+- `knowledge/engineering/00-engineering-principles.md`
+- `knowledge/workflows/05-review-pull-request.md`
+- `knowledge/checklists/02-pull-request-author.md`

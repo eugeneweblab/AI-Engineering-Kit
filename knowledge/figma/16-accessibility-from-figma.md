@@ -7,7 +7,7 @@ type: doc
 order: 16
 status: ready
 tags: [figma, accessibility-from-figma]
-related:
+related: [figma/06-component-detection, accessibility/10-color-and-contrast, accessibility/05-focus-management]
   - figma/01-figma-analysis
   - figma/14-figma-inspection-checklist
   - figma/10-design-qa

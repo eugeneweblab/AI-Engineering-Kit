@@ -7,7 +7,7 @@ type: doc
 order: 9
 status: ready
 tags: [workflows, build-wordpress-feature]
-related:
+related: [wordpress/15-plugin-development, wordpress/08-hooks, examples/03-wordpress-feature]
   - wordpress/01-wordpress-architecture
   - wordpress/03-best-practices
   - wordpress/04-code-style
@@ -499,3 +499,9 @@ pages should also pass [SEO — Production Checklist](../seo/98-production-check
 A high-quality WordPress feature integrates seamlessly into both the WordPress ecosystem and the existing project architecture.
 
 It respects WordPress conventions, minimizes custom complexity, prioritizes security and performance, and remains maintainable over time.
+
+## Related
+
+- `knowledge/wordpress/15-plugin-development.md`
+- `knowledge/wordpress/08-hooks.md`
+- `knowledge/examples/03-wordpress-feature.md`

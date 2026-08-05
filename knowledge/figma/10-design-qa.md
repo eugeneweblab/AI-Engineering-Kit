@@ -7,7 +7,7 @@ type: doc
 order: 10
 status: ready
 tags: [figma, design-qa]
-related:
+related: [figma/15-screenshot-comparison, figma/13-visual-regression, figma/20-implementation-definition-of-done]
   - figma/13-visual-regression
   - figma/15-screenshot-comparison
   - figma/14-figma-inspection-checklist
@@ -571,6 +571,41 @@ Ignoring responsive layouts.
 Accepting visual approximations.
 
 Reviewing implementation without the Figma design.
+
+---
+
+## Examples
+
+**Good Example** — a finding states the node, the measurement, and the decision
+
+```text
+QA — Checkout / Desktop 1440   build 4a91c2e
+
+FAIL  Button/Primary (node 12:88)
+      design 44×44, built 36×32 — below the 44×44 minimum touch target
+      → fix in code
+
+FAIL  Card gap (node 44:12)
+      design 24, built 16 — the card grid uses --space-md instead of --space-lg
+      → fix in code
+
+DIFF  Heading line-height
+      design 1.2, built 1.35 — the built value comes from the type scale and is
+      more readable at this size
+      → accepted, design updated to 1.35 (agreed with designer, 2026-08-04)
+
+PASS  Colour, spacing scale, focus ring, empty state
+```
+
+**Bad Example** — a screenshot with circles drawn on it
+
+```text
+"Some spacing looks off on the checkout page, see attached."
+```
+
+Nobody can act on this. There is no node id, so the reference cannot be found; no measurement,
+so "off" cannot be verified; no distinction between a defect and a deliberate improvement; and
+no record of what was accepted, so the same difference is reported again next release.
 
 ---
 
