@@ -581,7 +581,6 @@ By organizing code around features, responsibilities, and reuse, React projects 
 
 ## Related
 
-
 - `knowledge/react/02-component-architecture.md`
 - `knowledge/react/23-code-style.md`
 - `knowledge/react/30-engineering-principles.md`

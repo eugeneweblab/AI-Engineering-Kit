@@ -232,7 +232,6 @@ developer's test data is everyone's. "Please format" is not enforcement.
 
 ## Related
 
-
 - `knowledge/checklists/01-pre-launch.md`
 - `knowledge/tools/98-production-checklist.md`
 - `knowledge/tools/19-task-runners.md`

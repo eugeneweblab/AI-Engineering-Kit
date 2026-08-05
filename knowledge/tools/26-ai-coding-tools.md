@@ -206,7 +206,6 @@ only this repository knows. Fluency is not evidence — run the checks.
 
 ## Related
 
-
 - `knowledge/tools/25-editor-setup.md`
 - `knowledge/tools/16-git-hooks.md`
 - `knowledge/tools/27-dependency-management.md`

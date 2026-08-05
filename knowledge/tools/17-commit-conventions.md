@@ -184,7 +184,6 @@ consumer breaks on an automatic upgrade.
 
 ## Related
 
-
 - `knowledge/tools/16-git-hooks.md`
 - `knowledge/tools/28-release-tools.md`
 - `knowledge/tools/27-dependency-management.md`

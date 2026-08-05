@@ -141,7 +141,6 @@ processCart(cart);                 // double-discounts + wrong total; cart corru
 
 ## Related
 
-
 - `knowledge/javascript/04-functions.md`
 - `knowledge/javascript/03-scope-and-closures.md`
 - `knowledge/javascript/22-design-patterns.md`

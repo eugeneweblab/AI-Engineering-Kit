@@ -99,7 +99,6 @@ The topic moves from principles to specific defenses to operations.
 
 ## Related
 
-
 - `knowledge/security/01-security-fundamentals.md`
 - `knowledge/security/02-threat-modeling.md`
 - `knowledge/security/03-authentication.md`

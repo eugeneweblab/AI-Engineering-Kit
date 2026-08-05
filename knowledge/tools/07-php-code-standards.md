@@ -178,7 +178,6 @@ echo $prepared_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEs
 
 ## Related
 
-
 - `knowledge/tools/08-static-analysis.md`
 - `knowledge/tools/16-git-hooks.md`
 - `knowledge/tools/01-package-managers.md`

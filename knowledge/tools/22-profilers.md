@@ -192,7 +192,6 @@ const total = items.reduce((sum, i) => sum + i.price, 0);
 
 ## Related
 
-
 - `knowledge/tools/21-debuggers.md`
 - `knowledge/tools/29-observability-tools.md`
 - `knowledge/tools/13-test-runners.md`

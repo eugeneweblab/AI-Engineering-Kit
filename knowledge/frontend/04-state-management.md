@@ -123,7 +123,6 @@ globalStore.set("cartTotal", computeTotal(globalStore.get("cartItems")));
 
 ## Related
 
-
 - `knowledge/frontend/01-frontend-architecture.md`
 - `knowledge/frontend/02-component-driven-development.md`
 - `knowledge/frontend/05-routing.md`

@@ -181,7 +181,6 @@ export type { Config } from './types';
 
 ## Related
 
-
 - `knowledge/tools/12-babel.md`
 - `knowledge/tools/09-vite.md`
 - `knowledge/tools/03-typescript-compiler.md`

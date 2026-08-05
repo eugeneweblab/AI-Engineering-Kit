@@ -123,7 +123,6 @@ export function Button({ children, variant }: ButtonProps) { /* ... */ }
 
 ## Related
 
-
 - `knowledge/frontend/03-design-systems.md`
 - `knowledge/frontend/02-component-driven-development.md`
 - `knowledge/frontend/25-folder-structure.md`

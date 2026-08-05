@@ -265,7 +265,6 @@ than in tests.
 
 ## Related
 
-
 - `knowledge/snippets/02-php-wordpress.md`
 - `knowledge/typescript/09-utility-types.md`
 - `knowledge/javascript/08-asynchronous-javascript.md`

@@ -118,7 +118,6 @@ globalStore.set({ products, currentCategory, hoveredRowId });
 
 ## Related
 
-
 - `knowledge/frontend/01-frontend-architecture.md`
 - `knowledge/frontend/02-component-driven-development.md`
 - `knowledge/frontend/04-state-management.md`

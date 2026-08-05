@@ -124,7 +124,6 @@ baseline for a working product.
 
 ## Related
 
-
 - `knowledge/html/01-document-structure.md`
 - `knowledge/html/02-semantic-html.md`
 - `knowledge/html/11-accessibility.md`

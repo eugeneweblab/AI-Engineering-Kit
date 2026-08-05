@@ -143,7 +143,6 @@ data:
 
 ## Related
 
-
 - `knowledge/kubernetes/10-secrets.md`
 - `knowledge/kubernetes/11-volumes.md`
 - `knowledge/kubernetes/05-deployments.md`

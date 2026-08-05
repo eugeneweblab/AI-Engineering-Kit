@@ -133,7 +133,6 @@ maintainable; code that fights them does not.
 
 ## Related
 
-
 - `knowledge/wordpress/01-wordpress-architecture.md`
 - `knowledge/wordpress/02-project-structure.md`
 - `knowledge/wordpress/08-hooks.md`

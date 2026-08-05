@@ -136,7 +136,6 @@ async function get(key: string) {
 
 ## Related
 
-
 - `knowledge/redis/00-overview.md`
 - `knowledge/redis/21-security.md`
 - `knowledge/redis/24-testing.md`

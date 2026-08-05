@@ -164,7 +164,6 @@ squaresUpTo(1e9);  // OOM even though the caller only wanted the first few
 
 ## Related
 
-
 - `knowledge/javascript/17-es6-features.md`
 - `knowledge/javascript/09-promises.md`
 - `knowledge/javascript/08-asynchronous-javascript.md`

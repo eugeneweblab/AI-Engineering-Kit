@@ -151,7 +151,6 @@ data:
 
 ## Related
 
-
 - `knowledge/kubernetes/09-configmaps.md`
 - `knowledge/kubernetes/18-rbac.md`
 - `knowledge/kubernetes/22-security.md`

@@ -128,7 +128,6 @@ SELECT * FROM reports;
 
 ## Related
 
-
 - `knowledge/sql/06-subqueries.md`
 - `knowledge/sql/08-window-functions.md`
 - `knowledge/sql/17-query-optimization.md`

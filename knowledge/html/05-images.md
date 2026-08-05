@@ -130,7 +130,6 @@ impact performance and accessibility levers on a page.
 
 ## Related
 
-
 - `knowledge/html/04-links.md`
 - `knowledge/html/11-accessibility.md`
 - `knowledge/html/16-svg.md`

@@ -132,7 +132,6 @@ FROM orders;
 
 ## Related
 
-
 - `knowledge/sql/09-aggregate-functions.md`
 - `knowledge/sql/04-grouping.md`
 - `knowledge/sql/07-common-table-expressions.md`

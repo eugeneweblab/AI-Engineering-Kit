@@ -281,7 +281,6 @@ user-specific out of shared caches entirely.
 
 ## Related
 
-
 - `knowledge/wordpress/05-performance.md`
 - `knowledge/wordpress/12-queries.md`
 - `knowledge/wordpress/18-rest-api.md`

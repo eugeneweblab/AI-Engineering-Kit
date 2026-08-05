@@ -322,7 +322,6 @@ project operations as documented commands with dry-run support.
 
 ## Related
 
-
 - `knowledge/wordpress/27-deployment.md`
 - `knowledge/wordpress/22-cron-and-background-tasks.md`
 - `knowledge/wordpress/19-database.md`

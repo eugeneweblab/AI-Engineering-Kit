@@ -186,7 +186,6 @@ scope that works.
 
 ## Related
 
-
 - `knowledge/tools/05-prettier.md`
 - `knowledge/tools/03-typescript-compiler.md`
 - `knowledge/tools/16-git-hooks.md`

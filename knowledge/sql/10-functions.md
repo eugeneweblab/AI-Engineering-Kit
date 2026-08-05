@@ -121,7 +121,6 @@ WHERE LOWER(email) = 'a@b.com'                 -- index on email unusable
 
 ## Related
 
-
 - `knowledge/sql/11-data-types.md`
 - `knowledge/sql/09-aggregate-functions.md`
 - `knowledge/sql/15-indexes.md`

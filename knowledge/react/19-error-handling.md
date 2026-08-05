@@ -746,7 +746,6 @@ By treating errors as expected scenarios rather than exceptional events, React a
 
 ## Related
 
-
 - `knowledge/react/15-forms.md`
 - `knowledge/react/16-data-fetching.md`
 - `knowledge/react/20-accessibility.md`

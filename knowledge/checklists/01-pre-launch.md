@@ -209,7 +209,6 @@ exactly the situation it exists to prevent.
 
 ## Related
 
-
 - `knowledge/checklists/03-new-project-setup.md`
 - `knowledge/seo/98-production-checklist.md`
 - `knowledge/accessibility/98-production-checklist.md`

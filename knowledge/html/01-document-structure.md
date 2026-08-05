@@ -134,7 +134,6 @@ work around it. The skeleton is cheap to get right and expensive to retrofit.
 
 ## Related
 
-
 - `knowledge/html/02-semantic-html.md`
 - `knowledge/html/10-metadata.md`
 - `knowledge/html/11-accessibility.md`

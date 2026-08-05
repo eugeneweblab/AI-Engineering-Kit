@@ -122,7 +122,6 @@ that depend on links most.
 
 ## Related
 
-
 - `knowledge/html/02-semantic-html.md`
 - `knowledge/html/03-text-elements.md`
 - `knowledge/html/11-accessibility.md`

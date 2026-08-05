@@ -110,7 +110,6 @@ and new endpoints appear.
 
 ## Related
 
-
 - `knowledge/security/27-best-practices.md`
 - `knowledge/security/28-owasp-top10.md`
 - `knowledge/security/16-secrets-management.md`

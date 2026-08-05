@@ -117,7 +117,6 @@ element costs nothing and is impossible to retrofit reliably later.
 
 ## Related
 
-
 - `knowledge/html/02-semantic-html.md`
 - `knowledge/html/04-links.md`
 - `knowledge/html/06-lists.md`

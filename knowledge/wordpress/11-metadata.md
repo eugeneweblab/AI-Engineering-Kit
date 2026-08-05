@@ -345,7 +345,6 @@ blobs, and move anything that becomes a primary filter into a taxonomy or a real
 
 ## Related
 
-
 - `knowledge/wordpress/10-taxonomies.md`
 - `knowledge/wordpress/12-queries.md`
 - `knowledge/wordpress/16-block-editor.md`

@@ -230,7 +230,6 @@ WordPress prime the caches it knows how to prime.
 
 ## Related
 
-
 - `knowledge/wordpress/08-hooks.md`
 - `knowledge/wordpress/11-metadata.md`
 - `knowledge/wordpress/19-database.md`

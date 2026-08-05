@@ -114,7 +114,6 @@ function parsePort(raw: string): number {
 
 ## Related
 
-
 - `knowledge/typescript/02-type-system.md`
 - `knowledge/typescript/03-type-inference.md`
 - `knowledge/typescript/16-configuration.md`

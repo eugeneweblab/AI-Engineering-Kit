@@ -122,7 +122,6 @@ WHERE c.id NOT IN (
 
 ## Related
 
-
 - `knowledge/sql/07-common-table-expressions.md`
 - `knowledge/sql/05-joins.md`
 - `knowledge/sql/09-aggregate-functions.md`

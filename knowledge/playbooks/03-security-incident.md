@@ -206,7 +206,6 @@ of the ability to make one, and regulators read it that way.
 
 ## Related
 
-
 - `knowledge/playbooks/01-site-down.md`
 - `knowledge/security/26-incident-response.md`
 - `knowledge/security/16-secrets-management.md`

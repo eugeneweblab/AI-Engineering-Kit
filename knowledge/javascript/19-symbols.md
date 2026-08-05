@@ -142,7 +142,6 @@ console.log(u[Symbol("ssn")]);      // undefined — new symbol, different ident
 
 ## Related
 
-
 - `knowledge/javascript/18-iterators-and-generators.md`
 - `knowledge/javascript/05-objects-and-prototypes.md`
 - `knowledge/javascript/17-es6-features.md`

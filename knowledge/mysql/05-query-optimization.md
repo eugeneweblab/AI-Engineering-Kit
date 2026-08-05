@@ -118,7 +118,6 @@ LIMIT 50 OFFSET 100000;
 
 ## Related
 
-
 - `knowledge/mysql/04-indexes.md`
 - `knowledge/mysql/03-data-types.md`
 - `knowledge/mysql/14-performance.md`

@@ -179,7 +179,6 @@ parameters:
 
 ## Related
 
-
 - `knowledge/tools/07-php-code-standards.md`
 - `knowledge/tools/03-typescript-compiler.md`
 - `knowledge/tools/04-eslint.md`

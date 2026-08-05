@@ -134,7 +134,6 @@ Clone, `make up`, `pnpm verify` — and the result is identical to CI.
 
 ## Related
 
-
 - `knowledge/tools/00-overview.md`
 - `knowledge/tools/19-task-runners.md`
 - `knowledge/tools/16-git-hooks.md`

@@ -198,7 +198,6 @@ repositories paying monorepo tooling costs for no benefit.
 
 ## Related
 
-
 - `knowledge/tools/01-package-managers.md`
 - `knowledge/tools/19-task-runners.md`
 - `knowledge/tools/28-release-tools.md`

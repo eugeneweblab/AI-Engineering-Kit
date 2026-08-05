@@ -116,7 +116,6 @@ CREATE TABLE orders (
 
 ## Related
 
-
 - `knowledge/mysql/01-installation.md`
 - `knowledge/mysql/03-data-types.md`
 - `knowledge/mysql/04-indexes.md`

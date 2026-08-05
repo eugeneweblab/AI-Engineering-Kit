@@ -135,7 +135,6 @@ composer install --no-dev --optimize-autoloader --no-interaction
 
 ## Related
 
-
 - `knowledge/tools/02-version-management.md`
 - `knowledge/tools/18-monorepo-tools.md`
 - `knowledge/tools/27-dependency-management.md`

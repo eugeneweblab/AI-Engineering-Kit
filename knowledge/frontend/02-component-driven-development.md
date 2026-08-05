@@ -130,7 +130,6 @@ function Badge({ orderId, isSmall, isError, isSuccess, isAdmin }) {
 
 ## Related
 
-
 - `knowledge/frontend/01-frontend-architecture.md`
 - `knowledge/frontend/03-design-systems.md`
 - `knowledge/frontend/04-state-management.md`

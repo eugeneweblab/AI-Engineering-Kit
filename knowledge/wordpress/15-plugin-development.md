@@ -362,7 +362,6 @@ without loading WordPress.
 
 ## Related
 
-
 - `knowledge/wordpress/02-project-structure.md`
 - `knowledge/wordpress/08-hooks.md`
 - `knowledge/wordpress/09-custom-post-types.md`

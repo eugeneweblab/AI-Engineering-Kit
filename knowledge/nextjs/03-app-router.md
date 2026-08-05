@@ -702,7 +702,6 @@ By organizing routes around business domains and leveraging the built-in routing
 
 ## Related
 
-
 - `knowledge/nextjs/06-server-components.md`
 - `knowledge/nextjs/09-data-fetching.md`
 - `knowledge/nextjs/10-caching.md`

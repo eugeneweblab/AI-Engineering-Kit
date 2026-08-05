@@ -123,7 +123,6 @@ async function updateInvoice(req: Request) {
 
 ## Related
 
-
 - `knowledge/security/03-authentication.md`
 - `knowledge/security/01-security-fundamentals.md`
 - `knowledge/security/06-session-management.md`

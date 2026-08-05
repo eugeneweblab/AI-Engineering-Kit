@@ -114,7 +114,6 @@ this map lays out.
 
 ## Related
 
-
 - `knowledge/redis/02-data-types.md`
 - `knowledge/redis/13-caching.md`
 - `knowledge/redis/20-persistence.md`

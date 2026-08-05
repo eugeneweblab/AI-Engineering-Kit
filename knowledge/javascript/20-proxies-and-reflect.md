@@ -148,7 +148,6 @@ Object.keys(p);             // throws TypeError: ownKeys trap must return an arr
 
 ## Related
 
-
 - `knowledge/javascript/19-symbols.md`
 - `knowledge/javascript/05-objects-and-prototypes.md`
 - `knowledge/javascript/16-this-keyword.md`

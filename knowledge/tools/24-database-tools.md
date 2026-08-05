@@ -198,7 +198,6 @@ than preferences.
 
 ## Related
 
-
 - `knowledge/tools/20-local-environments.md`
 - `knowledge/tools/23-api-clients.md`
 - `knowledge/tools/22-profilers.md`

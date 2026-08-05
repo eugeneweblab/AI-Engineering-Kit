@@ -153,7 +153,6 @@ spec:
 
 ## Related
 
-
 - `knowledge/kubernetes/12-persistent-volumes.md`
 - `knowledge/kubernetes/13-statefulsets.md`
 - `knowledge/kubernetes/09-configmaps.md`

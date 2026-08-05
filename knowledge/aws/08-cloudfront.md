@@ -146,7 +146,6 @@ resource "aws_cloudfront_distribution" "cdn" {
 
 ## Related
 
-
 - `knowledge/aws/04-s3.md`
 - `knowledge/aws/07-route53.md`
 - `knowledge/aws/09-acm.md`

@@ -115,7 +115,6 @@ resource "aws_subnet" "app" {
 
 ## Related
 
-
 - `knowledge/aws/00-overview.md`
 - `knowledge/aws/06-vpc.md`
 - `knowledge/aws/11-auto-scaling.md`

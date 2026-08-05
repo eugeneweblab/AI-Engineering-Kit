@@ -296,7 +296,6 @@ deliberately, and monitoring that tells you about failures before a client does.
 
 ## Related
 
-
 - `knowledge/wordpress/27-deployment.md`
 - `knowledge/wordpress/26-wp-cli.md`
 - `knowledge/wordpress/06-security.md`

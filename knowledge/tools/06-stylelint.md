@@ -176,7 +176,6 @@ export default {
 
 ## Related
 
-
 - `knowledge/tools/05-prettier.md`
 - `knowledge/tools/04-eslint.md`
 - `knowledge/tools/16-git-hooks.md`

@@ -183,7 +183,6 @@ platform's history.
 
 ## Related
 
-
 - `knowledge/tools/24-database-tools.md`
 - `knowledge/tools/14-playwright.md`
 - `knowledge/tools/29-observability-tools.md`

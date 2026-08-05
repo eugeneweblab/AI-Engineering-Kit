@@ -142,7 +142,6 @@ The tooling is ready when a new contributor can clone the repository, run the in
 
 ## Related
 
-
 - `knowledge/tools/30-engineering-principles.md`
 - `knowledge/tools/19-task-runners.md`
 - `knowledge/tools/02-version-management.md`

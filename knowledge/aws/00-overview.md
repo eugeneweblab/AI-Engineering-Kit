@@ -100,7 +100,6 @@ assume the default is wrong until you have verified otherwise.
 
 ## Related
 
-
 - `knowledge/aws/02-iam.md`
 - `knowledge/aws/01-global-infrastructure.md`
 - `knowledge/aws/29-well-architected-framework.md`

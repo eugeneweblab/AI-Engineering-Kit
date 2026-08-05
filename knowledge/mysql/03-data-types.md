@@ -118,7 +118,6 @@ CREATE TABLE payments (
 
 ## Related
 
-
 - `knowledge/mysql/04-indexes.md`
 - `knowledge/mysql/00-overview.md`
 - `knowledge/mysql/24-json.md`

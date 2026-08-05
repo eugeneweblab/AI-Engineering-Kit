@@ -273,7 +273,6 @@ gives up WordPress's caching and tooling in exchange for a real schema.
 
 ## Related
 
-
 - `knowledge/wordpress/12-queries.md`
 - `knowledge/wordpress/11-metadata.md`
 - `knowledge/wordpress/06-security.md`

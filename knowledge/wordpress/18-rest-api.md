@@ -389,7 +389,6 @@ public.
 
 ## Related
 
-
 - `knowledge/wordpress/06-security.md`
 - `knowledge/wordpress/20-users-and-capabilities.md`
 - `knowledge/wordpress/11-metadata.md`

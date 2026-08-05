@@ -208,7 +208,6 @@ Every instruction here is a setting that could have been committed.
 
 ## Related
 
-
 - `knowledge/tools/05-prettier.md`
 - `knowledge/tools/04-eslint.md`
 - `knowledge/tools/21-debuggers.md`

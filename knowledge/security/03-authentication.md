@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [security, authentication]
-related: [security/04-authorization, security/05-password-security, security/06-session-management, security/07-jwt, security/21-rate-limiting]
+related: [backend/10-authentication, security/04-authorization, security/05-password-security, security/06-session-management, security/07-jwt, security/21-rate-limiting]
 when_to_use: "Read before building or reviewing any login, signup, session, or credential-handling code."
 ---
 # Security Authentication
@@ -21,6 +21,11 @@ implement or review an authentication flow without introducing a security hole.
 Authentication answers "are you who you claim to be?". It is distinct from
 [authorization](04-authorization.md) ("are you allowed to do this?"). Do not conflate
 them — a correct auth system gets both right, in that order.
+
+This document owns the **policy**: what is stored, what is compared, what a response may
+reveal. Where those rules attach inside a service — which middleware verifies the token, how
+identity travels through the layers, what happens at a service boundary — is
+[Backend Authentication](../backend/10-authentication.md).
 
 ## Why It Matters
 
@@ -127,7 +132,7 @@ async function verifyLogin(email: string, password: string) {
 
 ## Related
 
-
+- `knowledge/backend/10-authentication.md`
 - `knowledge/security/04-authorization.md`
 - `knowledge/security/05-password-security.md`
 - `knowledge/security/06-session-management.md`

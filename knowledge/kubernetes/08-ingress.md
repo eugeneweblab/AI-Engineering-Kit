@@ -145,7 +145,6 @@ spec:
 
 ## Related
 
-
 - `knowledge/kubernetes/07-services.md`
 - `knowledge/kubernetes/10-secrets.md`
 - `knowledge/kubernetes/17-network-policies.md`

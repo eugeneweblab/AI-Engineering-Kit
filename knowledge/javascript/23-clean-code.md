@@ -135,7 +135,6 @@ function proc(u, a) {                    // "proc"/"u"/"a" reveal nothing
 
 ## Related
 
-
 - `knowledge/javascript/21-functional-programming.md`
 - `knowledge/javascript/22-design-patterns.md`
 - `knowledge/javascript/14-error-handling.md`

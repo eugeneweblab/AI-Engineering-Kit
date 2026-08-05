@@ -134,7 +134,6 @@ worth getting right the first time.
 
 ## Related
 
-
 - `knowledge/html/10-metadata.md`
 - `knowledge/html/13-structured-data.md`
 - `knowledge/html/02-semantic-html.md`

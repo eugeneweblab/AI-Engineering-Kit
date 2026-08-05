@@ -300,7 +300,6 @@ that touch shared state, and keep the callback itself thin enough to be obviousl
 
 ## Related
 
-
 - `knowledge/wordpress/01-wordpress-architecture.md`
 - `knowledge/wordpress/15-plugin-development.md`
 - `knowledge/wordpress/12-queries.md`

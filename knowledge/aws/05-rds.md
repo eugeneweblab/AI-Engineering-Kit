@@ -135,7 +135,6 @@ resource "aws_db_instance" "app" {
 
 ## Related
 
-
 - `knowledge/aws/02-iam.md`
 - `knowledge/aws/06-vpc.md`
 - `knowledge/aws/16-secrets-manager.md`

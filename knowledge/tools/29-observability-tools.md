@@ -294,7 +294,6 @@ pager. That is a worse outcome than having no alert at all.
 
 ## Related
 
-
 - `knowledge/tools/22-profilers.md`
 - `knowledge/tools/21-debuggers.md`
 - `knowledge/tools/23-api-clients.md`

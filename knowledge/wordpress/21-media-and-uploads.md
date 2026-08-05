@@ -273,7 +273,6 @@ sizes you render, and emit responsive markup with real alt text.
 
 ## Related
 
-
 - `knowledge/wordpress/06-security.md`
 - `knowledge/wordpress/05-performance.md`
 - `knowledge/wordpress/14-theme-development.md`

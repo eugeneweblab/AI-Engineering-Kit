@@ -252,7 +252,6 @@ the choice to run multisite as an architectural commitment that is hard to undo.
 
 ## Related
 
-
 - `knowledge/wordpress/19-database.md`
 - `knowledge/wordpress/20-users-and-capabilities.md`
 - `knowledge/wordpress/15-plugin-development.md`

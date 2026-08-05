@@ -121,7 +121,6 @@ another's file by changing `:id`) entirely.
 
 ## Related
 
-
 - `knowledge/security/01-security-fundamentals.md`
 - `knowledge/security/03-authentication.md`
 - `knowledge/security/04-authorization.md`

@@ -130,7 +130,6 @@ test("archives old orders", async () => {
 
 ## Related
 
-
 - `knowledge/devops/23-quality-gates.md`
 - `knowledge/devops/05-build-pipelines.md`
 - `knowledge/devops/07-deployment-strategies.md`

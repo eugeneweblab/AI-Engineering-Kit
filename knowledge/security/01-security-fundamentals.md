@@ -126,7 +126,6 @@ function getDocument(req: Request): Document {
 
 ## Related
 
-
 - `knowledge/security/02-threat-modeling.md`
 - `knowledge/security/03-authentication.md`
 - `knowledge/security/04-authorization.md`

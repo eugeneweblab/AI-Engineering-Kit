@@ -264,7 +264,6 @@ answer is the one this does not answer.
 
 ## Related
 
-
 - `knowledge/tools/17-commit-conventions.md`
 - `knowledge/tools/18-monorepo-tools.md`
 - `knowledge/tools/27-dependency-management.md`

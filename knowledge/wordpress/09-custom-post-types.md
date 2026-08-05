@@ -240,7 +240,6 @@ explicitly, and flush rewrite rules only on activation.
 
 ## Related
 
-
 - `knowledge/wordpress/10-taxonomies.md`
 - `knowledge/wordpress/11-metadata.md`
 - `knowledge/wordpress/12-queries.md`

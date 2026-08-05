@@ -664,7 +664,6 @@ By centralizing shared UI, preserving state across navigations, and maintaining 
 
 ## Related
 
-
 - `knowledge/nextjs/06-server-components.md`
 - `knowledge/nextjs/07-client-components.md`
 - `knowledge/nextjs/09-data-fetching.md`

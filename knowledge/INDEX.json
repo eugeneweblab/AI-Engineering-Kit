@@ -1802,7 +1802,7 @@
             "backend",
             "authentication"
           ],
-          "when_to_use": "Read before building or reviewing login, signup, session, token, or credential-handling code in a backend service.",
+          "when_to_use": "Read before wiring authentication into a service — where identity is verified, how it is carried through the layers, and how it crosses a service boundary.",
           "path": "knowledge/backend/10-authentication.md"
         },
         {

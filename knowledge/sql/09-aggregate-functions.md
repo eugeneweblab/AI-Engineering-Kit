@@ -120,7 +120,6 @@ GROUP BY region;
 
 ## Related
 
-
 - `knowledge/sql/04-grouping.md`
 - `knowledge/sql/08-window-functions.md`
 - `knowledge/sql/06-subqueries.md`

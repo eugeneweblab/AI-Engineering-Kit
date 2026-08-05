@@ -201,7 +201,6 @@ These antipatterns share one trait: they all work. The build succeeds, the tests
 
 ## Related
 
-
 - `knowledge/tools/30-engineering-principles.md`
 - `knowledge/tools/99-ai-review-checklist.md`
 - `knowledge/tools/01-package-managers.md`

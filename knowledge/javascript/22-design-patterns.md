@@ -144,7 +144,6 @@ function quote(method, weight) {
 
 ## Related
 
-
 - `knowledge/javascript/21-functional-programming.md`
 - `knowledge/javascript/05-objects-and-prototypes.md`
 - `knowledge/javascript/06-classes.md`

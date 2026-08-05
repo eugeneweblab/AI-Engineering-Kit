@@ -137,7 +137,6 @@ app.post("/orders", async (req, res) => {
 
 ## Related
 
-
 - `knowledge/devops/19-high-availability.md`
 - `knowledge/devops/21-performance.md`
 - `knowledge/devops/11-orchestration.md`

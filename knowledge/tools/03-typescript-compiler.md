@@ -183,7 +183,6 @@ while appearing fully typed in the editor.
 
 ## Related
 
-
 - `knowledge/tools/08-static-analysis.md`
 - `knowledge/tools/11-esbuild-and-swc.md`
 - `knowledge/tools/04-eslint.md`

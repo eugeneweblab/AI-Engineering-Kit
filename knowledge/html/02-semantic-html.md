@@ -121,7 +121,6 @@ the correct element is the cheapest accessibility and SEO win available.
 
 ## Related
 
-
 - `knowledge/html/01-document-structure.md`
 - `knowledge/html/03-text-elements.md`
 - `knowledge/html/11-accessibility.md`

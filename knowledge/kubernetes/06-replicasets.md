@@ -137,7 +137,6 @@ spec:
 
 ## Related
 
-
 - `knowledge/kubernetes/05-deployments.md`
 - `knowledge/kubernetes/04-pods.md`
 - `knowledge/kubernetes/13-statefulsets.md`

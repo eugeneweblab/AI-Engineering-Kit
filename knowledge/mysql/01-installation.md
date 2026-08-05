@@ -121,7 +121,6 @@ services:
 
 ## Related
 
-
 - `knowledge/mysql/00-overview.md`
 - `knowledge/mysql/02-configuration.md`
 - `knowledge/mysql/12-security.md`

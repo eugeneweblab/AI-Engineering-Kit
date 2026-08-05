@@ -123,7 +123,6 @@ CREATE INDEX idx_orders_user ON orders (user_id);
 
 ## Related
 
-
 - `knowledge/mysql/05-query-optimization.md`
 - `knowledge/mysql/03-data-types.md`
 - `knowledge/mysql/14-performance.md`

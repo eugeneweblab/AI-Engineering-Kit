@@ -255,7 +255,6 @@ and keep content modelling in plugins where it survives a redesign.
 
 ## Related
 
-
 - `knowledge/wordpress/13-template-hierarchy.md`
 - `knowledge/wordpress/17-block-themes.md`
 - `knowledge/wordpress/02-project-structure.md`

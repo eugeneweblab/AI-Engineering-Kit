@@ -134,7 +134,6 @@ function login(user) {
 
 ## Related
 
-
 - `knowledge/security/03-authentication.md`
 - `knowledge/security/04-authorization.md`
 - `knowledge/security/07-jwt.md`

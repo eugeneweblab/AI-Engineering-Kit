@@ -132,7 +132,6 @@ spec:
 
 ## Related
 
-
 - `knowledge/kubernetes/08-ingress.md`
 - `knowledge/kubernetes/05-deployments.md`
 - `knowledge/kubernetes/04-pods.md`

@@ -136,7 +136,6 @@ resource "aws_vpc_security_group_ingress_rule" "db_open" {
 
 ## Related
 
-
 - `knowledge/aws/02-iam.md`
 - `knowledge/aws/03-ec2.md`
 - `knowledge/aws/10-elastic-load-balancer.md`

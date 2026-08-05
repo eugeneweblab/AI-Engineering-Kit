@@ -121,7 +121,6 @@ CREATE TABLE invoices (
 
 ## Related
 
-
 - `knowledge/sql/12-ddl.md`
 - `knowledge/sql/10-functions.md`
 - `knowledge/sql/09-aggregate-functions.md`

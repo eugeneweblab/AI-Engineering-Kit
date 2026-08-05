@@ -753,7 +753,6 @@ By keeping identity verification, permission checks, and protected business logi
 
 ## Related
 
-
 - `knowledge/nextjs/15-authorization.md`
 - `knowledge/nextjs/13-middleware.md`
 - `knowledge/nextjs/11-server-actions.md`

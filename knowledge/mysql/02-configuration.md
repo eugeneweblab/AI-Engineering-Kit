@@ -124,7 +124,6 @@ character_set = utf8                   # 3-byte "utf8": corrupts emoji and some 
 
 ## Related
 
-
 - `knowledge/mysql/01-installation.md`
 - `knowledge/mysql/06-transactions.md`
 - `knowledge/mysql/14-performance.md`

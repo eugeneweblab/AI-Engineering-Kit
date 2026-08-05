@@ -131,7 +131,6 @@ async function getUser(id: string) {
 
 ## Related
 
-
 - `knowledge/devops/18-disaster-recovery.md`
 - `knowledge/devops/20-scalability.md`
 - `knowledge/devops/11-orchestration.md`

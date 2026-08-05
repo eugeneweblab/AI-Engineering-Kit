@@ -142,7 +142,6 @@ Report anything above as a finding with the file, the line, and what it would co
 
 ## Related
 
-
 - `knowledge/tools/98-production-checklist.md`
 - `knowledge/tools/100-common-antipatterns.md`
 - `knowledge/tools/30-engineering-principles.md`

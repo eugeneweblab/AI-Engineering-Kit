@@ -237,7 +237,6 @@ based on real usage, and keep `tax_query` clauses few.
 
 ## Related
 
-
 - `knowledge/wordpress/09-custom-post-types.md`
 - `knowledge/wordpress/11-metadata.md`
 - `knowledge/wordpress/12-queries.md`

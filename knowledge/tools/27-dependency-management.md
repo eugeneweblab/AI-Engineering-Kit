@@ -266,7 +266,6 @@ reading the plan is how a security fix becomes an outage.
 
 ## Related
 
-
 - `knowledge/tools/01-package-managers.md`
 - `knowledge/tools/28-release-tools.md`
 - `knowledge/tools/02-version-management.md`

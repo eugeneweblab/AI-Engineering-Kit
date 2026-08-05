@@ -285,7 +285,6 @@ database; capabilities are the contract your code depends on.
 
 ## Related
 
-
 - `knowledge/wordpress/06-security.md`
 - `knowledge/wordpress/18-rest-api.md`
 - `knowledge/wordpress/09-custom-post-types.md`

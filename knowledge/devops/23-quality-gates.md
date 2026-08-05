@@ -129,7 +129,6 @@ jobs:
 
 ## Related
 
-
 - `knowledge/devops/22-testing.md`
 - `knowledge/devops/05-build-pipelines.md`
 - `knowledge/devops/16-security.md`

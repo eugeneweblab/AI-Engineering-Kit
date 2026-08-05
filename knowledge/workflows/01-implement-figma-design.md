@@ -570,7 +570,6 @@ Understanding the complete design before writing code consistently produces high
 
 ## Related
 
-
 - `knowledge/figma/01-figma-analysis.md`
 - `knowledge/figma/03-design-token-extraction.md`
 - `knowledge/figma/06-component-detection.md`

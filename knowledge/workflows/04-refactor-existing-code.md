@@ -430,7 +430,6 @@ A successful refactoring is often invisible to users but highly valuable to futu
 
 ## Related
 
-
 - `knowledge/engineering/02-code-review.md`
 - `knowledge/engineering/03-debugging-methodology.md`
 - `knowledge/engineering/05-context-first-development.md`

@@ -130,7 +130,6 @@ const label = names.reduce((a, b) => a + "," + b, ""); // wrong target; measure 
 
 ## Related
 
-
 - `knowledge/devops/20-scalability.md`
 - `knowledge/devops/12-monitoring.md`
 - `knowledge/devops/13-observability.md`

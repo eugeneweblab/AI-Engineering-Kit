@@ -240,53 +240,44 @@ define( 'DISABLE_WP_CRON', true );
 ```
 
 ```php
-add_action( 'myplugin_send_reminders', 'myplugin_send_reminders' );
+add_action( 'acme_send_reminders', 'acme_send_reminders' );
 
-function myplugin_send_reminders() {
-	// Two overlapping runs would email everyone twice. wp_cache_add() is atomic
-	// across processes ONLY with a persistent object cache (Redis, Memcached).
-	// WordPress's default cache is per-request, so without one this guard does
-	// nothing — see below.
-	if ( ! wp_cache_add( 'myplugin_reminders_lock', 1, 'myplugin', 5 * MINUTE_IN_SECONDS ) ) {
+function acme_send_reminders(): void {
+	// The lock from "Writing a Safe Callback" above: add_option() fails when the
+	// row already exists, which is what makes it atomic across processes.
+	if ( ! acme_acquire_lock( 'acme_send_reminders', 5 * MINUTE_IN_SECONDS ) ) {
 		return;
 	}
 
-	$pending = get_posts(
-		array(
-			'post_type'      => 'myplugin_signup',
-			'posts_per_page' => 100,          // one bounded batch per run
-			'meta_key'       => '_reminder_sent',
-			'meta_compare'   => 'NOT EXISTS',
-			'fields'         => 'ids',
-		)
-	);
+	try {
+		$pending = get_posts(
+			array(
+				'post_type'      => 'acme_signup',
+				'posts_per_page' => 100,          // one bounded batch per run
+				'meta_key'       => '_reminder_sent',
+				'meta_compare'   => 'NOT EXISTS',
+				'fields'         => 'ids',
+			)
+		);
 
-	foreach ( $pending as $signup_id ) {
-		myplugin_send_reminder( $signup_id );
-		// Mark immediately: a crash mid-batch must not re-send what already went out.
-		update_post_meta( $signup_id, '_reminder_sent', time() );
+		foreach ( $pending as $signup_id ) {
+			acme_send_reminder( $signup_id );
+			// Mark immediately: a crash mid-batch must not re-send what already went out.
+			update_post_meta( $signup_id, '_reminder_sent', time() );
+		}
+
+		if ( count( $pending ) === 100 ) {
+			wp_schedule_single_event( time() + MINUTE_IN_SECONDS, 'acme_send_reminders' );
+		}
+	} finally {
+		acme_release_lock( 'acme_send_reminders' );   // released even if a send throws
 	}
-
-	wp_cache_delete( 'myplugin_reminders_lock', 'myplugin' );
 }
 ```
 
-Without a persistent object cache, use a database-level lock instead — `GET_LOCK()` is atomic
-across connections and releases itself when the connection closes:
-
-```php
-$got_lock = (int) $GLOBALS['wpdb']->get_var(
-	$GLOBALS['wpdb']->prepare( 'SELECT GET_LOCK(%s, 0)', 'myplugin_reminders' )
-);
-
-if ( 1 !== $got_lock ) {
-	return;               // another run holds it
-}
-
-// ... work ...
-
-$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( 'SELECT RELEASE_LOCK(%s)', 'myplugin_reminders' ) );
-```
+The lock stops two runs from doing the same work at the same time; the `_reminder_sent`
+marker is what actually prevents a duplicate email, because a run killed by
+`max_execution_time` never reaches its `finally`. Keep both.
 
 The idempotency marker (`_reminder_sent`) is what actually prevents duplicate emails; the lock
 only stops two runs from doing the same work at the same time. Keep both.
@@ -296,16 +287,16 @@ only stops two runs from doing the same work at the same time. Keep both.
 ```php
 // Runs on init, so a new event is scheduled on every single page load.
 add_action( 'init', function () {
-	wp_schedule_event( time(), 'hourly', 'myplugin_send_reminders' );
+	wp_schedule_event( time(), 'hourly', 'acme_send_reminders' );
 } );
 
-add_action( 'myplugin_send_reminders', function () {
+add_action( 'acme_send_reminders', function () {
 	// Every signup, forever — the job gets slower every day and eventually times out
 	// halfway through, having sent an arbitrary prefix of the emails.
-	$all = get_posts( array( 'post_type' => 'myplugin_signup', 'posts_per_page' => -1 ) );
+	$all = get_posts( array( 'post_type' => 'acme_signup', 'posts_per_page' => -1 ) );
 
 	foreach ( $all as $signup ) {
-		myplugin_send_reminder( $signup->ID );   // no record of what was sent
+		acme_send_reminder( $signup->ID );   // no record of what was sent
 	}
 } );
 ```
@@ -354,7 +345,6 @@ callbacks always, schedule once, cancel with identical arguments, bound every ru
 for Action Scheduler when the work is really a queue.
 
 ## Related
-
 
 - `knowledge/wordpress/15-plugin-development.md`
 - `knowledge/wordpress/26-wp-cli.md`

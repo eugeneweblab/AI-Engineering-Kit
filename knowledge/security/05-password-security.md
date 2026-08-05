@@ -132,7 +132,6 @@ function verifyPassword(stored: string, pw: string): boolean {
 
 ## Related
 
-
 - `knowledge/security/03-authentication.md`
 - `knowledge/security/06-session-management.md`
 - `knowledge/security/16-secrets-management.md`

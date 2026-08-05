@@ -161,7 +161,6 @@ integer cents. Without a scope, most findings are about code the change never to
 
 ## Related
 
-
 - `knowledge/prompts/02-bug-investigation.md`
 - `knowledge/engineering/02-code-review.md`
 - `knowledge/workflows/05-review-pull-request.md`

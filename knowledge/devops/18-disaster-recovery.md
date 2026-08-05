@@ -131,7 +131,6 @@ gzip -f /backups/db.sql                 # overwrites yesterday: no history, no P
 
 ## Related
 
-
 - `knowledge/devops/19-high-availability.md`
 - `knowledge/devops/25-incident-management.md`
 - `knowledge/devops/27-sre-principles.md`

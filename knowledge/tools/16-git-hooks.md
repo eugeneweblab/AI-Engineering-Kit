@@ -180,7 +180,6 @@ people who read that line.
 
 ## Related
 
-
 - `knowledge/tools/17-commit-conventions.md`
 - `knowledge/tools/04-eslint.md`
 - `knowledge/tools/05-prettier.md`

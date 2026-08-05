@@ -155,7 +155,6 @@ information.
 
 ## Related
 
-
 - `knowledge/tools/01-package-managers.md`
 - `knowledge/tools/20-local-environments.md`
 - `knowledge/tools/00-overview.md`

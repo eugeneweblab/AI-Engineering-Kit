@@ -329,7 +329,6 @@ than printing into it.
 
 ## Related
 
-
 - `knowledge/wordpress/07-testing.md`
 - `knowledge/wordpress/26-wp-cli.md`
 - `knowledge/wordpress/08-hooks.md`

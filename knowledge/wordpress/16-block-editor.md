@@ -303,7 +303,6 @@ never change static output without a deprecation.
 
 ## Related
 
-
 - `knowledge/wordpress/17-block-themes.md`
 - `knowledge/wordpress/11-metadata.md`
 - `knowledge/wordpress/18-rest-api.md`

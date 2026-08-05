@@ -207,7 +207,6 @@ browser console, and `debugger` freezes any developer with devtools open. Lint a
 
 ## Related
 
-
 - `knowledge/tools/22-profilers.md`
 - `knowledge/tools/20-local-environments.md`
 - `knowledge/tools/25-editor-setup.md`

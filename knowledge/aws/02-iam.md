@@ -128,7 +128,6 @@ is the one discipline that contains the blast radius when something else fails.
 
 ## Related
 
-
 - `knowledge/aws/00-overview.md`
 - `knowledge/aws/25-security.md`
 - `knowledge/aws/16-secrets-manager.md`

@@ -162,7 +162,6 @@ at the wrong subsystem.
 
 ## Related
 
-
 - `knowledge/prompts/01-code-review.md`
 - `knowledge/prompts/03-refactoring.md`
 - `knowledge/workflows/02-fix-a-bug.md`
