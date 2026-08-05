@@ -7,7 +7,7 @@ type: doc
 order: 16
 status: ready
 tags: [nestjs, authorization]
-related: []
+related: [nestjs/15-authentication, nestjs/09-guards, security/04-authorization, backend/11-authorization]
 when_to_use: "Read before building or reviewing roles, permissions, or any code that decides what an authenticated user may do."
 ---
 # NestJS Authorization
@@ -686,6 +686,88 @@ Authorization is **not** responsible for:
 
 ---
 
+## Examples
+
+**Good Example** — permissions declared on the route, ownership checked against the record
+
+```ts
+// Metadata says what the route needs; the guard decides whether this caller has it.
+export const REQUIRE_PERMISSIONS = 'require_permissions';
+export const RequirePermissions = (...perms: Permission[]) =>
+  SetMetadata(REQUIRE_PERMISSIONS, perms);
+
+@Injectable()
+export class PermissionsGuard implements CanActivate {
+  constructor(private readonly reflector: Reflector) {}
+
+  canActivate(context: ExecutionContext): boolean {
+    const required = this.reflector.getAllAndOverride<Permission[]>(REQUIRE_PERMISSIONS, [
+      context.getHandler(),
+      context.getClass(),
+    ]);
+    if (!required?.length) {
+      return true;
+    }
+
+    const { user } = context.switchToHttp().getRequest<{ user: AuthenticatedUser }>();
+    return required.every((perm) => user.permissions.includes(perm));
+  }
+}
+```
+
+```ts
+@Controller('orders')
+@UseGuards(JwtAuthGuard, PermissionsGuard)
+export class OrdersController {
+  constructor(private readonly orders: OrdersService) {}
+
+  @Delete(':id')
+  @RequirePermissions(Permission.OrderDelete)
+  async remove(@Param('id', ParseUUIDPipe) id: string, @CurrentUser() user: AuthenticatedUser) {
+    // Coarse permission is not enough: check that THIS user owns THIS record.
+    // The query itself is scoped, so a missing row and a forbidden row are the
+    // same result and the endpoint cannot be used to probe for ids.
+    const deleted = await this.orders.deleteOwnedBy(id, user.id);
+    if (!deleted) {
+      throw new NotFoundException();
+    }
+  }
+}
+```
+
+**Bad Example** — roles hardcoded in handlers, ownership assumed
+
+```ts
+@Controller('orders')
+export class OrdersController {
+  @Delete(':id')
+  async remove(@Param('id') id: string, @Req() req: Request) {
+    // Role strings compared inline: adding a role means editing every handler,
+    // and a typo silently grants access to nobody — or to everybody.
+    const role = (req as any).user.role;
+    if (role !== 'admin' && role !== 'Admin' && role !== 'superadmin') {
+      throw new ForbiddenException();
+    }
+
+    // No ownership check: any authenticated admin-ish user can delete any order
+    // in any tenant, because the query is not scoped to the caller.
+    return this.repo.delete(id);
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string) {
+    // No authorization at all — the endpoint was added later and nobody noticed
+    // that the guard lives on a different handler.
+    return this.repo.findOne({ where: { id } });
+  }
+}
+```
+
+Roles are a grouping of permissions, not a permission. Checking the role name spreads the
+policy across every handler; checking a named permission keeps it in one table.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -724,3 +806,10 @@ Authorization is complete when:
 Authorization protects application resources by evaluating permissions after authentication succeeds.
 
 By centralizing policy evaluation, enforcing ownership, applying least privilege, and separating authorization from authentication, NestJS applications become significantly more secure, maintainable, and adaptable to evolving business requirements.
+
+## Related
+
+- `knowledge/nestjs/15-authentication.md`
+- `knowledge/nestjs/09-guards.md`
+- `knowledge/security/04-authorization.md`
+- `knowledge/backend/11-authorization.md`

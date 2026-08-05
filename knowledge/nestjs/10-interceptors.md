@@ -7,7 +7,7 @@ type: doc
 order: 10
 status: ready
 tags: [nestjs, interceptors]
-related: []
+related: [nestjs/09-guards, nestjs/11-exception-filters, nestjs/24-observability, nestjs/19-caching]
 when_to_use: "Read before building or reviewing interceptors for logging, response shaping, tracing, or other cross-cutting request concerns."
 ---
 # NestJS Interceptors
@@ -519,6 +519,85 @@ Interceptors should be independently testable.
 
 ---
 
+## Examples
+
+**Good Example** — cross-cutting concerns, added once, transparent to controllers
+
+```ts
+@Injectable()
+export class TimingInterceptor implements NestInterceptor {
+  private readonly logger = new Logger(TimingInterceptor.name);
+
+  intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
+    const started = process.hrtime.bigint();
+    const req = context.switchToHttp().getRequest<Request>();
+
+    return next.handle().pipe(
+      tap({
+        // Runs on success and on error, so slow failures are measured too.
+        finalize: () => {
+          const ms = Number(process.hrtime.bigint() - started) / 1e6;
+          this.logger.log({
+            route: `${req.method} ${context.getHandler().name}`,
+            durationMs: Math.round(ms),
+            correlationId: req.headers['x-correlation-id'],
+          });
+        },
+      }),
+    );
+  }
+}
+```
+
+```ts
+@Injectable()
+export class TimeoutInterceptor implements NestInterceptor {
+  intercept(_: ExecutionContext, next: CallHandler): Observable<unknown> {
+    return next.handle().pipe(
+      timeout(5_000),
+      // Translate the RxJS timeout into a meaningful HTTP status; let everything
+      // else propagate untouched so the exception filter can classify it.
+      catchError((err) =>
+        err instanceof TimeoutError
+          ? throwError(() => new RequestTimeoutException())
+          : throwError(() => err),
+      ),
+    );
+  }
+}
+```
+
+Both are registered once in the module and no controller mentions them.
+
+**Bad Example** — an interceptor that swallows failures and rewrites meaning
+
+```ts
+@Injectable()
+export class WrapEverythingInterceptor implements NestInterceptor {
+  intercept(_: ExecutionContext, next: CallHandler): Observable<unknown> {
+    return next.handle().pipe(
+      map((data) => ({ success: true, data })),
+      catchError((err) => {
+        // Every failure becomes a 200 with success: false. Clients cannot use
+        // status codes, retries never trigger, and monitoring sees no errors.
+        console.log('error', err);
+        return of({ success: false, data: null });
+      }),
+    );
+  }
+}
+```
+
+```ts
+// The same handler re-run on every failure, including the ones that must not repeat.
+return next.handle().pipe(retry(3));   // a failed charge is now three charges
+```
+
+Retrying indiscriminately turns a non-idempotent write into duplicated side effects. Retry
+belongs where idempotency is guaranteed, not around every handler in the application.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -557,3 +636,10 @@ An interceptor implementation is complete when:
 Interceptors provide a powerful mechanism for implementing cross-cutting concerns in NestJS.
 
 By centralizing logging, response transformation, tracing, performance monitoring, caching, and auditing while keeping business logic within services, applications remain cleaner, more maintainable, and easier to operate in production environments.
+
+## Related
+
+- `knowledge/nestjs/09-guards.md`
+- `knowledge/nestjs/11-exception-filters.md`
+- `knowledge/nestjs/24-observability.md`
+- `knowledge/nestjs/19-caching.md`

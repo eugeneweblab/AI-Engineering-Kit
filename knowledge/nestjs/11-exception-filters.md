@@ -7,7 +7,7 @@ type: doc
 order: 11
 status: ready
 tags: [nestjs, exception-filters]
-related: []
+related: [nestjs/08-validation, nestjs/10-interceptors, backend/12-error-handling, rest-api/09-error-handling]
 when_to_use: "Read before building or reviewing exception filters and application-wide error handling."
 ---
 # NestJS Exception Filters
@@ -616,6 +616,85 @@ Error handling should remain deterministic.
 
 ---
 
+## Examples
+
+**Good Example** — domain errors mapped once, with a stable body and a correlation id
+
+```ts
+// One place decides how a domain failure becomes HTTP.
+@Catch()
+export class AllExceptionsFilter implements ExceptionFilter {
+  private readonly logger = new Logger(AllExceptionsFilter.name);
+
+  catch(exception: unknown, host: ArgumentsHost): void {
+    const ctx = host.switchToHttp();
+    const req = ctx.getRequest<Request>();
+    const res = ctx.getResponse<Response>();
+
+    const { status, code } = this.classify(exception);
+
+    // Log the full error server-side; return a safe shape to the client.
+    this.logger.error({
+      code,
+      correlationId: req.headers['x-correlation-id'],
+      path: req.url,
+      err: exception instanceof Error ? exception.stack : String(exception),
+    });
+
+    res.status(status).json({
+      code,
+      message: status >= 500 ? 'Internal server error' : (exception as Error).message,
+      correlationId: req.headers['x-correlation-id'],
+    });
+  }
+
+  private classify(e: unknown): { status: number; code: string } {
+    if (e instanceof OutOfStockError) return { status: 409, code: 'OUT_OF_STOCK' };
+    if (e instanceof InsufficientFundsError) return { status: 409, code: 'INSUFFICIENT_FUNDS' };
+    if (e instanceof HttpException) return { status: e.getStatus(), code: 'HTTP_ERROR' };
+    return { status: 500, code: 'INTERNAL' };
+  }
+}
+```
+
+The service throws `OutOfStockError`; the mapping to `409 OUT_OF_STOCK` exists in exactly one
+file, and a queue consumer can handle the same error differently.
+
+**Bad Example** — try/catch in every handler, leaking internals
+
+```ts
+@Controller('orders')
+export class OrdersController {
+  constructor(private readonly orders: OrdersService) {}
+
+  @Post()
+  async create(@Body() dto: CreateOrderDto) {
+    try {
+      return await this.orders.place(dto);
+    } catch (e) {
+      // The stack trace, the SQL, and the table names go straight to the client.
+      throw new HttpException({ error: (e as Error).stack }, 500);
+    }
+  }
+
+  @Post('bulk')
+  async bulk(@Body() dto: BulkDto) {
+    try {
+      return await this.orders.placeMany(dto);
+    } catch (e) {
+      // The same failure, a different status and a different body shape — because
+      // the mapping is copied by hand into each handler.
+      return { ok: false, msg: String(e) };
+    }
+  }
+}
+```
+
+Every handler that forgets the `catch` returns a different error shape, and clients end up
+parsing message strings to tell one failure from another.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -654,3 +733,10 @@ Exception handling is complete when:
 Exception Filters define the application's error boundary.
 
 By centralizing exception handling, separating business failures from infrastructure errors, protecting sensitive information, and producing consistent error responses, NestJS applications become more secure, easier to debug, and more reliable in production.
+
+## Related
+
+- `knowledge/nestjs/08-validation.md`
+- `knowledge/nestjs/10-interceptors.md`
+- `knowledge/backend/12-error-handling.md`
+- `knowledge/rest-api/09-error-handling.md`

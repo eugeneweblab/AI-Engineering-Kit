@@ -7,7 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [nestjs, services]
-related: []
+related: [nestjs/06-repositories, nestjs/03-dependency-injection, nestjs/18-transactions, backend/07-business-logic]
 when_to_use: "Read before writing or reviewing any service or business-logic class."
 ---
 # NestJS Services
@@ -643,6 +643,79 @@ describe('OrdersService', () => {
 
 ---
 
+## Examples
+
+**Good Example** — business rules expressed without transport types
+
+```ts
+@Injectable()
+export class OrdersService {
+  constructor(
+    private readonly orders: OrdersRepository,
+    private readonly inventory: InventoryService,
+    private readonly events: EventEmitter2,
+  ) {}
+
+  async place(command: PlaceOrder): Promise<Order> {
+    const reserved = await this.inventory.reserve(command.items);
+    if (!reserved.ok) {
+      // A domain error, not an HTTP error. The controller maps it; a queue
+      // consumer handles it differently, and neither has to change this method.
+      throw new OutOfStockError(reserved.missingSku);
+    }
+
+    const order = await this.orders.create({
+      userId: command.userId,
+      items: command.items,
+      totalCents: this.total(command.items),
+    });
+
+    // Side effects are announced, not performed here: no mailer, no HTTP client.
+    this.events.emit('order.placed', new OrderPlacedEvent(order.id));
+
+    return order;
+  }
+
+  private total(items: ReadonlyArray<OrderItem>): number {
+    return items.reduce((sum, item) => sum + item.priceCents * item.quantity, 0);
+  }
+}
+```
+
+**Bad Example** — the service knows it is behind HTTP
+
+```ts
+@Injectable()
+export class OrdersService {
+  constructor(
+    @Inject(REQUEST) private readonly request: Request,   // transport leaked into the rule
+    @InjectRepository(OrderEntity) private readonly repo: Repository<OrderEntity>,
+  ) {}
+
+  async place(body: any) {
+    // Reading the request here means this method only works inside a web request:
+    // the same logic cannot run from a queue, a cron job, or a test.
+    const userId = (this.request as any).user?.id;
+
+    if (!body.items?.length) {
+      throw new BadRequestException('no items');   // an HTTP status inside the domain
+    }
+
+    const saved = await this.repo.save({ userId, items: body.items });
+
+    // Fire-and-forget: a failure here is silent, and the caller cannot compensate.
+    void fetch('https://hooks.example.com/order', { method: 'POST' });
+
+    return saved;
+  }
+}
+```
+
+Injecting `REQUEST` also forces the provider into request scope, which propagates to every
+class that injects `OrdersService`.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -681,3 +754,10 @@ A service implementation is complete when:
 Services are the heart of every NestJS application.
 
 By centralizing business logic, coordinating workflows, depending on abstractions, and keeping infrastructure concerns separate, services remain reusable, testable, and maintainable as the application evolves.
+
+## Related
+
+- `knowledge/nestjs/06-repositories.md`
+- `knowledge/nestjs/03-dependency-injection.md`
+- `knowledge/nestjs/18-transactions.md`
+- `knowledge/backend/07-business-logic.md`

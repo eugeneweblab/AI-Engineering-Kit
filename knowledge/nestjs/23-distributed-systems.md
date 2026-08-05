@@ -7,7 +7,7 @@ type: doc
 order: 23
 status: ready
 tags: [nestjs, distributed-systems]
-related: []
+related: [nestjs/20-queues, nestjs/24-observability, architecture/21-distributed-systems, architecture/17-fault-tolerance]
 when_to_use: "Read before designing or reviewing microservices, inter-service communication, or other distributed-system concerns."
 ---
 # Distributed Systems
@@ -678,6 +678,82 @@ Avoid when:
 
 ---
 
+## Examples
+
+**Good Example** — timeouts, a circuit breaker, and an idempotency key
+
+```ts
+@Injectable()
+export class PaymentsClient {
+  private readonly breaker = new CircuitBreaker(
+    (req: ChargeRequest) => this.call(req),
+    { timeout: 3_000, errorThresholdPercentage: 50, resetTimeout: 30_000 },
+  );
+
+  async charge(orderId: string, amountCents: number): Promise<ChargeResult> {
+    // The key makes a retry safe: the provider returns the original result
+    // instead of charging twice.
+    return this.breaker.fire({
+      idempotencyKey: `order:${orderId}`,
+      amountCents,
+    });
+  }
+
+  private async call(req: ChargeRequest): Promise<ChargeResult> {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 3_000);   // never wait forever
+
+    try {
+      const res = await fetch('https://api.payments.example/charges', {
+        method: 'POST',
+        signal: controller.signal,
+        headers: { 'Idempotency-Key': req.idempotencyKey },
+        body: JSON.stringify({ amount: req.amountCents }),
+      });
+      if (!res.ok) {
+        throw new PaymentProviderError(res.status);
+      }
+      return (await res.json()) as ChargeResult;
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+}
+```
+
+When the breaker is open, callers fail in milliseconds with a known error instead of queueing
+behind a provider that is already down.
+
+**Bad Example** — unbounded waits and blind retries
+
+```ts
+@Injectable()
+export class PaymentsClient {
+  async charge(orderId: string, amountCents: number) {
+    // No timeout: the default is the operating system's, often minutes. Every
+    // waiting request holds a connection, and the pool is exhausted before the
+    // first error is logged.
+    for (let attempt = 0; attempt < 5; attempt++) {
+      try {
+        // No idempotency key, so a timeout that actually succeeded server-side
+        // is retried — and the customer is charged five times.
+        const res = await fetch('https://api.payments.example/charges', {
+          method: 'POST',
+          body: JSON.stringify({ orderId, amountCents }),
+        });
+        return await res.json();
+      } catch {
+        // Immediate retry with no backoff: the struggling provider now receives
+        // five times its normal load from every instance at once.
+      }
+    }
+    throw new Error('payment failed');
+  }
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -716,3 +792,10 @@ A distributed architecture is complete when:
 Distributed systems enable independent scaling, resilience, and organizational flexibility.
 
 By defining clear service boundaries, applying resilience patterns, embracing eventual consistency, and investing in observability, engineering teams can build reliable production systems that continue operating despite partial failures.
+
+## Related
+
+- `knowledge/nestjs/20-queues.md`
+- `knowledge/nestjs/24-observability.md`
+- `knowledge/architecture/21-distributed-systems.md`
+- `knowledge/architecture/17-fault-tolerance.md`

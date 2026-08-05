@@ -7,7 +7,7 @@ type: doc
 order: 15
 status: ready
 tags: [nestjs, authentication]
-related: []
+related: [nestjs/16-authorization, nestjs/09-guards, security/03-authentication, security/07-jwt]
 when_to_use: "Read before building or reviewing any login, signup, session, token, or credential-handling code."
 ---
 # NestJS Authentication
@@ -172,7 +172,7 @@ export class PasswordService {
 }
 ```
 
-**Bad** — fast hash, no salt, reversible-in-practice:
+**Bad Example** — fast hash, no salt, reversible-in-practice:
 
 ```typescript
 import { createHash } from 'node:crypto';
@@ -182,7 +182,7 @@ import { createHash } from 'node:crypto';
 const stored = createHash('sha256').update(plain).digest('hex');
 ```
 
-**Good** — memory-hard, self-describing, per-hash salt:
+**Good Example** — memory-hard, self-describing, per-hash salt:
 
 ```typescript
 const stored = await this.passwordService.hash(plain); // "$argon2id$v=19$m=19456,t=2,p=1$..."
@@ -717,3 +717,10 @@ Authentication is complete when:
 Authentication establishes the identity of every request.
 
 By separating identity verification from authorization, protecting credentials, implementing secure token management, and supporting modern authentication workflows, NestJS applications remain secure, scalable, and maintainable.
+
+## Related
+
+- `knowledge/nestjs/16-authorization.md`
+- `knowledge/nestjs/09-guards.md`
+- `knowledge/security/03-authentication.md`
+- `knowledge/security/07-jwt.md`

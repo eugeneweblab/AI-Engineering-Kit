@@ -7,7 +7,7 @@ type: doc
 order: 21
 status: ready
 tags: [nestjs, events]
-related: []
+related: [nestjs/20-queues, nestjs/22-cqrs, architecture/08-event-driven-architecture, backend/14-events]
 when_to_use: "Read before designing or reviewing event-driven flows that decouple components through emitted domain events."
 ---
 # Event-Driven Architecture
@@ -684,6 +684,90 @@ Do **not** use events for:
 
 ---
 
+## Examples
+
+**Good Example** — events describe what happened, and are published after commit
+
+```ts
+// A past-tense fact with a stable shape, carrying ids rather than entities.
+export class OrderPlacedEvent {
+  constructor(
+    readonly orderId: string,
+    readonly userId: string,
+    readonly occurredAt: Date,
+  ) {}
+}
+
+@Injectable()
+export class OrdersService {
+  constructor(
+    private readonly dataSource: DataSource,
+    private readonly events: EventEmitter2,
+  ) {}
+
+  async place(command: PlaceOrder): Promise<Order> {
+    const order = await this.dataSource.transaction((manager) =>
+      manager.save(OrderEntity, { userId: command.userId, sku: command.sku }),
+    );
+
+    // Published only after the transaction commits: a subscriber can never react
+    // to an order that was rolled back.
+    this.events.emit('order.placed', new OrderPlacedEvent(order.id, order.userId, new Date()));
+
+    return order;
+  }
+}
+```
+
+```ts
+@Injectable()
+export class OrderNotificationsListener {
+  private readonly logger = new Logger(OrderNotificationsListener.name);
+
+  // Subscribers must not break the publisher. Failures are contained and logged;
+  // the work itself is handed to a queue so it can be retried independently.
+  @OnEvent('order.placed', { async: true, suppressErrors: true })
+  async handle(event: OrderPlacedEvent): Promise<void> {
+    try {
+      await this.emails.add('order-confirmation', { orderId: event.orderId });
+    } catch (err) {
+      this.logger.error({ event: 'order.placed', orderId: event.orderId, err });
+    }
+  }
+}
+```
+
+**Bad Example** — a command dressed as an event, emitted before the write lands
+
+```ts
+@Injectable()
+export class OrdersService {
+  async place(command: PlaceOrder) {
+    // Named as an instruction to one specific subscriber. This is a method call
+    // with extra indirection: the caller now depends on a listener existing,
+    // but the compiler cannot check that it does.
+    this.events.emit('sendOrderEmail', { email: command.email });
+
+    // Emitted before the order is saved. If the insert fails, the customer has
+    // already been emailed about an order that does not exist.
+    return this.repo.save({ userId: command.userId, sku: command.sku });
+  }
+}
+
+@Injectable()
+export class OrderListener {
+  @OnEvent('sendOrderEmail')
+  async handle(payload: { email: string }) {
+    // Synchronous by default: this runs inside the publisher's call stack, so a
+    // slow SMTP server adds its latency to the HTTP response, and a throw here
+    // propagates into the caller as if the order itself had failed.
+    await this.mailer.sendMail({ to: payload.email, subject: 'Order placed' });
+  }
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -722,3 +806,10 @@ An event-driven implementation is complete when:
 Events allow independent parts of a system to communicate through completed business facts.
 
 By publishing events only after successful transactions, designing idempotent consumers, versioning contracts, and maintaining strong observability, applications become more scalable, extensible, and resilient while preserving clear architectural boundaries.
+
+## Related
+
+- `knowledge/nestjs/20-queues.md`
+- `knowledge/nestjs/22-cqrs.md`
+- `knowledge/architecture/08-event-driven-architecture.md`
+- `knowledge/backend/14-events.md`

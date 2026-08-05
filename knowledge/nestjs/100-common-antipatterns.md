@@ -7,7 +7,7 @@ type: doc
 order: 100
 status: ready
 tags: [nestjs, common-antipatterns]
-related: []
+related: [nestjs/01-architecture, nestjs/05-services, nestjs/99-ai-review-checklist, nestjs/30-engineering-principles]
 when_to_use: "Read when reviewing NestJS code to catch common antipatterns and design smells before they become technical debt."
 ---
 # Common Engineering Antipatterns
@@ -685,3 +685,10 @@ An implementation avoids common engineering antipatterns when:
 Engineering antipatterns are recurring design mistakes that increase complexity, reduce maintainability, and create long-term operational risk.
 
 Recognizing these patterns early allows engineers and AI to build systems that remain understandable, scalable, and reliable throughout their lifecycle.
+
+## Related
+
+- `knowledge/nestjs/01-architecture.md`
+- `knowledge/nestjs/05-services.md`
+- `knowledge/nestjs/99-ai-review-checklist.md`
+- `knowledge/nestjs/30-engineering-principles.md`

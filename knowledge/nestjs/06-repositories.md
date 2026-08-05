@@ -7,7 +7,7 @@ type: doc
 order: 6
 status: ready
 tags: [nestjs, repositories]
-related: []
+related: [nestjs/17-database, nestjs/05-services, nestjs/18-transactions, prisma/06-client]
 when_to_use: "Read before writing or reviewing any data-access or repository layer that reads from or writes to persistent storage."
 ---
 # NestJS Repositories
@@ -620,6 +620,73 @@ describe('UsersService', () => {
 
 ---
 
+## Examples
+
+**Good Example** — persistence behind a named contract
+
+```ts
+// orders/orders.repository.ts — ORM types stop here.
+@Injectable()
+export class OrdersRepository {
+  constructor(
+    @InjectRepository(OrderEntity) private readonly repo: Repository<OrderEntity>,
+  ) {}
+
+  async findPageForUser(userId: string, page: Page): Promise<Paginated<Order>> {
+    const [rows, total] = await this.repo.findAndCount({
+      where: { userId },
+      relations: { items: true },        // explicit: no lazy loading surprises
+      order: { createdAt: 'DESC' },
+      skip: page.offset,
+      take: page.limit,                  // always bounded
+    });
+
+    return { items: rows.map(toDomain), total, ...page };
+  }
+
+  async markPaid(orderId: string, reference: string): Promise<void> {
+    const result = await this.repo.update(
+      { id: orderId, status: OrderStatus.Pending },   // optimistic guard in the WHERE
+      { status: OrderStatus.Paid, paymentReference: reference },
+    );
+    if (result.affected === 0) {
+      throw new OrderNotPendingError(orderId);
+    }
+  }
+}
+```
+
+The service calls `findPageForUser` and receives domain objects. Replacing TypeORM with
+Prisma changes this file and no other.
+
+**Bad Example** — the ORM leaks into the caller
+
+```ts
+@Injectable()
+export class OrdersRepository {
+  constructor(
+    @InjectRepository(OrderEntity) private readonly repo: Repository<OrderEntity>,
+  ) {}
+
+  // Returns a query builder, so every caller now writes persistence code and is
+  // coupled to TypeORM. The "repository" adds a file and no boundary.
+  query(): SelectQueryBuilder<OrderEntity> {
+    return this.repo.createQueryBuilder('o');
+  }
+
+  // A business decision — what counts as "active" — buried in the data layer,
+  // where it will be duplicated the first time another rule needs it.
+  async findActiveHighValue() {
+    return this.repo.find({
+      where: { status: 'PAID', totalCents: MoreThan(100_000) },
+      // No take/skip: the result set grows with the table.
+    });
+  }
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -658,3 +725,10 @@ A repository implementation is complete when:
 Repositories form the persistence boundary of a NestJS application.
 
 By isolating database access, exposing meaningful domain-oriented methods, optimizing queries, and keeping business logic within services, repositories remain reusable, maintainable, and independent from the underlying database technology.
+
+## Related
+
+- `knowledge/nestjs/17-database.md`
+- `knowledge/nestjs/05-services.md`
+- `knowledge/nestjs/18-transactions.md`
+- `knowledge/prisma/06-client.md`

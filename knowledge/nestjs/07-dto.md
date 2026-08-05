@@ -7,7 +7,7 @@ type: doc
 order: 7
 status: ready
 tags: [nestjs, dto]
-related: []
+related: [nestjs/08-validation, nestjs/12-pipes, nestjs/04-controllers, rest-api/06-request-response]
 when_to_use: "Read before defining or reviewing request and response DTOs and API contracts."
 ---
 # NestJS Data Transfer Objects (DTO)
@@ -710,6 +710,86 @@ DTO contracts should remain stable.
 
 ---
 
+## Examples
+
+**Good Example** — separate request, domain, and response shapes
+
+```ts
+// orders/dto/create-order.dto.ts — the input contract, validated at the boundary.
+export class CreateOrderItemDto {
+  @IsUUID()
+  readonly sku!: string;
+
+  @IsInt()
+  @Min(1)
+  @Max(100)
+  readonly quantity!: number;
+}
+
+export class CreateOrderDto {
+  @IsArray()
+  @ArrayNotEmpty()
+  @ValidateNested({ each: true })
+  @Type(() => CreateOrderItemDto)         // required for nested validation to run
+  readonly items!: CreateOrderItemDto[];
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(500)
+  readonly note?: string;
+}
+```
+
+```ts
+// orders/dto/order-response.dto.ts — the output contract, built explicitly.
+export class OrderResponseDto {
+  readonly id!: string;
+  readonly status!: string;
+  readonly totalCents!: number;
+  readonly createdAt!: string;
+
+  static from(order: Order): OrderResponseDto {
+    // Explicit mapping: adding a column to the entity cannot leak it to the API.
+    return {
+      id: order.id,
+      status: order.status,
+      totalCents: order.totalCents,
+      createdAt: order.createdAt.toISOString(),
+    };
+  }
+}
+```
+
+**Bad Example** — the entity used as both input and output
+
+```ts
+@Controller('orders')
+export class OrdersController {
+  @Post()
+  async create(@Body() body: OrderEntity) {
+    // The request body is typed as the entity, so a client can set `status`,
+    // `totalCents`, `userId`, or any column the ORM maps. Nothing whitelists it.
+    const order = await this.repo.save(body);
+
+    // The response is the entity too: internal columns, soft-delete flags, and
+    // whatever the next migration adds are all published automatically.
+    return order;
+  }
+
+  @Patch(':id')
+  async update(@Param('id') id: string, @Body() body: Partial<OrderEntity>) {
+    // `Partial<Entity>` accepts every field as optional, so this endpoint quietly
+    // allows changing the owner of an order.
+    return this.repo.update(id, body);
+  }
+}
+```
+
+An entity carries persistence concerns and changes for persistence reasons. Publishing it as
+the API contract means every schema change is a breaking API change — or a data leak.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -750,3 +830,10 @@ A DTO implementation is complete when:
 DTOs define the public language of a NestJS application.
 
 By separating transport models from domain and persistence models, validating all incoming data, centralizing mapping, and carefully controlling serialization, applications become safer, easier to evolve, and more resilient to internal implementation changes.
+
+## Related
+
+- `knowledge/nestjs/08-validation.md`
+- `knowledge/nestjs/12-pipes.md`
+- `knowledge/nestjs/04-controllers.md`
+- `knowledge/rest-api/06-request-response.md`

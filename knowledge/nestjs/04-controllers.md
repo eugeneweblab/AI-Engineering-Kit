@@ -7,7 +7,7 @@ type: doc
 order: 4
 status: ready
 tags: [nestjs, controllers]
-related: []
+related: [nestjs/07-dto, nestjs/08-validation, nestjs/12-pipes, nestjs/05-services, rest-api/04-endpoints]
 when_to_use: "Read before writing or reviewing any controller, route handler, or HTTP endpoint."
 ---
 # NestJS Controllers
@@ -701,6 +701,76 @@ describe('UsersController', () => {
 
 ---
 
+## Examples
+
+**Good Example** — the controller translates HTTP and nothing else
+
+```ts
+@Controller('orders')
+export class OrdersController {
+  constructor(private readonly orders: OrdersService) {}
+
+  @Post()
+  @HttpCode(HttpStatus.CREATED)
+  @UseGuards(JwtAuthGuard)
+  async create(
+    @Body() dto: CreateOrderDto,          // validated by the global ValidationPipe
+    @CurrentUser() user: AuthenticatedUser,
+  ): Promise<OrderResponseDto> {
+    const order = await this.orders.place(dto, user.id);
+    return OrderResponseDto.from(order);  // never return the entity
+  }
+
+  @Get(':id')
+  async findOne(@Param('id', ParseUUIDPipe) id: string): Promise<OrderResponseDto> {
+    const order = await this.orders.findById(id);
+    if (!order) {
+      throw new NotFoundException(`Order ${id} not found`);
+    }
+    return OrderResponseDto.from(order);
+  }
+}
+```
+
+The same rule is reachable from a queue consumer or a CLI command, because it lives in
+`OrdersService` rather than in the HTTP layer.
+
+**Bad Example** — the controller is the application
+
+```ts
+@Controller('orders')
+export class OrdersController {
+  constructor(
+    @InjectRepository(OrderEntity) private readonly repo: Repository<OrderEntity>,
+    private readonly mailer: MailerService,
+  ) {}
+
+  @Post()
+  async create(@Body() body: any, @Req() req: Request) {
+    // Untyped body, hand-rolled validation, business rules, persistence, and a side
+    // effect — all bound to HTTP and none of it reusable or unit-testable.
+    if (!body.items || body.items.length === 0) {
+      throw new HttpException('no items', 400);
+    }
+
+    let total = 0;
+    for (const item of body.items) {
+      total += item.price * item.qty;
+    }
+    if (total > 100_000 && !req.headers['x-approval']) {
+      throw new HttpException('approval required', 403);
+    }
+
+    const order = await this.repo.save({ total, userId: (req as any).user.id });
+    await this.mailer.sendMail({ to: (req as any).user.email, subject: 'Order placed' });
+
+    return order;   // leaks every column, including internal ones
+  }
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -739,3 +809,11 @@ A controller implementation is complete when:
 Controllers provide the entry point into a NestJS application.
 
 By keeping controllers focused on HTTP communication, delegating business logic to services, validating every request, and exposing a consistent REST API, applications remain easier to maintain, extend, and test as they grow.
+
+## Related
+
+- `knowledge/nestjs/07-dto.md`
+- `knowledge/nestjs/08-validation.md`
+- `knowledge/nestjs/12-pipes.md`
+- `knowledge/nestjs/05-services.md`
+- `knowledge/rest-api/04-endpoints.md`

@@ -260,8 +260,13 @@ def run_js_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] |
             name = f"b{n}.{ext}"
             names[name] = block_id
             (tmpdir / name).write_text(src, encoding="utf-8")
+        # NestJS parameter decorators (@Body(), @Param()) are valid TypeScript only
+        # with experimentalDecorators. Enable it so real defects are not buried under
+        # 80 spurious errors.
+        tsconfig = '{"compilerOptions":{"experimentalDecorators":true}}'
         proc = subprocess.run(
             ["npx", "--yes", "esbuild@0.24.0", "--log-limit=0",
+             f"--tsconfig-raw={tsconfig}",
              f"--outdir={tmpdir / '_out'}", *sorted(names)],
             capture_output=True, text=True, cwd=tmpdir,
         )

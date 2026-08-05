@@ -7,7 +7,7 @@ type: doc
 order: 24
 status: ready
 tags: [nestjs, observability]
-related: []
+related: [nestjs/10-interceptors, nestjs/29-maintenance, architecture/18-observability, nodejs/17-logging]
 when_to_use: "Read before adding or reviewing logging, metrics, tracing, or health checks for a NestJS service."
 ---
 # Observability
@@ -646,6 +646,94 @@ Do **not** log:
 
 ---
 
+## Examples
+
+**Good Example** — structured logs, a correlation id, and metrics that answer questions
+
+```ts
+// One logger configuration; every log line is a parseable object with context.
+export const logger = pino({
+  level: process.env.LOG_LEVEL ?? 'info',
+  redact: ['req.headers.authorization', 'req.headers.cookie', '*.password'],
+  formatters: { level: (label) => ({ level: label }) },
+});
+
+@Injectable()
+export class OrdersService {
+  async place(command: PlaceOrder): Promise<Order> {
+    const { correlationId } = requestContext.getStore() ?? {};
+
+    logger.info({ event: 'order.place.started', correlationId, userId: command.userId });
+
+    try {
+      const order = await this.orders.create(command);
+      // The same correlation id appears on the HTTP access log, this line, the
+      // queue job it enqueues, and the downstream service's logs.
+      logger.info({ event: 'order.place.succeeded', correlationId, orderId: order.id });
+      return order;
+    } catch (err) {
+      logger.error({ event: 'order.place.failed', correlationId, err });
+      throw err;
+    }
+  }
+}
+```
+
+```ts
+// A health endpoint that checks dependencies, not just that the process is alive.
+@Controller('health')
+export class HealthController {
+  constructor(
+    private readonly health: HealthCheckService,
+    private readonly db: TypeOrmHealthIndicator,
+    private readonly memory: MemoryHealthIndicator,
+  ) {}
+
+  @Get('ready')
+  @HealthCheck()
+  readiness() {
+    return this.health.check([
+      () => this.db.pingCheck('database', { timeout: 1_000 }),
+      () => this.memory.checkHeap('heap', 512 * 1024 * 1024),
+    ]);
+  }
+}
+```
+
+**Bad Example** — free-text logs, no identifiers, a health check that always passes
+
+```ts
+@Injectable()
+export class OrdersService {
+  async place(command: PlaceOrder) {
+    // Unstructured and unsearchable: no field to filter on, no id to join across
+    // services, and the values are interpolated so they cannot be indexed.
+    console.log('placing order for ' + command.userId + ' sku ' + command.sku);
+
+    try {
+      return await this.orders.create(command);
+    } catch (e) {
+      // The error is logged with no context and then swallowed, so the caller
+      // sees success and the metric shows no failure.
+      console.log('error!', e);
+      return null;
+    }
+  }
+}
+
+@Controller('health')
+export class HealthController {
+  // Returns 200 while the database is unreachable, so the orchestrator keeps
+  // routing traffic to an instance that cannot serve a single request.
+  @Get()
+  check() {
+    return { status: 'ok' };
+  }
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -684,3 +772,10 @@ Observability is complete when:
 Observability provides visibility into the runtime behavior of an application.
 
 By combining structured logging, metrics, distributed tracing, health monitoring, and actionable alerts, engineering teams can operate production systems with confidence, detect failures early, and diagnose incidents efficiently.
+
+## Related
+
+- `knowledge/nestjs/10-interceptors.md`
+- `knowledge/nestjs/29-maintenance.md`
+- `knowledge/architecture/18-observability.md`
+- `knowledge/nodejs/17-logging.md`

@@ -7,7 +7,7 @@ type: doc
 order: 13
 status: ready
 tags: [nestjs, middleware]
-related: []
+related: [nestjs/09-guards, nestjs/10-interceptors, nestjs/24-observability]
 when_to_use: "Read before adding or reviewing middleware that preprocesses requests before they reach the NestJS pipeline."
 ---
 # NestJS Middleware
@@ -587,6 +587,62 @@ Do **not** use Middleware for:
 
 ---
 
+## Examples
+
+**Good Example** — middleware establishes request context; guards decide access
+
+```ts
+// A correlation id and a request-scoped store, available everywhere downstream
+// without threading a parameter through every function.
+export const requestContext = new AsyncLocalStorage<{ correlationId: string; userId?: string }>();
+
+@Injectable()
+export class CorrelationIdMiddleware implements NestMiddleware {
+  use(req: Request, res: Response, next: NextFunction): void {
+    const correlationId = (req.headers['x-correlation-id'] as string) ?? randomUUID();
+    res.setHeader('x-correlation-id', correlationId);
+
+    // Everything inside next() — services, repositories, the logger — can read this.
+    requestContext.run({ correlationId }, () => next());
+  }
+}
+
+@Module({})
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer): void {
+    consumer.apply(helmet(), CorrelationIdMiddleware).forRoutes('*');
+  }
+}
+```
+
+**Bad Example** — authentication and authorization implemented in middleware
+
+```ts
+@Injectable()
+export class AuthMiddleware implements NestMiddleware {
+  async use(req: Request, res: Response, next: NextFunction) {
+    const token = req.headers.authorization?.replace('Bearer ', '');
+    (req as any).user = await this.jwt.verifyAsync(token!);
+
+    // Middleware runs before the router resolves the handler, so there is no
+    // ExecutionContext: no @Roles() metadata, no handler reference, no way to
+    // ask "what does this route require?". The rule ends up hardcoded to paths.
+    if (req.path.startsWith('/admin') && (req as any).user.role !== 'admin') {
+      res.status(403).json({ error: 'forbidden' });
+      return;                                   // silently ends the request
+    }
+
+    next();
+  }
+}
+```
+
+Path-prefix matching drifts from the routes the moment one is renamed or versioned. Guards
+receive the `ExecutionContext`, can read decorator metadata, and are testable against a
+handler rather than a URL string.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -691,3 +747,9 @@ Middleware implementation is complete when:
 Middleware is the application's first processing layer.
 
 By limiting Middleware to request preprocessing, context initialization, logging, security configuration, and other cross-cutting concerns, NestJS applications maintain a clean execution pipeline where each framework component has a single, well-defined responsibility.
+
+## Related
+
+- `knowledge/nestjs/09-guards.md`
+- `knowledge/nestjs/10-interceptors.md`
+- `knowledge/nestjs/24-observability.md`

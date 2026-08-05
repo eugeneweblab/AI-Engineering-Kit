@@ -7,7 +7,7 @@ type: doc
 order: 12
 status: ready
 tags: [nestjs, pipes]
-related: []
+related: [nestjs/07-dto, nestjs/08-validation, nestjs/04-controllers]
 when_to_use: "Read before building or reviewing pipes that transform or validate incoming request data."
 ---
 # NestJS Pipes
@@ -602,6 +602,77 @@ Do **not** use a Pipe for:
 
 ---
 
+## Examples
+
+**Good Example** — a pipe transforms and validates one value, statelessly
+
+```ts
+// Built-in pipes cover most parameter needs and produce correct 400s.
+@Controller('orders')
+export class OrdersController {
+  constructor(private readonly orders: OrdersService) {}
+
+  @Get(':id')
+  findOne(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
+    @Query('limit', new DefaultValuePipe(20), ParseIntPipe) limit: number,
+  ) {
+    return this.orders.findPage(id, { page, limit: Math.min(limit, 100) });
+  }
+}
+```
+
+```ts
+// A custom pipe when the transformation is genuinely reusable and self-contained.
+@Injectable()
+export class TrimPipe implements PipeTransform<string, string> {
+  transform(value: string, metadata: ArgumentMetadata): string {
+    if (typeof value !== 'string') {
+      throw new BadRequestException(`${metadata.data} must be a string`);
+    }
+    return value.trim();
+  }
+}
+```
+
+No I/O, no database, no request state — so the pipe is a pure function of its input and can
+be unit-tested with a single call.
+
+**Bad Example** — a pipe that queries the database and enforces a business rule
+
+```ts
+@Injectable()
+export class LoadAndAuthorizeOrderPipe implements PipeTransform {
+  constructor(
+    private readonly repo: OrdersRepository,
+    @Inject(REQUEST) private readonly request: Request,   // forces request scope
+  ) {}
+
+  async transform(id: string): Promise<Order> {
+    // I/O in a pipe: the query runs outside any transaction the handler opens,
+    // and the same order is loaded twice per request.
+    const order = await this.repo.findById(id);
+    if (!order) {
+      throw new NotFoundException();
+    }
+
+    // Authorization in a pipe: invisible to anyone reading the controller, and
+    // unreachable from the queue consumer that needs the same rule.
+    if (order.userId !== (this.request as any).user.id) {
+      throw new ForbiddenException();
+    }
+
+    return order;
+  }
+}
+```
+
+Ownership checks belong in a Guard; loading the aggregate belongs in the service. A pipe that
+does both makes the request pipeline the place business rules hide.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -640,3 +711,9 @@ A Pipe implementation is complete when:
 Pipes define the transport boundary of a NestJS application.
 
 By focusing exclusively on parsing, normalization, and transport-level validation while avoiding business logic and infrastructure concerns, Pipes keep controllers simple, services focused, and the request lifecycle clean and predictable.
+
+## Related
+
+- `knowledge/nestjs/07-dto.md`
+- `knowledge/nestjs/08-validation.md`
+- `knowledge/nestjs/04-controllers.md`

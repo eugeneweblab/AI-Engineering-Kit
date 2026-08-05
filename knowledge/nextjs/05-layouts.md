@@ -355,7 +355,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 }
 ```
 
-**Good** — a small `"use client"` provider island; the layout stays a Server
+**Good Example** — a small `"use client"` provider island; the layout stays a Server
 Component and `children` (Server Components) still stream through untouched.
 
 ```tsx
@@ -373,7 +373,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
-**Bad** — marking the entire Root Layout as a client boundary. Every descendant
+**Bad Example** — marking the entire Root Layout as a client boundary. Every descendant
 is now forced onto the client, disabling Server Components below it and
 inflating the bundle.
 

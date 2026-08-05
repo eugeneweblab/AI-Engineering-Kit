@@ -7,7 +7,7 @@ type: doc
 order: 98
 status: ready
 tags: [nestjs, production-checklist]
-related: []
+related: [nestjs/28-deployment, nestjs/26-security, nestjs/27-performance, nestjs/99-ai-review-checklist]
 when_to_use: "Read before shipping a NestJS service to production."
 ---
 # Production Readiness Checklist
@@ -275,3 +275,10 @@ Skipping checklist items requires explicit engineering justification.
 Production readiness is achieved through disciplined engineering rather than successful compilation alone.
 
 This checklist provides a consistent verification process that reduces deployment risk and increases confidence in production releases.
+
+## Related
+
+- `knowledge/nestjs/28-deployment.md`
+- `knowledge/nestjs/26-security.md`
+- `knowledge/nestjs/27-performance.md`
+- `knowledge/nestjs/99-ai-review-checklist.md`

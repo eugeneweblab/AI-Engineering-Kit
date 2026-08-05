@@ -7,7 +7,7 @@ type: doc
 order: 25
 status: ready
 tags: [nestjs, testing]
-related: []
+related: [nestjs/03-dependency-injection, nestjs/05-services, testing/02-unit-testing, testing/03-integration-testing]
 when_to_use: "Read before writing or reviewing unit, integration, or end-to-end tests for NestJS code."
 ---
 # Testing
@@ -674,6 +674,93 @@ Use E2E Tests for:
 
 ---
 
+## Examples
+
+**Good Example** — the unit test isolates the rule; the integration test uses a real database
+
+```ts
+describe('OrdersService', () => {
+  let service: OrdersService;
+  const inventory = { reserve: jest.fn() };
+  const orders = { create: jest.fn() };
+
+  beforeEach(async () => {
+    const moduleRef = await Test.createTestingModule({
+      providers: [
+        OrdersService,
+        { provide: InventoryService, useValue: inventory },
+        { provide: OrdersRepository, useValue: orders },
+        { provide: EventEmitter2, useValue: { emit: jest.fn() } },
+      ],
+    }).compile();
+
+    service = moduleRef.get(OrdersService);
+  });
+
+  it('rejects the order when stock is unavailable', async () => {
+    inventory.reserve.mockResolvedValue({ ok: false, missingSku: 'SKU-1' });
+
+    // Asserts the rule and the reason — not which methods were called in what order.
+    await expect(service.place({ userId: 'u1', items: [] })).rejects.toBeInstanceOf(OutOfStockError);
+    expect(orders.create).not.toHaveBeenCalled();
+  });
+});
+```
+
+```ts
+// The integration test exercises the real wiring against a real database.
+describe('POST /orders (integration)', () => {
+  let app: INestApplication;
+  let container: StartedPostgreSqlContainer;
+
+  beforeAll(async () => {
+    container = await new PostgreSqlContainer().start();
+    process.env.DATABASE_URL = container.getConnectionUri();
+
+    const moduleRef = await Test.createTestingModule({ imports: [AppModule] }).compile();
+    app = moduleRef.createNestApplication();
+    app.useGlobalPipes(new ValidationPipe({ whitelist: true }));   // same config as production
+    await app.init();
+  });
+
+  afterAll(async () => {
+    await app.close();
+    await container.stop();
+  });
+
+  it('rejects a body with unknown fields', async () => {
+    await request(app.getHttpServer())
+      .post('/orders')
+      .send({ sku: 'SKU-1', quantity: 1, isAdmin: true })
+      .expect(400);
+  });
+});
+```
+
+**Bad Example** — everything mocked, nothing asserted
+
+```ts
+describe('OrdersService', () => {
+  it('places an order', async () => {
+    // The service under test is mocked too, so this asserts that jest works.
+    const service = { place: jest.fn().mockResolvedValue({ id: '1' }) };
+    const result = await service.place({});
+    expect(result).toBeDefined();
+  });
+
+  it('calls the repository', async () => {
+    await service.place({ userId: 'u1', items: [] });
+
+    // Asserts the implementation: extracting a private method or reordering two
+    // calls breaks the test although the behaviour is identical.
+    expect(repo.create).toHaveBeenCalledBefore(events.emit);
+    expect(repo.create).toHaveBeenCalledTimes(1);
+  });
+});
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -714,3 +801,10 @@ A testing strategy is complete when:
 Testing provides confidence that software behaves correctly under expected and unexpected conditions.
 
 By emphasizing behavioral verification, maintaining a balanced testing strategy, writing deterministic and independent tests, and treating testing as an integral part of software design, engineering teams can deliver reliable, maintainable, and production-ready NestJS applications.
+
+## Related
+
+- `knowledge/nestjs/03-dependency-injection.md`
+- `knowledge/nestjs/05-services.md`
+- `knowledge/testing/02-unit-testing.md`
+- `knowledge/testing/03-integration-testing.md`

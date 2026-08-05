@@ -7,7 +7,7 @@ type: doc
 order: 9
 status: ready
 tags: [nestjs, guards]
-related: []
+related: [nestjs/15-authentication, nestjs/16-authorization, nestjs/13-middleware, security/04-authorization]
 when_to_use: "Read before writing or reviewing any guard that enforces authentication or access control on a route."
 ---
 # NestJS Guards
@@ -361,7 +361,7 @@ Denied
 
 Ownership checks belong in authorization logic—not controllers.
 
-**Bad** — ownership logic tangled into the controller and easy to forget on
+**Bad Example** — ownership logic tangled into the controller and easy to forget on
 the next endpoint:
 
 ```typescript
@@ -377,7 +377,7 @@ async findOne(@Param('id') id: string, @Req() req: Request) {
 }
 ```
 
-**Good** — a dedicated Guard performs the ownership check. A Guard may inject
+**Good Example** — a dedicated Guard performs the ownership check. A Guard may inject
 services, so it can load the resource and compare it to the principal. Throw
 `NotFoundException` instead of `ForbiddenException` when hiding a resource's
 existence matters:
@@ -744,3 +744,10 @@ A Guard implementation is complete when:
 Guards provide the primary security boundary for NestJS applications.
 
 By separating identity verification from permission evaluation, centralizing authorization logic, enforcing ownership, and keeping Guards focused on access control, applications become significantly more secure, maintainable, and easier to evolve.
+
+## Related
+
+- `knowledge/nestjs/15-authentication.md`
+- `knowledge/nestjs/16-authorization.md`
+- `knowledge/nestjs/13-middleware.md`
+- `knowledge/security/04-authorization.md`

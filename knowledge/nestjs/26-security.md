@@ -7,7 +7,7 @@ type: doc
 order: 26
 status: ready
 tags: [nestjs, security]
-related: []
+related: [nestjs/15-authentication, nestjs/16-authorization, nestjs/08-validation, security/28-owasp-top10]
 when_to_use: "Read before building or reviewing any code with security implications, or when hardening a NestJS application."
 ---
 # Security
@@ -649,6 +649,78 @@ Never trust:
 
 ---
 
+## Examples
+
+**Good Example** — the boundary whitelists, the response omits, the transport is hardened
+
+```ts
+// main.ts
+const app = await NestFactory.create(AppModule, { logger: ['error', 'warn', 'log'] });
+
+app.use(helmet());                       // security headers, including CSP defaults
+app.enableCors({
+  origin: ['https://app.example.com'],   // an explicit list, never a reflected origin
+  credentials: true,
+});
+app.useGlobalPipes(
+  new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }),
+);
+app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
+```
+
+```ts
+@Entity()
+export class UserEntity {
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
+
+  @Column()
+  email!: string;
+
+  // Never selected by default, and stripped even if a query asks for it.
+  @Column({ select: false })
+  @Exclude()
+  passwordHash!: string;
+}
+
+@Injectable()
+export class UsersService {
+  async create(dto: CreateUserDto): Promise<UserEntity> {
+    return this.repo.save({
+      email: dto.email,
+      passwordHash: await argon2.hash(dto.password, { type: argon2.argon2id }),
+      // Privilege is assigned by the server, never carried by the request body.
+      roles: [Role.User],
+    });
+  }
+}
+```
+
+**Bad Example** — the request body decides everything
+
+```ts
+@Injectable()
+export class UsersService {
+  async create(dto: any) {
+    // Spreading the raw body lets a client set `roles`, `isAdmin`, `emailVerified`,
+    // or any other column the entity maps. Nothing whitelisted the fields.
+    return this.repo.save({ ...dto, password: dto.password });
+  }
+}
+
+// CORS reflecting whatever the browser sent, with credentials enabled: any site
+// can make authenticated requests on behalf of a logged-in user.
+app.enableCors({ origin: true, credentials: true });
+
+// Secrets and stack traces returned to the client.
+app.useGlobalFilters({
+  catch: (err: Error, host: ArgumentsHost) =>
+    host.switchToHttp().getResponse().status(500).json({ stack: err.stack, env: process.env }),
+});
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -687,3 +759,10 @@ Security implementation is complete when:
 Security is a continuous engineering discipline rather than a single feature.
 
 By applying defense in depth, Zero Trust principles, strong authentication and authorization, secure dependency management, and continuous security validation, NestJS applications remain resilient against evolving threats while protecting users and business data.
+
+## Related
+
+- `knowledge/nestjs/15-authentication.md`
+- `knowledge/nestjs/16-authorization.md`
+- `knowledge/nestjs/08-validation.md`
+- `knowledge/security/28-owasp-top10.md`

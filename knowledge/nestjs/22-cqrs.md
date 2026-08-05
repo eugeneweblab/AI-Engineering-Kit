@@ -7,7 +7,7 @@ type: doc
 order: 22
 status: ready
 tags: [nestjs, cqrs]
-related: []
+related: [nestjs/21-events, nestjs/01-architecture, architecture/07-cqrs, architecture/06-domain-driven-design]
 when_to_use: "Read before deciding on or reviewing a CQRS design that separates read and write operations."
 ---
 # CQRS (Command Query Responsibility Segregation)
@@ -853,6 +853,88 @@ Do **not** use CQRS when:
 
 ---
 
+## Examples
+
+**Good Example** — a command that changes state, a query that does not
+
+```ts
+export class PlaceOrderCommand {
+  constructor(readonly userId: string, readonly sku: string, readonly quantity: number) {}
+}
+
+@CommandHandler(PlaceOrderCommand)
+export class PlaceOrderHandler implements ICommandHandler<PlaceOrderCommand, string> {
+  constructor(
+    private readonly orders: OrdersRepository,
+    private readonly publisher: EventPublisher,
+  ) {}
+
+  // Returns the identifier only. The write model never leaves this handler.
+  async execute(command: PlaceOrderCommand): Promise<string> {
+    const order = this.publisher.mergeObjectContext(
+      Order.place(command.userId, command.sku, command.quantity),
+    );
+
+    await this.orders.save(order);
+    order.commit();          // domain events published after the write succeeds
+    return order.id;
+  }
+}
+```
+
+```ts
+export class GetOrderSummaryQuery {
+  constructor(readonly orderId: string) {}
+}
+
+@QueryHandler(GetOrderSummaryQuery)
+export class GetOrderSummaryHandler implements IQueryHandler<GetOrderSummaryQuery> {
+  constructor(private readonly db: DataSource) {}
+
+  // The read side is free to bypass the domain model entirely: a flat projection
+  // shaped for the screen, with no aggregate to load or invariants to enforce.
+  async execute(query: GetOrderSummaryQuery): Promise<OrderSummary | null> {
+    const [row] = await this.db.query(
+      `SELECT o.id, o.status, o.total_cents, u.email
+         FROM orders o JOIN users u ON u.id = o.user_id
+        WHERE o.id = $1`,
+      [query.orderId],
+    );
+    return row ?? null;
+  }
+}
+```
+
+**Bad Example** — CQRS as a naming convention over the same model
+
+```ts
+@CommandHandler(GetOrderCommand)
+export class GetOrderHandler implements ICommandHandler<GetOrderCommand> {
+  // A "command" that reads. The separation now means nothing: there is no way to
+  // route reads to a replica, or to reason about which operations mutate state.
+  async execute(command: GetOrderCommand) {
+    return this.repo.findOne({ where: { id: command.id } });
+  }
+}
+
+@CommandHandler(PlaceOrderCommand)
+export class PlaceOrderHandler implements ICommandHandler<PlaceOrderCommand> {
+  async execute(command: PlaceOrderCommand) {
+    const order = await this.repo.save({ sku: command.sku });
+
+    // Returns the entity, so the caller depends on the write model's shape and
+    // every schema change becomes an API change.
+    return order;
+  }
+}
+```
+
+CQRS pays for itself when the read and write sides have genuinely different shapes or scaling
+needs. Applied to a CRUD resource, it adds two classes per endpoint and buys nothing — see
+[Architecture — CQRS](../architecture/07-cqrs.md).
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -891,3 +973,10 @@ A CQRS implementation is complete when:
 CQRS separates state modification from data retrieval to improve scalability, maintainability, and architectural clarity.
 
 By introducing CQRS only where business complexity justifies it, keeping commands and queries independent, protecting aggregate invariants, and optimizing read models separately, NestJS applications remain both flexible and maintainable without unnecessary complexity.
+
+## Related
+
+- `knowledge/nestjs/21-events.md`
+- `knowledge/nestjs/01-architecture.md`
+- `knowledge/architecture/07-cqrs.md`
+- `knowledge/architecture/06-domain-driven-design.md`

@@ -164,7 +164,7 @@ Authentication cookies should be:
 
 Never expose authentication cookies to client-side JavaScript.
 
-**Good** — signed, HttpOnly, scoped, transport-secure:
+**Good Example** — signed, HttpOnly, scoped, transport-secure:
 
 ```ts
 (await cookies()).set('session', token, {
@@ -176,7 +176,7 @@ Never expose authentication cookies to client-side JavaScript.
 });
 ```
 
-**Bad** — readable by any script, unsigned, sent over plain HTTP:
+**Bad Example** — readable by any script, unsigned, sent over plain HTTP:
 
 ```ts
 // XSS steals it via document.cookie; the raw userId is client-forgeable.
@@ -348,7 +348,7 @@ it is not the authoritative check. Middleware runs before routing and has been b
 internal headers (the 2025 `x-middleware-subrequest` CVE), so the real verification must live next
 to the data. Use a `matcher` so it never runs on static assets or the login route itself.
 
-**Good** — presence check + redirect, real verification deferred to the Data Access Layer:
+**Good Example** — presence check + redirect, real verification deferred to the Data Access Layer:
 
 ```ts
 // middleware.ts
@@ -370,7 +370,7 @@ export const config = {
 };
 ```
 
-**Bad** — treating the middleware redirect as the whole defense:
+**Bad Example** — treating the middleware redirect as the whole defense:
 
 ```ts
 // If a Route Handler or Server Component under /dashboard reads data WITHOUT re-checking

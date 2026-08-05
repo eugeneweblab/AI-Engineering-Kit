@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [nestjs, architecture]
-related: []
+related: [nestjs/02-modules, nestjs/03-dependency-injection, nestjs/05-services, nestjs/06-repositories, architecture/03-clean-architecture]
 when_to_use: "Read before designing or reviewing the layer boundaries, dependencies, or overall structure of a NestJS application."
 ---
 # NestJS Architecture
@@ -361,7 +361,7 @@ import { Order } from './entities/order.entity';
 export class OrdersModule {}
 ```
 
-**Bad** — manual instantiation defeats DI: the dependency is hard-wired, cannot be swapped, and cannot be mocked in a unit test.
+**Bad Example** — manual instantiation defeats DI: the dependency is hard-wired, cannot be swapped, and cannot be mocked in a unit test.
 
 ```ts
 @Injectable()
@@ -371,7 +371,7 @@ export class OrdersService {
 }
 ```
 
-**Good** — declare the dependency in the constructor and let the container resolve it.
+**Good Example** — declare the dependency in the constructor and let the container resolve it.
 
 ```ts
 @Injectable()
@@ -392,7 +392,7 @@ Avoid:
 
 Business rules belong inside services.
 
-**Bad** — the controller owns validation, persistence, and a side effect. It is now coupled to HTTP, the ORM, and the mailer all at once, and the rule cannot be reused or unit-tested without spinning up the web layer.
+**Bad Example** — the controller owns validation, persistence, and a side effect. It is now coupled to HTTP, the ORM, and the mailer all at once, and the rule cannot be reused or unit-tested without spinning up the web layer.
 
 ```ts
 @Controller('orders')
@@ -414,7 +414,7 @@ export class OrdersController {
 }
 ```
 
-**Good** — the controller only translates HTTP to a service call. The rule and the orchestration live in `OrdersService.placeOrder`, which is testable in isolation and reusable from a queue consumer, a CLI command, or a GraphQL resolver.
+**Good Example** — the controller only translates HTTP to a service call. The rule and the orchestration live in `OrdersService.placeOrder`, which is testable in isolation and reusable from a queue consumer, a CLI command, or a GraphQL resolver.
 
 ```ts
 @Controller('orders')
@@ -628,3 +628,11 @@ The architecture is complete when:
 A well-designed NestJS architecture is modular, predictable, and centered around business domains.
 
 By enforcing clear boundaries, leveraging dependency injection, and separating business logic from infrastructure, applications remain easier to maintain, test, and scale as they evolve.
+
+## Related
+
+- `knowledge/nestjs/02-modules.md`
+- `knowledge/nestjs/03-dependency-injection.md`
+- `knowledge/nestjs/05-services.md`
+- `knowledge/nestjs/06-repositories.md`
+- `knowledge/architecture/03-clean-architecture.md`

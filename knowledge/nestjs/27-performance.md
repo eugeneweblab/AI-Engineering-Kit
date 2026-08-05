@@ -7,7 +7,7 @@ type: doc
 order: 27
 status: ready
 tags: [nestjs, performance]
-related: []
+related: [nestjs/19-caching, nestjs/17-database, performance/14-api-performance, nodejs/19-performance]
 when_to_use: "Read before profiling, optimizing, or reviewing the performance and scalability of a NestJS application."
 ---
 # Performance Engineering
@@ -532,6 +532,81 @@ Do **not** optimize:
 
 ---
 
+## Examples
+
+**Good Example** — measure first, then remove the round trips that dominate
+
+```ts
+@Injectable()
+export class DashboardService {
+  constructor(private readonly db: DataSource, @Inject(CACHE_MANAGER) private readonly cache: Cache) {}
+
+  async summary(userId: string): Promise<DashboardSummary> {
+    const key = `dashboard:v1:${userId}`;
+    const cached = await this.cache.get<DashboardSummary>(key);
+    if (cached) {
+      return cached;
+    }
+
+    // Independent queries run concurrently rather than in sequence: the latency
+    // is the slowest one, not their sum.
+    const [orders, invoices, alerts] = await Promise.all([
+      this.orders.countRecent(userId),
+      this.invoices.sumOutstanding(userId),
+      this.alerts.openFor(userId),
+    ]);
+
+    const summary = { orders, invoices, alerts };
+    await this.cache.set(key, summary, 60_000);
+    return summary;
+  }
+}
+```
+
+```ts
+// CPU-bound work moved off the event loop, which otherwise blocks every request.
+@Injectable()
+export class ReportsService {
+  private readonly pool = new Piscina({ filename: join(__dirname, 'render-report.worker.js') });
+
+  render(rows: ReportRow[]): Promise<Buffer> {
+    return this.pool.run(rows);
+  }
+}
+```
+
+**Bad Example** — sequential awaits and synchronous CPU work in the request path
+
+```ts
+@Injectable()
+export class DashboardService {
+  async summary(userId: string) {
+    // Three independent queries, awaited one after another: 3× the latency for
+    // no reason. Nothing here depends on the previous result.
+    const orders = await this.orders.countRecent(userId);
+    const invoices = await this.invoices.sumOutstanding(userId);
+    const alerts = await this.alerts.openFor(userId);
+
+    // Blocking CPU work on the event loop: while this runs, the process cannot
+    // accept a connection, answer a health check, or serve any other request.
+    const pdf = renderReportSync(orders, invoices, alerts);
+
+    // An N+1 hidden behind a map: one query per alert, awaited serially.
+    const enriched = [];
+    for (const alert of alerts) {
+      enriched.push(await this.users.findById(alert.assigneeId));
+    }
+
+    return { pdf, enriched };
+  }
+}
+```
+
+Profile before changing anything: the fix above is architectural — fewer round trips and work
+moved off the loop — and no amount of micro-optimisation inside `renderReportSync` matches it.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -570,3 +645,10 @@ Performance engineering is complete when:
 Performance engineering is the continuous process of measuring, optimizing, validating, and monitoring application behavior.
 
 By focusing on measurable bottlenecks, protecting the Node.js event loop, optimizing persistence and networking, and continuously validating improvements, NestJS applications remain responsive, scalable, and efficient under production workloads.
+
+## Related
+
+- `knowledge/nestjs/19-caching.md`
+- `knowledge/nestjs/17-database.md`
+- `knowledge/performance/14-api-performance.md`
+- `knowledge/nodejs/19-performance.md`

@@ -7,7 +7,7 @@ type: doc
 order: 0
 status: ready
 tags: [nestjs, overview]
-related: []
+related: [nestjs/01-architecture, nestjs/02-modules, nestjs/03-dependency-injection, nestjs/04-controllers, nestjs/30-engineering-principles]
 when_to_use: "Read first when starting any NestJS work, to find which doc in this topic answers your question."
 ---
 # NestJS Overview
@@ -292,3 +292,11 @@ A NestJS application architecture is complete when:
 NestJS provides a powerful foundation for building scalable backend systems.
 
 By organizing applications around business domains, embracing dependency injection, separating responsibilities, and designing for long-term maintainability, engineering teams can build reliable production-ready backend services.
+
+## Related
+
+- `knowledge/nestjs/01-architecture.md`
+- `knowledge/nestjs/02-modules.md`
+- `knowledge/nestjs/03-dependency-injection.md`
+- `knowledge/nestjs/04-controllers.md`
+- `knowledge/nestjs/30-engineering-principles.md`

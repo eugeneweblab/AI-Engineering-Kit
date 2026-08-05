@@ -7,7 +7,7 @@ type: doc
 order: 18
 status: ready
 tags: [nestjs, transactions]
-related: []
+related: [nestjs/17-database, nestjs/06-repositories, databases/09-transactions, prisma/08-transactions]
 when_to_use: "Read before writing or reviewing any operation that must update multiple pieces of state atomically."
 ---
 # NestJS Transactions
@@ -819,6 +819,79 @@ Do **not** use transactions for:
 
 ---
 
+## Examples
+
+**Good Example** — one transaction per use case, side effects after commit
+
+```ts
+@Injectable()
+export class OrdersService {
+  constructor(
+    private readonly dataSource: DataSource,
+    private readonly events: EventEmitter2,
+  ) {}
+
+  async place(command: PlaceOrder): Promise<Order> {
+    // The unit of work is the business operation, not each repository call.
+    const order = await this.dataSource.transaction('READ COMMITTED', async (manager) => {
+      // Every write inside uses THIS manager, or it runs outside the transaction.
+      const stock = await manager.findOne(StockEntity, {
+        where: { sku: command.sku },
+        lock: { mode: 'pessimistic_write' },   // serialise concurrent buyers
+      });
+
+      if (!stock || stock.available < command.quantity) {
+        throw new OutOfStockError(command.sku);   // rolls back automatically
+      }
+
+      stock.available -= command.quantity;
+      await manager.save(stock);
+
+      return manager.save(OrderEntity, {
+        userId: command.userId,
+        sku: command.sku,
+        quantity: command.quantity,
+      });
+    });
+
+    // Outside the transaction: an email cannot be rolled back, and holding the
+    // transaction open across a network call is how connection pools run dry.
+    this.events.emit('order.placed', new OrderPlacedEvent(order.id));
+
+    return order;
+  }
+}
+```
+
+**Bad Example** — a transaction that does not cover the writes, and I/O inside it
+
+```ts
+@Injectable()
+export class OrdersService {
+  async place(command: PlaceOrder) {
+    return this.dataSource.transaction(async (manager) => {
+      // Uses the global repository, not `manager`: this write is on a DIFFERENT
+      // connection and is NOT part of the transaction. A rollback leaves it behind.
+      await this.stockRepo.decrement({ sku: command.sku }, 'available', command.quantity);
+
+      const order = await manager.save(OrderEntity, { sku: command.sku });
+
+      // A network call with the transaction open: the row locks are held for the
+      // full round trip, and a slow provider stalls every other writer.
+      await this.stripe.charges.create({ amount: command.amountCents, currency: 'eur' });
+
+      // An email inside the transaction: if the commit fails afterwards, the
+      // customer has been told about an order that does not exist.
+      await this.mailer.sendMail({ to: command.email, subject: 'Order confirmed' });
+
+      return order;
+    });
+  }
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -857,3 +930,10 @@ A transactional workflow is complete when:
 Transactions preserve business consistency across multiple persistence operations.
 
 By keeping transactions short, defining clear boundaries, separating external integrations through patterns such as Outbox and Saga, and designing for idempotency and concurrency, NestJS applications remain reliable under real-world production workloads.
+
+## Related
+
+- `knowledge/nestjs/17-database.md`
+- `knowledge/nestjs/06-repositories.md`
+- `knowledge/databases/09-transactions.md`
+- `knowledge/prisma/08-transactions.md`

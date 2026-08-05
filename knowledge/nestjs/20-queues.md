@@ -7,7 +7,7 @@ type: doc
 order: 20
 status: ready
 tags: [nestjs, queues]
-related: []
+related: [nestjs/21-events, nestjs/23-distributed-systems, backend/16-background-jobs, redis/16-message-queues]
 when_to_use: "Read before building or reviewing background jobs, queues, or asynchronous work moved outside the request lifecycle."
 ---
 # NestJS Queues
@@ -657,6 +657,81 @@ Do **not** use queues for:
 
 ---
 
+## Examples
+
+**Good Example** — idempotent job, bounded retries, permanent failures sent to the DLQ
+
+```ts
+@Injectable()
+export class OrdersService {
+  constructor(@InjectQueue('emails') private readonly emails: Queue) {}
+
+  async place(command: PlaceOrder): Promise<Order> {
+    const order = await this.orders.create(command);
+
+    await this.emails.add(
+      'order-confirmation',
+      { orderId: order.id },              // an id, not the whole object
+      {
+        jobId: `order-confirmation:${order.id}`,   // deduplicates retries of the caller
+        attempts: 5,
+        backoff: { type: 'exponential', delay: 1_000 },
+        removeOnComplete: 1_000,
+        removeOnFail: false,              // keep failures for inspection
+      },
+    );
+
+    return order;
+  }
+}
+```
+
+```ts
+@Processor('emails')
+export class EmailProcessor extends WorkerHost {
+  async process(job: Job<{ orderId: string }>): Promise<void> {
+    const order = await this.orders.findById(job.data.orderId);
+
+    // A malformed or obsolete job must not consume all five attempts.
+    if (!order) {
+      throw new UnrecoverableError(`Order ${job.data.orderId} no longer exists`);
+    }
+
+    // Idempotency: the worker may run twice for the same job after a crash.
+    if (order.confirmationSentAt) {
+      return;
+    }
+
+    await this.mailer.sendConfirmation(order);
+    await this.orders.markConfirmationSent(order.id);
+  }
+}
+```
+
+**Bad Example** — the payload is the state, and every failure retries forever
+
+```ts
+// The whole entity is serialised into the job. By the time it runs, the order
+// has changed — and the worker acts on a snapshot that is minutes old.
+await this.emails.add('order-confirmation', { order }, { attempts: Number.MAX_SAFE_INTEGER });
+
+@Processor('emails')
+export class EmailProcessor extends WorkerHost {
+  async process(job: Job<{ order: OrderEntity }>): Promise<void> {
+    // No idempotency check: a redelivery sends the customer a second email.
+    await this.mailer.sendConfirmation(job.data.order);
+
+    // A validation failure is permanent, but it is thrown as a generic error,
+    // so it retries forever and the queue never drains.
+    if (!job.data.order.email) {
+      throw new Error('missing email');
+    }
+  }
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -695,3 +770,10 @@ Queue implementation is complete when:
 Queues enable reliable asynchronous processing in NestJS applications.
 
 By designing idempotent jobs, configuring intelligent retry strategies, using Dead Letter Queues, monitoring worker health, and treating background processing as a first-class architectural component, applications become more scalable, resilient, and production-ready.
+
+## Related
+
+- `knowledge/nestjs/21-events.md`
+- `knowledge/nestjs/23-distributed-systems.md`
+- `knowledge/backend/16-background-jobs.md`
+- `knowledge/redis/16-message-queues.md`

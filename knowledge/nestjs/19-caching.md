@@ -7,7 +7,7 @@ type: doc
 order: 19
 status: ready
 tags: [nestjs, caching]
-related: []
+related: [nestjs/27-performance, nestjs/10-interceptors, redis/13-caching, architecture/19-caching-strategies]
 when_to_use: "Read before adding or reviewing caching to improve performance, and when reasoning about cache invalidation and consistency."
 ---
 # NestJS Caching
@@ -556,6 +556,75 @@ Do **not** cache:
 
 ---
 
+## Examples
+
+**Good Example** — cache-aside, bounded TTL, invalidated after the write commits
+
+```ts
+@Injectable()
+export class ProductsService {
+  private static readonly TTL_SECONDS = 300;
+
+  constructor(
+    @Inject(CACHE_MANAGER) private readonly cache: Cache,
+    private readonly products: ProductsRepository,
+  ) {}
+
+  async findById(id: string): Promise<ProductView | null> {
+    const key = `product:v2:${id}`;          // version in the key: a shape change
+    const cached = await this.cache.get<ProductView>(key);   // invalidates the old entries
+    if (cached) {
+      return cached;
+    }
+
+    const product = await this.products.findById(id);
+    if (!product) {
+      return null;                          // do not cache "not found" indefinitely
+    }
+
+    const view = toView(product);           // cache the projection, not the ORM entity
+    await this.cache.set(key, view, ProductsService.TTL_SECONDS * 1000);
+    return view;
+  }
+
+  async rename(id: string, name: string): Promise<void> {
+    await this.products.rename(id, name);   // source of truth first
+    await this.cache.del(`product:v2:${id}`); // then invalidate; never pre-populate
+  }
+}
+```
+
+**Bad Example** — write-through into the cache, no TTL, entity cached whole
+
+```ts
+@Injectable()
+export class ProductsService {
+  async rename(id: string, name: string): Promise<void> {
+    const entity = await this.repo.findOne({ where: { id }, relations: { reviews: true } });
+    entity.name = name;
+
+    // Cache updated BEFORE the database. If the update below fails, every reader
+    // now sees a name that was never persisted.
+    await this.cache.set(`product:${id}`, entity);   // no TTL: stale forever
+
+    await this.repo.save(entity);
+  }
+
+  async findById(id: string) {
+    // Caching the ORM entity stores its relations, its private fields, and
+    // whatever the next migration adds — then hands them back after a deploy
+    // in which the class shape changed.
+    const cached = await this.cache.get<ProductEntity>(`product:${id}`);
+    return cached ?? this.repo.findOne({ where: { id } });
+  }
+}
+```
+
+An entry with no TTL and no invalidation path is not a cache; it is a second database that
+nobody migrates.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -594,3 +663,10 @@ Caching is complete when:
 Caching improves performance by reducing repeated work and database load.
 
 By treating the cache as an optimization rather than a source of truth, implementing clear invalidation strategies, measuring effectiveness, and designing graceful fallback behavior, NestJS applications remain both fast and reliable.
+
+## Related
+
+- `knowledge/nestjs/27-performance.md`
+- `knowledge/nestjs/10-interceptors.md`
+- `knowledge/redis/13-caching.md`
+- `knowledge/architecture/19-caching-strategies.md`

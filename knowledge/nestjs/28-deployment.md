@@ -7,7 +7,7 @@ type: doc
 order: 28
 status: ready
 tags: [nestjs, deployment]
-related: []
+related: [nestjs/14-configuration, nestjs/29-maintenance, docker/11-multi-stage-builds, cicd/10-deployment]
 when_to_use: "Read before setting up or reviewing build, containerization, CI/CD, or release processes for a NestJS application."
 ---
 # Deployment
@@ -666,6 +666,66 @@ Never rely on:
 
 ---
 
+## Examples
+
+**Good Example** — a small image, a non-root user, and probes that mean something
+
+```dockerfile
+# Build stage: dev dependencies and the compiler stay here.
+FROM node:22-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build && npm prune --omit=dev
+
+# Runtime stage: production dependencies and compiled output only.
+FROM node:22-alpine AS runtime
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
+
+USER node
+EXPOSE 3000
+CMD ["node", "dist/main.js"]
+```
+
+```ts
+// main.ts — shut down cleanly so in-flight requests finish and the pool closes.
+const app = await NestFactory.create(AppModule);
+app.enableShutdownHooks();            // SIGTERM triggers onModuleDestroy
+await app.listen(process.env.PORT ?? 3000);
+```
+
+```yaml
+readinessProbe:
+  httpGet: { path: /health/ready, port: 3000 }   # checks the database
+  periodSeconds: 5
+livenessProbe:
+  httpGet: { path: /health/live, port: 3000 }    # process is responsive
+  periodSeconds: 10
+  failureThreshold: 3
+```
+
+**Bad Example** — the build image shipped, running as root, no graceful shutdown
+
+```dockerfile
+FROM node:latest                 # floating tag: the build is not reproducible
+WORKDIR /app
+COPY . .                         # includes .git, tests, and node_modules from the host
+RUN npm install                  # dev dependencies in the runtime image
+
+# Secrets baked into a layer, readable by anyone who can pull the image.
+ENV DATABASE_URL=postgres://app:hunter2@db:5432/app
+
+# Runs as root, and npm swallows SIGTERM so the container is killed after the
+# grace period with requests still in flight.
+CMD ["npm", "run", "start:prod"]
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -704,3 +764,10 @@ Deployment is complete when:
 Deployment is the controlled delivery of software into production.
 
 By automating the entire deployment pipeline, separating configuration from code, treating infrastructure as code, validating every release, and preparing reliable rollback strategies, NestJS applications can be deployed safely, consistently, and with minimal operational risk.
+
+## Related
+
+- `knowledge/nestjs/14-configuration.md`
+- `knowledge/nestjs/29-maintenance.md`
+- `knowledge/docker/11-multi-stage-builds.md`
+- `knowledge/cicd/10-deployment.md`

@@ -7,7 +7,7 @@ type: doc
 order: 29
 status: ready
 tags: [nestjs, maintenance]
-related: []
+related: [nestjs/28-deployment, nestjs/24-observability, nestjs/25-testing]
 when_to_use: "Read when maintaining, upgrading, or managing technical debt in a NestJS application after deployment."
 ---
 # Maintenance
@@ -585,6 +585,71 @@ Do **not** ignore:
 
 ---
 
+## Examples
+
+**Good Example** — deprecate on a schedule, with the data to know when it is safe
+
+```ts
+@Controller({ path: 'orders', version: '1' })
+export class OrdersV1Controller {
+  constructor(private readonly orders: OrdersService, private readonly metrics: MetricsService) {}
+
+  @Get(':id')
+  @Header('Deprecation', 'true')
+  @Header('Sunset', 'Wed, 01 Oct 2026 00:00:00 GMT')
+  @Header('Link', '</v2/orders>; rel="successor-version"')
+  async findOne(@Param('id') id: string, @Req() req: Request) {
+    // Count who is still on v1, by client. Removal becomes a decision with
+    // evidence rather than a guess.
+    this.metrics.increment('api.deprecated.v1', {
+      route: 'orders.findOne',
+      client: (req.headers['x-client-id'] as string) ?? 'unknown',
+    });
+
+    return OrderResponseV1Dto.from(await this.orders.findById(id));
+  }
+}
+```
+
+```json
+{
+  "scripts": {
+    "deps:check": "npm outdated && npm audit --audit-level=high",
+    "deps:update": "npx npm-check-updates --target minor -u && npm install && npm test"
+  }
+}
+```
+
+**Bad Example** — the endpoint removed without notice, dependencies frozen
+
+```ts
+// v1 deleted in the same release that shipped v2. Every client that had not
+// migrated started receiving 404s in production, with no deprecation window
+// and no metric that would have shown who was still calling it.
+@Controller({ path: 'orders', version: '2' })
+export class OrdersController {
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.orders.findById(id);
+  }
+}
+```
+
+```json
+{
+  "dependencies": {
+    "@nestjs/core": "9.0.0",
+    "typeorm": "0.2.45"
+  }
+}
+```
+
+Pinned to exact versions and never updated, the project accumulates two major versions of
+debt. The eventual upgrade is a multi-week project rather than a weekly ten-minute one, and
+security advisories in between go unpatched.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -623,3 +688,9 @@ Maintenance processes are complete when:
 Maintenance ensures software remains reliable, secure, and adaptable throughout its lifecycle.
 
 By continuously improving architecture, managing technical debt, updating dependencies, documenting operational knowledge, and validating recovery processes, engineering teams can sustain production systems for many years while minimizing operational risk.
+
+## Related
+
+- `knowledge/nestjs/28-deployment.md`
+- `knowledge/nestjs/24-observability.md`
+- `knowledge/nestjs/25-testing.md`

@@ -7,7 +7,7 @@ type: doc
 order: 17
 status: ready
 tags: [nestjs, database]
-related: []
+related: [nestjs/06-repositories, nestjs/18-transactions, prisma/02-schema, databases/07-indexing]
 when_to_use: "Read before integrating or reviewing database access, ORM setup, entities, or migrations in a NestJS application."
 ---
 # NestJS Database
@@ -707,6 +707,82 @@ Do **not** use the database for:
 
 ---
 
+## Examples
+
+**Good Example** — explicit relations, bounded reads, migrations under review
+
+```ts
+@Injectable()
+export class OrdersRepository {
+  constructor(
+    @InjectRepository(OrderEntity) private readonly repo: Repository<OrderEntity>,
+  ) {}
+
+  // One query loads the orders and their items. Selecting explicit columns keeps
+  // the row size — and the cache footprint — predictable.
+  async recentWithItems(userId: string, limit = 20): Promise<OrderEntity[]> {
+    return this.repo.find({
+      where: { userId },
+      relations: { items: true },
+      select: { id: true, status: true, totalCents: true, createdAt: true },
+      order: { createdAt: 'DESC' },
+      take: limit,
+    });
+  }
+}
+```
+
+```ts
+// Migrations are generated, reviewed, and committed — never synchronised at boot.
+export class AddOrderStatusIndex1735689600000 implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    // CONCURRENTLY so the write path is not blocked while the index builds.
+    await queryRunner.query(
+      `CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_orders_user_created
+       ON orders (user_id, created_at DESC)`,
+    );
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`DROP INDEX CONCURRENTLY IF EXISTS idx_orders_user_created`);
+  }
+}
+```
+
+**Bad Example** — schema synchronised at boot, N+1 on every list
+
+```ts
+TypeOrmModule.forRoot({
+  type: 'postgres',
+  url: process.env.DATABASE_URL,
+  autoLoadEntities: true,
+  // Rewrites the production schema to match the entities on every deploy.
+  // A renamed property drops the column — and the data in it.
+  synchronize: true,
+  logging: true,          // every query to stdout, in production
+});
+```
+
+```ts
+@Injectable()
+export class OrdersService {
+  async listWithItems(userId: string) {
+    const orders = await this.repo.find({ where: { userId } });   // unbounded
+
+    // One query per order, then one per customer: 2N+1 round trips, and the
+    // number grows with the user's history rather than staying constant.
+    for (const order of orders) {
+      order.items = await this.itemRepo.find({ where: { orderId: order.id } });
+      order.customer = await this.userRepo.findOne({ where: { id: order.userId } });
+    }
+
+    return orders;
+  }
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -747,3 +823,10 @@ Database integration is complete when:
 The database is one of the most critical infrastructure components of a NestJS application.
 
 By isolating persistence behind repositories, designing efficient queries, enforcing constraints, minimizing transactions, and continuously monitoring performance, applications remain scalable, reliable, and maintainable as they grow.
+
+## Related
+
+- `knowledge/nestjs/06-repositories.md`
+- `knowledge/nestjs/18-transactions.md`
+- `knowledge/prisma/02-schema.md`
+- `knowledge/databases/07-indexing.md`

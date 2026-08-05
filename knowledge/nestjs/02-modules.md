@@ -7,7 +7,7 @@ type: doc
 order: 2
 status: ready
 tags: [nestjs, modules]
-related: []
+related: [nestjs/01-architecture, nestjs/03-dependency-injection, nestjs/14-configuration, nestjs/05-services, architecture/10-modular-monolith]
 when_to_use: "Read before creating, splitting, or reviewing NestJS modules and their imports and exports."
 ---
 # NestJS Modules
@@ -509,6 +509,65 @@ Do not rely solely on external modules for security.
 
 ---
 
+## Examples
+
+**Good Example** — a feature module with a deliberate public surface
+
+```ts
+// orders/orders.module.ts — imports what it needs, exports only what others may use.
+@Module({
+  imports: [
+    TypeOrmModule.forFeature([OrderEntity]),
+    PaymentsModule,                 // a sibling feature, imported explicitly
+  ],
+  controllers: [OrdersController],
+  providers: [OrdersService, OrdersRepository, OrderPricing],
+  exports: [OrdersService],         // the only thing other modules may depend on
+})
+export class OrdersModule {}
+```
+
+```ts
+// billing/billing.module.ts — depends on the exported service, not on internals.
+@Module({
+  imports: [OrdersModule],
+  providers: [InvoiceService],
+})
+export class BillingModule {}
+```
+
+`OrdersRepository` and `OrderPricing` cannot be injected outside `OrdersModule`, so a
+refactor of either is contained. The dependency graph is visible in the decorators.
+
+**Bad Example** — one module for everything, plus a `CommonModule` that exports it all
+
+```ts
+// app.module.ts — every provider in the application, in one list.
+@Module({
+  controllers: [OrdersController, UsersController, PaymentsController, ReportsController],
+  providers: [
+    OrdersService, OrdersRepository, OrderPricing,
+    UsersService, UsersRepository,
+    PaymentsService, StripeClient, InvoiceService, ReportBuilder,
+  ],
+})
+export class AppModule {}
+
+// common/common.module.ts — a bag with no boundary: importing it grants access
+// to everything, so no dependency is ever explicit and nothing can be extracted.
+@Global()
+@Module({
+  providers: [OrdersService, UsersService, PaymentsService, StripeClient],
+  exports: [OrdersService, UsersService, PaymentsService, StripeClient],
+})
+export class CommonModule {}
+```
+
+With `@Global()` and a catch-all export list, every provider is reachable from everywhere.
+The compiler can no longer tell you what breaks when `StripeClient` changes.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -547,3 +606,11 @@ A module implementation is complete when:
 Modules are the foundation of every NestJS application.
 
 By organizing code around business capabilities, minimizing coupling, exposing only well-defined public APIs, and maintaining clear ownership boundaries, applications become significantly easier to understand, extend, and maintain over time.
+
+## Related
+
+- `knowledge/nestjs/01-architecture.md`
+- `knowledge/nestjs/03-dependency-injection.md`
+- `knowledge/nestjs/14-configuration.md`
+- `knowledge/nestjs/05-services.md`
+- `knowledge/architecture/10-modular-monolith.md`

@@ -7,7 +7,7 @@ type: doc
 order: 8
 status: ready
 tags: [nestjs, validation]
-related: []
+related: [nestjs/07-dto, nestjs/12-pipes, nestjs/11-exception-filters, backend/09-validation, security/09-input-validation]
 when_to_use: "Read before adding or reviewing validation of incoming request data at the application boundary."
 ---
 # NestJS Validation
@@ -704,6 +704,92 @@ Validation should remain deterministic.
 
 ---
 
+## Examples
+
+**Good Example** — transport validation at the edge, business validation in the domain
+
+```ts
+// main.ts — one global pipe, configured to reject anything not declared.
+app.useGlobalPipes(
+  new ValidationPipe({
+    whitelist: true,             // strip properties with no decorator
+    forbidNonWhitelisted: true,  // and reject the request if any were sent
+    transform: true,             // instantiate the DTO class, not a plain object
+    transformOptions: { enableImplicitConversion: false },
+    stopAtFirstError: false,     // report every field at once, not one per round trip
+  }),
+);
+```
+
+```ts
+// The DTO answers "is this a well-formed request?" — nothing more.
+export class TransferDto {
+  @IsUUID()
+  readonly fromAccountId!: string;
+
+  @IsUUID()
+  readonly toAccountId!: string;
+
+  @IsInt()
+  @Min(1)
+  readonly amountCents!: number;
+}
+
+// The service answers "is this allowed right now?" — which needs state.
+@Injectable()
+export class TransfersService {
+  async transfer(dto: TransferDto): Promise<Transfer> {
+    const from = await this.accounts.findById(dto.fromAccountId);
+
+    // Cannot live in a decorator: it depends on data, and on data at this instant.
+    if (from.balanceCents < dto.amountCents) {
+      throw new InsufficientFundsError(from.id, dto.amountCents);
+    }
+    if (from.frozen) {
+      throw new AccountFrozenError(from.id);
+    }
+
+    return this.ledger.record(dto);
+  }
+}
+```
+
+**Bad Example** — validation split across everything, and a DTO that queries the database
+
+```ts
+// No global pipe, so decorators on DTOs are inert and never run.
+export class TransferDto {
+  @IsUUID()
+  readonly fromAccountId!: string;      // decorated, but nothing validates it
+}
+
+@Controller('transfers')
+export class TransfersController {
+  @Post()
+  async transfer(@Body() body: any) {
+    // Hand-rolled checks, duplicated in every endpoint that touches an account,
+    // and drifting from the DTO the moment either changes.
+    if (typeof body.amountCents !== 'number' || body.amountCents <= 0) {
+      throw new HttpException('bad amount', 400);
+    }
+
+    // A balance check in the controller: the same rule is re-implemented in the
+    // queue consumer, and the two disagree within a release.
+    const from = await this.repo.findOne({ where: { id: body.fromAccountId } });
+    if (!from || from.balanceCents < body.amountCents) {
+      throw new HttpException('insufficient funds', 400);
+    }
+
+    return this.service.transfer(body);
+  }
+}
+```
+
+A custom validator that reaches into the database is the same mistake in a different place:
+it turns a stateless shape check into a stateful business rule with no transaction around it.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -742,3 +828,11 @@ Validation is complete when:
 Validation establishes the first line of defense for every NestJS application.
 
 By validating all incoming requests, separating transport validation from business rules, rejecting unexpected input, and enforcing consistent validation behavior, applications become more secure, reliable, and easier to maintain.
+
+## Related
+
+- `knowledge/nestjs/07-dto.md`
+- `knowledge/nestjs/12-pipes.md`
+- `knowledge/nestjs/11-exception-filters.md`
+- `knowledge/backend/09-validation.md`
+- `knowledge/security/09-input-validation.md`

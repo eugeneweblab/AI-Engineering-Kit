@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [nestjs, dependency-injection]
-related: []
+related: [nestjs/02-modules, nestjs/05-services, nestjs/25-testing, nestjs/01-architecture]
 when_to_use: "Read before wiring providers, tokens, scopes, or custom factories, or when debugging DI resolution errors."
 ---
 # NestJS Dependency Injection
@@ -548,6 +548,81 @@ Sensitive functionality should remain centralized.
 
 ---
 
+## Examples
+
+**Good Example** — depend on a token, let the container decide the implementation
+
+```ts
+// orders/payment-gateway.ts — the contract the service depends on.
+export const PAYMENT_GATEWAY = Symbol('PAYMENT_GATEWAY');
+
+export interface PaymentGateway {
+  charge(orderId: string, amountCents: number): Promise<{ reference: string }>;
+}
+```
+
+```ts
+@Injectable()
+export class OrdersService {
+  constructor(
+    @Inject(PAYMENT_GATEWAY) private readonly payments: PaymentGateway,
+    private readonly orders: OrdersRepository,
+  ) {}
+
+  async pay(orderId: string, amountCents: number): Promise<string> {
+    const { reference } = await this.payments.charge(orderId, amountCents);
+    await this.orders.markPaid(orderId, reference);
+    return reference;
+  }
+}
+
+// orders.module.ts — the binding lives here, so it can differ per environment.
+@Module({
+  providers: [
+    OrdersService,
+    OrdersRepository,
+    { provide: PAYMENT_GATEWAY, useClass: StripeGateway },
+  ],
+})
+export class OrdersModule {}
+```
+
+```ts
+// The unit test swaps one binding; nothing else changes.
+const moduleRef = await Test.createTestingModule({
+  providers: [
+    OrdersService,
+    { provide: OrdersRepository, useValue: { markPaid: jest.fn() } },
+    { provide: PAYMENT_GATEWAY, useValue: { charge: async () => ({ reference: 'ch_1' }) } },
+  ],
+}).compile();
+```
+
+**Bad Example** — construct dependencies by hand, then discover they cannot be replaced
+
+```ts
+@Injectable()
+export class OrdersService {
+  // Hard-wired: the concrete class, its constructor arguments, and its configuration
+  // are now part of this file. A test cannot substitute it without network access.
+  private readonly payments = new StripeGateway(process.env.STRIPE_KEY!);
+
+  // A module-level singleton reintroduces shared mutable state the container exists
+  // to manage, and it is initialised at import time — before configuration is loaded.
+  private readonly cache = GlobalCache.instance;
+
+  async pay(orderId: string, amountCents: number): Promise<string> {
+    const { reference } = await this.payments.charge(orderId, amountCents);
+    return reference;
+  }
+}
+```
+
+Marking a provider `Scope.REQUEST` to work around this makes it worse: request scope
+propagates up the whole injection chain, so every consumer is re-instantiated per request.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -586,3 +661,10 @@ Dependency Injection is implemented correctly when:
 Dependency Injection is one of the core architectural strengths of NestJS.
 
 By depending on abstractions, using constructor injection consistently, organizing providers within their owning modules, and keeping dependencies explicit, applications become more modular, testable, scalable, and easier to maintain.
+
+## Related
+
+- `knowledge/nestjs/02-modules.md`
+- `knowledge/nestjs/05-services.md`
+- `knowledge/nestjs/25-testing.md`
+- `knowledge/nestjs/01-architecture.md`

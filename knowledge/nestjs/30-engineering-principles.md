@@ -7,7 +7,7 @@ type: doc
 order: 30
 status: ready
 tags: [nestjs, engineering-principles]
-related: []
+related: [nestjs/01-architecture, nestjs/100-common-antipatterns, nestjs/99-ai-review-checklist, architecture/30-engineering-principles]
 when_to_use: "Read for the universal engineering principles that should guide any NestJS design or implementation decision."
 ---
 # Engineering Principles
@@ -340,6 +340,88 @@ Avoid solutions that are:
 
 ---
 
+## Examples
+
+**Good Example** — the framework kept at the edges
+
+```ts
+// domain/order.ts — no NestJS import, no ORM import. Pure rules, instantly testable.
+export class Order {
+  private constructor(
+    readonly id: string,
+    readonly userId: string,
+    private items: OrderItem[],
+    private status: OrderStatus,
+  ) {}
+
+  static place(userId: string, items: OrderItem[]): Order {
+    if (items.length === 0) {
+      throw new EmptyOrderError();
+    }
+    return new Order(randomUUID(), userId, items, OrderStatus.Pending);
+  }
+
+  cancel(now: Date): void {
+    if (this.status !== OrderStatus.Pending) {
+      throw new OrderNotCancellableError(this.id, this.status);
+    }
+    this.status = OrderStatus.Cancelled;
+  }
+
+  get totalCents(): number {
+    return this.items.reduce((sum, item) => sum + item.priceCents * item.quantity, 0);
+  }
+}
+```
+
+```ts
+// The framework layer translates transport to domain and back. It holds no rules.
+@Controller('orders')
+export class OrdersController {
+  constructor(private readonly orders: OrdersService) {}
+
+  @Post()
+  async create(@Body() dto: CreateOrderDto, @CurrentUser() user: AuthenticatedUser) {
+    const order = await this.orders.place(dto.toCommand(user.id));
+    return OrderResponseDto.from(order);
+  }
+}
+```
+
+The rule "an empty order cannot be placed" is tested with a function call, not an HTTP
+request, and it survives a move to GraphQL, a queue consumer, or a different framework.
+
+**Bad Example** — the framework is the architecture
+
+```ts
+@Injectable()
+export class OrdersService {
+  constructor(
+    @Inject(REQUEST) private readonly request: Request,
+    @InjectRepository(OrderEntity) private readonly repo: Repository<OrderEntity>,
+    private readonly config: ConfigService,
+  ) {}
+
+  async place(dto: CreateOrderDto) {
+    // Every rule in this method is entangled with HTTP, the ORM, and the config
+    // module. Testing "an empty order cannot be placed" now requires booting the
+    // application, a database, and a request object.
+    if (!dto.items?.length) {
+      throw new BadRequestException('empty order');
+    }
+
+    const limit = Number(this.config.get('MAX_ITEMS'));
+    if (dto.items.length > limit) {
+      throw new BadRequestException(`max ${limit} items`);
+    }
+
+    return this.repo.save({ ...dto, userId: (this.request as any).user.id });
+  }
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -378,3 +460,10 @@ Engineering principles are successfully applied when:
 Engineering principles provide a framework for making consistent technical decisions.
 
 By balancing simplicity, maintainability, correctness, and pragmatism, teams can build software that not only solves today's requirements but also remains adaptable and reliable as systems evolve.
+
+## Related
+
+- `knowledge/nestjs/01-architecture.md`
+- `knowledge/nestjs/100-common-antipatterns.md`
+- `knowledge/nestjs/99-ai-review-checklist.md`
+- `knowledge/architecture/30-engineering-principles.md`

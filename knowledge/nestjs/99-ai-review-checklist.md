@@ -7,7 +7,7 @@ type: doc
 order: 99
 status: ready
 tags: [nestjs, ai-review-checklist]
-related: []
+related: [nestjs/98-production-checklist, nestjs/100-common-antipatterns, nestjs/30-engineering-principles]
 when_to_use: "Read before reviewing a NestJS pull request or AI-generated NestJS code."
 ---
 # AI Engineering Review Checklist
@@ -370,3 +370,9 @@ An engineering review is complete when:
 Engineering review is a mandatory quality gate between solution generation and delivery.
 
 By systematically reviewing correctness, simplicity, architecture, security, performance, testing, maintainability, observability, and operational readiness, AI can consistently produce solutions that meet professional engineering standards.
+
+## Related
+
+- `knowledge/nestjs/98-production-checklist.md`
+- `knowledge/nestjs/100-common-antipatterns.md`
+- `knowledge/nestjs/30-engineering-principles.md`

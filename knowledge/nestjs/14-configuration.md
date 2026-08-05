@@ -7,7 +7,7 @@ type: doc
 order: 14
 status: ready
 tags: [nestjs, configuration]
-related: []
+related: [nestjs/02-modules, nestjs/28-deployment, nodejs/15-configuration, security/16-secrets-management]
 when_to_use: "Read before adding or reviewing configuration, environment variables, or secrets handling in a NestJS application."
 ---
 # NestJS Configuration
@@ -539,6 +539,85 @@ Do **not** store:
 
 ---
 
+## Examples
+
+**Good Example** — parsed once, validated at boot, injected as a typed object
+
+```ts
+// config/env.validation.ts — the process refuses to start on bad configuration.
+const envSchema = z.object({
+  NODE_ENV: z.enum(['development', 'test', 'production']),
+  PORT: z.coerce.number().int().positive().default(3000),
+  DATABASE_URL: z.string().url(),
+  JWT_SECRET: z.string().min(32),
+  STRIPE_KEY: z.string().startsWith('sk_'),
+});
+
+export type Env = z.infer<typeof envSchema>;
+
+export function validateEnv(raw: Record<string, unknown>): Env {
+  const parsed = envSchema.safeParse(raw);
+  if (!parsed.success) {
+    // Field names only — never the values, which are secrets.
+    throw new Error(`Invalid configuration: ${Object.keys(parsed.error.flatten().fieldErrors)}`);
+  }
+  return parsed.data;
+}
+```
+
+```ts
+@Module({
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      cache: true,
+      validate: validateEnv,        // runs during bootstrap, before the first request
+      envFilePath: ['.env.local', '.env'],
+    }),
+  ],
+})
+export class AppModule {}
+
+@Injectable()
+export class StripeService {
+  constructor(private readonly config: ConfigService<Env, true>) {}
+
+  private readonly client = new Stripe(this.config.get('STRIPE_KEY', { infer: true }));
+}
+```
+
+A missing or malformed variable fails the deploy in seconds, not on the first request that
+happens to need it.
+
+**Bad Example** — read from `process.env` at the point of use, unvalidated
+
+```ts
+@Injectable()
+export class StripeService {
+  // Non-null assertion on an unvalidated value: if STRIPE_KEY is absent the
+  // client is constructed with `undefined` and fails at the first charge —
+  // in production, hours after the deploy that broke it.
+  private readonly client = new Stripe(process.env.STRIPE_KEY!);
+
+  async charge(amountCents: number) {
+    // A string where a number is expected: '1000' * 2 works, but comparisons do not.
+    const max = process.env.MAX_CHARGE ?? 100_000;
+    if (amountCents > max) {                    // string vs number comparison
+      throw new Error('too large');
+    }
+
+    // A default that silently changes behaviour between environments.
+    const currency = process.env.CURRENCY || 'usd';
+    return this.client.charges.create({ amount: amountCents, currency });
+  }
+}
+```
+
+Scattering `process.env` also removes the one place where a reader could learn what the
+service needs to run.
+
+---
+
 ## Common Mistakes
 
 Avoid:
@@ -577,3 +656,10 @@ Configuration management is complete when:
 Configuration is the foundation of every production NestJS application.
 
 By centralizing configuration, validating it during startup, exposing typed configuration through dependency injection, and protecting sensitive values, applications become significantly more secure, maintainable, and reliable across all deployment environments.
+
+## Related
+
+- `knowledge/nestjs/02-modules.md`
+- `knowledge/nestjs/28-deployment.md`
+- `knowledge/nodejs/15-configuration.md`
+- `knowledge/security/16-secrets-management.md`
