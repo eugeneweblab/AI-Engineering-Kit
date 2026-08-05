@@ -65,7 +65,7 @@ audit from real coverage.
 
 **Good Example** — automation gates CI, humans cover the rest
 
-```ts
+```tsx
 // vitest + jest-axe: catches the machine-detectable 20-40% on every commit
 import { axe } from "jest-axe";
 

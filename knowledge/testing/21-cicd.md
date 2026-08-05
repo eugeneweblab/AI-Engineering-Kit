@@ -99,7 +99,11 @@ jobs:
       - run: npm test -- --shard=${{ matrix.shard }}/4 --coverage
       - uses: actions/upload-artifact@v4
         if: failure()                            # traces/coverage available on red
-        with: { name: test-output-${{ matrix.shard }}, path: [coverage, test-results] }
+        with:
+          name: test-output-${{ matrix.shard }}
+          path: |
+            coverage
+            test-results
 ```
 
 **Bad Example** — retries hide flakiness; failures are undiagnosable

@@ -69,7 +69,7 @@ wrong is silent data loss in production — the queue looks healthy while messag
 
 **Good Example** — consumer group, work-then-ack, bounded stream
 
-```bash
+```redis
 # Bounded append: ~ keeps the stream near 100k entries cheaply. Capture the returned ID.
 XADD orders MAXLEN ~ 100000 * type "checkout" order_id "9921"
 
@@ -85,7 +85,7 @@ XACK orders workers 1700000000000-0
 
 **Bad Example** — pub/sub as a durable queue, and ack-before-work
 
-```bash
+```redis
 # Pub/sub delivers ONLY to currently-connected subscribers. A worker that is
 # restarting or lagging never sees this message — silent, permanent loss.
 PUBLISH orders '{"type":"checkout","order_id":"9921"}'

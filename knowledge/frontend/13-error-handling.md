@@ -116,9 +116,14 @@ function Profile() {
   if (!user) return <Spinner />; // "loading" and "failed" are indistinguishable
   return <ProfileCard user={user} />;
 }
+```
 
-// Elsewhere, showing the raw error to the user:
-catch (e) {
+And elsewhere, the opposite failure — showing the raw error to the user:
+
+```ts
+try {
+  await saveSettings(values);
+} catch (e) {
   alert(e.stack); // leaks file paths / internals to the screen
 }
 ```

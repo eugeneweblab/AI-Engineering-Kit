@@ -73,7 +73,7 @@ build-breaking defects, not minor annoyances.
 
 **Good Example** — waits on the condition, controls time, self-contained
 
-```ts
+```tsx
 test("shows the order confirmation after submit", async () => {
   vi.useFakeTimers();                 // deterministic time — no wall-clock races
   const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });

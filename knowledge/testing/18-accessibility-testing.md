@@ -74,7 +74,7 @@ concern into a concrete, regression-guarded assertion in CI.
 
 **Good Example** — role-based queries, axe scan, and a real keyboard assertion
 
-```ts
+```tsx
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
@@ -101,7 +101,7 @@ test("dialog is accessible and keyboard-operable", async () => {
 
 **Bad Example** — tests the DOM by class, never exercises assistive-tech surface
 
-```ts
+```tsx
 test("settings dialog works", async () => {
   const user = userEvent.setup();
   render(<SettingsDialog />);

@@ -85,9 +85,12 @@ ENTRYPOINT ["/app"]
 
 ```bash
 # Run with explicit resource ceilings and dropped privileges.
+# Pin by digest, not tag — resolve it once and reuse it.
+DIGEST=$(docker inspect --format '{{index .RepoDigests 0}}' myapp:1.4.0)
+
 docker run --read-only --cap-drop ALL \
   --memory 512m --cpus 1.0 --pids-limit 200 \
-  myapp@sha256:<digest>
+  "$DIGEST"
 ```
 
 **Bad Example** — root, unbounded, secrets baked in, floating tag

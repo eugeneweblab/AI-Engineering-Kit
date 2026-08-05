@@ -24,7 +24,7 @@ this is what the result looks like.
 
 ## 1. The Contract, First
 
-```yaml
+```text
 POST /api/v1/events/{eventId}/signups
 Authorization: Bearer <token>
 

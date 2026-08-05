@@ -70,7 +70,7 @@ text is *meaningful*, whether focus order is *logical*, whether a control is *op
 
 **Good Example** — component test that fails CI on a real violation
 
-```ts
+```tsx
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe"; // runs axe-core against the rendered DOM
 
@@ -86,7 +86,7 @@ test("Dialog has no detectable a11y violations when open", async () => {
 
 **Bad Example** — checks static markup and swallows failures
 
-```ts
+```tsx
 test("page is accessible", async () => {
   const html = renderToStaticMarkup(<Page />); // no JS, no dynamic states
   const results = await axe(html);

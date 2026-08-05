@@ -81,7 +81,7 @@ async function handleReport(req) {
 **Bad Example** — serial I/O and a blocked loop
 
 ```js
-function handleReport(req) {
+async function handleReport(req) {
   const user = await db.getUser(req.userId);    // waits...
   const orders = [];
   for (const id of req.orderIds) {

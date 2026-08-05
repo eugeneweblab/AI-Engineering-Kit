@@ -85,10 +85,13 @@ jobs:
           make build
           (cd dist && sha256sum * > checksums.txt)   # verifiable assets
       - run: |
+          # --generate-notes builds the changelog from merged PRs.
+          # A tag containing a hyphen (v1.2.0-rc.1) is published as a prerelease.
           gh release create "$GITHUB_REF_NAME" dist/* \
-            --generate-notes \                        # notes from merged PRs
+            --generate-notes \
             $([ "${GITHUB_REF_NAME#*-}" != "$GITHUB_REF_NAME" ] && echo --prerelease)
-        env: { GH_TOKEN: ${{ github.token }} }
+        env:
+          GH_TOKEN: ${{ github.token }}
 ```
 
 **Bad Example** — a hand-cut release from a dirty tree with a moved tag

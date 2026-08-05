@@ -65,7 +65,8 @@ kubectl get rs,pods -l app=web
 # 3. scheduler: was each pod assigned a node? (nodeName set)
 kubectl get pod -l app=web -o custom-columns=NAME:.metadata.name,NODE:.spec.nodeName
 # 4. kubelet: is the container actually running on that node?
-kubectl describe pod <pod>   # Events show pull/start on the assigned node
+POD=$(kubectl get pod -l app=web -o name | head -1)
+kubectl describe "$POD"   # Events show pull/start on the assigned node
 ```
 
 **Bad Example** — assuming one command "runs" the app and mis-diagnosing

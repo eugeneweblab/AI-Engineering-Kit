@@ -59,10 +59,11 @@ guessing.
 
 **Good Example** — a well-formed Divi 4 content model, edited through valid structure
 
-```php
-// Divi 4 stores layout as nested shortcodes in post_content.
-// Every module lives inside column → row → section. IDs and attributes
-// are managed by the builder; keep the nesting intact.
+Divi 4 stores layout as nested shortcodes in `post_content`. Every module lives inside
+column → row → section; IDs and attributes are managed by the builder, so keep the nesting
+intact.
+
+```text
 [et_pb_section fb_built="1" _builder_version="4.27"]
   [et_pb_row _builder_version="4.27"]
     [et_pb_column type="4_4" _builder_version="4.27"]
@@ -74,12 +75,13 @@ guessing.
 
 **Bad Example** — module placed outside the required hierarchy
 
-```php
-// A module directly inside a section with no row/column wrapper.
-// The front end may render, but the Visual Builder cannot parse this
-// tree and will fail to load or silently drop the module.
+A module placed directly inside a section, with no row/column wrapper. The front end may
+render, but the Visual Builder cannot parse this tree and will fail to load or silently drop
+the module.
+
+```text
 [et_pb_section fb_built="1"]
-  [et_pb_text]Orphaned module[/et_pb_text]   // WRONG: no row/column
+  [et_pb_text]Orphaned module[/et_pb_text]
 [/et_pb_section]
 ```
 

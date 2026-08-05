@@ -92,7 +92,11 @@ function closeDialog(el) {
   el.style.display = "none";  // focus is now on a hidden element → jumps to <body>
   // The user loses their place entirely and must Tab from the top.
 }
-/* And the outline was killed globally, so nobody can see focus at all: */
+```
+
+And the outline was killed globally, so nobody can see focus at all:
+
+```css
 *:focus { outline: none; }
 ```
 

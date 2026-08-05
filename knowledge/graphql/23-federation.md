@@ -72,7 +72,7 @@ that no single team can debug.
 const typeDefs = gql`
   type Product @key(fields: "id") {   # id is the shared, immutable key
     id: ID!
-    reviews: [Review!]!               # this subgraph owns only `reviews`
+    reviews: [Review!]!               # this subgraph owns only the reviews field
   }
 `;
 const resolvers = {
