@@ -146,7 +146,9 @@ resource "aws_lb_target_group" "app" {
 
 ## Related
 
+
 - `knowledge/aws/06-vpc.md`
 - `knowledge/aws/09-acm.md`
 - `knowledge/aws/11-auto-scaling.md`
 - `knowledge/aws/31-high-availability.md`
+- `knowledge/aws/03-ec2.md`

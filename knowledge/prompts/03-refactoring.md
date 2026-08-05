@@ -163,7 +163,9 @@ penny short next month.
 
 ## Related
 
-- `knowledge/workflows/04-refactor-existing-code.md`
-- `knowledge/testing/20-test-maintenance.md`
-- `knowledge/engineering/00-engineering-principles.md`
+
 - `knowledge/prompts/01-code-review.md`
+- `knowledge/prompts/02-bug-investigation.md`
+- `knowledge/workflows/04-refactor-existing-code.md`
+- `knowledge/engineering/00-engineering-principles.md`
+- `knowledge/testing/20-test-maintenance.md`

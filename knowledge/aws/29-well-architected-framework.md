@@ -74,7 +74,7 @@ cost); the Framework asks you to name the trade, not hide it.
 
 **Good Example** — a design decision recorded as an explicit pillar trade-off
 
-```md
+```markdown
 ## ADR-014: Region strategy for checkout service
 Decision: Single-region (us-east-1), Multi-AZ, PITR backups with cross-region copy.
 
@@ -88,7 +88,7 @@ Revisit trigger: when >20% of revenue comes from outside EU, evaluate multi-regi
 
 **Bad Example** — an implicit design that regresses pillars silently
 
-```md
+```markdown
 ## Design: checkout service
 "We'll run it on one big EC2 instance in one AZ to keep it simple and cheap."
 

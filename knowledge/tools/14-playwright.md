@@ -7,7 +7,7 @@ type: doc
 order: 14
 status: ready
 tags: [tools, playwright]
-related: [tools/13-test-runners, tools/15-storybook, tools/21-debuggers, tools/29-observability-tools, tools/30-engineering-principles]
+related: [tools/13-test-runners, tools/15-storybook, tools/21-debuggers, tools/29-observability-tools, tools/30-engineering-principles, testing/04-e2e-testing, testing/22-flaky-tests, figma/13-visual-regression]
 when_to_use: "Read before writing or configuring browser tests — setting up Playwright, choosing selectors, handling authentication, or fixing flaky E2E runs."
 ---
 # Playwright
@@ -188,7 +188,12 @@ test.beforeEach(async ({ request }) => {
 
 ## Related
 
+
 - `knowledge/tools/13-test-runners.md`
+- `knowledge/tools/15-storybook.md`
+- `knowledge/tools/21-debuggers.md`
+- `knowledge/tools/29-observability-tools.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/testing/04-e2e-testing.md`
 - `knowledge/testing/22-flaky-tests.md`
 - `knowledge/figma/13-visual-regression.md`

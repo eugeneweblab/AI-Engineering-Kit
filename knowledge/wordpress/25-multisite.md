@@ -7,7 +7,7 @@ type: doc
 order: 25
 status: ready
 tags: [wordpress, multisite]
-related: [wordpress/19-database, wordpress/20-users-and-capabilities, wordpress/15-plugin-development, wordpress/27-deployment, wordpress/21-media-and-uploads]
+related: [wordpress/19-database, wordpress/20-users-and-capabilities, wordpress/15-plugin-development, wordpress/27-deployment, wordpress/21-media-and-uploads, wordpress/26-wp-cli]
 when_to_use: "Read before building for or deciding on a WordPress network — writing multisite-aware code, switching between sites, or evaluating whether multisite fits."
 ---
 # Multisite
@@ -252,7 +252,10 @@ the choice to run multisite as an architectural commitment that is hard to undo.
 
 ## Related
 
+
 - `knowledge/wordpress/19-database.md`
 - `knowledge/wordpress/20-users-and-capabilities.md`
-- `knowledge/wordpress/26-wp-cli.md`
+- `knowledge/wordpress/15-plugin-development.md`
 - `knowledge/wordpress/27-deployment.md`
+- `knowledge/wordpress/21-media-and-uploads.md`
+- `knowledge/wordpress/26-wp-cli.md`

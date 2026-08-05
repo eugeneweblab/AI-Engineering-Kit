@@ -162,7 +162,9 @@ at the wrong subsystem.
 
 ## Related
 
-- `knowledge/workflows/02-fix-a-bug.md`
-- `knowledge/workflows/06-investigate-production-bug.md`
-- `knowledge/engineering/03-debugging-methodology.md`
+
 - `knowledge/prompts/01-code-review.md`
+- `knowledge/prompts/03-refactoring.md`
+- `knowledge/workflows/02-fix-a-bug.md`
+- `knowledge/engineering/03-debugging-methodology.md`
+- `knowledge/workflows/06-investigate-production-bug.md`

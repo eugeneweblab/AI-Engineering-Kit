@@ -19,10 +19,10 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 4 | Keyboard Navigation | ✅ ready | `knowledge/accessibility/04-keyboard-navigation.md` |
 | 5 | Focus Management | ✅ ready | `knowledge/accessibility/05-focus-management.md` |
 | 6 | Screen Readers | ✅ ready | `knowledge/accessibility/06-screen-readers.md` |
-| 7 | Aria | ✅ ready | `knowledge/accessibility/07-aria.md` |
+| 7 | ARIA | ✅ ready | `knowledge/accessibility/07-aria.md` |
 | 8 | Forms | ✅ ready | `knowledge/accessibility/08-forms.md` |
 | 9 | Images | ✅ ready | `knowledge/accessibility/09-images.md` |
-| 10 | Color And Contrast | ✅ ready | `knowledge/accessibility/10-color-and-contrast.md` |
+| 10 | Color and Contrast | ✅ ready | `knowledge/accessibility/10-color-and-contrast.md` |
 | 11 | Typography | ✅ ready | `knowledge/accessibility/11-typography.md` |
 | 12 | Layout | ✅ ready | `knowledge/accessibility/12-layout.md` |
 | 13 | Responsive Accessibility | ✅ ready | `knowledge/accessibility/13-responsive-accessibility.md` |
@@ -93,7 +93,7 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 25 | Documentation | ✅ ready | `knowledge/architecture/25-documentation.md` |
 | 26 | Architecture Decision Records | ✅ ready | `knowledge/architecture/26-architecture-decision-records.md` |
 | 27 | Architecture Review | ✅ ready | `knowledge/architecture/27-architecture-review.md` |
-| 28 | Best Practices | ✅ ready | `knowledge/architecture/28-best-practices.md` |
+| 28 | Architecture Best Practices | ✅ ready | `knowledge/architecture/28-best-practices.md` |
 | 29 | Real World Patterns | ✅ ready | `knowledge/architecture/29-real-world-patterns.md` |
 | 30 | Engineering Principles | ✅ ready | `knowledge/architecture/30-engineering-principles.md` |
 | 98 | Production Checklist | ✅ ready | `knowledge/architecture/98-production-checklist.md` |
@@ -1309,11 +1309,11 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 5 | Password Security | ✅ ready | `knowledge/security/05-password-security.md` |
 | 6 | Session Management | ✅ ready | `knowledge/security/06-session-management.md` |
 | 7 | JWT | ✅ ready | `knowledge/security/07-jwt.md` |
-| 8 | Oauth | ✅ ready | `knowledge/security/08-oauth.md` |
+| 8 | OAuth 2.0 and OpenID Connect | ✅ ready | `knowledge/security/08-oauth.md` |
 | 9 | Input Validation | ✅ ready | `knowledge/security/09-input-validation.md` |
 | 10 | Output Encoding | ✅ ready | `knowledge/security/10-output-encoding.md` |
-| 11 | XSS | ✅ ready | `knowledge/security/11-xss.md` |
-| 12 | CSRF | ✅ ready | `knowledge/security/12-csrf.md` |
+| 11 | XSS (Cross-Site Scripting) | ✅ ready | `knowledge/security/11-xss.md` |
+| 12 | CSRF (Cross-Site Request Forgery) | ✅ ready | `knowledge/security/12-csrf.md` |
 | 13 | SQL Injection | ✅ ready | `knowledge/security/13-sql-injection.md` |
 | 14 | Command Injection | ✅ ready | `knowledge/security/14-command-injection.md` |
 | 15 | File Upload Security | ✅ ready | `knowledge/security/15-file-upload-security.md` |
@@ -1500,7 +1500,7 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 18 | Accessibility Testing | ✅ ready | `knowledge/testing/18-accessibility-testing.md` |
 | 19 | Test Coverage | ✅ ready | `knowledge/testing/19-test-coverage.md` |
 | 20 | Test Maintenance | ✅ ready | `knowledge/testing/20-test-maintenance.md` |
-| 21 | Cicd | ✅ ready | `knowledge/testing/21-cicd.md` |
+| 21 | CI/CD | ✅ ready | `knowledge/testing/21-cicd.md` |
 | 22 | Flaky Tests | ✅ ready | `knowledge/testing/22-flaky-tests.md` |
 | 23 | Debugging Tests | ✅ ready | `knowledge/testing/23-debugging-tests.md` |
 | 24 | Best Practices | ✅ ready | `knowledge/testing/24-best-practices.md` |

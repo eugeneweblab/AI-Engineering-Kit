@@ -7,7 +7,7 @@ type: doc
 order: 9
 status: ready
 tags: [tools, vite]
-related: [tools/10-webpack, tools/11-esbuild-and-swc, tools/13-test-runners, tools/03-typescript-compiler, tools/30-engineering-principles]
+related: [tools/10-webpack, tools/11-esbuild-and-swc, tools/13-test-runners, tools/03-typescript-compiler, tools/30-engineering-principles, frontend/19-build-tools]
 when_to_use: "Read before configuring a Vite build — setting up dev server, environment variables, aliases, proxying, or optimizing the production bundle."
 ---
 # Vite
@@ -185,7 +185,10 @@ git push        # production build fails: a dependency has no ESM entry,
 
 ## Related
 
+
 - `knowledge/tools/10-webpack.md`
 - `knowledge/tools/11-esbuild-and-swc.md`
 - `knowledge/tools/13-test-runners.md`
+- `knowledge/tools/03-typescript-compiler.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/frontend/19-build-tools.md`

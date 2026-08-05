@@ -7,7 +7,7 @@ type: doc
 order: 0
 status: ready
 tags: [html, overview]
-related: [html/01-document-structure, html/02-semantic-html, html/11-accessibility, html/21-best-practices]
+related: [html/01-document-structure, html/02-semantic-html, html/11-accessibility, html/21-best-practices, html/99-ai-review-checklist]
 when_to_use: "Read first when writing or reviewing any HTML, to orient yourself in this topic and find the right detail doc."
 ---
 # Overview
@@ -123,6 +123,7 @@ baseline for a working product.
 - Does the markup validate, and does it work with CSS and JS disabled?
 
 ## Related
+
 
 - `knowledge/html/01-document-structure.md`
 - `knowledge/html/02-semantic-html.md`

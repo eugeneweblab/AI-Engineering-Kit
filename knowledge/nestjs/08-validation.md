@@ -124,7 +124,7 @@ Validation should be centralized.
 
 Register the pipe globally in `main.ts`:
 
-```typescript
+```ts
 // main.ts
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
@@ -155,7 +155,7 @@ dependency injection (for example, async constraints that read from a
 repository). This keeps the configuration testable and available inside the
 DI container:
 
-```typescript
+```ts
 // app.module.ts
 import { Module, ValidationPipe } from '@nestjs/common';
 import { APP_PIPE } from '@nestjs/core';
@@ -196,7 +196,7 @@ A DTO is a plain class annotated with `class-validator` decorators. The
 global `ValidationPipe` reads those decorators to validate and (with
 `transform: true`) instantiate the class:
 
-```typescript
+```ts
 // create-user.dto.ts
 import { IsEmail, IsInt, IsOptional, Length, Max, Min } from 'class-validator';
 
@@ -215,7 +215,7 @@ export class CreateUserDto {
 }
 ```
 
-```typescript
+```ts
 // users.controller.ts
 import { Body, Controller, Post } from '@nestjs/common';
 import { CreateUserDto } from './create-user.dto';
@@ -259,7 +259,7 @@ Nested objects require both `@ValidateNested()` and `@Type()` from
 `class-transformer`. Without `@Type()`, the pipe cannot know which class to
 instantiate and validation of the nested payload is silently skipped:
 
-```typescript
+```ts
 // create-order.dto.ts
 import { Type } from 'class-transformer';
 import {
@@ -344,7 +344,7 @@ Avoid accepting arbitrary arrays.
 For arrays of primitives, combine `@IsArray()` with the `each: true` option so
 the item constraint applies to every element:
 
-```typescript
+```ts
 import { ArrayMaxSize, ArrayUnique, IsArray, IsUUID } from 'class-validator';
 
 export class AssignTagsDto {
@@ -378,7 +378,7 @@ Implement a reusable rule as a `ValidatorConstraintInterface` and expose it as
 a decorator with `registerDecorator`. This one is synchronous and
 dependency-free, so it stays at the transport boundary:
 
-```typescript
+```ts
 // is-strong-password.validator.ts
 import {
   registerDecorator,
@@ -418,7 +418,7 @@ export function IsStrongPassword(options?: ValidationOptions) {
 }
 ```
 
-```typescript
+```ts
 // register.dto.ts
 import { IsEmail } from 'class-validator';
 import { IsStrongPassword } from './is-strong-password.validator';
@@ -457,7 +457,7 @@ live in a DTO validator.
 
 Bad — uniqueness enforced with a database query at the transport boundary:
 
-```typescript
+```ts
 // BAD: an async constraint that queries the database inside validation.
 import { Injectable } from '@nestjs/common';
 import {
@@ -480,7 +480,7 @@ export class IsEmailUniqueConstraint implements ValidatorConstraintInterface {
 
 Good — the DTO stays structural and the service owns the business rule:
 
-```typescript
+```ts
 // create-user.dto.ts — transport concerns only.
 import { IsEmail } from 'class-validator';
 
@@ -490,7 +490,7 @@ export class CreateUserDto {
 }
 ```
 
-```typescript
+```ts
 // users.service.ts — business rule lives here.
 import { ConflictException, Injectable } from '@nestjs/common';
 import { CreateUserDto } from './create-user.dto';
@@ -554,7 +554,7 @@ Use `@Transform` from `class-transformer` to normalize a value before the
 validation decorators run. The pipe applies the transform, then validates the
 result:
 
-```typescript
+```ts
 import { Transform } from 'class-transformer';
 import { IsEmail } from 'class-validator';
 

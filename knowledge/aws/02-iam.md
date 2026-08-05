@@ -7,7 +7,7 @@ type: doc
 order: 2
 status: ready
 tags: [aws, iam]
-related: [aws/00-overview, aws/25-security, aws/16-secrets-manager, aws/15-cloudtrail]
+related: [aws/00-overview, aws/25-security, aws/16-secrets-manager, aws/15-cloudtrail, aws/04-s3]
 when_to_use: "Read before creating any user, role, policy, or granting a service access to another."
 ---
 # IAM
@@ -127,6 +127,7 @@ is the one discipline that contains the blast radius when something else fails.
 - Is IAM Access Analyzer enabled and its findings triaged?
 
 ## Related
+
 
 - `knowledge/aws/00-overview.md`
 - `knowledge/aws/25-security.md`

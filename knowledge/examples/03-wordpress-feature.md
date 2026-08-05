@@ -381,6 +381,8 @@ import fills events past capacity and nobody finds out until the day of the even
 
 ## Related
 
+
+- `knowledge/examples/01-rest-endpoint.md`
 - `knowledge/workflows/09-build-wordpress-feature.md`
 - `knowledge/wordpress/09-custom-post-types.md`
 - `knowledge/wordpress/11-metadata.md`

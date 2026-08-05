@@ -7,7 +7,7 @@ type: doc
 order: 19
 status: ready
 tags: [react, error-handling]
-related: [react/15-forms, react/16-data-fetching, react/20-accessibility]
+related: [react/15-forms, react/16-data-fetching, react/20-accessibility, react/28-production, frontend/13-error-handling]
 when_to_use: "Read before implementing or reviewing error boundaries, fallbacks, and failure handling in React."
 ---
 # React Error Handling
@@ -746,6 +746,9 @@ By treating errors as expected scenarios rather than exceptional events, React a
 
 ## Related
 
+
+- `knowledge/react/15-forms.md`
 - `knowledge/react/16-data-fetching.md`
+- `knowledge/react/20-accessibility.md`
 - `knowledge/react/28-production.md`
 - `knowledge/frontend/13-error-handling.md`

@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [workflows, implement-figma-design]
-related: [figma/01-figma-analysis, figma/03-design-token-extraction, figma/06-component-detection, figma/20-implementation-definition-of-done, frontend/03-design-systems, react/13-component-composition, accessibility/03-semantic-html, testing/14-visual-regression, workflows/08-build-react-component]
+related: [figma/01-figma-analysis, figma/03-design-token-extraction, figma/06-component-detection, figma/20-implementation-definition-of-done, frontend/03-design-systems, react/13-component-composition, accessibility/03-semantic-html, testing/14-visual-regression, workflows/08-build-react-component, figma/19-design-handoff]
 when_to_use: "Follow this workflow when implementing a Figma design into production code."
 ---
 # Workflow — Implement a Figma Design
@@ -570,6 +570,14 @@ Understanding the complete design before writing code consistently produces high
 
 ## Related
 
+
 - `knowledge/figma/01-figma-analysis.md`
-- `knowledge/figma/19-design-handoff.md`
+- `knowledge/figma/03-design-token-extraction.md`
+- `knowledge/figma/06-component-detection.md`
+- `knowledge/figma/20-implementation-definition-of-done.md`
+- `knowledge/frontend/03-design-systems.md`
+- `knowledge/react/13-component-composition.md`
+- `knowledge/accessibility/03-semantic-html.md`
+- `knowledge/testing/14-visual-regression.md`
 - `knowledge/workflows/08-build-react-component.md`
+- `knowledge/figma/19-design-handoff.md`

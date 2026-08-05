@@ -385,7 +385,7 @@ Do not hide known limitations.
 
 Report against the acceptance criteria from the handoff, with evidence rather than assertion:
 
-```md
+```markdown
 ## Completion Report — Pricing Page
 
 **Branch**: `feat/pricing-page` · **Handoff**: `design/handoff/pricing.md`

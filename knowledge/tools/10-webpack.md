@@ -7,7 +7,7 @@ type: doc
 order: 10
 status: ready
 tags: [tools, webpack]
-related: [tools/09-vite, tools/11-esbuild-and-swc, tools/12-babel, tools/18-monorepo-tools, tools/30-engineering-principles]
+related: [tools/09-vite, tools/11-esbuild-and-swc, tools/12-babel, tools/18-monorepo-tools, tools/30-engineering-principles, performance/10-code-splitting]
 when_to_use: "Read when working with a Webpack build — configuring loaders and plugins, splitting chunks, or deciding whether to migrate to a faster bundler."
 ---
 # Webpack
@@ -200,7 +200,10 @@ module.exports = {
 
 ## Related
 
+
 - `knowledge/tools/09-vite.md`
 - `knowledge/tools/11-esbuild-and-swc.md`
 - `knowledge/tools/12-babel.md`
+- `knowledge/tools/18-monorepo-tools.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/performance/10-code-splitting.md`

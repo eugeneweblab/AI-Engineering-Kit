@@ -7,7 +7,7 @@ type: doc
 order: 0
 status: ready
 tags: [wordpress, overview]
-related: [wordpress/01-wordpress-architecture, wordpress/02-project-structure, wordpress/08-hooks, wordpress/06-security, wordpress/30-engineering-principles]
+related: [wordpress/01-wordpress-architecture, wordpress/02-project-structure, wordpress/08-hooks, wordpress/06-security, wordpress/30-engineering-principles, wordpress/03-best-practices]
 when_to_use: "Read first when starting work on a WordPress project, to understand what this topic covers and which document answers your question."
 ---
 # WordPress Overview
@@ -133,8 +133,10 @@ maintainable; code that fights them does not.
 
 ## Related
 
+
 - `knowledge/wordpress/01-wordpress-architecture.md`
 - `knowledge/wordpress/02-project-structure.md`
-- `knowledge/wordpress/03-best-practices.md`
 - `knowledge/wordpress/08-hooks.md`
+- `knowledge/wordpress/06-security.md`
 - `knowledge/wordpress/30-engineering-principles.md`
+- `knowledge/wordpress/03-best-practices.md`

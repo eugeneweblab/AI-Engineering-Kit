@@ -88,7 +88,7 @@ In NestJS the pattern is provided by the `@nestjs/cqrs` package. `CommandBus`,
 `@CommandHandler`, `@QueryHandler`, or `@EventsHandler` and registered in the
 module's `providers` array:
 
-```typescript
+```ts
 // orders.module.ts
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
@@ -186,7 +186,7 @@ layer validates a DTO, constructs the command, and dispatches it through the
 `CommandBus`. The handler owns the business logic and returns the minimum the
 caller needs—typically an identifier.
 
-```typescript
+```ts
 // commands/create-order.command.ts
 export class CreateOrderCommand {
   constructor(
@@ -196,7 +196,7 @@ export class CreateOrderCommand {
 }
 ```
 
-```typescript
+```ts
 // dto/create-order.dto.ts
 import { Type } from 'class-transformer';
 import {
@@ -228,7 +228,7 @@ export class CreateOrderDto {
 }
 ```
 
-```typescript
+```ts
 // orders.controller.ts
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
@@ -265,7 +265,7 @@ The DTO is validated by the global `ValidationPipe` (see the validation
 document); the command class is the internal contract and stays free of
 transport decorators.
 
-```typescript
+```ts
 // commands/create-order.handler.ts
 import { CommandHandler, EventBus, ICommandHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -305,7 +305,7 @@ export class CreateOrderHandler
 
 Good — the command returns the identifier:
 
-```typescript
+```ts
 async execute(command: CreateOrderCommand): Promise<string> {
   const saved = await this.orders.save(order);
   return saved.id; // caller re-reads through a query if it needs detail
@@ -315,7 +315,7 @@ async execute(command: CreateOrderCommand): Promise<string> {
 Bad — the command leaks the full write-model entity, coupling callers to the
 persistence shape and blurring the read/write boundary:
 
-```typescript
+```ts
 async execute(command: CreateOrderCommand): Promise<OrderEntity> {
   return this.orders.save(order); // avoid: entity escapes the write model
 }
@@ -339,14 +339,14 @@ a projection—here a denormalized `OrderSummaryView`—and returns a read model
 shaped for the consumer, not the persistence layer. No `save`, no domain
 logic, no transactions.
 
-```typescript
+```ts
 // queries/get-order.query.ts
 export class GetOrderQuery {
   constructor(public readonly orderId: string) {}
 }
 ```
 
-```typescript
+```ts
 // queries/get-order.handler.ts
 import { NotFoundException } from '@nestjs/common';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
@@ -479,7 +479,7 @@ An event is a plain class named in the past tense. An `@EventsHandler` reacts
 to it—typically to update a projection, keeping the read model eventually
 consistent with the write model:
 
-```typescript
+```ts
 // events/order-created.event.ts
 export class OrderCreatedEvent {
   constructor(
@@ -490,7 +490,7 @@ export class OrderCreatedEvent {
 }
 ```
 
-```typescript
+```ts
 // events/order-created.handler.ts
 import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -523,7 +523,7 @@ When events belong to an aggregate, extend `AggregateRoot` and buffer them with
 `commit()` dispatches the buffered events—call it only after persistence
 succeeds, so events never fire for a write that rolled back:
 
-```typescript
+```ts
 // order.aggregate.ts
 import { AggregateRoot } from '@nestjs/cqrs';
 import { OrderCreatedEvent } from './events/order-created.event';
@@ -546,7 +546,7 @@ export class Order extends AggregateRoot {
 }
 ```
 
-```typescript
+```ts
 // commands/place-order.handler.ts (aggregate variant)
 import { randomUUID } from 'node:crypto';
 import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';

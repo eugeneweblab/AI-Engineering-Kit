@@ -7,7 +7,7 @@ type: doc
 order: 18
 status: ready
 tags: [devops, disaster-recovery]
-related: [devops/19-high-availability, devops/25-incident-management, devops/27-sre-principles, devops/12-monitoring]
+related: [devops/19-high-availability, devops/25-incident-management, devops/27-sre-principles, devops/12-monitoring, devops/17-secrets-management]
 when_to_use: "Read before designing backups, restore procedures, or a recovery plan for any stateful system."
 ---
 # Disaster Recovery
@@ -130,6 +130,7 @@ gzip -f /backups/db.sql                 # overwrites yesterday: no history, no P
 - Has a full region-level failover been exercised, not just single-service restore?
 
 ## Related
+
 
 - `knowledge/devops/19-high-availability.md`
 - `knowledge/devops/25-incident-management.md`

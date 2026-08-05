@@ -208,7 +208,9 @@ considered — so the argument is had again from scratch, with less information.
 
 ## Related
 
+
+- `knowledge/templates/01-pull-request.md`
 - `knowledge/architecture/26-architecture-decision-records.md`
 - `knowledge/architecture/25-documentation.md`
 - `knowledge/engineering/01-decision-framework.md`
-- `knowledge/templates/01-pull-request.md`
+- `knowledge/templates/03-incident-report.md`

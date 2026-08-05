@@ -151,7 +151,7 @@ Every public endpoint accepting a request body should use a dedicated Request DT
 
 A Request DTO is a plain class annotated with `class-validator` decorators. These decorators are the machine-readable API contract:
 
-```typescript
+```ts
 // users/dto/create-user.dto.ts
 import { IsEmail, IsEnum, IsString, MaxLength, MinLength } from 'class-validator';
 
@@ -181,7 +181,7 @@ export class CreateUserDto {
 
 The controller declares the DTO as the `@Body()` type. Once a global `ValidationPipe` is registered, NestJS validates and instantiates the DTO before the handler runs:
 
-```typescript
+```ts
 // users/users.controller.ts
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -202,7 +202,7 @@ export class UsersController {
 
 Register the pipe once, at bootstrap, so every DTO is enforced consistently:
 
-```typescript
+```ts
 // main.ts
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
@@ -244,7 +244,7 @@ Returning the persistence model directly leaks whatever the ORM happens to load,
 
 Bad — the entity (with `passwordHash`, internal flags, ORM metadata) becomes the public contract:
 
-```typescript
+```ts
 // Bad: every column of UserEntity is now part of the API response.
 @Get(':id')
 async findOne(@Param('id') id: string) {
@@ -254,7 +254,7 @@ async findOne(@Param('id') id: string) {
 
 Good — the handler returns an explicit Response DTO, so only mapped fields leave the boundary:
 
-```typescript
+```ts
 // Good: the response shape is fixed and reviewable.
 @Get(':id')
 async findOne(@Param('id') id: string): Promise<UserResponseDto> {
@@ -295,7 +295,7 @@ UserResponseDto
 
 A Response DTO owns its own mapping through a static factory. This keeps the entity-to-DTO translation in one place and guarantees only whitelisted fields are ever assigned:
 
-```typescript
+```ts
 // users/dto/user-response.dto.ts
 import { UserEntity } from '../entities/user.entity';
 
@@ -362,7 +362,7 @@ AddressDto
 
 Nested objects require `@ValidateNested()` plus `@Type()` from `class-transformer` — without `@Type()`, the validator cannot instantiate the nested class and the rules are silently skipped:
 
-```typescript
+```ts
 // orders/dto/create-order.dto.ts
 import { Type } from 'class-transformer';
 import {
@@ -427,7 +427,7 @@ UpdateUserDto
 
 Derive the update DTO from the create DTO with `PartialType` so validation rules stay in one place and every field becomes optional. Compose with `OmitType` to drop fields that must not be updated through this endpoint (for example, `password`, which belongs to a dedicated change-password flow):
 
-```typescript
+```ts
 // users/dto/update-user.dto.ts
 import { OmitType, PartialType } from '@nestjs/mapped-types';
 import { CreateUserDto } from './create-user.dto';
@@ -457,7 +457,7 @@ Typical responsibilities:
 
 The static-mapper pattern above is the safest default because it never copies a sensitive field in the first place. When you instead return class instances and let NestJS serialize them, use `ClassSerializerInterceptor` with `class-transformer` decorators. Mark the class `@Exclude()` and opt fields in with `@Expose()`, so new columns are hidden by default:
 
-```typescript
+```ts
 // users/dto/user-response.dto.ts
 import { Exclude, Expose } from 'class-transformer';
 
@@ -477,7 +477,7 @@ export class UserResponseDto {
 }
 ```
 
-```typescript
+```ts
 // main.ts
 import { ClassSerializerInterceptor } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
@@ -536,7 +536,7 @@ limit
 
 Query parameters arrive as strings, so a pagination query DTO must coerce them with `@Type(() => Number)` (honored by `ValidationPipe`'s `transform: true`) and bound the values. Defaults protect the database from unbounded scans:
 
-```typescript
+```ts
 // common/dto/pagination-query.dto.ts
 import { Type } from 'class-transformer';
 import { IsInt, IsOptional, Max, Min } from 'class-validator';
@@ -559,7 +559,7 @@ export class PaginationQueryDto {
 
 Return a stable, reusable envelope for every collection endpoint:
 
-```typescript
+```ts
 // common/dto/paginated-response.dto.ts
 export class PaginatedResponseDto<T> {
   items: T[];
@@ -578,7 +578,7 @@ export class PaginatedResponseDto<T> {
 
 Consume both in the controller with `@Query()`:
 
-```typescript
+```ts
 @Get()
 async list(
   @Query() query: PaginationQueryDto,

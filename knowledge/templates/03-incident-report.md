@@ -195,6 +195,8 @@ it will not happen.
 
 ## Related
 
+
+- `knowledge/templates/02-architecture-decision-record.md`
 - `knowledge/playbooks/01-site-down.md`
 - `knowledge/security/26-incident-response.md`
 - `knowledge/workflows/06-investigate-production-bug.md`

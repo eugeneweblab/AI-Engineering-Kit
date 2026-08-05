@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [nextjs, app-router]
-related: [nextjs/06-server-components, nextjs/09-data-fetching, nextjs/10-caching, nextjs/12-api-routes, nextjs/18-metadata]
+related: [nextjs/06-server-components, nextjs/09-data-fetching, nextjs/10-caching, nextjs/12-api-routes, nextjs/18-metadata, nextjs/04-routing, nextjs/05-layouts, nextjs/08-rendering-strategies]
 when_to_use: "Read before structuring routes and directories with the Next.js App Router."
 ---
 # Next.js App Router
@@ -702,7 +702,12 @@ By organizing routes around business domains and leveraging the built-in routing
 
 ## Related
 
+
+- `knowledge/nextjs/06-server-components.md`
+- `knowledge/nextjs/09-data-fetching.md`
+- `knowledge/nextjs/10-caching.md`
+- `knowledge/nextjs/12-api-routes.md`
+- `knowledge/nextjs/18-metadata.md`
 - `knowledge/nextjs/04-routing.md`
 - `knowledge/nextjs/05-layouts.md`
-- `knowledge/nextjs/06-server-components.md`
 - `knowledge/nextjs/08-rendering-strategies.md`

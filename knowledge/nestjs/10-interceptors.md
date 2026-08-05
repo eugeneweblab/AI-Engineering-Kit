@@ -123,7 +123,7 @@ handler execution: `next.handle()` returns an RxJS `Observable` of the value the
 controller returned, and RxJS operators piped onto it run *after* the handler
 completes. To reshape every response, `map` the emitted value into an envelope:
 
-```typescript
+```ts
 // transform.interceptor.ts
 import {
   CallHandler,
@@ -161,7 +161,7 @@ Register it once, globally, using the `APP_INTERCEPTOR` token so it applies to
 every route without touching controllers. Because it is provided through the DI
 container, it can inject other providers:
 
-```typescript
+```ts
 // app.module.ts
 import { Module } from '@nestjs/common';
 import { APP_INTERCEPTOR } from '@nestjs/core';
@@ -179,7 +179,7 @@ Avoid formatting responses individually inside controllers.
 
 Good — the controller returns a domain value and the interceptor wraps it:
 
-```typescript
+```ts
 @Get(':id')
 async findOne(@Param('id') id: string): Promise<User> {
   return this.usersService.findOne(id); // interceptor adds { data, meta }
@@ -188,7 +188,7 @@ async findOne(@Param('id') id: string): Promise<User> {
 
 Bad — the controller hand-builds the envelope, so the shape drifts per route:
 
-```typescript
+```ts
 @Get(':id')
 async findOne(@Param('id') id: string) {
   const user = await this.usersService.findOne(id);
@@ -219,7 +219,7 @@ supply both `next` and `error` callbacks so timing is recorded whether the
 handler succeeds or throws. `tap` never suppresses the error—it flows on to the
 Exception Filters:
 
-```typescript
+```ts
 // logging.interceptor.ts
 import {
   CallHandler,
@@ -356,7 +356,7 @@ The RxJS `timeout` operator aborts the stream after a deadline and emits a
 re-throw everything else unchanged so real errors still reach the Exception
 Filters:
 
-```typescript
+```ts
 // timeout.interceptor.ts
 import {
   CallHandler,

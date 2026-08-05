@@ -7,7 +7,7 @@ type: doc
 order: 2
 status: ready
 tags: [tools, version-management]
-related: [tools/01-package-managers, tools/20-local-environments, tools/00-overview, tools/27-dependency-management, tools/30-engineering-principles]
+related: [tools/01-package-managers, tools/20-local-environments, tools/00-overview, tools/27-dependency-management, tools/30-engineering-principles, docker/00-overview]
 when_to_use: "Read before pinning language runtimes for a project — Node, PHP, or Python versions across developers, CI, and production."
 ---
 # Version Management
@@ -155,7 +155,10 @@ information.
 
 ## Related
 
+
 - `knowledge/tools/01-package-managers.md`
 - `knowledge/tools/20-local-environments.md`
+- `knowledge/tools/00-overview.md`
 - `knowledge/tools/27-dependency-management.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/docker/00-overview.md`

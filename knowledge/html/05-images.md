@@ -7,7 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [html, images]
-related: [html/04-links, html/11-accessibility, html/16-svg, html/18-performance]
+related: [html/04-links, html/11-accessibility, html/16-svg, html/18-performance, html/12-seo]
 when_to_use: "Read before adding an <img>, <picture>, or reviewing image alt text, sizing, or loading."
 ---
 # Images
@@ -129,6 +129,7 @@ impact performance and accessibility levers on a page.
 - Are decorative-only visuals moved to CSS backgrounds rather than `<img>`?
 
 ## Related
+
 
 - `knowledge/html/04-links.md`
 - `knowledge/html/11-accessibility.md`

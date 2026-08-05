@@ -7,7 +7,7 @@ type: doc
 order: 21
 status: ready
 tags: [devops, performance]
-related: [devops/20-scalability, devops/12-monitoring, devops/13-observability, devops/05-build-pipelines]
+related: [devops/20-scalability, devops/12-monitoring, devops/13-observability, devops/05-build-pipelines, devops/22-testing]
 when_to_use: "Read before optimizing latency/throughput, setting SLOs, or diagnosing a slow service."
 ---
 # Performance
@@ -129,6 +129,7 @@ const label = names.reduce((a, b) => a + "," + b, ""); // wrong target; measure 
 - Is there a CI performance gate on critical endpoints to catch regressions?
 
 ## Related
+
 
 - `knowledge/devops/20-scalability.md`
 - `knowledge/devops/12-monitoring.md`

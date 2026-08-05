@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [security, security-fundamentals]
-related: [security/02-threat-modeling, security/03-authentication, security/04-authorization, security/28-owasp-top10]
+related: [security/02-threat-modeling, security/03-authentication, security/04-authorization, security/28-owasp-top10, security/16-secrets-management]
 when_to_use: "Read before writing or reviewing any code that handles untrusted input, secrets, or user identity."
 ---
 # Security Fundamentals
@@ -125,6 +125,7 @@ function getDocument(req: Request): Document {
 - Do errors avoid leaking secrets, internals, or record existence?
 
 ## Related
+
 
 - `knowledge/security/02-threat-modeling.md`
 - `knowledge/security/03-authentication.md`

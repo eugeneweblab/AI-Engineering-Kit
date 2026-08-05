@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [frontend, frontend-architecture]
-related: [frontend/02-component-driven-development, frontend/04-state-management, frontend/05-routing, frontend/03-design-systems]
+related: [frontend/02-component-driven-development, frontend/04-state-management, frontend/05-routing, frontend/03-design-systems, frontend/25-folder-structure, frontend/07-rendering]
 when_to_use: "Read before starting a new frontend app, adding a major feature area, or refactoring folder and module structure."
 ---
 # Frontend Architecture
@@ -123,8 +123,10 @@ import { discountRules } from "../orders/internal";  // reaches into another fea
 
 ## Related
 
+
 - `knowledge/frontend/02-component-driven-development.md`
 - `knowledge/frontend/04-state-management.md`
 - `knowledge/frontend/05-routing.md`
+- `knowledge/frontend/03-design-systems.md`
 - `knowledge/frontend/25-folder-structure.md`
 - `knowledge/frontend/07-rendering.md`

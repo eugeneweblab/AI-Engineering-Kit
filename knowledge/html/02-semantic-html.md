@@ -7,7 +7,7 @@ type: doc
 order: 2
 status: ready
 tags: [html, semantic-html]
-related: [html/01-document-structure, html/03-text-elements, html/11-accessibility, html/12-seo]
+related: [html/01-document-structure, html/03-text-elements, html/11-accessibility, html/12-seo, html/04-links]
 when_to_use: "Read before choosing which element to wrap content in, or when reviewing div/span-heavy markup."
 ---
 # Semantic HTML
@@ -121,8 +121,9 @@ the correct element is the cheapest accessibility and SEO win available.
 
 ## Related
 
+
 - `knowledge/html/01-document-structure.md`
 - `knowledge/html/03-text-elements.md`
-- `knowledge/html/04-links.md`
 - `knowledge/html/11-accessibility.md`
 - `knowledge/html/12-seo.md`
+- `knowledge/html/04-links.md`

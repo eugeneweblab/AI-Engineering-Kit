@@ -7,7 +7,7 @@ type: doc
 order: 19
 status: ready
 tags: [devops, high-availability]
-related: [devops/18-disaster-recovery, devops/20-scalability, devops/11-orchestration, devops/07-deployment-strategies]
+related: [devops/18-disaster-recovery, devops/20-scalability, devops/11-orchestration, devops/07-deployment-strategies, devops/27-sre-principles]
 when_to_use: "Read before designing redundancy, health checks, failover, or SLA targets for a production service."
 ---
 # High Availability
@@ -130,6 +130,7 @@ async function getUser(id: string) {
 - Does the system degrade gracefully when a non-critical dependency fails?
 
 ## Related
+
 
 - `knowledge/devops/18-disaster-recovery.md`
 - `knowledge/devops/20-scalability.md`

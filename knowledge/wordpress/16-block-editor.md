@@ -7,7 +7,7 @@ type: doc
 order: 16
 status: ready
 tags: [wordpress, block-editor]
-related: [wordpress/17-block-themes, wordpress/11-metadata, wordpress/18-rest-api, wordpress/15-plugin-development, wordpress/06-security]
+related: [wordpress/17-block-themes, wordpress/11-metadata, wordpress/18-rest-api, wordpress/15-plugin-development, wordpress/06-security, wordpress/14-theme-development, workflows/11-build-gutenberg-block]
 when_to_use: "Read before building for the block editor — registering a block, choosing static or dynamic rendering, adding block supports, or handling deprecations."
 ---
 # Block Editor
@@ -303,7 +303,11 @@ never change static output without a deprecation.
 
 ## Related
 
+
 - `knowledge/wordpress/17-block-themes.md`
-- `knowledge/wordpress/14-theme-development.md`
+- `knowledge/wordpress/11-metadata.md`
 - `knowledge/wordpress/18-rest-api.md`
+- `knowledge/wordpress/15-plugin-development.md`
+- `knowledge/wordpress/06-security.md`
+- `knowledge/wordpress/14-theme-development.md`
 - `knowledge/workflows/11-build-gutenberg-block.md`

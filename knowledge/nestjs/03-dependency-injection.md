@@ -80,7 +80,7 @@ after construction.
 
 Good — dependencies are injected and the container owns their lifecycle:
 
-```typescript
+```ts
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -101,7 +101,7 @@ export class UsersService {
 Bad — dependencies are created with `new`, so they cannot be swapped,
 mocked, or configured, and the container never manages their scope:
 
-```typescript
+```ts
 @Injectable()
 export class UsersService {
   // Anti-pattern: hard-wired construction defeats DI entirely.
@@ -145,7 +145,7 @@ Providers should encapsulate a single responsibility.
 Register providers inside the owning module. Export only what other
 modules legitimately need; keep everything else private to the module.
 
-```typescript
+```ts
 import { Module } from '@nestjs/common';
 
 @Module({
@@ -179,7 +179,7 @@ injection tokens directly. Define an abstraction as an abstract class (or a
 `string`/`Symbol` token) and bind a concrete implementation to it. Consumers
 depend on the abstraction; the module decides the implementation.
 
-```typescript
+```ts
 // payment.gateway.ts — the abstraction consumers depend on.
 export abstract class PaymentGateway {
   abstract charge(amountCents: number, token: string): Promise<string>;
@@ -197,7 +197,7 @@ export class StripeGateway extends PaymentGateway {
 }
 ```
 
-```typescript
+```ts
 // payments.module.ts — bind the abstraction to an implementation.
 import { Module } from '@nestjs/common';
 
@@ -208,7 +208,7 @@ import { Module } from '@nestjs/common';
 export class PaymentsModule {}
 ```
 
-```typescript
+```ts
 // checkout.service.ts — depends only on the abstraction.
 import { Injectable } from '@nestjs/common';
 
@@ -257,7 +257,7 @@ A factory provider runs a `useFactory` function to build the value. Declare
 its own dependencies in `inject` — they are passed to the factory in order.
 Use `async` when initialization must await a connection or handshake.
 
-```typescript
+```ts
 import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { createClient, RedisClientType } from 'redis';
@@ -283,7 +283,7 @@ export class RedisModule {}
 
 Inject the resulting client by its token:
 
-```typescript
+```ts
 import { Inject, Injectable } from '@nestjs/common';
 import type { RedisClientType } from 'redis';
 
@@ -358,7 +358,7 @@ When two providers genuinely must reference each other and the design cannot
 be untangled, `forwardRef()` breaks the resolution cycle. It is a workaround,
 not a fix — it must be applied on **both** sides.
 
-```typescript
+```ts
 import { Injectable, Inject, forwardRef } from '@nestjs/common';
 
 @Injectable()
@@ -442,7 +442,7 @@ Because dependencies are injected, a test can supply a substitute for each
 one. `Test.createTestingModule` builds an isolated container; override any
 provider by re-binding its token with `useValue`, `useClass`, or `useFactory`.
 
-```typescript
+```ts
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('UsersService', () => {

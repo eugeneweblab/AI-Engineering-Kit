@@ -7,7 +7,7 @@ type: doc
 order: 21
 status: ready
 tags: [tools, debuggers]
-related: [tools/22-profilers, tools/20-local-environments, tools/25-editor-setup, tools/29-observability-tools, tools/30-engineering-principles]
+related: [tools/22-profilers, tools/20-local-environments, tools/25-editor-setup, tools/29-observability-tools, tools/30-engineering-principles, engineering/03-debugging-methodology]
 when_to_use: "Read before debugging beyond print statements — attaching a debugger to Node, PHP, or the browser, and setting breakpoints that actually help."
 ---
 # Debuggers
@@ -207,7 +207,10 @@ browser console, and `debugger` freezes any developer with devtools open. Lint a
 
 ## Related
 
+
 - `knowledge/tools/22-profilers.md`
+- `knowledge/tools/20-local-environments.md`
 - `knowledge/tools/25-editor-setup.md`
 - `knowledge/tools/29-observability-tools.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/engineering/03-debugging-methodology.md`

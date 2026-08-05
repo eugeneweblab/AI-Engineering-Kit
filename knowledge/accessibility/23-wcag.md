@@ -72,7 +72,7 @@ is the only way accessibility work becomes trackable rather than aspirational.
 
 **Good Example** — a requirement pinned to specific, testable criteria
 
-```md
+```markdown
 Acceptance criteria — "Add to cart" button (target: WCAG 2.2 AA)
 - 1.4.3  Text contrast ≥ 4.5:1 against its background        [automated + manual]
 - 1.4.11 Button/border contrast ≥ 3:1                        [automated]
@@ -85,7 +85,7 @@ Acceptance criteria — "Add to cart" button (target: WCAG 2.2 AA)
 
 **Bad Example** — an untestable, unpinned target
 
-```md
+```markdown
 Acceptance criteria — "Add to cart" button
 - Must be "fully accessible" and "compliant"   <!-- no version, no level -->
 - Passes Lighthouse                            <!-- a subset score, not conformance -->

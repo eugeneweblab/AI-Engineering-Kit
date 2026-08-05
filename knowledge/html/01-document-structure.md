@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [html, document-structure]
-related: [html/02-semantic-html, html/10-metadata, html/11-accessibility, html/18-performance]
+related: [html/02-semantic-html, html/10-metadata, html/11-accessibility, html/18-performance, html/22-validation]
 when_to_use: "Read before creating a new HTML page or reviewing the top-level skeleton, doctype, or <head>."
 ---
 # Document Structure
@@ -133,6 +133,7 @@ work around it. The skeleton is cheap to get right and expensive to retrofit.
 - Do scripts use `defer` or `type="module"` instead of blocking the parser?
 
 ## Related
+
 
 - `knowledge/html/02-semantic-html.md`
 - `knowledge/html/10-metadata.md`

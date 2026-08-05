@@ -127,7 +127,7 @@
         },
         {
           "id": "accessibility/07-aria",
-          "title": "Aria",
+          "title": "ARIA",
           "slug": "aria",
           "type": "doc",
           "order": 7,
@@ -169,7 +169,7 @@
         },
         {
           "id": "accessibility/10-color-and-contrast",
-          "title": "Color And Contrast",
+          "title": "Color and Contrast",
           "slug": "color-and-contrast",
           "type": "doc",
           "order": 10,
@@ -1037,7 +1037,7 @@
         },
         {
           "id": "architecture/28-best-practices",
-          "title": "Best Practices",
+          "title": "Architecture Best Practices",
           "slug": "best-practices",
           "type": "doc",
           "order": 28,
@@ -15856,7 +15856,7 @@
         },
         {
           "id": "security/08-oauth",
-          "title": "Oauth",
+          "title": "OAuth 2.0 and OpenID Connect",
           "slug": "oauth",
           "type": "doc",
           "order": 8,
@@ -15898,7 +15898,7 @@
         },
         {
           "id": "security/11-xss",
-          "title": "XSS",
+          "title": "XSS (Cross-Site Scripting)",
           "slug": "xss",
           "type": "doc",
           "order": 11,
@@ -15912,7 +15912,7 @@
         },
         {
           "id": "security/12-csrf",
-          "title": "CSRF",
+          "title": "CSRF (Cross-Site Request Forgery)",
           "slug": "csrf",
           "type": "doc",
           "order": 12,
@@ -18152,7 +18152,7 @@
         },
         {
           "id": "testing/21-cicd",
-          "title": "Cicd",
+          "title": "CI/CD",
           "slug": "cicd",
           "type": "doc",
           "order": 21,

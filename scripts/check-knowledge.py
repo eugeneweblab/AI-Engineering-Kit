@@ -19,7 +19,8 @@ block to the real parser for its declared language.
 Checks
 ------
   structure   every standard topic has README/00/98/99/100 and no gap in 01..30
-  frontmatter id/topic/order agree with the path; status/title/when_to_use present
+  frontmatter id/topic/order agree with the path; status/when_to_use present; title
+              matches the document's H1
   duplicates  no duplicate `id`, no duplicate `order` inside a topic
   links       markdown links, `related:` ids, and `knowledge/...md` paths resolve
   fences      every ``` fence is closed
@@ -74,7 +75,10 @@ BASELINE_PATH = Path(__file__).with_name("codeblock-baseline.json")
 FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n", re.DOTALL)
 FENCE_RE = re.compile(r"^```([a-zA-Z0-9_+.-]*)\s*$")
 MD_LINK_RE = re.compile(r"\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
-BARE_PATH_RE = re.compile(r"`(knowledge/[\w./-]+\.md)`")
+# Deliberately loose: a strict character class silently skips a malformed reference
+# instead of reporting it, which is how `knowledge/"react/21-testing".md` once slipped
+# through. Match anything backticked that starts with knowledge/, then validate it.
+BARE_PATH_RE = re.compile(r"`(knowledge/[^`\n]*)`")
 
 # Fence tag -> file extension handed to the parser.
 JS_FAMILY = {"ts": "ts", "typescript": "ts", "tsx": "tsx",
@@ -388,6 +392,17 @@ def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
             problems.append(f"{rel}: status is {fm.get('status')!r}, expected ready or draft")
         if not fm.get("title"):
             problems.append(f"{rel}: title is empty")
+        else:
+            # `title` is the agent-facing label in INDEX.json. When it drifts from the
+            # H1 it is usually an automated title-casing pass mangling an acronym —
+            # "Oauth", "Cicd", "Aria" all reached the index that way.
+            heading = re.search(r"^#\s+(.+)$", doc.body, re.MULTILINE)
+            if heading:
+                want = heading.group(1).strip().replace("`", "")
+                if fm["title"].strip("\"'") != want:
+                    problems.append(
+                        f"{rel}: title is {fm['title']!r} but the H1 is {want!r}"
+                    )
         if not fm.get("when_to_use", "").strip('"\' '):
             problems.append(f"{rel}: when_to_use is empty")
 
@@ -416,6 +431,8 @@ def check_links(root: Path, docs: list[Doc], problems: list[str]) -> int:
             if not (root / f"{related_id}.md").exists() and not (root / related_id).exists():
                 problems.append(f"{doc.rel}: related -> {related_id} does not exist")
         for bare in BARE_PATH_RE.findall(doc.body):
+            if "<" in bare:
+                continue  # `knowledge/<topic>/` documents the shape, it is not a link
             checked += 1
             if not (repo / bare).exists():
                 problems.append(f"{doc.rel}: path reference -> {bare} does not exist")

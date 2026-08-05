@@ -354,6 +354,9 @@ what renders.
 
 ## Related
 
-- `knowledge/wordpress/16-block-editor.md`
+
 - `knowledge/wordpress/14-theme-development.md`
+- `knowledge/wordpress/16-block-editor.md`
 - `knowledge/wordpress/13-template-hierarchy.md`
+- `knowledge/wordpress/05-performance.md`
+- `knowledge/wordpress/24-internationalization.md`

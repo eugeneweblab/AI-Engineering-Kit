@@ -7,7 +7,7 @@ type: doc
 order: 25
 status: ready
 tags: [frontend, folder-structure]
-related: [frontend/01-frontend-architecture, frontend/02-component-driven-development, frontend/21-code-splitting, frontend/24-documentation]
+related: [frontend/01-frontend-architecture, frontend/02-component-driven-development, frontend/21-code-splitting, frontend/24-documentation, frontend/19-build-tools]
 when_to_use: "Read before creating a new frontend project or adding a feature that needs new directories."
 ---
 # Folder Structure
@@ -66,7 +66,7 @@ life of the project. Getting it right early is cheap; fixing it later is a migra
 
 **Good Example** — feature-grouped, boundaries enforceable
 
-```txt
+```text
 src/
   features/
     checkout/
@@ -85,7 +85,7 @@ src/
 
 **Bad Example** — grouped by type; coupling is invisible
 
-```txt
+```text
 src/
   components/  Button.tsx  CheckoutPage.tsx  SearchBar.tsx   // unrelated files jumbled
   hooks/       useCart.ts  useSearch.ts                      // logic split from its UI
@@ -120,6 +120,7 @@ src/
 - Is there a lint/tooling rule that fails forbidden imports in CI?
 
 ## Related
+
 
 - `knowledge/frontend/01-frontend-architecture.md`
 - `knowledge/frontend/02-component-driven-development.md`

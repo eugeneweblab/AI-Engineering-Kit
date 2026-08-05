@@ -7,7 +7,7 @@ type: doc
 order: 7
 status: ready
 tags: [kubernetes, services]
-related: [kubernetes/08-ingress, kubernetes/05-deployments, kubernetes/04-pods, kubernetes/17-network-policies]
+related: [kubernetes/08-ingress, kubernetes/05-deployments, kubernetes/04-pods, kubernetes/17-network-policies, kubernetes/13-statefulsets]
 when_to_use: "Read before exposing a workload to other Pods or the network, or debugging why traffic never reaches your Pods."
 ---
 # Services
@@ -131,6 +131,7 @@ spec:
 - Do callers use the Service DNS name rather than a hardcoded IP?
 
 ## Related
+
 
 - `knowledge/kubernetes/08-ingress.md`
 - `knowledge/kubernetes/05-deployments.md`

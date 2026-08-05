@@ -128,7 +128,7 @@ A thin, idiomatic controller declares routes with decorators, extracts data with
 parameter decorators, and delegates every decision to a service. It holds no
 business logic and reaches for no database.
 
-```typescript
+```ts
 // users.controller.ts
 import {
   Controller,
@@ -190,7 +190,7 @@ The anti-pattern below inlines validation, database access, password hashing, an
 manual response formatting. It also uses `@Res()`, which opts out of Nest's
 response pipeline and breaks interceptors and exception filters.
 
-```typescript
+```ts
 // BAD: fat controller — business logic, DB access, and manual responses
 import { Controller, Post, Req, Res } from '@nestjs/common';
 import { Request, Response } from 'express';
@@ -299,7 +299,7 @@ Avoid accepting untyped objects.
 Define the create DTO with `class-validator` decorators, then derive the update
 DTO with `PartialType` so its fields become optional without duplication.
 
-```typescript
+```ts
 // dto/create-user.dto.ts
 import {
   IsEmail,
@@ -334,7 +334,7 @@ export class CreateUserDto {
 }
 ```
 
-```typescript
+```ts
 // dto/update-user.dto.ts
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateUserDto } from './create-user.dto';
@@ -363,7 +363,7 @@ Register `ValidationPipe` globally so DTO rules run on every request before any
 handler executes. `whitelist` strips unknown properties, `forbidNonWhitelisted`
 rejects them with a 400, and `transform` produces real DTO class instances.
 
-```typescript
+```ts
 // main.ts
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
@@ -464,7 +464,7 @@ Query strings arrive as text, so a pagination DTO must coerce and bound them.
 `@Type(() => Number)` (with `transform: true` on the pipe) converts the raw
 string, and `@Max` caps the page size to protect the database.
 
-```typescript
+```ts
 // dto/pagination-query.dto.ts
 import { Type } from 'class-transformer';
 import { IsInt, IsOptional, Max, Min } from 'class-validator';
@@ -519,7 +519,7 @@ Versioning strategy should remain consistent throughout the application.
 
 Enable URI versioning once at bootstrap, then declare the version per controller.
 
-```typescript
+```ts
 // main.ts
 import { VersioningType } from '@nestjs/common';
 
@@ -529,7 +529,7 @@ app.enableVersioning({
 });
 ```
 
-```typescript
+```ts
 // users.v2.controller.ts
 import { Controller, Get } from '@nestjs/common';
 
@@ -558,7 +558,7 @@ Avoid embedding storage logic inside controllers.
 Use `FileInterceptor` to receive the upload and `ParseFilePipe` to enforce size
 and type before the handler runs. Storage itself is delegated to a service.
 
-```typescript
+```ts
 // avatars.controller.ts
 import {
   Controller,
@@ -624,7 +624,7 @@ A controller test provides a mock service and verifies delegation, not business
 logic. Guards are replaced with `overrideGuard` so routing can be tested in
 isolation.
 
-```typescript
+```ts
 // users.controller.spec.ts
 import { Test, TestingModule } from '@nestjs/testing';
 import { UsersController } from './users.controller';

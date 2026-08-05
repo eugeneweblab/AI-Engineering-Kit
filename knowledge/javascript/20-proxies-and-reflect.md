@@ -7,7 +7,7 @@ type: doc
 order: 20
 status: ready
 tags: [javascript, proxies-and-reflect]
-related: [javascript/19-symbols, javascript/05-objects-and-prototypes, javascript/16-this-keyword, javascript/25-performance]
+related: [javascript/19-symbols, javascript/05-objects-and-prototypes, javascript/16-this-keyword, javascript/25-performance, javascript/06-classes]
 when_to_use: "Read before intercepting object operations for validation, reactivity, virtualization, or access control."
 ---
 # Proxies And Reflect
@@ -147,6 +147,7 @@ Object.keys(p);             // throws TypeError: ownKeys trap must return an arr
 - Has proxy overhead been considered for objects on a hot path?
 
 ## Related
+
 
 - `knowledge/javascript/19-symbols.md`
 - `knowledge/javascript/05-objects-and-prototypes.md`

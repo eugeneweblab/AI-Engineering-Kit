@@ -7,7 +7,7 @@ type: doc
 order: 0
 status: ready
 tags: [security, overview]
-related: [security/01-security-fundamentals, security/02-threat-modeling, security/03-authentication, security/28-owasp-top10]
+related: [security/01-security-fundamentals, security/02-threat-modeling, security/03-authentication, security/28-owasp-top10, security/99-ai-review-checklist]
 when_to_use: "Read first to orient yourself in the security topic and find the right doc for a task."
 ---
 # Overview
@@ -98,6 +98,7 @@ The topic moves from principles to specific defenses to operations.
 - Are security guarantees preserved across layers, not just in the file you changed?
 
 ## Related
+
 
 - `knowledge/security/01-security-fundamentals.md`
 - `knowledge/security/02-threat-modeling.md`

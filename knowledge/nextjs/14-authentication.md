@@ -7,7 +7,7 @@ type: doc
 order: 14
 status: ready
 tags: [nextjs, authentication]
-related: [nextjs/15-authorization, nextjs/13-middleware, nextjs/11-server-actions, nextjs/06-server-components, nextjs/21-environment-variables, nextjs/24-security]
+related: [nextjs/15-authorization, nextjs/13-middleware, nextjs/11-server-actions, nextjs/06-server-components, nextjs/21-environment-variables, nextjs/24-security, security/03-authentication, security/07-jwt]
 when_to_use: "Read before implementing authentication or authorization in a Next.js app."
 ---
 # Next.js Authentication
@@ -753,7 +753,12 @@ By keeping identity verification, permission checks, and protected business logi
 
 ## Related
 
+
 - `knowledge/nextjs/15-authorization.md`
 - `knowledge/nextjs/13-middleware.md`
+- `knowledge/nextjs/11-server-actions.md`
+- `knowledge/nextjs/06-server-components.md`
+- `knowledge/nextjs/21-environment-variables.md`
+- `knowledge/nextjs/24-security.md`
 - `knowledge/security/03-authentication.md`
 - `knowledge/security/07-jwt.md`

@@ -7,7 +7,7 @@ type: doc
 order: 18
 status: ready
 tags: [wordpress, rest-api]
-related: [wordpress/06-security, wordpress/20-users-and-capabilities, wordpress/11-metadata, wordpress/16-block-editor, wordpress/23-caching]
+related: [wordpress/06-security, wordpress/20-users-and-capabilities, wordpress/11-metadata, wordpress/16-block-editor, wordpress/23-caching, wordpress/09-custom-post-types, rest-api/24-security]
 when_to_use: "Read before exposing or consuming WordPress REST endpoints — registering a route, adding fields to core responses, or securing an API used by a headless front end."
 ---
 # REST API
@@ -389,8 +389,11 @@ public.
 
 ## Related
 
-- `knowledge/wordpress/20-users-and-capabilities.md`
-- `knowledge/wordpress/09-custom-post-types.md`
-- `knowledge/wordpress/16-block-editor.md`
+
 - `knowledge/wordpress/06-security.md`
+- `knowledge/wordpress/20-users-and-capabilities.md`
+- `knowledge/wordpress/11-metadata.md`
+- `knowledge/wordpress/16-block-editor.md`
+- `knowledge/wordpress/23-caching.md`
+- `knowledge/wordpress/09-custom-post-types.md`
 - `knowledge/rest-api/24-security.md`

@@ -79,7 +79,7 @@ async def enrich(order_ids):
 
     # ... and independent enrichment fanned out with a concurrency cap.
     sem = asyncio.Semaphore(10)                        # bound: never unleash N calls
-    async def score(o): 
+    async def score(o):
         async with sem: return await risk_service.score(o)
     scores = await asyncio.gather(*(score(o) for o in orders))
     return [(o, by_id[o.user_id], s) for o, s in zip(orders, scores)]

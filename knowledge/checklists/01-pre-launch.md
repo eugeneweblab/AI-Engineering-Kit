@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [checklists, pre-launch]
-related: [checklists/03-new-project-setup, seo/98-production-checklist, accessibility/98-production-checklist, security/98-production-checklist, performance/98-production-checklist]
+related: [checklists/03-new-project-setup, seo/98-production-checklist, accessibility/98-production-checklist, security/98-production-checklist, performance/98-production-checklist, playbooks/01-site-down]
 when_to_use: "Run a week before putting a site or application in front of real users, and again on launch day."
 ---
 # Pre-Launch Checklist
@@ -209,7 +209,10 @@ exactly the situation it exists to prevent.
 
 ## Related
 
+
 - `knowledge/checklists/03-new-project-setup.md`
-- `knowledge/security/98-production-checklist.md`
 - `knowledge/seo/98-production-checklist.md`
+- `knowledge/accessibility/98-production-checklist.md`
+- `knowledge/security/98-production-checklist.md`
+- `knowledge/performance/98-production-checklist.md`
 - `knowledge/playbooks/01-site-down.md`

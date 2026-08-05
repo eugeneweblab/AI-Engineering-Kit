@@ -346,7 +346,9 @@ that rolling back the code is always possible.
 
 ## Related
 
-- `knowledge/wordpress/02-project-structure.md`
+
 - `knowledge/wordpress/26-wp-cli.md`
 - `knowledge/wordpress/29-maintenance.md`
+- `knowledge/wordpress/02-project-structure.md`
+- `knowledge/wordpress/06-security.md`
 - `knowledge/wordpress/23-caching.md`

@@ -2,7 +2,7 @@
 id: architecture/28-best-practices
 topic: architecture
 slug: best-practices
-title: "Best Practices"
+title: "Architecture Best Practices"
 type: doc
 order: 28
 status: ready

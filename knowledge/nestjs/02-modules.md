@@ -129,7 +129,7 @@ Export only stable providers.
 A feature module declares its controllers and providers, and exports only the
 service that forms its stable public contract. The repository stays private.
 
-```typescript
+```ts
 // users/users.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -171,7 +171,7 @@ Avoid exporting everything by default.
 
 Good — export only the provider that other modules consume:
 
-```typescript
+```ts
 @Module({
   controllers: [UsersController],
   providers: [UsersService, UsersRepository, UserPasswordHasher],
@@ -183,7 +183,7 @@ export class UsersModule {}
 Bad — leaking every internal provider couples other modules to implementation
 details and makes the repository and hasher impossible to change safely:
 
-```typescript
+```ts
 @Module({
   controllers: [UsersController],
   providers: [UsersService, UsersRepository, UserPasswordHasher],
@@ -232,7 +232,7 @@ Mark the module with `@Global()` so its exports are available everywhere without
 re-importing. It must still be imported once (typically in the root module) for
 its providers to be instantiated.
 
-```typescript
+```ts
 // logger/logger.module.ts
 import { Global, Module } from '@nestjs/common';
 import { LoggerService } from './logger.service';
@@ -264,7 +264,7 @@ Expose static `forRoot`/`forRootAsync` methods that return a `DynamicModule`.
 Pass options through an injection token so services can consume them, and use the
 async variant when options depend on other providers such as `ConfigService`.
 
-```typescript
+```ts
 // storage/storage.module.ts
 import { DynamicModule, Module, Provider } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
@@ -312,7 +312,7 @@ export class StorageModule {
 
 The service injects the resolved options through the same token:
 
-```typescript
+```ts
 // storage/storage.service.ts
 import { Inject, Injectable } from '@nestjs/common';
 import { STORAGE_OPTIONS, StorageOptions } from './storage.module';
@@ -343,7 +343,7 @@ When two modules genuinely reference each other and the cycle cannot be removed
 immediately, break it with `forwardRef()` on both the module import and the
 provider injection. Treat this as a temporary measure, not a design goal.
 
-```typescript
+```ts
 // orders/orders.module.ts
 import { Module, forwardRef } from '@nestjs/common';
 import { PaymentsModule } from '../payments/payments.module';
@@ -357,7 +357,7 @@ import { OrdersService } from './orders.service';
 export class OrdersModule {}
 ```
 
-```typescript
+```ts
 // orders/orders.service.ts
 import { Inject, Injectable, forwardRef } from '@nestjs/common';
 import { PaymentsService } from '../payments/payments.service';

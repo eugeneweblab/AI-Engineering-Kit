@@ -7,7 +7,7 @@ type: doc
 order: 24
 status: ready
 tags: [tools, database-tools]
-related: [tools/20-local-environments, tools/23-api-clients, tools/22-profilers, tools/26-ai-coding-tools, tools/30-engineering-principles]
+related: [tools/20-local-environments, tools/23-api-clients, tools/22-profilers, tools/26-ai-coding-tools, tools/30-engineering-principles, databases/08-query-optimization, databases/17-migrations]
 when_to_use: "Read before working with a database by hand — choosing a client, inspecting queries, running migrations, or moving data between environments safely."
 ---
 # Database Tools
@@ -198,7 +198,11 @@ than preferences.
 
 ## Related
 
+
 - `knowledge/tools/20-local-environments.md`
+- `knowledge/tools/23-api-clients.md`
+- `knowledge/tools/22-profilers.md`
+- `knowledge/tools/26-ai-coding-tools.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/databases/08-query-optimization.md`
 - `knowledge/databases/17-migrations.md`
-- `knowledge/tools/22-profilers.md`

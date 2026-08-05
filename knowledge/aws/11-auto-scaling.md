@@ -151,7 +151,9 @@ resource "aws_autoscaling_policy" "step" {
 
 ## Related
 
+
 - `knowledge/aws/03-ec2.md`
 - `knowledge/aws/10-elastic-load-balancer.md`
 - `knowledge/aws/31-high-availability.md`
+- `knowledge/aws/14-cloudwatch.md`
 - `knowledge/aws/24-cost-optimization.md`

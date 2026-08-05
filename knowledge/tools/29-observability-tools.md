@@ -7,7 +7,7 @@ type: doc
 order: 29
 status: ready
 tags: [tools, observability-tools]
-related: [tools/22-profilers, tools/21-debuggers, tools/23-api-clients, tools/20-local-environments, tools/30-engineering-principles]
+related: [tools/22-profilers, tools/21-debuggers, tools/23-api-clients, tools/20-local-environments, tools/30-engineering-principles, performance/17-monitoring, security/25-monitoring]
 when_to_use: "Read before instrumenting an application — choosing error tracking, structured logging, and tracing, and deciding what to capture without leaking user data."
 ---
 # Observability Tools
@@ -294,7 +294,11 @@ pager. That is a worse outcome than having no alert at all.
 
 ## Related
 
+
 - `knowledge/tools/22-profilers.md`
 - `knowledge/tools/21-debuggers.md`
+- `knowledge/tools/23-api-clients.md`
+- `knowledge/tools/20-local-environments.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/performance/17-monitoring.md`
 - `knowledge/security/25-monitoring.md`

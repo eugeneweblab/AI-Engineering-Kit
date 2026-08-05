@@ -7,7 +7,7 @@ type: doc
 order: 20
 status: ready
 tags: [devops, scalability]
-related: [devops/19-high-availability, devops/21-performance, devops/11-orchestration, devops/12-monitoring]
+related: [devops/19-high-availability, devops/21-performance, devops/11-orchestration, devops/12-monitoring, devops/27-sre-principles]
 when_to_use: "Read before designing autoscaling, capacity, or any system expected to grow in load or data."
 ---
 # Scalability
@@ -136,6 +136,7 @@ app.post("/orders", async (req, res) => {
 - Has the system been load-tested to 2–3x expected peak?
 
 ## Related
+
 
 - `knowledge/devops/19-high-availability.md`
 - `knowledge/devops/21-performance.md`

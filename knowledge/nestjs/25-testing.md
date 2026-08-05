@@ -38,7 +38,7 @@ codes, emitted events—rather than on internal collaborators.
 Bad—coupled to implementation. Renaming the private helper or reordering the
 internal calls breaks the test even though behavior is unchanged:
 
-```typescript
+```ts
 it('creates a user', async () => {
   const spy = jest.spyOn(service as any, 'hashPassword');
   await service.create({ email: 'a@b.com', password: 'secret' });
@@ -49,7 +49,7 @@ it('creates a user', async () => {
 
 Good—asserts the observable result and the persisted side effect:
 
-```typescript
+```ts
 it('should_persist_a_user_without_leaking_the_raw_password', async () => {
   const created = await service.create({
     email: 'a@b.com',
@@ -123,7 +123,7 @@ dependencies with test doubles. For a service that depends on a TypeORM
 repository, provide the mock under `getRepositoryToken(Entity)`—the same token
 `@InjectRepository` resolves at runtime:
 
-```typescript
+```ts
 // users.service.ts (the unit under test)
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -147,7 +147,7 @@ export class UsersService {
 }
 ```
 
-```typescript
+```ts
 // users.service.spec.ts
 import { Test, TestingModule } from '@nestjs/testing';
 import { NotFoundException } from '@nestjs/common';
@@ -246,7 +246,7 @@ global configuration used in `main.ts` (pipes, filters, prefixes), and drive it
 with `supertest`. Always `close()` the app so the HTTP server and connection
 pools are released:
 
-```typescript
+```ts
 // test/users.e2e-spec.ts
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
@@ -425,7 +425,7 @@ external collaborator with `overrideProvider(...).useValue(...)`. Everything
 else runs for real, so the test still exercises routing, guards, pipes, and
 persistence:
 
-```typescript
+```ts
 // test/checkout.e2e-spec.ts
 import { PaymentGateway } from '../src/payments/payment.gateway';
 

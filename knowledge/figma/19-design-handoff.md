@@ -132,7 +132,7 @@ Avoid guessing responsive behavior.
 Designs are drawn at a handful of widths; browsers render every width in between. Agree on the
 breakpoint contract explicitly, in writing:
 
-```md
+```markdown
 | Section          | ≥1280 (desktop) | 1024–1279       | 768–1023 (tablet) | <768 (mobile)             |
 |------------------|-----------------|-----------------|-------------------|---------------------------|
 | Nav              | inline links    | inline links    | hamburger         | hamburger                 |
@@ -324,7 +324,7 @@ A complete handoff should include:
 
 Keep it as one document in the repository, next to the code it describes:
 
-```md
+```markdown
 # Handoff — Pricing Page
 
 **Figma**: `figma.com/design/XXXX/Marketing?node-id=2-10`

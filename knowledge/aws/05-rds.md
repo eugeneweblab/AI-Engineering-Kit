@@ -7,7 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [aws, rds]
-related: [aws/02-iam, aws/06-vpc, aws/16-secrets-manager, aws/01-global-infrastructure]
+related: [aws/02-iam, aws/06-vpc, aws/16-secrets-manager, aws/01-global-infrastructure, aws/14-cloudwatch]
 when_to_use: "Read before provisioning, securing, or scaling a managed relational database on AWS."
 ---
 # RDS
@@ -134,6 +134,7 @@ resource "aws_db_instance" "app" {
 - Are read replicas used for read scaling instead of oversizing the primary?
 
 ## Related
+
 
 - `knowledge/aws/02-iam.md`
 - `knowledge/aws/06-vpc.md`

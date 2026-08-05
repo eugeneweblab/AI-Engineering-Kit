@@ -7,7 +7,7 @@ type: doc
 order: 22
 status: ready
 tags: [devops, testing]
-related: [devops/23-quality-gates, devops/05-build-pipelines, devops/07-deployment-strategies, devops/21-performance]
+related: [devops/23-quality-gates, devops/05-build-pipelines, devops/07-deployment-strategies, devops/21-performance, devops/16-security]
 when_to_use: "Read before writing a test suite or CI test stage, or reviewing test coverage for a change."
 ---
 # Testing
@@ -129,6 +129,7 @@ test("archives old orders", async () => {
 - Does each bug fix ship with a regression test that fails without the fix?
 
 ## Related
+
 
 - `knowledge/devops/23-quality-gates.md`
 - `knowledge/devops/05-build-pipelines.md`

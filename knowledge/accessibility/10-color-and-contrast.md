@@ -2,7 +2,7 @@
 id: accessibility/10-color-and-contrast
 topic: accessibility
 slug: color-and-contrast
-title: "Color And Contrast"
+title: "Color and Contrast"
 type: doc
 order: 10
 status: ready

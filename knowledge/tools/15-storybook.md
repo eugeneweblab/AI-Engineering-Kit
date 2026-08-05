@@ -7,7 +7,7 @@ type: doc
 order: 15
 status: ready
 tags: [tools, storybook]
-related: [tools/14-playwright, tools/13-test-runners, tools/09-vite, tools/25-editor-setup, tools/30-engineering-principles]
+related: [tools/14-playwright, tools/13-test-runners, tools/09-vite, tools/25-editor-setup, tools/30-engineering-principles, react/02-component-architecture, frontend/03-design-systems]
 when_to_use: "Read before setting up Storybook or writing stories — documenting components in isolation, testing states, or wiring accessibility and visual checks."
 ---
 # Storybook
@@ -208,7 +208,11 @@ data should arrive as props.
 
 ## Related
 
+
 - `knowledge/tools/14-playwright.md`
 - `knowledge/tools/13-test-runners.md`
+- `knowledge/tools/09-vite.md`
+- `knowledge/tools/25-editor-setup.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/react/02-component-architecture.md`
 - `knowledge/frontend/03-design-systems.md`

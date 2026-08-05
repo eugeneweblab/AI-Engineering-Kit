@@ -7,7 +7,7 @@ type: doc
 order: 6
 status: ready
 tags: [sql, subqueries]
-related: [sql/07-common-table-expressions, sql/05-joins, sql/09-aggregate-functions, sql/17-query-optimization]
+related: [sql/07-common-table-expressions, sql/05-joins, sql/09-aggregate-functions, sql/17-query-optimization, sql/08-window-functions]
 when_to_use: "Read before nesting a query inside a WHERE, FROM, or SELECT clause, or when a join alone cannot express the filter you need."
 ---
 # Subqueries
@@ -121,6 +121,7 @@ WHERE c.id NOT IN (
 - Has `EXPLAIN` been run on subqueries over large tables?
 
 ## Related
+
 
 - `knowledge/sql/07-common-table-expressions.md`
 - `knowledge/sql/05-joins.md`

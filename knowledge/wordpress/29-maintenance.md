@@ -7,7 +7,7 @@ type: doc
 order: 29
 status: ready
 tags: [wordpress, maintenance]
-related: [wordpress/27-deployment, wordpress/26-wp-cli, wordpress/06-security, wordpress/23-caching, wordpress/98-production-checklist]
+related: [wordpress/27-deployment, wordpress/26-wp-cli, wordpress/06-security, wordpress/23-caching, wordpress/98-production-checklist, wordpress/22-cron-and-background-tasks]
 when_to_use: "Read when planning ongoing care of a WordPress site — update strategy, backups, plugin audits, database hygiene, and monitoring."
 ---
 # Maintenance
@@ -296,7 +296,10 @@ deliberately, and monitoring that tells you about failures before a client does.
 
 ## Related
 
+
 - `knowledge/wordpress/27-deployment.md`
 - `knowledge/wordpress/26-wp-cli.md`
-- `knowledge/wordpress/22-cron-and-background-tasks.md`
 - `knowledge/wordpress/06-security.md`
+- `knowledge/wordpress/23-caching.md`
+- `knowledge/wordpress/98-production-checklist.md`
+- `knowledge/wordpress/22-cron-and-background-tasks.md`

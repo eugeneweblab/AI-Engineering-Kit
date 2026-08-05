@@ -7,7 +7,7 @@ type: doc
 order: 18
 status: ready
 tags: [javascript, iterators-and-generators]
-related: [javascript/17-es6-features, javascript/09-promises, javascript/08-asynchronous-javascript, javascript/15-memory-management]
+related: [javascript/17-es6-features, javascript/09-promises, javascript/08-asynchronous-javascript, javascript/15-memory-management, javascript/19-symbols]
 when_to_use: "Read before building custom iterable data structures, lazy sequences, or streaming/async pipelines."
 ---
 # Iterators And Generators
@@ -163,6 +163,7 @@ squaresUpTo(1e9);  // OOM even though the caller only wanted the first few
 - Is `yield*` used to delegate instead of manually re-yielding a nested loop?
 
 ## Related
+
 
 - `knowledge/javascript/17-es6-features.md`
 - `knowledge/javascript/09-promises.md`

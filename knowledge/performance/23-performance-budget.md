@@ -81,7 +81,7 @@ also settles arguments: "is this fast enough?" has an answer, not an opinion.
 
 **Bad Example** — a target with no enforcement
 
-```md
+```markdown
 <!-- In the team wiki: -->
 ## Performance goals
 - Keep the app fast (aim for a good Lighthouse score).

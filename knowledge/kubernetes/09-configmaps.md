@@ -7,7 +7,7 @@ type: doc
 order: 9
 status: ready
 tags: [kubernetes, configmaps]
-related: [kubernetes/10-secrets, kubernetes/11-volumes, kubernetes/05-deployments, kubernetes/04-pods]
+related: [kubernetes/10-secrets, kubernetes/11-volumes, kubernetes/05-deployments, kubernetes/04-pods, kubernetes/26-production]
 when_to_use: "Read before externalizing non-secret application configuration or wiring environment-specific settings into Pods."
 ---
 # Configmaps
@@ -142,6 +142,7 @@ data:
 - Should this ConfigMap be `immutable: true` to prevent accidental changes?
 
 ## Related
+
 
 - `knowledge/kubernetes/10-secrets.md`
 - `knowledge/kubernetes/11-volumes.md`

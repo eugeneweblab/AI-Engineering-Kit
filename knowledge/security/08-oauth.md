@@ -2,7 +2,7 @@
 id: security/08-oauth
 topic: security
 slug: oauth
-title: "Oauth"
+title: "OAuth 2.0 and OpenID Connect"
 type: doc
 order: 8
 status: ready

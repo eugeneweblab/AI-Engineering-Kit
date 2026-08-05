@@ -7,7 +7,7 @@ type: doc
 order: 23
 status: ready
 tags: [tools, api-clients]
-related: [tools/24-database-tools, tools/14-playwright, tools/29-observability-tools, tools/19-task-runners, tools/30-engineering-principles]
+related: [tools/24-database-tools, tools/14-playwright, tools/29-observability-tools, tools/19-task-runners, tools/30-engineering-principles, rest-api/21-openapi, testing/12-api-testing]
 when_to_use: "Read before testing or documenting an HTTP API by hand — using curl, HTTPie, or a GUI client, and keeping request collections in version control."
 ---
 # API Clients
@@ -183,7 +183,11 @@ platform's history.
 
 ## Related
 
+
 - `knowledge/tools/24-database-tools.md`
+- `knowledge/tools/14-playwright.md`
+- `knowledge/tools/29-observability-tools.md`
+- `knowledge/tools/19-task-runners.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/rest-api/21-openapi.md`
 - `knowledge/testing/12-api-testing.md`
-- `knowledge/tools/29-observability-tools.md`

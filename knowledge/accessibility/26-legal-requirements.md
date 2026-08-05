@@ -72,7 +72,7 @@ paper trail — is what converts legal exposure into a solved engineering proble
 
 **Good Example** — a concrete, testable, dated conformance claim
 
-```md
+```markdown
 # Accessibility Statement
 
 This application conforms to **WCAG 2.2 Level AA**.
@@ -85,7 +85,7 @@ This application conforms to **WCAG 2.2 Level AA**.
 
 **Bad Example** — a vague claim that satisfies no law and proves nothing
 
-```md
+```markdown
 # Accessibility
 
 We care deeply about accessibility and our site is fully accessible to everyone.

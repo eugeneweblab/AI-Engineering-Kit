@@ -7,7 +7,7 @@ type: doc
 order: 6
 status: ready
 tags: [tools, stylelint]
-related: [tools/05-prettier, tools/04-eslint, tools/16-git-hooks, tools/09-vite, tools/30-engineering-principles]
+related: [tools/05-prettier, tools/04-eslint, tools/16-git-hooks, tools/09-vite, tools/30-engineering-principles, css/21-architecture, tailwind/26-best-practices]
 when_to_use: "Read before linting CSS — configuring Stylelint for plain CSS, SCSS, or Tailwind, or enforcing design-token usage in stylesheets."
 ---
 # Stylelint
@@ -176,7 +176,11 @@ export default {
 
 ## Related
 
+
 - `knowledge/tools/05-prettier.md`
 - `knowledge/tools/04-eslint.md`
+- `knowledge/tools/16-git-hooks.md`
+- `knowledge/tools/09-vite.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/css/21-architecture.md`
 - `knowledge/tailwind/26-best-practices.md`

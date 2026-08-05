@@ -7,7 +7,7 @@ type: doc
 order: 21
 status: ready
 tags: [wordpress, media-and-uploads]
-related: [wordpress/06-security, wordpress/05-performance, wordpress/14-theme-development, wordpress/27-deployment, wordpress/19-database]
+related: [wordpress/06-security, wordpress/05-performance, wordpress/14-theme-development, wordpress/27-deployment, wordpress/19-database, wordpress/16-block-editor, security/15-file-upload-security]
 when_to_use: "Read before handling uploads or rendering images — accepting files, registering image sizes, outputting responsive images, or offloading media."
 ---
 # Media and Uploads
@@ -273,7 +273,11 @@ sizes you render, and emit responsive markup with real alt text.
 
 ## Related
 
-- `knowledge/wordpress/05-performance.md`
+
 - `knowledge/wordpress/06-security.md`
+- `knowledge/wordpress/05-performance.md`
+- `knowledge/wordpress/14-theme-development.md`
+- `knowledge/wordpress/27-deployment.md`
+- `knowledge/wordpress/19-database.md`
 - `knowledge/wordpress/16-block-editor.md`
 - `knowledge/security/15-file-upload-security.md`

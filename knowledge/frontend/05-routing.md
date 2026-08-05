@@ -7,7 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [frontend, routing]
-related: [frontend/04-state-management, frontend/01-frontend-architecture, frontend/21-code-splitting, frontend/13-error-handling]
+related: [frontend/04-state-management, frontend/01-frontend-architecture, frontend/21-code-splitting, frontend/13-error-handling, frontend/06-data-fetching]
 when_to_use: "Read before adding routes, building nested layouts, guarding pages, or wiring URL state and code-splitting."
 ---
 # Routing
@@ -134,6 +134,7 @@ function OrdersList() {
 - Is there a not-found route for unmatched URLs?
 
 ## Related
+
 
 - `knowledge/frontend/04-state-management.md`
 - `knowledge/frontend/01-frontend-architecture.md`

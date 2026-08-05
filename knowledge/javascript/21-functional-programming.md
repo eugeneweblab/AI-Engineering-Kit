@@ -7,7 +7,7 @@ type: doc
 order: 21
 status: ready
 tags: [javascript, functional-programming]
-related: [javascript/04-functions, javascript/03-scope-and-closures, javascript/22-design-patterns, javascript/23-clean-code]
+related: [javascript/04-functions, javascript/03-scope-and-closures, javascript/22-design-patterns, javascript/23-clean-code, javascript/28-best-practices]
 when_to_use: "Read before writing data-transformation logic, shared state, or composing pipelines of small functions."
 ---
 # Functional Programming
@@ -140,6 +140,7 @@ processCart(cart);                 // double-discounts + wrong total; cart corru
 - Is the functional style justified here, versus a clearer imperative version?
 
 ## Related
+
 
 - `knowledge/javascript/04-functions.md`
 - `knowledge/javascript/03-scope-and-closures.md`

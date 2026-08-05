@@ -7,7 +7,7 @@ type: doc
 order: 4
 status: ready
 tags: [workflows, refactor-existing-code]
-related: [engineering/02-code-review, engineering/03-debugging-methodology, engineering/05-context-first-development, testing/98-production-checklist, testing/99-ai-review-checklist, testing/100-common-antipatterns, architecture/27-architecture-review]
+related: [engineering/02-code-review, engineering/03-debugging-methodology, engineering/05-context-first-development, testing/98-production-checklist, testing/99-ai-review-checklist, testing/100-common-antipatterns, architecture/27-architecture-review, ai/04-code-modification, testing/20-test-maintenance]
 when_to_use: "Follow this workflow when refactoring existing code without changing its behavior."
 ---
 # Workflow — Refactor Existing Code
@@ -430,6 +430,13 @@ A successful refactoring is often invisible to users but highly valuable to futu
 
 ## Related
 
-- `knowledge/ai/04-code-modification.md`
+
 - `knowledge/engineering/02-code-review.md`
+- `knowledge/engineering/03-debugging-methodology.md`
+- `knowledge/engineering/05-context-first-development.md`
+- `knowledge/testing/98-production-checklist.md`
+- `knowledge/testing/99-ai-review-checklist.md`
+- `knowledge/testing/100-common-antipatterns.md`
+- `knowledge/architecture/27-architecture-review.md`
+- `knowledge/ai/04-code-modification.md`
 - `knowledge/testing/20-test-maintenance.md`

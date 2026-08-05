@@ -7,7 +7,7 @@ type: doc
 order: 8
 status: ready
 tags: [wordpress, hooks]
-related: [wordpress/01-wordpress-architecture, wordpress/15-plugin-development, wordpress/12-queries, wordpress/03-best-practices, wordpress/100-common-antipatterns]
+related: [wordpress/01-wordpress-architecture, wordpress/15-plugin-development, wordpress/12-queries, wordpress/03-best-practices, wordpress/100-common-antipatterns, wordpress/14-theme-development]
 when_to_use: "Read before hooking into WordPress — registering actions or filters, choosing a hook and priority, or debugging a callback that does not fire."
 ---
 # Hooks — Actions and Filters
@@ -300,7 +300,10 @@ that touch shared state, and keep the callback itself thin enough to be obviousl
 
 ## Related
 
+
+- `knowledge/wordpress/01-wordpress-architecture.md`
 - `knowledge/wordpress/15-plugin-development.md`
 - `knowledge/wordpress/12-queries.md`
+- `knowledge/wordpress/03-best-practices.md`
+- `knowledge/wordpress/100-common-antipatterns.md`
 - `knowledge/wordpress/14-theme-development.md`
-- `knowledge/wordpress/01-wordpress-architecture.md`

@@ -77,7 +77,7 @@ git commit -m "chore: vendor auth lib at v2.3.0"
 
 # Later, advance it and record the new pointer — child first, then parent.
 cd vendor/auth && git checkout v2.4.0 && git -C . rev-parse HEAD
-cd ../.. 
+cd ../..
 git config push.recurseSubmodules check   # refuse parent push if child isn't pushed
 git add vendor/auth                        # stages the NEW commit pointer, not files
 git commit -m "chore: bump auth lib to v2.4.0"

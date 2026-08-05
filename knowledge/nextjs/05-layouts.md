@@ -7,7 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [nextjs, layouts]
-related: [nextjs/06-server-components, nextjs/07-client-components, nextjs/09-data-fetching, nextjs/10-caching, nextjs/18-metadata, nextjs/17-fonts]
+related: [nextjs/06-server-components, nextjs/07-client-components, nextjs/09-data-fetching, nextjs/10-caching, nextjs/18-metadata, nextjs/17-fonts, nextjs/03-app-router, nextjs/04-routing]
 when_to_use: "Read before building shared layouts or persistent UI across Next.js routes."
 ---
 # Next.js Layouts
@@ -664,7 +664,12 @@ By centralizing shared UI, preserving state across navigations, and maintaining 
 
 ## Related
 
+
+- `knowledge/nextjs/06-server-components.md`
+- `knowledge/nextjs/07-client-components.md`
+- `knowledge/nextjs/09-data-fetching.md`
+- `knowledge/nextjs/10-caching.md`
+- `knowledge/nextjs/18-metadata.md`
+- `knowledge/nextjs/17-fonts.md`
 - `knowledge/nextjs/03-app-router.md`
 - `knowledge/nextjs/04-routing.md`
-- `knowledge/nextjs/06-server-components.md`
-- `knowledge/nextjs/18-metadata.md`

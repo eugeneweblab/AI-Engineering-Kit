@@ -215,7 +215,9 @@ cause is still unknown.
 
 ## Related
 
+
 - `knowledge/playbooks/02-failed-deployment.md`
 - `knowledge/templates/03-incident-report.md`
 - `knowledge/workflows/06-investigate-production-bug.md`
 - `knowledge/tools/29-observability-tools.md`
+- `knowledge/performance/25-production-monitoring.md`

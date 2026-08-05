@@ -185,6 +185,8 @@ anything besides the fix.
 
 ## Related
 
+
+- `knowledge/templates/02-architecture-decision-record.md`
 - `knowledge/workflows/05-review-pull-request.md`
 - `knowledge/engineering/02-code-review.md`
 - `knowledge/tools/17-commit-conventions.md`

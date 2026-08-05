@@ -7,7 +7,7 @@ type: doc
 order: 22
 status: ready
 tags: [react, folder-structure]
-related: [react/02-component-architecture, react/23-code-style, react/30-engineering-principles, react/18-state-management, react/09-custom-hooks]
+related: [react/02-component-architecture, react/23-code-style, react/30-engineering-principles, react/18-state-management, react/09-custom-hooks, nextjs/27-folder-structure]
 when_to_use: "Read before creating new files or organizing the folder and directory structure of a React project."
 ---
 # React Folder Structure
@@ -581,6 +581,10 @@ By organizing code around features, responsibilities, and reuse, React projects 
 
 ## Related
 
+
 - `knowledge/react/02-component-architecture.md`
 - `knowledge/react/23-code-style.md`
+- `knowledge/react/30-engineering-principles.md`
+- `knowledge/react/18-state-management.md`
+- `knowledge/react/09-custom-hooks.md`
 - `knowledge/nextjs/27-folder-structure.md`

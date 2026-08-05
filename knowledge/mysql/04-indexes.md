@@ -7,7 +7,7 @@ type: doc
 order: 4
 status: ready
 tags: [mysql, indexes]
-related: [mysql/05-query-optimization, mysql/03-data-types, mysql/14-performance, mysql/00-overview]
+related: [mysql/05-query-optimization, mysql/03-data-types, mysql/14-performance, mysql/00-overview, mysql/23-full-text-search]
 when_to_use: "Read before adding, removing, or ordering an index, or when a query is slow."
 ---
 # Indexes
@@ -122,6 +122,7 @@ CREATE INDEX idx_orders_user ON orders (user_id);
 - Was `EXPLAIN` used to confirm the new index is actually chosen?
 
 ## Related
+
 
 - `knowledge/mysql/05-query-optimization.md`
 - `knowledge/mysql/03-data-types.md`

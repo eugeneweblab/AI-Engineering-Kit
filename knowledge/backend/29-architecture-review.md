@@ -65,7 +65,7 @@ before it is made.
 
 **Good Example** — a review comment that targets a boundary and a failure mode
 
-```md
+```markdown
 Review: "Checkout" design doc
 
 - Boundary: `orders` writes directly to the `payments` table. This couples two
@@ -83,7 +83,7 @@ Review: "Checkout" design doc
 
 **Bad Example** — a review that only sees the surface
 
-```md
+```markdown
 Review: "Checkout" design doc
 
 - LGTM overall.

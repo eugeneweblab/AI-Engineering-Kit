@@ -7,7 +7,7 @@ type: doc
 order: 4
 status: ready
 tags: [frontend, state-management]
-related: [frontend/01-frontend-architecture, frontend/02-component-driven-development, frontend/05-routing, frontend/06-data-fetching]
+related: [frontend/01-frontend-architecture, frontend/02-component-driven-development, frontend/05-routing, frontend/06-data-fetching, frontend/12-forms]
 when_to_use: "Read before adding state, choosing a store, or debugging stale, duplicated, or out-of-sync UI state."
 ---
 # State Management
@@ -122,6 +122,7 @@ globalStore.set("cartTotal", computeTotal(globalStore.get("cartItems")));
 - Are complex state transitions expressed as explicit, traceable updates?
 
 ## Related
+
 
 - `knowledge/frontend/01-frontend-architecture.md`
 - `knowledge/frontend/02-component-driven-development.md`

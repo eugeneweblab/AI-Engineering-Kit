@@ -7,7 +7,7 @@ type: doc
 order: 25
 status: ready
 tags: [tools, editor-setup]
-related: [tools/05-prettier, tools/04-eslint, tools/21-debuggers, tools/26-ai-coding-tools, tools/30-engineering-principles]
+related: [tools/05-prettier, tools/04-eslint, tools/21-debuggers, tools/26-ai-coding-tools, tools/30-engineering-principles, tools/16-git-hooks]
 when_to_use: "Read before committing editor configuration — deciding what to enforce for the whole team, what to recommend, and what to leave personal."
 ---
 # Editor Setup
@@ -208,7 +208,10 @@ Every instruction here is a setting that could have been committed.
 
 ## Related
 
+
 - `knowledge/tools/05-prettier.md`
 - `knowledge/tools/04-eslint.md`
 - `knowledge/tools/21-debuggers.md`
+- `knowledge/tools/26-ai-coding-tools.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/tools/16-git-hooks.md`

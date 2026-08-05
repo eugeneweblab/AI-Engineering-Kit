@@ -7,7 +7,7 @@ type: doc
 order: 4
 status: ready
 tags: [html, links]
-related: [html/02-semantic-html, html/03-text-elements, html/11-accessibility, html/19-security]
+related: [html/02-semantic-html, html/03-text-elements, html/11-accessibility, html/19-security, html/12-seo]
 when_to_use: "Read before adding, reviewing, or refactoring any <a> element, navigation, or anchor target."
 ---
 # Links
@@ -121,6 +121,7 @@ that depend on links most.
 - Do fragment links resolve to an existing, focusable target `id`?
 
 ## Related
+
 
 - `knowledge/html/02-semantic-html.md`
 - `knowledge/html/03-text-elements.md`

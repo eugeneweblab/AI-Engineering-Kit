@@ -7,7 +7,7 @@ type: doc
 order: 17
 status: ready
 tags: [tools, commit-conventions]
-related: [tools/16-git-hooks, tools/28-release-tools, tools/27-dependency-management, tools/19-task-runners, tools/30-engineering-principles]
+related: [tools/16-git-hooks, tools/28-release-tools, tools/27-dependency-management, tools/19-task-runners, tools/30-engineering-principles, git/04-commits, git/27-best-practices]
 when_to_use: "Read before adopting a commit message convention — configuring commitlint, choosing types and scopes, or wiring commits to automated versioning."
 ---
 # Commit Conventions
@@ -184,7 +184,11 @@ consumer breaks on an automatic upgrade.
 
 ## Related
 
+
 - `knowledge/tools/16-git-hooks.md`
 - `knowledge/tools/28-release-tools.md`
+- `knowledge/tools/27-dependency-management.md`
+- `knowledge/tools/19-task-runners.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/git/04-commits.md`
 - `knowledge/git/27-best-practices.md`

@@ -7,7 +7,7 @@ type: doc
 order: 7
 status: ready
 tags: [tools, php-code-standards]
-related: [tools/08-static-analysis, tools/16-git-hooks, tools/01-package-managers, tools/19-task-runners, tools/30-engineering-principles]
+related: [tools/08-static-analysis, tools/16-git-hooks, tools/01-package-managers, tools/19-task-runners, tools/30-engineering-principles, php/24-psr-standards, wordpress/04-code-style]
 when_to_use: "Read before setting up PHP linting — configuring PHP_CodeSniffer or PHP-CS-Fixer, applying the WordPress standard, or automating fixes."
 ---
 # PHP Code Standards
@@ -178,7 +178,11 @@ echo $prepared_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEs
 
 ## Related
 
+
 - `knowledge/tools/08-static-analysis.md`
 - `knowledge/tools/16-git-hooks.md`
+- `knowledge/tools/01-package-managers.md`
+- `knowledge/tools/19-task-runners.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/php/24-psr-standards.md`
 - `knowledge/wordpress/04-code-style.md`

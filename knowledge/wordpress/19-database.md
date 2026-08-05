@@ -7,7 +7,7 @@ type: doc
 order: 19
 status: ready
 tags: [wordpress, database]
-related: [wordpress/12-queries, wordpress/11-metadata, wordpress/06-security, wordpress/15-plugin-development, wordpress/05-performance]
+related: [wordpress/12-queries, wordpress/11-metadata, wordpress/06-security, wordpress/15-plugin-development, wordpress/05-performance, wordpress/25-multisite, security/13-sql-injection]
 when_to_use: "Read before writing direct SQL in WordPress — using $wpdb, deciding whether a custom table is justified, or creating and migrating schema."
 ---
 # Database and `$wpdb`
@@ -273,8 +273,11 @@ gives up WordPress's caching and tooling in exchange for a real schema.
 
 ## Related
 
+
 - `knowledge/wordpress/12-queries.md`
 - `knowledge/wordpress/11-metadata.md`
+- `knowledge/wordpress/06-security.md`
+- `knowledge/wordpress/15-plugin-development.md`
 - `knowledge/wordpress/05-performance.md`
 - `knowledge/wordpress/25-multisite.md`
 - `knowledge/security/13-sql-injection.md`

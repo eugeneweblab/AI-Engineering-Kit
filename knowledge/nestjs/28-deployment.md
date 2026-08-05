@@ -312,7 +312,7 @@ in-flight requests, unfinished jobs, and open connections. Call
 lifecycle: built-in modules (TypeORM, BullMQ, Terminus) drain automatically, and
 your own providers can implement `OnApplicationShutdown` for custom resources.
 
-```typescript
+```ts
 // main.ts
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
@@ -330,7 +330,7 @@ async function bootstrap() {
 bootstrap();
 ```
 
-```typescript
+```ts
 // metrics/metrics-flusher.service.ts
 import {
   Injectable,
@@ -396,7 +396,7 @@ restart the pod) from **readiness** (can it serve traffic? — a failure tells t
 load balancer to stop routing to this instance). Liveness must stay cheap and
 must not call downstream dependencies; readiness is where you verify them.
 
-```typescript
+```ts
 // health/health.controller.ts
 import { Controller, Get } from '@nestjs/common';
 import {
@@ -434,7 +434,7 @@ export class HealthController {
 }
 ```
 
-```typescript
+```ts
 // health/health.module.ts
 import { Module } from '@nestjs/common';
 import { TerminusModule } from '@nestjs/terminus';
@@ -497,7 +497,7 @@ SHA, semantic version, build id) and expose them through a small controller so
 any running instance can report exactly which artifact it is. Read them through
 `ConfigService`, never `process.env` scattered across the codebase.
 
-```typescript
+```ts
 // info/info.controller.ts
 import { Controller, Get } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';

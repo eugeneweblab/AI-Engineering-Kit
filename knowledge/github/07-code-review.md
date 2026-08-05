@@ -66,7 +66,7 @@ tune out feedback. The quality of review directly sets the quality of what ships
 
 **Good Example** — a review that blocks on a real bug with a concrete fix
 
-```md
+```markdown
 <!-- On the diff line that builds a query -->
 **Request changes:** This interpolates `req.query.id` straight into SQL, which is
 injectable. Use a parameterized query instead:
@@ -80,7 +80,7 @@ Nit (non-blocking): `orders` could be a const above the loop.
 
 **Bad Example** — a review that rubber-stamps and nitpicks
 
-```md
+```markdown
 LGTM 👍
 <!-- Approved in 8 seconds on a 900-line diff touching auth. Nobody ran it. -->
 

@@ -7,7 +7,7 @@ type: doc
 order: 0
 status: ready
 tags: [typescript, overview]
-related: [typescript/02-type-system, typescript/03-type-inference, typescript/16-configuration, typescript/28-best-practices]
+related: [typescript/02-type-system, typescript/03-type-inference, typescript/16-configuration, typescript/28-best-practices, typescript/100-common-antipatterns]
 when_to_use: "Read first when starting any TypeScript work, to orient yourself before diving into a specific document."
 ---
 # Overview
@@ -113,6 +113,7 @@ function parsePort(raw: string): number {
 - Do the types match runtime reality, with no unjustified `as` casts?
 
 ## Related
+
 
 - `knowledge/typescript/02-type-system.md`
 - `knowledge/typescript/03-type-inference.md`

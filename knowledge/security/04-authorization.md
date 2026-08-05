@@ -7,7 +7,7 @@ type: doc
 order: 4
 status: ready
 tags: [security, authorization]
-related: [security/03-authentication, security/01-security-fundamentals, security/06-session-management, security/29-security-review]
+related: [security/03-authentication, security/01-security-fundamentals, security/06-session-management, security/29-security-review, security/28-owasp-top10]
 when_to_use: "Read before building or reviewing any code that decides what an authenticated user is allowed to do."
 ---
 # Authorization
@@ -122,6 +122,7 @@ async function updateInvoice(req: Request) {
 - Is authorization clearly separated from [authentication](03-authentication.md)?
 
 ## Related
+
 
 - `knowledge/security/03-authentication.md`
 - `knowledge/security/01-security-fundamentals.md`

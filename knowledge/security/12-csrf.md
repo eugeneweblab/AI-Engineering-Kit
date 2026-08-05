@@ -2,7 +2,7 @@
 id: security/12-csrf
 topic: security
 slug: csrf
-title: "CSRF"
+title: "CSRF (Cross-Site Request Forgery)"
 type: doc
 order: 12
 status: ready

@@ -135,7 +135,7 @@ strict global `ValidationPipe`. `whitelist` strips unknown properties and
 over-posting holes (a client cannot smuggle an `isAdmin` field into a user
 you persist).
 
-```typescript
+```ts
 // create-user.dto.ts
 import { IsBoolean, IsEmail, IsOptional, Length } from 'class-validator';
 
@@ -155,7 +155,7 @@ export class CreateUserDto {
 }
 ```
 
-```typescript
+```ts
 // main.ts
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
@@ -178,7 +178,7 @@ async function bootstrap() {
 bootstrap();
 ```
 
-```typescript
+```ts
 // GOOD: server owns privilege; DTO cannot carry it.
 const user = this.repo.create({ ...createUserDto, roles: ['user'] });
 
@@ -257,7 +257,7 @@ default: any path that is not explicitly permitted throws
 `ForbiddenException`. This assumes an upstream authentication guard has already
 attached `request.user`.
 
-```typescript
+```ts
 // resource-owner.guard.ts
 import {
   CanActivate,
@@ -293,7 +293,7 @@ export class ResourceOwnerGuard implements CanActivate {
 }
 ```
 
-```typescript
+```ts
 // orders.controller.ts
 import { Controller, Delete, Param, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -350,7 +350,7 @@ With TypeORM, pass user input as bound parameters, never as an interpolated
 string. The parameterized form sends the value separately from the SQL text,
 so it can never be parsed as SQL.
 
-```typescript
+```ts
 // GOOD: parameterized — `:email` is bound, never parsed as SQL.
 const user = await this.repo
   .createQueryBuilder('user')
@@ -521,7 +521,7 @@ Apply `helmet` as global middleware to set these headers, and register
 rate limited by default. In `@nestjs/throttler` v6, `ttl` is expressed in
 milliseconds and named throttlers are passed as an array.
 
-```typescript
+```ts
 // main.ts (add to the existing bootstrap)
 import helmet from 'helmet';
 // ...
@@ -529,7 +529,7 @@ const app = await NestFactory.create(AppModule);
 app.use(helmet()); // CSP, HSTS, X-Content-Type-Options, etc.
 ```
 
-```typescript
+```ts
 // app.module.ts
 import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
@@ -550,7 +550,7 @@ export class AppModule {}
 
 Tighten specific endpoints (login, password reset) with `@Throttle`:
 
-```typescript
+```ts
 // auth.controller.ts
 import { Controller, Post } from '@nestjs/common';
 import { Throttle } from '@nestjs/throttler';

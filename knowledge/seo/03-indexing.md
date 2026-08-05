@@ -88,7 +88,7 @@ re-crawls. Indexing changes deserve the same review rigor as auth changes.
 
 **Bad Example** — blocked crawl defeats the noindex
 
-```txt
+```text
 # robots.txt
 Disallow: /account/          # blocks the crawl of /account/settings
 ```

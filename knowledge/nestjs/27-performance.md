@@ -109,7 +109,7 @@ A synchronous CPU-bound call inside a request handler freezes the single event
 loop thread, so every other in-flight request stalls until it returns. Prefer
 the async variants that run on the libuv thread pool (or a worker thread).
 
-```typescript
+```ts
 // report.controller.ts
 import { Controller, Get } from '@nestjs/common';
 import { promisify } from 'node:util';
@@ -161,7 +161,7 @@ The most common NestJS database bottleneck is the N+1 query: one query loads a
 list, then one extra query fires per row to load its relation. Collapse it into
 a single joined query, and page results with a bounded `take`.
 
-```typescript
+```ts
 // order.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -365,7 +365,7 @@ Use a monotonic clock (`process.hrtime.bigint`), emit a structured measurement,
 and forward it to a metrics backend that computes p95/p99 — do not eyeball
 individual log lines.
 
-```typescript
+```ts
 // latency.interceptor.ts
 import {
   CallHandler,
@@ -397,7 +397,7 @@ export class LatencyInterceptor implements NestInterceptor {
 
 Register it globally so every route is measured:
 
-```typescript
+```ts
 // app.module.ts
 import { Module } from '@nestjs/common';
 import { APP_INTERCEPTOR } from '@nestjs/core';

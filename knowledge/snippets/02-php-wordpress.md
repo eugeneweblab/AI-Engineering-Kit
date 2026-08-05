@@ -299,6 +299,8 @@ function handle_save() {
 
 ## Related
 
+
+- `knowledge/snippets/01-typescript-utilities.md`
 - `knowledge/wordpress/06-security.md`
 - `knowledge/wordpress/12-queries.md`
 - `knowledge/wordpress/23-caching.md`

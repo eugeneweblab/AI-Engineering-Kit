@@ -119,7 +119,7 @@ A Guard is a class annotated with `@Injectable()` that implements the
 returning `false` (or throwing) rejects it. The example below validates a
 bearer JWT and attaches the decoded principal to the request:
 
-```typescript
+```ts
 // jwt-auth.guard.ts
 import {
   CanActivate,
@@ -179,7 +179,7 @@ export class JwtAuthGuard implements CanActivate {
 
 Apply it to a route, a controller, or globally:
 
-```typescript
+```ts
 // orders.controller.ts
 import { Controller, Get, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from './jwt-auth.guard';
@@ -237,14 +237,14 @@ read back inside an authorization Guard via `Reflector`. Use
 `getAllAndOverride` so a method-level `@Roles()` overrides a controller-level
 one:
 
-```typescript
+```ts
 // roles.decorator.ts
 import { Reflector } from '@nestjs/core';
 
 export const Roles = Reflector.createDecorator<string[]>();
 ```
 
-```typescript
+```ts
 // roles.guard.ts
 import {
   CanActivate,
@@ -289,7 +289,7 @@ export class RolesGuard implements CanActivate {
 }
 ```
 
-```typescript
+```ts
 // admin.controller.ts
 import { Controller, Delete, Param, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from './jwt-auth.guard';
@@ -364,7 +364,7 @@ Ownership checks belong in authorization logic—not controllers.
 **Bad Example** — ownership logic tangled into the controller and easy to forget on
 the next endpoint:
 
-```typescript
+```ts
 // orders.controller.ts (Bad)
 @Get(':id')
 async findOne(@Param('id') id: string, @Req() req: Request) {
@@ -382,7 +382,7 @@ services, so it can load the resource and compare it to the principal. Throw
 `NotFoundException` instead of `ForbiddenException` when hiding a resource's
 existence matters:
 
-```typescript
+```ts
 // order-owner.guard.ts (Good)
 import {
   CanActivate,
@@ -415,7 +415,7 @@ export class OrderOwnerGuard implements CanActivate {
 }
 ```
 
-```typescript
+```ts
 // orders.controller.ts (Good)
 @UseGuards(JwtAuthGuard, OrderOwnerGuard)
 @Get(':id')
@@ -520,14 +520,14 @@ explicit `@Public()` opt-out, so a forgotten decorator fails closed (protected)
 rather than open. Register the Guard with `APP_GUARD` and teach it to honor the
 metadata:
 
-```typescript
+```ts
 // public.decorator.ts
 import { Reflector } from '@nestjs/core';
 
 export const Public = Reflector.createDecorator<boolean>();
 ```
 
-```typescript
+```ts
 // jwt-auth.guard.ts
 // Inject Reflector alongside JwtService/ConfigService, then check the
 // metadata at the top of canActivate:
@@ -543,7 +543,7 @@ canActivate(context: ExecutionContext) {
 }
 ```
 
-```typescript
+```ts
 // app.module.ts
 import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
@@ -558,7 +558,7 @@ import { JwtAuthGuard } from './jwt-auth.guard';
 export class AppModule {}
 ```
 
-```typescript
+```ts
 // auth.controller.ts
 import { Controller, Post } from '@nestjs/common';
 import { Public } from './public.decorator';

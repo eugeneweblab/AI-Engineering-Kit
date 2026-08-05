@@ -7,7 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [mysql, query-optimization]
-related: [mysql/04-indexes, mysql/03-data-types, mysql/14-performance, mysql/15-monitoring]
+related: [mysql/04-indexes, mysql/03-data-types, mysql/14-performance, mysql/15-monitoring, mysql/06-transactions]
 when_to_use: "Read before writing a query on a large table or when diagnosing a slow query."
 ---
 # Query Optimization
@@ -117,6 +117,7 @@ LIMIT 50 OFFSET 100000;
 - Are table statistics fresh (`ANALYZE TABLE`) if the plan looks wrong?
 
 ## Related
+
 
 - `knowledge/mysql/04-indexes.md`
 - `knowledge/mysql/03-data-types.md`

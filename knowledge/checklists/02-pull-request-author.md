@@ -194,7 +194,9 @@ has no way to verify the claim.
 
 ## Related
 
+
 - `knowledge/templates/01-pull-request.md`
 - `knowledge/workflows/05-review-pull-request.md`
 - `knowledge/engineering/02-code-review.md`
 - `knowledge/tools/99-ai-review-checklist.md`
+- `knowledge/checklists/01-pre-launch.md`

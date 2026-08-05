@@ -7,7 +7,7 @@ type: doc
 order: 10
 status: ready
 tags: [kubernetes, secrets]
-related: [kubernetes/09-configmaps, kubernetes/18-rbac, kubernetes/22-security, kubernetes/11-volumes]
+related: [kubernetes/09-configmaps, kubernetes/18-rbac, kubernetes/22-security, kubernetes/11-volumes, kubernetes/08-ingress]
 when_to_use: "Read before handling any credential, token, key, or certificate in a cluster — creation, injection, or review."
 ---
 # Secrets
@@ -150,6 +150,7 @@ data:
 - Is there a rotation and revocation path, and does the app pick up rotated values?
 
 ## Related
+
 
 - `knowledge/kubernetes/09-configmaps.md`
 - `knowledge/kubernetes/18-rbac.md`

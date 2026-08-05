@@ -7,7 +7,7 @@ type: doc
 order: 99
 status: ready
 tags: [tools, ai-review-checklist]
-related: [tools/98-production-checklist, tools/100-common-antipatterns, tools/30-engineering-principles, tools/27-dependency-management, tools/26-ai-coding-tools]
+related: [tools/98-production-checklist, tools/100-common-antipatterns, tools/30-engineering-principles, tools/27-dependency-management, tools/26-ai-coding-tools, engineering/02-code-review]
 when_to_use: "Read when reviewing a change that touches tooling — configuration, CI workflows, dependencies, hooks, or build setup."
 ---
 # AI Review Checklist
@@ -142,7 +142,10 @@ Report anything above as a finding with the file, the line, and what it would co
 
 ## Related
 
+
 - `knowledge/tools/98-production-checklist.md`
 - `knowledge/tools/100-common-antipatterns.md`
-- `knowledge/engineering/02-code-review.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/tools/27-dependency-management.md`
+- `knowledge/tools/26-ai-coding-tools.md`
+- `knowledge/engineering/02-code-review.md`

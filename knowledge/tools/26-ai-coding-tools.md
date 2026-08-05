@@ -206,7 +206,9 @@ only this repository knows. Fluency is not evidence — run the checks.
 
 ## Related
 
-- `knowledge/ai/00-ai-engineering-principles.md`
+
 - `knowledge/tools/25-editor-setup.md`
 - `knowledge/tools/16-git-hooks.md`
+- `knowledge/tools/27-dependency-management.md`
+- `knowledge/ai/00-ai-engineering-principles.md`
 - `knowledge/engineering/02-code-review.md`

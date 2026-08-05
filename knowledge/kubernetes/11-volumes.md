@@ -7,7 +7,7 @@ type: doc
 order: 11
 status: ready
 tags: [kubernetes, volumes]
-related: [kubernetes/12-persistent-volumes, kubernetes/13-statefulsets, kubernetes/09-configmaps, kubernetes/10-secrets]
+related: [kubernetes/12-persistent-volumes, kubernetes/13-statefulsets, kubernetes/09-configmaps, kubernetes/10-secrets, kubernetes/04-pods]
 when_to_use: "Read before adding storage to a Pod, sharing files between containers, or deciding whether data must survive a restart."
 ---
 # Volumes
@@ -152,6 +152,7 @@ spec:
   class actually supports?
 
 ## Related
+
 
 - `knowledge/kubernetes/12-persistent-volumes.md`
 - `knowledge/kubernetes/13-statefulsets.md`

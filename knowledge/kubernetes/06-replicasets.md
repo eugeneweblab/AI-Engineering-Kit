@@ -7,7 +7,7 @@ type: doc
 order: 6
 status: ready
 tags: [kubernetes, replicasets]
-related: [kubernetes/05-deployments, kubernetes/04-pods, kubernetes/13-statefulsets, kubernetes/07-services]
+related: [kubernetes/05-deployments, kubernetes/04-pods, kubernetes/13-statefulsets, kubernetes/07-services, kubernetes/19-resource-management]
 when_to_use: "Read before creating a ReplicaSet directly or debugging why a Deployment's Pod count is wrong."
 ---
 # Replicasets
@@ -136,6 +136,7 @@ spec:
 - Is scaling done through the object's `replicas`, not by deleting Pods?
 
 ## Related
+
 
 - `knowledge/kubernetes/05-deployments.md`
 - `knowledge/kubernetes/04-pods.md`

@@ -128,7 +128,7 @@ decorator declares the required roles on a handler; the guard reads them with
 `Reflector` and compares them against the authenticated identity. This keeps
 role checks out of controllers and business services.
 
-```typescript
+```ts
 // roles.enum.ts
 export enum Role {
   Admin = 'admin',
@@ -137,7 +137,7 @@ export enum Role {
 }
 ```
 
-```typescript
+```ts
 // roles.decorator.ts
 import { SetMetadata } from '@nestjs/common';
 import { Role } from './roles.enum';
@@ -146,7 +146,7 @@ export const ROLES_KEY = 'roles';
 export const Roles = (...roles: Role[]) => SetMetadata(ROLES_KEY, roles);
 ```
 
-```typescript
+```ts
 // roles.guard.ts
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
@@ -177,7 +177,7 @@ export class RolesGuard implements CanActivate {
 }
 ```
 
-```typescript
+```ts
 // users.controller.ts
 import { Body, Controller, Delete, Param, Post, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -276,7 +276,7 @@ that fetches the record and compares it against the authenticated identity.
 
 **Bad — ownership check tangled inside the controller/service:**
 
-```typescript
+```ts
 // orders.controller.ts — authorization mixed into business logic
 @Controller('orders')
 @UseGuards(JwtAuthGuard)
@@ -298,7 +298,7 @@ export class OrdersController {
 
 **Good — ownership enforced in a reusable guard:**
 
-```typescript
+```ts
 // order-ownership.guard.ts
 import {
   CanActivate,
@@ -333,7 +333,7 @@ export class OrderOwnershipGuard implements CanActivate {
 }
 ```
 
-```typescript
+```ts
 // orders.controller.ts — handler stays free of authorization logic
 @Controller('orders')
 export class OrdersController {
@@ -376,7 +376,7 @@ definition rather than scattering `if` checks. CASL (`@casl/ability`) is the
 common choice; the factory below returns the complete permission set for a user,
 and a guard reuses it everywhere.
 
-```typescript
+```ts
 // casl-ability.factory.ts
 import { AbilityBuilder, createMongoAbility, MongoAbility } from '@casl/ability';
 import { Injectable } from '@nestjs/common';
@@ -411,7 +411,7 @@ export class CaslAbilityFactory {
 }
 ```
 
-```typescript
+```ts
 // order-policy.guard.ts
 import {
   CanActivate,
@@ -440,7 +440,7 @@ export class UpdateOrderPolicyGuard implements CanActivate {
 
 Register `CaslAbilityFactory` as a provider so it can be injected into guards:
 
-```typescript
+```ts
 // authorization.module.ts
 import { Module } from '@nestjs/common';
 import { CaslAbilityFactory } from './casl-ability.factory';

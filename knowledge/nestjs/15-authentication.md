@@ -146,7 +146,7 @@ passwords with fast, general-purpose hashes like SHA-256 or MD5 — they are
 trivial to brute-force. Wrap hashing in an injectable service so the algorithm
 can be swapped without touching callers:
 
-```typescript
+```ts
 // password.service.ts
 import { Injectable } from '@nestjs/common';
 import * as argon2 from 'argon2';
@@ -174,7 +174,7 @@ export class PasswordService {
 
 **Bad Example** — fast hash, no salt, reversible-in-practice:
 
-```typescript
+```ts
 import { createHash } from 'node:crypto';
 
 // A raw SHA-256 digest of a password is NOT a password hash.
@@ -184,7 +184,7 @@ const stored = createHash('sha256').update(plain).digest('hex');
 
 **Good Example** — memory-hard, self-describing, per-hash salt:
 
-```typescript
+```ts
 const stored = await this.passwordService.hash(plain); // "$argon2id$v=19$m=19456,t=2,p=1$..."
 const ok = await this.passwordService.verify(stored, plain);
 ```
@@ -208,7 +208,7 @@ access token with `@nestjs/jwt`. Use a constant-time password check and return
 an identical error for "unknown user" and "wrong password" so the endpoint does
 not disclose which accounts exist:
 
-```typescript
+```ts
 // login.dto.ts
 import { IsEmail, IsString, MinLength } from 'class-validator';
 
@@ -222,7 +222,7 @@ export class LoginDto {
 }
 ```
 
-```typescript
+```ts
 // auth.service.ts
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
@@ -269,7 +269,7 @@ export class AuthService {
 }
 ```
 
-```typescript
+```ts
 // auth.controller.ts
 import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
@@ -289,7 +289,7 @@ export class AuthController {
 
 Register `JwtModule` and `ConfigModule` so the signing dependencies resolve:
 
-```typescript
+```ts
 // auth.module.ts
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
@@ -356,7 +356,7 @@ token on every refresh, and revoke the old one atomically. If a token that was
 already rotated is presented again, treat it as theft and revoke the whole
 session family:
 
-```typescript
+```ts
 // refresh-token.entity.ts
 import {
   Column,
@@ -390,7 +390,7 @@ export class RefreshToken {
 }
 ```
 
-```typescript
+```ts
 // refresh-token.service.ts
 import {
   ForbiddenException,

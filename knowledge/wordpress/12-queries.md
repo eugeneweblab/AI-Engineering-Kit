@@ -7,7 +7,7 @@ type: doc
 order: 12
 status: ready
 tags: [wordpress, queries]
-related: [wordpress/08-hooks, wordpress/11-metadata, wordpress/19-database, wordpress/23-caching, wordpress/05-performance]
+related: [wordpress/08-hooks, wordpress/11-metadata, wordpress/19-database, wordpress/23-caching, wordpress/05-performance, wordpress/09-custom-post-types]
 when_to_use: "Read before writing a WP_Query, altering the main query, or diagnosing a slow page caused by database queries."
 ---
 # Queries and The Loop
@@ -230,8 +230,10 @@ WordPress prime the caches it knows how to prime.
 
 ## Related
 
-- `knowledge/wordpress/09-custom-post-types.md`
+
+- `knowledge/wordpress/08-hooks.md`
 - `knowledge/wordpress/11-metadata.md`
 - `knowledge/wordpress/19-database.md`
 - `knowledge/wordpress/23-caching.md`
 - `knowledge/wordpress/05-performance.md`
+- `knowledge/wordpress/09-custom-post-types.md`

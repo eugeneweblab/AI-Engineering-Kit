@@ -7,7 +7,7 @@ type: doc
 order: 15
 status: ready
 tags: [wordpress, plugin-development]
-related: [wordpress/02-project-structure, wordpress/08-hooks, wordpress/09-custom-post-types, wordpress/27-deployment, wordpress/06-security]
+related: [wordpress/02-project-structure, wordpress/08-hooks, wordpress/09-custom-post-types, wordpress/27-deployment, wordpress/06-security, wordpress/04-code-style, wordpress/07-testing, wordpress/24-internationalization]
 when_to_use: "Read before building a plugin — structuring the entry file, handling activation and uninstall, loading classes, or declaring dependencies."
 ---
 # Plugin Development
@@ -362,8 +362,12 @@ without loading WordPress.
 
 ## Related
 
-- `knowledge/wordpress/08-hooks.md`
+
 - `knowledge/wordpress/02-project-structure.md`
+- `knowledge/wordpress/08-hooks.md`
+- `knowledge/wordpress/09-custom-post-types.md`
+- `knowledge/wordpress/27-deployment.md`
+- `knowledge/wordpress/06-security.md`
 - `knowledge/wordpress/04-code-style.md`
 - `knowledge/wordpress/07-testing.md`
 - `knowledge/wordpress/24-internationalization.md`

@@ -7,7 +7,7 @@ type: doc
 order: 22
 status: ready
 tags: [javascript, design-patterns]
-related: [javascript/21-functional-programming, javascript/05-objects-and-prototypes, javascript/06-classes, javascript/23-clean-code]
+related: [javascript/21-functional-programming, javascript/05-objects-and-prototypes, javascript/06-classes, javascript/23-clean-code, javascript/07-modules]
 when_to_use: "Read before reaching for a classical design pattern, or when a problem repeats and you need a proven, idiomatic structure."
 ---
 # Design Patterns
@@ -143,6 +143,7 @@ function quote(method, weight) {
 - Would a plain function or object be clearer than the named pattern used here?
 
 ## Related
+
 
 - `knowledge/javascript/21-functional-programming.md`
 - `knowledge/javascript/05-objects-and-prototypes.md`

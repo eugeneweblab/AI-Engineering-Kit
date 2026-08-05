@@ -236,7 +236,7 @@ Applications remain functional even if the cache becomes unavailable.
 Inject `CACHE_MANAGER`, read-through, and wrap cache calls so a cache outage
 degrades to a plain database read instead of a failed request.
 
-```typescript
+```ts
 // product.service.ts
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
@@ -318,7 +318,7 @@ Avoid updating cache before successful persistence.
 Persist first, then invalidate. Let the next read rebuild the entry through the
 cache-aside path above.
 
-```typescript
+```ts
 // GOOD: commit to the source of truth, then invalidate. Never pre-populate.
 async rename(id: string, name: string): Promise<void> {
   await this.products.update(id, { name }); // committed to the database
@@ -326,7 +326,7 @@ async rename(id: string, name: string): Promise<void> {
 }
 ```
 
-```typescript
+```ts
 // BAD: writes the cache before persisting AND caches the ORM entity with no TTL.
 async rename(id: string, name: string): Promise<void> {
   const entity = await this.products.findById(id);
@@ -356,7 +356,7 @@ On NestJS 10/11 use `@nestjs/cache-manager` (v3+, built on `cache-manager`
 v6 / Keyv). Register a fast in-memory tier backed by a shared Redis tier so a
 single node hit is served locally while all nodes share the same invalidation.
 
-```typescript
+```ts
 // app.module.ts
 import { Module } from '@nestjs/common';
 import { CacheModule } from '@nestjs/cache-manager';

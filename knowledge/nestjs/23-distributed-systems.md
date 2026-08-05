@@ -128,7 +128,7 @@ swappable without touching business logic.
 
 Register the client (caller side):
 
-```typescript
+```ts
 // clients.module.ts
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
@@ -154,7 +154,7 @@ plus jitter. A `catchError` translates a hard failure into a domain-level error
 the caller can reason about — this is the concrete shape of the timeout, retry,
 and circuit-breaker sections below:
 
-```typescript
+```ts
 // orders.service.ts
 import {
   Inject,
@@ -210,7 +210,7 @@ export class OrdersService {
 Handle the pattern on the callee. The handler must be idempotent because the
 caller retries — the same `orderId` may arrive more than once:
 
-```typescript
+```ts
 // billing.controller.ts
 import { Controller } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
@@ -232,7 +232,7 @@ export class BillingController {
 
 Boot the callee as a microservice so it listens on the transport:
 
-```typescript
+```ts
 // main.ts (billing service)
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
@@ -251,7 +251,7 @@ void bootstrap();
 Bad — an unbounded `await` on a remote call. One slow dependency ties up the
 request thread pool and cascades the outage upstream:
 
-```typescript
+```ts
 // No timeout, no retry, no fallback — the caller hangs until TCP gives up.
 const result = await firstValueFrom(
   this.billing.send<ChargeResult>({ cmd: 'charge' }, { orderId, amountCents }),
@@ -285,7 +285,7 @@ consumer — the publisher's flow is decoupled from every subscriber. Publish th
 event only after the local business state is committed, so subscribers never
 observe an event for work that later rolls back:
 
-```typescript
+```ts
 // order-publisher.service.ts
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
@@ -310,7 +310,7 @@ export class OrderPublisher {
 Subscribe with `@EventPattern`. Event handlers must be idempotent — most brokers
 guarantee at-least-once delivery, so the same event can arrive twice:
 
-```typescript
+```ts
 // notifications.controller.ts
 import { Controller } from '@nestjs/common';
 import { EventPattern, Payload } from '@nestjs/microservices';
@@ -498,7 +498,7 @@ on the request, and echoes it on the response. Register it globally in `main.ts`
 so it runs before every route — a functional middleware avoids the wildcard
 route-pattern differences between NestJS 10 and 11:
 
-```typescript
+```ts
 // correlation-id.middleware.ts
 import { randomUUID } from 'node:crypto';
 import type { NextFunction, Request, Response } from 'express';
@@ -520,7 +520,7 @@ export function correlationIdMiddleware(
 }
 ```
 
-```typescript
+```ts
 // main.ts
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';

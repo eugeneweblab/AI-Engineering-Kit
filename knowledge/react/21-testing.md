@@ -7,7 +7,7 @@ type: doc
 order: 21
 status: ready
 tags: [react, testing]
-related: ["react/09-custom-hooks", "react/15-forms", "react/16-data-fetching", "react/20-accessibility"]
+related: [react/09-custom-hooks, react/15-forms, react/16-data-fetching, react/20-accessibility, testing/13-ui-testing, testing/02-unit-testing]
 when_to_use: "Read before writing or reviewing tests for React components and hooks."
 ---
 # React Testing
@@ -744,5 +744,8 @@ By combining unit, component, integration, and end-to-end testing with accessibl
 ## Related
 
 - `knowledge/react/09-custom-hooks.md`
+- `knowledge/react/15-forms.md`
+- `knowledge/react/16-data-fetching.md`
+- `knowledge/react/20-accessibility.md`
 - `knowledge/testing/13-ui-testing.md`
 - `knowledge/testing/02-unit-testing.md`

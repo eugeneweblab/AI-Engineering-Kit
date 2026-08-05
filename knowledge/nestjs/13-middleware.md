@@ -37,7 +37,7 @@ globally in `main.ts`. A **class middleware** is a class annotated with
 receive providers through constructor injection and be wired per-route through
 a module's `configure(consumer: MiddlewareConsumer)` method.
 
-```typescript
+```ts
 // correlation-id.middleware.ts — functional form, no dependencies.
 import { randomUUID } from 'node:crypto';
 import { Request, Response, NextFunction } from 'express';
@@ -62,7 +62,7 @@ export function correlationIdMiddleware(
 }
 ```
 
-```typescript
+```ts
 // main.ts — register truly global middleware before the app listens.
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
@@ -283,7 +283,7 @@ Define a single `AsyncLocalStorage` instance and the shape of the store, then
 expose an injectable service so any provider can read the current context
 without prop-drilling it through every method signature:
 
-```typescript
+```ts
 // request-context.ts — one storage instance shared across the process.
 import { AsyncLocalStorage } from 'node:async_hooks';
 
@@ -296,7 +296,7 @@ export const requestContextStorage =
   new AsyncLocalStorage<RequestContext>();
 ```
 
-```typescript
+```ts
 // request-context.service.ts — inject this wherever context is needed.
 import { Injectable } from '@nestjs/common';
 import { requestContextStorage } from './request-context';
@@ -336,7 +336,7 @@ A class middleware implements `NestMiddleware` and can inject providers. Here a
 logger measures request duration and reads the correlation id from the context
 service established earlier:
 
-```typescript
+```ts
 // request-logger.middleware.ts
 import { Injectable, Logger, NestMiddleware } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
@@ -372,7 +372,7 @@ Because a class middleware participates in dependency injection, it is wired
 through the owning module's `configure` method — not with `app.use()`. The
 module implements `NestModule` and receives a `MiddlewareConsumer`:
 
-```typescript
+```ts
 // app.module.ts
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { RequestContextService } from './request-context.service';
@@ -665,7 +665,7 @@ The most common failure is pulling authorization and database access into
 middleware. That runs a query on every request, formats errors in the wrong
 layer, and hides the security decision from the guard pipeline:
 
-```typescript
+```ts
 // BAD: middleware performing authentication, a DB lookup, and authorization.
 import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
@@ -692,7 +692,7 @@ The middleware should only prepare context. Identity and permission checks
 belong in guards (see `09-guards.md`), which return the correct status codes
 and let exception filters format the response:
 
-```typescript
+```ts
 // GOOD: middleware prepares context only; the guard authorizes.
 import {
   CanActivate,

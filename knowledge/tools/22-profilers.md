@@ -7,7 +7,7 @@ type: doc
 order: 22
 status: ready
 tags: [tools, profilers]
-related: [tools/21-debuggers, tools/29-observability-tools, tools/13-test-runners, tools/09-vite, tools/30-engineering-principles]
+related: [tools/21-debuggers, tools/29-observability-tools, tools/13-test-runners, tools/09-vite, tools/30-engineering-principles, performance/16-profiling, performance/24-optimization-workflow]
 when_to_use: "Read before optimizing anything — capturing a CPU or memory profile in Node, PHP, or the browser, and reading the result correctly."
 ---
 # Profilers
@@ -192,7 +192,11 @@ const total = items.reduce((sum, i) => sum + i.price, 0);
 
 ## Related
 
+
 - `knowledge/tools/21-debuggers.md`
 - `knowledge/tools/29-observability-tools.md`
+- `knowledge/tools/13-test-runners.md`
+- `knowledge/tools/09-vite.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/performance/16-profiling.md`
 - `knowledge/performance/24-optimization-workflow.md`

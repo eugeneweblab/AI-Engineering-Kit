@@ -35,7 +35,7 @@ either works or does not.
 
 ## Core Principles
 
-- **You control eligibility, not ranking.** Your job is to make a page *qualify* — 
+- **You control eligibility, not ranking.** Your job is to make a page *qualify* —
   crawlable, renderable, indexable, correctly described. The engine decides position.
 - **The pipeline is sequential; an early failure hides later work.** A page blocked at
   [crawl](02-crawling.md) never reaches [indexing](03-indexing.md). Diagnose in order.

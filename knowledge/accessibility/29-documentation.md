@@ -69,7 +69,7 @@ better — legally and reputationally — than an overreaching "fully accessible
 
 **Good Example** — a component accessibility note a reviewer can enforce
 
-```md
+```markdown
 ## <Combobox> accessibility contract
 - Role: WAI-ARIA combobox; `aria-expanded` reflects the listbox state.
 - Name: REQUIRED — pass `label` or `aria-label`; the component throws in dev if absent.
@@ -80,7 +80,7 @@ better — legally and reputationally — than an overreaching "fully accessible
 
 **Bad Example** — a statement that documents nothing and overclaims
 
-```md
+```markdown
 ## Accessibility
 Our product is 100% accessible and fully WCAG compliant.
 <!-- No version, no level, no scope, no date, no test method, no contact.

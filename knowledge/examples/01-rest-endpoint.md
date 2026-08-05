@@ -299,7 +299,9 @@ in the demo and is a defect in production.
 
 ## Related
 
+
+- `knowledge/examples/02-react-component.md`
 - `knowledge/workflows/07-add-api-endpoint.md`
 - `knowledge/rest-api/09-error-handling.md`
+- `knowledge/nestjs/04-controllers.md`
 - `knowledge/testing/12-api-testing.md`
-- `knowledge/examples/02-react-component.md`

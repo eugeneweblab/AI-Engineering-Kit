@@ -2,7 +2,7 @@
 id: testing/21-cicd
 topic: testing
 slug: cicd
-title: "Cicd"
+title: "CI/CD"
 type: doc
 order: 21
 status: ready

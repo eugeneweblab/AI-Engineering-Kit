@@ -7,7 +7,7 @@ type: doc
 order: 7
 status: ready
 tags: [sql, common-table-expressions]
-related: [sql/06-subqueries, sql/08-window-functions, sql/17-query-optimization, sql/16-query-planning]
+related: [sql/06-subqueries, sql/08-window-functions, sql/17-query-optimization, sql/16-query-planning, sql/18-views]
 when_to_use: "Read before using WITH, refactoring a nested subquery for readability, or writing a recursive/hierarchical query."
 ---
 # Common Table Expressions
@@ -127,6 +127,7 @@ SELECT * FROM reports;
 - Should this be a [view](18-views.md) instead, because it is reused across statements?
 
 ## Related
+
 
 - `knowledge/sql/06-subqueries.md`
 - `knowledge/sql/08-window-functions.md`

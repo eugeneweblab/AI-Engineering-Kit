@@ -7,7 +7,7 @@ type: doc
 order: 13
 status: ready
 tags: [tools, test-runners]
-related: [tools/14-playwright, tools/09-vite, tools/11-esbuild-and-swc, tools/19-task-runners, tools/30-engineering-principles]
+related: [tools/14-playwright, tools/09-vite, tools/11-esbuild-and-swc, tools/19-task-runners, tools/30-engineering-principles, testing/00-overview]
 when_to_use: "Read before choosing or configuring a test runner — Vitest, Jest, or PHPUnit — including coverage, watch mode, and CI parallelism."
 ---
 # Test Runners
@@ -192,7 +192,10 @@ test('renders the form', () => {
 
 ## Related
 
+
 - `knowledge/tools/14-playwright.md`
-- `knowledge/testing/00-overview.md`
 - `knowledge/tools/09-vite.md`
+- `knowledge/tools/11-esbuild-and-swc.md`
 - `knowledge/tools/19-task-runners.md`
+- `knowledge/tools/30-engineering-principles.md`
+- `knowledge/testing/00-overview.md`

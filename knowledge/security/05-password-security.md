@@ -7,7 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [security, password-security]
-related: [security/03-authentication, security/06-session-management, security/16-secrets-management, security/21-rate-limiting]
+related: [security/03-authentication, security/06-session-management, security/16-secrets-management, security/21-rate-limiting, security/17-encryption]
 when_to_use: "Read before building or reviewing signup, login, password reset, or any credential-storage code."
 ---
 # Password Security
@@ -131,6 +131,7 @@ function verifyPassword(stored: string, pw: string): boolean {
 - Are plaintext passwords and hashes kept out of logs?
 
 ## Related
+
 
 - `knowledge/security/03-authentication.md`
 - `knowledge/security/06-session-management.md`

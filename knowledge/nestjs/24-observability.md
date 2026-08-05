@@ -138,7 +138,7 @@ implements the `LoggerService` interface and emits one JSON object per line.
 Machine-readable logs can be indexed, filtered, and correlated by a log platform;
 interpolated strings cannot.
 
-```typescript
+```ts
 // observability/structured-logger.ts
 import { Injectable, LoggerService } from '@nestjs/common';
 import { getCorrelationId } from './request-context';
@@ -183,7 +183,7 @@ export class StructuredLogger implements LoggerService {
 Install it globally in `main.ts`. `bufferLogs: true` holds startup logs until the
 custom logger is registered so nothing is emitted in the wrong format:
 
-```typescript
+```ts
 // main.ts
 const app = await NestFactory.create(AppModule, { bufferLogs: true });
 app.useLogger(new StructuredLogger());
@@ -191,7 +191,7 @@ app.useLogger(new StructuredLogger());
 
 Good — a structured record with a stable schema and no secrets:
 
-```typescript
+```ts
 // inside a service (context is the class name)
 this.logger.log(
   { event: 'order.created', orderId: order.id, userId: order.userId },
@@ -202,7 +202,7 @@ this.logger.log(
 
 Bad — a free-form string that cannot be queried and leaks a token:
 
-```typescript
+```ts
 console.log(`Order ${order.id} created by ${order.userId}, token=${jwt}`);
 ```
 
@@ -248,7 +248,7 @@ Store the correlation ID in an `AsyncLocalStorage` so any provider — a service
 a repository, or the logger above — can read it without threading it through
 every method signature:
 
-```typescript
+```ts
 // observability/request-context.ts
 import { AsyncLocalStorage } from 'node:async_hooks';
 
@@ -268,7 +268,7 @@ Populate the store once at the edge. A global middleware reuses an inbound
 echoes it back on the response, and wraps the rest of the request in
 `requestContext.run(...)`:
 
-```typescript
+```ts
 // main.ts (registered before app.listen)
 import { randomUUID } from 'node:crypto';
 import type { Request, Response, NextFunction } from 'express';
@@ -340,7 +340,7 @@ Use `@nestjs/terminus`, which provides ready-made health indicators and a
 `@HealthCheck()` decorator that formats the aggregate result. Import
 `TerminusModule` and expose a controller:
 
-```typescript
+```ts
 // health/health.module.ts
 import { Module } from '@nestjs/common';
 import { TerminusModule } from '@nestjs/terminus';
@@ -357,7 +357,7 @@ Liveness answers "is the process alive?" and must stay cheap — checking a
 dependency here can crash-loop a healthy pod. Readiness answers "can it serve
 traffic?" and checks the dependencies the service actually needs:
 
-```typescript
+```ts
 // health/health.controller.ts
 import { Controller, Get } from '@nestjs/common';
 import {
@@ -446,7 +446,7 @@ Initialize the OpenTelemetry SDK in its own module and import it **first**, befo
 patch modules (`http`, `pg`, `ioredis`, `express`) at require time, so a late
 start captures nothing:
 
-```typescript
+```ts
 // observability/tracing.ts
 import { NodeSDK } from '@opentelemetry/sdk-node';
 import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
@@ -476,7 +476,7 @@ process.on('SIGTERM', () => {
 });
 ```
 
-```typescript
+```ts
 // main.ts — the FIRST import in the file
 import './observability/tracing';
 import { NestFactory } from '@nestjs/core';

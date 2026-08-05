@@ -7,7 +7,7 @@ type: doc
 order: 20
 status: ready
 tags: [tools, local-environments]
-related: [tools/02-version-management, tools/19-task-runners, tools/24-database-tools, tools/21-debuggers, tools/30-engineering-principles]
+related: [tools/02-version-management, tools/19-task-runners, tools/24-database-tools, tools/21-debuggers, tools/30-engineering-principles, docker/00-overview]
 when_to_use: "Read before setting up a local development environment — Docker Compose, WordPress-specific tooling, or making a project runnable with one command."
 ---
 # Local Environments
@@ -219,7 +219,10 @@ created without one.
 
 ## Related
 
+
 - `knowledge/tools/02-version-management.md`
 - `knowledge/tools/19-task-runners.md`
 - `knowledge/tools/24-database-tools.md`
+- `knowledge/tools/21-debuggers.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/docker/00-overview.md`

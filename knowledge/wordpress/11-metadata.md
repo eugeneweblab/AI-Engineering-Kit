@@ -7,7 +7,7 @@ type: doc
 order: 11
 status: ready
 tags: [wordpress, metadata]
-related: [wordpress/10-taxonomies, wordpress/12-queries, wordpress/16-block-editor, wordpress/19-database, wordpress/06-security]
+related: [wordpress/10-taxonomies, wordpress/12-queries, wordpress/16-block-editor, wordpress/19-database, wordpress/06-security, wordpress/09-custom-post-types]
 when_to_use: "Read before storing custom fields — registering post meta, exposing it to the block editor or REST, or querying by meta value."
 ---
 # Metadata
@@ -345,7 +345,10 @@ blobs, and move anything that becomes a primary filter into a taxonomy or a real
 
 ## Related
 
-- `knowledge/wordpress/09-custom-post-types.md`
+
 - `knowledge/wordpress/10-taxonomies.md`
 - `knowledge/wordpress/12-queries.md`
+- `knowledge/wordpress/16-block-editor.md`
 - `knowledge/wordpress/19-database.md`
+- `knowledge/wordpress/06-security.md`
+- `knowledge/wordpress/09-custom-post-types.md`

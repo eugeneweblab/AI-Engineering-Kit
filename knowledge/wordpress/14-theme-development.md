@@ -7,7 +7,7 @@ type: doc
 order: 14
 status: ready
 tags: [wordpress, theme-development]
-related: [wordpress/13-template-hierarchy, wordpress/17-block-themes, wordpress/02-project-structure, wordpress/24-internationalization, wordpress/05-performance]
+related: [wordpress/13-template-hierarchy, wordpress/17-block-themes, wordpress/02-project-structure, wordpress/24-internationalization, wordpress/05-performance, wordpress/16-block-editor]
 when_to_use: "Read before building or modifying a theme — creating a child theme, enqueuing assets, declaring theme support, or registering menus and image sizes."
 ---
 # Theme Development
@@ -255,7 +255,10 @@ and keep content modelling in plugins where it survives a redesign.
 
 ## Related
 
+
 - `knowledge/wordpress/13-template-hierarchy.md`
 - `knowledge/wordpress/17-block-themes.md`
-- `knowledge/wordpress/16-block-editor.md`
 - `knowledge/wordpress/02-project-structure.md`
+- `knowledge/wordpress/24-internationalization.md`
+- `knowledge/wordpress/05-performance.md`
+- `knowledge/wordpress/16-block-editor.md`

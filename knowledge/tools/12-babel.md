@@ -7,7 +7,7 @@ type: doc
 order: 12
 status: ready
 tags: [tools, babel]
-related: [tools/11-esbuild-and-swc, tools/10-webpack, tools/13-test-runners, tools/09-vite, tools/30-engineering-principles]
+related: [tools/11-esbuild-and-swc, tools/10-webpack, tools/13-test-runners, tools/09-vite, tools/30-engineering-principles, javascript/17-es6-features]
 when_to_use: "Read when a project still uses Babel — configuring presets and browser targets, understanding polyfills, or deciding whether to migrate away."
 ---
 # Babel
@@ -170,7 +170,10 @@ npm ci --omit=dev     # core-js not installed
 
 ## Related
 
+
 - `knowledge/tools/11-esbuild-and-swc.md`
 - `knowledge/tools/10-webpack.md`
 - `knowledge/tools/13-test-runners.md`
+- `knowledge/tools/09-vite.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/javascript/17-es6-features.md`

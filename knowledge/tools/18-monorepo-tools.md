@@ -7,7 +7,7 @@ type: doc
 order: 18
 status: ready
 tags: [tools, monorepo-tools]
-related: [tools/01-package-managers, tools/19-task-runners, tools/28-release-tools, tools/03-typescript-compiler, tools/30-engineering-principles]
+related: [tools/01-package-managers, tools/19-task-runners, tools/28-release-tools, tools/03-typescript-compiler, tools/30-engineering-principles, git/24-monorepo]
 when_to_use: "Read before setting up or working in a monorepo — configuring workspaces, task orchestration and caching, or deciding whether a monorepo is warranted."
 ---
 # Monorepo Tools
@@ -198,7 +198,10 @@ repositories paying monorepo tooling costs for no benefit.
 
 ## Related
 
+
 - `knowledge/tools/01-package-managers.md`
 - `knowledge/tools/19-task-runners.md`
 - `knowledge/tools/28-release-tools.md`
+- `knowledge/tools/03-typescript-compiler.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/git/24-monorepo.md`

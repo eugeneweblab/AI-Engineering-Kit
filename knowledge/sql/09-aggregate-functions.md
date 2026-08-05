@@ -7,7 +7,7 @@ type: doc
 order: 9
 status: ready
 tags: [sql, aggregate-functions]
-related: [sql/04-grouping, sql/08-window-functions, sql/06-subqueries, sql/11-data-types]
+related: [sql/04-grouping, sql/08-window-functions, sql/06-subqueries, sql/11-data-types, sql/10-functions]
 when_to_use: "Read before using COUNT, SUM, AVG, MIN, MAX, or any GROUP BY aggregation, especially over nullable or money columns."
 ---
 # Aggregate Functions
@@ -119,6 +119,7 @@ GROUP BY region;
 - Could a `SUM` on an `INT` column overflow at production volume?
 
 ## Related
+
 
 - `knowledge/sql/04-grouping.md`
 - `knowledge/sql/08-window-functions.md`

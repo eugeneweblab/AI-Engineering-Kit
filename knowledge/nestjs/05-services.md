@@ -131,7 +131,7 @@ The examples in this document use one small domain. DTO shape and validation
 belong to the transport layer (see `07-dto` and `08-validation`); the service
 owns rules that DTO validation cannot express.
 
-```typescript
+```ts
 // order.entity.ts
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
@@ -156,7 +156,7 @@ export class Order {
 }
 ```
 
-```typescript
+```ts
 // create-order.dto.ts
 import { Type } from 'class-transformer';
 import { ArrayNotEmpty, IsInt, Min, ValidateNested } from 'class-validator';
@@ -184,7 +184,7 @@ export class CreateOrderDto {
 The controller must stay thin. Rules, calculations, and consistency checks
 belong in the service so they can be reused and tested in isolation.
 
-```typescript
+```ts
 // ❌ Bad — rules, calculations, and queries jammed into the controller
 @Controller('orders')
 export class OrdersController {
@@ -202,7 +202,7 @@ export class OrdersController {
 }
 ```
 
-```typescript
+```ts
 // ✅ Good — controller delegates; the service owns the business capability
 @Controller('orders')
 export class OrdersController {
@@ -215,7 +215,7 @@ export class OrdersController {
 }
 ```
 
-```typescript
+```ts
 // order-too-large.error.ts — a framework-independent domain exception
 export class DomainError extends Error {}
 
@@ -230,7 +230,7 @@ export class OrderTooLargeError extends DomainError {
 }
 ```
 
-```typescript
+```ts
 // orders.service.ts
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
@@ -302,7 +302,7 @@ The repository is a thin persistence adapter. It exposes intent-revealing
 methods and hides the ORM; the service depends on it, not on `Repository<T>`
 or raw query builders.
 
-```typescript
+```ts
 // orders.repository.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -325,7 +325,7 @@ export class OrdersRepository {
 }
 ```
 
-```typescript
+```ts
 // orders.module.ts — wiring the entity, repository, and service together
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -358,7 +358,7 @@ small. Here the payment provider is reached through an injected port
 (`PaymentGateway`) so business logic never depends on a vendor SDK, and the
 early return makes a retried call idempotent.
 
-```typescript
+```ts
 // payment.gateway.ts — the port the service depends on
 export abstract class PaymentGateway {
   abstract charge(amountCents: number, reference: string): Promise<void>;
@@ -373,7 +373,7 @@ export class OrderNotFoundError extends DomainError {
 }
 ```
 
-```typescript
+```ts
 // checkout.service.ts
 import { Injectable } from '@nestjs/common';
 import { DataSource } from 'typeorm';
@@ -560,7 +560,7 @@ Because dependencies are injected through the constructor, a service can be
 tested by plain instantiation — no `Test.createTestingModule` or database
 required. This is the payoff of explicit dependencies.
 
-```typescript
+```ts
 // orders.service.spec.ts
 import { ConfigService } from '@nestjs/config';
 

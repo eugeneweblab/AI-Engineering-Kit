@@ -7,7 +7,7 @@ type: doc
 order: 0
 status: ready
 tags: [redis, overview]
-related: [redis/02-data-types, redis/13-caching, redis/20-persistence, redis/26-best-practices]
+related: [redis/02-data-types, redis/13-caching, redis/20-persistence, redis/26-best-practices, redis/100-common-antipatterns]
 when_to_use: "Read first when starting any Redis work, to learn how the topic's docs fit together and which one to open next."
 ---
 # Overview
@@ -113,6 +113,7 @@ this map lays out.
 - Is the persistence and durability requirement stated and matched by config?
 
 ## Related
+
 
 - `knowledge/redis/02-data-types.md`
 - `knowledge/redis/13-caching.md`

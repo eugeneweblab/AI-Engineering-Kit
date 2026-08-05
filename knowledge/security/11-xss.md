@@ -2,7 +2,7 @@
 id: security/11-xss
 topic: security
 slug: xss
-title: "XSS"
+title: "XSS (Cross-Site Scripting)"
 type: doc
 order: 11
 status: ready

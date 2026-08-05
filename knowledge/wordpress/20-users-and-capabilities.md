@@ -7,7 +7,7 @@ type: doc
 order: 20
 status: ready
 tags: [wordpress, users-and-capabilities]
-related: [wordpress/06-security, wordpress/18-rest-api, wordpress/09-custom-post-types, wordpress/25-multisite, wordpress/15-plugin-development]
+related: [wordpress/06-security, wordpress/18-rest-api, wordpress/09-custom-post-types, wordpress/25-multisite, wordpress/15-plugin-development, security/04-authorization]
 when_to_use: "Read before implementing permission checks — choosing a capability, adding a custom role, or restricting access to a post type or admin screen."
 ---
 # Users and Capabilities
@@ -285,7 +285,10 @@ database; capabilities are the contract your code depends on.
 
 ## Related
 
+
 - `knowledge/wordpress/06-security.md`
 - `knowledge/wordpress/18-rest-api.md`
+- `knowledge/wordpress/09-custom-post-types.md`
 - `knowledge/wordpress/25-multisite.md`
+- `knowledge/wordpress/15-plugin-development.md`
 - `knowledge/security/04-authorization.md`

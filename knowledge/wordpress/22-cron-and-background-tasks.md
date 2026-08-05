@@ -7,7 +7,7 @@ type: doc
 order: 22
 status: ready
 tags: [wordpress, cron-and-background-tasks]
-related: [wordpress/15-plugin-development, wordpress/26-wp-cli, wordpress/27-deployment, wordpress/28-debugging, wordpress/05-performance]
+related: [wordpress/15-plugin-development, wordpress/26-wp-cli, wordpress/27-deployment, wordpress/28-debugging, wordpress/05-performance, wordpress/29-maintenance]
 when_to_use: "Read before scheduling recurring work — using WP-Cron, replacing it with a system cron, or processing a large job in batches."
 ---
 # Cron and Background Tasks
@@ -243,7 +243,10 @@ define( 'DISABLE_WP_CRON', true );
 add_action( 'myplugin_send_reminders', 'myplugin_send_reminders' );
 
 function myplugin_send_reminders() {
-	// Two overlapping runs would email everyone twice. Take a short lock first.
+	// Two overlapping runs would email everyone twice. wp_cache_add() is atomic
+	// across processes ONLY with a persistent object cache (Redis, Memcached).
+	// WordPress's default cache is per-request, so without one this guard does
+	// nothing — see below.
 	if ( ! wp_cache_add( 'myplugin_reminders_lock', 1, 'myplugin', 5 * MINUTE_IN_SECONDS ) ) {
 		return;
 	}
@@ -267,6 +270,26 @@ function myplugin_send_reminders() {
 	wp_cache_delete( 'myplugin_reminders_lock', 'myplugin' );
 }
 ```
+
+Without a persistent object cache, use a database-level lock instead — `GET_LOCK()` is atomic
+across connections and releases itself when the connection closes:
+
+```php
+$got_lock = (int) $GLOBALS['wpdb']->get_var(
+	$GLOBALS['wpdb']->prepare( 'SELECT GET_LOCK(%s, 0)', 'myplugin_reminders' )
+);
+
+if ( 1 !== $got_lock ) {
+	return;               // another run holds it
+}
+
+// ... work ...
+
+$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( 'SELECT RELEASE_LOCK(%s)', 'myplugin_reminders' ) );
+```
+
+The idempotency marker (`_reminder_sent`) is what actually prevents duplicate emails; the lock
+only stops two runs from doing the same work at the same time. Keep both.
 
 **Bad Example** — scheduled on every request, unbounded, and not idempotent
 
@@ -332,7 +355,10 @@ for Action Scheduler when the work is really a queue.
 
 ## Related
 
+
+- `knowledge/wordpress/15-plugin-development.md`
 - `knowledge/wordpress/26-wp-cli.md`
-- `knowledge/wordpress/29-maintenance.md`
+- `knowledge/wordpress/27-deployment.md`
 - `knowledge/wordpress/28-debugging.md`
 - `knowledge/wordpress/05-performance.md`
+- `knowledge/wordpress/29-maintenance.md`

@@ -7,7 +7,7 @@ type: doc
 order: 9
 status: ready
 tags: [wordpress, custom-post-types]
-related: [wordpress/10-taxonomies, wordpress/11-metadata, wordpress/12-queries, wordpress/18-rest-api, wordpress/20-users-and-capabilities]
+related: [wordpress/10-taxonomies, wordpress/11-metadata, wordpress/12-queries, wordpress/18-rest-api, wordpress/20-users-and-capabilities, wordpress/13-template-hierarchy]
 when_to_use: "Read before registering a custom post type — deciding whether content needs one, choosing arguments, or fixing 404s and missing REST support."
 ---
 # Custom Post Types
@@ -240,8 +240,10 @@ explicitly, and flush rewrite rules only on activation.
 
 ## Related
 
+
 - `knowledge/wordpress/10-taxonomies.md`
 - `knowledge/wordpress/11-metadata.md`
 - `knowledge/wordpress/12-queries.md`
-- `knowledge/wordpress/13-template-hierarchy.md`
 - `knowledge/wordpress/18-rest-api.md`
+- `knowledge/wordpress/20-users-and-capabilities.md`
+- `knowledge/wordpress/13-template-hierarchy.md`

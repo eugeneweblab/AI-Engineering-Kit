@@ -7,7 +7,7 @@ type: doc
 order: 98
 status: ready
 tags: [tools, production-checklist]
-related: [tools/30-engineering-principles, tools/19-task-runners, tools/02-version-management, tools/28-release-tools, tools/29-observability-tools]
+related: [tools/30-engineering-principles, tools/19-task-runners, tools/02-version-management, tools/28-release-tools, tools/29-observability-tools, tools/99-ai-review-checklist, tools/100-common-antipatterns, cicd/98-production-checklist]
 when_to_use: "Read before declaring a project's tooling ready — at setup, before onboarding contributors, or before the first production release."
 ---
 # Production Checklist
@@ -142,7 +142,12 @@ The tooling is ready when a new contributor can clone the repository, run the in
 
 ## Related
 
+
 - `knowledge/tools/30-engineering-principles.md`
+- `knowledge/tools/19-task-runners.md`
+- `knowledge/tools/02-version-management.md`
+- `knowledge/tools/28-release-tools.md`
+- `knowledge/tools/29-observability-tools.md`
 - `knowledge/tools/99-ai-review-checklist.md`
 - `knowledge/tools/100-common-antipatterns.md`
 - `knowledge/cicd/98-production-checklist.md`

@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [mysql, data-types]
-related: [mysql/04-indexes, mysql/00-overview, mysql/24-json, mysql/16-migrations]
+related: [mysql/04-indexes, mysql/00-overview, mysql/24-json, mysql/16-migrations, mysql/05-query-optimization]
 when_to_use: "Read before designing a table schema or choosing a column type."
 ---
 # Data Types
@@ -117,6 +117,7 @@ CREATE TABLE payments (
 - Are small stable value sets `ENUM` or a lookup table, not free-text `VARCHAR`?
 
 ## Related
+
 
 - `knowledge/mysql/04-indexes.md`
 - `knowledge/mysql/00-overview.md`

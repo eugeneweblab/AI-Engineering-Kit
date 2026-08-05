@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [tools, typescript-compiler]
-related: [tools/08-static-analysis, tools/11-esbuild-and-swc, tools/04-eslint, tools/18-monorepo-tools, tools/30-engineering-principles]
+related: [tools/08-static-analysis, tools/11-esbuild-and-swc, tools/04-eslint, tools/18-monorepo-tools, tools/30-engineering-principles, typescript/16-configuration]
 when_to_use: "Read before configuring tsconfig.json or wiring type checking into a build — choosing compiler options, separating checking from transpiling, or fixing slow type checks."
 ---
 # TypeScript Compiler
@@ -183,7 +183,10 @@ while appearing fully typed in the editor.
 
 ## Related
 
+
 - `knowledge/tools/08-static-analysis.md`
 - `knowledge/tools/11-esbuild-and-swc.md`
 - `knowledge/tools/04-eslint.md`
+- `knowledge/tools/18-monorepo-tools.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/typescript/16-configuration.md`

@@ -347,6 +347,9 @@ the point of use rather than at load time.
 
 ## Related
 
-- `knowledge/wordpress/15-plugin-development.md`
+
 - `knowledge/wordpress/14-theme-development.md`
+- `knowledge/wordpress/15-plugin-development.md`
 - `knowledge/wordpress/16-block-editor.md`
+- `knowledge/wordpress/04-code-style.md`
+- `knowledge/wordpress/26-wp-cli.md`

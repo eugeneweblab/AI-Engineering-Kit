@@ -7,7 +7,7 @@ type: doc
 order: 28
 status: ready
 tags: [tools, release-tools]
-related: [tools/17-commit-conventions, tools/18-monorepo-tools, tools/27-dependency-management, tools/19-task-runners, tools/30-engineering-principles]
+related: [tools/17-commit-conventions, tools/18-monorepo-tools, tools/27-dependency-management, tools/19-task-runners, tools/30-engineering-principles, cicd/00-overview]
 when_to_use: "Read before automating versioning and publishing — choosing between Changesets and semantic-release, generating changelogs, or publishing packages from CI."
 ---
 # Release Tools
@@ -264,7 +264,10 @@ answer is the one this does not answer.
 
 ## Related
 
+
 - `knowledge/tools/17-commit-conventions.md`
 - `knowledge/tools/18-monorepo-tools.md`
+- `knowledge/tools/27-dependency-management.md`
 - `knowledge/tools/19-task-runners.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/cicd/00-overview.md`

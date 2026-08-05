@@ -177,7 +177,9 @@ re-triggers the error.
 
 ## Related
 
+
 - `knowledge/tools/04-eslint.md`
-- `knowledge/tools/06-stylelint.md`
 - `knowledge/tools/16-git-hooks.md`
 - `knowledge/tools/25-editor-setup.md`
+- `knowledge/tools/06-stylelint.md`
+- `knowledge/tools/30-engineering-principles.md`

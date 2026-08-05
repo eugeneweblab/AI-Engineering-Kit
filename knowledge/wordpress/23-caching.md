@@ -7,7 +7,7 @@ type: doc
 order: 23
 status: ready
 tags: [wordpress, caching]
-related: [wordpress/05-performance, wordpress/12-queries, wordpress/18-rest-api, wordpress/19-database, wordpress/29-maintenance]
+related: [wordpress/05-performance, wordpress/12-queries, wordpress/18-rest-api, wordpress/19-database, wordpress/29-maintenance, wordpress/27-deployment, performance/08-caching]
 when_to_use: "Read before caching anything in WordPress — choosing between transients and the object cache, invalidating on write, or diagnosing stale or personalized content."
 ---
 # Caching
@@ -281,8 +281,11 @@ user-specific out of shared caches entirely.
 
 ## Related
 
+
 - `knowledge/wordpress/05-performance.md`
 - `knowledge/wordpress/12-queries.md`
+- `knowledge/wordpress/18-rest-api.md`
 - `knowledge/wordpress/19-database.md`
+- `knowledge/wordpress/29-maintenance.md`
 - `knowledge/wordpress/27-deployment.md`
 - `knowledge/performance/08-caching.md`

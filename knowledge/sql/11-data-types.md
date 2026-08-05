@@ -7,7 +7,7 @@ type: doc
 order: 11
 status: ready
 tags: [sql, data-types]
-related: [sql/12-ddl, sql/10-functions, sql/09-aggregate-functions, sql/15-indexes]
+related: [sql/12-ddl, sql/10-functions, sql/09-aggregate-functions, sql/15-indexes, sql/27-portability]
 when_to_use: "Read before choosing a column type in a CREATE TABLE, or when money, dates, JSON, or text encoding are involved."
 ---
 # Data Types
@@ -120,6 +120,7 @@ CREATE TABLE invoices (
 - Is queryable JSON stored as `JSONB` (indexable) rather than `TEXT`?
 
 ## Related
+
 
 - `knowledge/sql/12-ddl.md`
 - `knowledge/sql/10-functions.md`

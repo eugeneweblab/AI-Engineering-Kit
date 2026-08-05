@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [frontend, design-systems]
-related: [frontend/02-component-driven-development, frontend/15-styling, frontend/16-css-architecture, frontend/09-accessibility]
+related: [frontend/02-component-driven-development, frontend/15-styling, frontend/16-css-architecture, frontend/09-accessibility, frontend/10-responsive-design]
 when_to_use: "Read before creating shared UI primitives, defining design tokens, or building a component library."
 ---
 # Design Systems
@@ -135,6 +135,7 @@ function Button({ children }) {
 - Is application code composing primitives instead of dropping to raw CSS?
 
 ## Related
+
 
 - `knowledge/frontend/02-component-driven-development.md`
 - `knowledge/frontend/15-styling.md`

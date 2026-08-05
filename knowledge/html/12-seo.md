@@ -7,7 +7,7 @@ type: doc
 order: 12
 status: ready
 tags: [html, seo]
-related: [html/10-metadata, html/13-structured-data, html/02-semantic-html, html/11-accessibility, html/05-images]
+related: [html/10-metadata, html/13-structured-data, html/02-semantic-html, html/11-accessibility, html/05-images, html/18-performance]
 when_to_use: "Read before shipping any public page that should rank in search or preview correctly when shared."
 ---
 # SEO
@@ -134,8 +134,10 @@ worth getting right the first time.
 
 ## Related
 
+
 - `knowledge/html/10-metadata.md`
 - `knowledge/html/13-structured-data.md`
 - `knowledge/html/02-semantic-html.md`
 - `knowledge/html/11-accessibility.md`
+- `knowledge/html/05-images.md`
 - `knowledge/html/18-performance.md`

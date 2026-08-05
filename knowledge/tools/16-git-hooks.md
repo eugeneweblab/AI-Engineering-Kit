@@ -7,7 +7,7 @@ type: doc
 order: 16
 status: ready
 tags: [tools, git-hooks]
-related: [tools/17-commit-conventions, tools/04-eslint, tools/05-prettier, tools/19-task-runners, tools/30-engineering-principles]
+related: [tools/17-commit-conventions, tools/04-eslint, tools/05-prettier, tools/19-task-runners, tools/30-engineering-principles, git/20-hooks]
 when_to_use: "Read before adding pre-commit or pre-push automation — choosing a hook manager, deciding what belongs in each hook, and keeping hooks fast enough to survive."
 ---
 # Git Hooks
@@ -180,7 +180,10 @@ people who read that line.
 
 ## Related
 
+
 - `knowledge/tools/17-commit-conventions.md`
 - `knowledge/tools/04-eslint.md`
 - `knowledge/tools/05-prettier.md`
+- `knowledge/tools/19-task-runners.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/git/20-hooks.md`

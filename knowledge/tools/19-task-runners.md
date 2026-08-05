@@ -7,7 +7,7 @@ type: doc
 order: 19
 status: ready
 tags: [tools, task-runners]
-related: [tools/01-package-managers, tools/18-monorepo-tools, tools/16-git-hooks, tools/20-local-environments, tools/30-engineering-principles]
+related: [tools/01-package-managers, tools/18-monorepo-tools, tools/16-git-hooks, tools/20-local-environments, tools/30-engineering-principles, cicd/00-overview]
 when_to_use: "Read before organizing project commands — npm scripts, Make, or a task runner — so the same commands work locally and in CI."
 ---
 # Task Runners
@@ -193,7 +193,10 @@ Four manual steps that a `predev` script or a `make up` target would perform aut
 
 ## Related
 
+
 - `knowledge/tools/01-package-managers.md`
 - `knowledge/tools/18-monorepo-tools.md`
+- `knowledge/tools/16-git-hooks.md`
 - `knowledge/tools/20-local-environments.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/cicd/00-overview.md`

@@ -7,7 +7,7 @@ type: doc
 order: 28
 status: ready
 tags: [wordpress, debugging]
-related: [wordpress/07-testing, wordpress/26-wp-cli, wordpress/08-hooks, wordpress/12-queries, wordpress/27-deployment]
+related: [wordpress/07-testing, wordpress/26-wp-cli, wordpress/08-hooks, wordpress/12-queries, wordpress/27-deployment, wordpress/29-maintenance, wordpress/19-database, wordpress/100-common-antipatterns]
 when_to_use: "Read when diagnosing a WordPress problem — enabling debug output safely, finding the cause of a white screen, or tracing hooks, queries, and AJAX or REST failures."
 ---
 # Debugging
@@ -329,7 +329,12 @@ than printing into it.
 
 ## Related
 
+
 - `knowledge/wordpress/07-testing.md`
+- `knowledge/wordpress/26-wp-cli.md`
+- `knowledge/wordpress/08-hooks.md`
+- `knowledge/wordpress/12-queries.md`
+- `knowledge/wordpress/27-deployment.md`
 - `knowledge/wordpress/29-maintenance.md`
 - `knowledge/wordpress/19-database.md`
 - `knowledge/wordpress/100-common-antipatterns.md`

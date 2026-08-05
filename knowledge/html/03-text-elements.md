@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [html, text-elements]
-related: [html/02-semantic-html, html/04-links, html/06-lists, html/11-accessibility]
+related: [html/02-semantic-html, html/04-links, html/06-lists, html/11-accessibility, html/12-seo]
 when_to_use: "Read before marking up paragraphs, headings, emphasis, quotes, or inline text content."
 ---
 # Text Elements
@@ -116,6 +116,7 @@ element costs nothing and is impossible to retrofit reliably later.
 - Are quotations marked with `<blockquote>`/`<q>` and attributed with `<cite>`?
 
 ## Related
+
 
 - `knowledge/html/02-semantic-html.md`
 - `knowledge/html/04-links.md`

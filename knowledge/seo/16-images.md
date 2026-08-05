@@ -80,9 +80,9 @@ accessibility audit surfaces it.
     srcset="/hero-480.avif 480w, /hero-960.avif 960w, /hero-1600.avif 1600w"
     sizes="(max-width: 600px) 100vw, 960px" />
   <img
-    src="/hero-960.jpg"                 
-    width="960" height="540"            
-    fetchpriority="high"                
+    src="/hero-960.jpg"
+    width="960" height="540"
+    fetchpriority="high"
     alt="Barista pouring latte art into a white cup" />
 </picture>
 <!-- width/height reserve space (no CLS); fetchpriority speeds the LCP paint; no lazy here -->

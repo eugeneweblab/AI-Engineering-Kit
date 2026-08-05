@@ -321,7 +321,9 @@ defer to the theme when it supplies its own version.
 
 ## Related
 
+
 - `knowledge/wordpress/14-theme-development.md`
 - `knowledge/wordpress/17-block-themes.md`
+- `knowledge/wordpress/09-custom-post-types.md`
 - `knowledge/wordpress/12-queries.md`
 - `knowledge/wordpress/01-wordpress-architecture.md`

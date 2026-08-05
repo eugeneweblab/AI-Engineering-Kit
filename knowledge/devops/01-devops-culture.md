@@ -62,7 +62,7 @@ are the safest kind.
 
 **Good Example** — a blameless incident review framing
 
-```md
+```markdown
 ## Incident: checkout 500s, 2026-06-14
 
 Impact: 8 min of failed checkouts (~1,200 requests).
@@ -77,7 +77,7 @@ Action items:
 
 **Bad Example** — blame-oriented review
 
-```md
+```markdown
 ## Incident: checkout down
 
 Root cause: Sam pushed a bad config.

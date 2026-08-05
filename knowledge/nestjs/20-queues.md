@@ -146,7 +146,7 @@ Jobs should contain only the data required for execution.
 
 The idiomatic NestJS integration is `@nestjs/bullmq` (BullMQ over Redis). Register the connection once, declare each queue, and set safe default job options — retries, exponential backoff, and retention — in one place so producers stay simple.
 
-```typescript
+```ts
 // email.module.ts
 import { Module } from '@nestjs/common';
 import { BullModule } from '@nestjs/bullmq';
@@ -189,7 +189,7 @@ export class EmailModule {}
 The producer enqueues **after** the business state is committed, and uses a
 stable `jobId` so re-enqueueing the same unit of work is a no-op:
 
-```typescript
+```ts
 // email.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectQueue } from '@nestjs/bullmq';
@@ -256,7 +256,7 @@ In BullMQ, a processor that throws a normal error is retried until `attempts`
 is exhausted. Throw `UnrecoverableError` to fail a job **immediately** with no
 further retries — use it for permanent failures.
 
-```typescript
+```ts
 // Bad — every failure consumes all 5 attempts, including permanent ones.
 // A malformed payload burns retries and delays reaching the DLQ.
 async process(job: Job<WelcomeEmailJob>): Promise<void> {
@@ -265,7 +265,7 @@ async process(job: Job<WelcomeEmailJob>): Promise<void> {
 }
 ```
 
-```typescript
+```ts
 // Good — classify failures. Transient errors bubble up so BullMQ retries
 // with backoff; permanent errors throw UnrecoverableError to fail at once.
 import { UnrecoverableError } from 'bullmq';
@@ -399,7 +399,7 @@ payload came from our own queue, it is untrusted input and is validated before
 use. The `failed` handler routes exhausted or unrecoverable jobs to the DLQ —
 BullMQ has no native dead-letter queue, so this is done explicitly.
 
-```typescript
+```ts
 // email.processor.ts
 import {
   Processor,

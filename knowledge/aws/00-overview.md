@@ -7,7 +7,7 @@ type: doc
 order: 0
 status: ready
 tags: [aws, overview]
-related: [aws/02-iam, aws/01-global-infrastructure, aws/29-well-architected-framework, aws/25-security]
+related: [aws/02-iam, aws/01-global-infrastructure, aws/29-well-architected-framework, aws/25-security, aws/100-common-antipatterns]
 when_to_use: "Read first when starting any AWS work, to orient on which doc covers your task."
 ---
 # Overview
@@ -100,8 +100,9 @@ assume the default is wrong until you have verified otherwise.
 
 ## Related
 
-- `knowledge/aws/01-global-infrastructure.md`
+
 - `knowledge/aws/02-iam.md`
-- `knowledge/aws/25-security.md`
+- `knowledge/aws/01-global-infrastructure.md`
 - `knowledge/aws/29-well-architected-framework.md`
+- `knowledge/aws/25-security.md`
 - `knowledge/aws/100-common-antipatterns.md`

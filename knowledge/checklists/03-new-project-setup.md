@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [checklists, new-project-setup]
-related: [checklists/01-pre-launch, tools/98-production-checklist, tools/19-task-runners, tools/20-local-environments, tools/26-ai-coding-tools]
+related: [checklists/01-pre-launch, tools/98-production-checklist, tools/19-task-runners, tools/20-local-environments, tools/26-ai-coding-tools, templates/02-architecture-decision-record]
 when_to_use: "Run when starting a new repository, before writing the first feature."
 ---
 # New Project Setup Checklist
@@ -232,7 +232,10 @@ developer's test data is everyone's. "Please format" is not enforcement.
 
 ## Related
 
-- `knowledge/tools/98-production-checklist.md`
-- `knowledge/tools/20-local-environments.md`
+
 - `knowledge/checklists/01-pre-launch.md`
+- `knowledge/tools/98-production-checklist.md`
+- `knowledge/tools/19-task-runners.md`
+- `knowledge/tools/20-local-environments.md`
+- `knowledge/tools/26-ai-coding-tools.md`
 - `knowledge/templates/02-architecture-decision-record.md`

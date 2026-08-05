@@ -66,7 +66,7 @@ the injection hidden in it.
 
 **Good Example** — a review comment that names the exploit and the fix
 
-```md
+```markdown
 🔴 Security — Broken Access Control (A01)
 File: routes/orders.ts:42
 `getOrder(req.params.id)` loads the order by id with no ownership check.
@@ -77,7 +77,7 @@ Blocking until resolved.
 
 **Bad Example** — a non-actionable review comment
 
-```md
+```markdown
 This part looks a bit unsafe, maybe add some validation?
 <!-- No location, no exploit, no concrete fix. The author can't act on it,
      so it gets waved through and the vulnerability ships. -->

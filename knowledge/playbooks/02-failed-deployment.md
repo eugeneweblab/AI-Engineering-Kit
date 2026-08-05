@@ -217,7 +217,9 @@ understood, and reversible — none of which is true fifteen minutes into an out
 
 ## Related
 
+
 - `knowledge/playbooks/01-site-down.md`
 - `knowledge/templates/03-incident-report.md`
 - `knowledge/tools/28-release-tools.md`
+- `knowledge/wordpress/27-deployment.md`
 - `knowledge/databases/17-migrations.md`

@@ -7,7 +7,7 @@ type: doc
 order: 23
 status: ready
 tags: [javascript, clean-code]
-related: [javascript/21-functional-programming, javascript/22-design-patterns, javascript/14-error-handling, javascript/28-best-practices]
+related: [javascript/21-functional-programming, javascript/22-design-patterns, javascript/14-error-handling, javascript/28-best-practices, javascript/30-engineering-principles]
 when_to_use: "Read before writing or reviewing everyday JavaScript for naming, function size, and readability."
 ---
 # Clean Code
@@ -134,6 +134,7 @@ function proc(u, a) {                    // "proc"/"u"/"a" reveal nothing
 - Is there no commented-out or dead code left in the file?
 
 ## Related
+
 
 - `knowledge/javascript/21-functional-programming.md`
 - `knowledge/javascript/22-design-patterns.md`

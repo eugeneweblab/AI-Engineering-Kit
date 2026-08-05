@@ -7,7 +7,7 @@ type: doc
 order: 2
 status: ready
 tags: [mysql, configuration]
-related: [mysql/01-installation, mysql/06-transactions, mysql/14-performance, mysql/20-production]
+related: [mysql/01-installation, mysql/06-transactions, mysql/14-performance, mysql/20-production, mysql/15-monitoring]
 when_to_use: "Read before editing my.cnf or tuning buffer pool, durability, or charset settings."
 ---
 # Configuration
@@ -123,6 +123,7 @@ character_set = utf8                   # 3-byte "utf8": corrupts emoji and some 
 - Is `my.cnf` in version control and applied by automation, not hand-edited on the server?
 
 ## Related
+
 
 - `knowledge/mysql/01-installation.md`
 - `knowledge/mysql/06-transactions.md`

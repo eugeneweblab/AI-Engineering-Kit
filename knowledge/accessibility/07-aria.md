@@ -2,7 +2,7 @@
 id: accessibility/07-aria
 topic: accessibility
 slug: aria
-title: "Aria"
+title: "ARIA"
 type: doc
 order: 7
 status: ready

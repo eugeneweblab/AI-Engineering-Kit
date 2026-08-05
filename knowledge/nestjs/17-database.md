@@ -162,7 +162,7 @@ Repositories should never contain business workflows.
 
 Wire up the entity, register it with the feature module, and inject the repository into the service. The service holds business logic; the repository only persists.
 
-```typescript
+```ts
 // user.entity.ts
 import {
   Column,
@@ -189,7 +189,7 @@ export class User {
 }
 ```
 
-```typescript
+```ts
 // users.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -206,7 +206,7 @@ import { UsersController } from './users.controller';
 export class UsersModule {}
 ```
 
-```typescript
+```ts
 // ✅ Good — service depends on the injected repository, not on the ORM globally
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -235,7 +235,7 @@ export class UsersService {
 }
 ```
 
-```typescript
+```ts
 // ❌ Bad — controller reads the ORM directly, bypassing the service and repository
 @Controller('users')
 export class UsersController {
@@ -281,7 +281,7 @@ Avoid long-running transactions.
 
 Use the injected `DataSource` to run a transaction. `dataSource.transaction` acquires a connection, commits on success, and rolls back if the callback throws. Do all writes through the supplied `EntityManager` so they share the same transaction.
 
-```typescript
+```ts
 // transfers.service.ts
 import { Injectable, BadRequestException } from '@nestjs/common';
 import { InjectDataSource } from '@nestjs/typeorm';
@@ -403,7 +403,7 @@ Load orders using JOIN or batching
 
 Always review generated SQL.
 
-```typescript
+```ts
 // ❌ Bad — one extra query per user (the N+1 problem)
 async listWithOrders(): Promise<User[]> {
   const users = await this.users.find();
@@ -415,7 +415,7 @@ async listWithOrders(): Promise<User[]> {
 }
 ```
 
-```typescript
+```ts
 // ✅ Good — a single joined query loads users and their orders together
 async listWithOrders(): Promise<User[]> {
   return this.users
@@ -447,7 +447,7 @@ Large datasets should always be paginated.
 
 Validate and bound the page parameters with a DTO, then translate them into `skip`/`take`. Return the total count so clients can render pagination.
 
-```typescript
+```ts
 // pagination-query.dto.ts
 import { Type } from 'class-transformer';
 import { IsInt, Max, Min } from 'class-validator';
@@ -466,7 +466,7 @@ export class PaginationQueryDto {
 }
 ```
 
-```typescript
+```ts
 // users.service.ts (excerpt)
 async paginate(
   query: PaginationQueryDto,
@@ -734,9 +734,17 @@ export class OrdersRepository {
 
 ```ts
 // Migrations are generated, reviewed, and committed — never synchronised at boot.
+// CONCURRENTLY keeps the write path unblocked while the index builds — but Postgres
+// refuses it inside a transaction block, and TypeORM wraps migrations in one by
+// default. Run this migration with transactions off:
+//
+//   typeorm migration:run -t none
+//
+// or set `migrationsTransactionMode: 'none'` on the DataSource. Because the setting
+// is per-run and not per-migration, keep index builds in their own migration,
+// separate from schema changes that do need a transaction.
 export class AddOrderStatusIndex1735689600000 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    // CONCURRENTLY so the write path is not blocked while the index builds.
     await queryRunner.query(
       `CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_orders_user_created
        ON orders (user_id, created_at DESC)`,
@@ -748,6 +756,10 @@ export class AddOrderStatusIndex1735689600000 implements MigrationInterface {
   }
 }
 ```
+
+On a small table a plain `CREATE INDEX` inside the normal transactional migration is the
+simpler choice; `CONCURRENTLY` earns its extra handling only when the table is large enough
+that an `ACCESS EXCLUSIVE` lock would be an outage.
 
 **Bad Example** — schema synchronised at boot, N+1 on every list
 

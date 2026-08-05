@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [redis, installation]
-related: [redis/00-overview, redis/21-security, redis/24-testing, redis/27-production]
+related: [redis/00-overview, redis/21-security, redis/24-testing, redis/27-production, redis/20-persistence]
 when_to_use: "Read before installing, containerizing, or connecting a client to Redis in dev, CI, or production."
 ---
 # Installation
@@ -135,6 +135,7 @@ async function get(key: string) {
 - Is there a startup `PING`/health check that fails fast?
 
 ## Related
+
 
 - `knowledge/redis/00-overview.md`
 - `knowledge/redis/21-security.md`

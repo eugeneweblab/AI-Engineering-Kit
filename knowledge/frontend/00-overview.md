@@ -7,7 +7,7 @@ type: doc
 order: 0
 status: ready
 tags: [frontend, overview]
-related: [frontend/01-frontend-architecture, frontend/02-component-driven-development, frontend/04-state-management, frontend/05-routing]
+related: [frontend/01-frontend-architecture, frontend/02-component-driven-development, frontend/04-state-management, frontend/05-routing, frontend/03-design-systems]
 when_to_use: "Read first when starting any frontend work to orient yourself in this topic and pick the right document."
 ---
 # Overview
@@ -117,6 +117,7 @@ globalStore.set({ products, currentCategory, hoveredRowId });
 - Are the correct topic docs consulted for the task (routing, state, components)?
 
 ## Related
+
 
 - `knowledge/frontend/01-frontend-architecture.md`
 - `knowledge/frontend/02-component-driven-development.md`

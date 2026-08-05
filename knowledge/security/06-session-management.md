@@ -7,7 +7,7 @@ type: doc
 order: 6
 status: ready
 tags: [security, session-management]
-related: [security/03-authentication, security/04-authorization, security/07-jwt, security/12-csrf]
+related: [security/03-authentication, security/04-authorization, security/07-jwt, security/12-csrf, security/11-xss]
 when_to_use: "Read before building or reviewing how a login is remembered across requests — cookies, tokens, or server sessions."
 ---
 # Session Management
@@ -133,6 +133,7 @@ function login(user) {
 - If JWTs are used, is there a revocation strategy or a short lifetime?
 
 ## Related
+
 
 - `knowledge/security/03-authentication.md`
 - `knowledge/security/04-authorization.md`

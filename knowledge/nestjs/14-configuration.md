@@ -130,7 +130,7 @@ Use `registerAs` from `@nestjs/config` to define a namespaced, strongly typed
 configuration factory per domain. The exported token (`.KEY`) and
 `ConfigType<typeof factory>` give you fully typed injection later:
 
-```typescript
+```ts
 // config/database.config.ts
 import { registerAs } from '@nestjs/config';
 
@@ -141,7 +141,7 @@ export default registerAs('database', () => ({
 }));
 ```
 
-```typescript
+```ts
 // config/app.config.ts
 import { registerAs } from '@nestjs/config';
 
@@ -195,7 +195,7 @@ validation schema. `@nestjs/config` runs the schema against `process.env`
 during module initialization, so a missing or malformed variable throws before
 the application accepts a single request:
 
-```typescript
+```ts
 // app.module.ts
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
@@ -240,7 +240,7 @@ loses all IDE support. Inject the namespaced factory token instead and let
 
 **Bad — untyped, stringly-keyed lookups scattered through a service:**
 
-```typescript
+```ts
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
@@ -259,7 +259,7 @@ export class BadDatabaseProvider {
 
 **Good — inject the typed, namespaced configuration object:**
 
-```typescript
+```ts
 import { Inject, Injectable } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import databaseConfig from '../config/database.config';
@@ -362,7 +362,7 @@ Configuration access should remain centralized.
 
 **Bad — reading `process.env` directly inside a guard:**
 
-```typescript
+```ts
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -377,7 +377,7 @@ export class ApiKeyGuard implements CanActivate {
 
 **Good — inject validated configuration through the constructor:**
 
-```typescript
+```ts
 import {
   CanActivate,
   ExecutionContext,

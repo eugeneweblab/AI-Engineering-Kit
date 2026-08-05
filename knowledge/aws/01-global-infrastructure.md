@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [aws, global-infrastructure]
-related: [aws/00-overview, aws/06-vpc, aws/11-auto-scaling, aws/05-rds]
+related: [aws/00-overview, aws/06-vpc, aws/11-auto-scaling, aws/05-rds, aws/31-high-availability, aws/08-cloudfront]
 when_to_use: "Read before choosing a Region, laying out subnets, or designing for high availability."
 ---
 # Global Infrastructure
@@ -115,8 +115,10 @@ resource "aws_subnet" "app" {
 
 ## Related
 
+
 - `knowledge/aws/00-overview.md`
 - `knowledge/aws/06-vpc.md`
-- `knowledge/aws/31-high-availability.md`
+- `knowledge/aws/11-auto-scaling.md`
 - `knowledge/aws/05-rds.md`
+- `knowledge/aws/31-high-availability.md`
 - `knowledge/aws/08-cloudfront.md`

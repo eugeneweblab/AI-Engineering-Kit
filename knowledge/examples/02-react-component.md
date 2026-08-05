@@ -291,7 +291,9 @@ export function ProductCard({ data }: { data: any }) {
 
 ## Related
 
+
+- `knowledge/examples/01-rest-endpoint.md`
 - `knowledge/workflows/08-build-react-component.md`
 - `knowledge/react/13-component-composition.md`
+- `knowledge/accessibility/04-keyboard-navigation.md`
 - `knowledge/react/21-testing.md`
-- `knowledge/examples/01-rest-endpoint.md`

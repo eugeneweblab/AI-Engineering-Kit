@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [tools, package-managers]
-related: [tools/02-version-management, tools/18-monorepo-tools, tools/27-dependency-management, tools/00-overview, tools/30-engineering-principles]
+related: [tools/02-version-management, tools/18-monorepo-tools, tools/27-dependency-management, tools/00-overview, tools/30-engineering-principles, tools/19-task-runners]
 when_to_use: "Read before choosing or changing a package manager, adding dependencies, or debugging an install that differs between machines and CI."
 ---
 # Package Managers
@@ -135,7 +135,10 @@ composer install --no-dev --optimize-autoloader --no-interaction
 
 ## Related
 
+
 - `knowledge/tools/02-version-management.md`
 - `knowledge/tools/18-monorepo-tools.md`
 - `knowledge/tools/27-dependency-management.md`
+- `knowledge/tools/00-overview.md`
+- `knowledge/tools/30-engineering-principles.md`
 - `knowledge/tools/19-task-runners.md`
