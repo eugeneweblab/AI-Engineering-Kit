@@ -1,16 +1,16 @@
 ---
-id: wordpress/09-ai-checklist
+id: wordpress/98-production-checklist
 topic: wordpress
-slug: ai-checklist
-title: "WordPress AI Checklist"
+slug: production-checklist
+title: "WordPress Production Checklist"
 type: doc
-order: 9
+order: 98
 status: ready
-tags: [wordpress, ai-checklist]
+tags: [wordpress, production-checklist]
 related: []
 when_to_use: "Read before considering a WordPress task complete to verify all mandatory checks."
 ---
-# WordPress AI Checklist
+# WordPress Production Checklist
 
 ## Purpose
 

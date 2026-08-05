@@ -1,16 +1,16 @@
 ---
-id: wordpress/10-review-checklist
+id: wordpress/99-ai-review-checklist
 topic: wordpress
-slug: review-checklist
-title: "WordPress Code Review Checklist"
+slug: ai-review-checklist
+title: "WordPress AI Review Checklist"
 type: doc
-order: 10
+order: 99
 status: ready
-tags: [wordpress, review-checklist]
+tags: [wordpress, ai-review-checklist]
 related: []
 when_to_use: "Read before reviewing or merging WordPress code changes."
 ---
-# WordPress Code Review Checklist
+# WordPress AI Review Checklist
 
 ## Purpose
 

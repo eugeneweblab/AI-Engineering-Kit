@@ -1,16 +1,16 @@
 ---
-id: wordpress/08-common-mistakes
+id: wordpress/100-common-antipatterns
 topic: wordpress
-slug: common-mistakes
-title: "Common WordPress Mistakes"
+slug: common-antipatterns
+title: "Common WordPress Antipatterns"
 type: doc
-order: 8
+order: 100
 status: ready
-tags: [wordpress, common-mistakes]
+tags: [wordpress, common-antipatterns]
 related: []
 when_to_use: "Read before writing WordPress code to avoid common implementation mistakes."
 ---
-# Common WordPress Mistakes
+# Common WordPress Antipatterns
 
 ## Purpose
 

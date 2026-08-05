@@ -29,17 +29,16 @@ These standards apply to both human developers and AI coding assistants.
 
 This documentation covers:
 
-- WordPress architecture
-- Project structure
-- Best practices and code style
-- Performance
-- Security
-- Testing
-- Common mistakes and review criteria
+- WordPress architecture, project structure, and the hook system
+- Content modelling: post types, taxonomies, metadata, and queries
+- Themes, templates, block themes, and the block editor
+- The REST API and direct database access
+- Security, capabilities, performance, and caching
+- Uploads, internationalization, multisite, and scheduled work
+- Testing, debugging, deployment, and ongoing maintenance
 
-> **Structure note:** This is a focused section with a custom layout (`01`–`10`), not
-> the standard `00`–`30 / 98 / 99 / 100` scheme used by most topics. Order documents by
-> the `order` field in each file's frontmatter.
+For a map of which document answers which question, start with
+[00. Overview](00-overview.md).
 
 ---
 
@@ -49,22 +48,58 @@ Study the documents in the following order.
 
 ## Foundations
 
-- 01. WordPress Architecture
-- 02. Project Structure
+- 00. [Overview](00-overview.md)
+- 01. [WordPress Architecture](01-wordpress-architecture.md)
+- 02. [Project Structure](02-project-structure.md)
+- 08. [Hooks — Actions and Filters](08-hooks.md)
 
 ## Writing Code
 
-- 03. Best Practices
-- 04. Code Style
-- 05. Performance
-- 06. Security
+- 03. [Best Practices](03-best-practices.md)
+- 04. [Code Style](04-code-style.md)
+- 30. [Engineering Principles](30-engineering-principles.md)
 
-## Quality
+## Content Modelling
 
-- 07. Testing
-- 08. Common Mistakes
-- 09. AI Checklist
-- 10. Review Checklist
+- 09. [Custom Post Types](09-custom-post-types.md)
+- 10. [Taxonomies](10-taxonomies.md)
+- 11. [Metadata](11-metadata.md)
+- 12. [Queries and The Loop](12-queries.md)
+- 19. [Database and `$wpdb`](19-database.md)
+
+## Building the Site
+
+- 13. [Template Hierarchy](13-template-hierarchy.md)
+- 14. [Theme Development](14-theme-development.md)
+- 15. [Plugin Development](15-plugin-development.md)
+- 16. [Block Editor](16-block-editor.md)
+- 17. [Block Themes and theme.json](17-block-themes.md)
+- 18. [REST API](18-rest-api.md)
+- 21. [Media and Uploads](21-media-and-uploads.md)
+- 24. [Internationalization](24-internationalization.md)
+
+## Correctness and Speed
+
+- 06. [Security](06-security.md)
+- 20. [Users and Capabilities](20-users-and-capabilities.md)
+- 05. [Performance](05-performance.md)
+- 23. [Caching](23-caching.md)
+- 07. [Testing](07-testing.md)
+- 28. [Debugging](28-debugging.md)
+
+## Operations
+
+- 22. [Cron and Background Tasks](22-cron-and-background-tasks.md)
+- 25. [Multisite](25-multisite.md)
+- 26. [WP-CLI](26-wp-cli.md)
+- 27. [Deployment](27-deployment.md)
+- 29. [Maintenance](29-maintenance.md)
+
+## Closing Checks
+
+- 98. [Production Checklist](98-production-checklist.md)
+- 99. [AI Review Checklist](99-ai-review-checklist.md)
+- 100. [Common Antipatterns](100-common-antipatterns.md)
 
 ---
 
@@ -82,6 +117,17 @@ Every WordPress feature should satisfy the following principles:
 - Optimize database queries; avoid queries inside loops.
 - Build for accessibility and internationalization.
 - Measure performance before optimizing.
+
+The reasoning behind each is in [30. Engineering Principles](30-engineering-principles.md).
+
+---
+
+## Related Topics
+
+- [PHP](../php/00-overview.md) — the language underneath.
+- [WooCommerce](../woocommerce/00-overview.md) and [Divi](../divi/00-overview.md) — platforms built on WordPress.
+- [Workflow — Build a WordPress Feature](../workflows/09-build-wordpress-feature.md) — the process wrapper.
+- [Workflow — Build a Gutenberg Block](../workflows/11-build-gutenberg-block.md) — editor-side components.
 
 ---
 

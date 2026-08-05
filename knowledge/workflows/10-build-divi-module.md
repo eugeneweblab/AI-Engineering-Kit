@@ -476,7 +476,7 @@ After completing this workflow, the AI should explain:
 Before marking the module complete, run it through the checklists of the topics it touched:
 
 - Divi — [Production Checklist](../divi/98-production-checklist.md), [AI Review Checklist](../divi/99-ai-review-checklist.md), [Common Antipatterns](../divi/100-common-antipatterns.md).
-- WordPress — [AI Checklist](../wordpress/09-ai-checklist.md), [Review Checklist](../wordpress/10-review-checklist.md), [Common Mistakes](../wordpress/08-common-mistakes.md).
+- WordPress — [Production Checklist](../wordpress/98-production-checklist.md), [AI Review Checklist](../wordpress/99-ai-review-checklist.md), [Common Antipatterns](../wordpress/100-common-antipatterns.md).
 - Accessibility — [Production Checklist](../accessibility/98-production-checklist.md), [AI Review Checklist](../accessibility/99-ai-review-checklist.md), [Common Antipatterns](../accessibility/100-common-antipatterns.md).
 
 Add [PHP — AI Review Checklist](../php/99-ai-review-checklist.md) for the rendering code and

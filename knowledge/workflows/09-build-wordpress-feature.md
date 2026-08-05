@@ -14,8 +14,8 @@ related:
   - wordpress/05-performance
   - wordpress/06-security
   - wordpress/07-testing
-  - wordpress/09-ai-checklist
-  - wordpress/10-review-checklist
+  - wordpress/98-production-checklist
+  - wordpress/99-ai-review-checklist
   - php/13-security
   - security/09-input-validation
   - woocommerce/12-hooks
@@ -480,7 +480,7 @@ After completing this workflow, the AI should explain:
 
 Before marking the feature complete, run it through the checklists of the topics it touched:
 
-- WordPress — [AI Checklist](../wordpress/09-ai-checklist.md), [Review Checklist](../wordpress/10-review-checklist.md), [Common Mistakes](../wordpress/08-common-mistakes.md).
+- WordPress — [Production Checklist](../wordpress/98-production-checklist.md), [AI Review Checklist](../wordpress/99-ai-review-checklist.md), [Common Antipatterns](../wordpress/100-common-antipatterns.md).
 - PHP — [Production Checklist](../php/98-production-checklist.md), [AI Review Checklist](../php/99-ai-review-checklist.md), [Common Antipatterns](../php/100-common-antipatterns.md).
 - Security — [Production Checklist](../security/98-production-checklist.md), [AI Review Checklist](../security/99-ai-review-checklist.md), [Common Antipatterns](../security/100-common-antipatterns.md).
 

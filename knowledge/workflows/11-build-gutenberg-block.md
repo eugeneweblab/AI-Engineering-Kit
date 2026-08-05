@@ -11,7 +11,7 @@ related:
   - wordpress/01-wordpress-architecture
   - wordpress/03-best-practices
   - wordpress/06-security
-  - wordpress/09-ai-checklist
+  - wordpress/98-production-checklist
   - react/13-component-composition
   - react/05-props
   - accessibility/03-semantic-html
@@ -480,7 +480,7 @@ After completing this workflow, the AI should explain:
 
 Before marking the block complete, run it through the checklists of the topics it touched:
 
-- WordPress — [AI Checklist](../wordpress/09-ai-checklist.md), [Review Checklist](../wordpress/10-review-checklist.md), [Common Mistakes](../wordpress/08-common-mistakes.md).
+- WordPress — [Production Checklist](../wordpress/98-production-checklist.md), [AI Review Checklist](../wordpress/99-ai-review-checklist.md), [Common Antipatterns](../wordpress/100-common-antipatterns.md).
 - Accessibility — [Production Checklist](../accessibility/98-production-checklist.md), [AI Review Checklist](../accessibility/99-ai-review-checklist.md), [Common Antipatterns](../accessibility/100-common-antipatterns.md).
 - React — [AI Review Checklist](../react/99-ai-review-checklist.md), [Common Antipatterns](../react/100-common-antipatterns.md) — for the `edit` implementation.
 

@@ -3,8 +3,8 @@
   "note": "Regenerate with `python3 scripts/build-index.py`. Do not edit by hand.",
   "stats": {
     "topics": 49,
-    "docs": 1355,
-    "ready": 1348,
+    "docs": 1379,
+    "ready": 1372,
     "draft": 7
   },
   "topics": {
@@ -18995,8 +18995,8 @@
     },
     "wordpress": {
       "path": "knowledge/wordpress",
-      "doc_count": 11,
-      "ready": 11,
+      "doc_count": 35,
+      "ready": 35,
       "draft": 0,
       "docs": [
         {
@@ -19011,6 +19011,20 @@
           ],
           "when_to_use": "Read first when building, reviewing, or maintaining a WordPress project (themes, plugins, or custom builds).",
           "path": "knowledge/wordpress/README.md"
+        },
+        {
+          "id": "wordpress/00-overview",
+          "title": "WordPress Overview",
+          "slug": "overview",
+          "type": "doc",
+          "order": 0,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "overview"
+          ],
+          "when_to_use": "Read first when starting work on a WordPress project, to understand what this topic covers and which document answers your question.",
+          "path": "knowledge/wordpress/00-overview.md"
         },
         {
           "id": "wordpress/01-wordpress-architecture",
@@ -19111,46 +19125,368 @@
           "path": "knowledge/wordpress/07-testing.md"
         },
         {
-          "id": "wordpress/08-common-mistakes",
-          "title": "Common WordPress Mistakes",
-          "slug": "common-mistakes",
+          "id": "wordpress/08-hooks",
+          "title": "Hooks — Actions and Filters",
+          "slug": "hooks",
           "type": "doc",
           "order": 8,
           "status": "ready",
           "tags": [
             "wordpress",
-            "common-mistakes"
+            "hooks"
           ],
-          "when_to_use": "Read before writing WordPress code to avoid common implementation mistakes.",
-          "path": "knowledge/wordpress/08-common-mistakes.md"
+          "when_to_use": "Read before hooking into WordPress — registering actions or filters, choosing a hook and priority, or debugging a callback that does not fire.",
+          "path": "knowledge/wordpress/08-hooks.md"
         },
         {
-          "id": "wordpress/09-ai-checklist",
-          "title": "WordPress AI Checklist",
-          "slug": "ai-checklist",
+          "id": "wordpress/09-custom-post-types",
+          "title": "Custom Post Types",
+          "slug": "custom-post-types",
           "type": "doc",
           "order": 9,
           "status": "ready",
           "tags": [
             "wordpress",
-            "ai-checklist"
+            "custom-post-types"
           ],
-          "when_to_use": "Read before considering a WordPress task complete to verify all mandatory checks.",
-          "path": "knowledge/wordpress/09-ai-checklist.md"
+          "when_to_use": "Read before registering a custom post type — deciding whether content needs one, choosing arguments, or fixing 404s and missing REST support.",
+          "path": "knowledge/wordpress/09-custom-post-types.md"
         },
         {
-          "id": "wordpress/10-review-checklist",
-          "title": "WordPress Code Review Checklist",
-          "slug": "review-checklist",
+          "id": "wordpress/10-taxonomies",
+          "title": "Taxonomies",
+          "slug": "taxonomies",
           "type": "doc",
           "order": 10,
           "status": "ready",
           "tags": [
             "wordpress",
-            "review-checklist"
+            "taxonomies"
+          ],
+          "when_to_use": "Read before classifying content — registering a taxonomy, deciding between a taxonomy and post meta, or querying by term.",
+          "path": "knowledge/wordpress/10-taxonomies.md"
+        },
+        {
+          "id": "wordpress/11-metadata",
+          "title": "Metadata",
+          "slug": "metadata",
+          "type": "doc",
+          "order": 11,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "metadata"
+          ],
+          "when_to_use": "Read before storing custom fields — registering post meta, exposing it to the block editor or REST, or querying by meta value.",
+          "path": "knowledge/wordpress/11-metadata.md"
+        },
+        {
+          "id": "wordpress/12-queries",
+          "title": "Queries and The Loop",
+          "slug": "queries",
+          "type": "doc",
+          "order": 12,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "queries"
+          ],
+          "when_to_use": "Read before writing a WP_Query, altering the main query, or diagnosing a slow page caused by database queries.",
+          "path": "knowledge/wordpress/12-queries.md"
+        },
+        {
+          "id": "wordpress/13-template-hierarchy",
+          "title": "Template Hierarchy",
+          "slug": "template-hierarchy",
+          "type": "doc",
+          "order": 13,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "template-hierarchy"
+          ],
+          "when_to_use": "Read before creating or overriding a theme template — choosing the right filename, adding template parts, or debugging which template WordPress actually loaded.",
+          "path": "knowledge/wordpress/13-template-hierarchy.md"
+        },
+        {
+          "id": "wordpress/14-theme-development",
+          "title": "Theme Development",
+          "slug": "theme-development",
+          "type": "doc",
+          "order": 14,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "theme-development"
+          ],
+          "when_to_use": "Read before building or modifying a theme — creating a child theme, enqueuing assets, declaring theme support, or registering menus and image sizes.",
+          "path": "knowledge/wordpress/14-theme-development.md"
+        },
+        {
+          "id": "wordpress/15-plugin-development",
+          "title": "Plugin Development",
+          "slug": "plugin-development",
+          "type": "doc",
+          "order": 15,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "plugin-development"
+          ],
+          "when_to_use": "Read before building a plugin — structuring the entry file, handling activation and uninstall, loading classes, or declaring dependencies.",
+          "path": "knowledge/wordpress/15-plugin-development.md"
+        },
+        {
+          "id": "wordpress/16-block-editor",
+          "title": "Block Editor",
+          "slug": "block-editor",
+          "type": "doc",
+          "order": 16,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "block-editor"
+          ],
+          "when_to_use": "Read before building for the block editor — registering a block, choosing static or dynamic rendering, adding block supports, or handling deprecations.",
+          "path": "knowledge/wordpress/16-block-editor.md"
+        },
+        {
+          "id": "wordpress/17-block-themes",
+          "title": "Block Themes and theme.json",
+          "slug": "block-themes",
+          "type": "doc",
+          "order": 17,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "block-themes"
+          ],
+          "when_to_use": "Read before building a block theme or writing theme.json — defining presets, styling blocks globally, or creating HTML templates and parts.",
+          "path": "knowledge/wordpress/17-block-themes.md"
+        },
+        {
+          "id": "wordpress/18-rest-api",
+          "title": "REST API",
+          "slug": "rest-api",
+          "type": "doc",
+          "order": 18,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "rest-api"
+          ],
+          "when_to_use": "Read before exposing or consuming WordPress REST endpoints — registering a route, adding fields to core responses, or securing an API used by a headless front end.",
+          "path": "knowledge/wordpress/18-rest-api.md"
+        },
+        {
+          "id": "wordpress/19-database",
+          "title": "Database and $wpdb",
+          "slug": "database",
+          "type": "doc",
+          "order": 19,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "database"
+          ],
+          "when_to_use": "Read before writing direct SQL in WordPress — using $wpdb, deciding whether a custom table is justified, or creating and migrating schema.",
+          "path": "knowledge/wordpress/19-database.md"
+        },
+        {
+          "id": "wordpress/20-users-and-capabilities",
+          "title": "Users and Capabilities",
+          "slug": "users-and-capabilities",
+          "type": "doc",
+          "order": 20,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "users-and-capabilities"
+          ],
+          "when_to_use": "Read before implementing permission checks — choosing a capability, adding a custom role, or restricting access to a post type or admin screen.",
+          "path": "knowledge/wordpress/20-users-and-capabilities.md"
+        },
+        {
+          "id": "wordpress/21-media-and-uploads",
+          "title": "Media and Uploads",
+          "slug": "media-and-uploads",
+          "type": "doc",
+          "order": 21,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "media-and-uploads"
+          ],
+          "when_to_use": "Read before handling uploads or rendering images — accepting files, registering image sizes, outputting responsive images, or offloading media.",
+          "path": "knowledge/wordpress/21-media-and-uploads.md"
+        },
+        {
+          "id": "wordpress/22-cron-and-background-tasks",
+          "title": "Cron and Background Tasks",
+          "slug": "cron-and-background-tasks",
+          "type": "doc",
+          "order": 22,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "cron-and-background-tasks"
+          ],
+          "when_to_use": "Read before scheduling recurring work — using WP-Cron, replacing it with a system cron, or processing a large job in batches.",
+          "path": "knowledge/wordpress/22-cron-and-background-tasks.md"
+        },
+        {
+          "id": "wordpress/23-caching",
+          "title": "Caching",
+          "slug": "caching",
+          "type": "doc",
+          "order": 23,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "caching"
+          ],
+          "when_to_use": "Read before caching anything in WordPress — choosing between transients and the object cache, invalidating on write, or diagnosing stale or personalized content.",
+          "path": "knowledge/wordpress/23-caching.md"
+        },
+        {
+          "id": "wordpress/24-internationalization",
+          "title": "Internationalization",
+          "slug": "internationalization",
+          "type": "doc",
+          "order": 24,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "internationalization"
+          ],
+          "when_to_use": "Read before writing user-facing strings — choosing a translation function, loading a text domain, or translating strings in JavaScript.",
+          "path": "knowledge/wordpress/24-internationalization.md"
+        },
+        {
+          "id": "wordpress/25-multisite",
+          "title": "Multisite",
+          "slug": "multisite",
+          "type": "doc",
+          "order": 25,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "multisite"
+          ],
+          "when_to_use": "Read before building for or deciding on a WordPress network — writing multisite-aware code, switching between sites, or evaluating whether multisite fits.",
+          "path": "knowledge/wordpress/25-multisite.md"
+        },
+        {
+          "id": "wordpress/26-wp-cli",
+          "title": "WP-CLI",
+          "slug": "wp-cli",
+          "type": "doc",
+          "order": 26,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "wp-cli"
+          ],
+          "when_to_use": "Read before automating WordPress from the command line — running maintenance, migrating URLs, scripting deploys, or writing a custom WP-CLI command.",
+          "path": "knowledge/wordpress/26-wp-cli.md"
+        },
+        {
+          "id": "wordpress/27-deployment",
+          "title": "Deployment",
+          "slug": "deployment",
+          "type": "doc",
+          "order": 27,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "deployment"
+          ],
+          "when_to_use": "Read before setting up or changing a WordPress deployment — choosing what belongs in version control, managing configuration per environment, or moving content between environments.",
+          "path": "knowledge/wordpress/27-deployment.md"
+        },
+        {
+          "id": "wordpress/28-debugging",
+          "title": "Debugging",
+          "slug": "debugging",
+          "type": "doc",
+          "order": 28,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "debugging"
+          ],
+          "when_to_use": "Read when diagnosing a WordPress problem — enabling debug output safely, finding the cause of a white screen, or tracing hooks, queries, and AJAX or REST failures.",
+          "path": "knowledge/wordpress/28-debugging.md"
+        },
+        {
+          "id": "wordpress/29-maintenance",
+          "title": "Maintenance",
+          "slug": "maintenance",
+          "type": "doc",
+          "order": 29,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "maintenance"
+          ],
+          "when_to_use": "Read when planning ongoing care of a WordPress site — update strategy, backups, plugin audits, database hygiene, and monitoring.",
+          "path": "knowledge/wordpress/29-maintenance.md"
+        },
+        {
+          "id": "wordpress/30-engineering-principles",
+          "title": "Engineering Principles",
+          "slug": "engineering-principles",
+          "type": "doc",
+          "order": 30,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "engineering-principles"
+          ],
+          "when_to_use": "Read before writing or reviewing any WordPress code, as the baseline every file must satisfy regardless of whether it is a theme, plugin, or block.",
+          "path": "knowledge/wordpress/30-engineering-principles.md"
+        },
+        {
+          "id": "wordpress/98-production-checklist",
+          "title": "WordPress Production Checklist",
+          "slug": "production-checklist",
+          "type": "doc",
+          "order": 98,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "production-checklist"
+          ],
+          "when_to_use": "Read before considering a WordPress task complete to verify all mandatory checks.",
+          "path": "knowledge/wordpress/98-production-checklist.md"
+        },
+        {
+          "id": "wordpress/99-ai-review-checklist",
+          "title": "WordPress AI Review Checklist",
+          "slug": "ai-review-checklist",
+          "type": "doc",
+          "order": 99,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "ai-review-checklist"
           ],
           "when_to_use": "Read before reviewing or merging WordPress code changes.",
-          "path": "knowledge/wordpress/10-review-checklist.md"
+          "path": "knowledge/wordpress/99-ai-review-checklist.md"
+        },
+        {
+          "id": "wordpress/100-common-antipatterns",
+          "title": "Common WordPress Antipatterns",
+          "slug": "common-antipatterns",
+          "type": "doc",
+          "order": 100,
+          "status": "ready",
+          "tags": [
+            "wordpress",
+            "common-antipatterns"
+          ],
+          "when_to_use": "Read before writing WordPress code to avoid common implementation mistakes.",
+          "path": "knowledge/wordpress/100-common-antipatterns.md"
         }
       ]
     },
