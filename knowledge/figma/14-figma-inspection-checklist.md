@@ -7,7 +7,17 @@ type: doc
 order: 14
 status: ready
 tags: [figma, figma-inspection-checklist]
-related: []
+related:
+  - figma/01-figma-analysis
+  - figma/03-design-token-extraction
+  - figma/05-responsive-analysis
+  - figma/06-component-detection
+  - figma/18-image-assets
+  - figma/19-design-handoff
+  - figma/20-implementation-definition-of-done
+  - workflows/01-implement-figma-design
+  - accessibility/23-wcag
+  - frontend/03-design-systems
 when_to_use: "Read before implementing any new page or section, to complete the mandatory Figma inspection checklist first."
 ---
 # Figma Inspection Checklist
@@ -168,6 +178,27 @@ Verify:
 
 ☐ Existing project tokens.
 
+A value used once is a value; a value used repeatedly is a token. Read the published styles
+from the file rather than sampling nodes by eye:
+
+```bash
+# Published color, text, effect, and grid styles in the file.
+curl -s "https://api.figma.com/v1/files/$FIGMA_FILE_KEY/styles" \
+  -H "X-Figma-Token: $FIGMA_TOKEN" | jq '.meta.styles[] | {name, style_type, node_id}'
+```
+
+```json
+{ "name": "Surface/Card",     "style_type": "FILL", "node_id": "12:405" }
+{ "name": "Heading/XL",       "style_type": "TEXT", "node_id": "12:410" }
+{ "name": "Elevation/Card",   "style_type": "EFFECT", "node_id": "12:418" }
+```
+
+A `Surface/Card` style is already a named design decision — map it to the project's
+`color-surface` token instead of inventing a new name. Figma Variables (`/v1/files/:key/
+variables/local`) expose modes such as light/dark directly, but that endpoint requires an
+Enterprise plan; when it is unavailable, published styles are the authoritative source.
+See [Design Token Extraction](03-design-token-extraction.md).
+
 ---
 
 ## Phase 6 — Responsive Design
@@ -266,6 +297,37 @@ Verify:
 
 ☐ Responsive assets.
 
+Export from the file rather than screenshotting the canvas — icons must ship as vectors, and
+raster assets need explicit scales:
+
+```bash
+# Icons as SVG.
+curl -s "https://api.figma.com/v1/images/$FIGMA_FILE_KEY?ids=5:12,5:13&format=svg" \
+  -H "X-Figma-Token: $FIGMA_TOKEN" | jq -r '.images | to_entries[] | "\(.key) \(.value)"'
+
+# Photography at 1x and 2x for a srcset.
+curl -s "https://api.figma.com/v1/images/$FIGMA_FILE_KEY?ids=7:44&format=png&scale=2" \
+  -H "X-Figma-Token: $FIGMA_TOKEN"
+```
+
+The endpoint returns temporary URLs — download the files in the same run rather than storing
+the links. Record the intended usage next to each asset, because it determines the markup:
+
+```json
+{
+  "assets": [
+    { "node": "5:12", "name": "icon-check", "format": "svg", "usage": "inline, currentColor" },
+    { "node": "7:44", "name": "hero-photo", "format": "webp", "scales": [1, 2],
+      "intrinsic": { "width": 1440, "height": 720 }, "usage": "next/image, priority" },
+    { "node": "9:02", "name": "logo-acme", "format": "svg", "usage": "img with alt=\"Acme\"" }
+  ]
+}
+```
+
+Intrinsic dimensions are not optional bookkeeping: without `width`/`height` in the markup the
+image reserves no space and the page shifts as it loads. See
+[Image Assets](18-image-assets.md) and [Performance — Images](../performance/11-images.md).
+
 ---
 
 ## Phase 10 — Existing Project Review
@@ -350,6 +412,46 @@ Before implementation confirm:
 
 ☐ Implementation plan is complete.
 
+Keep the completed checklist with the work as a file, not as a mental note — a reviewer can
+then see what was inspected and what was assumed:
+
+```yaml
+# design/inspection/pricing.yml
+page: Pricing
+figma:
+  file: XXXXXXXXXXXXXXXXXXXXXX
+  frames: { desktop: "2:10", tablet: "2:11", mobile: "2:12" }
+  inspected: [layout, components, typography, tokens, responsive, interactions, assets]
+
+components:
+  reuse:  [Button, Badge, Accordion]
+  create: [PlanCard, ComparisonTable]
+
+tokens:
+  reuse: [color-surface, spacing-md, spacing-xl, radius-lg, text-heading-xl]
+  new:
+    - name: shadow-plan-card
+      reason: "No existing elevation token matches Elevation/Card in the file."
+
+dynamic:
+  plans: "Stripe API"
+  testimonials: "CMS"
+  logos: "CMS media"
+
+assets:
+  svg: [icon-check, icon-minus, logo-acme]
+  raster: [hero-photo@1x, hero-photo@2x]
+
+open_questions:
+  - "ComparisonTable absent from the mobile frame — scroll horizontally or collapse into cards?"
+  - "Focus state not specified for PlanCard — using the project default ring."
+
+ready_to_implement: false   # flip to true only when open_questions is empty or answered
+```
+
+`ready_to_implement: false` with two open questions is a better outcome than a confident
+`true` built on two guesses.
+
 ---
 
 ## Common Mistakes
@@ -381,6 +483,18 @@ Figma inspection is complete only when:
 - responsive behavior is understood;
 - implementation risks are documented;
 - a complete implementation plan has been prepared.
+
+---
+
+## Related Knowledge
+
+- [Figma Analysis](01-figma-analysis.md) — the reasoning process this checklist enforces.
+- [Design Token Extraction](03-design-token-extraction.md) and [Component Detection](06-component-detection.md) — Phases 3 and 5 in depth.
+- [Responsive Analysis](05-responsive-analysis.md) — Phase 6 in depth.
+- [Image Assets](18-image-assets.md) — Phase 9 in depth.
+- [Design Handoff](19-design-handoff.md) — what to request when the file leaves a phase unanswerable.
+- [Implementation Definition of Done](20-implementation-definition-of-done.md) — the closing counterpart to this opening checklist.
+- [Workflow — Implement a Figma Design](../workflows/01-implement-figma-design.md) — the workflow this checklist gates.
 
 ---
 

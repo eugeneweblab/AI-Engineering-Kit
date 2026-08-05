@@ -7,7 +7,7 @@ type: doc
 order: 3
 status: ready
 tags: [nextjs, app-router]
-related: []
+related: [nextjs/06-server-components, nextjs/09-data-fetching, nextjs/10-caching, nextjs/12-api-routes, nextjs/18-metadata]
 when_to_use: "Read before structuring routes and directories with the Next.js App Router."
 ---
 # Next.js App Router
@@ -113,6 +113,46 @@ Responsibilities:
 - generate metadata;
 - coordinate features.
 
+Pages are Server Components by default. They may be `async`, so data is fetched
+directly in the component body — no `getServerSideProps`/`getStaticProps`.
+
+```tsx
+// app/products/page.tsx
+export default async function ProductsPage() {
+  // In Next 15 fetch is UNCACHED by default. Opt in to caching explicitly.
+  const res = await fetch("https://api.example.com/products", {
+    next: { revalidate: 60 }, // ISR: re-fetch at most once per 60s
+  });
+
+  if (!res.ok) throw new Error("Failed to load products");
+
+  const products: Product[] = await res.json();
+
+  return (
+    <ul>
+      {products.map((p) => (
+        <li key={p.id}>{p.name}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+In Next 15+, `params` and `searchParams` passed to a page are **Promises** and
+must be awaited.
+
+```tsx
+// app/products/page.tsx
+type PageProps = {
+  searchParams: Promise<{ sort?: string }>;
+};
+
+export default async function ProductsPage({ searchParams }: PageProps) {
+  const { sort } = await searchParams;
+  // ...
+}
+```
+
 Avoid placing large amounts of business logic directly inside pages.
 
 ---
@@ -130,6 +170,42 @@ Typical responsibilities:
 - providers.
 
 Layouts persist between navigation and should avoid route-specific logic.
+
+A layout receives its nested route tree as `children`:
+
+```tsx
+// app/dashboard/layout.tsx
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <section>
+      <Sidebar />
+      <main>{children}</main>
+    </section>
+  );
+}
+```
+
+The root layout (`app/layout.tsx`) is required and must render the `<html>` and
+`<body>` tags — this is the one place they belong.
+
+```tsx
+// app/layout.tsx
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}
+```
 
 ---
 
@@ -194,6 +270,47 @@ app/
 ```
 
 Avoid encoding business logic into route names.
+
+In Next.js 15+, `params` is a **Promise**. Await it before reading the segment.
+
+Good — `params` awaited:
+
+```tsx
+// app/users/[id]/page.tsx
+export default async function UserPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const user = await getUser(id);
+  return <h1>{user.name}</h1>;
+}
+```
+
+Bad — treats `params` as a plain object (compiles, then `id` is `undefined`):
+
+```tsx
+// app/users/[id]/page.tsx
+export default async function UserPage({
+  params,
+}: {
+  params: { id: string }; // wrong: params is a Promise in Next 15+
+}) {
+  const user = await getUser(params.id); // params.id is undefined at runtime
+  return <h1>{user.name}</h1>;
+}
+```
+
+To pre-render dynamic pages at build time, export `generateStaticParams`.
+
+```tsx
+// app/users/[id]/page.tsx
+export async function generateStaticParams() {
+  const users = await getAllUsers();
+  return users.map((u) => ({ id: u.id })); // string values, keyed by segment
+}
+```
 
 ---
 
@@ -279,6 +396,40 @@ Examples:
 - REST endpoints;
 - internal APIs.
 
+Export one async function per HTTP method. Handlers take the Web `Request`
+(`NextRequest`) and return a Web `Response` (`NextResponse`).
+
+```ts
+// app/api/users/[id]/route.ts
+import { NextRequest, NextResponse } from "next/server";
+
+export async function GET(
+  _req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }, // Promise in Next 15+
+) {
+  const { id } = await params;
+  const user = await getUser(id);
+
+  if (!user) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+
+  return NextResponse.json(user);
+}
+
+export async function DELETE(
+  _req: NextRequest,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  const { id } = await params;
+  await deleteUser(id);
+  return new NextResponse(null, { status: 204 });
+}
+```
+
+A `page.tsx` and a `route.ts` cannot coexist in the same segment — a segment
+serves either UI or a handler, not both.
+
 Do not mix UI rendering with request handling.
 
 ---
@@ -295,6 +446,40 @@ Examples:
 - Twitter cards;
 - robots;
 - canonical URLs.
+
+For static values, export a `metadata` object from a `page.tsx` or `layout.tsx`:
+
+```tsx
+// app/about/page.tsx
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Who we are.",
+};
+```
+
+For values that depend on route params or fetched data, export an async
+`generateMetadata` instead. Its `params` is a Promise, like the page's.
+
+```tsx
+// app/products/[id]/page.tsx
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const product = await getProduct(id);
+
+  return {
+    title: product.name,
+    openGraph: { images: [product.imageUrl] },
+  };
+}
+```
 
 Metadata should remain close to the route it describes.
 
@@ -326,6 +511,33 @@ error.tsx
 not-found.tsx
 ```
 
+An `error.tsx` must be a Client Component — it wraps the segment in a React error
+boundary and receives the error plus a `reset` function to retry rendering.
+
+```tsx
+// app/dashboard/error.tsx
+"use client";
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
+  return (
+    <div role="alert">
+      <p>Something went wrong.</p>
+      <button onClick={() => reset()}>Try again</button>
+    </div>
+  );
+}
+```
+
+`error.tsx` does not catch errors thrown in the same segment's `layout.tsx` —
+those bubble to the parent segment's boundary. Use a `global-error.tsx` at the
+app root to catch failures in the root layout.
+
 Failures should remain isolated to the affected route.
 
 ---
@@ -334,10 +546,14 @@ Failures should remain isolated to the affected route.
 
 Provide route-specific loading experiences.
 
-Use:
+A `loading.tsx` is shown as a Suspense fallback while the segment's async
+Server Component streams in.
 
-```
-loading.tsx
+```tsx
+// app/dashboard/loading.tsx
+export default function Loading() {
+  return <p aria-busy="true">Loading dashboard…</p>;
+}
 ```
 
 Avoid blank screens during navigation.

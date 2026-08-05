@@ -61,31 +61,51 @@ them with controlled children — and easier to read, because structure is visib
 
 ## Examples
 
-**Good Example** — composition via children and slots
+### Children and named slots
+
+**Good Example** — one `children` slot plus a couple of element-typed slots for the
+fixed regions. The caller controls all content; `Card` predicts nothing.
 
 ```tsx
-// Open to any content; knows nothing about what it wraps.
-function Card({ children }: { children: React.ReactNode }) {
-  return <section className="card">{children}</section>;
+import type { ReactNode } from "react";
+
+// `children` is the open body; `header`/`actions` are named slots for fixed regions.
+// Everything is a ReactNode, so callers pass elements — not strings or config objects.
+function Card({
+  header,
+  actions,
+  children,
+}: {
+  header?: ReactNode;
+  actions?: ReactNode;
+  children: ReactNode;
+}) {
+  return (
+    <section className="card">
+      {header && <header className="card__header">{header}</header>}
+      <div className="card__body">{children}</div>
+      {actions && <footer className="card__actions">{actions}</footer>}
+    </section>
+  );
 }
 
-// Compound component: parts coordinate through Context, caller composes them.
-const TabsContext = createContext<{ active: string; select: (id: string) => void } | null>(null);
-
-function Tabs({ defaultTab, children }: { defaultTab: string; children: React.ReactNode }) {
-  const [active, select] = useReducer((_: string, id: string) => id, defaultTab);
-  return <TabsContext.Provider value={{ active, select }}>{children}</TabsContext.Provider>;
-}
-function Tab({ id, children }: { id: string; children: React.ReactNode }) {
-  const ctx = useContext(TabsContext)!;
-  return <button aria-selected={ctx.active === id} onClick={() => ctx.select(id)}>{children}</button>;
-}
-
-// Caller composes freely — no prop explosion, structure is visible.
-<Card><Tabs defaultTab="a"><Tab id="a">First</Tab><Tab id="b">Second</Tab></Tabs></Card>;
+// The caller composes structure freely — a badge, an image, whatever it needs —
+// without Card growing a prop for each. Structure is visible at the call site.
+<Card
+  header={<h3>Pro plan</h3>}
+  actions={
+    <>
+      <button>Cancel</button>
+      <button>Upgrade</button>
+    </>
+  }
+>
+  <img src="/pro.png" alt="" />
+  <p>Everything in Free, plus unlimited projects.</p>
+</Card>;
 ```
 
-**Bad Example** — configuration explosion
+**Bad Example** — configuration explosion: every variation becomes a prop.
 
 ```tsx
 // Every variation is a prop; the component grows a branch per case.
@@ -102,6 +122,140 @@ function Card({
       {actions && <div className="actions">{actions}</div>}
       {footer && <footer>{footer}</footer>}
     </section>
+  );
+}
+```
+
+### Compound components (coordinating parts)
+
+**Good Example** — a tabs widget whose parts coordinate through Context. The caller
+composes the parts in any order; the parent wires shared state. This version uses
+React 19 idioms: `<Context>` as the provider, `use(Context)` to read it, and `ref` as
+a plain prop (no `forwardRef`).
+
+```tsx
+import { createContext, use, useId, useState, type ReactNode, type Ref } from "react";
+
+interface TabsContextValue {
+  active: string;
+  select: (id: string) => void;
+  baseId: string;
+}
+
+const TabsContext = createContext<TabsContextValue | null>(null);
+
+// Safe consumer hook: fails loudly outside <Tabs> instead of a silent null deref.
+// Prefer this over `use(TabsContext)!` — the `!` hides the misuse.
+function useTabs(): TabsContextValue {
+  const ctx = use(TabsContext);
+  if (!ctx) throw new Error("Tabs.* must be rendered inside <Tabs>");
+  return ctx;
+}
+
+function Tabs({ defaultTab, children }: { defaultTab: string; children: ReactNode }) {
+  const [active, setActive] = useState(defaultTab);
+  const baseId = useId(); // unique, SSR-stable id prefix for aria wiring
+  // React 19: render the context object directly as the provider.
+  return (
+    <TabsContext value={{ active, select: setActive, baseId }}>{children}</TabsContext>
+  );
+}
+
+function TabList({ children }: { children: ReactNode }) {
+  return <div role="tablist">{children}</div>;
+}
+
+// React 19: `ref` is a normal prop on a function component — no forwardRef wrapper.
+function Tab({
+  id,
+  ref,
+  children,
+}: {
+  id: string;
+  ref?: Ref<HTMLButtonElement>;
+  children: ReactNode;
+}) {
+  const { active, select, baseId } = useTabs();
+  const selected = active === id;
+  return (
+    <button
+      ref={ref}
+      role="tab"
+      id={`${baseId}-tab-${id}`}
+      aria-selected={selected}
+      aria-controls={`${baseId}-panel-${id}`}
+      tabIndex={selected ? 0 : -1}
+      onClick={() => select(id)}
+    >
+      {children}
+    </button>
+  );
+}
+
+function TabPanel({ id, children }: { id: string; children: ReactNode }) {
+  const { active, baseId } = useTabs();
+  if (active !== id) return null;
+  return (
+    <div role="tabpanel" id={`${baseId}-panel-${id}`} aria-labelledby={`${baseId}-tab-${id}`}>
+      {children}
+    </div>
+  );
+}
+
+// Caller composes the parts — no prop explosion, structure is visible in JSX.
+<Tabs defaultTab="overview">
+  <TabList>
+    <Tab id="overview">Overview</Tab>
+    <Tab id="specs">Specs</Tab>
+  </TabList>
+  <TabPanel id="overview">Everything you need to know.</TabPanel>
+  <TabPanel id="specs">Weight, size, materials.</TabPanel>
+</Tabs>;
+```
+
+**Bad Example** — the same widget driven by data props and child inspection.
+
+```tsx
+// Config-driven: the caller cannot interleave custom markup, and cloneElement
+// breaks the moment a Tab is wrapped (e.g. in a tooltip or a permission gate).
+function Tabs({ tabs }: { tabs: { id: string; label: string; content: ReactNode }[] }) {
+  const [active, setActive] = useState(tabs[0]?.id);
+  return (
+    <div>
+      {tabs.map((t) => (
+        <button key={t.id} onClick={() => setActive(t.id)}>{t.label}</button>
+      ))}
+      {tabs.find((t) => t.id === active)?.content}
+    </div>
+  );
+}
+```
+
+### Composing behavior, not just markup
+
+**Good Example** — share *logic* through a hook so unrelated components can reuse it
+with their own markup. This keeps composition open without inheritance or HOC stacking.
+
+```tsx
+import { useState, useCallback } from "react";
+
+// Behavior lives in a hook; each component composes it with whatever UI it wants.
+function useDisclosure(initial = false) {
+  const [open, setOpen] = useState(initial);
+  const onOpen = useCallback(() => setOpen(true), []);
+  const onClose = useCallback(() => setOpen(false), []);
+  const onToggle = useCallback(() => setOpen((o) => !o), []);
+  return { open, onOpen, onClose, onToggle } as const;
+}
+
+// A dialog and a dropdown share the exact same open/close behavior, no shared base class.
+function FaqItem({ question, children }: { question: string; children: ReactNode }) {
+  const { open, onToggle } = useDisclosure();
+  return (
+    <div>
+      <button aria-expanded={open} onClick={onToggle}>{question}</button>
+      {open && <div>{children}</div>}
+    </div>
   );
 }
 ```

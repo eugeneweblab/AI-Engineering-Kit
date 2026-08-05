@@ -7,7 +7,23 @@ type: doc
 order: 5
 status: ready
 tags: [workflows, review-pull-request]
-related: []
+related:
+  - engineering/02-code-review
+  - github/07-code-review
+  - github/06-pull-requests
+  - github/17-branch-protection
+  - architecture/27-architecture-review
+  - architecture/03-clean-architecture
+  - security/29-security-review
+  - security/09-input-validation
+  - security/04-authorization
+  - performance/29-performance-review
+  - testing/29-test-review
+  - testing/19-test-coverage
+  - testing/98-production-checklist
+  - testing/99-ai-review-checklist
+  - testing/100-common-antipatterns
+  - git/16-push
 when_to_use: "Follow this workflow when reviewing a pull request before merging."
 ---
 # Workflow — Review a Pull Request
@@ -76,6 +92,12 @@ Understand what problem the PR is intended to solve.
 
 Never review code without understanding its purpose.
 
+Relevant knowledge:
+
+- [GitHub — Pull Requests](../github/06-pull-requests.md) — anatomy of a PR, description conventions, and linked-issue expectations.
+- [GitHub — Code Review](../github/07-code-review.md) — how to navigate the diff, request changes, and leave review comments on the platform.
+- [Engineering — Code Review](../engineering/02-code-review.md) — the reviewer's mindset and what a review is actually for.
+
 ---
 
 ## Step 2 — Review the Scope
@@ -107,6 +129,10 @@ Review:
 
 Code should solve the intended problem—not a different one.
 
+Relevant knowledge:
+
+- [Security — Authorization](../security/04-authorization.md) — confirm permission checks match the intended access model, not just the happy path.
+
 ---
 
 ## Step 4 — Review Architecture
@@ -124,6 +150,11 @@ Review:
 
 Reject architectural drift unless intentionally approved.
 
+Relevant knowledge:
+
+- [Architecture — Architecture Review](../architecture/27-architecture-review.md) — a structured lens for evaluating structural changes.
+- [Architecture — Clean Architecture](../architecture/03-clean-architecture.md) — verify dependency direction and layer ownership before approving.
+
 ---
 
 ## Step 5 — Review Code Quality
@@ -140,6 +171,10 @@ Evaluate:
 - formatting.
 
 Every line should have a clear purpose.
+
+Relevant knowledge:
+
+- [Engineering — Code Review](../engineering/02-code-review.md) — the quality dimensions to weigh and how to prioritize them.
 
 ---
 

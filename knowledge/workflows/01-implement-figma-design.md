@@ -7,7 +7,7 @@ type: doc
 order: 1
 status: ready
 tags: [workflows, implement-figma-design]
-related: []
+related: [figma/01-figma-analysis, figma/03-design-token-extraction, figma/06-component-detection, figma/20-implementation-definition-of-done, frontend/03-design-systems, react/13-component-composition, accessibility/03-semantic-html, testing/14-visual-regression, workflows/08-build-react-component]
 when_to_use: "Follow this workflow when implementing a Figma design into production code."
 ---
 # Workflow — Implement a Figma Design
@@ -79,6 +79,8 @@ Understand:
 
 Never begin implementation after inspecting only the first screen.
 
+**Relevant knowledge:** [`../figma/01-figma-analysis.md`](../figma/01-figma-analysis.md) for reading a file as a system, and [`../figma/02-layout-analysis.md`](../figma/02-layout-analysis.md) for decoding layout hierarchy and spacing rhythm.
+
 ---
 
 ## Step 2 — Identify the Design System
@@ -99,6 +101,8 @@ Identify:
 - form styles.
 
 These become implementation constraints.
+
+**Relevant knowledge:** extract these values with [`../figma/03-design-token-extraction.md`](../figma/03-design-token-extraction.md), then map them onto your project's token layer — [`../css/20-css-variables.md`](../css/20-css-variables.md) for custom properties, [`../tailwind/21-design-system.md`](../tailwind/21-design-system.md) for a Tailwind theme, and [`../frontend/03-design-systems.md`](../frontend/03-design-systems.md) for the broader system view.
 
 ---
 
@@ -168,6 +172,8 @@ Actions
 
 Large UI should be decomposed recursively.
 
+**Relevant knowledge:** [`../figma/06-component-detection.md`](../figma/06-component-detection.md) for spotting component boundaries and variants in the file, [`../frontend/02-component-driven-development.md`](../frontend/02-component-driven-development.md) for the decomposition mindset, and [`../react/13-component-composition.md`](../react/13-component-composition.md) for turning that tree into composable components.
+
 ---
 
 ## Step 4 — Compare With Existing Project
@@ -187,6 +193,8 @@ Search for:
 - icons.
 
 Prefer reuse over recreation.
+
+**Relevant knowledge:** use [`../react/22-folder-structure.md`](../react/22-folder-structure.md) to know where existing components live, and [`../frontend/03-design-systems.md`](../frontend/03-design-systems.md) to check whether a primitive already covers the design.
 
 ---
 
@@ -209,6 +217,8 @@ Accessibility requirements
 Verification strategy
 
 Implementation should follow a plan.
+
+**Relevant knowledge:** the generic planning discipline lives in [`./03-create-new-feature.md`](./03-create-new-feature.md); the developer handoff notes you should reconcile against are covered in [`../figma/19-design-handoff.md`](../figma/19-design-handoff.md).
 
 ---
 
@@ -244,6 +254,8 @@ Responsive adjustments
 
 Avoid styling individual elements before the page structure exists.
 
+**Relevant knowledge:** build layout scaffolding with [`../css/07-grid.md`](../css/07-grid.md) and [`../css/06-flexbox.md`](../css/06-flexbox.md) (Figma auto-layout maps almost directly to flex/grid — see [`../figma/04-auto-layout.md`](../figma/04-auto-layout.md)); build individual components using the process in [`./08-build-react-component.md`](./08-build-react-component.md).
+
 ---
 
 ## Step 7 — Preserve Design Consistency
@@ -270,6 +282,8 @@ Interactive states
 
 One inconsistent component reduces the quality of the entire interface.
 
+**Relevant knowledge:** consistency comes from driving every value from tokens rather than magic numbers — [`../figma/03-design-token-extraction.md`](../figma/03-design-token-extraction.md), [`../css/20-css-variables.md`](../css/20-css-variables.md), and [`../tailwind/16-theme.md`](../tailwind/16-theme.md).
+
 ---
 
 ## Step 8 — Responsive Implementation
@@ -294,6 +308,8 @@ Foldable devices (when required)
 
 Layout should adapt naturally.
 
+**Relevant knowledge:** read the breakpoints straight from the file with [`../figma/05-responsive-analysis.md`](../figma/05-responsive-analysis.md), then implement them with [`../css/17-responsive-design.md`](../css/17-responsive-design.md) / [`../css/18-media-queries.md`](../css/18-media-queries.md) or [`../tailwind/11-responsive-design.md`](../tailwind/11-responsive-design.md). Do not forget [`../accessibility/13-responsive-accessibility.md`](../accessibility/13-responsive-accessibility.md) — reflow and zoom are accessibility requirements, not just visual ones.
+
 ---
 
 ## Step 9 — Accessibility Review
@@ -317,6 +333,8 @@ Label associations
 Color contrast
 
 Accessibility is part of implementation—not an optional enhancement.
+
+**Relevant knowledge:** map each item to its source topic — [`../accessibility/03-semantic-html.md`](../accessibility/03-semantic-html.md) (landmarks, heading order), [`../accessibility/04-keyboard-navigation.md`](../accessibility/04-keyboard-navigation.md) and [`../accessibility/05-focus-management.md`](../accessibility/05-focus-management.md) (keyboard + visible focus), [`../accessibility/07-aria.md`](../accessibility/07-aria.md) (ARIA only when native HTML falls short), [`../accessibility/09-images.md`](../accessibility/09-images.md) (alt text), and [`../accessibility/10-color-and-contrast.md`](../accessibility/10-color-and-contrast.md) (contrast). Much of this can be caught before you write code — see [`../figma/16-accessibility-from-figma.md`](../figma/16-accessibility-from-figma.md).
 
 ---
 
@@ -347,6 +365,8 @@ Focus states
 Responsive behavior
 
 The comparison should use the complete page—not isolated components.
+
+**Relevant knowledge:** run a structured pass with [`../figma/10-design-qa.md`](../figma/10-design-qa.md), automate the pixel diff via [`../figma/15-screenshot-comparison.md`](../figma/15-screenshot-comparison.md) and [`../figma/13-visual-regression.md`](../figma/13-visual-regression.md) (tooling in [`../testing/14-visual-regression.md`](../testing/14-visual-regression.md)), and gate merge on [`../figma/20-implementation-definition-of-done.md`](../figma/20-implementation-definition-of-done.md).
 
 ---
 
@@ -482,6 +502,19 @@ Works across supported screen sizes.
 Remains maintainable.
 
 Introduces minimal technical debt.
+
+---
+
+## Close Out — Run the Topic Checklists
+
+Before declaring the work done, self-verify against the `98`/`99`/`100` checklists of every topic this implementation touched. At minimum:
+
+- **Frontend/React** — [`../react/98-production-checklist.md`](../react/98-production-checklist.md), [`../react/99-ai-review-checklist.md`](../react/99-ai-review-checklist.md), [`../react/100-common-antipatterns.md`](../react/100-common-antipatterns.md), and [`../frontend/98-production-checklist.md`](../frontend/98-production-checklist.md).
+- **CSS** — [`../css/98-production-checklist.md`](../css/98-production-checklist.md), [`../css/99-ai-review-checklist.md`](../css/99-ai-review-checklist.md), [`../css/100-common-antipatterns.md`](../css/100-common-antipatterns.md).
+- **Accessibility** — [`../accessibility/98-production-checklist.md`](../accessibility/98-production-checklist.md), [`../accessibility/99-ai-review-checklist.md`](../accessibility/99-ai-review-checklist.md), [`../accessibility/100-common-antipatterns.md`](../accessibility/100-common-antipatterns.md).
+- **Testing / visual regression** — [`../testing/98-production-checklist.md`](../testing/98-production-checklist.md), [`../testing/99-ai-review-checklist.md`](../testing/99-ai-review-checklist.md).
+
+The implementation is not finished until it passes the checklists for the surfaces it changed.
 
 ---
 

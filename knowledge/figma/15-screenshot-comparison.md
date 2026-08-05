@@ -7,7 +7,15 @@ type: doc
 order: 15
 status: ready
 tags: [figma, screenshot-comparison]
-related: []
+related:
+  - figma/10-design-qa
+  - figma/13-visual-regression
+  - figma/05-responsive-analysis
+  - figma/20-implementation-definition-of-done
+  - testing/14-visual-regression
+  - testing/13-ui-testing
+  - performance/12-fonts
+  - accessibility/10-color-and-contrast
 when_to_use: "Read when comparing an implemented page against its Figma design using screenshots to detect visual differences."
 ---
 # Screenshot Comparison
@@ -27,6 +35,43 @@ Screenshot comparison should validate the final implementation rather than repla
 Compare the rendered result, not assumptions.
 
 A page should be evaluated using identical conditions so that only implementation differences remain.
+
+"Identical conditions" is concrete work: same width, same device pixel ratio, same fonts
+loaded, same content. Capture both sides mechanically instead of cropping by hand:
+
+```js
+// scripts/capture-pair.mjs — Figma frame + rendered page at the same width
+import { writeFile } from "node:fs/promises";
+import { chromium } from "playwright";
+
+const { FIGMA_TOKEN, FIGMA_FILE_KEY } = process.env;
+const FRAME_ID = "2:10";     // desktop frame
+const WIDTH = 1440;          // must equal the frame width in Figma
+const URL = "http://localhost:3000/pricing";
+
+// 1. Export the design frame. scale:1 keeps it at its native width.
+const meta = await fetch(
+  `https://api.figma.com/v1/images/${FIGMA_FILE_KEY}?ids=${FRAME_ID}&format=png&scale=1`,
+  { headers: { "X-Figma-Token": FIGMA_TOKEN } }
+).then((r) => r.json());
+
+const design = await fetch(meta.images[FRAME_ID]).then((r) => r.arrayBuffer());
+await writeFile("out/design.png", Buffer.from(design));
+
+// 2. Render the implementation at the same width and pixel ratio.
+const browser = await chromium.launch();
+const page = await browser.newPage({
+  viewport: { width: WIDTH, height: 900 },
+  deviceScaleFactor: 1,          // Figma exported at 1x, so the browser must match
+});
+await page.goto(URL, { waitUntil: "networkidle" });
+await page.evaluate(() => document.fonts.ready);   // web fonts change every metric
+await page.screenshot({ path: "out/implementation.png", fullPage: true });
+await browser.close();
+```
+
+A `deviceScaleFactor` mismatch is the most common source of phantom differences: a 2x browser
+capture against a 1x export makes every edge look wrong while the implementation is correct.
 
 ---
 
@@ -112,6 +157,48 @@ Review:
 
 Large structural differences should be investigated before reviewing smaller details.
 
+A pixel diff finds *where* to look; it does not decide what is wrong. Generate one, then read
+it:
+
+```js
+// scripts/diff.mjs
+import { readFileSync, writeFileSync } from "node:fs";
+import { PNG } from "pngjs";
+import pixelmatch from "pixelmatch";
+
+const design = PNG.sync.read(readFileSync("out/design.png"));
+const impl = PNG.sync.read(readFileSync("out/implementation.png"));
+
+// Compare the shared region: a taller page is not itself a defect.
+const width = Math.min(design.width, impl.width);
+const height = Math.min(design.height, impl.height);
+const diff = new PNG({ width, height });
+
+const changed = pixelmatch(design.data, impl.data, diff.data, width, height, {
+  threshold: 0.15,   // tolerate antialiasing; catch real color and position shifts
+  includeAA: false,
+});
+
+writeFileSync("out/diff.png", PNG.sync.write(diff));
+console.log(`${changed} px differ (${((changed / (width * height)) * 100).toFixed(2)}%)`);
+if (design.height !== impl.height) {
+  console.log(`height: design ${design.height} vs implementation ${impl.height}`);
+}
+```
+
+Interpret the output structurally rather than numerically:
+
+| What the diff shows | Usual cause |
+|---|---|
+| One block shifted, everything below it offset | A wrong spacing value near the top — fix that, and most of the diff disappears |
+| Thin outlines around all text | Font not loaded, wrong weight, or a line-height ratio mismatch |
+| Solid regions of difference | Wrong background token, or an image that failed to load |
+| Diff only past a certain height | Real content is longer than the placeholder content in the design |
+
+Never target zero. Real copy, real images, and browser text rendering all differ from a static
+export — a 1–2% diff concentrated in text is normal, while a 0.3% diff shaped like a shifted
+section is a defect.
+
 ---
 
 ## Step 5 — Compare Components
@@ -147,6 +234,32 @@ Verify:
 - heading hierarchy.
 
 Typography differences often indicate incorrect design token usage.
+
+For a difference you can see but not name, overlay the design on the live page instead of
+switching between two windows:
+
+```js
+// Paste in the DevTools console on the implemented page.
+const overlay = document.createElement("img");
+overlay.src = "/out/design.png";          // or a pasted data: URL
+Object.assign(overlay.style, {
+  position: "absolute", top: "0", left: "50%", transform: "translateX(-50%)",
+  width: "1440px", opacity: "0.5", zIndex: "99999", pointerEvents: "none",
+  mixBlendMode: "difference",             // identical pixels turn black
+});
+document.body.append(overlay);
+
+// Toggle: 'd' cycles difference/normal blending, 'x' removes the overlay.
+addEventListener("keydown", (e) => {
+  if (e.key === "d") overlay.style.mixBlendMode =
+    overlay.style.mixBlendMode === "difference" ? "normal" : "difference";
+  if (e.key === "x") overlay.remove();
+});
+```
+
+With `mix-blend-mode: difference`, anything still visible is a discrepancy — this locates a
+2px baseline shift far faster than reading two screenshots side by side. Web font loading is a
+frequent culprit; see [Performance — Fonts](../performance/12-fonts.md).
 
 ---
 
@@ -347,6 +460,17 @@ Screenshot comparison is complete when:
 - visual differences have been documented;
 - significant issues have been resolved;
 - the implementation accurately reflects the approved design.
+
+---
+
+## Related Knowledge
+
+- [Design QA](10-design-qa.md) — the review this comparison feeds; findings go into its report format.
+- [Visual Regression](13-visual-regression.md) — comparing against the previous build instead of the design, and running it in CI.
+- [Responsive Analysis](05-responsive-analysis.md) — which viewports must be compared and why.
+- [Testing — Visual Regression](../testing/14-visual-regression.md) and [Testing — UI Testing](../testing/13-ui-testing.md) — the surrounding testing practice.
+- [Performance — Fonts](../performance/12-fonts.md) — font loading behavior behind most typography differences.
+- [Implementation Definition of Done](20-implementation-definition-of-done.md) — the acceptance bar this evidence supports.
 
 ---
 

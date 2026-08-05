@@ -94,6 +94,26 @@ Component
 
 Each layer should have a clearly defined responsibility.
 
+In the App Router this hierarchy maps directly onto the `app/` directory. Special files are reserved names, not conventions you invent:
+
+```
+app/
+    layout.tsx          # root layout: <html>/<body>, providers, persistent UI
+    page.tsx            # "/" route
+    dashboard/
+        layout.tsx      # nested layout, wraps all dashboard routes
+        page.tsx        # "/dashboard"
+        loading.tsx     # streaming fallback (React Suspense boundary)
+        error.tsx       # error boundary ("use client" required)
+        [id]/
+            page.tsx    # "/dashboard/:id" dynamic segment
+    api/
+        health/
+            route.ts    # Route Handler at "/api/health"
+```
+
+Every file under `app/` is a Server Component by default. Adding `"use client"` at the top of a file opts that module (and its imports) into the client boundary.
+
 ---
 
 ## Separation of Responsibilities
@@ -181,6 +201,47 @@ Prefer placing business logic in:
 
 Avoid embedding business logic inside UI components.
 
+Mutations belong in Server Actions — functions marked `"use server"` that run only on the server and can be invoked directly from a form or a client event. They keep write logic, validation, and revalidation off the client bundle.
+
+```tsx
+// app/features/products/actions.ts
+"use server";
+
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { requireUser } from "@/features/auth/service";
+import { createProduct } from "@/features/products/service";
+
+export async function createProductAction(formData: FormData) {
+  const user = await requireUser(); // authorize on the server, always
+  const name = String(formData.get("name") ?? "").trim();
+
+  if (!name) {
+    return { error: "Name is required." }; // validate on the server
+  }
+
+  await createProduct({ name, ownerId: user.id });
+  revalidatePath("/products"); // invalidate the cached route
+  redirect("/products");
+}
+```
+
+```tsx
+// app/products/new/page.tsx  (Server Component — no "use client" needed)
+import { createProductAction } from "@/features/products/actions";
+
+export default function NewProductPage() {
+  return (
+    <form action={createProductAction}>
+      <input name="name" required />
+      <button type="submit">Create</button>
+    </form>
+  );
+}
+```
+
+Re-authorize and re-validate inside every action. A Server Action is a public HTTP endpoint — never trust that the caller is the UI you shipped.
+
 ---
 
 ## Client Components
@@ -197,6 +258,72 @@ Examples:
 
 Everything else should remain on the server.
 
+The `"use client"` directive marks a boundary, not a leaf. Once a module is a Client Component, everything it imports is bundled and hydrated on the client. Keep the boundary as small and as deep in the tree as possible, and pass Server Components through as `children` rather than importing them into the client module.
+
+```tsx
+// Bad — the whole page becomes a Client Component just to hold one toggle.
+// Data fetching, secrets access, and static markup all ship to the browser.
+"use client";
+
+import { useState } from "react";
+
+export default function ProductPage({ id }: { id: string }) {
+  const [open, setOpen] = useState(false);
+  // fetch, auth, and rendering now all run client-side. Avoid.
+}
+```
+
+```tsx
+// Good — the page stays a Server Component. Only the interactive island
+// is a Client Component, and the server-rendered detail is passed in as a child.
+// app/products/[id]/page.tsx  (Server Component by default)
+import { getProduct } from "@/features/products/service";
+import { Expandable } from "@/features/products/expandable";
+import { ProductDetail } from "@/features/products/product-detail";
+
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params; // params is async in Next.js 15+
+  const product = await getProduct(id);
+
+  return (
+    <Expandable summary={product.name}>
+      <ProductDetail product={product} />
+    </Expandable>
+  );
+}
+```
+
+```tsx
+// app/../expandable.tsx  (the only client module)
+"use client";
+
+import { useState, type ReactNode } from "react";
+
+export function Expandable({
+  summary,
+  children,
+}: {
+  summary: string;
+  children: ReactNode; // a Server Component, rendered on the server
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <section>
+      <button onClick={() => setOpen((v) => !v)} aria-expanded={open}>
+        {summary}
+      </button>
+      {open && children}
+    </section>
+  );
+}
+```
+
+Note that in Next.js 15+, `params` and `searchParams` on pages are Promises and must be awaited.
+
 ---
 
 ## Server Components
@@ -211,6 +338,32 @@ Prefer Server Components for:
 - metadata generation.
 
 Server Components reduce client-side JavaScript and improve performance.
+
+Server Components can be `async` and fetch directly from the data source. In Next.js 15+, `fetch()` is **uncached by default** — a bare `fetch` runs on every request. Opt into caching explicitly when the data is safe to reuse.
+
+```tsx
+// app/dashboard/page.tsx  (Server Component)
+export default async function DashboardPage() {
+  // Uncached by default: revalidated on every request.
+  const live = await fetch("https://api.example.com/metrics").then((r) =>
+    r.json(),
+  );
+
+  // Opt-in caching: reuse for up to 60s (Incremental Static Regeneration).
+  const config = await fetch("https://api.example.com/config", {
+    next: { revalidate: 60 },
+  }).then((r) => r.json());
+
+  // Opt-in caching: cache indefinitely until manually revalidated.
+  const terms = await fetch("https://api.example.com/terms", {
+    cache: "force-cache",
+  }).then((r) => r.json());
+
+  return <Metrics live={live} config={config} terms={terms} />;
+}
+```
+
+Direct database or ORM access (which does not go through `fetch`) is never cached automatically — colocate it behind the `use cache` directive or a service function when caching is desired. See `09-data-fetching` and `10-caching` for the full model.
 
 ---
 
@@ -300,6 +453,23 @@ Examples:
 - authorization checks.
 
 Never trust client-side validation alone.
+
+Environment variables enforce this boundary. Only variables prefixed with `NEXT_PUBLIC_` are inlined into the client bundle; every other variable exists only on the server. Reading a non-public secret in a Client Component yields `undefined` — but the real risk is prefixing a secret by mistake.
+
+```tsx
+// Bad — the secret is now baked into the client bundle and shipped to browsers.
+// NEXT_PUBLIC_STRIPE_SECRET_KEY=sk_live_...   <-- never prefix a secret
+const key = process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY;
+```
+
+```tsx
+// Good — the secret is read only in server code (Server Component, Route
+// Handler, or Server Action) and never crosses the network to the client.
+// STRIPE_SECRET_KEY=sk_live_...
+const key = process.env.STRIPE_SECRET_KEY;
+```
+
+Use `NEXT_PUBLIC_` only for values that are genuinely public (analytics IDs, public API base URLs). Keep secrets, database URLs, and API keys unprefixed and server-side.
 
 ---
 

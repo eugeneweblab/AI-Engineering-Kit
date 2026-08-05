@@ -7,7 +7,16 @@ type: doc
 order: 3
 status: ready
 tags: [workflows, create-new-feature]
-related: []
+related:
+  - engineering/05-context-first-development
+  - engineering/00-engineering-principles
+  - architecture/00-overview
+  - architecture/11-api-first
+  - architecture/25-documentation
+  - security/04-authorization
+  - performance/00-overview
+  - accessibility/00-overview
+  - testing/98-production-checklist
 when_to_use: "Follow this workflow when implementing a new feature in an existing project."
 ---
 # Workflow — Create a New Feature
@@ -75,6 +84,12 @@ Determine:
 
 If any requirement is unclear, resolve it before implementation.
 
+Gather context deliberately before writing any code — see
+[`../engineering/05-context-first-development.md`](../engineering/05-context-first-development.md).
+When requirements imply a non-trivial trade-off (build vs. reuse, sync vs. async, new
+dependency vs. existing tooling), record the reasoning using
+[`../engineering/01-decision-framework.md`](../engineering/01-decision-framework.md).
+
 ---
 
 ## Step 2 — Understand the Existing System
@@ -93,6 +108,11 @@ Review:
 - testing strategy.
 
 Every feature should feel native to the project.
+
+Relevant knowledge topics:
+
+- [`../architecture/00-overview.md`](../architecture/00-overview.md) — how the system is layered and where new behavior belongs.
+- [`../react/22-folder-structure.md`](../react/22-folder-structure.md) — conventions for locating components, hooks, and modules in a React codebase.
 
 ---
 
@@ -122,6 +142,10 @@ Types
 
 Prefer extension over duplication.
 
+Reuse before creating is a core engineering principle — see
+[`../engineering/00-engineering-principles.md`](../engineering/00-engineering-principles.md)
+for the DRY and single-responsibility guidance that governs this step.
+
 ---
 
 ## Step 4 — Design the Implementation
@@ -140,6 +164,11 @@ Identify:
 - testing requirements.
 
 The implementation plan should be understandable before coding begins.
+
+Relevant knowledge topics:
+
+- [`../architecture/03-clean-architecture.md`](../architecture/03-clean-architecture.md) — keeping business logic independent of frameworks and I/O.
+- [`../architecture/11-api-first.md`](../architecture/11-api-first.md) — designing the contract before the implementation when the feature exposes or consumes an API.
 
 ---
 
@@ -161,6 +190,13 @@ Review:
 - caching.
 
 Every feature has consequences beyond its own code.
+
+Consult the relevant knowledge topic for each area of impact:
+
+- Authentication and authorization — [`../security/03-authentication.md`](../security/03-authentication.md) and [`../security/04-authorization.md`](../security/04-authorization.md).
+- Performance and caching — [`../performance/00-overview.md`](../performance/00-overview.md) and [`../performance/08-caching.md`](../performance/08-caching.md).
+- Accessibility — [`../accessibility/00-overview.md`](../accessibility/00-overview.md).
+- SEO (for user-facing pages) — [`../seo/00-overview.md`](../seo/00-overview.md).
 
 ---
 
@@ -206,6 +242,12 @@ Documentation
 
 Avoid implementing the entire feature in one large change.
 
+When the feature introduces a new HTTP surface, design the resources and error contract
+first — see [`../rest-api/03-resource-design.md`](../rest-api/03-resource-design.md) and
+[`../rest-api/09-error-handling.md`](../rest-api/09-error-handling.md). For error handling
+inside the UI layer, follow
+[`../react/19-error-handling.md`](../react/19-error-handling.md).
+
 ---
 
 ## Step 7 — Verify Functionality
@@ -221,6 +263,12 @@ Verify:
 - error handling.
 
 The feature is not complete until every important scenario has been reviewed.
+
+Choose the right level of test coverage for each concern:
+
+- [`../testing/02-unit-testing.md`](../testing/02-unit-testing.md) — business logic and pure functions.
+- [`../testing/04-e2e-testing.md`](../testing/04-e2e-testing.md) — the happy path and critical user flows end to end.
+- [`../testing/17-security-testing.md`](../testing/17-security-testing.md) — permission and input-validation checks.
 
 ---
 
@@ -240,6 +288,11 @@ Review:
 
 The feature should feel like part of the product—not an addition.
 
+Relevant knowledge topics:
+
+- [`../accessibility/13-responsive-accessibility.md`](../accessibility/13-responsive-accessibility.md) — responsive behavior that stays accessible across breakpoints.
+- [`../performance/29-performance-review.md`](../performance/29-performance-review.md) — confirming the change did not regress load or runtime performance.
+
 ---
 
 ## Step 9 — Update Documentation
@@ -254,6 +307,11 @@ When appropriate update:
 - developer documentation.
 
 Documentation is part of implementation.
+
+For conventions on what to document and where, see
+[`../architecture/25-documentation.md`](../architecture/25-documentation.md). Non-obvious
+design trade-offs made during the feature should be captured as an Architecture Decision
+Record — [`../architecture/26-architecture-decision-records.md`](../architecture/26-architecture-decision-records.md).
 
 ---
 
@@ -380,6 +438,23 @@ After completing this workflow, the AI should be able to explain:
 - affected files;
 - verification performed;
 - remaining risks or assumptions.
+
+---
+
+## Self-Verification — Topic Checklists
+
+Before marking the feature complete, run the `98`/`99`/`100` checklists for every knowledge
+topic the feature touched. Start with the topics that dominate the change:
+
+- Architecture — [`../architecture/98-production-checklist.md`](../architecture/98-production-checklist.md), [`../architecture/99-ai-review-checklist.md`](../architecture/99-ai-review-checklist.md), [`../architecture/100-common-antipatterns.md`](../architecture/100-common-antipatterns.md).
+- Testing — [`../testing/98-production-checklist.md`](../testing/98-production-checklist.md), [`../testing/99-ai-review-checklist.md`](../testing/99-ai-review-checklist.md), [`../testing/100-common-antipatterns.md`](../testing/100-common-antipatterns.md).
+- Security — [`../security/98-production-checklist.md`](../security/98-production-checklist.md), [`../security/99-ai-review-checklist.md`](../security/99-ai-review-checklist.md), [`../security/100-common-antipatterns.md`](../security/100-common-antipatterns.md).
+
+If the feature includes UI, also close with the React and accessibility checklists —
+[`../react/98-production-checklist.md`](../react/98-production-checklist.md),
+[`../react/99-ai-review-checklist.md`](../react/99-ai-review-checklist.md),
+[`../accessibility/98-production-checklist.md`](../accessibility/98-production-checklist.md),
+and [`../accessibility/99-ai-review-checklist.md`](../accessibility/99-ai-review-checklist.md).
 
 ---
 

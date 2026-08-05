@@ -115,6 +115,65 @@ Production builds should:
 
 Never modify generated build artifacts manually.
 
+For containerized or self-hosted deployments, emit a self-contained server with `output: "standalone"`. This traces only the files the server needs into `.next/standalone`, producing a small, reproducible image.
+
+```ts
+// next.config.ts
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  // Emit a minimal, self-contained server (.next/standalone/server.js)
+  // for container images. Omit on platforms that build/run for you.
+  output: "standalone",
+  images: {
+    // Only these hosts may be optimized by next/image.
+    remotePatterns: [{ protocol: "https", hostname: "cdn.example.com" }],
+  },
+};
+
+export default nextConfig;
+```
+
+The standalone output does not copy `public/` or `.next/static/`; the runtime image must include them explicitly.
+
+```dockerfile
+# Dockerfile — multi-stage build for output: "standalone"
+FROM node:22-alpine AS builder
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM node:22-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+EXPOSE 3000
+CMD ["node", "server.js"]
+```
+
+**Build-time vs request-time data.** Do not require runtime-only secrets during the build. A route that reads per-request state (cookies, headers, an uncached `fetch`) is rendered dynamically and will not be prerendered — that is expected. Since `fetch()` is uncached by default in Next.js 15+, a page that fetches without opting into caching stays dynamic unless every request is statically analyzable. Opt into static data explicitly when a page should be prerendered at build time:
+
+```ts
+// app/blog/[slug]/page.tsx — cached fetch keeps this route prerenderable
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const res = await fetch(`https://cms.example.com/posts/${slug}`, {
+    // Opt in: revalidate at most once per hour (ISR).
+    next: { revalidate: 3600 },
+  });
+  const post = await res.json();
+  return <article>{post.title}</article>;
+}
+```
+
 ---
 
 ## Configuration
@@ -142,6 +201,39 @@ Use environment variables for:
 - third-party integrations.
 
 Never hardcode environment-specific values.
+
+Validate configuration once, at module load, through a centralized module. A schema that throws on import fails the build or boot immediately instead of surfacing an undefined value during a request in production.
+
+**Good — validated, typed, fails fast:**
+
+```ts
+// config/env.ts
+import { z } from "zod";
+
+const schema = z.object({
+  DATABASE_URL: z.string().url(),
+  STRIPE_SECRET_KEY: z.string().min(1),
+  NEXT_PUBLIC_APP_URL: z.string().url(),
+});
+
+// Throws at import time if anything is missing or malformed.
+export const env = schema.parse(process.env);
+```
+
+```ts
+// usage anywhere on the server
+import { env } from "@/config/env";
+const db = connect(env.DATABASE_URL);
+```
+
+**Bad — unvalidated access scattered across the app:**
+
+```ts
+// Silently undefined in production; the failure appears far from the cause.
+const db = connect(process.env.DATABASE_URL!);
+```
+
+Only variables prefixed with `NEXT_PUBLIC_` are inlined into the client bundle at build time. Because that value is baked into the build, a public URL that differs per environment must be set before `next build`, not at container start.
 
 ---
 
@@ -201,6 +293,26 @@ Typical checks include:
 - cache connectivity.
 
 Health checks should execute quickly.
+
+Implement the endpoint as a Route Handler. A health check must reflect live state, so force dynamic rendering — otherwise the response could be cached and report stale health. Return `503` (not `200`) when a dependency is down so load balancers can drain the instance.
+
+```ts
+// app/health/route.ts
+import { NextResponse } from "next/server";
+import { checkDatabase } from "@/lib/db";
+
+// Never cache: always evaluate dependencies at request time.
+export const dynamic = "force-dynamic";
+
+export async function GET() {
+  try {
+    await checkDatabase(); // fast, lightweight probe (e.g. SELECT 1)
+    return NextResponse.json({ status: "ok" }, { status: 200 });
+  } catch {
+    return NextResponse.json({ status: "unhealthy" }, { status: 503 });
+  }
+}
+```
 
 ---
 
@@ -270,6 +382,23 @@ Use a CDN for:
 - public downloads.
 
 Review cache invalidation after each deployment.
+
+To serve `/_next/static/*` from a CDN origin, set `assetPrefix`. Build-output assets are content-hashed, so they can be cached immutably; the hash changes on every build, which invalidates them automatically.
+
+```ts
+// next.config.ts
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  // Serve hashed build assets from the CDN; HTML still comes from the app.
+  assetPrefix:
+    process.env.NODE_ENV === "production" ? "https://cdn.example.com" : undefined,
+};
+
+export default nextConfig;
+```
+
+Do not front dynamic, per-user routes with a shared public CDN cache. Cache only prerendered pages and static assets.
 
 ---
 

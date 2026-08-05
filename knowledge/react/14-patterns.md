@@ -105,6 +105,152 @@ const Panel = withUser(({ user }: any) => (
 ));
 ```
 
+**Good Example** — compound components sharing state via Context
+
+When parts must coordinate (tabs, accordions, menus) but the caller needs layout
+freedom, expose subcomponents that read shared state from a Context. The caller
+composes the pieces; the parent wires them together. This avoids prop drilling and
+avoids `cloneElement`/index-inspection hacks (see
+[component composition](13-component-composition.md)).
+
+```tsx
+import {
+  createContext,
+  useContext,
+  useId,
+  useState,
+  type ReactNode,
+} from "react";
+
+type TabsContextValue = {
+  activeId: string;
+  select: (id: string) => void;
+  baseId: string;
+};
+
+const TabsContext = createContext<TabsContextValue | null>(null);
+
+// Guard so a misplaced subcomponent fails loudly instead of reading a null Context.
+function useTabs() {
+  const ctx = useContext(TabsContext);
+  if (!ctx) throw new Error("Tabs.* must be rendered inside <Tabs>");
+  return ctx;
+}
+
+function Tabs({ defaultId, children }: { defaultId: string; children: ReactNode }) {
+  const [activeId, setActiveId] = useState(defaultId);
+  const baseId = useId(); // stable ids to wire aria-controls/aria-labelledby
+  // React 19: render the Context object directly as the provider (no `.Provider`).
+  return (
+    <TabsContext value={{ activeId, select: setActiveId, baseId }}>
+      {children}
+    </TabsContext>
+  );
+}
+
+function TabList({ children }: { children: ReactNode }) {
+  return <div role="tablist">{children}</div>;
+}
+
+function Tab({ id, children }: { id: string; children: ReactNode }) {
+  const { activeId, select, baseId } = useTabs();
+  const selected = activeId === id;
+  return (
+    <button
+      role="tab"
+      id={`${baseId}-tab-${id}`}
+      aria-selected={selected}
+      aria-controls={`${baseId}-panel-${id}`}
+      tabIndex={selected ? 0 : -1}
+      onClick={() => select(id)}
+    >
+      {children}
+    </button>
+  );
+}
+
+function TabPanel({ id, children }: { id: string; children: ReactNode }) {
+  const { activeId, baseId } = useTabs();
+  if (activeId !== id) return null;
+  return (
+    <div role="tabpanel" id={`${baseId}-panel-${id}`} aria-labelledby={`${baseId}-tab-${id}`}>
+      {children}
+    </div>
+  );
+}
+
+// Attach subcomponents so the API reads as one coordinated unit at the call site.
+Tabs.List = TabList;
+Tabs.Tab = Tab;
+Tabs.Panel = TabPanel;
+
+// Caller controls layout freely; the parent owns the "which tab is active" state.
+function Settings() {
+  return (
+    <Tabs defaultId="account">
+      <Tabs.List>
+        <Tabs.Tab id="account">Account</Tabs.Tab>
+        <Tabs.Tab id="billing">Billing</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel id="account">Account settings…</Tabs.Panel>
+      <Tabs.Panel id="billing">Billing settings…</Tabs.Panel>
+    </Tabs>
+  );
+}
+```
+
+**Good Example** — state-reducer pattern for an override-able, reusable component
+
+Reach for this only on genuinely reusable, behavior-rich components: expose the
+reducer so a caller can *override a state transition* without you predicting every
+policy. Here the base logic is a plain hook; a caller wraps the reducer to cap how
+many times the toggle may flip on.
+
+```tsx
+import { useCallback, useReducer, useRef } from "react";
+
+type ToggleState = { on: boolean };
+type ToggleAction = { type: "toggle" } | { type: "reset" };
+
+function toggleReducer(state: ToggleState, action: ToggleAction): ToggleState {
+  switch (action.type) {
+    case "toggle":
+      return { on: !state.on };
+    case "reset":
+      return { on: false };
+    default:
+      return state;
+  }
+}
+
+// The reducer is a prop with a sane default — most callers never touch it.
+function useToggle({
+  initialOn = false,
+  reducer = toggleReducer,
+}: {
+  initialOn?: boolean;
+  reducer?: (state: ToggleState, action: ToggleAction) => ToggleState;
+} = {}) {
+  const [state, dispatch] = useReducer(reducer, { on: initialOn });
+  const toggle = useCallback(() => dispatch({ type: "toggle" }), []);
+  const reset = useCallback(() => dispatch({ type: "reset" }), []);
+  return { on: state.on, toggle, reset };
+}
+
+// Caller overrides one transition by delegating to the default reducer for the rest.
+function LimitedToggle() {
+  const flips = useRef(0);
+  const { on, toggle } = useToggle({
+    reducer(state, action) {
+      if (action.type === "toggle" && flips.current >= 4) return state; // cap reached
+      if (action.type === "toggle") flips.current += 1;
+      return toggleReducer(state, action);
+    },
+  });
+  return <button onClick={toggle}>{on ? "On" : "Off"}</button>;
+}
+```
+
 ## Common Mistakes
 
 - Using render props or HOCs for logic that a custom hook shares more cleanly.

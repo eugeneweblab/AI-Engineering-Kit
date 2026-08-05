@@ -112,6 +112,84 @@ function Dashboard() {
 }
 ```
 
+**Good Example** — filter/sort/pagination live in the URL via `useSearchParams`
+
+```tsx
+import { useSearchParams } from "react-router";
+
+function ProductList() {
+  const [params, setParams] = useSearchParams();
+  const category = params.get("category") ?? "all";
+  const page = Number(params.get("page") ?? "1");
+
+  // The URL is the single source of truth — bookmarkable, shareable, refresh-safe.
+  function update(next: Record<string, string>) {
+    setParams(
+      (prev) => {
+        for (const [k, v] of Object.entries(next)) prev.set(k, v);
+        return prev; // functional update preserves unrelated params (e.g. sort)
+      },
+      { replace: true }, // don't push a history entry per keystroke/click
+    );
+  }
+
+  return (
+    <>
+      <select value={category} onChange={(e) => update({ category: e.target.value, page: "1" })}>
+        <option value="all">All</option>
+        <option value="books">Books</option>
+      </select>
+      <Results category={category} page={page} />
+    </>
+  );
+}
+```
+
+**Bad Example** — the same state duplicated into `useState`, so it drifts from the URL
+
+```tsx
+function ProductList() {
+  // URL says ?category=books but this defaults to "all" on every mount:
+  // sharing/refreshing the page silently loses the filter, and the back
+  // button can't undo a filter change because history never recorded it.
+  const [category, setCategory] = useState("all");
+  const [page, setPage] = useState(1);
+  return <Results category={category} page={page} />;
+}
+```
+
+**Good Example** — streamed loader data unwrapped with React 19 `use()`
+
+```tsx
+import { redirect, useLoaderData } from "react-router";
+import { Suspense, use } from "react";
+
+// Await only the critical data (the guard); return the slow query as a bare
+// promise so React Router streams it instead of blocking the whole navigation.
+export async function loader() {
+  const user = await getUser();
+  if (!user) throw redirect("/login");
+  return { user, activity: fetchActivity(user.id) }; // activity is a Promise, not awaited
+}
+
+export default function Dashboard() {
+  const { user, activity } = useLoaderData<typeof loader>();
+  return (
+    <>
+      <h1>Welcome, {user.name}</h1>
+      <Suspense fallback={<ActivitySkeleton />}>
+        <Activity promise={activity} />
+      </Suspense>
+    </>
+  );
+}
+
+function Activity({ promise }: { promise: Promise<Item[]> }) {
+  const items = use(promise); // React 19: suspends until the streamed promise resolves
+  return <ul>{items.map((i) => <li key={i.id}>{i.label}</li>)}</ul>;
+}
+```
+
 ## Common Mistakes
 
 - Using `<a href>` for internal links, forcing full reloads and losing app state.
@@ -125,7 +203,41 @@ function Dashboard() {
 ## Production Tips
 
 - Add a scroll-restoration component and move focus to the main heading on navigation.
-- Prefetch the likely next route on link hover/focus to hide latency without bloating the bundle.
+  React Router ships `<ScrollRestoration />`; pair it with a focus reset so keyboard and
+  screen-reader users are not stranded at the old scroll position after a client navigation:
+
+  ```tsx
+  import { Outlet, ScrollRestoration, useLocation, useNavigation } from "react-router";
+  import { useEffect, useRef } from "react";
+
+  function RootLayout() {
+    const { pathname } = useLocation();
+    const navigation = useNavigation();
+    const mainRef = useRef<HTMLElement>(null);
+
+    // Move focus to the main region on every path change (skip the initial mount).
+    const first = useRef(true);
+    useEffect(() => {
+      if (first.current) { first.current = false; return; }
+      mainRef.current?.focus();
+    }, [pathname]);
+
+    return (
+      <>
+        <Nav />
+        {/* aria-busy tells assistive tech a navigation is in flight */}
+        <main id="main" ref={mainRef} tabIndex={-1} aria-busy={navigation.state === "loading"}>
+          <Outlet />
+        </main>
+        <ScrollRestoration />
+      </>
+    );
+  }
+  ```
+
+- Prefetch the likely next route on link hover/focus to hide latency without bloating the
+  bundle. In framework mode this is one prop — `<Link to="/reports" prefetch="intent">` loads
+  the route's module and loader data on hover/focus, with no manual `import()` juggling.
 - In SSR/framework setups, keep secrets and auth checks in loaders/server code — never gate
   solely in client components that ship to the browser.
 

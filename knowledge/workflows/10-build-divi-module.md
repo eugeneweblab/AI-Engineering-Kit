@@ -7,7 +7,19 @@ type: doc
 order: 10
 status: ready
 tags: [workflows, build-divi-module]
-related: []
+related:
+  - divi/01-architecture
+  - divi/03-modules
+  - divi/04-custom-modules
+  - divi/09-custom-css
+  - divi/11-responsive-design
+  - divi/12-accessibility
+  - divi/10-performance
+  - divi/98-production-checklist
+  - divi/99-ai-review-checklist
+  - wordpress/06-security
+  - php/13-security
+  - figma/09-figma-to-divi
 when_to_use: "Follow this workflow when creating or modifying a custom Divi module."
 ---
 # Workflow — Build a Divi Module
@@ -93,6 +105,13 @@ Search the repository for existing:
 
 Never create a module before understanding existing implementation patterns.
 
+Relevant knowledge:
+
+- [Divi — Modules](../divi/03-modules.md) — what the built-in modules already cover; extending one usually beats writing a new one.
+- [Divi — Custom Modules](../divi/04-custom-modules.md) — the `ET_Builder_Module` lifecycle, `get_fields()`, and `render()`.
+- [Divi — Architecture](../divi/01-architecture.md) — how the builder loads modules and when the shortcode is parsed.
+- [Divi — Global Elements](../divi/06-global-elements.md) — a global module or preset may remove the need for code entirely.
+
 ---
 
 ## Step 3 — Understand the Design
@@ -111,6 +130,13 @@ Identify:
 - reusable UI patterns.
 
 Treat Figma as the source of truth.
+
+Relevant knowledge:
+
+- [Figma — Figma to Divi](../figma/09-figma-to-divi.md) — mapping frames onto sections, rows, and modules.
+- [Figma — Design Token Extraction](../figma/03-design-token-extraction.md) — pulling spacing, color, and type values as tokens instead of eyeballing them.
+- [Figma — Responsive Analysis](../figma/05-responsive-analysis.md) — deriving the breakpoint behavior the module must support.
+- [Workflow — Implement a Figma Design](01-implement-figma-design.md) — the full design-to-code process.
 
 ---
 
@@ -135,6 +161,16 @@ Every option should have a clear purpose.
 
 Avoid exposing unnecessary settings.
 
+Every field declared in `get_fields()` becomes part of the module's contract: once an editor
+saves a page with it, removing or renaming that field breaks existing content. Design the
+field set as deliberately as a public API.
+
+Relevant knowledge:
+
+- [Divi — Custom Modules](../divi/04-custom-modules.md) — field types, `toggle_slug` grouping, and defaults.
+- [Divi — Dynamic Content](../divi/07-dynamic-content.md) and [Divi — Custom Fields](../divi/15-custom-fields.md) — pull values from post meta instead of duplicating them in module settings.
+- [Divi — Theme Builder](../divi/02-theme-builder.md) — when the requirement belongs in a template rather than a module.
+
 ---
 
 ## Step 5 — Reuse Existing Code
@@ -150,6 +186,12 @@ Search before creating:
 - animations.
 
 Duplicate code should never become the default solution.
+
+Relevant knowledge:
+
+- [Divi — Custom CSS](../divi/09-custom-css.md) — where module styles belong and how they are enqueued.
+- [CSS — CSS Variables](../css/20-css-variables.md) — reference design tokens rather than hardcoding hex values in `render()`.
+- [PHP — Clean Code](../php/22-clean-code.md) — extract shared rendering helpers instead of copying markup between modules.
 
 ---
 
@@ -181,6 +223,15 @@ Utilities
 
 Avoid mixing rendering logic with configuration logic.
 
+Escape every attribute value on the way out — builder settings are stored content and are
+edited by users, so `render()` must treat them as untrusted input.
+
+Relevant knowledge:
+
+- [Divi — Custom Modules](../divi/04-custom-modules.md) — keeping `render()` thin and delegating to services.
+- [WordPress — Security](../wordpress/06-security.md) and [Security — Output Encoding](../security/10-output-encoding.md) — `esc_html`, `esc_attr`, `esc_url`, and `wp_kses_post` at output.
+- [Divi — Security](../divi/19-security.md) — builder-specific pitfalls, including unescaped shortcode attributes.
+
 ---
 
 ## Step 7 — Implement Builder Experience
@@ -196,6 +247,12 @@ Verify:
 - live preview behavior.
 
 The editor experience should be intuitive.
+
+Relevant knowledge:
+
+- [Divi — Client Projects](../divi/27-client-projects.md) — controls a non-technical editor can use without breaking the layout.
+- [Divi — Layouts](../divi/05-layouts.md) — how the module behaves once it is dropped into an existing row.
+- [Divi — Debugging](../divi/20-debugging.md) — diagnosing a module that renders on the frontend but not in the Visual Builder.
 
 ---
 
@@ -214,6 +271,13 @@ Review:
 
 Frontend output should match the design system.
 
+Relevant knowledge:
+
+- [Divi — Accessibility](../divi/12-accessibility.md) and [Accessibility — Semantic HTML](../accessibility/03-semantic-html.md) — headings, landmarks, and labels in generated markup.
+- [Accessibility — Keyboard Navigation](../accessibility/04-keyboard-navigation.md) — interactive modules (tabs, accordions, sliders) must work without a mouse.
+- [Divi — SEO](../divi/13-seo.md) and [SEO — Structured Data](../seo/09-structured-data.md) — heading hierarchy and markup that search engines can parse.
+- [Divi — Responsive Design](../divi/11-responsive-design.md) — the breakpoint model the builder exposes.
+
 ---
 
 ## Step 9 — Performance Review
@@ -230,6 +294,13 @@ Review:
 
 Performance matters inside both the builder and the frontend.
 
+Relevant knowledge:
+
+- [Divi — Performance](../divi/10-performance.md) — Divi's own asset pipeline, dynamic CSS, and what a custom module adds to it.
+- [Performance — Images](../performance/11-images.md) and [Figma — Image Assets](../figma/18-image-assets.md) — correctly sized, modern-format media.
+- [Performance — Lazy Loading](../performance/09-lazy-loading.md) — deferring below-the-fold work.
+- [Performance — Web Vitals](../performance/18-web-vitals.md) — a module that shifts layout after load will show up as CLS.
+
 ---
 
 ## Step 10 — Compatibility Review
@@ -245,6 +316,12 @@ Verify:
 - latest supported WordPress version.
 
 Compatibility should be confirmed before completion.
+
+Relevant knowledge:
+
+- [Divi — Testing](../divi/21-testing.md) and [Divi — Maintenance](../divi/23-maintenance.md) — verifying the module survives a Divi update.
+- [Divi — Deployment](../divi/22-deployment.md) — moving the module from staging to production without losing builder content.
+- [Divi — WooCommerce](../divi/14-woocommerce.md) — extra surface to check when the site is a store.
 
 ---
 
@@ -391,6 +468,21 @@ After completing this workflow, the AI should explain:
 - accessibility considerations;
 - compatibility verification;
 - files that were modified.
+
+---
+
+## Self-Verification — Topic Checklists
+
+Before marking the module complete, run it through the checklists of the topics it touched:
+
+- Divi — [Production Checklist](../divi/98-production-checklist.md), [AI Review Checklist](../divi/99-ai-review-checklist.md), [Common Antipatterns](../divi/100-common-antipatterns.md).
+- WordPress — [AI Checklist](../wordpress/09-ai-checklist.md), [Review Checklist](../wordpress/10-review-checklist.md), [Common Mistakes](../wordpress/08-common-mistakes.md).
+- Accessibility — [Production Checklist](../accessibility/98-production-checklist.md), [AI Review Checklist](../accessibility/99-ai-review-checklist.md), [Common Antipatterns](../accessibility/100-common-antipatterns.md).
+
+Add [PHP — AI Review Checklist](../php/99-ai-review-checklist.md) for the rendering code and
+[Security — Production Checklist](../security/98-production-checklist.md) whenever the module
+accepts editor input that reaches the page. When the module was built from a design, close
+with [Figma — Implementation Definition of Done](../figma/20-implementation-definition-of-done.md).
 
 ---
 

@@ -7,7 +7,25 @@ type: doc
 order: 6
 status: ready
 tags: [workflows, investigate-production-bug]
-related: []
+related:
+  - devops/25-incident-management
+  - devops/26-postmortems
+  - devops/13-observability
+  - devops/14-logging
+  - devops/12-monitoring
+  - devops/07-deployment-strategies
+  - cicd/13-feature-flags
+  - cicd/14-rollbacks
+  - cicd/16-environments
+  - security/26-incident-response
+  - engineering/03-debugging-methodology
+  - git/18-history
+  - git/19-reflog
+  - databases/17-migrations
+  - testing/25-production-testing
+  - devops/98-production-checklist
+  - devops/99-ai-review-checklist
+  - devops/100-common-antipatterns
 when_to_use: "Follow this workflow when investigating an incident occurring in a production environment."
 ---
 # Workflow — Investigate a Production Bug

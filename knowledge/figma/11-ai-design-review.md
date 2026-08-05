@@ -7,7 +7,18 @@ type: doc
 order: 11
 status: ready
 tags: [figma, ai-design-review]
-related: []
+related:
+  - figma/01-figma-analysis
+  - figma/03-design-token-extraction
+  - figma/06-component-detection
+  - figma/12-ai-prompts
+  - figma/10-design-qa
+  - figma/20-implementation-definition-of-done
+  - workflows/01-implement-figma-design
+  - ai/01-context-gathering
+  - ai/02-task-planning
+  - ai/06-self-verification
+  - engineering/05-context-first-development
 when_to_use: "Read as an AI assistant before implementing a Figma design, to follow the mandatory analyze-plan-reuse-verify reasoning process."
 ---
 # AI Design Review Protocol
@@ -166,6 +177,30 @@ Search the project for:
 
 The preferred solution is almost always reuse.
 
+Search the repository before claiming a component does not exist — the claim has to be
+verified, not assumed:
+
+```bash
+# Component definitions by name, whatever the stack.
+rg -n --glob '!node_modules' -e 'function (Button|Card|Modal)' \
+                             -e 'export (default )?(const|function) (Button|Card|Modal)'
+
+# React/Vue/Svelte components in the shared UI layer.
+fd -e tsx -e jsx -e vue -e svelte . src/components src/ui 2>/dev/null
+
+# WordPress: registered blocks, shortcodes, and Divi modules.
+rg -n 'register_block_type|add_shortcode|ET_Builder_Module' --glob '*.php'
+
+# Design tokens already defined in the project.
+rg -n 'theme\.extend|:root\s*\{|--color-|\$spacing-' \
+   tailwind.config.* theme.json src/styles 2>/dev/null
+```
+
+Report the result explicitly in the analysis — "no existing `PlanCard`; `Button` found at
+`src/components/ui/Button.tsx` and will be reused" — so the reviewer can check the claim. See
+[Component Detection](06-component-detection.md) and
+[AI — Context Gathering](../ai/01-context-gathering.md).
+
 ---
 
 ## Phase 4 — Detect Dynamic Content
@@ -182,6 +217,19 @@ Categories include:
 - configuration values.
 
 Never hardcode data that belongs to a CMS or API.
+
+Classify every text and image node before implementing, and name the source for each:
+
+| Element in design | Classification | Source | Implementation |
+|---|---|---|---|
+| "Simple pricing" headline | static | copy deck | literal in template |
+| Plan name, price, features | API data | Stripe products | props from server component |
+| "Trusted by 4,000 teams" | CMS content | WP option / CMS field | editable field, never a literal |
+| Customer logos | CMS media | media library | `next/image` with explicit dimensions |
+| Currency symbol | configuration | locale config | formatter, not a hardcoded `$` |
+
+Anything in the last three rows that reaches the code as a string literal is a defect, even
+when it renders correctly today. It will be wrong the first time an editor changes it.
 
 ---
 
@@ -404,6 +452,36 @@ Before implementation, provide a concise summary covering:
 
 This creates transparency and reduces unnecessary revisions.
 
+Emit it in a fixed shape, so a reviewer can scan it and a later agent can parse it:
+
+```markdown
+## Design Analysis — /pricing (Figma 2:10 · 2:11 · 2:12)
+
+**Sections**: Hero · PlanGrid · ComparisonTable · FAQ · CTA
+**Reuse**: Button (`src/components/ui/Button.tsx`), Badge, Accordion
+**Create**: PlanCard — 6 occurrences, variants: grid | list
+**Dynamic**: plans (Stripe API), testimonials (CMS), logo wall (CMS media)
+**Tokens**: reuse color-surface, spacing-md/xl, radius-lg · new: shadow-plan-card (justified: no existing elevation matches)
+**Responsive**: 3 cols → 2 cols @1024 → 1 col @768; ComparisonTable becomes a horizontally scrollable region on mobile
+**Risks**:
+  - Mobile frame omits ComparisonTable — assuming "scrollable, not hidden"; needs confirmation.
+  - Plan names come from Stripe and are unbounded — card must wrap, design shows one line only.
+
+## Implementation Plan
+1. `PlanCard` component + story/test — no dependencies
+2. `PlanGrid` section consuming `PlanCard`
+3. Wire plans from the server; loading and empty states
+4. Responsive pass, then accessibility pass
+
+## Completion Report  <!-- filled after implementation -->
+**Done**: …
+**Deviations**: … (each with a reason)
+**Verification**: breakpoints checked · axe clean · keyboard path verified
+```
+
+The `Risks` block is the most valuable part of the report: it converts silent assumptions into
+questions a human can answer cheaply. See [AI — Task Planning](../ai/02-task-planning.md).
+
 ---
 
 ## AI Self-Questions
@@ -454,6 +532,18 @@ The protocol has been successfully followed when:
 - design differences have been reviewed;
 - self-review has been completed;
 - the implementation is considered production-ready.
+
+---
+
+## Related Knowledge
+
+- [Figma Analysis](01-figma-analysis.md) — the analysis artifacts this protocol produces.
+- [AI Prompting Standard for Figma Tasks](12-ai-prompts.md) — how the task should be phrased in the first place.
+- [Design QA](10-design-qa.md) — the verification pass for Phases 13–15.
+- [Implementation Definition of Done](20-implementation-definition-of-done.md) — the completion bar.
+- [AI — Context Gathering](../ai/01-context-gathering.md), [AI — Task Planning](../ai/02-task-planning.md), and [AI — Self Verification](../ai/06-self-verification.md) — the general form of this protocol.
+- [Engineering — Context-First Development](../engineering/05-context-first-development.md) — why analysis precedes generation.
+- [Workflow — Implement a Figma Design](../workflows/01-implement-figma-design.md) — the end-to-end workflow.
 
 ---
 

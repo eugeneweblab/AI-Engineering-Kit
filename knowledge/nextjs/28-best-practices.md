@@ -61,6 +61,67 @@ Prefer:
 
 Avoid unnecessary Client Components.
 
+Components are Server Components by default. Add `"use client"` only when a component needs interactivity, state, effects, or browser APIs. Keep the `"use client"` boundary as deep in the tree as possible so most of the page stays server-rendered.
+
+Bad — the whole page opts into the client just to make one button interactive:
+
+```tsx
+"use client";
+
+import { useState } from "react";
+
+// Everything below now ships to the browser, including the product list
+// that never needed to be interactive.
+export default function ProductsPage({ products }: { products: Product[] }) {
+    const [open, setOpen] = useState(false);
+
+    return (
+        <section>
+            <ul>
+                {products.map((p) => (
+                    <li key={p.id}>{p.name}</li>
+                ))}
+            </ul>
+            <button onClick={() => setOpen(!open)}>Toggle filters</button>
+        </section>
+    );
+}
+```
+
+Good — the page stays a Server Component; only the interactive island is a Client Component:
+
+```tsx
+// app/products/page.tsx  (Server Component)
+import { FiltersToggle } from "./filters-toggle";
+
+export default async function ProductsPage() {
+    const products = await getProducts();
+
+    return (
+        <section>
+            <ul>
+                {products.map((p) => (
+                    <li key={p.id}>{p.name}</li>
+                ))}
+            </ul>
+            <FiltersToggle />
+        </section>
+    );
+}
+```
+
+```tsx
+// app/products/filters-toggle.tsx  (Client Component)
+"use client";
+
+import { useState } from "react";
+
+export function FiltersToggle() {
+    const [open, setOpen] = useState(false);
+    return <button onClick={() => setOpen(!open)}>Toggle filters</button>;
+}
+```
+
 ---
 
 ## Components
@@ -87,6 +148,55 @@ Business logic belongs in:
 - domain-specific libraries.
 
 Keep UI components focused on presentation.
+
+Use Server Actions for mutations. A file or function marked `"use server"` runs only on the server; validate and authorize inside it, then revalidate affected caches.
+
+```tsx
+// app/actions/create-post.ts
+"use server";
+
+import { z } from "zod";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { auth } from "@/lib/auth";
+import { db } from "@/lib/db";
+
+const CreatePost = z.object({
+    title: z.string().min(1).max(200),
+    body: z.string().min(1),
+});
+
+export async function createPost(formData: FormData) {
+    const session = await auth();
+    if (!session) throw new Error("Unauthorized");
+
+    // Never trust the client — validate on the server.
+    const data = CreatePost.parse({
+        title: formData.get("title"),
+        body: formData.get("body"),
+    });
+
+    await db.post.create({ data: { ...data, authorId: session.userId } });
+
+    revalidatePath("/posts");
+    redirect("/posts");
+}
+```
+
+```tsx
+// app/posts/new/page.tsx  (Server Component — no client JS needed)
+import { createPost } from "@/app/actions/create-post";
+
+export default function NewPostPage() {
+    return (
+        <form action={createPost}>
+            <input name="title" required />
+            <textarea name="body" required />
+            <button type="submit">Publish</button>
+        </form>
+    );
+}
+```
 
 ---
 
@@ -115,6 +225,38 @@ Prefer:
 
 Avoid request waterfalls.
 
+In Next.js 15+, `fetch()` is **uncached by default** (`no-store`). Caching is opt-in — reach for it deliberately based on freshness requirements.
+
+Bad — assuming the response is cached because it "always was":
+
+```tsx
+// Next 15 fetches this fresh on every request — no caching happens implicitly.
+const res = await fetch("https://api.example.com/pricing");
+```
+
+Good — opt into the strategy the data actually needs:
+
+```tsx
+// Static content: cache indefinitely until manually revalidated.
+const docs = await fetch(url, { cache: "force-cache" });
+
+// Frequently updated content: revalidate on a time interval (seconds).
+const products = await fetch(url, { next: { revalidate: 3600 } });
+
+// Tag-based revalidation, so a mutation can invalidate exactly this data.
+const posts = await fetch(url, { next: { tags: ["posts"] } });
+// elsewhere, after a mutation: revalidateTag("posts");
+
+// User-specific data: keep it fresh and never cache it publicly.
+const cart = await fetch(url, { cache: "no-store" });
+```
+
+Run independent requests in parallel to avoid waterfalls:
+
+```tsx
+const [user, orders] = await Promise.all([getUser(id), getOrders(id)]);
+```
+
 ---
 
 ## API Design
@@ -127,6 +269,73 @@ Design APIs that are:
 - versioned when appropriate.
 
 Validate every request.
+
+Expose HTTP endpoints with Route Handlers (`app/**/route.ts`). Export one async function per HTTP method; use the Web `Request`/`Response` APIs and `NextResponse` for JSON.
+
+```tsx
+// app/api/posts/route.ts
+import { NextResponse } from "next/server";
+import { z } from "zod";
+import { db } from "@/lib/db";
+
+const NewPost = z.object({ title: z.string().min(1) });
+
+export async function GET(request: Request) {
+    const { searchParams } = new URL(request.url);
+    const limit = Number(searchParams.get("limit") ?? "20");
+    const posts = await db.post.findMany({ take: limit });
+    return NextResponse.json(posts);
+}
+
+export async function POST(request: Request) {
+    const parsed = NewPost.safeParse(await request.json());
+    if (!parsed.success) {
+        return NextResponse.json(
+            { error: parsed.error.flatten() },
+            { status: 400 },
+        );
+    }
+    const post = await db.post.create({ data: parsed.data });
+    return NextResponse.json(post, { status: 201 });
+}
+```
+
+Dynamic segments arrive via the second argument. In Next.js 15+, `params` is a `Promise` and must be awaited:
+
+```tsx
+// app/api/posts/[id]/route.ts
+export async function GET(
+    _request: Request,
+    { params }: { params: Promise<{ id: string }> },
+) {
+    const { id } = await params;
+    const post = await db.post.findUnique({ where: { id } });
+    if (!post) return NextResponse.json({ error: "Not found" }, { status: 404 });
+    return NextResponse.json(post);
+}
+```
+
+Note: `params` and `searchParams` in Page/Layout components are also `Promise`-typed in Next.js 15+ and must be awaited.
+
+For cross-cutting concerns (auth redirects, header rewrites), use `middleware.ts` at the project root with a `matcher` so it only runs where needed:
+
+```ts
+// middleware.ts
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+
+export function middleware(request: NextRequest) {
+    const token = request.cookies.get("session")?.value;
+    if (!token) {
+        return NextResponse.redirect(new URL("/login", request.url));
+    }
+    return NextResponse.next();
+}
+
+export const config = {
+    matcher: ["/dashboard/:path*", "/account/:path*"],
+};
+```
 
 ---
 
@@ -141,6 +350,25 @@ Always:
 - use HTTPS.
 
 Never trust client-side validation.
+
+Keep secrets on the server. Only variables prefixed with `NEXT_PUBLIC_` are inlined into the client bundle — everything else is server-only. Read secrets from `process.env` inside Server Components, Route Handlers, or Server Actions.
+
+Bad — a secret prefixed `NEXT_PUBLIC_` is shipped to every browser:
+
+```tsx
+// NEXT_PUBLIC_STRIPE_SECRET_KEY leaks into the client bundle. Never do this.
+const key = process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY;
+```
+
+Good — the secret stays server-side; only the publishable key is exposed:
+
+```tsx
+// Server Action / Route Handler / Server Component only.
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+
+// Safe to use in a Client Component — it is meant to be public.
+const publishable = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+```
 
 ---
 
@@ -157,6 +385,45 @@ Continuously review:
 - network requests.
 
 Measure before optimizing.
+
+Use `next/image` for automatic sizing, lazy loading, and modern formats. Provide `width`/`height` (or `fill`) to reserve layout space and avoid CLS; mark above-the-fold images `priority`.
+
+```tsx
+import Image from "next/image";
+
+export function Hero() {
+    return (
+        <Image
+            src="/hero.jpg"
+            alt="Product hero"
+            width={1200}
+            height={600}
+            priority
+        />
+    );
+}
+```
+
+Load fonts with `next/font` — they are self-hosted at build time (no render-blocking request to a font CDN) and expose a stable class name:
+
+```tsx
+// app/layout.tsx
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"], display: "swap" });
+
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    return (
+        <html lang="en" className={inter.className}>
+            <body>{children}</body>
+        </html>
+    );
+}
+```
 
 ---
 
@@ -185,6 +452,43 @@ Public pages should provide:
 - structured metadata.
 
 Search engines should clearly understand every page.
+
+Export a static `metadata` object for fixed pages, or an async `generateMetadata` when the tags depend on data. For statically rendered dynamic routes, export `generateStaticParams` to pre-build the paths.
+
+```tsx
+// app/blog/[slug]/page.tsx
+import type { Metadata } from "next";
+
+export async function generateStaticParams() {
+    const posts = await getAllPosts();
+    return posts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+    const { slug } = await params;
+    const post = await getPost(slug);
+    return {
+        title: post.title,
+        description: post.excerpt,
+        alternates: { canonical: `/blog/${slug}` },
+        openGraph: { title: post.title, description: post.excerpt },
+    };
+}
+
+export default async function BlogPostPage({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}) {
+    const { slug } = await params;
+    const post = await getPost(slug);
+    return <article>{post.body}</article>;
+}
+```
 
 ---
 

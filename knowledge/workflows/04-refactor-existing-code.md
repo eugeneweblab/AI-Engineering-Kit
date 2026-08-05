@@ -7,7 +7,7 @@ type: doc
 order: 4
 status: ready
 tags: [workflows, refactor-existing-code]
-related: []
+related: [engineering/02-code-review, engineering/03-debugging-methodology, engineering/05-context-first-development, testing/98-production-checklist, testing/99-ai-review-checklist, testing/100-common-antipatterns, architecture/27-architecture-review]
 when_to_use: "Follow this workflow when refactoring existing code without changing its behavior."
 ---
 # Workflow — Refactor Existing Code
@@ -75,6 +75,13 @@ Possible reasons:
 
 Every refactoring should have a clear objective.
 
+Use a decision framework to confirm the change is worth doing now rather than
+deferring it, and name the specific code smell you are targeting. See
+[../engineering/01-decision-framework.md](../engineering/01-decision-framework.md)
+for prioritizing the work and [../testing/100-common-antipatterns.md](../testing/100-common-antipatterns.md)
+and [../architecture/100-common-antipatterns.md](../architecture/100-common-antipatterns.md)
+for cataloguing the smell you intend to remove.
+
 ---
 
 ## Step 2 — Understand Existing Behavior
@@ -90,7 +97,13 @@ Review:
 - edge cases;
 - business rules.
 
-Never refactor code you do not understand.
+Never refactor code you do not understand. Gather the surrounding context and
+reproduce the current behavior before touching anything — the same discipline
+used when diagnosing a defect. See
+[../engineering/05-context-first-development.md](../engineering/05-context-first-development.md)
+for building that understanding and
+[../engineering/03-debugging-methodology.md](../engineering/03-debugging-methodology.md)
+for characterizing behavior systematically.
 
 ---
 
@@ -108,7 +121,13 @@ Inspect:
 - services;
 - tests.
 
-Shared code requires additional caution.
+Shared code requires additional caution. Respect the existing dependency
+direction and module boundaries so the refactoring does not couple layers that
+were intentionally kept separate. See
+[../architecture/03-clean-architecture.md](../architecture/03-clean-architecture.md)
+for reasoning about dependency direction and
+[../architecture/100-common-antipatterns.md](../architecture/100-common-antipatterns.md)
+for the coupling traps to avoid.
 
 ---
 
@@ -132,7 +151,10 @@ Not included
 - dependency upgrades;
 - architecture changes.
 
-Do not expand the scope during implementation.
+Do not expand the scope during implementation. Break the refactoring into a small,
+ordered set of tasks and hold the line on the boundary. See
+[../engineering/04-task-execution.md](../engineering/04-task-execution.md) for
+sequencing the work into safe increments.
 
 ---
 
@@ -147,7 +169,12 @@ Whenever possible:
 - document current behavior;
 - identify critical user flows.
 
-Behavior should be protected before implementation begins.
+Behavior should be protected before implementation begins. Characterization tests
+that pin the current outputs are the safety net that makes an aggressive
+refactoring safe. See [../testing/02-unit-testing.md](../testing/02-unit-testing.md)
+and [../testing/03-integration-testing.md](../testing/03-integration-testing.md)
+for building the net, and [../testing/19-test-coverage.md](../testing/19-test-coverage.md)
+for confirming the critical paths are actually exercised.
 
 ---
 
@@ -165,7 +192,11 @@ Examples:
 
 Verify after every logical step.
 
-Avoid large rewrites.
+Avoid large rewrites. Keep each behavior-preserving step in its own small,
+descriptive commit so the history stays bisectable and any regression is easy to
+isolate or revert. See [../git/04-commits.md](../git/04-commits.md) for structuring
+commits and [../git/23-trunk-based-development.md](../git/23-trunk-based-development.md)
+for keeping increments small and continuously integrated.
 
 ---
 
@@ -182,7 +213,11 @@ Verify:
 - error handling;
 - performance.
 
-Refactoring should not introduce behavioral differences.
+Refactoring should not introduce behavioral differences. Re-run the safety net
+and compare outputs against the pre-refactoring baseline. See
+[../testing/24-best-practices.md](../testing/24-best-practices.md) for reliable
+verification practices and [../testing/22-flaky-tests.md](../testing/22-flaky-tests.md)
+if a test result becomes nondeterministic during the change.
 
 ---
 
@@ -198,7 +233,11 @@ Confirm:
 - reusable abstractions;
 - clear responsibilities.
 
-Every refactoring should leave the codebase in a better state.
+Every refactoring should leave the codebase in a better state. Apply the same
+standards used in a formal review, and confirm the change did not quietly erode
+an architectural boundary. See [../engineering/02-code-review.md](../engineering/02-code-review.md)
+for the quality bar and [../architecture/27-architecture-review.md](../architecture/27-architecture-review.md)
+for checking structural integrity.
 
 ---
 
@@ -318,6 +357,23 @@ After completing this workflow, the AI should be able to explain:
 - which files were modified;
 - how regression risk was minimized;
 - how the result was verified.
+
+---
+
+## Final Checklists
+
+Before marking the refactoring complete, self-verify against the target topic's
+standing checklists. For any change touching tested code, close with:
+
+- [../testing/98-production-checklist.md](../testing/98-production-checklist.md) — production-readiness gate;
+- [../testing/99-ai-review-checklist.md](../testing/99-ai-review-checklist.md) — AI self-review pass;
+- [../testing/100-common-antipatterns.md](../testing/100-common-antipatterns.md) — confirm no antipattern was introduced.
+
+When the refactoring is scoped to a specific stack, also run that topic's
+equivalent `98`/`99`/`100` checklists — for example
+[../react/98-production-checklist.md](../react/98-production-checklist.md) for a
+React component or [../architecture/98-production-checklist.md](../architecture/98-production-checklist.md)
+for a structural change.
 
 ---
 

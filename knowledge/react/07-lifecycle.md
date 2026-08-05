@@ -40,6 +40,10 @@ appear later.
   closures.
 - **Effects must be idempotent.** Because React can run setup → cleanup → setup, running an
   effect twice must be safe. Design for it rather than suppressing it.
+- **Many "lifecycle" needs are not effects at all.** Derived values are computed during
+  render; external stores are read with `useSyncExternalStore`; server data increasingly
+  belongs to a framework loader or a data library. Reach for `useEffect` only when you are
+  genuinely synchronizing with a system outside React and there is no better primitive.
 
 ## Best Practices
 
@@ -55,6 +59,11 @@ appear later.
   *outside* React (network, DOM, subscriptions, timers).
 - Reach for `useLayoutEffect` only when you must read/write layout before paint (measuring
   DOM); it blocks painting, so `useEffect` is the default.
+- Subscribe to an external store (Redux, a browser API, a global event source) with
+  `useSyncExternalStore`, not a hand-rolled `useEffect` + `useState` pair — it stays
+  consistent under concurrent rendering and tearing, and gives you SSR hydration for free.
+- In React 19 a callback `ref` may **return a cleanup function**; put attach/detach logic
+  there instead of an effect when the work is tied to a specific DOM node's lifetime.
 - Wrap subtrees that can throw during render in an [error boundary](19-error-handling.md);
   effects' errors are not caught by boundaries and must be handled locally.
 
@@ -99,6 +108,105 @@ function Room({ roomId }) {
 }
 ```
 
+**Bad Example** — an effect that mirrors props into state (no lifecycle needed)
+
+```jsx
+function Profile({ firstName, lastName }) {
+  const [fullName, setFullName] = useState("");
+
+  // Redundant: renders once with a stale "", then re-renders after the effect.
+  // Creates a second source of truth that can drift from the props.
+  useEffect(() => {
+    setFullName(`${firstName} ${lastName}`);
+  }, [firstName, lastName]);
+
+  return <h1>{fullName}</h1>;
+}
+```
+
+**Good Example** — derive during render; no effect, no extra render
+
+```jsx
+function Profile({ firstName, lastName }) {
+  const fullName = `${firstName} ${lastName}`; // always in sync, one render
+  return <h1>{fullName}</h1>;
+}
+```
+
+**Good Example** — subscribe to an external store with `useSyncExternalStore`
+
+```jsx
+import { useSyncExternalStore } from "react";
+
+function subscribe(callback) {
+  window.addEventListener("online", callback);
+  window.addEventListener("offline", callback);
+  return () => {
+    window.removeEventListener("online", callback);
+    window.removeEventListener("offline", callback);
+  };
+}
+
+function useOnlineStatus() {
+  return useSyncExternalStore(
+    subscribe,
+    () => navigator.onLine, // client snapshot
+    () => true              // server snapshot (assume online during SSR)
+  );
+}
+
+function StatusBadge() {
+  const isOnline = useOnlineStatus();
+  return <span>{isOnline ? "🟢 Online" : "🔴 Offline"}</span>;
+}
+```
+
+**Good Example** — measure layout before paint with `useLayoutEffect`
+
+```jsx
+function MeasuredBox({ children }) {
+  const ref = useRef(null);
+  const [height, setHeight] = useState(0);
+
+  // Reads layout and updates state synchronously before the browser paints,
+  // so the user never sees a flash of the pre-measurement value. useEffect
+  // here would paint height={0} first, then correct it — a visible flicker.
+  useLayoutEffect(() => {
+    setHeight(ref.current.getBoundingClientRect().height);
+  }, [children]);
+
+  return (
+    <div ref={ref} data-height={height}>
+      {children}
+    </div>
+  );
+}
+```
+
+**Good Example** — node-scoped setup via a React 19 ref-callback cleanup
+
+```jsx
+// React 19: a ref callback may return a cleanup fn, run when the node
+// detaches (or the callback identity changes). Ties setup/teardown to the
+// exact DOM node's lifetime — no ref object, no effect, no null-check branch.
+function AutoResizeText({ value }) {
+  return (
+    <textarea
+      defaultValue={value}
+      ref={(node) => {
+        const resize = () => {
+          node.style.height = "auto";
+          node.style.height = `${node.scrollHeight}px`;
+        };
+        resize();
+        node.addEventListener("input", resize);
+        return () => node.removeEventListener("input", resize);
+      }}
+    />
+  );
+}
+```
+
 ## Common Mistakes
 
 - Omitting cleanup for subscriptions, timers, or listeners, causing leaks and stale updates.
@@ -107,6 +215,10 @@ function Room({ roomId }) {
 - Using an effect to mirror props into state, creating a second source of truth.
 - Suppressing the exhaustive-deps lint rule instead of fixing the underlying dependency.
 - Assuming an effect runs once; Strict Mode runs it twice in dev to expose missing cleanup.
+- Hand-rolling a `useEffect` subscription to an external store instead of
+  `useSyncExternalStore`, risking tearing under concurrent rendering and broken hydration.
+- Using `useEffect` for a layout read that feeds the same render, causing a visible flicker
+  that `useLayoutEffect` would prevent.
 
 ## Production Tips
 
@@ -123,6 +235,9 @@ function Room({ roomId }) {
 - Is the effect idempotent — safe to run setup/cleanup/setup twice?
 - Is the effect synchronizing with something outside React, not mirroring props into state?
 - Is `useLayoutEffect` reserved for pre-paint layout reads, with `useEffect` as the default?
+- Are external stores read via `useSyncExternalStore` rather than an ad-hoc effect + state?
+- Could this effect be replaced by a value derived during render, or a React 19 ref-callback
+  cleanup scoped to a single DOM node?
 
 ## Related
 

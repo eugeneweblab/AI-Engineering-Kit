@@ -7,7 +7,17 @@ type: doc
 order: 10
 status: ready
 tags: [figma, design-qa]
-related: []
+related:
+  - figma/13-visual-regression
+  - figma/15-screenshot-comparison
+  - figma/14-figma-inspection-checklist
+  - figma/16-accessibility-from-figma
+  - figma/20-implementation-definition-of-done
+  - accessibility/21-axe
+  - accessibility/10-color-and-contrast
+  - testing/14-visual-regression
+  - performance/18-web-vitals
+  - engineering/02-code-review
 when_to_use: "Read after development, to validate the implementation against the Figma design before code review or acceptance."
 ---
 # Design QA
@@ -159,6 +169,40 @@ Review:
 
 Typography inconsistencies are among the most common implementation issues.
 
+Compare computed values, not impressions. Run this in the browser console against the element
+under review and check the output against the Figma text style:
+
+```js
+// Paste in DevTools console, then click the element you want to inspect.
+document.addEventListener("click", (event) => {
+  event.preventDefault();
+  const s = getComputedStyle(event.target);
+  console.table({
+    tag: event.target.tagName,
+    fontFamily: s.fontFamily,
+    fontSize: s.fontSize,
+    fontWeight: s.fontWeight,
+    lineHeight: s.lineHeight,
+    letterSpacing: s.letterSpacing,
+    color: s.color,
+  });
+}, { capture: true, once: true });
+```
+
+Figma reports line height in pixels (`lineHeightPx`) while CSS often carries a unitless
+ratio — normalize before comparing: `lineHeightPx / fontSize` is the ratio to expect.
+
+Heading hierarchy is checkable in one line, and a skipped level is a defect even when it
+looks correct:
+
+```js
+console.table(
+  [...document.querySelectorAll("h1,h2,h3,h4,h5,h6")]
+    .map((h) => ({ level: +h.tagName[1], text: h.textContent.trim().slice(0, 60) }))
+);
+// Expect exactly one h1, and no jump greater than one level between consecutive entries.
+```
+
 ---
 
 ## Step 6 — Spacing
@@ -222,6 +266,40 @@ Verify:
 
 Responsive behavior should be intentional.
 
+Script the sweep so every breakpoint is reviewed the same way each time, instead of dragging
+the window until something looks wrong:
+
+```js
+// qa/breakpoints.spec.ts — Playwright
+import { test, expect } from "@playwright/test";
+
+const VIEWPORTS = [
+  { name: "desktop", width: 1440, height: 900 },
+  { name: "laptop", width: 1280, height: 800 },
+  { name: "tablet", width: 768, height: 1024 },
+  { name: "mobile", width: 390, height: 844 },
+];
+
+for (const vp of VIEWPORTS) {
+  test(`pricing page at ${vp.name}`, async ({ page }) => {
+    await page.setViewportSize({ width: vp.width, height: vp.height });
+    await page.goto("/pricing");
+
+    // No horizontal overflow: the most common responsive defect.
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth > document.documentElement.clientWidth
+    );
+    expect(overflow, `horizontal scrollbar at ${vp.name}`).toBe(false);
+
+    await expect(page).toHaveScreenshot(`pricing-${vp.name}.png`, { maxDiffPixelRatio: 0.01 });
+  });
+}
+```
+
+See [Visual Regression](13-visual-regression.md) for turning these snapshots into a gate, and
+[Screenshot Comparison](15-screenshot-comparison.md) for comparing against the Figma export
+rather than a previous build.
+
 ---
 
 ## Step 9 — Interaction Review
@@ -255,6 +333,29 @@ Verify:
 - contrast.
 
 Accessibility is part of design quality.
+
+Automate what can be automated before reviewing by hand — the manual pass is for what the
+scanner cannot see (focus order, meaningful alt text, sensible labels):
+
+```js
+// qa/a11y.spec.ts — Playwright + axe-core
+import { test, expect } from "@playwright/test";
+import AxeBuilder from "@axe-core/playwright";
+
+test("pricing page has no detectable a11y violations", async ({ page }) => {
+  await page.goto("/pricing");
+  const results = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+    .analyze();
+
+  expect(results.violations.map((v) => `${v.id}: ${v.nodes.length} node(s)`)).toEqual([]);
+});
+```
+
+An automated scan catches roughly a third of real accessibility defects — treat a clean run
+as the floor, not the verdict. See [Accessibility — Axe](../accessibility/21-axe.md),
+[Accessibility — Color and Contrast](../accessibility/10-color-and-contrast.md), and
+[Accessibility from Figma](16-accessibility-from-figma.md) for the checks that stay manual.
 
 ---
 
@@ -351,6 +452,40 @@ For every issue include:
 - description;
 - expected result;
 - recommended fix.
+
+Write findings as data so they can be counted, filtered, and turned into tickets:
+
+```json
+{
+  "page": "/pricing",
+  "reviewedAt": "2026-07-14",
+  "figmaFrames": { "desktop": "2:10", "mobile": "2:12" },
+  "findings": [
+    {
+      "severity": "major",
+      "area": "responsive",
+      "location": "PlanGrid — mobile (390px)",
+      "observed": "Three columns remain side by side; the card content overflows horizontally.",
+      "expected": "Single column, cards stacked with spacing-lg between them (Figma 2:12).",
+      "fix": "Change the grid to `grid-cols-1 md:grid-cols-2 lg:grid-cols-3`.",
+      "evidence": "qa/screens/pricing-mobile.png"
+    },
+    {
+      "severity": "minor",
+      "area": "typography",
+      "location": "PlanCard — price label",
+      "observed": "font-size 18px / line-height 28px",
+      "expected": "font-size 20px / line-height 28px (text-heading-sm)",
+      "fix": "Use the `text-heading-sm` token instead of a literal size."
+    }
+  ],
+  "positive": ["Reused the existing Button component", "Correct heading hierarchy"],
+  "recommendation": "request-changes"
+}
+```
+
+`observed` and `expected` must both be concrete values. "Spacing looks off" is not a finding
+a developer can act on; "32px instead of the 24px `spacing-lg` token" is.
 
 ---
 
@@ -449,6 +584,17 @@ A Design QA review is complete when:
 - issues are categorized by severity;
 - a final recommendation is provided;
 - the implementation is considered ready for production or returned for revision.
+
+---
+
+## Related Knowledge
+
+- [Figma Inspection Checklist](14-figma-inspection-checklist.md) — the pre-implementation counterpart of this review.
+- [Screenshot Comparison](15-screenshot-comparison.md) and [Visual Regression](13-visual-regression.md) — mechanized comparison and the CI gate.
+- [Implementation Definition of Done](20-implementation-definition-of-done.md) — the criteria this review is measured against.
+- [Testing — Visual Regression](../testing/14-visual-regression.md) and [Testing — Accessibility Testing](../testing/18-accessibility-testing.md) — the wider testing practice.
+- [Performance — Web Vitals](../performance/18-web-vitals.md) — layout shift and loading metrics for the performance step.
+- [Engineering — Code Review](../engineering/02-code-review.md) — how these findings enter the review process.
 
 ---
 

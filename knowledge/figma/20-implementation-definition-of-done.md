@@ -7,7 +7,19 @@ type: doc
 order: 20
 status: ready
 tags: [figma, implementation-definition-of-done]
-related: []
+related:
+  - figma/10-design-qa
+  - figma/13-visual-regression
+  - figma/15-screenshot-comparison
+  - figma/16-accessibility-from-figma
+  - figma/19-design-handoff
+  - workflows/01-implement-figma-design
+  - workflows/05-review-pull-request
+  - testing/27-quality-gates
+  - performance/23-performance-budget
+  - performance/18-web-vitals
+  - accessibility/98-production-checklist
+  - engineering/02-code-review
 when_to_use: "Read before marking a Figma implementation complete, to confirm it meets the mandatory Definition of Done."
 ---
 # Implementation Definition of Done
@@ -27,6 +39,28 @@ An implementation is considered complete only when every requirement in this doc
 Code completion is not task completion.
 
 A feature is complete only after implementation, verification, review, testing, and documentation have been finished.
+
+A checklist that is only ever read gets ticked from memory. Make the mechanical half
+executable, so the human half gets the attention it needs:
+
+```json
+// package.json
+{
+  "scripts": {
+    "dod": "npm-run-all --continue-on-error dod:*",
+    "dod:types": "tsc --noEmit",
+    "dod:lint": "eslint . --max-warnings 0",
+    "dod:a11y": "playwright test tests/a11y",
+    "dod:visual": "playwright test tests/visual",
+    "dod:budget": "lhci autorun"
+  }
+}
+```
+
+`--continue-on-error` matters: you want the full list of what fails in one run, not the first
+failure and a blind spot behind it. What stays manual — design fidelity, whether the
+abstraction is right, whether the empty state makes sense — is exactly what no script can
+judge.
 
 ---
 
@@ -192,6 +226,44 @@ Verify:
 
 Implementation quality includes runtime performance.
 
+"Performance remains acceptable" is unverifiable until it carries numbers. Declare the budget,
+then let CI enforce it:
+
+```json
+// lighthouserc.json
+{
+  "ci": {
+    "collect": {
+      "url": ["http://localhost:3000/pricing"],
+      "numberOfRuns": 3,
+      "settings": { "preset": "desktop" }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance":   ["error", { "minScore": 0.9 }],
+        "categories:accessibility": ["error", { "minScore": 1.0 }],
+        "largest-contentful-paint": ["error", { "maxNumericValue": 2500 }],
+        "cumulative-layout-shift":  ["error", { "maxNumericValue": 0.1 }],
+        "total-byte-weight":        ["warn",  { "maxNumericValue": 1600000 }],
+        "unused-css-rules":         ["warn",  { "maxLength": 0 }]
+      }
+    },
+    "upload": { "target": "temporary-public-storage" }
+  }
+}
+```
+
+Two failures recur when implementing a design and are worth checking directly, since both
+originate in the markup rather than the build:
+
+- **CLS from images** — an `img` without `width`/`height` (or an aspect-ratio box) reserves no
+  space, so everything below it jumps when it loads.
+- **LCP from the hero** — the largest above-the-fold image must be eagerly loaded and
+  preloaded; a lazy-loaded hero delays LCP by a full round trip.
+
+See [Performance — Performance Budget](../performance/23-performance-budget.md) and
+[Performance — Web Vitals](../performance/18-web-vitals.md).
+
 ---
 
 ## Stage 7 — Code Quality
@@ -311,6 +383,43 @@ Examples:
 
 Do not hide known limitations.
 
+Report against the acceptance criteria from the handoff, with evidence rather than assertion:
+
+```md
+## Completion Report — Pricing Page
+
+**Branch**: `feat/pricing-page` · **Handoff**: `design/handoff/pricing.md`
+
+### Work Completed
+- Created `PlanCard` (`src/components/pricing/PlanCard.tsx`) — grid | list variants.
+- Created `ComparisonTable` — horizontally scrollable region below 1024px.
+- Reused `Button`, `Badge`, `Accordion` — no new UI primitives introduced.
+- Plans render from the Stripe API through a server component; empty and error states included.
+
+### Verification
+| Criterion | Result | Evidence |
+|---|---|---|
+| Matches frames at 1440 / 768 / 390 | pass | `out/diff-*.png` — max 0.8%, text antialiasing only |
+| No horizontal scroll from 320px | pass | `tests/visual/pages.spec.ts` |
+| Keyboard reaches every CTA, focus visible | pass | manual, Safari + Chrome |
+| axe wcag2a/wcag2aa clean | pass | `npm run dod:a11y` |
+| LCP < 2.5s, CLS < 0.1 | pass | LCP 1.9s · CLS 0.02 (`lhci`) |
+| Plan data from API incl. empty/error | pass | `PlanGrid.test.tsx` |
+
+### Deviations From Design
+- Focus ring not specified in the file — implemented with `--color-focus` (2px, 2px offset).
+- Caption color `#9CA3AF` fails AA at 2.54:1; shipped with `#6B7280` (5.05:1) pending a
+  design decision. Flagged to @maria.
+
+### Known Limitations
+- ComparisonTable scrolls horizontally on mobile; the collapse-to-cards alternative from
+  open question #1 was not designed. Ticket PRICE-241.
+- Annual/monthly toggle is out of scope for this ticket.
+```
+
+The Deviations section is the point of the report. An unreported deviation looks identical to
+a defect at review time, and identical to an accepted decision six months later.
+
 ---
 
 ## AI Execution Checklist
@@ -375,6 +484,18 @@ Implementation is complete only when:
 - testing has been completed;
 - documentation has been updated;
 - the feature is ready for production deployment.
+
+---
+
+## Related Knowledge
+
+- [Design QA](10-design-qa.md) — the review that produces the evidence for Stage 3.
+- [Screenshot Comparison](15-screenshot-comparison.md) and [Visual Regression](13-visual-regression.md) — mechanized design verification.
+- [Accessibility from Figma](16-accessibility-from-figma.md) — what Stage 4 checks and where those requirements came from.
+- [Design Handoff](19-design-handoff.md) — the acceptance criteria this report answers.
+- [Workflow — Implement a Figma Design](../workflows/01-implement-figma-design.md) and [Workflow — Review a Pull Request](../workflows/05-review-pull-request.md) — the surrounding process.
+- [Testing — Quality Gates](../testing/27-quality-gates.md) — turning these stages into CI gates.
+- [Accessibility — Production Checklist](../accessibility/98-production-checklist.md), [Frontend — Production Checklist](../frontend/98-production-checklist.md), and [Performance — Production Checklist](../performance/98-production-checklist.md) — the topic checklists to close with.
 
 ---
 

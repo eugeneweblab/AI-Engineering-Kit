@@ -7,7 +7,7 @@ type: doc
 order: 14
 status: ready
 tags: [nextjs, authentication]
-related: []
+related: [nextjs/15-authorization, nextjs/13-middleware, nextjs/11-server-actions, nextjs/06-server-components, nextjs/21-environment-variables, nextjs/24-security]
 when_to_use: "Read before implementing authentication or authorization in a Next.js app."
 ---
 # Next.js Authentication
@@ -96,6 +96,61 @@ A session should contain only the minimum information required to identify the a
 
 Avoid storing business data inside sessions.
 
+Centralize session logic in one `server-only` module so cookie handling never leaks into the
+client bundle. In Next.js 15+, `cookies()`, `headers()`, and `draftMode()` are **async** — you
+must `await` them. Cookies can only be *written* inside a Server Action or a Route Handler;
+attempting `cookies().set()` during a Server Component render throws.
+
+```ts
+// src/server/session.ts
+import 'server-only';
+import { cookies } from 'next/headers';
+import { SignJWT, jwtVerify, type JWTPayload } from 'jose';
+
+// Server-only secret — NO NEXT_PUBLIC_ prefix, or it ships to the browser.
+const key = new TextEncoder().encode(process.env.SESSION_SECRET);
+const COOKIE = 'session';
+const MAX_AGE = 60 * 60 * 24 * 7; // 7 days, in seconds
+
+export async function createSession(userId: string) {
+  const token = await new SignJWT({ sub: userId })
+    .setProtectedHeader({ alg: 'HS256' })
+    .setIssuedAt()
+    .setExpirationTime('7d')
+    .sign(key);
+
+  const cookieStore = await cookies(); // async in Next 15+
+  cookieStore.set(COOKIE, token, {
+    httpOnly: true,                              // invisible to document.cookie
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',                             // survives top-level OAuth redirects
+    path: '/',
+    maxAge: MAX_AGE,
+  });
+}
+
+// Returns a verified payload or null. Never trust the raw cookie value.
+export async function getSession(): Promise<JWTPayload | null> {
+  const token = (await cookies()).get(COOKIE)?.value;
+  if (!token) return null;
+  try {
+    const { payload } = await jwtVerify(token, key, { algorithms: ['HS256'] });
+    return payload; // signature + expiry checked by jwtVerify
+  } catch {
+    return null; // tampered, expired, or wrong algorithm
+  }
+}
+
+export async function deleteSession() {
+  (await cookies()).delete(COOKIE);
+}
+```
+
+Session identity is per-request and must never be shared across users. Do **not** put it behind
+the Data Cache (`fetch` is uncached by default in Next 15, so this is safe unless you opt in).
+To deduplicate the session read within a single request, wrap it in React's `cache()`, not a
+cross-request cache.
+
 ---
 
 ## Cookies
@@ -108,6 +163,25 @@ Authentication cookies should be:
 - encrypted or signed where appropriate.
 
 Never expose authentication cookies to client-side JavaScript.
+
+**Good** — signed, HttpOnly, scoped, transport-secure:
+
+```ts
+(await cookies()).set('session', token, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === 'production',
+  sameSite: 'lax',
+  path: '/',
+  maxAge: 60 * 60 * 24 * 7,
+});
+```
+
+**Bad** — readable by any script, unsigned, sent over plain HTTP:
+
+```ts
+// XSS steals it via document.cookie; the raw userId is client-forgeable.
+(await cookies()).set('session', userId, { httpOnly: false });
+```
 
 ---
 
@@ -123,6 +197,18 @@ Verify:
 - audience.
 
 Never trust an unsigned or expired token.
+
+Pin the algorithm on verification (`algorithms: ['HS256']`) to defeat `alg: none` and
+algorithm-confusion attacks. `jwtVerify` from `jose` runs in the Edge and Node runtimes, so the
+same `getSession()` helper works in Server Components, Route Handlers, and (sparingly) Middleware:
+
+```ts
+const { payload } = await jwtVerify(token, key, {
+  algorithms: ['HS256'],        // reject anything else — do not read alg from the token
+  issuer: 'https://auth.example.com',
+  audience: 'example-app',
+});
+```
 
 ---
 
@@ -257,6 +343,41 @@ Typical responsibilities:
 
 Complex authorization belongs inside Server Components, Route Handlers, or Server Actions.
 
+Treat middleware as an **optimistic** gate: it redirects obviously-anonymous traffic early, but
+it is not the authoritative check. Middleware runs before routing and has been bypassed by forged
+internal headers (the 2025 `x-middleware-subrequest` CVE), so the real verification must live next
+to the data. Use a `matcher` so it never runs on static assets or the login route itself.
+
+**Good** — presence check + redirect, real verification deferred to the Data Access Layer:
+
+```ts
+// middleware.ts
+import { NextResponse, type NextRequest } from 'next/server';
+
+export function middleware(req: NextRequest) {
+  const hasSession = req.cookies.has('session'); // presence only — cheap, non-authoritative
+  if (!hasSession) {
+    const url = new URL('/login', req.url);
+    url.searchParams.set('next', req.nextUrl.pathname);
+    return NextResponse.redirect(url);
+  }
+  return NextResponse.next();
+}
+
+export const config = {
+  // Run only on protected sections; skip _next, static files, and public routes.
+  matcher: ['/dashboard/:path*', '/billing/:path*', '/settings/:path*'],
+};
+```
+
+**Bad** — treating the middleware redirect as the whole defense:
+
+```ts
+// If a Route Handler or Server Component under /dashboard reads data WITHOUT re-checking
+// the session, a request that skips middleware (matcher gap, forged header) reaches the data.
+// Middleware guards navigation, not data. Always re-verify in the DAL.
+```
+
 ---
 
 ## Server Components
@@ -269,6 +390,32 @@ Server Components should:
 - render protected content.
 
 Keep sensitive operations on the server.
+
+Verify the session at the top of the protected component (or in the DAL it calls) — not once in a
+layout, since layouts do not re-render on client-side navigation. Wrap the resolved user in
+React's `cache()` so multiple components in the same render tree share one verification, not one
+per call:
+
+```tsx
+// src/server/current-user.ts
+import 'server-only';
+import { cache } from 'react';
+import { redirect } from 'next/navigation';
+import { getSession } from './session';
+import { getUserById } from './users';
+
+export const requireUser = cache(async () => {
+  const session = await getSession();          // verified signature + expiry
+  if (!session?.sub) redirect('/login');       // fail closed
+  return getUserById(session.sub);
+});
+
+// app/dashboard/page.tsx  (Server Component — no "use client")
+export default async function DashboardPage() {
+  const user = await requireUser();            // enforced on every render
+  return <h1>Welcome, {user.name}</h1>;
+}
+```
 
 ---
 
@@ -294,6 +441,56 @@ Every Server Action should verify:
 
 Never assume that the client has already validated permissions.
 
+A Server Action is a public POST endpoint — anyone can invoke it, with any payload. Sign-in and
+sign-out are themselves Server Actions that set or clear the session cookie (which is why cookie
+mutation is allowed here but not during render):
+
+```ts
+// app/(auth)/actions.ts
+'use server';
+import { redirect } from 'next/navigation';
+import { createSession, deleteSession } from '@/server/session';
+import { verifyCredentials } from '@/server/users';
+
+// Shape works with useActionState on the client form.
+export async function login(_prev: unknown, formData: FormData) {
+  const email = String(formData.get('email') ?? '');
+  const password = String(formData.get('password') ?? '');
+
+  const user = await verifyCredentials(email, password); // constant-time hash compare
+  if (!user) return { error: 'Invalid email or password' }; // do not reveal which field
+
+  await createSession(user.id);
+  redirect('/dashboard');
+}
+
+export async function logout() {
+  await deleteSession();
+  redirect('/login');
+}
+```
+
+The form is a thin Client Component that only collects input and calls the action — it makes no
+authorization decision:
+
+```tsx
+'use client';
+import { useActionState } from 'react';
+import { login } from './actions';
+
+export function LoginForm() {
+  const [state, action, pending] = useActionState(login, null);
+  return (
+    <form action={action}>
+      <input name="email" type="email" autoComplete="email" required />
+      <input name="password" type="password" autoComplete="current-password" required />
+      {state?.error && <p role="alert">{state.error}</p>}
+      <button disabled={pending}>Sign in</button>
+    </form>
+  );
+}
+```
+
 ---
 
 ## API Routes
@@ -305,6 +502,29 @@ Every protected API endpoint should:
 - validate the input.
 
 Security should never depend on the client application.
+
+A Route Handler (`app/**/route.ts`) is a bare HTTP entry point with no implicit auth — verify the
+session before doing anything, and return `401` when it is missing. OAuth callbacks are also Route
+Handlers: they validate the `state` parameter, exchange the code, then create the session cookie:
+
+```ts
+// app/api/me/route.ts
+import { NextResponse } from 'next/server';
+import { getSession } from '@/server/session';
+
+export async function GET() {
+  const session = await getSession();
+  if (!session) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  return NextResponse.json({ userId: session.sub });
+}
+```
+
+Do not rely on `fetch` caching for authenticated responses. In Next 15 `fetch` is uncached by
+default, but if you opt a request into the Data Cache (`cache: "force-cache"` or
+`next: { revalidate }`), never do so for per-user data — a cached response can be served to the
+wrong user.
 
 ---
 
@@ -318,6 +538,26 @@ Logout should:
 
 Users should immediately lose access to protected resources.
 
+The `logout` Server Action above deletes the cookie and redirects. If any authenticated content was
+opted into the cache, evict it on sign-out so a stale render cannot leak the previous user's data:
+
+```ts
+'use server';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
+import { deleteSession } from '@/server/session';
+
+export async function logout() {
+  await deleteSession();
+  revalidatePath('/', 'layout'); // drop cached authenticated segments
+  redirect('/login');
+}
+```
+
+For truly stateless JWTs there is no server record to revoke before expiry; keep sessions
+short-lived and maintain a server-side revocation list (or rotate the signing key) if immediate
+invalidation is required.
+
 ---
 
 ## Password Security
@@ -330,6 +570,30 @@ If passwords are stored:
 - enforce strong password policies.
 
 Credential handling must follow industry best practices.
+
+Use a memory-hard algorithm (Argon2id preferred, bcrypt acceptable) with a per-password salt,
+which the library embeds in the hash string. Hashing runs in the Node.js runtime, so keep it out
+of Middleware. The verify step must compare against the stored hash, never a fetched plaintext:
+
+```ts
+// src/server/users.ts
+import 'server-only';
+import { hash, verify } from '@node-rs/argon2';
+
+export async function hashPassword(plain: string) {
+  return hash(plain); // salt generated and embedded automatically
+}
+
+export async function verifyCredentials(email: string, password: string) {
+  const user = await db.user.findUnique({ where: { email } });
+  if (!user) {
+    await hash(password); // dummy work: keep timing uniform for unknown emails
+    return null;
+  }
+  const ok = await verify(user.passwordHash, password);
+  return ok ? user : null;
+}
+```
 
 ---
 

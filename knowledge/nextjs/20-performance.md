@@ -84,6 +84,86 @@ Every Client Component increases:
 
 Keep interactive boundaries as small as possible.
 
+Push `"use client"` down to the smallest interactive leaf. A `"use client"` directive at the top of a file marks that module and every module it imports as part of the client bundle. Keep the page a Server Component and isolate only the interactive part.
+
+Good:
+
+```tsx
+// app/products/[id]/page.tsx  — Server Component (no "use client")
+import { AddToCartButton } from "./add-to-cart-button";
+
+export default async function ProductPage({
+    params,
+}: {
+    params: Promise<{ id: string }>;
+}) {
+    const { id } = await params;
+    // Rendered on the server; no JS shipped for this markup.
+    const product = await getProduct(id);
+
+    return (
+        <article>
+            <h1>{product.name}</h1>
+            <p>{product.description}</p>
+            {/* Only this button and its dependencies hydrate on the client. */}
+            <AddToCartButton productId={product.id} />
+        </article>
+    );
+}
+```
+
+```tsx
+// app/products/[id]/add-to-cart-button.tsx
+"use client";
+
+import { useState } from "react";
+
+export function AddToCartButton({ productId }: { productId: string }) {
+    const [pending, setPending] = useState(false);
+    return (
+        <button
+            disabled={pending}
+            onClick={async () => {
+                setPending(true);
+                await fetch("/api/cart", {
+                    method: "POST",
+                    body: JSON.stringify({ productId }),
+                });
+                setPending(false);
+            }}
+        >
+            {pending ? "Adding…" : "Add to cart"}
+        </button>
+    );
+}
+```
+
+Bad:
+
+```tsx
+// "use client" at the page root drags the entire subtree — description,
+// layout, and every imported helper — into the client bundle just to make
+// one button interactive.
+"use client";
+
+import { useState } from "react";
+
+export default function ProductPage({ product }: { product: Product }) {
+    const [pending, setPending] = useState(false);
+    return (
+        <article>
+            <h1>{product.name}</h1>
+            <p>{product.description}</p>
+            <button disabled={pending} onClick={() => setPending(true)}>
+                Add to cart
+            </button>
+        </article>
+    );
+}
+```
+
+`params` (and `searchParams`) are async in Next 15+ and must be awaited. A Client Component also cannot be `async` or `await params`; keep data loading in the Server Component and pass plain props down.
+
 ---
 
 ## Bundle Optimization
@@ -128,6 +208,48 @@ Use dynamic imports for:
 
 Load code only when it becomes necessary.
 
+Use `next/dynamic` to split a heavy Client Component out of the initial bundle. It returns a component that loads its code on demand and can render a lightweight fallback while the chunk downloads.
+
+Good:
+
+```tsx
+"use client";
+
+import dynamic from "next/dynamic";
+
+// The chart library is not in the initial bundle; it loads when this
+// component mounts. ssr: false skips server rendering for a browser-only lib.
+const RevenueChart = dynamic(() => import("./revenue-chart"), {
+    loading: () => <div aria-busy="true">Loading chart…</div>,
+    ssr: false,
+});
+
+export function Dashboard() {
+    return (
+        <section>
+            <h2>Revenue</h2>
+            <RevenueChart />
+        </section>
+    );
+}
+```
+
+Bad:
+
+```tsx
+"use client";
+
+// Statically imported -> the entire charting library ships in the initial
+// bundle and runs on every page load, even for users who never scroll to it.
+import RevenueChart from "./revenue-chart";
+
+export function Dashboard() {
+    return <RevenueChart />;
+}
+```
+
+`ssr: false` is only allowed inside a Client Component. In a Server Component, `next/dynamic` still code-splits but renders on the server; use it there to defer a large but server-renderable component. Do not wrap above-the-fold, critical content in a dynamic import — the extra request delays first paint.
+
 ---
 
 ## Lazy Loading
@@ -168,6 +290,57 @@ Optimize fonts by:
 
 Avoid layout shifts caused by late font loading.
 
+Use `next/font` to self-host fonts automatically. At build time it downloads the font files, serves them from your own origin (no request to a third-party server at runtime), and computes fallback metrics that reduce layout shift while the web font loads.
+
+Good:
+
+```tsx
+// app/layout.tsx
+import { Inter } from "next/font/google";
+
+// Downloaded and self-hosted at build time; subset to the characters used.
+const inter = Inter({
+    subsets: ["latin"],
+    display: "swap",
+    variable: "--font-inter",
+});
+
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    return (
+        <html lang="en" className={inter.variable}>
+            <body>{children}</body>
+        </html>
+    );
+}
+```
+
+Bad:
+
+```tsx
+// A blocking <link> to a third-party font host: extra DNS + connection on the
+// critical path, no automatic fallback metrics, and a request that leaks to an
+// external origin. next/font eliminates all three.
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+    return (
+        <html lang="en">
+            <head>
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+                    rel="stylesheet"
+                />
+            </head>
+            <body>{children}</body>
+        </html>
+    );
+}
+```
+
+Load fonts once in the root layout rather than per component, and keep the number of families and weights small — each variant is another file to download.
+
 ---
 
 ## Data Fetching
@@ -182,6 +355,47 @@ Prefer:
 - caching.
 
 Avoid request waterfalls.
+
+Independent requests should be issued together, not one after another. Awaiting each `fetch` in sequence forces the second request to wait for the first even when they do not depend on each other. Start them concurrently and await them with `Promise.all`.
+
+Good:
+
+```tsx
+export default async function AccountPage() {
+    // Both requests start immediately and resolve in parallel.
+    // In Next 15+ fetch is uncached by default; opt in per request when the
+    // data can tolerate staleness.
+    const [profile, orders] = await Promise.all([
+        fetch("https://api.example.com/profile", {
+            next: { revalidate: 60 }, // cache + revalidate every 60s
+        }).then((r) => r.json()),
+        fetch("https://api.example.com/orders", {
+            cache: "no-store", // always fresh
+        }).then((r) => r.json()),
+    ]);
+
+    return <AccountView profile={profile} orders={orders} />;
+}
+```
+
+Bad:
+
+```tsx
+export default async function AccountPage() {
+    // Waterfall: orders does not start until profile resolves, even though
+    // the two requests are unrelated. Total latency is the sum, not the max.
+    const profile = await fetch("https://api.example.com/profile").then((r) =>
+        r.json(),
+    );
+    const orders = await fetch("https://api.example.com/orders").then((r) =>
+        r.json(),
+    );
+
+    return <AccountView profile={profile} orders={orders} />;
+}
+```
+
+Within a single render pass, `fetch` requests with identical URL and options are automatically memoized, so calling the same endpoint from several components does not issue duplicate network requests. This request memoization is separate from the Data Cache and applies whether or not the request is cached.
 
 ---
 
@@ -213,6 +427,59 @@ Examples:
 - dashboards.
 
 Streaming improves perceived performance.
+
+Wrap a slow, independent section in `<Suspense>` so the fast shell streams to the browser immediately while the slow part renders. The page does not block on its slowest data source.
+
+Good:
+
+```tsx
+import { Suspense } from "react";
+
+export default function DashboardPage() {
+    return (
+        <main>
+            {/* Shell and header stream immediately. */}
+            <h1>Dashboard</h1>
+
+            {/* The slow widget streams in when ready; its fallback shows first. */}
+            <Suspense fallback={<p aria-busy="true">Loading analytics…</p>}>
+                <Analytics />
+            </Suspense>
+        </main>
+    );
+}
+
+async function Analytics() {
+    // A slow, uncached request lives inside the boundary so it cannot
+    // delay the rest of the page.
+    const data = await fetch("https://api.example.com/analytics", {
+        cache: "no-store",
+    }).then((r) => r.json());
+
+    return <AnalyticsView data={data} />;
+}
+```
+
+A `loading.tsx` file in a route segment is sugar for wrapping that segment's `page` in a Suspense boundary, giving an instant loading state during navigation. Use explicit `<Suspense>` boundaries when only part of a page is slow.
+
+Bad:
+
+```tsx
+// No boundary: the whole page blocks until the analytics request resolves,
+// so nothing renders — the header, nav, and shell all wait on the slowest fetch.
+export default async function DashboardPage() {
+    const data = await fetch("https://api.example.com/analytics", {
+        cache: "no-store",
+    }).then((r) => r.json());
+
+    return (
+        <main>
+            <h1>Dashboard</h1>
+            <AnalyticsView data={data} />
+        </main>
+    );
+}
+```
 
 ---
 

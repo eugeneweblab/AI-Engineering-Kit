@@ -58,6 +58,39 @@ Provider, overusing it makes components hard to test and reuse in isolation.
   A narrower Provider re-renders a smaller tree.
 - For frequently-changing values with many consumers, prefer an external store
   (`useSyncExternalStore`, Zustand, Redux) that lets components subscribe to slices.
+- In React 19, render the context object directly as the provider: `<ThemeContext value={x}>`.
+  `<ThemeContext.Provider>` still works but is deprecated; new code should drop `.Provider`.
+- Prefer React 19's `use(Context)` over `useContext` when you must read a Context conditionally
+  (inside an `if` or early-return branch). `use` is exempt from the rules-of-hooks call-order
+  restriction; `useContext` is not.
+
+## React 19 Provider and `use`
+
+React 19 lets the Context object *be* the Provider, and adds `use(Context)` — a reader
+that, unlike `useContext`, may be called conditionally.
+
+```tsx
+import { createContext, use, useState } from "react";
+
+const ThemeContext = createContext<"light" | "dark" | null>(null);
+
+function App() {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  // React 19: no `.Provider`. `<ThemeContext.Provider>` still compiles but is deprecated.
+  return (
+    <ThemeContext value={theme}>
+      <Toolbar showThemedIcon />
+    </ThemeContext>
+  );
+}
+
+function Toolbar({ showThemedIcon }: { showThemedIcon: boolean }) {
+  // `use` can sit behind a condition — `useContext` here would violate rules of hooks.
+  const theme = showThemedIcon ? use(ThemeContext) : "light";
+  if (theme === null) throw new Error("Toolbar must render under <ThemeContext>");
+  return <Icon variant={theme} />;
+}
+```
 
 ## Examples
 
@@ -71,12 +104,13 @@ const ThemeDispatchContext = createContext<(t: Theme) => void>(() => {});
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
   // setTheme is stable, so dispatch consumers never re-render on theme change.
+  // React 19 provider syntax: render the Context object directly, no `.Provider`.
   return (
-    <ThemeStateContext.Provider value={theme}>
-      <ThemeDispatchContext.Provider value={setTheme}>
+    <ThemeStateContext value={theme}>
+      <ThemeDispatchContext value={setTheme}>
         {children}
-      </ThemeDispatchContext.Provider>
-    </ThemeStateContext.Provider>
+      </ThemeDispatchContext>
+    </ThemeStateContext>
   );
 }
 
@@ -108,6 +142,89 @@ export function AppProvider({ children }) {
 // No guard: outside the Provider this is `undefined` and crashes deep in render.
 export const useApp = () => useContext(AppContext);
 ```
+
+**Good Example** — `useReducer` with a stable `dispatch` in its own Context
+
+The reducer scales the split-context pattern: state lives in one Context, and `dispatch`
+(which React guarantees is stable for the component's lifetime) lives in another, so
+action-only consumers never re-render when state changes.
+
+```tsx
+import { createContext, use, useReducer, type Dispatch, type ReactNode } from "react";
+
+type CartItem = { id: string; qty: number };
+type CartState = { items: CartItem[] };
+type CartAction =
+  | { type: "add"; id: string }
+  | { type: "remove"; id: string };
+
+function cartReducer(state: CartState, action: CartAction): CartState {
+  switch (action.type) {
+    case "add": {
+      const existing = state.items.find((i) => i.id === action.id);
+      return existing
+        ? { items: state.items.map((i) => (i.id === action.id ? { ...i, qty: i.qty + 1 } : i)) }
+        : { items: [...state.items, { id: action.id, qty: 1 }] };
+    }
+    case "remove":
+      return { items: state.items.filter((i) => i.id !== action.id) };
+  }
+}
+
+const CartStateContext = createContext<CartState | null>(null);
+const CartDispatchContext = createContext<Dispatch<CartAction> | null>(null);
+
+export function CartProvider({ children }: { children: ReactNode }) {
+  const [state, dispatch] = useReducer(cartReducer, { items: [] });
+  // No useMemo needed: `state` is a new reference only when it actually changes,
+  // and `dispatch` is referentially stable across renders.
+  return (
+    <CartStateContext value={state}>
+      <CartDispatchContext value={dispatch}>{children}</CartDispatchContext>
+    </CartStateContext>
+  );
+}
+
+export function useCart() {
+  const state = use(CartStateContext);
+  if (state === null) throw new Error("useCart must be used within <CartProvider>");
+  return state;
+}
+
+export function useCartDispatch() {
+  const dispatch = use(CartDispatchContext);
+  if (dispatch === null) throw new Error("useCartDispatch must be used within <CartProvider>");
+  return dispatch;
+}
+
+// An "Add to cart" button reads only dispatch — it never re-renders when the cart changes.
+function AddButton({ id }: { id: string }) {
+  const dispatch = useCartDispatch();
+  return <button onClick={() => dispatch({ type: "add", id })}>Add</button>;
+}
+```
+
+**Bad Example** — a hot value in Context re-renders every consumer on every change
+
+```tsx
+const MouseContext = createContext({ x: 0, y: 0 });
+
+function MouseProvider({ children }: { children: React.ReactNode }) {
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  // Fires on every mousemove. Every consumer of MouseContext re-renders ~60x/sec,
+  // even a component that only reads `pos.x` while `pos.y` changed.
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
+  return <MouseContext value={pos}>{children}</MouseContext>;
+}
+```
+
+For a value like this, expose an external store and let each component subscribe to the
+exact slice it needs with `useSyncExternalStore`, so a change to `y` never re-renders an
+`x`-only reader. Context has no built-in selector; every consumer gets the whole value.
 
 ## Common Mistakes
 

@@ -7,7 +7,20 @@ type: doc
 order: 7
 status: ready
 tags: [workflows, add-api-endpoint]
-related: []
+related:
+  - rest-api/03-resource-design
+  - rest-api/06-request-response
+  - rest-api/07-status-codes
+  - rest-api/08-validation
+  - rest-api/09-error-handling
+  - rest-api/14-versioning
+  - rest-api/21-openapi
+  - rest-api/98-production-checklist
+  - architecture/11-api-first
+  - security/09-input-validation
+  - security/04-authorization
+  - testing/12-api-testing
+  - nestjs/04-controllers
 when_to_use: "Follow this workflow when adding a new API endpoint to an existing project."
 ---
 # Workflow — Add an API Endpoint
@@ -78,6 +91,11 @@ Determine:
 
 Do not implement an endpoint based on assumptions.
 
+Gather the context before designing anything — see
+[Engineering — Context-First Development](../engineering/05-context-first-development.md).
+The constraints that shape an endpoint are described in
+[REST API — REST Principles](../rest-api/02-rest-principles.md).
+
 ---
 
 ## Step 2 — Analyze Existing APIs
@@ -97,6 +115,11 @@ Review:
 - logging.
 
 New endpoints should look like existing endpoints.
+
+Relevant knowledge:
+
+- [REST API — Endpoints](../rest-api/04-endpoints.md) and [REST API — Routing](../rest-api/05-routing.md) — the naming and path conventions your new route must match.
+- [NestJS — Controllers](../nestjs/04-controllers.md) — how request handling is structured in a NestJS codebase.
 
 ---
 
@@ -130,6 +153,14 @@ HTTP status codes
 
 The contract should remain stable.
 
+Relevant knowledge:
+
+- [Architecture — API First](../architecture/11-api-first.md) — agreeing on the contract before writing the implementation.
+- [REST API — Resource Design](../rest-api/03-resource-design.md) — modelling the URL as a resource rather than an action.
+- [REST API — Request and Response](../rest-api/06-request-response.md) and [REST API — Status Codes](../rest-api/07-status-codes.md) — payload shape and the correct code for each outcome.
+- [REST API — Versioning](../rest-api/14-versioning.md) — when the change would break existing consumers.
+- [REST API — Idempotency](../rest-api/18-idempotency.md) — for operations a client may safely retry.
+
 ---
 
 ## Step 4 — Validate Input
@@ -149,6 +180,13 @@ Examples:
 
 Never trust client input.
 
+Relevant knowledge:
+
+- [REST API — Validation](../rest-api/08-validation.md) — validating at the transport boundary.
+- [Security — Input Validation](../security/09-input-validation.md) — allow-list validation and why rejecting is safer than sanitizing.
+- [NestJS — Validation](../nestjs/08-validation.md), [NestJS — DTO](../nestjs/07-dto.md), and [NestJS — Pipes](../nestjs/12-pipes.md) — declarative validation with DTOs and `ValidationPipe`.
+- [Security — File Upload Security](../security/15-file-upload-security.md) — when the endpoint accepts uploads.
+
 ---
 
 ## Step 5 — Implement Business Logic
@@ -163,6 +201,12 @@ Avoid placing business logic inside:
 
 Controllers should coordinate work, not perform it.
 
+Relevant knowledge:
+
+- [Architecture — Clean Architecture](../architecture/03-clean-architecture.md) — keeping domain rules independent of the HTTP layer.
+- [NestJS — Services](../nestjs/05-services.md) and [NestJS — Repositories](../nestjs/06-repositories.md) — where business logic and data access belong.
+- [Databases — Transactions](../databases/09-transactions.md) and [NestJS — Transactions](../nestjs/18-transactions.md) — when the endpoint writes to more than one table.
+
 ---
 
 ## Step 6 — Implement the Endpoint
@@ -176,6 +220,11 @@ The endpoint should:
 - handle errors consistently.
 
 Keep controllers small.
+
+Relevant knowledge:
+
+- [NestJS — Guards](../nestjs/09-guards.md) and [NestJS — Interceptors](../nestjs/10-interceptors.md) — enforcing access and shaping responses without bloating the handler.
+- [REST API — Pagination](../rest-api/10-pagination.md), [REST API — Filtering](../rest-api/11-filtering.md), and [REST API — Sorting](../rest-api/12-sorting.md) — for collection endpoints; never return an unbounded list.
 
 ---
 
@@ -194,6 +243,12 @@ Verify:
 
 Never expose internal implementation details.
 
+Relevant knowledge:
+
+- [REST API — Error Handling](../rest-api/09-error-handling.md) — one error envelope for the whole API.
+- [REST API — Status Codes](../rest-api/07-status-codes.md) — `400` vs `401` vs `403` vs `404` vs `409` vs `422`.
+- [NestJS — Exception Filters](../nestjs/11-exception-filters.md) — centralizing error translation instead of try/catch in every handler.
+
 ---
 
 ## Step 8 — Test the Endpoint
@@ -209,6 +264,13 @@ Verify:
 - edge cases.
 
 Every public endpoint should be tested.
+
+Relevant knowledge:
+
+- [Testing — API Testing](../testing/12-api-testing.md) and [REST API — Testing](../rest-api/23-testing.md) — request/response coverage at the HTTP boundary.
+- [Testing — Contract Testing](../testing/11-contract-testing.md) — protecting consumers from an accidental contract change.
+- [Testing — Security Testing](../testing/17-security-testing.md) — proving that authentication and authorization actually reject the wrong caller.
+- [NestJS — Testing](../nestjs/25-testing.md) — framework-level patterns for controller and e2e tests.
 
 ---
 
@@ -226,6 +288,11 @@ Examples:
 - authentication guide.
 
 Documentation is part of the API.
+
+Relevant knowledge:
+
+- [REST API — OpenAPI](../rest-api/21-openapi.md) and [REST API — Swagger](../rest-api/22-swagger.md) — keeping the machine-readable spec in step with the code.
+- [Architecture — Documentation](../architecture/25-documentation.md) — what belongs in project docs versus the spec.
 
 ---
 
@@ -335,6 +402,13 @@ Before completion verify:
 
 ☐ Secrets are never returned.
 
+Relevant knowledge:
+
+- [Security — Authentication](../security/03-authentication.md) and [Security — Authorization](../security/04-authorization.md) — verify identity, then verify permission on the specific resource.
+- [REST API — Rate Limiting](../rest-api/17-rate-limiting.md) and [Security — Rate Limiting](../security/21-rate-limiting.md) — protect expensive or unauthenticated endpoints.
+- [REST API — Security](../rest-api/24-security.md) and [Security — OWASP Top 10](../security/28-owasp-top10.md) — the failure modes that recur in HTTP APIs.
+- [Security — Secrets Management](../security/16-secrets-management.md) — keys and tokens never travel in a response body or a log line.
+
 ---
 
 ## Common Mistakes
@@ -385,6 +459,25 @@ After completing this workflow, the AI should explain:
 - modified files;
 - testing performed;
 - remaining considerations.
+
+---
+
+## Self-Verification — Topic Checklists
+
+Before marking the endpoint complete, run it through the `98`/`99`/`100` checklists of the
+topics it touches:
+
+- REST API — [Production Checklist](../rest-api/98-production-checklist.md), [AI Review Checklist](../rest-api/99-ai-review-checklist.md), [Common Antipatterns](../rest-api/100-common-antipatterns.md).
+- Security — [Production Checklist](../security/98-production-checklist.md), [AI Review Checklist](../security/99-ai-review-checklist.md), [Common Antipatterns](../security/100-common-antipatterns.md).
+- Testing — [Production Checklist](../testing/98-production-checklist.md), [AI Review Checklist](../testing/99-ai-review-checklist.md), [Common Antipatterns](../testing/100-common-antipatterns.md).
+
+If the endpoint is implemented in NestJS, close with
+[NestJS — Production Checklist](../nestjs/98-production-checklist.md),
+[NestJS — AI Review Checklist](../nestjs/99-ai-review-checklist.md), and
+[NestJS — Common Antipatterns](../nestjs/100-common-antipatterns.md). When the endpoint adds
+database queries, also review
+[Databases — Query Optimization](../databases/08-query-optimization.md) and
+[Performance — API Performance](../performance/14-api-performance.md).
 
 ---
 

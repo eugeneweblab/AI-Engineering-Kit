@@ -67,6 +67,36 @@ Layouts provide defaults.
 
 Pages override only what is necessary.
 
+Metadata is exported from the module using either a static `metadata` object or an async `generateMetadata` function. Both live in a Server Component (a `layout.tsx` or `page.tsx`) — the Metadata API does not run in Client Components.
+
+Set `metadataBase` once in the root layout so every relative `openGraph`/`twitter`/`alternates` URL resolves to an absolute URL. Use `title.template` so nested pages compose a consistent suffix without repeating the brand name.
+
+```tsx
+// app/layout.tsx
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    metadataBase: new URL("https://example.com"),
+    title: {
+        template: "%s | Acme",
+        default: "Acme — Ergonomic Office Furniture",
+    },
+    description: "Ergonomic office furniture engineered for long workdays.",
+};
+```
+
+```tsx
+// app/pricing/page.tsx
+import type { Metadata } from "next";
+
+// Renders as "Pricing | Acme" via the parent template.
+export const metadata: Metadata = {
+    title: "Pricing",
+    description: "Simple, transparent pricing for teams of every size.",
+    alternates: { canonical: "/pricing" },
+};
+```
+
 ---
 
 ## Page Title
@@ -121,6 +151,20 @@ Canonical URLs help:
 
 Only one canonical URL should exist for each resource.
 
+Configure canonical URLs through `alternates.canonical`. With `metadataBase` set, a relative path resolves to an absolute canonical URL. Use `alternates.languages` to declare `hreflang` alternates for localized routes.
+
+```tsx
+export const metadata: Metadata = {
+    alternates: {
+        canonical: "/blog/nextjs-metadata",
+        languages: {
+            "en-US": "/en/blog/nextjs-metadata",
+            "de-DE": "/de/blog/nextjs-metadata",
+        },
+    },
+};
+```
+
 ---
 
 ## Open Graph
@@ -137,6 +181,25 @@ Include:
 
 Open Graph metadata should accurately reflect page content.
 
+```tsx
+export const metadata: Metadata = {
+    openGraph: {
+        title: "Ergonomic Office Chairs",
+        description: "Support that lasts the whole workday.",
+        url: "/products/chairs", // resolved against metadataBase
+        type: "website",
+        images: [
+            {
+                url: "/og/chairs.png", // resolved against metadataBase
+                width: 1200,
+                height: 630,
+                alt: "Charcoal ergonomic office chair",
+            },
+        ],
+    },
+};
+```
+
 ---
 
 ## Twitter Cards
@@ -152,6 +215,17 @@ Typical properties include:
 
 Ensure previews remain visually consistent across platforms.
 
+```tsx
+export const metadata: Metadata = {
+    twitter: {
+        card: "summary_large_image",
+        title: "Ergonomic Office Chairs",
+        description: "Support that lasts the whole workday.",
+        images: ["/og/chairs.png"],
+    },
+};
+```
+
 ---
 
 ## Metadata Images
@@ -164,6 +238,49 @@ Social preview images should:
 - avoid excessive text.
 
 Maintain consistent branding across the application.
+
+Next.js supports file-based Open Graph images. A static `opengraph-image.png` (or `twitter-image.png`) placed in a route segment is picked up automatically — no `metadata` entry required. For dynamic previews, export an image from `opengraph-image.tsx` using `ImageResponse`; the file runs on the server and its output is cached.
+
+```tsx
+// app/blog/[slug]/opengraph-image.tsx
+import { ImageResponse } from "next/og";
+import { getPost } from "@/lib/posts";
+
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
+
+export default async function OgImage({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}) {
+    const { slug } = await params;
+    const post = await getPost(slug);
+
+    return new ImageResponse(
+        (
+            <div
+                style={{
+                    display: "flex",
+                    height: "100%",
+                    width: "100%",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 64,
+                    background: "#0b0b0f",
+                    color: "#fff",
+                    padding: 80,
+                }}
+            >
+                {post.title}
+            </div>
+        ),
+        size,
+    );
+}
+```
+
+Note that `params` is a Promise in Next.js 15+ and must be awaited, matching the page and `generateMetadata` signatures in the same segment.
 
 ---
 
@@ -180,19 +297,66 @@ Examples:
 
 Administrative and private pages should not be indexed.
 
+```tsx
+// A private dashboard segment: keep it out of the index.
+export const metadata: Metadata = {
+    robots: { index: false, follow: false },
+};
+```
+
+Site-wide crawl rules belong in a `robots.ts` file at the app root, which Next.js serves at `/robots.txt`.
+
+```ts
+// app/robots.ts
+import type { MetadataRoute } from "next";
+
+export default function robots(): MetadataRoute.Robots {
+    return {
+        rules: { userAgent: "*", allow: "/", disallow: "/admin/" },
+        sitemap: "https://example.com/sitemap.xml",
+    };
+}
+```
+
 ---
 
 ## Viewport
 
-Define viewport metadata consistently.
+Viewport and theme color are configured through a **separate `viewport` export**, not through the `metadata` object.
 
-Ensure responsive behavior across supported devices.
+Since Next.js 14, `viewport`, `themeColor`, and `colorScheme` were moved out of `metadata` into their own `Viewport` export. Placing them inside `metadata` logs a deprecation warning and they are ignored. Like `metadata`, `viewport` may be a static object or an async `generateViewport` function, and lives in a Server Component.
+
+Good:
+
+```tsx
+// app/layout.tsx
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+    width: "device-width",
+    initialScale: 1,
+    themeColor: [
+        { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+        { media: "(prefers-color-scheme: dark)", color: "#0b0b0f" },
+    ],
+};
+```
+
+Bad:
+
+```tsx
+// themeColor/viewport inside metadata is deprecated and ignored.
+export const metadata: Metadata = {
+    themeColor: "#0b0b0f",
+    viewport: "width=device-width, initial-scale=1",
+};
+```
 
 ---
 
 ## Theme Color
 
-Provide theme colors where appropriate to improve browser integration and mobile appearance.
+Theme colors improve browser integration and mobile appearance. As shown above, declare them in the `viewport` export via `themeColor`, optionally keyed by `prefers-color-scheme` for light and dark modes.
 
 ---
 
@@ -205,6 +369,18 @@ Examples:
 - favicon;
 - Apple Touch Icon;
 - shortcut icon.
+
+The simplest approach is file-based: drop `icon.png`, `apple-icon.png`, or a `favicon.ico` into the `app/` directory and Next.js injects the correct `<link>` tags automatically. For finer control, declare icons in `metadata.icons`.
+
+```tsx
+export const metadata: Metadata = {
+    icons: {
+        icon: "/icon.png",
+        apple: "/apple-icon.png",
+        shortcut: "/favicon.ico",
+    },
+};
+```
 
 Keep branding consistent.
 
@@ -236,6 +412,71 @@ Examples:
 - CMS pages.
 
 Metadata generation should reuse existing server-side data whenever practical.
+
+Export an async `generateMetadata` function. It receives the resolved route `params` (a Promise in Next.js 15+) and returns a `Metadata` object. Because Next.js deduplicates identical `fetch()` calls within a single request, calling the same fetch in both `generateMetadata` and the page issues **one** network request, not two — so there is no need to hoist data into a shared store just to avoid a double fetch.
+
+Good:
+
+```tsx
+// app/blog/[slug]/page.tsx
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+// Uncached in Next.js 15 by default; opt into revalidation explicitly.
+async function getPost(slug: string) {
+    const res = await fetch(`https://api.example.com/posts/${slug}`, {
+        next: { revalidate: 3600 },
+    });
+    if (!res.ok) return null;
+    return res.json() as Promise<{ title: string; excerpt: string }>;
+}
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+    const { slug } = await params;
+    const post = await getPost(slug);
+    if (!post) return {};
+
+    return {
+        title: post.title,
+        description: post.excerpt,
+        alternates: { canonical: `/blog/${slug}` },
+        openGraph: { title: post.title, description: post.excerpt },
+    };
+}
+
+export default async function Page({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}) {
+    const { slug } = await params;
+    const post = await getPost(slug); // deduplicated with the fetch above
+    if (!post) notFound();
+
+    return <article>{post.title}</article>;
+}
+```
+
+Bad:
+
+```tsx
+"use client";
+import { useEffect } from "react";
+
+// Metadata set from the client does not exist in the initial HTML, so
+// crawlers and social scrapers never see it. The Metadata API is
+// server-only — it does not run in Client Components.
+export default function Page() {
+    useEffect(() => {
+        document.title = "Set too late for crawlers";
+    }, []);
+    return <article>…</article>;
+}
+```
 
 ---
 

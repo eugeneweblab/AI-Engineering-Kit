@@ -7,7 +7,21 @@ type: doc
 order: 8
 status: ready
 tags: [workflows, build-react-component]
-related: []
+related:
+  - react/02-component-architecture
+  - react/05-props
+  - react/09-custom-hooks
+  - react/13-component-composition
+  - react/20-accessibility
+  - react/21-testing
+  - react/22-folder-structure
+  - react/98-production-checklist
+  - frontend/02-component-driven-development
+  - frontend/03-design-systems
+  - accessibility/03-semantic-html
+  - accessibility/04-keyboard-navigation
+  - css/17-responsive-design
+  - typescript/06-interfaces
 when_to_use: "Follow this workflow when building or extending a React component."
 ---
 # Workflow — Build a React Component
@@ -77,6 +91,12 @@ Determine:
 
 Never begin implementation before understanding how the component should behave.
 
+Enumerate the states explicitly — empty, loading, error, partial, and full — before writing
+markup; a component designed around only the happy path gets patched into an unreadable one
+later. See [Engineering — Context-First Development](../engineering/05-context-first-development.md)
+and, when the requirements come from a design file,
+[Workflow — Implement a Figma Design](01-implement-figma-design.md).
+
 ---
 
 ## Step 2 — Analyze Existing Components
@@ -96,6 +116,12 @@ Review:
 
 Reuse before creating.
 
+Relevant knowledge:
+
+- [React — Folder Structure](../react/22-folder-structure.md) — where components, hooks, and shared UI live in this codebase.
+- [Frontend — Design Systems](../frontend/03-design-systems.md) — checking the design system before inventing a new primitive.
+- [Engineering — Engineering Principles](../engineering/00-engineering-principles.md) — the reuse-over-duplication rule that governs this step.
+
 ---
 
 ## Step 3 — Define Component Responsibility
@@ -114,6 +140,11 @@ Good
 
 Avoid components that attempt to solve multiple unrelated problems.
 
+Relevant knowledge:
+
+- [React — Component Architecture](../react/02-component-architecture.md) — sizing a component around one responsibility.
+- [Frontend — Component-Driven Development](../frontend/02-component-driven-development.md) — building from the leaf inward.
+
 ---
 
 ## Step 4 — Design the Component API
@@ -129,6 +160,13 @@ Define:
 - controlled vs uncontrolled behavior.
 
 The API should be small, predictable, and easy to understand.
+
+Relevant knowledge:
+
+- [React — Props](../react/05-props.md) — prop naming, defaults, and why props stay read-only.
+- [React — Component Composition](../react/13-component-composition.md) — `children` and slot props instead of a growing list of booleans.
+- [React — Patterns](../react/14-patterns.md) — compound components, render props, and when each fits.
+- [TypeScript — Interfaces](../typescript/06-interfaces.md) and [TypeScript — Unions and Intersections](../typescript/11-unions-and-intersections.md) — model the prop contract so illegal states cannot be expressed.
 
 ---
 
@@ -149,6 +187,11 @@ Prefer:
 - li
 
 Avoid unnecessary wrapper elements.
+
+Relevant knowledge:
+
+- [Accessibility — Semantic HTML](../accessibility/03-semantic-html.md) and [HTML — Semantic HTML](../html/02-semantic-html.md) — the element carries the role; `div` with `onClick` does not.
+- [React — JSX](../react/03-jsx.md) — fragments instead of wrapper `div`s that distort the layout.
 
 ---
 
@@ -174,6 +217,13 @@ Maintain consistency with:
 
 Do not introduce a new styling approach.
 
+Relevant knowledge:
+
+- [Frontend — Styling](../frontend/15-styling.md) and [CSS — Architecture](../css/21-architecture.md) — picking the approach the project already uses.
+- [Tailwind — Utility First](../tailwind/03-utility-first.md) and [Tailwind — React](../tailwind/24-react.md) — conventions for a Tailwind codebase.
+- [CSS — CSS Variables](../css/20-css-variables.md) — consuming design tokens instead of hardcoding values.
+- [Figma — Design Token Extraction](../figma/03-design-token-extraction.md) — where those token values come from.
+
 ---
 
 ## Step 7 — Implement Logic
@@ -187,6 +237,14 @@ Prefer:
 - shared services.
 
 Avoid placing complex business logic directly inside JSX.
+
+Relevant knowledge:
+
+- [React — Custom Hooks](../react/09-custom-hooks.md) — extracting stateful logic so it can be tested on its own.
+- [React — State](../react/06-state.md) — keeping state minimal and deriving the rest in render.
+- [React — Data Fetching](../react/16-data-fetching.md) — where a component gets its data, and who owns loading and error state.
+- [React — Error Handling](../react/19-error-handling.md) — error boundaries around the component instead of silent failure.
+- [React — Performance](../react/12-performance.md) — memoize only after profiling proves it necessary.
 
 ---
 
@@ -203,6 +261,14 @@ Verify:
 - color contrast.
 
 Accessibility is a required feature.
+
+Relevant knowledge:
+
+- [React — Accessibility](../react/20-accessibility.md) — accessible patterns in a React component tree.
+- [Accessibility — Keyboard Navigation](../accessibility/04-keyboard-navigation.md) and [Accessibility — Focus Management](../accessibility/05-focus-management.md) — every interaction reachable without a mouse.
+- [Accessibility — ARIA](../accessibility/07-aria.md) — used only where semantics are genuinely missing.
+- [Accessibility — Color and Contrast](../accessibility/10-color-and-contrast.md) — contrast ratios for text and interactive states.
+- [Accessibility — Axe](../accessibility/21-axe.md) and [Testing — Accessibility Testing](../testing/18-accessibility-testing.md) — automating the checks that can be automated.
 
 ---
 
@@ -227,6 +293,13 @@ Check:
 
 Responsive behavior should be intentional.
 
+Relevant knowledge:
+
+- [CSS — Responsive Design](../css/17-responsive-design.md) and [CSS — Container Queries](../css/19-container-queries.md) — sizing a reusable component by its container, not the viewport.
+- [Tailwind — Responsive Design](../tailwind/11-responsive-design.md) — breakpoint prefixes and the mobile-first default.
+- [Accessibility — Responsive Accessibility](../accessibility/13-responsive-accessibility.md) — touch targets and reflow at 400% zoom.
+- [Figma — Responsive Analysis](../figma/05-responsive-analysis.md) — deriving breakpoint behavior from the design.
+
 ---
 
 ## Step 10 — Final Review
@@ -243,6 +316,12 @@ Review:
 - maintainability.
 
 The component should be understandable without additional explanation.
+
+Relevant knowledge:
+
+- [React — Code Style](../react/23-code-style.md) — naming and file conventions a reviewer will expect.
+- [React — Testing](../react/21-testing.md) — cover behavior through the public API, not internal state.
+- [Engineering — Code Review](../engineering/02-code-review.md) — the lens a reviewer applies before you ask for one.
 
 ---
 
@@ -387,6 +466,24 @@ After completing this workflow, the AI should explain:
 - accessibility considerations;
 - modified files;
 - verification performed.
+
+---
+
+## Self-Verification — Topic Checklists
+
+Before marking the component complete, run it through the `98`/`99`/`100` checklists of the
+topics it touches:
+
+- React — [Production Checklist](../react/98-production-checklist.md), [AI Review Checklist](../react/99-ai-review-checklist.md), [Common Antipatterns](../react/100-common-antipatterns.md).
+- Accessibility — [Production Checklist](../accessibility/98-production-checklist.md), [AI Review Checklist](../accessibility/99-ai-review-checklist.md), [Common Antipatterns](../accessibility/100-common-antipatterns.md).
+- Frontend — [Production Checklist](../frontend/98-production-checklist.md), [AI Review Checklist](../frontend/99-ai-review-checklist.md), [Common Antipatterns](../frontend/100-common-antipatterns.md).
+
+If the component ships in a Next.js app, add
+[Next.js — Production Checklist](../nextjs/98-production-checklist.md) and
+[Next.js — Common Antipatterns](../nextjs/100-common-antipatterns.md) — in particular,
+confirm the component is a Server Component unless it genuinely needs interactivity. For a
+Tailwind codebase, close with
+[Tailwind — AI Review Checklist](../tailwind/99-ai-review-checklist.md).
 
 ---
 

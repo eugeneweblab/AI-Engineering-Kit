@@ -7,7 +7,17 @@ type: doc
 order: 1
 status: ready
 tags: [figma, figma-analysis]
-related: []
+related:
+  - figma/02-layout-analysis
+  - figma/03-design-token-extraction
+  - figma/05-responsive-analysis
+  - figma/06-component-detection
+  - figma/14-figma-inspection-checklist
+  - figma/19-design-handoff
+  - figma/20-implementation-definition-of-done
+  - workflows/01-implement-figma-design
+  - accessibility/03-semantic-html
+  - frontend/03-design-systems
 when_to_use: "Read before writing any code from a Figma design, to fully analyze the design and plan implementation first."
 ---
 # Figma Analysis
@@ -29,6 +39,54 @@ Figma is a specification, not an image.
 Every design should be interpreted as a collection of reusable components, layouts, spacing systems, and interaction patterns.
 
 The goal is to understand the design rather than reproduce pixels.
+
+### Reading the Specification Programmatically
+
+A Figma file is queryable data, not only a picture. When the file key and a token are
+available, read the node tree instead of estimating values from a screenshot:
+
+```bash
+# File key is the segment after /design/ or /file/ in the Figma URL.
+# Node id comes from the "Copy link to selection" URL (?node-id=1-234 → "1:234").
+curl -s "https://api.figma.com/v1/files/$FIGMA_FILE_KEY/nodes?ids=1:234" \
+  -H "X-Figma-Token: $FIGMA_TOKEN" > node.json
+```
+
+The response carries the exact values the design was built from:
+
+```json
+{
+  "nodes": {
+    "1:234": {
+      "document": {
+        "id": "1:234",
+        "name": "CardProduct",
+        "type": "COMPONENT",
+        "layoutMode": "VERTICAL",
+        "itemSpacing": 16,
+        "paddingTop": 24, "paddingRight": 24, "paddingBottom": 24, "paddingLeft": 24,
+        "primaryAxisSizingMode": "AUTO",
+        "counterAxisAlignItems": "MIN",
+        "cornerRadius": 12,
+        "absoluteBoundingBox": { "x": 0, "y": 0, "width": 320, "height": 412 },
+        "fills": [
+          { "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1, "a": 1 } }
+        ],
+        "styles": { "fill": "S:8a1f...", "effect": "S:3c02..." },
+        "children": [ /* ... */ ]
+      }
+    }
+  }
+}
+```
+
+Two details matter when reading this payload:
+
+- Colors are floats in the `0..1` range, not `0..255` — convert with
+  `Math.round(channel * 255)` before producing a hex value.
+- A non-empty `styles` map means the node references a **published style**. That style, not
+  the literal value, is the token — see
+  [Design Token Extraction](03-design-token-extraction.md).
 
 ---
 
@@ -112,6 +170,39 @@ Examples:
 - avatars.
 
 A repeated element should usually become a reusable component.
+
+Record the inventory as data before writing any component, so the props follow from the
+observed variants instead of from the first instance you happen to implement:
+
+```json
+{
+  "components": [
+    {
+      "name": "Button",
+      "figmaNode": "1:88",
+      "occurrences": 14,
+      "variants": { "variant": ["primary", "secondary", "ghost"], "size": ["sm", "md"] },
+      "states": ["default", "hover", "focus", "disabled", "loading"],
+      "existsInCodebase": "src/components/ui/Button.tsx",
+      "action": "reuse"
+    },
+    {
+      "name": "ProductCard",
+      "figmaNode": "1:234",
+      "occurrences": 6,
+      "variants": { "layout": ["grid", "list"] },
+      "states": ["default", "hover", "out-of-stock"],
+      "existsInCodebase": null,
+      "action": "create"
+    }
+  ]
+}
+```
+
+`occurrences` is the argument for extraction; `existsInCodebase` is the argument against
+creating anything. A component that appears once and matches nothing existing is usually
+markup inside a section, not a new abstraction — see
+[Component Detection](06-component-detection.md).
 
 ---
 
@@ -240,6 +331,48 @@ Before writing code define:
 
 A written implementation plan reduces unnecessary iterations.
 
+The analysis is only useful if it survives into implementation. Produce it as a single
+artifact — this is the handoff between analysis and code:
+
+```yaml
+# design-analysis/pricing-page.yml
+page: Pricing
+figma:
+  file: XXXXXXXXXXXXXXXXXXXXXX
+  frames: { desktop: "2:10", tablet: "2:11", mobile: "2:12" }
+
+sections:
+  - name: Hero
+    element: <header>
+    heading: h1
+    dynamic: [headline, subheadline]
+  - name: PlanGrid
+    element: <section>
+    heading: h2
+    components: [PlanCard]
+    responsive: { desktop: "3 columns", tablet: "2 columns", mobile: "1 column, stacked" }
+    dynamic: [plans]          # from CMS/API — never hardcoded
+  - name: FAQ
+    element: <section>
+    components: [Accordion]
+    states: [collapsed, expanded, focus-visible]
+
+tokens:
+  reuse: [color-surface, spacing-md, spacing-xl, radius-lg, text-heading-xl]
+  new:   [shadow-plan-card]   # justify every entry here
+
+components:
+  reuse:  [Button, Badge, Accordion]
+  create: [PlanCard]
+
+risks:
+  - "Mobile frame omits the comparison table — confirm intended behavior with design."
+  - "Plan names come from Stripe; length is unbounded, so the card must wrap."
+```
+
+Every unresolved item belongs under `risks`. An assumption written down can be corrected by
+a reviewer; an assumption silently coded in cannot.
+
 ---
 
 ## AI Execution Checklist
@@ -315,6 +448,20 @@ The design analysis is complete only when:
 - layout hierarchy is understood;
 - responsive behavior is documented;
 - implementation can begin without uncertainty.
+
+---
+
+## Related Knowledge
+
+Continue with the topic that matches the next step:
+
+- [Layout Analysis](02-layout-analysis.md) and [Auto Layout](04-auto-layout.md) — translating frames into flex and grid.
+- [Design Token Extraction](03-design-token-extraction.md) — turning repeated values into a token set.
+- [Responsive Analysis](05-responsive-analysis.md) — deriving breakpoint behavior from multiple frames.
+- [Component Detection](06-component-detection.md) — deciding what becomes a component.
+- [Figma Inspection Checklist](14-figma-inspection-checklist.md) — verifying nothing in the file was missed.
+- [Workflow — Implement a Figma Design](../workflows/01-implement-figma-design.md) — the end-to-end process this analysis feeds.
+- [Accessibility — Semantic HTML](../accessibility/03-semantic-html.md) — the element choices implied by the visual hierarchy.
 
 ---
 

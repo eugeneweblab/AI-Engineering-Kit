@@ -30,6 +30,50 @@ Do not manage remote data using local component state unless there is a specific
 
 Prefer dedicated server state management solutions.
 
+Bad (server state re-implemented by hand with `useState` + `useEffect`):
+
+```tsx
+function UserProfile({ userId }: { userId: string }) {
+    const [user, setUser] = useState<User | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<Error | null>(null);
+
+    useEffect(() => {
+        setLoading(true);
+        fetch(`/api/users/${userId}`)
+            .then((res) => res.json())
+            .then(setUser) // no cache, no dedup, no cancellation, races on userId change
+            .catch(setError)
+            .finally(() => setLoading(false));
+    }, [userId]);
+
+    if (loading) return <Spinner />;
+    if (error) return <ErrorMessage error={error} />;
+    return <Profile user={user!} />;
+}
+```
+
+Good (server state owned by a cache; loading/error/caching/dedup are handled for you):
+
+```tsx
+import { useQuery } from "@tanstack/react-query";
+
+function UserProfile({ userId }: { userId: string }) {
+    const { data: user, isPending, isError, error } = useQuery({
+        queryKey: ["user", userId],
+        queryFn: ({ signal }) => getUser(userId, signal),
+    });
+
+    if (isPending) return <Spinner />;
+    if (isError) return <ErrorMessage error={error} />;
+    return <Profile user={user} />;
+}
+```
+
+The manual version silently accumulates bugs: no request deduplication, no
+cross-component sharing, no cache, and a race condition when `userId` changes
+mid-flight. Treat that as a signal to reach for a server-state library.
+
 ---
 
 ## Server State vs Client State
@@ -100,6 +144,36 @@ Recommended:
 
 Avoid building custom caching solutions unless the project has specific requirements.
 
+Configure a single `QueryClient` at the application root. Set sensible cache
+defaults once instead of per-query.
+
+```tsx
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            staleTime: 30_000, // data is "fresh" for 30s; no refetch within that window
+            gcTime: 5 * 60_000, // unused cache entries are collected after 5 min (v5 name)
+            retry: 2,
+            refetchOnWindowFocus: true,
+        },
+    },
+});
+
+export function App() {
+    return (
+        <QueryClientProvider client={queryClient}>
+            <Routes />
+        </QueryClientProvider>
+    );
+}
+```
+
+Note the v5 naming: `gcTime` replaced the old `cacheTime`, and the loading flag
+is `isPending` (not `isLoading`, which now means "pending and actively
+fetching"). SWR exposes the same ideas through `useSWR(key, fetcher)`.
+
 ---
 
 ## Fetching Strategy
@@ -126,6 +200,37 @@ Typical states:
 - error.
 
 Users should always understand what is happening.
+
+Two common strategies:
+
+- render-as-you-fetch with explicit flags (`isPending` / `isError` from a query
+  hook), shown in the examples above;
+- Suspense with React 19's `use()`, which reads a promise and lets a parent
+  `<Suspense>` boundary render the fallback.
+
+```tsx
+import { Suspense, use } from "react";
+
+// The promise must be created outside render (or memoized) so it is stable
+// across re-renders — never call fetch() directly in the render body.
+function Profile({ userPromise }: { userPromise: Promise<User> }) {
+    const user = use(userPromise); // suspends until the promise resolves
+    return <h1>{user.name}</h1>;
+}
+
+function Page({ userPromise }: { userPromise: Promise<User> }) {
+    return (
+        <Suspense fallback={<Spinner />}>
+            <Profile userPromise={userPromise} />
+        </Suspense>
+    );
+}
+```
+
+Combine Suspense with an error boundary so rejected promises render a fallback
+instead of crashing the tree. `use()` does not replace a caching library —
+without one you still need to keep the promise stable and handle invalidation
+yourself.
 
 ---
 
@@ -173,6 +278,25 @@ Common triggers:
 
 Do not invalidate more data than necessary.
 
+Invalidation is key-scoped. Passing a query-key prefix invalidates every query
+whose key starts with it, so structure keys hierarchically.
+
+```tsx
+const queryClient = useQueryClient();
+
+// Invalidate one list — refetches only the todos list, not unrelated caches.
+await queryClient.invalidateQueries({ queryKey: ["todos"] });
+
+// Invalidate a single entity by its full key.
+await queryClient.invalidateQueries({ queryKey: ["todo", todoId] });
+```
+
+Bad (nuking the entire cache after one write forces every screen to refetch):
+
+```tsx
+queryClient.invalidateQueries(); // no key: invalidates everything
+```
+
 ---
 
 ## Background Refetching
@@ -207,6 +331,71 @@ Every mutation should define:
 - error handling;
 - cache invalidation.
 
+With TanStack Query, `useMutation` bundles all four. Invalidate the affected
+queries in `onSuccess` so the UI reflects the new server state.
+
+```tsx
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+function AddTodo() {
+    const queryClient = useQueryClient();
+
+    const { mutate, isPending, isError, error } = useMutation({
+        mutationFn: (title: string) => createTodo(title),
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["todos"] });
+        },
+    });
+
+    return (
+        <form
+            onSubmit={(e) => {
+                e.preventDefault();
+                const title = new FormData(e.currentTarget).get("title") as string;
+                mutate(title);
+            }}
+        >
+            <input name="title" />
+            <button type="submit" disabled={isPending}>
+                {isPending ? "Adding…" : "Add"}
+            </button>
+            {isError && <p role="alert">{error.message}</p>}
+        </form>
+    );
+}
+```
+
+In React 19 you can also drive a mutation with a form Action and
+`useActionState`, which manages the pending flag and the returned result for
+you. Pair it with `useQueryClient` when you need to invalidate the cache.
+
+```tsx
+import { useActionState } from "react";
+
+function AddTodoAction() {
+    const [error, submitAction, isPending] = useActionState(
+        async (_prev: string | null, formData: FormData) => {
+            const title = formData.get("title") as string;
+            try {
+                await createTodo(title);
+                return null; // success: clear any prior error
+            } catch (err) {
+                return (err as Error).message; // becomes the next `error` value
+            }
+        },
+        null,
+    );
+
+    return (
+        <form action={submitAction}>
+            <input name="title" />
+            <button type="submit" disabled={isPending}>Add</button>
+            {error && <p role="alert">{error}</p>}
+        </form>
+    );
+}
+```
+
 ---
 
 ## Optimistic Updates
@@ -218,6 +407,59 @@ Use optimistic updates only when:
 - user experience benefits.
 
 Every optimistic update must support rollback.
+
+With TanStack Query, snapshot the cache in `onMutate`, apply the optimistic
+change, and restore the snapshot in `onError`. Always refetch in `onSettled` to
+reconcile with the true server state.
+
+```tsx
+useMutation({
+    mutationFn: toggleTodo,
+    onMutate: async (updated) => {
+        await queryClient.cancelQueries({ queryKey: ["todos"] });
+        const previous = queryClient.getQueryData<Todo[]>(["todos"]);
+        queryClient.setQueryData<Todo[]>(["todos"], (old = []) =>
+            old.map((t) => (t.id === updated.id ? { ...t, done: updated.done } : t)),
+        );
+        return { previous }; // context handed to onError
+    },
+    onError: (_err, _updated, context) => {
+        if (context?.previous) {
+            queryClient.setQueryData(["todos"], context.previous); // rollback
+        }
+    },
+    onSettled: () => {
+        queryClient.invalidateQueries({ queryKey: ["todos"] });
+    },
+});
+```
+
+React 19's `useOptimistic` handles the transient UI state for a single Action.
+The optimistic value is shown while the Action is pending and automatically
+reverts to the real state if the Action throws — no manual rollback code.
+
+```tsx
+import { useOptimistic } from "react";
+
+function TodoItem({ todo, save }: { todo: Todo; save: (done: boolean) => Promise<void> }) {
+    const [optimisticDone, setOptimisticDone] = useOptimistic(todo.done);
+
+    async function toggle(formData: FormData) {
+        const next = formData.get("done") === "on";
+        setOptimisticDone(next); // instant UI update
+        await save(next); // if this rejects, React reverts optimisticDone
+    }
+
+    return (
+        <form action={toggle}>
+            <input type="checkbox" name="done" defaultChecked={optimisticDone} />
+            <span style={{ opacity: optimisticDone !== todo.done ? 0.5 : 1 }}>
+                {todo.title}
+            </span>
+        </form>
+    );
+}
+```
 
 ---
 
@@ -231,6 +473,23 @@ Review:
 - repeated requests during navigation;
 - unnecessary refetches.
 
+The query key is the deduplication unit. Any number of components calling
+`useUser("42")` share one in-flight request and one cache entry, because they
+resolve to the same `["user", "42"]` key. Keep keys serializable and
+deterministic; include every input that changes the result.
+
+```tsx
+// Same key everywhere → one network request, shared across the tree.
+useQuery({ queryKey: ["user", id], queryFn: () => getUser(id) });
+```
+
+Bad (a new object identity or a non-deterministic value in the key defeats
+dedup and caching):
+
+```tsx
+useQuery({ queryKey: ["user", { id, at: Date.now() }], queryFn: /* ... */ });
+```
+
 ---
 
 ## Pagination
@@ -240,6 +499,39 @@ Large datasets should support pagination or infinite loading.
 Avoid requesting thousands of records at once.
 
 Choose the strategy that best fits the product requirements.
+
+For infinite lists, `useInfiniteQuery` tracks pages and cursors. Provide
+`initialPageParam` and derive the next cursor with `getNextPageParam`.
+
+```tsx
+import { useInfiniteQuery } from "@tanstack/react-query";
+
+function Feed() {
+    const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+        useInfiniteQuery({
+            queryKey: ["feed"],
+            queryFn: ({ pageParam, signal }) => getFeed(pageParam, signal),
+            initialPageParam: 0,
+            getNextPageParam: (lastPage) => lastPage.nextCursor ?? undefined,
+        });
+
+    return (
+        <>
+            {data?.pages.flatMap((page) => page.items).map((item) => (
+                <FeedRow key={item.id} item={item} />
+            ))}
+            {hasNextPage && (
+                <button onClick={() => fetchNextPage()} disabled={isFetchingNextPage}>
+                    {isFetchingNextPage ? "Loading…" : "Load more"}
+                </button>
+            )}
+        </>
+    );
+}
+```
+
+Returning `undefined` from `getNextPageParam` tells the cache there are no more
+pages, which flips `hasNextPage` to `false`.
 
 ---
 
@@ -272,6 +564,43 @@ Backend
 
 Components should not know implementation details of HTTP requests.
 
+The API client owns transport concerns (base URL, headers, status handling,
+JSON parsing). The custom hook owns cache keys and query configuration. The
+component owns rendering.
+
+```tsx
+// api/users.ts — transport layer, framework-agnostic
+async function request<T>(path: string, signal?: AbortSignal): Promise<T> {
+    const res = await fetch(`/api${path}`, { signal });
+    if (!res.ok) {
+        throw new Error(`Request failed: ${res.status} ${res.statusText}`);
+    }
+    return res.json() as Promise<T>;
+}
+
+export function getUser(id: string, signal?: AbortSignal) {
+    return request<User>(`/users/${id}`, signal);
+}
+
+// hooks/useUser.ts — cache layer
+import { useQuery } from "@tanstack/react-query";
+
+export function useUser(id: string) {
+    return useQuery({
+        queryKey: ["user", id],
+        queryFn: ({ signal }) => getUser(id, signal),
+    });
+}
+
+// components/UserCard.tsx — presentation only
+function UserCard({ id }: { id: string }) {
+    const { data, isPending, isError } = useUser(id);
+    if (isPending) return <Spinner />;
+    if (isError) return <ErrorMessage />;
+    return <Profile user={data} />;
+}
+```
+
 ---
 
 ## Cancellation
@@ -285,6 +614,35 @@ Examples:
 - component unmount.
 
 Avoid updating state after a request is no longer relevant.
+
+TanStack Query passes an `AbortSignal` into every `queryFn`; forward it to
+`fetch` and stale requests are cancelled automatically when the key changes or
+the component unmounts.
+
+```tsx
+useQuery({
+    queryKey: ["search", term],
+    queryFn: ({ signal }) => request(`/search?q=${term}`, signal),
+});
+```
+
+If you must fetch inside `useEffect` (for example, without a query library),
+wire cancellation manually and ignore aborted results.
+
+```tsx
+useEffect(() => {
+    const controller = new AbortController();
+
+    fetch(`/api/search?q=${term}`, { signal: controller.signal })
+        .then((res) => res.json())
+        .then(setResults)
+        .catch((err) => {
+            if (err.name !== "AbortError") setError(err); // ignore intentional aborts
+        });
+
+    return () => controller.abort(); // cancel on unmount / term change
+}, [term]);
+```
 
 ---
 

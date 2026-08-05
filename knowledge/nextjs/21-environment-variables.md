@@ -121,6 +121,50 @@ Examples:
 
 Never expose secrets through public variables.
 
+### Public variables are inlined at build time
+
+`NEXT_PUBLIC_` variables are **statically replaced into the JavaScript bundle
+during `next build`** — they are not read at runtime. The literal string value
+is baked into every place you reference it.
+
+```tsx
+// app/analytics-provider.tsx
+"use client";
+
+import { useEffect } from "react";
+
+export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    // At build time this becomes: init("G-ABC123") — a literal string.
+    init(process.env.NEXT_PUBLIC_ANALYTICS_ID);
+  }, []);
+
+  return <>{children}</>;
+}
+```
+
+Two consequences follow from build-time inlining:
+
+- Changing a `NEXT_PUBLIC_` value requires a **rebuild**, not just a redeploy of
+  the same image with new env. A single Docker image cannot be promoted across
+  environments if it hardcodes public values that differ per environment.
+- You must reference the variable by its **full literal name**. Dynamic access
+  such as `process.env[key]` is not inlined and resolves to `undefined` in the
+  browser.
+
+```tsx
+// Bad — not statically analyzable, undefined in the browser.
+const key = "NEXT_PUBLIC_ANALYTICS_ID";
+const id = process.env[key];
+
+// Good — full literal name, inlined at build time.
+const id = process.env.NEXT_PUBLIC_ANALYTICS_ID;
+```
+
+If you need per-environment public values from a single build, pass them from a
+Server Component to a Client Component as props instead of relying on
+`NEXT_PUBLIC_` inlining.
+
 ---
 
 ## Server Variables
@@ -135,6 +179,35 @@ Typical examples:
 - encryption keys.
 
 Server variables must never be exposed to the browser.
+
+A non-prefixed variable read inside a Client Component resolves to `undefined`
+in the browser — Next.js does not inline it. The real danger is accidentally
+importing server code that *reads* a secret into a component that ships to the
+client. Guard modules that touch secrets with the `server-only` package so such
+a mistake fails the build instead of leaking at runtime.
+
+```ts
+// lib/stripe.ts
+import "server-only"; // Build error if this module is imported by client code.
+import Stripe from "stripe";
+
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2025-06-30.basil",
+});
+```
+
+```tsx
+// Bad — a Client Component pulls in server-only code and the secret it holds.
+"use client";
+import { stripe } from "@/lib/stripe"; // `server-only` turns this into a build error.
+
+// Good — read the secret in a Server Action / Route Handler / Server Component,
+// then pass only non-sensitive results to the client.
+```
+
+Reading `process.env.STRIPE_SECRET_KEY` is only safe in server contexts: Server
+Components, Route Handlers (`app/**/route.ts`), Server Actions (`"use server"`),
+and `middleware.ts`.
 
 ---
 
@@ -162,6 +235,33 @@ The application should fail immediately if critical configuration is missing or 
 
 Avoid discovering configuration problems during runtime.
 
+Parse the environment once, at module load, with a schema. Importing the module
+anywhere forces validation to run; a missing or malformed variable throws before
+any request is served.
+
+```ts
+// config/env.ts
+import { z } from "zod";
+
+const serverSchema = z.object({
+  NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
+  DATABASE_URL: z.string().url(),
+  STRIPE_SECRET_KEY: z.string().min(1),
+  // Coerce string env values into the types the app expects.
+  PORT: z.coerce.number().int().positive().default(3000),
+});
+
+const parsed = serverSchema.safeParse(process.env);
+
+if (!parsed.success) {
+  // z.treeifyError avoids logging raw secret values from process.env.
+  console.error("Invalid environment variables:", z.treeifyError(parsed.error));
+  throw new Error("Invalid environment variables");
+}
+
+export const env = parsed.data;
+```
+
 ---
 
 ## Type Safety
@@ -183,6 +283,37 @@ The module should:
 - expose typed configuration.
 
 Avoid reading `process.env` throughout the application.
+
+Consuming code imports the typed object instead of touching `process.env`:
+
+```ts
+// lib/db.ts
+import { env } from "@/config/env"; // env.DATABASE_URL is a validated string.
+import { drizzle } from "drizzle-orm/node-postgres";
+
+export const db = drizzle(env.DATABASE_URL);
+```
+
+Keep the server schema (`config/env.ts`) out of client bundles: it references
+secrets and is guarded by never importing it from `"use client"` files. Public
+values that must be validated need their own client-safe schema that only reads
+`NEXT_PUBLIC_`-prefixed keys **by literal name**, because Next.js inlines only
+literal references — a schema that iterates `process.env` will not see them in
+the browser.
+
+```ts
+// config/client-env.ts — safe to import from Client Components.
+import { z } from "zod";
+
+const clientSchema = z.object({
+  NEXT_PUBLIC_API_URL: z.string().url(),
+});
+
+// Reference each key by its literal name so the value survives build-time inlining.
+export const clientEnv = clientSchema.parse({
+  NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+});
+```
 
 ---
 

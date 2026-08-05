@@ -7,7 +7,18 @@ type: doc
 order: 2
 status: ready
 tags: [workflows, fix-a-bug]
-related: []
+related:
+  - engineering/03-debugging-methodology
+  - engineering/02-code-review
+  - testing/02-unit-testing
+  - testing/03-integration-testing
+  - testing/23-debugging-tests
+  - testing/98-production-checklist
+  - testing/99-ai-review-checklist
+  - testing/100-common-antipatterns
+  - react/19-error-handling
+  - git/18-history
+  - security/09-input-validation
 when_to_use: "Follow this workflow when investigating and fixing a bug end-to-end."
 ---
 # Workflow — Fix a Bug
@@ -96,6 +107,8 @@ Record:
 
 If the issue cannot be reproduced, continue investigating before implementing changes.
 
+For a structured approach to reproduction and hypothesis testing, see [Engineering — Debugging Methodology](../engineering/03-debugging-methodology.md).
+
 ---
 
 ## Step 3 — Collect Evidence
@@ -114,6 +127,11 @@ Possible sources:
 - video recordings.
 
 Avoid making assumptions without evidence.
+
+Relevant knowledge:
+
+- [Testing — Observability](../testing/26-observability.md) — reading logs, metrics, and traces to locate the failure.
+- [Git — History](../git/18-history.md) and [Git — Reflog](../git/19-reflog.md) — correlate the regression with recent commits and deployments (`git bisect`, `git log`).
 
 ---
 
@@ -151,6 +169,11 @@ Field names are inconsistent.
 
 Fix the inconsistency—not the symptom.
 
+Relevant knowledge:
+
+- [Engineering — Debugging Methodology](../engineering/03-debugging-methodology.md) — a disciplined root-cause process.
+- [React — Debugging](../react/27-debugging.md) and [Git — Debugging](../git/26-debugging.md) — technology-specific techniques for narrowing down the cause.
+
 ---
 
 ## Step 5 — Inspect Existing Code
@@ -168,6 +191,12 @@ Inspect:
 - configuration.
 
 Look for an existing solution before creating a new one.
+
+Relevant knowledge:
+
+- [Architecture — Clean Architecture](../architecture/03-clean-architecture.md) — understand which layer owns the defect before editing.
+- [Git — History](../git/18-history.md) — use `git blame` and `git log -p` to learn why the current code exists.
+- [Engineering — Code Review](../engineering/02-code-review.md) — the same lens a reviewer will apply to your fix.
 
 ---
 
@@ -204,6 +233,11 @@ During implementation:
 
 Every change should have a clear purpose.
 
+Relevant knowledge:
+
+- [Security — Input Validation](../security/09-input-validation.md) — when the fix touches untrusted input, validate at the boundary rather than patching downstream.
+- [React — Error Handling](../react/19-error-handling.md) — surface failures safely instead of swallowing them.
+
 ---
 
 ## Step 8 — Verify
@@ -221,6 +255,11 @@ Then verify:
 
 Verification should be broader than the original bug.
 
+Relevant knowledge:
+
+- [Testing — API Testing](../testing/12-api-testing.md) — confirm request/response contracts still hold.
+- [Testing — E2E Testing](../testing/04-e2e-testing.md) — exercise the full user flow that reported the bug.
+
 ---
 
 ## Step 9 — Prevent Regression
@@ -234,6 +273,13 @@ When appropriate:
 - simplify fragile logic.
 
 The same defect should become less likely to occur again.
+
+Write a test that fails on the old code and passes on the fix — this is the regression guard.
+
+Relevant knowledge:
+
+- [Testing — Unit Testing](../testing/02-unit-testing.md) and [Testing — Integration Testing](../testing/03-integration-testing.md) — pin the corrected behavior with an automated test.
+- [Testing — Debugging Tests](../testing/23-debugging-tests.md) and [Testing — Flaky Tests](../testing/22-flaky-tests.md) — make sure the new test is deterministic.
 
 ---
 
@@ -355,6 +401,18 @@ After completing this workflow, the AI should be able to explain:
 - why those changes were sufficient;
 - what was verified;
 - what risks remain, if any.
+
+---
+
+## Close With the Topic Checklists
+
+Before marking the fix complete, run it through the checklists of the topic you changed. For most defects the testing topic is the closest fit:
+
+- [Testing — Production Checklist](../testing/98-production-checklist.md) — confirm the fix and its regression test are production-ready.
+- [Testing — AI Review Checklist](../testing/99-ai-review-checklist.md) — self-review the change the way a reviewer would.
+- [Testing — Common Antipatterns](../testing/100-common-antipatterns.md) — verify the fix did not introduce a known antipattern.
+
+If the fix lives in a specific stack, use that topic's equivalent `98`/`99`/`100` checklists instead — for example [React — Production Checklist](../react/98-production-checklist.md) / [React — AI Review Checklist](../react/99-ai-review-checklist.md) / [React — Common Antipatterns](../react/100-common-antipatterns.md), or the matching files under [`../security/`](../security/) for security-sensitive changes.
 
 ---
 

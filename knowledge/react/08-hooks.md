@@ -52,6 +52,15 @@ adds cost without benefit. These are the everyday hazards of hook-based code.
   effect's dependency, or to skip a genuinely expensive computation — profile first, because
   the memo itself has a cost.
 - `useId` for stable SSR-safe ids (form labels), never `Math.random`.
+- `useTransition` to mark non-urgent state updates so typing/clicks stay responsive; its
+  `startTransition` accepts an async function (an Action) in React 19.
+- `useActionState(action, initial)` for form submission state — it returns
+  `[state, formAction, isPending]` and wires straight into `<form action={formAction}>`.
+- `useOptimistic(actual, reducer)` to show a pending result immediately; it auto-reverts to
+  `actual` when the surrounding Action settles.
+- `use(resource)` to read a promise (suspends) or context — unlike other hooks it may be
+  called conditionally and after an early return, but the promise must be created/cached
+  outside render, not `new`'d each render.
 - Extract a [custom hook](09-custom-hooks.md) when stateful logic repeats across components.
 - Keep the exhaustive-deps ESLint rule on; most hook bugs are a dependency it already flags.
 
@@ -93,6 +102,150 @@ function SearchBox({ enabled, onSearch }) {
 }
 ```
 
+### Reading the latest value inside a persistent callback
+
+An interval or subscription is set up once (`[]` deps) but its callback keeps running. The
+closure it captured is frozen at the first render, so reading state directly serves a stale
+value. Fix it with the updater form (or a ref) instead of adding the value to the deps, which
+would tear down and recreate the interval on every change.
+
+**Bad Example** — stale closure freezes `count` at its initial value
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // This closure captured count === 0 and never sees a newer value.
+    const id = setInterval(() => setCount(count + 1), 1000);
+    return () => clearInterval(id);
+  }, []); // runs once; count is permanently 0 in here → UI sticks at 1
+
+  return <p>{count}</p>;
+}
+```
+
+**Good Example** — updater form reads the latest state without re-subscribing
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // The updater receives the current value each tick, so no dep on count is needed.
+    const id = setInterval(() => setCount((c) => c + 1), 1000);
+    return () => clearInterval(id);
+  }, []); // interval created once and correctly increments forever
+
+  return <p>{count}</p>;
+}
+```
+
+### React 19: form Actions with `useActionState` + `useOptimistic`
+
+`useActionState` owns the async submission state (result and `isPending`); `useOptimistic`
+paints the new item instantly and rolls back automatically if the Action throws. Because a
+`<form action>` runs inside a transition, the optimistic value reverts on failure with no
+manual cleanup.
+
+**Good Example** — optimistic comment posting
+
+```jsx
+import { useActionState, useOptimistic } from "react";
+
+function CommentForm({ postId, comments, sendComment }) {
+  const [optimistic, addOptimistic] = useOptimistic(
+    comments,
+    (current, text) => [...current, { id: `temp-${text}`, text, pending: true }]
+  );
+
+  // action signature is (previousState, formData) => nextState
+  const [error, submitAction, isPending] = useActionState(
+    async (_prev, formData) => {
+      const text = formData.get("text");
+      addOptimistic(text); // shows immediately; reverts if sendComment rejects
+      try {
+        await sendComment(postId, text);
+        return null; // cleared error
+      } catch (e) {
+        return e.message; // becomes the new state, surfaced below
+      }
+    },
+    null
+  );
+
+  return (
+    <form action={submitAction}>
+      <ul>
+        {optimistic.map((c) => (
+          <li key={c.id} style={{ opacity: c.pending ? 0.5 : 1 }}>{c.text}</li>
+        ))}
+      </ul>
+      <input name="text" required />
+      <button disabled={isPending}>Post</button>
+      {error && <p role="alert">{error}</p>}
+    </form>
+  );
+}
+```
+
+### React 19: reading a promise with `use`
+
+`use` unwraps a promise and suspends the component until it resolves — no `useEffect` +
+`useState` + manual loading flags. The promise must be created outside render (passed as a
+prop, or produced by a cache/framework loader); creating a fresh promise in render restarts
+the fetch on every attempt and loops forever.
+
+**Good Example** — suspend on data, catch errors with a boundary
+
+```jsx
+import { use, Suspense } from "react";
+
+function Profile({ userPromise }) {
+  const user = use(userPromise); // suspends until resolved
+  return <h1>{user.name}</h1>;
+}
+
+function Page({ userPromise }) {
+  return (
+    <ErrorBoundary fallback={<p role="alert">Could not load profile.</p>}>
+      <Suspense fallback={<Spinner />}>
+        {/* userPromise created by a loader/cache, not inline here */}
+        <Profile userPromise={userPromise} />
+      </Suspense>
+    </ErrorBoundary>
+  );
+}
+```
+
+`use` is also the one hook allowed past a conditional or early return, which lets you read a
+context only when needed: `if (theme) { const t = use(ThemeContext); /* ... */ }`.
+
+### React 19: `ref` is an ordinary prop
+
+Function components receive `ref` as a normal prop — `forwardRef` is no longer required for
+new code (it still works but is deprecated).
+
+**Good Example** — forward a ref without `forwardRef`
+
+```jsx
+function TextInput({ label, ref, ...props }) {
+  return (
+    <label>
+      {label}
+      <input ref={ref} {...props} />
+    </label>
+  );
+}
+
+// Parent focuses the input via a ref, same as a DOM element.
+function Form() {
+  const inputRef = useRef(null);
+  useEffect(() => inputRef.current?.focus(), []);
+  return <TextInput label="Name" ref={inputRef} />;
+}
+```
+
 ## Common Mistakes
 
 - Calling a hook conditionally, in a loop, or after an early `return`.
@@ -102,6 +255,9 @@ function SearchBox({ enabled, onSearch }) {
   measured gain.
 - Relying on memoization for correctness, so the app breaks when React discards the cache.
 - Mutating `ref.current` and expecting the UI to update (refs do not trigger renders).
+- Passing a freshly created promise to `use` on every render, restarting the fetch in a loop.
+- Reaching for `useEffect` + `useState` for a submission that `useActionState` (with built-in
+  `isPending`) or `useOptimistic` would handle more simply.
 - Putting business logic in components instead of extracting a reusable custom hook.
 
 ## Production Tips
@@ -118,6 +274,8 @@ function SearchBox({ enabled, onSearch }) {
 - Are `useMemo`/`useCallback` justified by a memoized consumer or a proven-expensive cost?
 - Is `useRef` used for cross-render mutable values that should not trigger a render?
 - Is `useId` (not random) used for SSR-stable ids?
+- Is any promise passed to `use` created outside render (prop/cache/loader), not inline?
+- Do async submissions use `useActionState`/Actions instead of hand-rolled effect + flags?
 - Is repeated stateful logic extracted into a custom hook rather than copy-pasted?
 
 ## Related

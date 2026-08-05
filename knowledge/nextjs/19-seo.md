@@ -61,6 +61,49 @@ Suitable examples include:
 
 Avoid relying on client-side rendering for primary page content.
 
+In the App Router, Server Components are the default, so SEO-critical
+markup is rendered on the server without any extra configuration. Only add
+`"use client"` to the leaf components that genuinely need interactivity
+(event handlers, `useState`, browser APIs) — never to the page shell that
+holds the indexable content.
+
+```tsx
+// app/products/[slug]/page.tsx — Server Component by default
+// No "use client": the title, description, and body are in the HTML.
+import { notFound } from "next/navigation";
+import { getProduct } from "@/lib/products";
+import { AddToCartButton } from "./add-to-cart-button"; // "use client" lives here
+
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>; // params is a Promise in Next 15
+}) {
+  const { slug } = await params;
+  const product = await getProduct(slug);
+  if (!product) notFound();
+
+  return (
+    <main>
+      <h1>{product.name}</h1>
+      <p>{product.description}</p>
+      <AddToCartButton productId={product.id} />
+    </main>
+  );
+}
+```
+
+For content that rarely changes, pre-render every route at build time with
+`generateStaticParams` so crawlers always hit fully-formed static HTML:
+
+```tsx
+// app/blog/[slug]/page.tsx
+export async function generateStaticParams() {
+  const posts = await getAllPostSlugs();
+  return posts.map((slug) => ({ slug }));
+}
+```
+
 ---
 
 ## URL Structure
@@ -108,6 +151,49 @@ Canonical URLs help:
 
 Only one canonical URL should represent each resource.
 
+Set `metadataBase` once in the root layout so every relative canonical and
+Open Graph URL resolves to an absolute URL. Then declare the canonical per
+page via `alternates.canonical`.
+
+```tsx
+// app/layout.tsx
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://example.com"),
+  title: { default: "Example", template: "%s | Example" },
+};
+```
+
+```tsx
+// app/products/[slug]/page.tsx
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  return {
+    // Resolves against metadataBase → https://example.com/products/<slug>
+    alternates: { canonical: `/products/${slug}` },
+  };
+}
+```
+
+Good — one self-referencing canonical per page, always absolute.
+
+Bad — hardcoded, host-specific canonicals scattered across pages that break
+between preview and production environments:
+
+```tsx
+// Bad: absolute host baked in, easy to drift from the real deploy URL.
+export const metadata = {
+  alternates: { canonical: "http://localhost:3000/products/macbook-pro" },
+};
+```
+
 ---
 
 ## Metadata
@@ -123,6 +209,62 @@ Include:
 - Twitter Card.
 
 Metadata should accurately describe page content.
+
+Export a static `metadata` object for fixed pages, or an async
+`generateMetadata` function when the values depend on fetched content. Both
+run only on the server. See `18-metadata` for the full field reference.
+
+```tsx
+// app/blog/[slug]/page.tsx
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getPost } from "@/lib/posts";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPost(slug); // deduped with the page's own call
+  if (!post) return {};
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      url: `/blog/${slug}`,
+      images: [{ url: post.coverImage, width: 1200, height: 630 }],
+    },
+    twitter: { card: "summary_large_image", title: post.title },
+    robots: post.draft ? { index: false, follow: false } : undefined,
+  };
+}
+```
+
+Note on data reuse: `generateMetadata` and the page component often need the
+same record. Wrap the loader in React `cache()` so the two calls dedupe
+within a single request instead of fetching twice.
+
+```ts
+// lib/posts.ts
+import { cache } from "react";
+
+export const getPost = cache(async (slug: string) => {
+  // fetch is NOT cached by default in Next 15 — opt in explicitly when the
+  // data can be revalidated on a schedule. React cache() only dedupes within
+  // one request; next.revalidate controls cross-request freshness.
+  const res = await fetch(`https://api.example.com/posts/${slug}`, {
+    next: { revalidate: 3600 },
+  });
+  if (!res.ok) return null;
+  return res.json();
+});
+```
 
 ---
 
@@ -209,6 +351,67 @@ Examples:
 
 Structured data should accurately represent page content.
 
+Render JSON-LD as a `<script type="application/ld+json">` from a Server
+Component. Build the object in JS and serialize it — do not hand-write the
+JSON string.
+
+```tsx
+// app/blog/[slug]/page.tsx (inside the Server Component)
+export default async function PostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = await getPost(slug); // deduped via cache()
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt,
+    author: { "@type": "Person", name: post.author },
+    image: post.coverImage,
+  };
+
+  return (
+    <article>
+      {/* Good: serialized object, rendered server-side, in the initial HTML */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <h1>{post.title}</h1>
+      {/* ...body... */}
+    </article>
+  );
+}
+```
+
+Good — one script per entity, values pulled from the same data the page
+renders, so the markup never drifts from what users see.
+
+Bad — injecting structured data from the client after hydration. Crawlers
+that read the initial HTML may miss it, and the values can contradict the
+visible content:
+
+```tsx
+"use client";
+import { useEffect } from "react";
+
+// Bad: runs only in the browser, absent from server-rendered HTML.
+export function BadJsonLd({ data }: { data: object }) {
+  useEffect(() => {
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.textContent = JSON.stringify(data);
+    document.head.appendChild(el);
+  }, [data]);
+  return null;
+}
+```
+
 ---
 
 ## Images
@@ -223,6 +426,27 @@ Ensure:
 - optimized formats.
 
 Avoid embedding important text inside images.
+
+Use `next/image`. It emits width/height (reserving space to avoid layout
+shift, which protects the CLS Core Web Vital), serves modern formats, and
+lazy-loads by default. Mark the above-the-fold hero with `priority` and
+always provide meaningful `alt` text. See `16-images` for details.
+
+```tsx
+import Image from "next/image";
+
+export default function Hero() {
+  return (
+    <Image
+      src="/products/macbook-pro-16.jpg"
+      alt="Space-grey MacBook Pro 16-inch, lid open on a desk"
+      width={1200}
+      height={800}
+      priority // above the fold — opt out of lazy loading
+    />
+  );
+}
+```
 
 ---
 
@@ -282,6 +506,34 @@ Examples:
 
 Private or administrative pages should not be indexed.
 
+There are two independent controls, and they serve different purposes:
+
+- Per-page indexing is set through the `robots` field of a page's metadata
+  (`{ index: false, follow: false }`), which emits a `<meta name="robots">`
+  tag — see the Metadata example above.
+- Site-wide crawl rules and the sitemap pointer live in `app/robots.ts`,
+  which Next serves at `/robots.txt`.
+
+```ts
+// app/robots.ts
+import type { MetadataRoute } from "next";
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: [
+      { userAgent: "*", allow: "/", disallow: ["/admin/", "/api/"] },
+    ],
+    sitemap: "https://example.com/sitemap.xml",
+    host: "https://example.com",
+  };
+}
+```
+
+Note: `disallow` stops crawling but does not guarantee de-indexing of
+already-known URLs. To keep a page out of the index, use the `noindex`
+robots meta tag on the page itself (crawling must be allowed for the tag to
+be read).
+
 ---
 
 ## Sitemap
@@ -296,6 +548,39 @@ Include:
 
 Keep the sitemap current.
 
+Generate the sitemap from `app/sitemap.ts`, which Next serves at
+`/sitemap.xml`. Return typed entries; combine static routes with dynamic
+ones loaded from your data source.
+
+```ts
+// app/sitemap.ts
+import type { MetadataRoute } from "next";
+import { getAllPosts } from "@/lib/posts";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const base = "https://example.com";
+
+  const staticRoutes: MetadataRoute.Sitemap = [
+    { url: base, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
+    { url: `${base}/products`, changeFrequency: "weekly", priority: 0.8 },
+  ];
+
+  const posts = await getAllPosts();
+  const postRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `${base}/blog/${post.slug}`,
+    lastModified: post.updatedAt,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...postRoutes];
+}
+```
+
+For very large catalogs (Next caps a single sitemap file at 50,000 URLs),
+split into segments with `generateSitemaps` and index them. Include only
+canonical, indexable URLs — never `noindex` or redirected pages.
+
 ---
 
 ## Internationalization
@@ -307,6 +592,33 @@ For multilingual applications:
 - maintain translated metadata.
 
 Avoid mixing multiple languages on the same page.
+
+Declare language alternates through `alternates.languages` so Next emits the
+`hreflang` link tags that let search engines map equivalent pages across
+locales. Resolve them against `metadataBase`.
+
+```tsx
+// app/[locale]/products/[slug]/page.tsx
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  return {
+    alternates: {
+      canonical: `/${locale}/products/${slug}`,
+      languages: {
+        "en-US": `/en/products/${slug}`,
+        "de-DE": `/de/products/${slug}`,
+        "x-default": `/en/products/${slug}`,
+      },
+    },
+  };
+}
+```
 
 ---
 
