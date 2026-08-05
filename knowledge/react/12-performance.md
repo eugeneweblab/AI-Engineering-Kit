@@ -354,6 +354,77 @@ Verify:
 
 ---
 
+## Examples
+
+**Good Example** — measure, then fix the cause rather than adding memo everywhere
+
+```tsx
+// The expensive computation is memoised on the values it actually depends on.
+export function Report({ rows, filter }: { rows: Row[]; filter: Filter }) {
+  const visible = useMemo(
+    () => rows.filter((row) => matches(row, filter)).sort(byDate),
+    [rows, filter],
+  );
+
+  // A long list virtualised: the DOM holds the visible window, not 10,000 nodes.
+  return (
+    <Virtuoso
+      data={visible}
+      itemContent={(_, row) => <ReportRow row={row} />}
+      style={{ height: 600 }}
+    />
+  );
+}
+```
+
+```tsx
+// State moved down, so typing does not re-render the expensive siblings.
+export function Page() {
+  return (
+    <>
+      <SearchInput />          {/* owns its own query state */}
+      <ExpensiveDashboard />   {/* unaffected by keystrokes */}
+    </>
+  );
+}
+```
+
+```tsx
+// Route-level code splitting: a heavy screen is not in the initial bundle.
+const Analytics = lazy(() => import('./routes/analytics'));
+```
+
+**Bad Example** — memo applied everywhere, cause untouched
+
+```tsx
+// memo on a component whose props change on every render does nothing except
+// add a comparison. The parent creates a new array and a new function each time.
+const Row = memo(function Row({ item, onSelect }: RowProps) {
+  return <li onClick={() => onSelect(item.id)}>{item.name}</li>;
+});
+
+export function List({ items }: { items: Item[] }) {
+  return (
+    <ul>
+      {items.map((item) => (
+        <Row key={item.id} item={{ ...item }} onSelect={(id) => console.log(id)} />
+      ))}
+    </ul>
+  );
+}
+
+export function Dashboard({ rows }: { rows: Row[] }) {
+  // useMemo with a dependency that is a new array every render: the memo never
+  // hits, and the cost of the comparison is added to the cost of the work.
+  const total = useMemo(() => rows.reduce((s, r) => s + r.value, 0), [[...rows]]);
+
+  // 10,000 rows rendered into the DOM, then hidden with CSS.
+  return <table>{rows.map((r) => <tr key={r.id} hidden={!r.visible}>{r.name}</tr>)}</table>;
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:

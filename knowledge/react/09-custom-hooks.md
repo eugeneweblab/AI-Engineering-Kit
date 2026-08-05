@@ -374,6 +374,73 @@ Accessibility is part of behavior, not presentation.
 
 ---
 
+## Examples
+
+**Good Example** — a hook that owns one concern and cleans up after itself
+
+```ts
+// Encapsulates the subscription, the cleanup, and the SSR-safe initial value.
+export function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = useState(() =>
+    typeof window === 'undefined' ? false : window.matchMedia(query).matches,
+  );
+
+  useEffect(() => {
+    const list = window.matchMedia(query);
+    const onChange = (event: MediaQueryListEvent) => setMatches(event.matches);
+
+    setMatches(list.matches);          // the query may have changed since mount
+    list.addEventListener('change', onChange);
+    return () => list.removeEventListener('change', onChange);   // always unsubscribe
+  }, [query]);
+
+  return matches;
+}
+```
+
+```ts
+// Returns state, not JSX: the caller decides how to render it.
+export function useDebouncedValue<T>(value: T, delayMs: number): T {
+  const [debounced, setDebounced] = useState(value);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebounced(value), delayMs);
+    return () => clearTimeout(timer);   // cancels the pending update on every change
+  }, [value, delayMs]);
+
+  return debounced;
+}
+```
+
+**Bad Example** — a hook that does everything and leaks
+
+```ts
+export function useEverything(userId: string) {
+  const [user, setUser] = useState(null);
+  const [orders, setOrders] = useState([]);
+  const [theme, setTheme] = useState('light');
+
+  useEffect(() => {
+    // No cleanup: if userId changes twice quickly, the first response can land
+    // after the second and overwrite it. If the component unmounts, React warns
+    // about setting state on an unmounted component.
+    fetch(`/api/users/${userId}`).then((r) => r.json()).then(setUser);
+    fetch(`/api/orders?user=${userId}`).then((r) => r.json()).then(setOrders);
+
+    // A listener added on every run and never removed: after ten renders there
+    // are ten listeners, and the page slows down for reasons nobody can see.
+    window.addEventListener('resize', () => setTheme(window.innerWidth > 900 ? 'wide' : 'narrow'));
+  });   // no dependency array: runs after every single render
+
+  return { user, orders, theme, setUser, setOrders, setTheme };
+}
+```
+
+A hook with three unrelated responsibilities cannot be reused for any one of them, and its
+callers re-render whenever any of the three changes.
+
+---
+
 ## Common Mistakes
 
 Avoid:

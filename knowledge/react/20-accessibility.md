@@ -360,6 +360,80 @@ Automated tools cannot detect every accessibility issue.
 
 ---
 
+## Examples
+
+**Good Example** — semantic elements, managed focus, state announced
+
+```tsx
+export function ConfirmDialog({ open, title, onConfirm, onClose }: ConfirmDialogProps) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const triggerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (open) {
+      triggerRef.current = document.activeElement as HTMLElement;
+      dialogRef.current?.showModal();     // native modal: focus trap and Escape included
+    } else {
+      dialogRef.current?.close();
+      triggerRef.current?.focus();        // focus returns where it came from
+    }
+  }, [open]);
+
+  return (
+    <dialog ref={dialogRef} aria-labelledby="confirm-title" onClose={onClose}>
+      <h2 id="confirm-title">{title}</h2>
+      <button onClick={onConfirm}>Delete</button>
+      <button onClick={onClose}>Cancel</button>
+    </dialog>
+  );
+}
+```
+
+```tsx
+// Status changes are announced, not only shown.
+export function SaveStatus({ state }: { state: 'idle' | 'saving' | 'saved' | 'failed' }) {
+  return (
+    <p role="status" aria-live="polite">
+      {state === 'saving' && 'Saving…'}
+      {state === 'saved' && 'All changes saved'}
+      {state === 'failed' && 'Could not save — check your connection'}
+    </p>
+  );
+}
+```
+
+**Bad Example** — divs with click handlers and colour as the only signal
+
+```tsx
+export function ConfirmDialog({ open, onConfirm }: { open: boolean; onConfirm: () => void }) {
+  if (!open) return null;
+
+  return (
+    // Not focusable, not announced as a dialog, and the page behind it is still
+    // reachable by Tab. Escape does nothing.
+    <div className="modal">
+      <div className="modal__title">Delete this file?</div>
+
+      {/* A div is not a button: no keyboard activation, no role, no focus ring. */}
+      <div className="btn btn--danger" onClick={onConfirm}>
+        Delete
+      </div>
+
+      {/* An icon-only control with no accessible name: a screen reader announces
+          "button" and nothing else. */}
+      <button onClick={close}>
+        <XIcon />
+      </button>
+    </div>
+  );
+}
+
+// The only indication that a field failed validation.
+<input style={{ borderColor: 'red' }} />
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:

@@ -638,6 +638,68 @@ Prioritize meaningful scenarios over percentage targets.
 
 ---
 
+## Examples
+
+**Good Example** — query by role, drive it like a user, assert what they see
+
+```tsx
+test('shows a validation error and keeps the value when the email is malformed', async () => {
+  const user = userEvent.setup();
+  const onSubmit = vi.fn();
+
+  render(<SignUpForm onSubmit={onSubmit} />);
+
+  // Found the way a screen reader finds it: by role and accessible name.
+  const email = screen.getByRole('textbox', { name: /email/i });
+  await user.type(email, 'not-an-email');
+  await user.click(screen.getByRole('button', { name: /create account/i }));
+
+  // Asserts the observable outcome, including the accessibility contract.
+  expect(await screen.findByRole('alert')).toHaveTextContent(/valid email/i);
+  expect(email).toHaveAttribute('aria-invalid', 'true');
+  expect(email).toHaveValue('not-an-email');   // the user's input was not discarded
+  expect(onSubmit).not.toHaveBeenCalled();
+});
+```
+
+```tsx
+// Network stubbed at the boundary, so the component's own code is exercised.
+const server = setupServer(
+  http.get('/api/users/:id', () => HttpResponse.json({ id: '1', name: 'Ana' })),
+);
+
+test('renders the error state when the request fails', async () => {
+  server.use(http.get('/api/users/:id', () => new HttpResponse(null, { status: 500 })));
+
+  render(<UserProfile userId="1" />);
+
+  expect(await screen.findByRole('alert')).toHaveTextContent(/could not load/i);
+});
+```
+
+**Bad Example** — test ids, internal state, and an arbitrary sleep
+
+```tsx
+test('form works', async () => {
+  const { container } = render(<SignUpForm />);
+
+  // Selecting by class or test id proves nothing about the accessible name,
+  // and it keeps passing after the label is removed.
+  const input = container.querySelector('.form__input') as HTMLInputElement;
+  fireEvent.change(input, { target: { value: 'x' } });
+
+  // A fixed sleep: too short under CI load, wasted time when it is not.
+  await new Promise((r) => setTimeout(r, 500));
+
+  // Asserts an implementation detail. Renaming the state variable breaks the
+  // test although the behaviour is identical.
+  expect(screen.getByTestId('submit-btn')).toBeTruthy();
+  expect(true).toBe(true);   // asserts nothing
+});
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:

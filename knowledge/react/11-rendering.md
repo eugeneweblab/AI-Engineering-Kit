@@ -386,6 +386,86 @@ Optimize only after identifying measurable bottlenecks.
 
 ---
 
+## Examples
+
+**Good Example** — stable identity, stable references, narrow state
+
+```tsx
+export function TodoList({ todos, onToggle }: { todos: Todo[]; onToggle: (id: string) => void }) {
+  return (
+    <ul>
+      {todos.map((todo) => (
+        // A stable id as key: React reuses the right DOM node when the list is
+        // reordered, and component state stays with its item.
+        <TodoRow key={todo.id} todo={todo} onToggle={onToggle} />
+      ))}
+    </ul>
+  );
+}
+
+// Memoised, and its props are stable — otherwise the memo would never hit.
+const TodoRow = memo(function TodoRow({ todo, onToggle }: TodoRowProps) {
+  return (
+    <li>
+      <input type="checkbox" checked={todo.done} onChange={() => onToggle(todo.id)} />
+      {todo.title}
+    </li>
+  );
+});
+```
+
+```tsx
+export function TodoApp() {
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  // A stable function identity across renders, so memo on TodoRow is effective.
+  const handleToggle = useCallback((id: string) => {
+    setTodos((current) => current.map((t) => (t.id === id ? { ...t, done: !t.done } : t)));
+  }, []);
+
+  return <TodoList todos={todos} onToggle={handleToggle} />;
+}
+```
+
+**Bad Example** — index keys and a new object on every render
+
+```tsx
+export function TodoList({ todos }: { todos: Todo[] }) {
+  return (
+    <ul>
+      {todos.map((todo, index) => (
+        // Index as key: deleting the first item shifts every key, so React
+        // reuses the wrong nodes and the checkbox state jumps to another row.
+        <TodoRow
+          key={index}
+          todo={todo}
+          // A new object and a new function on every render, so this memoised
+          // child re-renders every time regardless.
+          style={{ opacity: todo.done ? 0.5 : 1 }}
+          onToggle={() => toggle(todo.id)}
+        />
+      ))}
+    </ul>
+  );
+}
+
+export function App() {
+  const [query, setQuery] = useState('');
+
+  // One keystroke re-renders the entire page because the state that changes on
+  // every keystroke lives at the root instead of inside the input's own subtree.
+  return (
+    <>
+      <input value={query} onChange={(e) => setQuery(e.target.value)} />
+      <ExpensiveDashboard />
+      <TodoList todos={todos} />
+    </>
+  );
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:

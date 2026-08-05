@@ -332,6 +332,94 @@ Server validation ensures security.
 
 ---
 
+## Examples
+
+**Good Example** — labelled fields, validation on submit, errors announced
+
+```tsx
+export function SignUpForm({ onSubmit }: { onSubmit: (values: SignUp) => Promise<void> }) {
+  const [errors, setErrors] = useState<Partial<Record<keyof SignUp, string>>>({});
+  const [pending, setPending] = useState(false);
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const values = Object.fromEntries(new FormData(event.currentTarget)) as unknown as SignUp;
+
+    const parsed = signUpSchema.safeParse(values);
+    if (!parsed.success) {
+      setErrors(fieldErrors(parsed.error));
+      return;
+    }
+
+    setPending(true);
+    try {
+      await onSubmit(parsed.data);
+    } finally {
+      setPending(false);
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} noValidate>
+      {/* A real label, associated by id — not a placeholder standing in for one. */}
+      <label htmlFor="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        autoComplete="email"
+        aria-invalid={Boolean(errors.email)}
+        aria-describedby={errors.email ? 'email-error' : undefined}
+      />
+      {errors.email && (
+        <p id="email-error" role="alert">
+          {errors.email}
+        </p>
+      )}
+
+      <button type="submit" disabled={pending}>
+        {pending ? 'Creating account…' : 'Create account'}
+      </button>
+    </form>
+  );
+}
+```
+
+**Bad Example** — a div pretending to be a form, errors only in colour
+
+```tsx
+export function SignUpForm() {
+  const [email, setEmail] = useState('');
+  const [invalid, setInvalid] = useState(false);
+
+  return (
+    // Not a <form>: Enter does not submit, browsers do not offer to save the
+    // credentials, and there is no submit event to hook into.
+    <div>
+      {/* Placeholder instead of a label: it disappears on focus, and screen
+          readers may not announce it at all. */}
+      <input
+        placeholder="Email"
+        value={email}
+        // Validating on every keystroke marks the field invalid while the user
+        // is still typing the first character.
+        onChange={(e) => {
+          setEmail(e.target.value);
+          setInvalid(!e.target.value.includes('@'));
+        }}
+        style={{ borderColor: invalid ? 'red' : 'gray' }}
+      />
+      {/* The only error signal is a border colour: invisible to screen readers
+          and to anyone who cannot distinguish red from grey. */}
+
+      <div onClick={submit}>Create account</div>
+    </div>
+  );
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:

@@ -265,6 +265,64 @@ Avoid tightly coupling components to global state or external services.
 
 ---
 
+## Examples
+
+**Good Example** — the UI is a function of state, and state has one owner
+
+```tsx
+// One source of truth. Everything else is derived at render time, so the values
+// on screen cannot disagree with each other.
+export function Cart({ items }: { items: CartItem[] }) {
+  const [couponCode, setCouponCode] = useState('');
+
+  // Derived, not stored: no effect to keep it in sync, no chance of staleness.
+  const subtotalCents = items.reduce((sum, i) => sum + i.priceCents * i.quantity, 0);
+  const discountCents = couponCode === 'SAVE10' ? Math.round(subtotalCents * 0.1) : 0;
+  const totalCents = subtotalCents - discountCents;
+
+  return (
+    <>
+      <CartLines items={items} />
+      <CouponInput value={couponCode} onChange={setCouponCode} />
+      <Total subtotalCents={subtotalCents} discountCents={discountCents} totalCents={totalCents} />
+    </>
+  );
+}
+```
+
+**Bad Example** — derived values stored in state and synchronised by effects
+
+```tsx
+export function Cart({ items }: { items: CartItem[] }) {
+  const [couponCode, setCouponCode] = useState('');
+  const [subtotal, setSubtotal] = useState(0);
+  const [discount, setDiscount] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  // Three effects to keep four pieces of state consistent. Each runs one render
+  // late, so the first paint after a change shows a stale total — and adding a
+  // fourth derived value means adding a fourth chance to forget one.
+  useEffect(() => {
+    setSubtotal(items.reduce((sum, i) => sum + i.priceCents * i.quantity, 0));
+  }, [items]);
+
+  useEffect(() => {
+    setDiscount(couponCode === 'SAVE10' ? Math.round(subtotal * 0.1) : 0);
+  }, [couponCode, subtotal]);
+
+  useEffect(() => {
+    setTotal(subtotal - discount);
+  }, [subtotal, discount]);
+
+  return <Total subtotalCents={subtotal} discountCents={discount} totalCents={total} />;
+}
+```
+
+If a value can be calculated from props and state during render, calculating it is both
+simpler and correct. Storing it creates a second copy that has to be maintained.
+
+---
+
 ## Common Mistakes
 
 Avoid:

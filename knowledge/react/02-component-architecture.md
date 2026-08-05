@@ -375,6 +375,65 @@ Avoid unnecessary dependencies on:
 
 ---
 
+## Examples
+
+**Good Example** — data fetching, layout, and presentation as separate components
+
+```tsx
+// The container knows where data comes from and nothing about how it looks.
+export function OrderListContainer({ userId }: { userId: string }) {
+  const { data, status, error } = useOrders(userId);
+
+  if (status === 'pending') return <OrderListSkeleton />;
+  if (status === 'error') return <ErrorState error={error} onRetry={() => location.reload()} />;
+
+  return <OrderList orders={data} />;
+}
+
+// Pure presentation: no fetching, no routing, no global state. Trivial to test,
+// trivial to reuse in Storybook, and reusable on any screen that has orders.
+export function OrderList({ orders }: { orders: Order[] }) {
+  if (orders.length === 0) {
+    return <EmptyState title="No orders yet" />;
+  }
+  return (
+    <ul>
+      {orders.map((order) => (
+        <OrderRow key={order.id} order={order} />
+      ))}
+    </ul>
+  );
+}
+```
+
+**Bad Example** — one component that fetches, filters, formats, and renders
+
+```tsx
+export function Orders({ userId }: { userId: string }) {
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [sort, setSort] = useState<'date' | 'total'>('date');
+  const [page, setPage] = useState(1);
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    fetch(`/api/orders?user=${userId}`).then((r) => r.json()).then((d) => {
+      setOrders(d);
+      setLoading(false);
+    });
+  }, [userId]);
+
+  // 200 more lines: sorting, pagination, currency formatting, an export dialog,
+  // a delete confirmation, and the table markup. Nothing here can be reused,
+  // and a test for the sort order has to mock fetch, the router, auth, and theme.
+  return <div>{/* … */}</div>;
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:

@@ -614,6 +614,95 @@ In React 19 you can pass `ref` directly as a prop to your own components (`funct
 
 ---
 
+## Examples
+
+**Good Example** — boundaries per region, reported, with a way back
+
+```tsx
+// A boundary around a region, not the whole app: a failing chart does not blank
+// the page, and the fallback offers a real recovery action.
+export function Dashboard() {
+  return (
+    <>
+      <ErrorBoundary
+        fallbackRender={({ error, resetErrorBoundary }) => (
+          <ErrorState
+            title="The revenue chart could not be loaded"
+            detail={error.message}
+            onRetry={resetErrorBoundary}
+          />
+        )}
+        onError={(error, info) => reportError(error, { componentStack: info.componentStack })}
+      >
+        <RevenueChart />
+      </ErrorBoundary>
+
+      <OrdersTable />   {/* still renders if the chart failed */}
+    </>
+  );
+}
+```
+
+```tsx
+// Async failures never reach an error boundary — handle them where they happen.
+function SaveButton({ onSave }: { onSave: () => Promise<void> }) {
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleClick() {
+    setError(null);
+    try {
+      await onSave();
+    } catch (err) {
+      reportError(err);                                  // the details go to the log
+      setError('Could not save. Your changes are still here.');   // the user gets a plan
+    }
+  }
+
+  return (
+    <>
+      <button onClick={handleClick}>Save</button>
+      {error && <p role="alert">{error}</p>}
+    </>
+  );
+}
+```
+
+**Bad Example** — one boundary at the root, failures swallowed
+
+```tsx
+// A single boundary around the whole tree: any error anywhere replaces the
+// entire application with a blank apology, and there is no way back but reload.
+<ErrorBoundary fallback={<p>Something went wrong</p>}>
+  <App />
+</ErrorBoundary>
+```
+
+```tsx
+function SaveButton({ onSave }: { onSave: () => Promise<void> }) {
+  async function handleClick() {
+    try {
+      await onSave();
+    } catch {
+      // Swallowed: the user sees nothing happen and clicks again, monitoring
+      // records no failure, and the cause is never known.
+    }
+  }
+  return <button onClick={handleClick}>Save</button>;
+}
+
+function Profile() {
+  const [user, setUser] = useState(null);
+  // A rejected promise here is an unhandled rejection, not a caught error:
+  // no boundary catches it, and the spinner stays forever.
+  useEffect(() => {
+    fetch('/api/me').then((r) => r.json()).then(setUser);
+  }, []);
+  return user ? <ProfileCard user={user} /> : <Spinner />;
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:

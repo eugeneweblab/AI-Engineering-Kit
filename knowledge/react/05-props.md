@@ -416,6 +416,67 @@ Accessibility should not require workarounds.
 
 ---
 
+## Examples
+
+**Good Example** — a narrow, typed contract with sensible composition
+
+```tsx
+type ButtonProps = {
+  variant?: 'primary' | 'secondary' | 'danger';   // a closed set, checked by the compiler
+  size?: 'sm' | 'md';
+  children: React.ReactNode;
+} & Omit<React.ComponentPropsWithoutRef<'button'>, 'className'>;
+
+export function Button({ variant = 'primary', size = 'md', children, ...rest }: ButtonProps) {
+  // Forwarding the native props means onClick, type, disabled, and aria-* all
+  // work without being re-declared here.
+  return (
+    <button className={cx(styles[variant], styles[size])} {...rest}>
+      {children}
+    </button>
+  );
+}
+```
+
+```tsx
+// Composition instead of a boolean per variation: the card does not need to know
+// which combination of header, media, and actions a caller wants.
+export function Card({ children }: { children: React.ReactNode }) {
+  return <div className="card">{children}</div>;
+}
+Card.Header = function CardHeader({ children }: { children: React.ReactNode }) {
+  return <header className="card__header">{children}</header>;
+};
+```
+
+**Bad Example** — a boolean for every case, and props threaded through five levels
+
+```tsx
+type CardProps = {
+  // Each flag doubles the number of states to reason about, and nothing prevents
+  // an impossible combination like compact + expanded.
+  isCompact?: boolean;
+  isExpanded?: boolean;
+  hasHeader?: boolean;
+  hasFooter?: boolean;
+  showAvatar?: boolean;
+  variant?: string;                  // any string: typos compile
+  data?: any;                        // no contract at all
+};
+
+// Prop drilling: `user` is used only by Avatar, but every component in between
+// declares it, and adding a field to it changes five signatures.
+function Page({ user }: { user: User }) { return <Layout user={user} />; }
+function Layout({ user }: { user: User }) { return <Sidebar user={user} />; }
+function Sidebar({ user }: { user: User }) { return <Profile user={user} />; }
+function Profile({ user }: { user: User }) { return <Avatar user={user} />; }
+```
+
+Pass the component instead of the data when the middle layers do not use it, or put the value
+in context when genuinely many descendants need it.
+
+---
+
 ## Common Mistakes
 
 Avoid:

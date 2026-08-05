@@ -394,6 +394,75 @@ UI state should always be communicated appropriately.
 
 ---
 
+## Examples
+
+**Good Example** — state placed by scope, server data kept out of client stores
+
+```tsx
+// 1. Local: nothing outside this component needs it.
+function Disclosure({ children }: { children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
+  return <>{/* … */}</>;
+}
+
+// 2. URL: shareable, survives reload, and the back button works.
+function ProductList() {
+  const [params, setParams] = useSearchParams();
+  const category = params.get('category') ?? 'all';
+  return <Filters value={category} onChange={(c) => setParams({ category: c })} />;
+}
+
+// 3. Server state: owned by a query cache, not copied into a store.
+function Orders() {
+  const { data } = useQuery({ queryKey: ['orders'], queryFn: fetchOrders });
+  return <OrderList orders={data ?? []} />;
+}
+```
+
+```ts
+// 4. Global client state: only what is genuinely global, and selected narrowly
+//    so components re-render on the slice they use.
+export const useUiStore = create<UiState>()((set) => ({
+  theme: 'system',
+  setTheme: (theme) => set({ theme }),
+}));
+
+const theme = useUiStore((s) => s.theme);   // not the whole store
+```
+
+**Bad Example** — one global store holding everything, including server data
+
+```tsx
+export const useAppStore = create<AppState>()((set) => ({
+  // Server data copied into client state: now there are two sources of truth and
+  // a manual job to keep them in sync, with no staleness or refetch policy.
+  orders: [],
+  users: [],
+
+  // Local UI state promoted to global: two dialogs cannot be open independently,
+  // and every component subscribing to the store re-renders when either changes.
+  isDialogOpen: false,
+  currentTab: 'overview',
+
+  fetchOrders: async () => set({ orders: await (await fetch('/api/orders')).json() }),
+}));
+
+function Orders() {
+  // Subscribes to the entire store: a theme change re-renders this list.
+  const store = useAppStore();
+
+  // Fetch-on-mount with no cache: every navigation refetches, and two components
+  // mounting together fire the same request twice.
+  useEffect(() => {
+    store.fetchOrders();
+  }, []);
+
+  return <OrderList orders={store.orders} />;
+}
+```
+
+---
+
 ## Common Mistakes
 
 Avoid:

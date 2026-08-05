@@ -729,6 +729,63 @@ Users should always understand the result of asynchronous operations.
 
 ---
 
+## Examples
+
+**Good Example** — a cache-aware client, with every state rendered
+
+```tsx
+export function UserProfile({ userId }: { userId: string }) {
+  const { data, status, error, refetch } = useQuery({
+    queryKey: ['user', userId],           // the key IS the cache identity
+    queryFn: ({ signal }) => fetchUser(userId, signal),   // cancelled on unmount
+    staleTime: 60_000,
+  });
+
+  if (status === 'pending') return <ProfileSkeleton />;
+  if (status === 'error') return <ErrorState error={error} onRetry={refetch} />;
+
+  return <Profile user={data} />;
+}
+```
+
+```ts
+// The fetcher throws on a non-2xx, so the error state is actually reachable.
+export async function fetchUser(id: string, signal?: AbortSignal): Promise<User> {
+  const res = await fetch(`/api/users/${id}`, { signal });
+  if (!res.ok) {
+    throw new HttpError(res.status, `Failed to load user ${id}`);
+  }
+  return res.json();
+}
+```
+
+**Bad Example** — a hand-rolled effect with a race and no error path
+
+```tsx
+export function UserProfile({ userId }: { userId: string }) {
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    // No cleanup and no AbortController: navigating from user A to user B can
+    // land A's response last, showing the wrong profile.
+    fetch(`/api/users/${userId}`)
+      .then((r) => r.json())      // a 500 body parses fine and yields garbage
+      .then(setUser);
+  }, [userId]);
+
+  // "Loading" and "failed" are indistinguishable: a failed request shows this
+  // spinner forever, and nothing reports the error.
+  if (!user) return <Spinner />;
+
+  return <Profile user={user} />;
+}
+```
+
+Fetching inside a child that is rendered after its parent's own request resolves creates a
+waterfall — start independent requests together, or move the fetch to the route.
+
+---
+
 ## Common Mistakes
 
 Avoid:
