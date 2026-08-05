@@ -3,8 +3,8 @@
   "note": "Regenerate with `python3 scripts/build-index.py`. Do not edit by hand.",
   "stats": {
     "topics": 49,
-    "docs": 1406,
-    "ready": 1400,
+    "docs": 1421,
+    "ready": 1415,
     "draft": 6
   },
   "topics": {
@@ -18084,8 +18084,8 @@
     },
     "tools": {
       "path": "knowledge/tools",
-      "doc_count": 20,
-      "ready": 20,
+      "doc_count": 35,
+      "ready": 35,
       "draft": 0,
       "docs": [
         {
@@ -18366,6 +18366,216 @@
           ],
           "when_to_use": "Read before setting up or working in a monorepo — configuring workspaces, task orchestration and caching, or deciding whether a monorepo is warranted.",
           "path": "knowledge/tools/18-monorepo-tools.md"
+        },
+        {
+          "id": "tools/19-task-runners",
+          "title": "Task Runners",
+          "slug": "task-runners",
+          "type": "doc",
+          "order": 19,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "task-runners"
+          ],
+          "when_to_use": "Read before organizing project commands — npm scripts, Make, or a task runner — so the same commands work locally and in CI.",
+          "path": "knowledge/tools/19-task-runners.md"
+        },
+        {
+          "id": "tools/20-local-environments",
+          "title": "Local Environments",
+          "slug": "local-environments",
+          "type": "doc",
+          "order": 20,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "local-environments"
+          ],
+          "when_to_use": "Read before setting up a local development environment — Docker Compose, WordPress-specific tooling, or making a project runnable with one command.",
+          "path": "knowledge/tools/20-local-environments.md"
+        },
+        {
+          "id": "tools/21-debuggers",
+          "title": "Debuggers",
+          "slug": "debuggers",
+          "type": "doc",
+          "order": 21,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "debuggers"
+          ],
+          "when_to_use": "Read before debugging beyond print statements — attaching a debugger to Node, PHP, or the browser, and setting breakpoints that actually help.",
+          "path": "knowledge/tools/21-debuggers.md"
+        },
+        {
+          "id": "tools/22-profilers",
+          "title": "Profilers",
+          "slug": "profilers",
+          "type": "doc",
+          "order": 22,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "profilers"
+          ],
+          "when_to_use": "Read before optimizing anything — capturing a CPU or memory profile in Node, PHP, or the browser, and reading the result correctly.",
+          "path": "knowledge/tools/22-profilers.md"
+        },
+        {
+          "id": "tools/23-api-clients",
+          "title": "API Clients",
+          "slug": "api-clients",
+          "type": "doc",
+          "order": 23,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "api-clients"
+          ],
+          "when_to_use": "Read before testing or documenting an HTTP API by hand — using curl, HTTPie, or a GUI client, and keeping request collections in version control.",
+          "path": "knowledge/tools/23-api-clients.md"
+        },
+        {
+          "id": "tools/24-database-tools",
+          "title": "Database Tools",
+          "slug": "database-tools",
+          "type": "doc",
+          "order": 24,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "database-tools"
+          ],
+          "when_to_use": "Read before working with a database by hand — choosing a client, inspecting queries, running migrations, or moving data between environments safely.",
+          "path": "knowledge/tools/24-database-tools.md"
+        },
+        {
+          "id": "tools/25-editor-setup",
+          "title": "Editor Setup",
+          "slug": "editor-setup",
+          "type": "doc",
+          "order": 25,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "editor-setup"
+          ],
+          "when_to_use": "Read before committing editor configuration — deciding what to enforce for the whole team, what to recommend, and what to leave personal.",
+          "path": "knowledge/tools/25-editor-setup.md"
+        },
+        {
+          "id": "tools/26-ai-coding-tools",
+          "title": "AI Coding Tools",
+          "slug": "ai-coding-tools",
+          "type": "doc",
+          "order": 26,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "ai-coding-tools"
+          ],
+          "when_to_use": "Read before adopting an AI coding assistant on a project — writing project instructions, connecting tools, setting review expectations, and deciding what the assistant must not touch.",
+          "path": "knowledge/tools/26-ai-coding-tools.md"
+        },
+        {
+          "id": "tools/27-dependency-management",
+          "title": "Dependency Management",
+          "slug": "dependency-management",
+          "type": "doc",
+          "order": 27,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "dependency-management"
+          ],
+          "when_to_use": "Read before adding a dependency or setting up update automation — evaluating a package, configuring Renovate or Dependabot, or responding to a vulnerability advisory.",
+          "path": "knowledge/tools/27-dependency-management.md"
+        },
+        {
+          "id": "tools/28-release-tools",
+          "title": "Release Tools",
+          "slug": "release-tools",
+          "type": "doc",
+          "order": 28,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "release-tools"
+          ],
+          "when_to_use": "Read before automating versioning and publishing — choosing between Changesets and semantic-release, generating changelogs, or publishing packages from CI.",
+          "path": "knowledge/tools/28-release-tools.md"
+        },
+        {
+          "id": "tools/29-observability-tools",
+          "title": "Observability Tools",
+          "slug": "observability-tools",
+          "type": "doc",
+          "order": 29,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "observability-tools"
+          ],
+          "when_to_use": "Read before instrumenting an application — choosing error tracking, structured logging, and tracing, and deciding what to capture without leaking user data.",
+          "path": "knowledge/tools/29-observability-tools.md"
+        },
+        {
+          "id": "tools/30-engineering-principles",
+          "title": "Engineering Principles",
+          "slug": "engineering-principles",
+          "type": "doc",
+          "order": 30,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "engineering-principles"
+          ],
+          "when_to_use": "Read before adding, replacing, or configuring any development tool, as the baseline every tooling decision must satisfy.",
+          "path": "knowledge/tools/30-engineering-principles.md"
+        },
+        {
+          "id": "tools/98-production-checklist",
+          "title": "Production Checklist",
+          "slug": "production-checklist",
+          "type": "doc",
+          "order": 98,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "production-checklist"
+          ],
+          "when_to_use": "Read before declaring a project's tooling ready — at setup, before onboarding contributors, or before the first production release.",
+          "path": "knowledge/tools/98-production-checklist.md"
+        },
+        {
+          "id": "tools/99-ai-review-checklist",
+          "title": "AI Review Checklist",
+          "slug": "ai-review-checklist",
+          "type": "doc",
+          "order": 99,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "ai-review-checklist"
+          ],
+          "when_to_use": "Read when reviewing a change that touches tooling — configuration, CI workflows, dependencies, hooks, or build setup.",
+          "path": "knowledge/tools/99-ai-review-checklist.md"
+        },
+        {
+          "id": "tools/100-common-antipatterns",
+          "title": "Common Antipatterns",
+          "slug": "common-antipatterns",
+          "type": "doc",
+          "order": 100,
+          "status": "ready",
+          "tags": [
+            "tools",
+            "common-antipatterns"
+          ],
+          "when_to_use": "Read when setting up or reviewing project tooling, to recognize the recurring failure modes and their fixes.",
+          "path": "knowledge/tools/100-common-antipatterns.md"
         }
       ]
     },

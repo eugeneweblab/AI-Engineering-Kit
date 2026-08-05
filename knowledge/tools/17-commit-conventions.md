@@ -20,7 +20,7 @@ downstream.
 
 ## Why It Matters
 
-Commit messages are the only documentation guaranteed to be written at the moment of the
+Commit messages are the only documentation guaranteed to exist at the moment of the
 change. Six months later, `git log` is often the sole record of *why* something is the way it
 is — and "fix stuff" answers nothing.
 
