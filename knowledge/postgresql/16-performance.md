@@ -95,11 +95,20 @@ CREATE INDEX ON orders (created_at);
 CREATE INDEX ON orders (updated_at);
 CREATE INDEX ON orders (status);   -- low-selectivity single column: planner ignores it
 
--- Application does N+1 instead of one query:
+```
+
+The application then does N+1 instead of one query:
+
+```ts
 for (const c of customers) {                       // 10k customers
   await db.query('SELECT * FROM orders WHERE customer_id = $1', [c.id]); // 10k round trips
 }
--- Fix: one set-based query -> SELECT ... WHERE customer_id = ANY($1) plus the composite index.
+```
+
+The fix is one set-based query plus the composite index:
+
+```sql
+SELECT * FROM orders WHERE customer_id = ANY($1);
 ```
 
 ## Common Mistakes

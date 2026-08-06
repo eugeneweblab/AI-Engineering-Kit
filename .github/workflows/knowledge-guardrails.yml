@@ -27,15 +27,27 @@ jobs:
         with:
           python-version: "3.12"
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # PyYAML parses YAML blocks; sqlfluff parses SQL. PHP and Node ship with the
+      # runner. html-validate and stylelint are fetched by npx on first use.
       - name: Install checker dependencies
-        run: python3 -m pip install --quiet pyyaml
+        run: python3 -m pip install --quiet pyyaml sqlfluff
+
+      - name: Warm the npx cache
+        run: |
+          npx --yes html-validate@8 --version
+          npx --yes stylelint@16 --version
+          npx --yes esbuild@0.24.0 --version
 
       - name: No stub marked ready
         run: python3 scripts/check-ready-not-stub.py knowledge
 
-      # Runs `php -l`, `bash -n`, and esbuild over every fenced block. PHP and Node are
-      # preinstalled on ubuntu-latest; if either goes missing the checker reports the
-      # skip rather than passing silently.
+      # Hands every fenced block to the parser for its language: bash -n, php -l,
+      # esbuild, sqlfluff, html-validate, stylelint, plus PyYAML/JSON/XML/ast in
+      # process. A tool that cannot run is reported as a skip, never passed silently.
       - name: Structure, links, and code blocks
         run: python3 scripts/check-knowledge.py knowledge
 

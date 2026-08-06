@@ -73,14 +73,21 @@ breach.
 ```html
 <iframe
   src="https://widgets.partner.com/rating"
-  title="Product rating widget"          <!-- accessible name for screen readers -->
-  sandbox="allow-scripts"                 <!-- scripts only; NO allow-same-origin -->
-  allow="clipboard-write"                 <!-- grant just this; camera/mic denied -->
-  referrerpolicy="no-referrer"            <!-- don't leak our URL to the partner -->
-  loading="lazy"                          <!-- defer offscreen load -->
-  width="320" height="120">               <!-- fixed box: no layout shift -->
+  title="Product rating widget"
+  sandbox="allow-scripts"
+  allow="clipboard-write"
+  referrerpolicy="no-referrer"
+  loading="lazy"
+  width="320" height="120">
 </iframe>
 ```
+
+- `title` is the accessible name a screen reader announces for the frame.
+- `sandbox="allow-scripts"` grants scripts and nothing else — in particular **not**
+  `allow-same-origin`, which together with `allow-scripts` removes the sandbox.
+- `allow="clipboard-write"` grants exactly one capability; camera and microphone stay denied.
+- `referrerpolicy="no-referrer"` stops our URL leaking to the partner.
+- `loading="lazy"` defers the offscreen load; `width`/`height` fix the box so nothing shifts.
 
 **Bad Example** — full trust, leaky, unlabeled
 

@@ -138,7 +138,7 @@ Three settings are worth calling out because they decide whether the design syst
 
 Every preset generates a custom property with a predictable name:
 
-```css
+```text
 --wp--preset--color--primary
 --wp--preset--font-size--large
 --wp--preset--spacing--50

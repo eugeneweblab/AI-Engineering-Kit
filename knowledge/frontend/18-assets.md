@@ -76,8 +76,8 @@ entirely.
   <source srcset="/img/hero.webp" type="image/webp" />
   <img
     src="/img/hero.jpg"
-    width="1200" height="600"   <!-- reserves space → no layout shift -->
-    fetchpriority="high"        <!-- LCP image, load it first -->
+    width="1200" height="600"
+    fetchpriority="high"
     alt="Team collaborating in an office"
   />
 </picture>

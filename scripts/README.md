@@ -79,10 +79,25 @@ inspection:
 | pointers | a `98`/`99` checklist that lost its `**Rules:**` section pointers |
 | plan | `docs/structure/` no longer describing the tree: a topic missing from the root tree, a topic with no part in the file list, or a file listed/present without its counterpart |
 
-Blocks are handed to the real parser for their language: `ast.parse` (Python), a
-JSONC-tolerant decoder (JSON), PyYAML (YAML), ElementTree (XML), `bash -n` (shell), `php -l` (PHP), and
-esbuild (JS/TS/JSX/TSX). PHP and JS/TS are skipped with a printed note when `php` or
-`npx` is unavailable.
+Blocks are handed to the real parser for their language:
+
+| Language | Parser | Needs |
+|---|---|---|
+| Python | `ast.parse` | — |
+| JSON / JSONC | comment-tolerant decoder | — |
+| YAML | PyYAML | `pip install pyyaml` |
+| XML | ElementTree | — |
+| shell | `bash -n` | — |
+| PHP | `php -l` | `php` |
+| JS / TS / JSX / TSX | esbuild | `npx` |
+| SQL | `sqlfluff lint --rules PRS` | `pip install sqlfluff` |
+| HTML | html-validate (syntax rules only) | `npx` |
+| CSS / SCSS | stylelint with no rules enabled | `npx` |
+
+A language whose tool is unavailable is reported as a skip, never passed silently.
+SQL uses the `postgres` dialect except in MySQL-family topics (`mysql`, `wordpress`,
+`woocommerce`, `divi`), and HTML applies only the syntax rules — a Bad Example is
+often invalid on purpose, but never unparseable.
 
 ```bash
 python3 scripts/check-knowledge.py knowledge      # exit 0 = clean, 1 = violations

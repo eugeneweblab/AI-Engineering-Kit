@@ -75,16 +75,22 @@ impact performance and accessibility levers on a page.
     srcset="/hero-480.avif 480w, /hero-960.avif 960w, /hero-1440.avif 1440w"
     sizes="(max-width: 600px) 100vw, 960px" />
   <img
-    src="/hero-960.jpg"            <!-- fallback for older browsers -->
-    alt="Warehouse team loading a delivery van at sunrise"  <!-- meaningful in context -->
-    width="960" height="540"       <!-- reserves space → no layout shift -->
-    fetchpriority="high"           <!-- this is the LCP image: load it first -->
+    src="/hero-960.jpg"
+    alt="Warehouse team loading a delivery van at sunrise"
+    width="960" height="540"
+    fetchpriority="high"
     decoding="async" />
 </picture>
 
 <!-- Decorative icon: empty alt removes it from the accessibility tree -->
 <img src="/divider.svg" alt="" width="200" height="4" />
 ```
+
+- `src` is the fallback for browsers that support neither AVIF nor WebP.
+- `alt` is meaningful in context; the decorative divider takes an empty `alt`, which
+  removes it from the accessibility tree.
+- `width` and `height` reserve the space, so nothing shifts as the image loads.
+- `fetchpriority="high"` marks the LCP image so it is fetched first.
 
 **Bad Example** — inaccessible, layout-shifting, oversized
 

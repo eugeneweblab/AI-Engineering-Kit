@@ -30,8 +30,8 @@ Checks
   pointers    98/99 checklists route each themed section to the rule behind it
 
 Language coverage: Python, JSON (incl. JSONC and multi-document), YAML, XML, shell.
-PHP and JS/TS are checked only when `php` / `npx` are available, and only against
-a baseline — see "Baseline" below.
+PHP, JS/TS, SQL, HTML, and CSS are checked only when `php`, `npx`, or `sqlfluff`
+is available, and only against a baseline — see "Baseline" below.
 
 Baseline
 --------
@@ -97,6 +97,12 @@ BARE_PATH_RE = re.compile(r"`(knowledge/[^`\n]*)`")
 JS_FAMILY = {"ts": "ts", "typescript": "ts", "tsx": "tsx",
              "js": "js", "javascript": "js", "jsx": "jsx"}
 SHELL_TAGS = {"bash", "sh", "shell", "zsh"}
+SQL_TAGS = {"sql"}
+HTML_TAGS = {"html"}
+CSS_TAGS = {"css", "scss"}
+# sqlfluff needs a dialect; the base is Postgres-flavoured except where a topic
+# is explicitly MySQL-family.
+MYSQL_TOPICS = {"mysql", "wordpress", "woocommerce", "divi"}
 PYTHON_TAGS = {"python", "py"}
 JSON_TAGS = {"json", "jsonc", "json5"}
 YAML_TAGS = {"yaml", "yml"}
@@ -279,6 +285,118 @@ def run_php_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]]:
 
 
 ESBUILD_ERROR_RE = re.compile(r"✘ \[ERROR\] ([^\n]+)\n\n\s+([\w.\-]+):(\d+):")
+
+
+def run_sql_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] | None:
+    """`sqlfluff lint --rules PRS`, one process per dialect.
+
+    Per-block invocation cost ~2s of interpreter startup, which put a full run past
+    ten minutes; batching by dialect brings it under a second.
+    """
+    if not shutil.which("sqlfluff"):
+        return None
+    failures: list[tuple[str, str]] = []
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        names: dict[str, str] = {}
+        by_dialect: dict[str, list[str]] = {}
+        for n, (block_id, src, dialect) in enumerate(blocks):
+            sub = root / dialect
+            sub.mkdir(exist_ok=True)
+            name = f"b{n}.sql"
+            (sub / name).write_text(src, encoding="utf-8")
+            names[f"{dialect}/{name}"] = block_id
+            by_dialect.setdefault(dialect, []).append(name)
+
+        for dialect in by_dialect:
+            proc = subprocess.run(
+                ["sqlfluff", "lint", "--format", "json",
+                 "--dialect", dialect, "--rules", "PRS", dialect],
+                capture_output=True, text=True, cwd=root,
+            )
+            try:
+                report = json.loads(proc.stdout or "[]")
+            except ValueError:
+                return None
+            for entry in report:
+                key = entry.get("filepath", "").lstrip("./")
+                block_id = names.get(key)
+                violations = [v for v in entry.get("violations", []) if v.get("code") == "PRS"]
+                if block_id and violations:
+                    failures.append((block_id, violations[0].get("description", "unparsable")[:90]))
+    return failures
+
+
+HTML_SYNTAX_RULES = {"parser-error", "close-order", "unclosed-element"}
+
+
+def run_html_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] | None:
+    """html-validate, restricted to the syntax rules. Style and a11y rules are not
+    applied: a Bad Example is often invalid on purpose, but never unparseable."""
+    if not shutil.which("npx"):
+        return None
+    with tempfile.TemporaryDirectory() as tmp:
+        tmpdir, names = Path(tmp), {}
+        (tmpdir / ".htmlvalidate.json").write_text(
+            json.dumps({"root": True, "extends": ["html-validate:recommended"]}),
+            encoding="utf-8",
+        )
+        for n, (block_id, src, _) in enumerate(blocks):
+            name = f"b{n}.html"
+            names[name] = block_id
+            (tmpdir / name).write_text(src, encoding="utf-8")
+        # Write the report to a file: Node truncates a large stdout pipe on exit,
+        # which silently cut the JSON at 64 KiB and made this check a no-op.
+        report_path = tmpdir / "report.json"
+        subprocess.run(
+            ["npx", "--yes", "html-validate@8", f"--formatter=json={report_path.name}", "*.html"],
+            capture_output=True, text=True, cwd=tmpdir,
+        )
+        if not report_path.exists():
+            return None
+        try:
+            report = json.loads(report_path.read_text(encoding="utf-8") or "[]")
+        except ValueError:
+            return None
+        out = []
+        for entry in report:
+            block_id = names.get(Path(entry["filePath"]).name)
+            for msg in entry.get("messages", []):
+                if block_id and msg.get("ruleId") in HTML_SYNTAX_RULES:
+                    out.append((block_id, f"{msg['ruleId']}: {msg['message'][:80]}"))
+        return out
+
+
+def run_css_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] | None:
+    """stylelint with no rules enabled reports parse errors and nothing else."""
+    if not shutil.which("npx"):
+        return None
+    with tempfile.TemporaryDirectory() as tmp:
+        tmpdir, names = Path(tmp), {}
+        (tmpdir / ".stylelintrc.json").write_text('{"rules": {}}', encoding="utf-8")
+        for n, (block_id, src, ext) in enumerate(blocks):
+            name = f"b{n}.{ext}"
+            names[name] = block_id
+            (tmpdir / name).write_text(src, encoding="utf-8")
+        report_path = tmpdir / "report.json"
+        subprocess.run(
+            ["npx", "--yes", "stylelint@16", "*.css", "*.scss",
+             "--formatter=json", "--output-file", report_path.name],
+            capture_output=True, text=True, cwd=tmpdir,
+        )
+        if not report_path.exists():
+            return None
+        try:
+            report = json.loads(report_path.read_text(encoding="utf-8") or "[]")
+        except ValueError:
+            return None
+        out = []
+        for entry in report:
+            block_id = names.get(Path(entry["source"]).name)
+            for w in entry.get("warnings", []):
+                if block_id and "SyntaxError" in str(w.get("rule")):
+                    out.append((block_id, w.get("text", "")[:90]))
+        return out
 
 
 def run_js_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] | None:
@@ -548,8 +666,12 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
     except ImportError:
         yaml_mod = None
 
-    counts = {"python": 0, "json": 0, "yaml": 0, "xml": 0, "shell": 0, "php": 0, "js": 0}
+    counts = {"python": 0, "json": 0, "yaml": 0, "xml": 0, "shell": 0,
+              "sql": 0, "html": 0, "css": 0, "php": 0, "js": 0}
     shell_blocks: list[tuple[str, str, str]] = []
+    sql_blocks: list[tuple[str, str, str]] = []
+    html_blocks: list[tuple[str, str, str]] = []
+    css_blocks: list[tuple[str, str, str]] = []
     php_blocks: list[tuple[str, str, str]] = []
     js_blocks: list[tuple[str, str, str]] = []
 
@@ -561,6 +683,12 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
                 family = "php"
             elif tag in SHELL_TAGS:
                 family = "shell"
+            elif tag in SQL_TAGS:
+                family = "sql"
+            elif tag in HTML_TAGS:
+                family = "html"
+            elif tag in CSS_TAGS:
+                family = "css"
             elif tag in PYTHON_TAGS:
                 family = "python"
             elif tag in JSON_TAGS:
@@ -591,6 +719,13 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
                     problems.append(f"{doc.rel}:{line}: ```{tag} does not parse — {err}")
             elif family == "shell":
                 shell_blocks.append((block_id, src, tag))
+            elif family == "sql":
+                dialect = "mysql" if doc.path.parent.name in MYSQL_TOPICS else "postgres"
+                sql_blocks.append((block_id, src, dialect))
+            elif family == "html":
+                html_blocks.append((block_id, src, tag))
+            elif family == "css":
+                css_blocks.append((block_id, src, "scss" if tag == "scss" else "css"))
             elif family == "php":
                 php_blocks.append((block_id, src, tag))
             elif family == "js":
@@ -606,6 +741,9 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
     for family, blocks, runner, tool in (
         ("php", php_blocks, run_php_checks, "php"),
         ("js", js_blocks, run_js_checks, "npx"),
+        ("sql", sql_blocks, run_sql_checks, "sqlfluff"),
+        ("html", html_blocks, run_html_checks, "npx"),
+        ("css", css_blocks, run_css_checks, "npx"),
     ):
         if skip_external or not blocks or not shutil.which(tool):
             if not skip_external and blocks and not shutil.which(tool):
@@ -614,7 +752,7 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
             continue
         result = runner(blocks)
         if result is None:
-            print(f"  note: esbuild unavailable — {family} blocks were not checked")
+            print(f"  note: {tool} could not run — {family} blocks were not checked")
             continue
         failing = sorted({block_id for block_id, _ in result})
         if update_baseline:

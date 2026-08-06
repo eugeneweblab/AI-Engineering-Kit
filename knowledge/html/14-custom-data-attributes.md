@@ -84,9 +84,10 @@ markup honest, accessible, and safe.
 
 ```html
 <!-- Secret shipped to the client in plain text; anyone can read/edit it -->
+<!-- JSON stuffed into an attribute; data-expanded should be aria-expanded -->
 <div data-api-key="sk_live_9f3..."
-     data-user='{"id":42,"perms":["read","write","delete"]}'  <!-- JSON in an attr -->
-     data-expanded="true">                                     <!-- should be ARIA -->
+     data-user='{"id":42,"perms":["read","write","delete"]}'
+     data-expanded="true">
   ...
 </div>
 

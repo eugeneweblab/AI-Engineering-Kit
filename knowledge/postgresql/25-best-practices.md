@@ -100,8 +100,12 @@ CREATE TABLE invoice (
 );
 -- no FK, no index on customer_id -> every join is a sequential scan
 
--- String-built query: SQL injection and no plan caching.
-"SELECT * FROM invoice WHERE customer_id = " + userInput
+```
+
+The query is then built by string concatenation — SQL injection, and no plan caching:
+
+```ts
+db.query("SELECT * FROM invoice WHERE customer_id = " + userInput);
 ```
 
 ## Common Mistakes

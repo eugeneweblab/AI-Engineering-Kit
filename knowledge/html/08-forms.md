@@ -69,11 +69,11 @@ solved and breaks whenever a script fails to load.
 <form action="/subscribe" method="post"> <!-- works with no JS -->
   <label for="email">Email address</label>
   <input
-    id="email"                 <!-- id links the label -->
-    name="email"               <!-- name is what the server receives -->
-    type="email"               <!-- email keyboard + native format check -->
-    autocomplete="email"       <!-- lets the browser/password-manager fill -->
-    required                    <!-- native "must fill" hint -->
+    id="email"
+    name="email"
+    type="email"
+    autocomplete="email"
+    required
     aria-describedby="email-hint"
   />
   <p id="email-hint">We'll only email you the newsletter.</p>

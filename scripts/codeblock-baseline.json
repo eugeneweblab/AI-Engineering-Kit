@@ -1,5 +1,9 @@
 {
   "_comment": "Code blocks that are intentional fragments \u2014 class-method excerpts, parameter decorators, Bad/Good pairs reusing a name, lists of sibling JSX elements or function signatures. They never parse standalone and are not defects. Regenerate with: python3 scripts/check-knowledge.py --update-baseline",
+  "css": [],
+  "html": [
+    "knowledge/html/10-metadata.md#fc68f0cc0d"
+  ],
   "js": [
     "knowledge/ai/03-code-generation.md#984736edb9",
     "knowledge/architecture/10-modular-monolith.md#96b55a5b22",
@@ -99,5 +103,42 @@
     "knowledge/wordpress/19-database.md#2de28f01cb",
     "knowledge/wordpress/24-internationalization.md#fec88f402b",
     "knowledge/wordpress/25-multisite.md#b853934498"
+  ],
+  "sql": [
+    "knowledge/databases/10-concurrency.md#0915bb492e",
+    "knowledge/databases/19-security.md#efc293286d",
+    "knowledge/databases/25-multi-tenancy.md#9adcb37313",
+    "knowledge/mysql/05-query-optimization.md#62d806ee19",
+    "knowledge/mysql/10-clustering.md#eae33cdf63",
+    "knowledge/mysql/100-common-antipatterns.md#49165a1726",
+    "knowledge/mysql/100-common-antipatterns.md#b67d257519",
+    "knowledge/mysql/100-common-antipatterns.md#f865967ae1",
+    "knowledge/mysql/13-users-and-roles.md#716abb377e",
+    "knowledge/mysql/14-performance.md#417a99ed78",
+    "knowledge/mysql/15-monitoring.md#887d3c275d",
+    "knowledge/mysql/15-monitoring.md#dd0de01eb2",
+    "knowledge/mysql/18-debugging.md#a2f03d3704",
+    "knowledge/mysql/21-high-availability.md#1a183d0755",
+    "knowledge/mysql/21-high-availability.md#aa11b7bcaa",
+    "knowledge/mysql/22-partitioning.md#2d11230c19",
+    "knowledge/mysql/23-full-text-search.md#c46dee4cd9",
+    "knowledge/mysql/27-procedures.md#41f9abb453",
+    "knowledge/mysql/27-procedures.md#8cfb98b1c1",
+    "knowledge/mysql/28-architecture.md#0e35bdbce8",
+    "knowledge/mysql/28-architecture.md#2e7c2f16f7",
+    "knowledge/mysql/29-tooling.md#c4f8ef4c1e",
+    "knowledge/mysql/30-engineering-principles.md#e7cbabb2de",
+    "knowledge/performance/15-query-optimization.md#a9a4780367",
+    "knowledge/postgresql/07-locking.md#1743f2cd1f",
+    "knowledge/postgresql/15-extensions.md#57b61d4437",
+    "knowledge/postgresql/27-tuning.md#b174f42b3e",
+    "knowledge/postgresql/28-architecture.md#bcbfc58e3c",
+    "knowledge/sql/100-common-antipatterns.md#290622819d",
+    "knowledge/sql/14-transactions.md#383354d166",
+    "knowledge/sql/17-query-optimization.md#28fc8d3f54",
+    "knowledge/sql/18-views.md#96608dc4ac",
+    "knowledge/sql/22-security.md#cba74ef8e7",
+    "knowledge/sql/24-testing.md#5eb995c77b",
+    "knowledge/wordpress/11-metadata.md#536dbbde0b"
   ]
 }

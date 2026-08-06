@@ -74,14 +74,18 @@ complete transactions — checkout, registration, benefits applications.
 <input
   id="email"
   type="email"
-  aria-describedby="email-error"   <!-- links the message to the field -->
-  aria-invalid="true"              <!-- SR announces "invalid entry" -->
+  aria-describedby="email-error"
+  aria-invalid="true"
 />
 <!-- role="alert" announces the text the moment it is inserted, even if focus moved -->
 <p id="email-error" role="alert">
   Enter a valid email address, for example name@example.com.
 </p>
 ```
+
+- `aria-describedby` links the message to the field, so it is read with it.
+- `aria-invalid="true"` makes a screen reader announce "invalid entry".
+- `role="alert"` announces the text the moment it is inserted, even if focus moved.
 
 **Bad Example** — color-only, no association, silent to assistive tech
 

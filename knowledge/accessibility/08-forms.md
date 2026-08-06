@@ -74,12 +74,16 @@ directly business-critical.
   type="email"
   autocomplete="email"
   required
-  aria-invalid="true"                 <!-- announces the field as invalid -->
-  aria-describedby="email-err"        <!-- links the message to the input -->
+  aria-invalid="true"
+  aria-describedby="email-err"
 />
 <!-- role="alert" makes the message announce immediately when it appears -->
 <p id="email-err" role="alert">Enter a valid email, e.g. name@example.com.</p>
 ```
+
+- `aria-invalid="true"` announces the field as invalid.
+- `aria-describedby` links the message to the input, so it is read with the field.
+- `role="alert"` makes the message announce the moment it appears, even if focus moved.
 
 **Bad Example** — placeholder-as-label, error conveyed by color only
 

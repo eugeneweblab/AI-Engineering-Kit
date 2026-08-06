@@ -66,10 +66,10 @@ re-earn all of it.
 
 ```html
 <video
-  controls                 <!-- keyboard-operable native controls -->
-  width="1280" height="720" <!-- reserves space, prevents layout shift -->
+  controls
+  width="1280" height="720"
   poster="/media/talk-poster.jpg"
-  preload="metadata">       <!-- fetch only metadata until the user plays -->
+  preload="metadata">
   <!-- Most-preferred codec first; browser picks the first it supports -->
   <source src="/media/talk.webm" type="video/webm; codecs=av01" />
   <source src="/media/talk.mp4"  type="video/mp4; codecs=avc1" />
