@@ -52,7 +52,7 @@ actually inspected. If you cannot point to the observation, the claim is a guess
 | "The change is complete." | `git diff --stat` reviewed hunk by hunk |
 | "Tests pass." | Test runner output pasted, with the exit code |
 | "Nothing else uses this function." | `git grep -n 'oldName('` returns only the definition |
-| "No debug code left behind." | `git grep -nE 'console\.log|debugger|TODO: temp|print\(' -- <changed files>` is empty |
+| "No debug code left behind." | `git grep -nE 'console\.log\|debugger\|TODO: temp\|print\(' -- <changed files>` is empty |
 | "The old behavior still works." | The pre-existing test suite for that module ran green |
 | "Types are correct." | `tsc --noEmit` / `mypy` / build ran clean |
 

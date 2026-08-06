@@ -75,11 +75,12 @@ inspection:
 | links | a markdown link, a `related:` id, or a `` `knowledge/…md` `` path that does not resolve |
 | fences | an unclosed ``` fence |
 | code blocks | a block that does not parse as the language its fence claims |
+| tables | an unescaped `|` inside a table cell, which splits the row and misaligns the table |
 | pointers | a `98`/`99` checklist that lost its `**Rules:**` section pointers |
 | plan | `docs/structure/` no longer describing the tree: a topic missing from the root tree, a topic with no part in the file list, or a file listed/present without its counterpart |
 
 Blocks are handed to the real parser for their language: `ast.parse` (Python), a
-JSONC-tolerant decoder (JSON), PyYAML (YAML), `bash -n` (shell), `php -l` (PHP), and
+JSONC-tolerant decoder (JSON), PyYAML (YAML), ElementTree (XML), `bash -n` (shell), `php -l` (PHP), and
 esbuild (JS/TS/JSX/TSX). PHP and JS/TS are skipped with a printed note when `php` or
 `npx` is unavailable.
 

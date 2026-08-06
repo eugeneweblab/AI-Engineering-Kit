@@ -66,8 +66,11 @@ submitted URL, so a wrong or bloated sitemap actively misleads you about coverag
 
 **Good Example** — canonical URLs, real `lastmod`, index for scale
 
+`sitemap-index.xml` — one entry per child sitemap, each under 50k URLs. The XML
+declaration must be the **first** thing in the file: a comment or a blank line before
+it makes the document invalid, and the sitemap is rejected rather than partly read.
+
 ```xml
-<!-- sitemap-index.xml — one entry per child sitemap, each < 50k URLs -->
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
@@ -75,8 +78,11 @@ submitted URL, so a wrong or bloated sitemap actively misleads you about coverag
     <lastmod>2026-07-07</lastmod>   <!-- when this child last changed -->
   </sitemap>
 </sitemapindex>
+```
 
-<!-- sitemap-products.xml — only indexable, canonical, 200 URLs -->
+`sitemap-products.xml` — only indexable, canonical URLs:
+
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>

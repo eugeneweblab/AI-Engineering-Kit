@@ -25,10 +25,11 @@ Checks
   links       markdown links, `related:` ids, and `knowledge/...md` paths resolve
   fences      every ``` fence is closed; no zero-width characters in the body
   blocks      each fenced block parses as the language it is tagged with
+  tables      no unescaped `|` inside a table cell
   plan        docs/structure/ still describes the tree that exists on disk
   pointers    98/99 checklists route each themed section to the rule behind it
 
-Language coverage: Python, JSON (incl. JSONC and multi-document), YAML, shell.
+Language coverage: Python, JSON (incl. JSONC and multi-document), YAML, XML, shell.
 PHP and JS/TS are checked only when `php` / `npx` are available, and only against
 a baseline — see "Baseline" below.
 
@@ -99,6 +100,7 @@ SHELL_TAGS = {"bash", "sh", "shell", "zsh"}
 PYTHON_TAGS = {"python", "py"}
 JSON_TAGS = {"json", "jsonc", "json5"}
 YAML_TAGS = {"yaml", "yml"}
+XML_TAGS = {"xml", "svg"}
 
 
 class Doc:
@@ -211,6 +213,16 @@ def check_json(src: str) -> str | None:
             while idx < len(text) and text[idx] in " \t\r\n,":
                 idx += 1
     except ValueError as exc:
+        return str(exc).split("\n")[0]
+    return None
+
+
+def check_xml(src: str) -> str | None:
+    """A sitemap or feed is rejected outright when the declaration is not first."""
+    import xml.etree.ElementTree as ET
+    try:
+        ET.fromstring(src.strip())
+    except Exception as exc:  # noqa: BLE001
         return str(exc).split("\n")[0]
     return None
 
@@ -410,6 +422,24 @@ def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
                 line = doc.body[: doc.body.index(ch)].count("\n") + 1
                 problems.append(f"{rel}: {label} in the body, near line {line}")
 
+        # An unescaped pipe inside a table cell splits the row, even within inline
+        # code — the table renders with the wrong number of columns.
+        in_fence = False
+        for lineno, raw_line in enumerate(doc.body.split("\n"), 1):
+            if raw_line.startswith("```"):
+                in_fence = not in_fence
+                continue
+            if in_fence:
+                continue
+            stripped = raw_line.strip()
+            if not (stripped.startswith("|") and stripped.endswith("|")):
+                continue
+            for span in re.findall(r"`([^`]*)`", stripped):
+                if "|" in span.replace("\\|", ""):
+                    problems.append(
+                        f"{rel}:{lineno}: unescaped `|` inside a table cell — escape it as \\|"
+                    )
+
         if not doc.fences_balanced:
             problems.append(f"{rel}: unbalanced ``` fence")
 
@@ -518,7 +548,7 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
     except ImportError:
         yaml_mod = None
 
-    counts = {"python": 0, "json": 0, "yaml": 0, "shell": 0, "php": 0, "js": 0}
+    counts = {"python": 0, "json": 0, "yaml": 0, "xml": 0, "shell": 0, "php": 0, "js": 0}
     shell_blocks: list[tuple[str, str, str]] = []
     php_blocks: list[tuple[str, str, str]] = []
     js_blocks: list[tuple[str, str, str]] = []
@@ -537,6 +567,8 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
                 family = "json"
             elif tag in YAML_TAGS:
                 family = "yaml"
+            elif tag in XML_TAGS:
+                family = "xml"
             else:
                 continue
             # Key by content hash, not position: inserting a section above a known
@@ -553,6 +585,9 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
                     problems.append(f"{doc.rel}:{line}: ```{tag} does not parse — {err}")
             elif family == "yaml" and yaml_mod:
                 if (err := check_yaml(src, yaml_mod)):
+                    problems.append(f"{doc.rel}:{line}: ```{tag} does not parse — {err}")
+            elif family == "xml":
+                if (err := check_xml(src)):
                     problems.append(f"{doc.rel}:{line}: ```{tag} does not parse — {err}")
             elif family == "shell":
                 shell_blocks.append((block_id, src, tag))
