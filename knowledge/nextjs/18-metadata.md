@@ -7,6 +7,7 @@ type: doc
 order: 18
 status: ready
 tags: [nextjs, metadata, generateMetadata, getPost, viewport, EventPage, URL]
+applies_to: [app-router]
 related: [nextjs/19-seo, nextjs/05-layouts, seo/05-metadata]
 when_to_use: "Read before configuring page metadata or Open Graph tags in a Next.js app."
 ---

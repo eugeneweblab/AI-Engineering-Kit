@@ -13780,6 +13780,9 @@
             "ThemeProvider",
             "QueryClientProvider"
           ],
+          "applies_to": [
+            "app-router"
+          ],
           "when_to_use": "Read before building shared layouts or persistent UI across Next.js routes.",
           "path": "knowledge/nextjs/05-layouts.md"
         },
@@ -13845,6 +13848,9 @@
             "cookies",
             "ProductPage",
             "generateStaticParams"
+          ],
+          "applies_to": [
+            "app-router"
           ],
           "when_to_use": "Read before choosing a rendering strategy for a Next.js route.",
           "path": "knowledge/nextjs/08-rendering-strategies.md"
@@ -14052,6 +14058,9 @@
             "viewport",
             "EventPage",
             "URL"
+          ],
+          "applies_to": [
+            "app-router"
           ],
           "when_to_use": "Read before configuring page metadata or Open Graph tags in a Next.js app.",
           "path": "knowledge/nextjs/18-metadata.md"
@@ -14345,6 +14354,9 @@
             "revalidatePath",
             "NEXT_PUBLIC_",
             "ProductsPage"
+          ],
+          "applies_to": [
+            "app-router"
           ],
           "when_to_use": "Read when writing or reviewing App Router code to recognize and avoid the recurring mistakes that ship silently.",
           "path": "knowledge/nextjs/100-common-antipatterns.md"

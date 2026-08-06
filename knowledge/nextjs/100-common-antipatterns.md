@@ -7,6 +7,7 @@ type: antipatterns
 order: 100
 status: ready
 tags: [nextjs, common-antipatterns, cookies, UserCard, Stripe, revalidatePath, NEXT_PUBLIC_, ProductsPage]
+applies_to: [app-router]
 related: [nextjs/06-server-components, nextjs/07-client-components, nextjs/10-caching, nextjs/11-server-actions, nextjs/99-ai-review-checklist]
 when_to_use: "Read when writing or reviewing App Router code to recognize and avoid the recurring mistakes that ship silently."
 ---

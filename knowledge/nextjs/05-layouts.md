@@ -7,6 +7,7 @@ type: doc
 order: 5
 status: ready
 tags: [nextjs, layouts, RootLayout, ReactNode, DashboardLayout, QueryClient, ThemeProvider, QueryClientProvider]
+applies_to: [app-router]
 related: [nextjs/06-server-components, nextjs/07-client-components, nextjs/09-data-fetching, nextjs/10-caching, nextjs/18-metadata, nextjs/17-fonts, nextjs/03-app-router, nextjs/04-routing]
 when_to_use: "Read before building shared layouts or persistent UI across Next.js routes."
 ---

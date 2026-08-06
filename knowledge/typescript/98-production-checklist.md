@@ -80,7 +80,7 @@ artifact is sound".
 
 ## Observability & Runtime
 
-**Rules:** [Error Handling](17-error-handling.md) · [Performance](25-performance.md)
+**Rules:** [Error Handling](17-error-handling.md) · [Logging](../nodejs/17-logging.md) · [Configuration](../nodejs/15-configuration.md)
 
 - [ ] Logs are structured and never contain secrets, tokens, or full request bodies.
 - [ ] An error tracker captures unhandled errors with de-minified stack traces.

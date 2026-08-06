@@ -563,7 +563,7 @@ Do **not** cache:
 ```ts
 @Injectable()
 export class ProductsService {
-  private static readonly TTL_SECONDS = 300;
+  private static readonly TTL_MS = 5 * 60_000;   // cache-manager v5 takes milliseconds
 
   constructor(
     @Inject(CACHE_MANAGER) private readonly cache: Cache,
@@ -583,7 +583,7 @@ export class ProductsService {
     }
 
     const view = toView(product);           // cache the projection, not the ORM entity
-    await this.cache.set(key, view, ProductsService.TTL_SECONDS * 1000);
+    await this.cache.set(key, view, ProductsService.TTL_MS);
     return view;
   }
 
