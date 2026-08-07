@@ -6,12 +6,20 @@ alwaysApply: true
 Full guidance: `AGENTS.md` (repo root).
 
 Before writing code:
-- Find relevant knowledge via `knowledge/INDEX.json`; use only `status: "ready"` docs,
-  matched by `topic` / `tags` / `when_to_use`, then read the doc `path`.
+- Detect the stack from the repository with `knowledge/SIGNALS.json`: `stack` maps a file
+  such as `app/page.tsx` or `wp-config.php` to the documents that govern it.
+- Find relevant knowledge via `knowledge/INDEX.json`; use only `status: "ready"` docs.
+  `when_to_use` states when a document applies; `tags` and `topic` narrow it. Then read
+  the doc `path`.
+- Resolve an API name from the diff through `SIGNALS.symbols` — a more reliable match
+  than guessing the topic from the ticket.
+- Skip a document whose `applies_to` names a variant this repository does not use; when
+  two topics cover one subject, `defers_to` names the one that owns the rule.
 - Follow the matching guide in `knowledge/workflows/` and principles in
   `knowledge/engineering/` and `knowledge/ai/`.
 - Reuse existing patterns, stay in scope, prefer consistency over cleverness.
-- Self-verify with the topic's `98`/`99`/`100` checklists.
+- Self-verify with the topic's `98`/`99`/`100` checklists; each section names the rule
+  behind its items.
 
 Never treat a `draft` stub (`status: draft`) as an authoritative source.
 Order docs by the `order` frontmatter field, not by filename.

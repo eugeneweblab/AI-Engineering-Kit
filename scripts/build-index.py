@@ -51,6 +51,10 @@ for topic in sorted(os.listdir(KB)):
             order = 999
         docs.append({
             "id": meta.get("id", f"{topic}/{fn[:-3]}"),
+            # AGENTS.md tells agents to match on `topic` and to follow `related`.
+            # Both must be on the document itself: an agent working from the index
+            # cannot infer the first from a dict key or find the second at all.
+            "topic": meta.get("topic", topic),
             "title": meta.get("title", fn[:-3]),
             "slug": meta.get("slug", ""),
             "type": meta.get("type", "doc"),
@@ -61,6 +65,7 @@ for topic in sorted(os.listdir(KB)):
             # to, and the doc that owns the rule when two topics cover one subject.
             **({"applies_to": meta["applies_to"]} if meta.get("applies_to") else {}),
             **({"defers_to": meta["defers_to"]} if meta.get("defers_to") else {}),
+            "related": meta.get("related", []),
             "when_to_use": meta.get("when_to_use", ""),
             "path": rel,
         })

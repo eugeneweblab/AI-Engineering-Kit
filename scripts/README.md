@@ -124,7 +124,25 @@ python3 scripts/check-knowledge.py --update-baseline
 Review the diff before committing: a baseline that grows without a matching fragment
 is a real defect being silenced.
 
+## `check-agent-instructions.py`
+
+Guardrail linter (read-only) for the contract *on top of* the knowledge — the files an
+agent reads first. It verifies that every entrypoint (`CLAUDE.md`, `GEMINI.md`,
+`.clinerules`, Copilot, Cursor) redirects to `AGENTS.md`; that every path, link, and
+`python3 scripts/…` command they name exists; that every frontmatter field they tell an
+agent to match on is actually exposed in `INDEX.json`; that the metadata contract in
+`AGENTS.md` lists exactly the fields documents carry; and that the documented lookups
+resolve — a representative repository file reaches a document through `SIGNALS.stack`,
+and a representative API name through `SIGNALS.symbols`.
+
+This is the check that would have caught the instructions telling agents to match on
+`topic` and follow `related` while `INDEX.json` exposed neither.
+
+```bash
+python3 scripts/check-agent-instructions.py
+```
+
 ---
 
-All three linters run in CI via `.github/workflows/knowledge-guardrails.yml`, which
+All four linters run in CI via `.github/workflows/knowledge-guardrails.yml`, which
 also fails the build if `INDEX.json`/`INDEX.md` are out of sync with the frontmatter.

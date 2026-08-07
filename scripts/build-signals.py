@@ -10,9 +10,14 @@ Two lookups:
           `app/` vs `pages/`, a theme with `theme.json` vs one without. Curated
           below, because "which files mean which variant" is judgement, not data.
 
-  symbols an inverted index of every doc's `tags`, so a symbol appearing in a diff
-          (`revalidateTag`, `switch_to_blog`, `autovacuum_freeze_max_age`) resolves
-          to the documents that state the rules for it.
+  symbols an inverted index of every API name, directive, and configuration key
+          appearing in a document's code, so a symbol in a diff (`revalidateTag`,
+          `switch_to_blog`, `argon2`) resolves to the documents that govern it.
+
+          Built from the documents themselves rather than from their `tags`: `tags`
+          carries a handful of headline symbols for a human, and indexing only those
+          left most of the base unreachable — `argon2` appears in seven documents and
+          resolved to none.
 
 Run from repo root:  python3 scripts/build-signals.py
 """
@@ -33,7 +38,7 @@ STACK_SIGNALS: list[dict] = [
     # --- JavaScript / TypeScript applications -------------------------------
     {"when": "next.config.*", "means": "Next.js application",
      "docs": ["nextjs/01-architecture", "nextjs/28-best-practices"]},
-    {"when": "app/**/page.tsx", "variant": "app-router", "means": "Next.js App Router — the current model",
+    {"when": "app/page.tsx|app/**/page.tsx", "variant": "app-router", "means": "Next.js App Router — the current model",
      "docs": ["nextjs/03-app-router", "nextjs/06-server-components", "nextjs/10-caching"]},
     {"when": "pages/_app.tsx", "variant": "pages-router", "means": "Next.js Pages Router — legacy; do not extend it",
      "docs": ["nextjs/30-migration-guide", "nextjs/03-app-router"]},
@@ -41,7 +46,7 @@ STACK_SIGNALS: list[dict] = [
      "docs": ["nestjs/01-architecture", "nestjs/02-modules"]},
     {"when": "prisma/schema.prisma", "variant": "prisma", "means": "Prisma is the ORM",
      "docs": ["prisma/02-schema", "prisma/06-client", "prisma/05-migrations"]},
-    {"when": "ormconfig.*|**/*.entity.ts", "variant": "typeorm", "means": "TypeORM is the ORM",
+    {"when": "ormconfig.*|*.entity.ts|**/*.entity.ts", "variant": "typeorm", "means": "TypeORM is the ORM",
      "docs": ["nestjs/17-database", "nestjs/06-repositories"]},
     {"when": "tsconfig.json", "means": "TypeScript project",
      "docs": ["typescript/16-configuration", "typescript/02-type-system"]},
@@ -81,7 +86,7 @@ STACK_SIGNALS: list[dict] = [
      "docs": ["docker/08-dockerfile", "docker/11-multi-stage-builds", "docker/18-security"]},
     {"when": "docker-compose.y*ml", "means": "Compose-orchestrated services",
      "docs": ["docker/12-docker-compose", "docker/13-environment-variables"]},
-    {"when": "**/kustomization.yaml|**/Chart.yaml|k8s/**/*.yaml",
+    {"when": "kustomization.yaml|**/kustomization.yaml|Chart.yaml|**/Chart.yaml|k8s/*.y*ml|k8s/**/*.y*ml|**/k8s/*.y*ml",
      "means": "Kubernetes workloads",
      "docs": ["kubernetes/05-deployments", "kubernetes/19-resource-management",
               "kubernetes/22-security"]},
@@ -89,25 +94,63 @@ STACK_SIGNALS: list[dict] = [
      "docs": ["github/08-actions", "cicd/02-pipeline-design", "cicd/06-security-scanning"]},
     {"when": ".gitlab-ci.yml", "means": "GitLab CI pipeline",
      "docs": ["cicd/18-gitlab-ci", "cicd/02-pipeline-design"]},
-    {"when": "**/*.tf", "means": "Terraform — infrastructure as code",
+    {"when": "*.tf|**/*.tf", "means": "Terraform — infrastructure as code",
      "docs": ["devops/08-infrastructure-as-code", "devops/09-configuration-management"]},
-    {"when": "nginx.conf|**/sites-available/*", "means": "Nginx configuration",
+    {"when": "nginx.conf|**/nginx.conf|**/sites-available/*|**/conf.d/*.conf", "means": "Nginx configuration",
      "docs": ["nginx/03-server-blocks", "nginx/05-reverse-proxy", "nginx/13-security"]},
 
     # --- Data and APIs ------------------------------------------------------
-    {"when": "**/*.graphql|**/schema.gql", "means": "GraphQL schema",
+    {"when": "*.graphql|**/*.graphql|schema.gql|**/schema.gql", "means": "GraphQL schema",
      "docs": ["graphql/02-schema", "graphql/17-security", "graphql/15-n1-problem"]},
-    {"when": "**/openapi.y*ml|**/swagger.y*ml", "means": "documented HTTP API",
+    {"when": "openapi.y*ml|**/openapi.y*ml|swagger.y*ml|**/swagger.y*ml", "means": "documented HTTP API",
      "docs": ["rest-api/21-openapi", "rest-api/03-resource-design"]},
-    {"when": "**/migrations/*", "means": "versioned schema changes",
+    {"when": "migrations/*|**/migrations/*", "means": "versioned schema changes",
      "docs": ["databases/17-migrations", "sql/12-ddl"]},
 
     # --- Cross-cutting ------------------------------------------------------
     {"when": ".env|.env.example", "means": "environment-based configuration",
      "docs": ["security/16-secrets-management", "nodejs/15-configuration"]},
-    {"when": "**/*.test.ts|**/*.spec.ts|tests/**", "means": "a test suite exists",
+    {"when": "*.test.ts|**/*.test.ts|*.spec.ts|**/*.spec.ts|tests/**", "means": "a test suite exists",
      "docs": ["testing/28-testing-strategy", "testing/22-flaky-tests"]},
 ]
+
+
+# Representative paths each signal must recognise. `**/x` matches only when there is
+# a directory in between, so a pattern written that way silently misses the root-level
+# layout — `app/page.tsx` and `main.tf` matched nothing until this table was added.
+PROBES: list[tuple[str, str]] = [
+    ("app/page.tsx", "app-router"),
+    ("app/products/[id]/page.tsx", "app-router"),
+    ("pages/_app.tsx", "pages-router"),
+    ("main.tf", "Terraform"),
+    ("infra/modules/main.tf", "Terraform"),
+    ("k8s/deployment.yaml", "Kubernetes"),
+    ("k8s/base/deployment.yaml", "Kubernetes"),
+    ("deploy/k8s/app.yaml", "Kubernetes"),
+    ("migrations/001_init.sql", "schema changes"),
+    ("db/migrations/001_init.sql", "schema changes"),
+    ("schema.graphql", "GraphQL"),
+    ("src/schema.graphql", "GraphQL"),
+    ("openapi.yaml", "HTTP API"),
+    ("docs/openapi.yaml", "HTTP API"),
+    ("src/user.entity.ts", "TypeORM"),
+    ("wp-content/themes/acme/theme.json", "block theme"),
+    ("Dockerfile", "container image"),
+    (".github/workflows/ci.yml", "GitHub Actions"),
+]
+
+
+def unmatched_probes() -> list[str]:
+    import fnmatch
+    out = []
+    for path, what in PROBES:
+        if not any(
+            fnmatch.fnmatch(path, pattern)
+            for signal in STACK_SIGNALS
+            for pattern in signal["when"].split("|")
+        ):
+            out.append(f"{path}  ({what})")
+    return out
 
 
 def frontmatter(path: Path) -> dict[str, str]:
@@ -117,6 +160,61 @@ def frontmatter(path: Path) -> dict[str, str]:
     return {
         k: v.strip()
         for k, v in re.findall(r"^([a-z_]+):\s*(.*)$", m.group(1), re.MULTILINE)
+    }
+
+
+SYMBOL_STOP = set("""
+if else for while return function const let var new class extends import from export
+default try catch finally throw await async this true false null undefined typeof
+public private protected static void string number boolean any type interface enum
+echo print array foreach endforeach endif isset empty require include use namespace
+fn match case switch break continue do in of as is not and or the a an it its with
+select insert update delete where group order by join on values create drop alter
+then fi done esac elif local read source exit cd ls cp mv rm mkdir cat grep sed awk
+head tail sort uniq wc find xargs npm npx node run build start dev main index src
+lib app dist out tmp foo bar baz example acme myplugin data value item items result
+results name title id key path file line text html body head div span error log call
+console warn info debug map filter reduce find push slice split replace trim length
+size count render process env args options config params props state children status
+code message request response next user users order orders product products post
+posts page pages event events row report handler callback helper util temp thing
+""".split())
+
+CALL_RE = re.compile(r"\b([A-Za-z_][A-Za-z0-9_]{2,})\s*\(")
+DECORATOR_RE = re.compile(r"@([A-Z][A-Za-z0-9_]{2,})")
+CLASS_RE = re.compile(r"\b([A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][a-z0-9]+[A-Z][A-Za-z0-9]*)\b")
+CONST_RE = re.compile(r"\b([A-Z][A-Z0-9_]{3,})\b")
+KEY_RE = re.compile(r"^\s*([a-z][a-z0-9_.-]{3,})\s*[:=]", re.MULTILINE)
+CSS_AT_RE = re.compile(r"(@[a-z-]{3,})")
+INLINE_RE = re.compile(r"`([A-Za-z_][A-Za-z0-9_.:$-]{2,})`")
+# The package a document imports is itself a signal: a diff that pulls in `argon2`
+# or `jose` should reach the document that governs it.
+IMPORT_RE = re.compile(
+    r"""(?:from|require\(|import)\s*\(?\s*['"]([@\w][\w@/.-]{2,})['"]"""
+)
+RECEIVER_RE = re.compile(r"\b([a-z][a-zA-Z0-9_]{2,})\.[a-zA-Z_]")
+FENCE_RE = re.compile(r"^```[a-zA-Z0-9_+.-]*\s*$\n(.*?)^```\s*$", re.DOTALL | re.MULTILINE)
+BAD_AT_RE = re.compile(
+    r"^@(param|return|returns|var|throws|see|since|deprecated|example|inheritdoc|"
+    r"nestjs|apollo|types|testing-library|playwright|prisma|acme|wordpress)$", re.IGNORECASE
+)
+
+
+def document_symbols(body: str) -> set[str]:
+    """Every identifier a document's code actually names."""
+    code = "\n".join(FENCE_RE.findall(body))
+    prose = re.sub(r"```.*?```", " ", body, flags=re.DOTALL)
+    found: set[str] = set()
+    for pattern in (CALL_RE, DECORATOR_RE, CLASS_RE, CONST_RE, KEY_RE, RECEIVER_RE):
+        found.update(pattern.findall(code))
+    for module in IMPORT_RE.findall(code):
+        found.add(module)
+        found.add(module.rsplit("/", 1)[-1])   # `@nestjs/common` -> `common`
+    found.update(s for s in CSS_AT_RE.findall(code) if not BAD_AT_RE.match(s))
+    found.update(INLINE_RE.findall(prose))
+    return {
+        s for s in found
+        if len(s) >= 3 and s.lower() not in SYMBOL_STOP and not s.isdigit()
     }
 
 
@@ -134,15 +232,25 @@ def main() -> int:
             continue
         doc_count += 1
         doc_id = fm.get("id", "")
-        raw = fm.get("tags", "")
-        if not (raw.startswith("[") and raw.endswith("]")):
-            continue
-        items = [x.strip().strip("\"'") for x in raw[1:-1].split(",") if x.strip()]
+        text = path.read_text(encoding="utf-8", errors="replace")
+        body = FRONTMATTER_RE.sub("", text, count=1)
         topic, slug = fm.get("topic", ""), fm.get("slug", "")
-        for tag in items:
-            if tag in (topic, slug):        # already reachable via topic/slug
+        for symbol in document_symbols(body):
+            if symbol in (topic, slug):     # already reachable via topic/slug
                 continue
-            symbols.setdefault(tag, []).append(doc_id)
+            symbols.setdefault(symbol, []).append(doc_id)
+
+    # A symbol present across a large share of the base identifies nothing in
+    # particular. Keep the ones that point somewhere.
+    ceiling = max(12, doc_count // 12)
+    symbols = {s: ids for s, ids in symbols.items() if len(set(ids)) <= ceiling}
+
+    unmatched = unmatched_probes()
+    if unmatched:
+        print("error: a stack signal does not recognise a representative path:")
+        for u in unmatched:
+            print(f"  {u}")
+        return 1
 
     missing = [
         f"{s['when']} -> {d}"
@@ -159,7 +267,9 @@ def main() -> int:
         "schema": "ai-engineering-kit/signals@1",
         "note": (
             "Detect the stack from `stack`, then resolve any symbol in the diff via "
-            "`symbols`. Both point at document ids in INDEX.json."
+            "`symbols`. Both point at document ids in INDEX.json. In `when`, `|` "
+            "separates alternatives and `**` matches any number of directories; a "
+            "pattern is written to match both the root-level and the nested layout."
         ),
         "stats": {
             "stack_signals": len(STACK_SIGNALS),

@@ -1,3 +1,6 @@
 Agent instructions for this repository are in AGENTS.md (repo root). Read it first.
-Find knowledge via knowledge/INDEX.json — use only status: "ready" docs, matched by
-topic/tags/when_to_use. Ignore draft stubs. Verify with the topic 98/99/100 checklists.
+Find knowledge via knowledge/INDEX.json — use only status: "ready" docs; when_to_use says
+when a doc applies, tags and topic narrow it. knowledge/SIGNALS.json maps a repository
+file to the applicable docs and an API name in the diff to the docs that govern it.
+Skip a doc whose applies_to names a variant this repo does not use. Ignore draft stubs.
+Verify with the topic 98/99/100 checklists; each section names the rule behind its items.

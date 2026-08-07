@@ -6,6 +6,8 @@ name: knowledge-guardrails
 #   3. broken cross-links, structural gaps, and code blocks that do not parse in the
 #      language they are tagged with (wrong fence tag, invalid YAML, shell-hostile
 #      placeholders) — none of which are visible by inspection
+#   4. agent-facing instructions drifting from the base they describe: a field the
+#      protocol names but the index does not expose, a lookup that resolves to nothing
 on:
   push:
     paths:
@@ -67,6 +69,9 @@ jobs:
             exit 1
           fi
           echo "SIGNALS is up to date."
+
+      - name: Agent instructions are executable
+        run: python3 scripts/check-agent-instructions.py
 
       - name: INDEX is in sync with frontmatter
         run: |
