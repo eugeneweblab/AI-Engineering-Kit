@@ -90,7 +90,7 @@ export default defineConfig({
 ```json
 // package.json — pinned toolchain makes the build reproducible
 {
-  "engines": { "node": ">=20" },
+  "engines": { "node": ">=24" },
   "packageManager": "pnpm@9.12.0",
   "browserslist": ["> 0.5%", "last 2 versions", "not dead"]
 }

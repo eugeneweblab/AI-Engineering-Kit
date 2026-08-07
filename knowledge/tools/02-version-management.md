@@ -56,7 +56,7 @@ Enforce it in `package.json` so a mismatched install fails immediately:
 
 ```json
 {
-  "engines": { "node": ">=20.11 <21", "pnpm": ">=9" },
+  "engines": { "node": ">=24.19 <25", "pnpm": ">=9" },
   "packageManager": "pnpm@9.12.0"
 }
 ```
@@ -99,7 +99,7 @@ production PHP version even when the developer runs a different one.
 
 ```dockerfile
 # Dockerfile — the same version, explicit rather than "latest"
-FROM node:20.11.1-alpine AS build
+FROM node:24.19.0-alpine AS build
 ```
 
 **Bad Example** — three different versions, none of them declared

@@ -73,7 +73,7 @@ misconfigured project gives a false sense of safety, which is worse than none.
   "compilerOptions": {
     "strict": true,                     // the whole point: sound null + implicit-any checks
     "noUncheckedIndexedAccess": true,   // arr[i] is T | undefined — forces a real check
-    "target": "ES2023",                 // matches Node 20+; no unsupported syntax emitted
+    "target": "ES2023",                 // safely inside every supported Node LTS
     "module": "nodenext",
     "moduleResolution": "nodenext",     // enforces Node's actual ESM resolution
     "verbatimModuleSyntax": true,       // import type stays erasable and explicit

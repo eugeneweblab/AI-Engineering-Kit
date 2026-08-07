@@ -49,7 +49,7 @@ whether every install produces the same tree.
 ```json
 {
   "packageManager": "pnpm@9.12.0",
-  "engines": { "node": ">=20.11", "pnpm": ">=9" }
+  "engines": { "node": ">=24.19", "pnpm": ">=9" }
 }
 ```
 

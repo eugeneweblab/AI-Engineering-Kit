@@ -71,7 +71,7 @@ dozen lines, and every downstream build inherits them.
 
 ```dockerfile
 # Pinned, slim base → reproducible and small.
-FROM node:20-slim
+FROM node:24-slim
 
 WORKDIR /app
 

@@ -71,7 +71,7 @@ replicate across an entire fleet.
 
 ```dockerfile
 # Build stage: compilers and dev deps stay here, never shipped.
-FROM golang:1.24@sha256:<digest> AS build
+FROM golang:1.26@sha256:<digest> AS build
 WORKDIR /src
 COPY . .
 RUN CGO_ENABLED=0 go build -o /app ./cmd/server

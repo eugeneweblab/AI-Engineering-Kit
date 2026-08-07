@@ -56,8 +56,9 @@ screen" into "it works for every visitor, under load, over time".
   sliders are the usual weight offenders.
 - Put a **page cache** (server or plugin) plus a **CDN** in front of the site, and configure
   cache exclusions for `wp-admin`, the builder, carts, and logged-in users.
-- Run the site on **PHP 8.1+** with OPcache, and confirm Divi's minimum PHP/WordPress
-  versions are met before launch.
+- Run the site on a **PHP line that still receives security fixes** — 8.1 went end of
+  life in December 2025, so 8.2 is the floor — with OPcache, and confirm Divi's minimum
+  PHP/WordPress versions are met before launch.
 - **Force HTTPS**, set security headers (HSTS, X-Content-Type-Options, a CSP where feasible),
   and disable the dashboard file editor (`DISALLOW_FILE_EDIT`).
 - Automate **daily backups** of database + `wp-content/uploads`, stored off-server, and test

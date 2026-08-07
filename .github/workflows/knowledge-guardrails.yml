@@ -43,7 +43,7 @@ jobs:
       # dependency cache has no `go.sum` to key on and warns on every run.
       - uses: actions/setup-go@v7
         with:
-          go-version: "1.24"
+          go-version: "1.26"
           cache: false
 
       - name: Install lua
@@ -94,6 +94,12 @@ jobs:
             exit 1
           fi
           echo "INDEX is up to date."
+
+      # The one defect class that appears with nobody editing a file: a runtime
+      # named in an example outlives its support window. Reads from a committed
+      # snapshot, so this step needs no network.
+      - name: No document recommends an unsupported runtime
+        run: python3 scripts/check-versions.py
 
       # A guardrail that passes is only evidence when it can fail. Twice in this
       # repository a check reported success while doing nothing. These two inject

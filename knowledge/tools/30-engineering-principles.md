@@ -71,7 +71,7 @@ Nothing here is reproducible: the runtime floats, the dependency tree is rewritt
 // package.json — one entry point per operation
 {
   "packageManager": "pnpm@9.12.0",
-  "engines": { "node": ">=20.11 <21" },
+  "engines": { "node": ">=24.19 <25" },
   "scripts": {
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0",

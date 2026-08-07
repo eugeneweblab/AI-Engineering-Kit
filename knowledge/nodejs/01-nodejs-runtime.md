@@ -6,7 +6,7 @@ title: "Node.js Runtime"
 type: doc
 order: 1
 status: ready
-tags: [nodejs, nodejs-runtime, uncaughtException, unhandledRejection, engines, isInteger, "node:20"]
+tags: [nodejs, nodejs-runtime, uncaughtException, unhandledRejection, engines, isInteger, "node:24"]
 related: [nodejs/02-event-loop, nodejs/00-overview, nodejs/12-worker-threads, nodejs/14-environment, nodejs/10-process]
 when_to_use: "Read before choosing a Node version, structuring startup code, or reasoning about how JavaScript actually executes in Node."
 ---
@@ -38,8 +38,12 @@ call. Understanding the runtime is a prerequisite for reasoning about correctnes
   concurrency comes from *not waiting* on I/O, not from parallel JS execution.
 - **libuv provides async I/O and a small thread pool.** File and DNS operations use a
   default 4-thread pool (`UV_THREADPOOL_SIZE`); sockets use the OS event notification.
-- **Target Active LTS, not Current.** Even-numbered releases become LTS with ~30 months
-  of support; use them in production for stability and security patches.
+- **Target Active LTS, not Current.** Even-numbered releases enter LTS in October and
+  carry ~30 months of support: roughly a year as Active LTS, then Maintenance. Use them
+  in production for stability and security patches. Read the version off Node's release
+  schedule rather than off any example, here included — a number written down is only
+  correct until the next October, and a line that has gone end of life still installs,
+  still runs, and stops receiving security fixes without saying so.
 - **The runtime is the same everywhere or it is broken.** Pin the version so local, CI,
   and production execute identical semantics.
 - **CPU work belongs off the main thread.** Heavy computation blocks everything; move it
@@ -66,7 +70,7 @@ call. Understanding the runtime is a prerequisite for reasoning about correctnes
 // Fail at startup with a clear message rather than crashing on a missing API later.
 const [major] = process.versions.node.split(".").map(Number);
 if (major < 20) {
-  console.error(`Node 20+ required, running ${process.version}`);
+  console.error(`Node 24+ required, running ${process.version}`);
   process.exit(1); // stop now; a half-supported runtime is not safe to serve
 }
 
@@ -103,8 +107,8 @@ function handleRequest(req, res) {
   graceful shutdown on `SIGTERM` so in-flight requests drain.
 - Set `UV_THREADPOOL_SIZE` deliberately if you do heavy file or DNS work; the default of
   4 can bottleneck throughput.
-- Pin the exact runtime in your container base image (e.g. `node:20.18-slim`), not a
-  floating `node:20` tag, so rebuilds are reproducible.
+- Pin the exact runtime in your container base image (e.g. `node:24.19-slim`), not a
+  floating `node:24` tag, so rebuilds are reproducible.
 
 ## AI Review Checklist
 

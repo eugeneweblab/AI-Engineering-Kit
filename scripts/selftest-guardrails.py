@@ -17,6 +17,7 @@ Usage:
 """
 from __future__ import annotations
 
+import json
 import re
 import shutil
 import subprocess
@@ -149,6 +150,16 @@ FAST: list[tuple[str, object, str]] = [
      "shell block does not parse"),
 ]
 
+# `check-versions.py` reads the whole base and its own snapshot, so its cases run
+# against the real tree rather than the sandbox the other cases share.
+VERSION_CASES: list[tuple[str, object, str]] = [
+    ("versions/eol-runtime",
+     replace("docker/08-dockerfile.md", "FROM node:24-slim", "FROM node:20-slim"),
+     "reached end of life"),
+    ("versions/stale-snapshot", "snapshot",
+     "snapshot is"),
+]
+
 # Cases needing an external parser — one full pass.
 SLOW: list[tuple[str, object, str]] = [
     ("lang/dockerfile",
@@ -223,11 +234,40 @@ def run_batch(cases: list[tuple[str, object, str]], extra: list[str]) -> dict[st
     return verdicts
 
 
+def run_version_cases(cases: list[tuple[str, object, str]]) -> dict[str, str]:
+    """Each case gets its own copy: the checker resolves paths from the tree root."""
+    verdicts: dict[str, str] = {}
+    checker = ROOT / "scripts" / "check-versions.py"
+    for name, defect, expected in cases:
+        with tempfile.TemporaryDirectory() as tmp:
+            sandbox = Path(tmp) / "kit"
+            shutil.copytree(ROOT / "knowledge", sandbox / "knowledge")
+            shutil.copytree(ROOT / "scripts", sandbox / "scripts")
+            if defect == "snapshot":
+                data = sandbox / "scripts" / "data" / "eol.json"
+                payload = json.loads(data.read_text(encoding="utf-8"))
+                payload["fetched"] = "2020-01-01"
+                data.write_text(json.dumps(payload), encoding="utf-8")
+            else:
+                defect(sandbox / "knowledge")
+            proc = subprocess.run(
+                [sys.executable, str(sandbox / "scripts" / checker.name)],
+                capture_output=True, text=True,
+            )
+            output = proc.stdout + proc.stderr
+            if proc.returncode == 0:
+                verdicts[name] = "the guardrail reported success"
+            elif expected not in output:
+                verdicts[name] = "not reported"
+    return verdicts
+
+
 def main(argv: list[str]) -> int:
     wanted = argv[1:]
     fast = [c for c in FAST if not wanted or any(w in c[0] for w in wanted)]
     slow = [c for c in SLOW if not wanted or any(w in c[0] for w in wanted)]
-    if not fast and not slow:
+    versions = [c for c in VERSION_CASES if not wanted or any(w in c[0] for w in wanted)]
+    if not fast and not slow and not versions:
         print(f"no case matches {wanted}")
         return 2
 
@@ -236,9 +276,11 @@ def main(argv: list[str]) -> int:
         verdicts |= run_batch(fast, ["--skip-external"])
     if slow:
         verdicts |= run_batch(slow, [])
+    if versions:
+        verdicts |= run_version_cases(versions)
 
     failures = []
-    for name, _, _ in fast + slow:
+    for name, _, _ in fast + slow + versions:
         problem = verdicts.get(name)
         if problem and problem.startswith("not proved"):
             print(f"  ????  {name}  — {problem}")
@@ -258,10 +300,10 @@ def main(argv: list[str]) -> int:
             parts.append(f"{missed} injected defects went unreported")
         if unproved:
             parts.append(f"{len(unproved)} could not be proved for want of a parser")
-        print(f"FAIL: of {len(fast) + len(slow)} cases, " + " and ".join(parts))
+        print(f"FAIL: of {len(fast) + len(slow) + len(versions)} cases, " + " and ".join(parts))
         print("A rule that cannot fail is not a check. Fix the rule, not this test.")
         return 1
-    print(f"OK: all {len(fast) + len(slow)} injected defects were reported.")
+    print(f"OK: all {len(fast) + len(slow) + len(versions)} injected defects were reported.")
     return 0
 
 

@@ -157,6 +157,32 @@ python3 scripts/check-agent-instructions.py
 
 ---
 
+## `check-versions.py`
+
+Fails the build when a document recommends a runtime that has reached end of life.
+
+This is the only defect class here that appears without anyone editing a file — the
+document is fine, the calendar moved. Three separate audits each found it by hand:
+"Redis 7.x is the current stable line as of 2026" after 8.x shipped, "target PHP 8.1+"
+after 8.1 died, `node:20` and `golang:1.23` in the examples an agent copies. Nothing
+structural is wrong with any of them.
+
+End-of-life data comes from a committed snapshot (`scripts/data/eol.json`), so runs
+are deterministic and need no network. The snapshot going stale is itself a failure —
+old data finds nothing and would read as a clean run.
+
+A reference that is dated on purpose — a `node:18` showing a broken dev/prod pair — is
+exempted by content hash in `scripts/data/eol-baseline.json`. Editing the line
+brings it back for review.
+
+```bash
+python3 scripts/check-versions.py                   # exit 0 = clean, 1 = something dead
+python3 scripts/check-versions.py --refresh         # re-fetch the snapshot (needs network)
+python3 scripts/check-versions.py --update-baseline # accept the current exceptions
+```
+
+---
+
 ## `selftest-guardrails.py`
 
 Proves the linters can fail. It copies the base, injects one real defect per rule and
@@ -206,6 +232,6 @@ doing the work its weight claims.
 
 ---
 
-All six checks run in CI via `.github/workflows/knowledge-guardrails.yml`, which also
+All seven checks run in CI via `.github/workflows/knowledge-guardrails.yml`, which also
 fails the build if `INDEX.json`/`INDEX.md` or `SIGNALS.json` are out of sync with the
 frontmatter.

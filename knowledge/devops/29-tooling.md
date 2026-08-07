@@ -77,7 +77,7 @@ your real requirements with clear ownership.
 ```dockerfile
 # Pin the exact toolchain so every build is reproducible.
 # exact version, not :latest
-FROM golang:1.24.3-alpine
+FROM golang:1.26.5-alpine
 # ...
 # CI config lives in Git and runs the same steps locally and in CI:
 #   task lint && task test && task build

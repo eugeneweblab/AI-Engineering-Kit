@@ -69,7 +69,7 @@ not niceties; they are the difference between a build you can trust and one you 
 {
   "name": "billing-service",
   "type": "module",
-  "engines": { "node": ">=20 <21" },   // enforce the supported runtime
+  "engines": { "node": ">=24 <25" },   // enforce a runtime that still gets fixes
   "packageManager": "pnpm@9.12.0",     // everyone uses the same package manager
   "dependencies": { "zod": "^3.23.8" },
   "devDependencies": { "vitest": "^2.1.0" }

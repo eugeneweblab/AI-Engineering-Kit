@@ -782,7 +782,7 @@ def check_planning_docs(root: Path, problems: list[str]) -> None:
     if not tree_doc.exists() or not list_doc.exists():
         return  # running against a bare knowledge/ copy
 
-    on_disk = {p.name for p in root.iterdir() if p.is_dir()}
+    on_disk = {p.name for p in root.iterdir() if p.is_dir() and not p.name.startswith(".")}
 
     tree_text = tree_doc.read_text(encoding="utf-8", errors="replace")
     root_section = re.search(r"^# Root\s*$(.*?)^---", tree_text, re.DOTALL | re.MULTILINE)

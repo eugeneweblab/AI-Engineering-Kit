@@ -69,7 +69,7 @@ default: the runtime image contains only what you copy into it.
 # syntax=docker/dockerfile:1
 
 # --- build stage: has the Go toolchain, source, and module cache ---
-FROM golang:1.23 AS build
+FROM golang:1.26 AS build
 WORKDIR /src
 COPY go.mod go.sum ./
 RUN --mount=type=cache,target=/go/pkg/mod go mod download   # cached across builds
@@ -91,7 +91,7 @@ ENTRYPOINT ["/server"]
 
 ```dockerfile
 # ~800 MB base with full toolchain
-FROM golang:1.23
+FROM golang:1.26
 WORKDIR /src
 # all source ships to production
 COPY . .

@@ -3,7 +3,7 @@
   "note": "Detect the stack from `stack`, then resolve any symbol in the diff via `symbols`. Both point at document ids in INDEX.json. In `when`, `|` separates alternatives and `**` matches any number of directories; a pattern is written to match both the root-level and the nested layout.",
   "stats": {
     "stack_signals": 32,
-    "symbols": 8990,
+    "symbols": 8991,
     "docs_indexed": 1271
   },
   "stack": [
@@ -29788,17 +29788,19 @@
     ],
     "node:20": [
       "docker/03-images",
-      "nodejs/01-nodejs-runtime",
       "tools/30-engineering-principles"
-    ],
-    "node:20.18-slim": [
-      "nodejs/01-nodejs-runtime"
     ],
     "node:22.11.0": [
       "cicd/03-build-stage"
     ],
     "node:22.14.0-slim": [
       "nodejs/26-deployment"
+    ],
+    "node:24": [
+      "nodejs/01-nodejs-runtime"
+    ],
+    "node:24.19-slim": [
+      "nodejs/01-nodejs-runtime"
     ],
     "node:cluster": [
       "nodejs/13-cluster"

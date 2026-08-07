@@ -82,7 +82,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: npm } # cache keyed on package-lock.json
+        with: { node-version: 24, cache: npm } # cache keyed on package-lock.json
       - run: npm ci
       - run: npm run lint && npm run typecheck   # fastest signals first
 
@@ -94,7 +94,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: npm }
+        with: { node-version: 24, cache: npm }
       - run: npm ci
       - run: npm test -- --shard=${{ matrix.shard }}/4 --coverage
       - uses: actions/upload-artifact@v4

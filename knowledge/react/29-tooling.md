@@ -73,7 +73,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: npm }
+        with: { node-version: 24, cache: npm }
       - run: npm ci                       # reproducible install from the lockfile
       - run: npx tsc --noEmit             # type errors fail the build
       - run: npx eslint . --max-warnings=0 # warnings are errors here

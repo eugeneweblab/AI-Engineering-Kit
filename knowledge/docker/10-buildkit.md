@@ -67,7 +67,7 @@ choosing slow builds and leaked secrets on purpose.
 
 ```dockerfile
 # syntax=docker/dockerfile:1
-FROM node:20-slim
+FROM node:24-slim
 WORKDIR /app
 COPY package.json package-lock.json ./
 
@@ -88,7 +88,7 @@ CMD ["node", "server.js"]
 **Bad Example** — build arg secret and cache baked into a layer
 
 ```dockerfile
-FROM node:20-slim
+FROM node:24-slim
 WORKDIR /app
 
 # ARG secret is stored in image metadata: `docker history` reveals the token

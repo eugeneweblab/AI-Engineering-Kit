@@ -65,7 +65,7 @@ killed and recreated constantly, any assumption of persistence is a latent bug.
 **Good Example** — exec form, non-root, graceful shutdown
 
 ```dockerfile
-FROM node:20-slim
+FROM node:24-slim
 WORKDIR /app
 COPY --chown=app:app . .
 # not root: an escape is far less dangerous

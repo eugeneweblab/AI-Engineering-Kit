@@ -21286,7 +21286,7 @@
             "unhandledRejection",
             "engines",
             "isInteger",
-            "node:20"
+            "node:24"
           ],
           "related": [
             "nodejs/02-event-loop",

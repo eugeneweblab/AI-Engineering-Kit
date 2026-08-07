@@ -14,8 +14,10 @@ when_to_use: "Read before writing new PHP or modernizing legacy code, to use cur
 
 ## Purpose
 
-This document defines the modern PHP feature set (PHP 8.1 through 8.4) an agent should
-reach for by default, and the legacy idioms it should stop writing. It is written so
+This document defines the modern PHP feature set — the features introduced across PHP
+8.1 to 8.5 — that an agent should reach for by default, and the legacy idioms it should
+stop writing. Run it on a supported line: 8.1 itself went end of life in December 2025,
+so 8.2 is the floor even though its features are still the baseline. It is written so
 generated code looks like 2026 PHP — concise, typed, and immutable by default — not
 PHP 5 with newer syntax bolted on.
 

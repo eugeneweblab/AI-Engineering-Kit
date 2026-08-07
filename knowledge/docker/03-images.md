@@ -69,7 +69,7 @@ these two facts writes small, fast, reproducible images by default.
 ```dockerfile
 # Pinned by tag AND digest → reproducible, auditable base.
 # digest truncated for brevity
-FROM node:20.17-slim@sha256:1c1c1c...
+FROM node:24.19-slim@sha256:1c1c1c...
 
 WORKDIR /app
 
