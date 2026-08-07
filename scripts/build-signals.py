@@ -42,6 +42,11 @@ STACK_SIGNALS: list[dict] = [
      "docs": ["nextjs/03-app-router", "nextjs/06-server-components", "nextjs/10-caching"]},
     {"when": "pages/_app.tsx", "variant": "pages-router", "means": "Next.js Pages Router — legacy; do not extend it",
      "docs": ["nextjs/30-migration-guide", "nextjs/03-app-router"]},
+    # `middleware.ts` is the deprecated spelling of the same file. Both point at
+    # the same rules, which is where the rename is explained.
+    {"when": "proxy.ts|proxy.js|src/proxy.ts|src/proxy.js|middleware.ts|middleware.js|src/middleware.ts|src/middleware.js",
+     "means": "Next.js Proxy (formerly Middleware) — runs in front of every matched route",
+     "docs": ["nextjs/13-proxy", "nextjs/14-authentication"]},
     {"when": "nest-cli.json", "means": "NestJS service",
      "docs": ["nestjs/01-architecture", "nestjs/02-modules"]},
     {"when": "prisma/schema.prisma", "variant": "prisma", "means": "Prisma is the ORM",
@@ -119,6 +124,8 @@ STACK_SIGNALS: list[dict] = [
 # a directory in between, so a pattern written that way silently misses the root-level
 # layout — `app/page.tsx` and `main.tf` matched nothing until this table was added.
 PROBES: list[tuple[str, str]] = [
+    ("proxy.ts", "Next.js Proxy"),
+    ("src/middleware.ts", "Next.js Proxy (deprecated spelling)"),
     ("app/page.tsx", "app-router"),
     ("app/products/[id]/page.tsx", "app-router"),
     ("pages/_app.tsx", "pages-router"),

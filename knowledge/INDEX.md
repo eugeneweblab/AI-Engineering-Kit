@@ -896,7 +896,7 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 10 | Next.js Caching | ✅ ready | `knowledge/nextjs/10-caching.md` |
 | 11 | Next.js Server Actions | ✅ ready | `knowledge/nextjs/11-server-actions.md` |
 | 12 | Next.js API Routes | ✅ ready | `knowledge/nextjs/12-api-routes.md` |
-| 13 | Next.js Middleware | ✅ ready | `knowledge/nextjs/13-middleware.md` |
+| 13 | Next.js Proxy | ✅ ready | `knowledge/nextjs/13-proxy.md` |
 | 14 | Next.js Authentication | ✅ ready | `knowledge/nextjs/14-authentication.md` |
 | 15 | Next.js Authorization | ✅ ready | `knowledge/nextjs/15-authorization.md` |
 | 16 | Next.js Images | ✅ ready | `knowledge/nextjs/16-images.md` |

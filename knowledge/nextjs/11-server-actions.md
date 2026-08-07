@@ -6,7 +6,7 @@ title: "Next.js Server Actions"
 type: doc
 order: 11
 status: ready
-tags: [nextjs, server-actions, cancelOrder, FormData, createProduct, updateMany, revalidateTag, useActionState]
+tags: [nextjs, server-actions, cancelOrder, FormData, createProduct, updateMany, updateTag, revalidateTag, useActionState]
 applies_to: [app-router]
 related: [nextjs/06-server-components, nextjs/24-security, nextjs/15-authorization, react/15-forms]
 when_to_use: "Read before implementing form submissions or data mutations with Next.js Server Actions."
@@ -393,6 +393,7 @@ Mutation workflows should remain accessible.
 'use server';
 
 import { z } from 'zod';
+import { updateTag } from 'next/cache';
 
 const CancelOrder = z.object({ orderId: z.string().uuid() });
 
@@ -419,7 +420,9 @@ export async function cancelOrder(_prev: ActionState, formData: FormData): Promi
     return { ok: false, error: 'This order can no longer be cancelled' };
   }
 
-  revalidateTag(`order:${parsed.data.orderId}`);
+  // The user must see their own cancellation immediately, so expire and
+  // refresh in the same request rather than marking it stale.
+  updateTag(`order:${parsed.data.orderId}`);
   return { ok: true };
 }
 ```

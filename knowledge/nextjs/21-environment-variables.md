@@ -207,7 +207,7 @@ import { stripe } from "@/lib/stripe"; // `server-only` turns this into a build 
 
 Reading `process.env.STRIPE_SECRET_KEY` is only safe in server contexts: Server
 Components, Route Handlers (`app/**/route.ts`), Server Actions (`"use server"`),
-and `middleware.ts`.
+and `proxy.ts`.
 
 ---
 

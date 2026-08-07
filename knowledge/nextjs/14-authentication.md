@@ -7,7 +7,7 @@ type: doc
 order: 14
 status: ready
 tags: [nextjs, authentication, cookies, redirect, NextResponse, getSession, logout, jwtVerify]
-related: [nextjs/15-authorization, nextjs/13-middleware, nextjs/11-server-actions, nextjs/06-server-components, nextjs/21-environment-variables, nextjs/24-security, security/03-authentication, security/07-jwt]
+related: [nextjs/15-authorization, nextjs/13-proxy, nextjs/11-server-actions, nextjs/06-server-components, nextjs/21-environment-variables, nextjs/24-security, security/03-authentication, security/07-jwt]
 when_to_use: "Read before implementing authentication or authorization in a Next.js app."
 ---
 # Next.js Authentication
@@ -343,18 +343,20 @@ Typical responsibilities:
 
 Complex authorization belongs inside Server Components, Route Handlers, or Server Actions.
 
-Treat middleware as an **optimistic** gate: it redirects obviously-anonymous traffic early, but
-it is not the authoritative check. Middleware runs before routing and has been bypassed by forged
-internal headers (the 2025 `x-middleware-subrequest` CVE), so the real verification must live next
-to the data. Use a `matcher` so it never runs on static assets or the login route itself.
+Treat the proxy as an **optimistic** gate: it redirects obviously-anonymous traffic early, but
+it is not the authoritative check. It runs before routing and has been bypassed by forged internal
+headers (the 2025 `x-middleware-subrequest` CVE, named for the convention's former name), so the
+real verification must live next to the data. Use a `matcher` so it never runs on static assets or
+the login route itself — and remember a Server Function is a POST to the route that hosts it, so a
+matcher gap silently removes its cover too.
 
 **Good Example** — presence check + redirect, real verification deferred to the Data Access Layer:
 
 ```ts
-// middleware.ts
+// proxy.ts
 import { NextResponse, type NextRequest } from 'next/server';
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const hasSession = req.cookies.has('session'); // presence only — cheap, non-authoritative
   if (!hasSession) {
     const url = new URL('/login', req.url);
@@ -370,12 +372,12 @@ export const config = {
 };
 ```
 
-**Bad Example** — treating the middleware redirect as the whole defense:
+**Bad Example** — treating the proxy redirect as the whole defense:
 
 ```ts
 // If a Route Handler or Server Component under /dashboard reads data WITHOUT re-checking
-// the session, a request that skips middleware (matcher gap, forged header) reaches the data.
-// Middleware guards navigation, not data. Always re-verify in the DAL.
+// the session, a request that skips the proxy (matcher gap, forged header) reaches the data.
+// The proxy guards navigation, not data. Always re-verify in the DAL.
 ```
 
 ---
@@ -754,7 +756,7 @@ By keeping identity verification, permission checks, and protected business logi
 ## Related
 
 - `knowledge/nextjs/15-authorization.md`
-- `knowledge/nextjs/13-middleware.md`
+- `knowledge/nextjs/13-proxy.md`
 - `knowledge/nextjs/11-server-actions.md`
 - `knowledge/nextjs/06-server-components.md`
 - `knowledge/nextjs/21-environment-variables.md`

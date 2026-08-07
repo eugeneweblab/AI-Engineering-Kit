@@ -7,7 +7,7 @@ type: doc
 order: 24
 status: ready
 tags: [nextjs, security, NEXT_PUBLIC_, STRIPE_SECRET_KEY, dangerouslySetInnerHTML, createCharge, requireUser, positive]
-related: [nextjs/15-authorization, nextjs/14-authentication, nextjs/11-server-actions, nextjs/21-environment-variables, nextjs/13-middleware]
+related: [nextjs/15-authorization, nextjs/14-authentication, nextjs/11-server-actions, nextjs/21-environment-variables, nextjs/13-proxy]
 when_to_use: "Read before shipping any Next.js feature that handles user input, secrets, headers, or external requests."
 ---
 # Next.js Security
@@ -46,7 +46,7 @@ you the tools to draw the boundary correctly; the cost of drawing it wrong is to
 - Keep secrets out of client components; pass only the specific, non-sensitive fields the UI
   needs. Use `import 'server-only'` on secret-bearing modules so client imports fail at build.
 - Set a strong Content-Security-Policy (prefer nonce-based), plus `X-Content-Type-Options:
-  nosniff`, `Referrer-Policy`, and HSTS — via `headers()` in `next.config.ts` or middleware.
+  nosniff`, `Referrer-Policy`, and HSTS — via `headers()` in `next.config.ts` or `proxy.ts`.
 - Validate every Server Action and Route Handler input with a schema; reject on failure.
 - Validate and allowlist any URL used in a server-side `fetch` or a `redirect()`; reject
   absolute external URLs you did not intend.
@@ -112,12 +112,12 @@ export async function GET(req: Request) {
 - `dangerouslySetInnerHTML` with user content, or building `href`/redirect URLs from raw input.
 - Committing `.env` files or exposing them; secrets belong in a secrets manager (see
   [environment variables](21-environment-variables.md)).
-- Assuming middleware enforces security — it can be bypassed; enforce at the data layer.
+- Assuming the proxy enforces security — it can be bypassed; enforce at the data layer.
 
 ## Production Tips
 
 - Add `pnpm audit` / dependency scanning to CI and keep Next.js patched — several high-severity
-  CVEs (middleware bypass, cache poisoning) have shipped fixes in point releases.
+  CVEs (proxy/middleware bypass, cache poisoning) have shipped fixes in point releases.
 - Set CSP to report-only first, watch violations, then enforce, to avoid breaking third-party
   embeds silently.
 - Redact secrets and tokens from logs and error reporting; never log request bodies verbatim.
@@ -137,4 +137,4 @@ export async function GET(req: Request) {
 - `knowledge/nextjs/14-authentication.md`
 - `knowledge/nextjs/11-server-actions.md`
 - `knowledge/nextjs/21-environment-variables.md`
-- `knowledge/nextjs/13-middleware.md`
+- `knowledge/nextjs/13-proxy.md`

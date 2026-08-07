@@ -19457,7 +19457,7 @@
           "related": [
             "nextjs/03-app-router",
             "nextjs/05-layouts",
-            "nextjs/13-middleware",
+            "nextjs/13-proxy",
             "react/17-routing"
           ],
           "when_to_use": "Read before implementing navigation and links between pages in a Next.js app.",
@@ -19660,6 +19660,7 @@
             "FormData",
             "createProduct",
             "updateMany",
+            "updateTag",
             "revalidateTag",
             "useActionState"
           ],
@@ -19697,7 +19698,7 @@
           ],
           "related": [
             "nextjs/11-server-actions",
-            "nextjs/13-middleware",
+            "nextjs/13-proxy",
             "rest-api/04-endpoints",
             "rest-api/09-error-handling"
           ],
@@ -19705,29 +19706,30 @@
           "path": "knowledge/nextjs/12-api-routes.md"
         },
         {
-          "id": "nextjs/13-middleware",
+          "id": "nextjs/13-proxy",
           "topic": "nextjs",
-          "title": "Next.js Middleware",
-          "slug": "middleware",
+          "title": "Next.js Proxy",
+          "slug": "proxy",
           "type": "doc",
           "order": 13,
           "status": "ready",
           "tags": [
             "nextjs",
+            "proxy",
             "middleware",
+            "NextProxy",
             "NextResponse",
             "NextRequest",
-            "redirect",
-            "URL",
-            "startsWith"
+            "NextFetchEvent",
+            "skipProxyUrlNormalize"
           ],
           "related": [
             "nextjs/14-authentication",
             "nextjs/15-authorization",
             "nextjs/04-routing"
           ],
-          "when_to_use": "Read before adding middleware for redirects, rewrites, or request processing in Next.js.",
-          "path": "knowledge/nextjs/13-middleware.md"
+          "when_to_use": "Read before adding a proxy.ts (formerly middleware.ts) for redirects, rewrites, or request processing in Next.js, or when migrating middleware to proxy.",
+          "path": "knowledge/nextjs/13-proxy.md"
         },
         {
           "id": "nextjs/14-authentication",
@@ -19749,7 +19751,7 @@
           ],
           "related": [
             "nextjs/15-authorization",
-            "nextjs/13-middleware",
+            "nextjs/13-proxy",
             "nextjs/11-server-actions",
             "nextjs/06-server-components",
             "nextjs/21-environment-variables",
@@ -19782,7 +19784,7 @@
             "nextjs/14-authentication",
             "nextjs/24-security",
             "nextjs/11-server-actions",
-            "nextjs/13-middleware",
+            "nextjs/13-proxy",
             "nextjs/06-server-components"
           ],
           "when_to_use": "Read before adding any access check, protected route, Server Action, or role gate in a Next.js app.",
@@ -20021,7 +20023,7 @@
             "nextjs/14-authentication",
             "nextjs/11-server-actions",
             "nextjs/21-environment-variables",
-            "nextjs/13-middleware"
+            "nextjs/13-proxy"
           ],
           "when_to_use": "Read before shipping any Next.js feature that handles user input, secrets, headers, or external requests.",
           "path": "knowledge/nextjs/24-security.md"

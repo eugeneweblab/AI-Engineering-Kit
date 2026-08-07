@@ -58,7 +58,7 @@ luck.
 - [09 Data Fetching](09-data-fetching.md), [10 Caching](10-caching.md) — reads.
 - [11 Server Actions](11-server-actions.md), [12 API Routes](12-api-routes.md) — writes and
   HTTP endpoints.
-- [13 Middleware](13-middleware.md) — edge-level request handling (routing, not authz).
+- [13 Middleware](13-proxy.md) — edge-level request handling (routing, not authz).
 
 **Production — making it safe and fast**
 - [14 Authentication](14-authentication.md), [15 Authorization](15-authorization.md),
@@ -90,7 +90,7 @@ luck.
   the App Router and Server Components.
 - Assuming a rule from a generic React guide applies unchanged; the server/client split makes
   Next.js different (data fetching, effects, secrets).
-- Enforcing authorization in a layout or middleware and calling it done — see
+- Enforcing authorization in a layout or the proxy and calling it done — see
   [authorization](15-authorization.md) for why that is not enough.
 
 ## AI Review Checklist

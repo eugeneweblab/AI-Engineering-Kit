@@ -485,7 +485,7 @@ export default async function DashboardPage() {
 
 ## Partial Prerendering
 
-When supported by the project, prefer Partial Prerendering (PPR) over fully dynamic rendering when only small sections require personalization.
+Prefer Partial Prerendering (PPR) over fully dynamic rendering when only small sections require personalization. Since Next.js 16 this is the App Router's behaviour once `cacheComponents` is enabled, not a separate flag — see [Rendering Strategies](08-rendering-strategies.md).
 
 ---
 

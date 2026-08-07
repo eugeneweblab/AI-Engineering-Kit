@@ -291,7 +291,7 @@ README.md
 10-caching.md
 11-server-actions.md
 12-api-routes.md
-13-middleware.md
+13-proxy.md
 14-authentication.md
 15-authorization.md
 16-images.md

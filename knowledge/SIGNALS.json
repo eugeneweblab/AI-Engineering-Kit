@@ -2,8 +2,8 @@
   "schema": "ai-engineering-kit/signals@1",
   "note": "Detect the stack from `stack`, then resolve any symbol in the diff via `symbols`. Both point at document ids in INDEX.json. In `when`, `|` separates alternatives and `**` matches any number of directories; a pattern is written to match both the root-level and the nested layout.",
   "stats": {
-    "stack_signals": 31,
-    "symbols": 8969,
+    "stack_signals": 32,
+    "symbols": 8990,
     "docs_indexed": 1271
   },
   "stack": [
@@ -32,6 +32,14 @@
       "docs": [
         "nextjs/30-migration-guide",
         "nextjs/03-app-router"
+      ]
+    },
+    {
+      "when": "proxy.ts|proxy.js|src/proxy.ts|src/proxy.js|middleware.ts|middleware.js|src/middleware.ts|src/middleware.js",
+      "means": "Next.js Proxy (formerly Middleware) — runs in front of every matched route",
+      "docs": [
+        "nextjs/13-proxy",
+        "nextjs/14-authentication"
       ]
     },
     {
@@ -426,6 +434,9 @@
     "@cache": [
       "performance/30-engineering-principles"
     ],
+    "@canary": [
+      "nextjs/13-proxy"
+    ],
     "@casl": [
       "nestjs/16-authorization"
     ],
@@ -641,6 +652,9 @@
       "frontend/17-animations",
       "tailwind/18-plugins"
     ],
+    "@modal": [
+      "nextjs/03-app-router"
+    ],
     "@modelcontextprotocol": [
       "tools/26-ai-coding-tools"
     ],
@@ -766,6 +780,9 @@
       "nestjs/22-cqrs",
       "nestjs/25-testing",
       "nestjs/27-performance"
+    ],
+    "@next": [
+      "nextjs/13-proxy"
     ],
     "@node-rs": [
       "nextjs/14-authentication"
@@ -3874,7 +3891,7 @@
       "tools/19-task-runners"
     ],
     "DEFAULT_LOCALE": [
-      "nextjs/13-middleware"
+      "nextjs/13-proxy"
     ],
     "DEFINER": [
       "mysql/27-procedures",
@@ -3899,7 +3916,7 @@
     ],
     "DENY": [
       "linux/21-firewall",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nginx/13-security",
       "nginx/26-best-practices",
       "nginx/30-engineering-principles"
@@ -6058,7 +6075,7 @@
       "nextjs/17-fonts"
     ],
     "Headers": [
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/23-observability"
     ],
     "HealthCheck": [
@@ -7239,7 +7256,7 @@
       "redis/14-rate-limiting"
     ],
     "LOCALES": [
-      "nextjs/13-middleware"
+      "nextjs/13-proxy"
     ],
     "LOCAL_DATABASE_URL": [
       "tools/26-ai-coding-tools"
@@ -8301,17 +8318,23 @@
       "nextjs/16-images",
       "nextjs/26-deployment"
     ],
+    "NextFetchEvent": [
+      "nextjs/13-proxy"
+    ],
     "NextFunction": [
       "backend/10-authentication",
       "nestjs/13-middleware",
       "nestjs/23-distributed-systems",
       "nestjs/24-observability"
     ],
+    "NextProxy": [
+      "nextjs/13-proxy"
+    ],
     "NextRequest": [
       "examples/01-rest-endpoint",
       "nextjs/03-app-router",
       "nextjs/12-api-routes",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "nextjs/22-testing",
       "nextjs/23-observability",
@@ -8322,7 +8345,7 @@
     "NextResponse": [
       "nextjs/03-app-router",
       "nextjs/12-api-routes",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "nextjs/22-testing",
       "nextjs/23-observability",
@@ -8330,10 +8353,10 @@
       "nextjs/28-best-practices"
     ],
     "NextResponse.next": [
-      "nextjs/13-middleware"
+      "nextjs/13-proxy"
     ],
     "NextResponse.redirect": [
-      "nextjs/13-middleware"
+      "nextjs/13-proxy"
     ],
     "NoAction": [
       "prisma/04-relations"
@@ -11453,7 +11476,7 @@
       "nestjs/24-observability"
     ],
     "SESSION_SECRET": [
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "nextjs/21-environment-variables"
     ],
@@ -12824,7 +12847,7 @@
       "react/24-design-patterns"
     ],
     "TextEncoder": [
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication"
     ],
     "TextInput": [
@@ -13133,7 +13156,7 @@
       "graphql/10-input-types",
       "javascript/11-browser-api",
       "javascript/13-fetch-api",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "nextjs/18-metadata",
       "nextjs/19-seo",
@@ -14615,7 +14638,7 @@
       "architecture/28-best-practices"
     ],
     "accept": [
-      "nextjs/13-middleware"
+      "nextjs/13-proxy"
     ],
     "access": [
       "nginx/16-logging",
@@ -17433,7 +17456,10 @@
       "nestjs/14-configuration",
       "nextjs/01-architecture",
       "nextjs/08-rendering-strategies",
+      "nextjs/09-data-fetching",
+      "nextjs/10-caching",
       "nextjs/100-common-antipatterns",
+      "nextjs/11-server-actions",
       "nextjs/14-authentication",
       "nextjs/15-authorization",
       "nextjs/19-seo",
@@ -17451,8 +17477,15 @@
       "tools/10-webpack",
       "tools/20-local-environments"
     ],
+    "cache-control": [
+      "nextjs/16-images"
+    ],
     "cache-manager": [
       "nestjs/19-caching"
+    ],
+    "cacheComponents": [
+      "nextjs/08-rendering-strategies",
+      "nextjs/20-performance"
     ],
     "cacheKeyFn": [
       "graphql/16-dataloader"
@@ -18230,7 +18263,7 @@
     "clone": [
       "divi/22-deployment",
       "git/03-repository",
-      "nextjs/13-middleware"
+      "nextjs/13-proxy"
     ],
     "cloneElement": [
       "react/13-component-composition",
@@ -18709,7 +18742,7 @@
       "javascript/17-es6-features"
     ],
     "config.matcher": [
-      "nextjs/13-middleware"
+      "nextjs/13-proxy"
     ],
     "config.platform": [
       "php/07-composer",
@@ -19489,7 +19522,7 @@
     "crypto": [
       "github/29-integrations",
       "javascript/26-security",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/23-observability",
       "nodejs/100-common-antipatterns",
       "nodejs/30-engineering-principles",
@@ -19510,9 +19543,6 @@
     ],
     "crypto.randomUUID": [
       "tools/27-dependency-management"
-    ],
-    "crypto.subtle": [
-      "nextjs/13-middleware"
     ],
     "crypto.timingSafeEqual": [
       "nodejs/07-buffers",
@@ -19787,6 +19817,7 @@
     ],
     "data access layer": [
       "nextjs/02-project-structure",
+      "nextjs/13-proxy",
       "nextjs/15-authorization"
     ],
     "data transfer objects": [
@@ -20060,6 +20091,9 @@
     ],
     "default-src": [
       "security/20-csp"
+    ],
+    "default.tsx": [
+      "nextjs/03-app-router"
     ],
     "default:": [
       "cicd/18-gitlab-ci",
@@ -21231,7 +21265,7 @@
       "git/23-trunk-based-development"
     ],
     "encode": [
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication"
     ],
     "encodeURIComponent": [
@@ -22054,11 +22088,22 @@
       "javascript/10-event-loop"
     ],
     "experimental": [
-      "nextjs/08-rendering-strategies",
       "nextjs/20-performance"
+    ],
+    "experimental.dynamicIO": [
+      "nextjs/08-rendering-strategies"
+    ],
+    "experimental.ppr": [
+      "nextjs/08-rendering-strategies"
+    ],
+    "experimental.useCache": [
+      "nextjs/08-rendering-strategies"
     ],
     "experimentalDecorators": [
       "typescript/15-decorators"
+    ],
+    "experimental_ppr": [
+      "nextjs/08-rendering-strategies"
     ],
     "experimental_taintObjectReference": [
       "nextjs/24-security"
@@ -22286,7 +22331,7 @@
       "nodejs/22-debugging"
     ],
     "favicon": [
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/18-metadata",
       "nextjs/23-observability"
     ],
@@ -22368,7 +22413,6 @@
       "nextjs/09-data-fetching",
       "nextjs/10-caching",
       "nextjs/100-common-antipatterns",
-      "nextjs/13-middleware",
       "nextjs/14-authentication",
       "nextjs/17-fonts",
       "nextjs/18-metadata",
@@ -22787,7 +22831,7 @@
       "ai/03-code-generation",
       "graphql/15-n1-problem",
       "nextjs/100-common-antipatterns",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "nextjs/15-authorization",
       "nextjs/28-best-practices",
@@ -23638,7 +23682,7 @@
       "nextjs/08-rendering-strategies",
       "nextjs/100-common-antipatterns",
       "nextjs/11-server-actions",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "nextjs/22-testing",
       "nextjs/23-observability",
@@ -24958,7 +25002,7 @@
       "javascript/20-proxies-and-reflect",
       "javascript/22-design-patterns",
       "nestjs/18-transactions",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "security/07-jwt",
       "security/19-cors",
@@ -25332,7 +25376,7 @@
       "nestjs/11-exception-filters",
       "nestjs/20-queues",
       "nestjs/26-security",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/19-seo",
       "tools/21-debuggers"
     ],
@@ -25746,7 +25790,25 @@
       "nextjs/19-seo",
       "nextjs/26-deployment"
     ],
+    "images.dangerouslyAllowLocalIP": [
+      "nextjs/16-images"
+    ],
     "images.dangerouslyAllowSVG": [
+      "nextjs/16-images"
+    ],
+    "images.imageSizes": [
+      "nextjs/16-images"
+    ],
+    "images.localPatterns": [
+      "nextjs/16-images"
+    ],
+    "images.maximumRedirects": [
+      "nextjs/16-images"
+    ],
+    "images.minimumCacheTTL": [
+      "nextjs/16-images"
+    ],
+    "images.qualities": [
       "nextjs/16-images"
     ],
     "images.remotePatterns": [
@@ -25867,7 +25929,7 @@
       "nestjs/100-common-antipatterns",
       "nestjs/13-middleware",
       "nestjs/16-authorization",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "prisma/09-filtering",
       "prisma/18-error-handling",
       "prisma/22-multi-tenancy",
@@ -26783,7 +26845,7 @@
       "postgresql/05-query-planner"
     ],
     "jose": [
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "rest-api/15-authentication",
       "security/07-jwt"
@@ -26961,7 +27023,7 @@
     ],
     "jwtVerify": [
       "backend/10-authentication",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "rest-api/15-authentication",
       "security/07-jwt"
@@ -27932,7 +27994,7 @@
       "testing/17-security-testing"
     ],
     "loginUrl": [
-      "nextjs/13-middleware"
+      "nextjs/13-proxy"
     ],
     "loginViaApi": [
       "testing/04-e2e-testing"
@@ -28226,7 +28288,7 @@
     ],
     "matcher": [
       "aws/10-elastic-load-balancer",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "nextjs/23-observability",
       "nextjs/28-best-practices"
@@ -28677,18 +28739,13 @@
       "javascript/10-event-loop"
     ],
     "middleware": [
-      "ai/02-task-planning",
       "devops/12-monitoring",
       "nestjs/23-distributed-systems",
-      "nextjs/14-authentication",
-      "nextjs/23-observability",
-      "nextjs/28-best-practices",
+      "nextjs/13-proxy",
       "performance/17-monitoring"
     ],
     "middleware.ts": [
-      "nextjs/13-middleware",
-      "nextjs/21-environment-variables",
-      "nextjs/23-observability",
+      "nextjs/13-proxy",
       "nextjs/28-best-practices"
     ],
     "migrate": [
@@ -28852,7 +28909,7 @@
       "wordpress/02-project-structure"
     ],
     "missing": [
-      "nextjs/13-middleware"
+      "nextjs/13-proxy"
     ],
     "mix": [
       "css/25-modern-css"
@@ -29479,7 +29536,10 @@
     "next/cache": [
       "nextjs/01-architecture",
       "nextjs/08-rendering-strategies",
+      "nextjs/09-data-fetching",
+      "nextjs/10-caching",
       "nextjs/100-common-antipatterns",
+      "nextjs/11-server-actions",
       "nextjs/14-authentication",
       "nextjs/22-testing",
       "nextjs/28-best-practices"
@@ -29531,7 +29591,7 @@
     "next/server": [
       "nextjs/03-app-router",
       "nextjs/12-api-routes",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "nextjs/22-testing",
       "nextjs/23-observability",
@@ -31174,7 +31234,7 @@
       "kubernetes/08-ingress"
     ],
     "pathname": [
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/16-images"
     ],
     "paths": [
@@ -32686,9 +32746,20 @@
       "kubernetes/07-services"
     ],
     "proxy": [
+      "ai/02-task-planning",
       "docker/07-networks",
+      "nextjs/14-authentication",
+      "nextjs/23-observability",
+      "nextjs/28-best-practices",
       "nginx/26-best-practices",
       "tools/09-vite"
+    ],
+    "proxy.ts": [
+      "nextjs/13-proxy",
+      "nextjs/21-environment-variables",
+      "nextjs/23-observability",
+      "nextjs/24-security",
+      "nextjs/28-best-practices"
     ],
     "proxy_buffering": [
       "nginx/20-websockets"
@@ -32956,6 +33027,7 @@
       "docker/08-dockerfile"
     ],
     "quality": [
+      "nextjs/16-images",
       "wordpress/27-deployment"
     ],
     "quality-gate": [
@@ -33202,7 +33274,7 @@
       "nestjs/23-distributed-systems",
       "nestjs/24-observability",
       "nestjs/30-engineering-principles",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/23-observability",
       "nodejs/18-security",
       "redis/17-distributed-locks",
@@ -33549,7 +33621,7 @@
     "redirect": [
       "nextjs/01-architecture",
       "nextjs/05-layouts",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "nextjs/15-authorization",
       "nextjs/24-security",
@@ -33563,7 +33635,7 @@
       "aws/08-cloudfront"
     ],
     "redirectToLogin": [
-      "nextjs/13-middleware"
+      "nextjs/13-proxy"
     ],
     "redirect_uri": [
       "security/08-oauth"
@@ -34244,10 +34316,10 @@
       "performance/21-scalability"
     ],
     "request.cookies": [
-      "nextjs/13-middleware"
+      "nextjs/13-proxy"
     ],
     "request.headers": [
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/23-observability"
     ],
     "request.order": [
@@ -34273,7 +34345,7 @@
     ],
     "requestHeaders": [
       "nextjs/08-rendering-strategies",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/23-observability"
     ],
     "requestId": [
@@ -34779,10 +34851,7 @@
     ],
     "revalidateTag": [
       "nextjs/08-rendering-strategies",
-      "nextjs/09-data-fetching",
       "nextjs/10-caching",
-      "nextjs/100-common-antipatterns",
-      "nextjs/11-server-actions",
       "nextjs/28-best-practices"
     ],
     "revenue": [
@@ -34821,7 +34890,7 @@
       "security/26-incident-response"
     ],
     "rewrite": [
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nginx/100-common-antipatterns",
       "nginx/24-debugging",
       "tools/09-vite"
@@ -35231,7 +35300,8 @@
       "wordpress/27-deployment"
     ],
     "runtime": [
-      "aws/30-engineering-principles"
+      "aws/30-engineering-principles",
+      "nextjs/13-proxy"
     ],
     "runtimeChunk": [
       "tools/10-webpack"
@@ -35593,6 +35663,7 @@
       "accessibility/19-live-regions",
       "nestjs/12-pipes",
       "nextjs/07-client-components",
+      "nextjs/16-images",
       "tools/25-editor-setup",
       "wordpress/13-template-hierarchy"
     ],
@@ -35707,7 +35778,7 @@
       "figma/01-figma-analysis"
     ],
     "secure": [
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "security/06-session-management"
     ],
@@ -35942,7 +36013,7 @@
       "linux/22-containers",
       "nextjs/03-app-router",
       "nextjs/12-api-routes",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "nextjs/22-testing",
       "nextjs/23-observability",
@@ -36073,7 +36144,7 @@
       "nextjs/100-common-antipatterns",
       "nextjs/11-server-actions",
       "nextjs/12-api-routes",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "nextjs/15-authorization",
       "nextjs/28-best-practices",
@@ -36129,7 +36200,7 @@
       "nestjs/03-dependency-injection",
       "nestjs/19-caching",
       "nestjs/27-performance",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "nextjs/22-testing",
       "nextjs/23-observability",
@@ -36748,7 +36819,7 @@
       "nestjs/15-authentication"
     ],
     "signIn": [
-      "nextjs/13-middleware"
+      "nextjs/13-proxy"
     ],
     "signUpSchema": [
       "react/15-forms"
@@ -36883,6 +36954,12 @@
     "skipLibCheck": [
       "tools/03-typescript-compiler"
     ],
+    "skipMiddlewareUrlNormalize": [
+      "nextjs/13-proxy"
+    ],
+    "skipProxyUrlNormalize": [
+      "nextjs/13-proxy"
+    ],
     "skip_final_snapshot": [
       "aws/05-rds"
     ],
@@ -36989,7 +37066,7 @@
     "some": [
       "nestjs/09-guards",
       "nestjs/16-authorization",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "prisma/09-filtering"
     ],
     "someAsyncTask": [
@@ -37291,7 +37368,7 @@
     "startsWith": [
       "nestjs/13-middleware",
       "nestjs/14-configuration",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/21-environment-variables",
       "nodejs/05-file-system",
       "nodejs/18-security",
@@ -40103,6 +40180,13 @@
     "updateStrategy": [
       "kubernetes/14-daemonsets"
     ],
+    "updateTag": [
+      "nextjs/09-data-fetching",
+      "nextjs/10-caching",
+      "nextjs/100-common-antipatterns",
+      "nextjs/11-server-actions",
+      "nextjs/28-best-practices"
+    ],
     "updateUser": [
       "nextjs/09-data-fetching",
       "redis/13-caching"
@@ -40264,7 +40348,7 @@
       "html/20-browser-rendering",
       "javascript/13-fetch-api",
       "nestjs/14-configuration",
-      "nextjs/13-middleware",
+      "nextjs/13-proxy",
       "nextjs/14-authentication",
       "nextjs/21-environment-variables",
       "nextjs/26-deployment",
@@ -40276,7 +40360,7 @@
       "tools/20-local-environments"
     ],
     "url.pathname": [
-      "nextjs/13-middleware"
+      "nextjs/13-proxy"
     ],
     "us-east-1": [
       "aws/01-global-infrastructure",

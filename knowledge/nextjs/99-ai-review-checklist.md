@@ -69,7 +69,7 @@ that surface (e.g. no data fetching).
 **Rules:** [Security](24-security.md) · [Authorization](15-authorization.md)
 
 - [ ] Are only `NEXT_PUBLIC_`-prefixed env vars referenced in client code, and no secrets among them?
-- [ ] Are auth checks enforced in the data/action layer, not only in middleware or UI?
+- [ ] Are auth checks enforced in the data/action layer, not only in the proxy or UI?
 - [ ] Are external URLs, redirects, and image `remotePatterns` restricted to an allowlist?
 - [ ] Is user-generated HTML sanitized before any `dangerouslySetInnerHTML`?
 

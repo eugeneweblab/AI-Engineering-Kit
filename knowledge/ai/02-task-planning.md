@@ -381,7 +381,7 @@ Findings from context gathering
 
 Plan
   1. src/lib/rate-limit.ts — sliding-window counter on the existing Redis client.
-  2. src/middleware.ts — apply to /api/* only; skip static assets via the matcher.
+  2. src/proxy.ts — apply to /api/* only; skip static assets via the matcher.
   3. Return 429 with Retry-After; document the header in docs/api.md.
   4. Integration test: 11th request within the window returns 429.
 
@@ -399,7 +399,7 @@ Open question
 ```text
 Task: add rate limiting to the public API.
 
-→ opened src/middleware.ts, added a counter in a module-level Map
+→ opened src/proxy.ts, added a counter in a module-level Map
 → noticed it resets on deploy, switched to Redis
 → noticed it also caught /_next/static, added an exclusion
 → while there, refactored the auth check "since it was nearby"

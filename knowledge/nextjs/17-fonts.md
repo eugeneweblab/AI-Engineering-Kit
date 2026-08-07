@@ -57,7 +57,7 @@ Benefits include:
 Avoid loading fonts directly from external CDNs unless required.
 
 `next/font` is not a runtime `fetch` — it runs at build time and self-hosts the
-files, so none of Next.js 15's uncached-`fetch` behavior applies here. The font
+files, so the uncached-`fetch` default does not apply here. The font
 assets are emitted as static, content-hashed files and served with immutable
 caching automatically.
 

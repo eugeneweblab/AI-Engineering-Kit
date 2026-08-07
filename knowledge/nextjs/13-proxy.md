@@ -1,47 +1,47 @@
 ---
-id: nextjs/13-middleware
+id: nextjs/13-proxy
 topic: nextjs
-slug: middleware
-title: "Next.js Middleware"
+slug: proxy
+title: "Next.js Proxy"
 type: doc
 order: 13
 status: ready
-tags: [nextjs, middleware, NextResponse, NextRequest, redirect, URL, startsWith]
+tags: [nextjs, proxy, middleware, NextProxy, NextResponse, NextRequest, NextFetchEvent, skipProxyUrlNormalize]
 related: [nextjs/14-authentication, nextjs/15-authorization, nextjs/04-routing]
-when_to_use: "Read before adding middleware for redirects, rewrites, or request processing in Next.js."
+when_to_use: "Read before adding a proxy.ts (formerly middleware.ts) for redirects, rewrites, or request processing in Next.js, or when migrating middleware to proxy."
 ---
-# Next.js Middleware
+# Next.js Proxy
 
 ## Purpose
 
-This document defines the engineering standards for implementing Middleware in Next.js applications.
+This document defines the engineering standards for implementing Proxy in Next.js applications.
 
-The objective is to execute lightweight request processing before routing, enabling authentication, authorization, localization, redirects, rewrites, and request normalization while keeping Middleware fast and predictable.
+The objective is to execute lightweight request processing before routing, enabling authentication, authorization, localization, redirects, rewrites, and request normalization while keeping Proxy fast and predictable.
 
-Middleware should solve request-level concerns—not business logic.
+Proxy should solve request-level concerns—not business logic.
 
 ---
 
 ## Core Principle
 
-Middleware intercepts requests.
+Proxy intercepts requests.
 
 It should make routing decisions, not application decisions.
 
-Keep Middleware lightweight.
+Keep Proxy lightweight.
 
 ---
 
 ## Request Lifecycle
 
-Middleware executes before a route is rendered.
+Proxy executes before a route is rendered.
 
 ```
 Incoming Request
 
 ↓
 
-Middleware
+Proxy
 
 ↓
 
@@ -56,26 +56,28 @@ Route Handler
 Page or API Response
 ```
 
-Middleware should make decisions quickly and avoid unnecessary work.
+Proxy should make decisions quickly and avoid unnecessary work.
 
 ---
 
 ## File Location and Signature
 
-Middleware lives in a single `middleware.ts` file at the project root (or inside
-`src/` if you use that layout). There is exactly one Middleware file per app; it
-runs for every request that matches its `config.matcher`.
+Proxy lives in a single `proxy.ts` file at the project root (or inside `src/` if
+you use that layout), at the same level as `app/` or `pages/`. There is exactly
+one Proxy file per app; it runs for every request that matches its
+`config.matcher`. The file must export one function, either as the default export
+or named `proxy` — several exported functions in one file are not supported.
 
-By default Middleware runs on the **Edge runtime**, so only Edge-compatible APIs
-are available (no `fs`, no native Node modules, no long-lived DB drivers). Use
-Web-standard APIs (`fetch`, `URL`, `crypto.subtle`) and Edge-safe libraries such
-as `jose` for JWT verification.
+Proxy runs on the **Node.js runtime**, and that is not configurable: the
+`runtime` route-segment option is unavailable here and setting it throws. Code
+that needs the Edge runtime has to stay in a `middleware.ts` file, which still
+works but is deprecated.
 
 ```ts
-// middleware.ts
+// proxy.ts
 import { NextResponse, type NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   // Read request state.
   const { pathname } = request.nextUrl;
 
@@ -88,25 +90,61 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-// Only run Middleware where it is actually needed.
+// Only run Proxy where it is actually needed. Without a matcher it runs on
+// every request, including `_next/static`, `_next/image` and `public/`.
 export const config = {
   matcher: ["/dashboard/:path*", "/admin/:path*"],
 };
 ```
 
-`middleware` may be `async`, but keep any awaited work fast and non-blocking —
-every matched request pays for it.
+`proxy` may be `async`, but keep any awaited work fast and non-blocking — every
+matched request pays for it. The function receives a second argument, a
+`NextFetchEvent`, whose `waitUntil(promise)` keeps the invocation alive for
+background work such as logging; declare it only if you use it. The `NextProxy`
+type infers both parameters.
 
-> Node.js runtime for Middleware is available as an opt-in
-> (`export const config = { runtime: "nodejs" }`) on recent Next.js versions when
-> you need Node-only APIs. Prefer the Edge default unless you have a concrete
-> reason; it keeps Middleware fast and portable.
+> **Reach for Proxy last.** The framework's own guidance is to avoid it unless
+> no other option exists — a check that belongs in a Server Component, a Server
+> Function, or a Route Handler is cheaper and harder to bypass there. Proxy runs
+> in front of the whole app, so every mistake in it is a site-wide mistake.
+
+---
+
+## Migrating from Middleware
+
+Next.js 16 renamed the file convention: `middleware.ts` became `proxy.ts`, and the
+named export `middleware` became `proxy`. The old names still work and are
+deprecated. Configuration flags carrying the old word were renamed with it —
+`skipMiddlewareUrlNormalize` is now `skipProxyUrlNormalize`.
+
+```diff
+-// middleware.ts
+-export function middleware(request: NextRequest) {
++// proxy.ts
++export function proxy(request: NextRequest) {
+```
+
+A codemod does both the rename and the file move:
+
+```bash
+npx @next/codemod@canary middleware-to-proxy .
+```
+
+Two things the rename is not cosmetic about:
+
+- **The runtime changed.** Proxy is Node.js and cannot be configured otherwise.
+  Code that must run on the Edge runtime has to stay in `middleware.ts`.
+- **The name states the intent.** "Middleware" invited the Express reading — a
+  layer you stack application logic into. "Proxy" names what it is: a network
+  boundary in front of the app. The framework's direction is to give you APIs
+  that make reaching for it unnecessary, so treat a growing proxy file as a
+  signal that logic belongs in a Server Function or the Data Access Layer.
 
 ---
 
 ## Appropriate Use Cases
 
-Middleware is well suited for:
+Proxy is well suited for:
 
 - authentication checks;
 - authorization gates;
@@ -133,13 +171,13 @@ Do not perform:
 - heavy computations;
 - report generation.
 
-Middleware should not replace Server Actions or Route Handlers.
+Proxy should not replace Server Actions or Route Handlers.
 
 ---
 
 ## Authentication
 
-Middleware may determine whether a request is authenticated.
+Proxy may determine whether a request is authenticated.
 
 Typical workflow:
 
@@ -159,23 +197,23 @@ or
 Redirect to Login
 ```
 
-Keep authentication checks efficient. In Middleware, do an **optimistic** check —
+Keep authentication checks efficient. In Proxy, do an **optimistic** check —
 verify that a signed session token is present and cryptographically valid — and
 leave full database session validation to the page, layout, or Data Access Layer
-that actually reads user data. This keeps Middleware fast and avoids a database
+that actually reads user data. This keeps Proxy fast and avoids a database
 round-trip on every request.
 
-Good — verify a signed JWT at the edge with a Web-standard crypto library, then
-redirect on failure:
+Good — verify the session token's signature and redirect on failure, without
+touching the database:
 
 ```ts
-// middleware.ts
+// proxy.ts
 import { NextResponse, type NextRequest } from "next/server";
 import { jwtVerify } from "jose";
 
 const secret = new TextEncoder().encode(process.env.SESSION_SECRET);
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const token = request.cookies.get("session")?.value;
 
   if (!token) {
@@ -183,7 +221,7 @@ export async function middleware(request: NextRequest) {
   }
 
   try {
-    await jwtVerify(token, secret); // Edge-compatible signature check.
+    await jwtVerify(token, secret); // Signature only — no database round-trip.
     return NextResponse.next();
   } catch {
     return redirectToLogin(request);
@@ -201,15 +239,17 @@ export const config = {
 };
 ```
 
-Bad — hitting the database on every matched request. This adds latency to all
-traffic, will not run on the Edge runtime, and duplicates authorization that
-belongs in the Data Access Layer:
+Bad — hitting the database on every matched request. Proxy runs on Node.js, so
+this compiles and runs; that is what makes it tempting. It still adds a
+round-trip to every navigation, holds a connection in front of the whole app,
+and duplicates authorization that belongs in the Data Access Layer — where it
+also covers Server Functions, which a matcher can silently stop covering:
 
 ```ts
-// middleware.ts — anti-pattern
-export async function middleware(request: NextRequest) {
+// proxy.ts — anti-pattern
+export async function proxy(request: NextRequest) {
   const token = request.cookies.get("session")?.value;
-  // ❌ DB lookup per request, not Edge-safe, blocks routing.
+  // ❌ A DB lookup per request, in front of every route, blocking routing.
   const session = await db.session.findUnique({ where: { token } });
   if (!session || session.role !== "admin") {
     return NextResponse.redirect(new URL("/login", request.url));
@@ -222,7 +262,7 @@ export async function middleware(request: NextRequest) {
 
 ## Authorization
 
-Only lightweight authorization should occur in Middleware.
+Only lightweight authorization should occur in Proxy.
 
 Examples:
 
@@ -236,7 +276,7 @@ Detailed permission checks should remain inside the application.
 
 ## Redirects
 
-Middleware is an excellent place for redirects.
+Proxy is an excellent place for redirects.
 
 Examples:
 
@@ -274,7 +314,7 @@ A rewrite changes what renders while the browser URL stays the same. Example —
 route each tenant subdomain to a shared `/[tenant]` segment:
 
 ```ts
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const host = request.headers.get("host") ?? "";
   const subdomain = host.split(".")[0];
 
@@ -294,7 +334,7 @@ Keep rewrite rules easy to understand.
 
 ## Internationalization
 
-Middleware may detect:
+Proxy may detect:
 
 - language;
 - country;
@@ -324,7 +364,7 @@ Detect the locale once, then redirect requests that lack a locale prefix:
 const LOCALES = ["en", "de", "fr"] as const;
 const DEFAULT_LOCALE = "en";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Skip paths that already carry a locale prefix.
@@ -356,7 +396,7 @@ Do not duplicate locale detection throughout the application.
 
 ## Security Headers
 
-Middleware may attach security headers.
+Proxy may attach security headers.
 
 Examples:
 
@@ -365,10 +405,10 @@ Examples:
 - Referrer-Policy;
 - Permissions-Policy.
 
-Attach headers to the response returned from Middleware:
+Attach headers to the response returned from Proxy:
 
 ```ts
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const response = NextResponse.next();
 
   response.headers.set("X-Frame-Options", "DENY");
@@ -387,7 +427,7 @@ per-request nonce here and forward it to the app via a request header, so Server
 Components can read it and stamp it onto their `<script>` tags:
 
 ```ts
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const nonce = crypto.randomUUID();
   const csp = `script-src 'self' 'nonce-${nonce}' 'strict-dynamic';`;
 
@@ -406,7 +446,7 @@ Security policies should remain centralized.
 
 ## Cookies
 
-Middleware may:
+Proxy may:
 
 - read cookies;
 - set cookies;
@@ -416,7 +456,7 @@ Read from `request.cookies`; write to the response you return. Cookies set on
 `NextResponse.next()` are sent back to the browser:
 
 ```ts
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const consent = request.cookies.get("consent")?.value;
   const response = NextResponse.next();
 
@@ -440,7 +480,7 @@ Avoid storing sensitive business state inside cookies.
 
 ## Request Headers
 
-Middleware may modify request headers when required.
+Proxy may modify request headers when required.
 
 Typical examples:
 
@@ -453,7 +493,7 @@ and hand it to `NextResponse.next` via the `request.headers` option — you cann
 mutate `request.headers` directly:
 
 ```ts
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-request-id", crypto.randomUUID());
 
@@ -470,7 +510,7 @@ Avoid unnecessary header manipulation.
 
 ## Response Headers
 
-Middleware may append response headers.
+Proxy may append response headers.
 
 Examples:
 
@@ -484,7 +524,7 @@ Headers should remain consistent across the application.
 
 ## Matchers
 
-Use matchers to limit Middleware execution. The `config.matcher` is read
+Use matchers to limit Proxy execution. The `config.matcher` is read
 statically at build time — it must be a literal array, not a computed value.
 
 Path patterns support named parameters and wildcards:
@@ -495,7 +535,7 @@ export const config = {
 };
 ```
 
-A negative lookahead is the idiomatic way to run Middleware everywhere except
+A negative lookahead is the idiomatic way to run Proxy everywhere except
 framework internals and static assets:
 
 ```ts
@@ -521,20 +561,20 @@ export const config = {
 };
 ```
 
-Avoid executing Middleware for routes that do not require it.
+Avoid executing Proxy for routes that do not require it.
 
 ---
 
 ## Performance
 
-Middleware should:
+Proxy should:
 
 - execute quickly;
 - minimize allocations;
 - avoid unnecessary parsing;
 - avoid blocking operations.
 
-Every request passes through Middleware.
+Every request passes through Proxy.
 
 Small inefficiencies become expensive at scale.
 
@@ -556,7 +596,7 @@ Avoid excessive logging on every request.
 
 ## Error Handling
 
-Middleware should fail safely.
+Proxy should fail safely.
 
 If recovery is impossible:
 
@@ -577,7 +617,7 @@ Verify:
 - security headers;
 - matcher behavior.
 
-Middleware should be covered by integration tests whenever practical.
+Proxy should be covered by integration tests whenever practical.
 
 ---
 
@@ -596,7 +636,7 @@ Treat every request as untrusted.
 
 ## Accessibility
 
-Middleware should preserve accessible navigation.
+Proxy should preserve accessible navigation.
 
 Redirects and rewrites must not create confusing navigation flows or inaccessible user journeys.
 
@@ -618,7 +658,7 @@ Redirects and rewrites must not create confusing navigation flows or inaccessibl
 
 ## Planning
 
-☐ Keep Middleware lightweight.
+☐ Keep Proxy lightweight.
 
 ☐ Restrict execution with matchers.
 
@@ -630,7 +670,7 @@ Redirects and rewrites must not create confusing navigation flows or inaccessibl
 
 ## Verification
 
-☐ Middleware executes efficiently.
+☐ Proxy executes efficiently.
 
 ☐ Redirects function correctly.
 
@@ -649,10 +689,10 @@ Redirects and rewrites must not create confusing navigation flows or inaccessibl
 **Good Example** — cheap checks only, with a matcher that excludes assets
 
 ```ts
-// middleware.ts — runs on the edge, before every matched request.
+// proxy.ts — runs on the Node.js runtime, before every matched request.
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const token = request.cookies.get('session')?.value;
 
   // Presence check only: enough to redirect an anonymous visitor away from a
@@ -678,15 +718,15 @@ export const config = {
 The real authorisation decision happens in the page, the Server Action, or the Route Handler,
 where the user record and the resource are both available.
 
-**Bad Example** — authorisation and database access in middleware
+**Bad Example** — authorisation and database access in proxy
 
 ```ts
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const token = request.cookies.get('session')?.value;
 
-  // A database query on the edge runtime, on every request including assets:
-  // Node APIs are unavailable, the connection cannot be pooled, and latency is
-  // added to every navigation.
+  // A database query in front of every request, including assets when the
+  // matcher is wrong: a connection is held ahead of the whole app and latency
+  // is added to every navigation.
   const user = await db.user.findUnique({ where: { sessionToken: token } });
 
   // The full authorisation policy expressed as path prefixes, which drift from
@@ -710,11 +750,11 @@ export async function middleware(request: NextRequest) {
 
 Avoid:
 
-Performing database queries inside Middleware.
+Performing database queries inside Proxy.
 
 Executing heavy computations.
 
-Running Middleware for every route unnecessarily.
+Running Proxy for every route unnecessarily.
 
 Duplicating authorization logic.
 
@@ -728,7 +768,7 @@ Placing business workflows inside request interception.
 
 ## Completion Criteria
 
-A Middleware implementation is complete when:
+A Proxy implementation is complete when:
 
 - request-level concerns are centralized;
 - authentication and routing decisions are efficient;
@@ -741,9 +781,9 @@ A Middleware implementation is complete when:
 
 ## Summary
 
-Middleware provides a centralized mechanism for handling request-level concerns before the application is rendered.
+Proxy provides a centralized mechanism for handling request-level concerns before the application is rendered.
 
-By limiting Middleware to lightweight routing, security, and request processing responsibilities, applications remain fast, scalable, secure, and easier to reason about.
+By limiting Proxy to lightweight routing, security, and request processing responsibilities, applications remain fast, scalable, secure, and easier to reason about.
 
 ## Related
 

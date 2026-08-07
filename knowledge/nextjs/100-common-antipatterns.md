@@ -149,8 +149,10 @@ const me = await fetch("https://api.example.com/me", { cache: "no-store" });
 
 ### 5. Calling request APIs synchronously
 
-- **Why it is wrong:** `cookies()`, `headers()`, `params`, and `searchParams` are async in
-  Next.js 15+. Using them synchronously throws at runtime even though older examples showed it working.
+- **Why it is wrong:** `cookies()`, `headers()`, `draftMode()`, `params`, and `searchParams`
+  are async. Next.js 15 made them async and kept a temporary synchronous shim; Next.js 16
+  removed it, so synchronous access no longer warns — it simply fails. Older examples that
+  showed it working were written during that compatibility window.
 - **The fix:** `await` them: `const store = await cookies();`. Await `params`/`searchParams`
   props before reading their fields.
 
@@ -334,11 +336,11 @@ export async function renameProject(id: string, name: string) {
 ```tsx
 // Good — revalidate the affected cache scope right after the write
 "use server";
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidatePath, updateTag } from "next/cache";
 
 export async function renameProject(id: string, name: string) {
   await db.project.update({ where: { id }, data: { name } });
-  revalidatePath(`/projects/${id}`); // or revalidateTag("projects") for tag-based data
+  revalidatePath(`/projects/${id}`); // or updateTag("projects") for tag-based data
 }
 ```
 

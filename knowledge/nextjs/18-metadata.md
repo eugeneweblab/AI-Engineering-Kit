@@ -423,7 +423,7 @@ Good:
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-// Uncached in Next.js 15 by default; opt into revalidation explicitly.
+// `fetch` is uncached by default; opt into revalidation explicitly.
 async function getPost(slug: string) {
     const res = await fetch(`https://api.example.com/posts/${slug}`, {
         next: { revalidate: 3600 },

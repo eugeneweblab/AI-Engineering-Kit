@@ -8,7 +8,7 @@ order: 12
 status: ready
 tags: [nextjs, api-routes, NextResponse, CreateOrder, route.ts, NextRequest, treeifyError]
 applies_to: [app-router]
-related: [nextjs/11-server-actions, nextjs/13-middleware, rest-api/04-endpoints, rest-api/09-error-handling]
+related: [nextjs/11-server-actions, nextjs/13-proxy, rest-api/04-endpoints, rest-api/09-error-handling]
 when_to_use: "Read before building HTTP endpoints or Route Handlers in a Next.js app."
 ---
 # Next.js API Routes
@@ -542,6 +542,6 @@ By reserving them for external communication, integrations, and resource-oriente
 ## Related
 
 - `knowledge/nextjs/11-server-actions.md`
-- `knowledge/nextjs/13-middleware.md`
+- `knowledge/nextjs/13-proxy.md`
 - `knowledge/rest-api/04-endpoints.md`
 - `knowledge/rest-api/09-error-handling.md`

@@ -280,7 +280,9 @@ import { revalidateTag } from "next/cache";
 
 export async function publishProduct(id: string) {
   await saveProduct(id);
-  revalidateTag(`product:${id}`); // refresh only the affected cache entries
+  // "max" = stale-while-revalidate: readers keep seeing the old page until
+  // the next visit refreshes it. Required second argument since Next.js 16.
+  revalidateTag(`product:${id}`, "max");
 }
 ```
 
@@ -375,29 +377,41 @@ Benefits:
 
 Prefer PPR over making an entire page dynamic when only small sections require personalization.
 
-PPR is still experimental. Enable it in the config, then opt in per segment.
-The static shell is prerendered; anything inside a `<Suspense>` boundary that
-reads a dynamic API becomes a streamed dynamic island.
+Since Next.js 16, PPR is no longer a flag of its own: it is how the App Router
+behaves once Cache Components are on. `experimental.ppr` and the per-segment
+`experimental_ppr` export were removed, along with `experimental.dynamicIO` and
+`experimental.useCache`, which `cacheComponents` now covers together.
 
 ```ts
 // next.config.ts
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    ppr: "incremental", // opt in per-route rather than globally
-  },
+  cacheComponents: true,
 };
 
 export default nextConfig;
 ```
+
+The static shell is prerendered; anything inside a `<Suspense>` boundary that
+reads a dynamic API becomes a streamed dynamic island.
+
+Enabling this is not a rename of the old flag, and treating it as one is how the
+upgrade goes wrong. Under Cache Components data fetching is **dynamic by
+default** and you mark what to cache with `use cache`; uncached data read outside
+a `<Suspense>` boundary becomes a build error rather than a silently dynamic
+page. Cache Components also require the Node.js runtime, so any route still
+exporting `runtime = 'edge'` has to move first. If a project runs experimental
+PPR on Next.js 15 today, it should stay there until it can do this migration
+deliberately.
 
 ```tsx
 // app/product/[id]/page.tsx
 import { Suspense } from "react";
 import { cookies } from "next/headers";
 
-export const experimental_ppr = true;
+// No per-route opt-in: with `cacheComponents: true` this is how every App
+// Router route renders.
 
 export default function ProductPage() {
   return (

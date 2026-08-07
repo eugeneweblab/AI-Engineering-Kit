@@ -514,9 +514,11 @@ export default async function ProfilePage({ params }: { params: Promise<{ id: st
 // After a write, invalidate exactly what changed.
 'use server';
 
+import { updateTag } from 'next/cache';
+
 export async function updateUser(id: string, data: UpdateUser) {
   await db.user.update({ where: { id }, data });
-  revalidateTag(`user:${id}`);          // not the whole path, not the whole site
+  updateTag(`user:${id}`);              // not the whole path, not the whole site
 }
 ```
 

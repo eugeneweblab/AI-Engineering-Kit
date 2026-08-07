@@ -191,16 +191,16 @@ Response
 
 Each step should share a common request identifier.
 
-Mint the identifier once in `middleware.ts` and forward it to the route by
+Mint the identifier once in `proxy.ts` and forward it to the route by
 cloning the request headers — you cannot mutate `request.headers` in place. Reuse
 an inbound `x-request-id` when a proxy already set one so the trace stays
 continuous across services:
 
 ```ts
-// middleware.ts
+// proxy.ts
 import { NextResponse, type NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const requestId = request.headers.get("x-request-id") ?? crypto.randomUUID();
 
   const requestHeaders = new Headers(request.headers);
@@ -256,8 +256,8 @@ Do not expose internal error details to users.
 
 Next.js exposes a first-class hook for this: export `onRequestError` from
 `instrumentation.ts` at the project root. The framework calls it for every
-uncaught server error (Server Components, Route Handlers, Server Actions,
-middleware) with structured request context, making it the single funnel to your
+uncaught server error (Server Components, Route Handlers, Server Actions, the
+proxy) with structured request context, making it the single funnel to your
 error tracker:
 
 ```ts
@@ -277,7 +277,7 @@ export const onRequestError: Instrumentation.onRequestError = async (
       stack: error instanceof Error ? error.stack : undefined,
       path: request.path,
       method: request.method,
-      // Which Next.js phase failed: "render" | "route" | "action" | "middleware".
+      // Which Next.js phase failed: "render" | "route" | "action" | "proxy".
       renderSource: context.renderSource,
       routeType: context.routeType,
       requestId: request.headers["x-request-id"],

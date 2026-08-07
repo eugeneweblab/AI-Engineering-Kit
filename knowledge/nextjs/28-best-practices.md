@@ -245,7 +245,8 @@ const products = await fetch(url, { next: { revalidate: 3600 } });
 
 // Tag-based revalidation, so a mutation can invalidate exactly this data.
 const posts = await fetch(url, { next: { tags: ["posts"] } });
-// elsewhere, after a mutation: revalidateTag("posts");
+// elsewhere, after a mutation: revalidateTag("posts", "max") — or updateTag("posts")
+// in a Server Action when the user must see their own write immediately.
 
 // User-specific data: keep it fresh and never cache it publicly.
 const cart = await fetch(url, { cache: "no-store" });
@@ -317,14 +318,14 @@ export async function GET(
 
 Note: `params` and `searchParams` in Page/Layout components are also `Promise`-typed in Next.js 15+ and must be awaited.
 
-For cross-cutting concerns (auth redirects, header rewrites), use `middleware.ts` at the project root with a `matcher` so it only runs where needed:
+For cross-cutting concerns (auth redirects, header rewrites), use `proxy.ts` at the project root — the file convention formerly called `middleware.ts` — with a `matcher` so it only runs where needed:
 
 ```ts
-// middleware.ts
+// proxy.ts
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
     const token = request.cookies.get("session")?.value;
     if (!token) {
         return NextResponse.redirect(new URL("/login", request.url));

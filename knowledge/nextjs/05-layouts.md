@@ -314,7 +314,7 @@ A layout is a defense-in-depth boundary, not the only one. Because layouts and
 pages render in parallel and a layout does not re-run on every client-side
 navigation between its child routes, still enforce authorization in the data
 layer (Server Actions, Route Handlers, DB queries) — never rely on the layout
-alone. See `13-middleware.md` for edge-level gating and `15-authorization.md`.
+alone. See `13-proxy.md` for edge-level gating and `15-authorization.md`.
 
 ---
 

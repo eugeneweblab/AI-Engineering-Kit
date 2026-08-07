@@ -7,7 +7,7 @@ type: doc
 order: 15
 status: ready
 tags: [nextjs, authorization, requireUser, redirect, getSession, Layout, getInvoice, findFirst]
-related: [nextjs/14-authentication, nextjs/24-security, nextjs/11-server-actions, nextjs/13-middleware, nextjs/06-server-components]
+related: [nextjs/14-authentication, nextjs/24-security, nextjs/11-server-actions, nextjs/13-proxy, nextjs/06-server-components]
 when_to_use: "Read before adding any access check, protected route, Server Action, or role gate in a Next.js app."
 ---
 # Next.js Authorization
@@ -36,7 +36,7 @@ exposes every user's data.
 - **Check authorization closest to the data.** Enforce in the Data Access Layer (DAL) — the
   function that reads or writes the resource — so every caller inherits the check. Do not rely
   on UI or route position to gate access.
-- **Never trust the client, the URL, or middleware for enforcement.** They are optimizations
+- **Never trust the client, the URL, or the proxy for enforcement.** They are optimizations
   (redirect early, hide a link). The real gate is the server function that touches data.
 - **Treat every Server Action and Route Handler as a public endpoint.** They are POST-able by
   anyone. Re-verify session and permission inside each one, every time.
@@ -51,7 +51,7 @@ exposes every user's data.
   and `canAccess(user, resource)` — call them at the top of every protected operation.
 - Scope every query by the current user (`where ownerId = session.userId`) instead of fetching
   by id and checking afterward; ownership becomes part of the query, not an afterthought.
-- Use middleware only for coarse, non-authoritative redirects (send anonymous users to
+- Use the proxy only for coarse, non-authoritative redirects (send anonymous users to
   `/login`). Duplicate the real check in the DAL.
 - Return `notFound()` rather than `403` for resources the user may not even know exist, to
   avoid leaking their existence.
@@ -115,7 +115,7 @@ export async function GET(_req, { params }) {
 
 ## Common Mistakes
 
-- Enforcing access only in middleware or a layout and leaving the DAL/Route Handler open.
+- Enforcing access only in the proxy or a layout and leaving the DAL/Route Handler open.
 - Fetching a resource by id and then checking ownership, instead of scoping the query.
 - Assuming a Server Action is safe because no UI calls it with bad input — it is publicly POST-able.
 - Reading a role from a client-supplied cookie or request body instead of a verified session.
@@ -128,11 +128,11 @@ export async function GET(_req, { params }) {
   probing or a broken UI gate.
 - Add a test per protected operation for the negative path: wrong user, no session, foreign
   resource id. These are the paths attackers exercise.
-- Keep middleware auth minimal and never the sole gate; assume it can be bypassed.
+- Keep proxy auth minimal and never the sole gate; assume it can be bypassed.
 
 ## AI Review Checklist
 
-- Is every protected read/write gated in the DAL, not just in a layout or middleware?
+- Is every protected read/write gated in the DAL, not just in a layout or the proxy?
 - Does each Server Action and Route Handler re-verify session and permission?
 - Are queries scoped by owner rather than fetched-then-checked?
 - Is the session validated (signature/expiry), not merely read from a cookie?
@@ -144,5 +144,5 @@ export async function GET(_req, { params }) {
 - `knowledge/nextjs/14-authentication.md`
 - `knowledge/nextjs/24-security.md`
 - `knowledge/nextjs/11-server-actions.md`
-- `knowledge/nextjs/13-middleware.md`
+- `knowledge/nextjs/13-proxy.md`
 - `knowledge/nextjs/06-server-components.md`

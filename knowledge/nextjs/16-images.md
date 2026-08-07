@@ -323,6 +323,21 @@ Balance:
 
 Avoid visually lossless images that consume unnecessary bandwidth.
 
+The optimizer's defaults tightened in Next.js 16, and each change is silent
+rather than an error — the image still renders, just not as you expected:
+
+| Setting | Default | What it means in practice |
+| --- | --- | --- |
+| `images.qualities` | `[75]` | A `quality` prop outside the list is **coerced to the nearest allowed value**, so `quality={90}` silently becomes 75. List the values you actually use. |
+| `images.minimumCacheTTL` | 4 hours (was 60s) | Upstream images without a `cache-control` header are revalidated far less often. Lower it only if the source genuinely changes faster. |
+| `images.imageSizes` | no longer includes `16` | Shrinks the generated `srcset`. Add it back only if you really serve 16px images — at `devicePixelRatio: 2` a 16px slot fetches the 32px entry anyway. |
+| `images.maximumRedirects` | `3` (was unlimited) | A remote image behind a longer redirect chain now fails instead of resolving. |
+| local IPs | blocked | Optimizing an image on a private address requires `images.dangerouslyAllowLocalIP`. Understand the SSRF risk before enabling it. |
+
+A local `src` carrying a query string (`/assets/photo?v=1`) also needs an
+`images.localPatterns` entry with a matching `search`, which exists to stop
+enumeration of arbitrary local paths.
+
 ---
 
 ## Accessibility

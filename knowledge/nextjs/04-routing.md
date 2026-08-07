@@ -7,7 +7,7 @@ type: doc
 order: 4
 status: ready
 tags: [nextjs, routing, PostPage, Link, getAllPostSlugs, notFound, getPost, generateStaticParams]
-related: [nextjs/03-app-router, nextjs/05-layouts, nextjs/13-middleware, react/17-routing]
+related: [nextjs/03-app-router, nextjs/05-layouts, nextjs/13-proxy, react/17-routing]
 when_to_use: "Read before implementing navigation and links between pages in a Next.js app."
 ---
 # Next.js Routing
@@ -490,5 +490,5 @@ By keeping URLs meaningful, using declarative navigation, protecting routes on t
 
 - `knowledge/nextjs/03-app-router.md`
 - `knowledge/nextjs/05-layouts.md`
-- `knowledge/nextjs/13-middleware.md`
+- `knowledge/nextjs/13-proxy.md`
 - `knowledge/react/17-routing.md`

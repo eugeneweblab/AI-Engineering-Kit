@@ -197,6 +197,21 @@ Common triggers include:
 
 Invalidation should be predictable and documented.
 
+Three functions in `next/cache` invalidate tagged data, and choosing between them
+is a decision about who is waiting for the result:
+
+| Function | Semantics | Use when |
+| --- | --- | --- |
+| `revalidateTag(tag, "max")` | Marks the tag stale. The next visitor is served the old value while a fresh one is fetched behind them. | Nobody is waiting: a publish, a catalogue import, a webhook. |
+| `updateTag(tag)` | Expires and refreshes within the same request. Server Actions only. | The person who made the change is looking at the page. Read-your-writes. |
+| `refresh()` | Refreshes the client router from a Server Action, without expiring any cache entry. | The data is already correct; only the rendered client needs to catch up. |
+
+Since Next.js 16 the second argument to `revalidateTag` is required. The
+single-argument form still runs if you suppress the type error, but it expires
+the entry immediately and makes the next request a blocking cache miss — the
+behaviour `updateTag` now expresses deliberately. For a webhook that genuinely
+needs immediate expiry, pass `{ expire: 0 }` rather than dropping the argument.
+
 ---
 
 ## User-Specific Data
@@ -350,12 +365,16 @@ export async function getProduct(id: string): Promise<Product> {
 // app/products/actions.ts
 'use server';
 
+import { revalidateTag, updateTag } from 'next/cache';
+
 export async function renameProduct(id: string, name: string) {
   await db.product.update({ where: { id }, data: { name } });
 
   // Precise: this product's pages, and any listing that declared the broader tag.
-  revalidateTag(`product:${id}`);
-  revalidateTag('products');
+  // The editor who renamed it is looking at the product page, so refresh that in
+  // the same request; the listings can catch up on their next visit.
+  updateTag(`product:${id}`);
+  revalidateTag('products', 'max');
 }
 ```
 

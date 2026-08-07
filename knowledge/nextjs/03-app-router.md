@@ -343,6 +343,20 @@ Examples:
 
 Do not introduce parallel routes without a clear architectural benefit.
 
+Every slot needs its own `default.tsx`. Since Next.js 16 this is enforced: a slot
+without one fails the build rather than falling back silently. The file answers
+"what does this region render on a route that does not fill it" — usually
+`notFound()` for a modal slot, or `null` for an optional panel.
+
+```tsx
+// app/@modal/default.tsx
+import { notFound } from "next/navigation";
+
+export default function Default() {
+  notFound();
+}
+```
+
 ---
 
 ## Intercepting Routes
