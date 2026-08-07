@@ -3,7 +3,7 @@
   "note": "Detect the stack from `stack`, then resolve any symbol in the diff via `symbols`. Both point at document ids in INDEX.json. In `when`, `|` separates alternatives and `**` matches any number of directories; a pattern is written to match both the root-level and the nested layout.",
   "stats": {
     "stack_signals": 31,
-    "symbols": 8755,
+    "symbols": 8754,
     "docs_indexed": 1271
   },
   "stack": [
@@ -2160,7 +2160,6 @@
     ],
     "BLOCKING": [
       "performance/29-performance-review",
-      "rest-api/29-api-design-review",
       "woocommerce/29-ai-review"
     ],
     "BLOCKS": [
@@ -4155,8 +4154,7 @@
     "ENTIRE": [
       "redis/06-sorted-sets",
       "redis/22-monitoring",
-      "redis/23-performance",
-      "seo/29-seo-review"
+      "redis/23-performance"
     ],
     "ENTRYPOINT": [
       "devops/10-containerization",
@@ -4738,7 +4736,6 @@
       "seo/26-best-practices",
       "seo/27-production-checks",
       "seo/28-real-world-patterns",
-      "seo/29-seo-review",
       "testing/17-security-testing"
     ],
     "FAILURE": [
@@ -5551,6 +5548,7 @@
       "rest-api/07-status-codes",
       "rest-api/10-pagination",
       "rest-api/27-best-practices",
+      "rest-api/29-api-design-review",
       "rest-api/30-engineering-principles",
       "security/18-https",
       "seo/01-seo-fundamentals",
@@ -6597,8 +6595,6 @@
       "backend/29-architecture-review",
       "github/07-code-review",
       "performance/29-performance-review",
-      "rest-api/29-api-design-review",
-      "seo/29-seo-review",
       "woocommerce/29-ai-review",
       "workflows/05-review-pull-request"
     ],
@@ -8150,9 +8146,6 @@
     "OnWorkerEvent": [
       "nestjs/20-queues"
     ],
-    "OpenAPI": [
-      "rest-api/29-api-design-review"
-    ],
     "OpenFile": [
       "kubernetes/21-observability"
     ],
@@ -8940,7 +8933,6 @@
       "react/23-code-style",
       "rest-api/06-request-response",
       "rest-api/27-best-practices",
-      "rest-api/29-api-design-review",
       "wordpress/04-code-style"
     ],
     "PasswordAuthentication": [
@@ -17328,8 +17320,7 @@
     "comment": [
       "databases/05-denormalization",
       "html/19-security",
-      "javascript/26-security",
-      "seo/29-seo-review"
+      "javascript/26-security"
     ],
     "commentSchema": [
       "security/27-best-practices"
@@ -33609,6 +33600,7 @@
       "react/13-component-composition",
       "react/14-patterns",
       "rest-api/08-validation",
+      "rest-api/29-api-design-review",
       "security/09-input-validation",
       "security/100-common-antipatterns",
       "testing/23-debugging-tests",
@@ -33630,7 +33622,8 @@
       "nestjs/13-middleware",
       "nestjs/16-authorization",
       "nestjs/26-security",
-      "prisma/12-seeding"
+      "prisma/12-seeding",
+      "rest-api/29-api-design-review"
     ],
     "rollBack": [
       "php/12-database"

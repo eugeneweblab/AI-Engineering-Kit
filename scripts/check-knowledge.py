@@ -30,7 +30,7 @@ Checks
   pointers    98/99 checklists route each themed section to the rule behind it
 
 Language coverage: Python, JSON (incl. JSONC and multi-document), YAML, XML, nginx,
-HCL, INI, GraphQL, Dockerfile, shell.
+HCL, INI, GraphQL, Dockerfile, HTTP, diff, cron, Makefile, Redis, Go, Lua, shell.
 PHP, JS/TS, SQL, HTML, and CSS are checked only when `php`, `npx`, or `sqlfluff`
 is available, and only against a baseline — see "Baseline" below.
 
@@ -113,6 +113,13 @@ HCL_TAGS = {"hcl", "tf"}
 INI_TAGS = {"ini", "gitconfig", "neon"}
 GRAPHQL_TAGS = {"graphql", "gql"}
 DOCKERFILE_TAGS = {"dockerfile", "containerfile"}
+HTTP_TAGS = {"http", "rest"}
+DIFF_TAGS = {"diff", "patch"}
+CRON_TAGS = {"cron", "crontab"}
+MAKE_TAGS = {"makefile", "make"}
+REDIS_TAGS = {"redis"}
+GO_TAGS = {"go", "golang"}
+LUA_TAGS = {"lua"}
 # hadolint codes that mean the Dockerfile is wrong, not merely unidiomatic. Style
 # rules are excluded: a Bad Example uses `:latest` and shell-form CMD on purpose,
 # and an excerpt legitimately does not begin with FROM (DL3061).
@@ -261,6 +268,182 @@ def run_dockerfile_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str,
             for entry in report
             if entry.get("code") in HADOLINT_CODES and entry.get("file") in names
         ]
+
+
+HTTP_METHODS = {"GET", "HEAD", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "TRACE",
+                "CONNECT"}
+HTTP_VERSIONS = {"1.0", "1.1", "2", "3"}
+HTTP_REQUEST_RE = re.compile(r"^([A-Z]+)\s+(\S+)\s+HTTP/(\d(?:\.\d)?)\s*$")
+HTTP_STATUS_RE = re.compile(r"^HTTP/(\d(?:\.\d)?)\s+(\d{3})(?:\s+(.*))?$")
+HTTP_VERBLESS_RE = re.compile(r"^([A-Z][A-Z-]{2,})\s+(\S+)")
+
+
+def check_http(src: str) -> str | None:
+    """Request and status lines. The version is optional: `.http` client files write
+    `GET {{baseUrl}}/orders` with no version, and that form is used here too."""
+    for n, raw in enumerate(src.split("\n"), 1):
+        line = re.sub(r"\s+#.*$", "", raw).rstrip()
+        if not line or line.startswith(("#", "//")):
+            continue
+        if line.startswith("HTTP/"):
+            m = HTTP_STATUS_RE.match(line)
+            if not m:
+                return f"line {n}: malformed status line: {line[:50]}"
+            if m.group(1) not in HTTP_VERSIONS:
+                return f"line {n}: HTTP/{m.group(1)} is not a version"
+            if not 100 <= int(m.group(2)) <= 599:
+                return f"line {n}: status {m.group(2)} is outside 100-599"
+            continue
+        m = HTTP_REQUEST_RE.match(line)
+        if m:
+            if m.group(1) not in HTTP_METHODS:
+                return f"line {n}: {m.group(1)!r} is not an HTTP method"
+            if m.group(3) not in HTTP_VERSIONS:
+                return f"line {n}: HTTP/{m.group(3)} is not a version"
+            continue
+        m = HTTP_VERBLESS_RE.match(line)
+        if m and ":" not in m.group(1) and m.group(1) not in HTTP_METHODS:
+            return f"line {n}: {m.group(1)!r} is not an HTTP method"
+    return None
+
+
+DIFF_META = ("diff ", "index ", "--- ", "+++ ", "new file", "deleted file",
+             "similarity", "rename ", "old mode", "new mode")
+
+
+def check_diff(src: str) -> str | None:
+    """Every line of a patch carries a prefix. One without it is dropped by
+    `git apply`, so the example does not apply as shown."""
+    for n, line in enumerate(src.split("\n"), 1):
+        if not line.strip() or line.startswith(DIFF_META):
+            continue
+        if not line.startswith((" ", "+", "-", "\\", "@")):
+            return f"line {n}: no ' ', '+' or '-' prefix — the patch drops it: {line[:50]}"
+    return None
+
+
+CRON_FIELD_RE = re.compile(r"^[\d*/,\-]+$")
+CRON_SPECIAL = {"@reboot", "@yearly", "@annually", "@monthly", "@weekly", "@daily",
+                "@midnight", "@hourly"}
+CRON_RANGES = ((0, 59), (0, 23), (1, 31), (1, 12), (0, 7))
+
+
+def check_cron(src: str) -> str | None:
+    for n, line in enumerate(src.split("\n"), 1):
+        s = line.strip()
+        if not s or s.startswith("#") or re.match(r"^[A-Z_][A-Z0-9_]*=", s):
+            continue
+        if s.split()[0] in CRON_SPECIAL:
+            continue
+        parts = s.split()
+        if len(parts) < 6:
+            return f"line {n}: fewer than five schedule fields plus a command: {s[:50]}"
+        for i, field in enumerate(parts[:5]):
+            if not CRON_FIELD_RE.match(field):
+                return f"line {n}: field {i + 1} {field!r} is not a schedule field"
+            low, high = CRON_RANGES[i]
+            for number in re.findall(r"\d+", field):
+                if not low <= int(number) <= high:
+                    return f"line {n}: field {i + 1} value {number} is outside {low}-{high}"
+    return None
+
+
+def check_makefile(src: str) -> str | None:
+    """A recipe line must start with a tab. Spaces are the classic Makefile error:
+    make reports "missing separator" and the target does nothing."""
+    in_recipe = False
+    for n, line in enumerate(src.split("\n"), 1):
+        if not line.strip():
+            in_recipe = False
+            continue
+        if line.startswith("#"):
+            continue
+        if re.match(r"^[^\s#].*:", line):
+            in_recipe = ";" not in line.split(":", 1)[1]
+            continue
+        if re.match(r"^[A-Za-z_.][\w.]*\s*[:?+]?=", line):
+            in_recipe = False
+            continue
+        if in_recipe and line.startswith(" ") and not line.startswith("\t"):
+            return f"line {n}: recipe indented with spaces, not a tab: {line[:40]!r}"
+    return None
+
+
+REDIS_COMMANDS = set("""
+GET SET SETNX SETEX PSETEX MSET MGET GETSET GETDEL GETEX APPEND STRLEN INCR DECR INCRBY
+DECRBY INCRBYFLOAT DEL UNLINK EXISTS EXPIRE PEXPIRE EXPIREAT TTL PTTL PERSIST TYPE RENAME
+KEYS SCAN RANDOMKEY DBSIZE FLUSHDB FLUSHALL LPUSH RPUSH LPOP RPOP LRANGE LLEN LINDEX LSET
+LREM LTRIM LMOVE RPOPLPUSH BLPOP BRPOP BLMOVE SADD SREM SMEMBERS SISMEMBER SMISMEMBER SCARD
+SPOP SRANDMEMBER SINTER SUNION SDIFF SINTERSTORE SUNIONSTORE SDIFFSTORE SSCAN ZADD ZREM
+ZSCORE ZINCRBY ZCARD ZCOUNT ZRANGE ZREVRANGE ZRANGEBYSCORE ZREVRANGEBYSCORE ZRANK ZREVRANK
+ZREMRANGEBYRANK ZREMRANGEBYSCORE ZSCAN ZPOPMIN ZPOPMAX ZRANGESTORE HSET HSETNX HGET HMGET
+HGETALL HDEL HEXISTS HLEN HKEYS HVALS HINCRBY HSCAN HRANDFIELD XADD XLEN XRANGE XREVRANGE
+XREAD XREADGROUP XGROUP XACK XPENDING XCLAIM XAUTOCLAIM XTRIM XDEL XINFO SUBSCRIBE
+UNSUBSCRIBE PSUBSCRIBE PUNSUBSCRIBE PUBLISH PUBSUB SPUBLISH SSUBSCRIBE MULTI EXEC DISCARD
+WATCH UNWATCH EVAL EVALSHA SCRIPT FUNCTION FCALL PFADD PFCOUNT PFMERGE SETBIT GETBIT
+BITCOUNT BITOP BITPOS BITFIELD GEOADD GEOSEARCH GEODIST GEOPOS GEOHASH INFO CONFIG CLIENT
+COMMAND MEMORY SLOWLOG LATENCY MONITOR DEBUG ACL AUTH PING ECHO SELECT SWAPDB WAIT RESET
+HELLO CLUSTER REPLICAOF SLAVEOF FAILOVER SAVE BGSAVE BGREWRITEAOF LASTSAVE SHUTDOWN LOLWUT
+OBJECT DUMP RESTORE MIGRATE COPY MOVE TOUCH SORT SETRANGE GETRANGE SINTERCARD LPOS SMOVE
+ZDIFF ZUNION ZINTER ZMSCORE
+""".split())
+
+
+def check_redis(src: str) -> str | None:
+    for n, line in enumerate(src.split("\n"), 1):
+        s = re.sub(r"\s+#.*$", "", line).strip()
+        if not s or s.startswith("#") or s.startswith((">", "$", "(", '"', "'")):
+            continue
+        if s[0].islower():
+            continue
+        first = s.split()[0].upper().rstrip(":")
+        if first.isalpha() and first not in REDIS_COMMANDS:
+            return f"line {n}: {first!r} is not a Redis command"
+    return None
+
+
+def run_go_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] | None:
+    """`gofmt -e`. A fragment is wrapped so it becomes parseable Go: documents show a
+    method or a few statements, never a whole file."""
+    if not shutil.which("gofmt"):
+        return None
+    top_level = re.compile(r"^\s*(package|import|func|type|var|const)\b")
+    failures = []
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "block.go"
+        for block_id, src, _ in blocks:
+            first = next(
+                (l for l in src.split("\n") if l.strip() and not l.strip().startswith("//")),
+                "",
+            )
+            if first.startswith("package "):
+                source = src
+            elif top_level.match(first):
+                source = "package p\n\n" + src
+            else:
+                source = "package p\n\nfunc _() {\n" + src + "\n}"
+            path.write_text(source, encoding="utf-8")
+            proc = subprocess.run(["gofmt", "-e", "-l", str(path)],
+                                  capture_output=True, text=True)
+            if proc.stderr.strip():
+                message = proc.stderr.strip().split("\n")[0].split(":", 1)[-1]
+                failures.append((block_id, message[:90]))
+    return failures
+
+
+def run_lua_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] | None:
+    if not shutil.which("luac"):
+        return None
+    failures = []
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "block.lua"
+        for block_id, src, _ in blocks:
+            path.write_text(src, encoding="utf-8")
+            proc = subprocess.run(["luac", "-p", "-o", "/dev/null", str(path)],
+                                  capture_output=True, text=True)
+            if proc.returncode:
+                failures.append((block_id, proc.stderr.strip().split(":", 2)[-1][:90]))
+    return failures
 
 
 def check_nginx(src: str) -> str | None:
@@ -770,10 +953,13 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
         yaml_mod = None
 
     counts = {"python": 0, "json": 0, "yaml": 0, "xml": 0, "nginx": 0, "hcl": 0,
-              "ini": 0, "graphql": 0, "dockerfile": 0, "shell": 0, "sql": 0, "html": 0, "css": 0,
+              "ini": 0, "graphql": 0, "dockerfile": 0, "http": 0, "diff": 0,
+              "cron": 0, "makefile": 0, "redis": 0, "go": 0, "lua": 0, "shell": 0, "sql": 0, "html": 0, "css": 0,
               "php": 0, "js": 0}
     shell_blocks: list[tuple[str, str, str]] = []
     dockerfile_blocks: list[tuple[str, str, str]] = []
+    go_blocks: list[tuple[str, str, str]] = []
+    lua_blocks: list[tuple[str, str, str]] = []
     sql_blocks: list[tuple[str, str, str]] = []
     html_blocks: list[tuple[str, str, str]] = []
     css_blocks: list[tuple[str, str, str]] = []
@@ -812,6 +998,20 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
                 family = "graphql"
             elif tag in DOCKERFILE_TAGS:
                 family = "dockerfile"
+            elif tag in HTTP_TAGS:
+                family = "http"
+            elif tag in DIFF_TAGS:
+                family = "diff"
+            elif tag in CRON_TAGS:
+                family = "cron"
+            elif tag in MAKE_TAGS:
+                family = "makefile"
+            elif tag in REDIS_TAGS:
+                family = "redis"
+            elif tag in GO_TAGS:
+                family = "go"
+            elif tag in LUA_TAGS:
+                family = "lua"
             else:
                 continue
             # Key by content hash, not position: inserting a section above a known
@@ -832,15 +1032,23 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
             elif family == "xml":
                 if (err := check_xml(src)):
                     problems.append(f"{doc.rel}:{line}: ```{tag} does not parse — {err}")
-            elif family in ("nginx", "hcl", "ini", "graphql"):
+            elif family in ("nginx", "hcl", "ini", "graphql", "http", "diff",
+                            "cron", "makefile", "redis"):
                 checker = {"nginx": check_nginx, "hcl": check_hcl,
-                           "ini": check_ini, "graphql": check_graphql}[family]
+                           "ini": check_ini, "graphql": check_graphql,
+                           "http": check_http, "diff": check_diff,
+                           "cron": check_cron, "makefile": check_makefile,
+                           "redis": check_redis}[family]
                 if (err := checker(src)):
                     problems.append(f"{doc.rel}:{line}: ```{tag} does not parse — {err}")
             elif family == "shell":
                 shell_blocks.append((block_id, src, tag))
             elif family == "dockerfile":
                 dockerfile_blocks.append((block_id, src, tag))
+            elif family == "go":
+                go_blocks.append((block_id, src, tag))
+            elif family == "lua":
+                lua_blocks.append((block_id, src, tag))
             elif family == "sql":
                 dialect = "mysql" if doc.path.parent.name in MYSQL_TOPICS else "postgres"
                 sql_blocks.append((block_id, src, dialect))
@@ -867,6 +1075,8 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
         ("html", html_blocks, run_html_checks, "npx"),
         ("css", css_blocks, run_css_checks, "npx"),
         ("dockerfile", dockerfile_blocks, run_dockerfile_checks, "hadolint"),
+        ("go", go_blocks, run_go_checks, "gofmt"),
+        ("lua", lua_blocks, run_lua_checks, "luac"),
     ):
         if skip_external or not blocks or not shutil.which(tool):
             if not skip_external and blocks and not shutil.which(tool):

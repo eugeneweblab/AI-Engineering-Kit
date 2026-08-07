@@ -65,31 +65,35 @@ human checkpoint before they reach automated gates and, failing that, production
 
 **Good Example** — a review that questions intent and asks for crawler evidence
 
-```diff
-# PR: "Speed up category pages by rendering the product grid on the client"
-- <ProductGrid products={products} />           # was server-rendered
-+ <ProductGrid lazy clientOnly />               # now fetched after hydration
+The PR is titled "Speed up category pages by rendering the product grid on the client":
 
-# Reviewer comment (WHY: the grid is the page's primary content and internal
-# link source; client-only rendering can make products and their links invisible
-# to crawlers):
-# "This moves the main content + product links out of the server HTML. Please
-#  confirm via a Googlebot fetch / URL Inspection that products still render for
-#  the crawler, or keep SSR for the grid. Blocking until verified."
+```diff
+- <ProductGrid products={products} />
++ <ProductGrid lazy clientOnly />
 ```
+
+The grid is the page's primary content and its source of internal links; rendering it
+client-only can make the products and those links invisible to a crawler.
+
+> "This moves the main content and the product links out of the server HTML. Please
+> confirm via a Googlebot fetch / URL Inspection that products still render for the
+> crawler, or keep SSR for the grid. Blocking until verified."
 
 **Bad Example** — rubber-stamping an SEO-sensitive diff
 
-```diff
-# PR: "Clean up staging config"
-- ROBOTS_DEFAULT = "index,follow"
-+ ROBOTS_DEFAULT = "noindex,nofollow"   # meant for staging, applied globally
+The PR is titled "Clean up staging config". The change was meant for staging and was
+applied globally:
 
-# Review: "LGTM 👍"
-# WHY THIS FAILS: this one-line default flips the ENTIRE site to noindex. The
-# reviewer treated a config cleanup as low-risk and never asked which
-# environments consume ROBOTS_DEFAULT → site-wide deindexing on next deploy.
+```diff
+- ROBOTS_DEFAULT = "index,follow"
++ ROBOTS_DEFAULT = "noindex,nofollow"
 ```
+
+> "LGTM 👍"
+
+This one-line default flips the **entire site** to `noindex`. The reviewer treated a
+config cleanup as low-risk and never asked which environments consume
+`ROBOTS_DEFAULT` — site-wide deindexing on the next deploy.
 
 ## Common Mistakes
 

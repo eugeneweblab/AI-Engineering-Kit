@@ -64,29 +64,35 @@ whole API feel like one coherent surface.
 
 **Good Example** — a review comment that catches a breaking change
 
-```diff
-# PR changes GET /v1/users response:
-- "role": "admin"            # was a single string clients already parse
-+ "roles": ["admin"]         # renamed + retyped
+The PR changes the `GET /v1/users` response:
 
-# Review comment:
-# BLOCKING: renaming `role` -> `roles` and changing string -> array is a breaking
-# change; existing clients read `role` as a string. Either keep `role` and ADD
-# `roles` (additive, non-breaking), or ship this under /v2. Also update the OpenAPI
-# schema and the pagination example, which still shows `role`.
+```diff
+- "role": "admin"
++ "roles": ["admin"]
 ```
+
+> **BLOCKING** — renaming `role` → `roles` and changing string → array is a breaking
+> change; existing clients read `role` as a string. Either keep `role` and **add**
+> `roles` (additive, non-breaking), or ship this under `/v2`. Also update the OpenAPI
+> schema and the pagination example, which still shows `role`.
 
 **Bad Example** — an approval that misses the contract problems
 
-```diff
-# PR adds POST /v1/user  (singular) that returns 200 with { "ID": 5 }
-# Review comment:
-# "LGTM, tests pass. 👍"
+The PR adds `POST /v1/user` — singular — returning `200` with `{ "ID": 5 }`:
 
-# Missed: `/user` is singular while the rest of the API uses plural `/users`;
-# a create should return 201 + Location, not 200; `ID` is PascalCase while every
-# other field is snake_case; no OpenAPI update. All are now frozen in the contract.
+```http
+POST /v1/user
+
+HTTP/1.1 200 OK
+{ "ID": 5 }
 ```
+
+> "LGTM, tests pass. 👍"
+
+Missed: `/user` is singular while the rest of the API uses plural `/users`; a create
+should return `201` with a `Location` header, not `200`; `ID` is PascalCase while every
+other field is snake_case; the OpenAPI document was not updated. All four are now frozen
+into the contract.
 
 ## Common Mistakes
 
