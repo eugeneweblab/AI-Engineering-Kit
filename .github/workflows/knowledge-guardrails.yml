@@ -91,3 +91,12 @@ jobs:
             exit 1
           fi
           echo "INDEX is up to date."
+
+      # A guardrail that passes is only evidence when it can fail. Twice in this
+      # repository a check reported success while doing nothing. These two inject
+      # real defects and fail if any goes unreported.
+      - name: Guardrails catch injected defects
+        run: python3 scripts/selftest-guardrails.py
+
+      - name: An agent following the protocol reaches the right rule
+        run: python3 scripts/selftest-retrieval.py --ablate

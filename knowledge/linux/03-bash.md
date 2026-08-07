@@ -34,8 +34,12 @@ turn silent, dangerous behavior into loud, safe behavior.
 
 ## Core Principles
 
-- **Fail fast, fail loud.** Start every script with `set -euo pipefail`. Without it,
-  errors are swallowed and the script marches on with bad state.
+- **Fail fast, fail loud.** Start every script with `set -euo pipefail` — that is
+  `errexit` (abort on a failing command), `nounset` (an unset variable is an error),
+  and `pipefail` (a pipeline fails if any stage fails). Know the options by name:
+  they are what `set -o` prints and what you disable deliberately, per command, when
+  a failure is expected. Without them errors are swallowed and the script marches on
+  with bad state.
 - **Quote everything.** An unquoted expansion is a latent bug that triggers the first
   time a value contains a space, glob, or newline. See [shell](02-shell.md).
 - **A script is a program.** It deserves functions, a `main`, `local` variables, and

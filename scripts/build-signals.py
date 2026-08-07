@@ -193,6 +193,25 @@ IMPORT_RE = re.compile(
     r"""(?:from|require\(|import)\s*\(?\s*['"]([@\w][\w@/.-]{2,})['"]"""
 )
 RECEIVER_RE = re.compile(r"\b([a-z][a-zA-Z0-9_]{2,})\.[a-zA-Z_]")
+# Terms of art live in prose, not in code: LCP, CLS, IAM, JWT, CSP, OOM. They are
+# what a person types, and indexing only code left every one of them resolving to
+# nothing. A mention threshold keeps the index pointing at the documents a term is
+# actually about rather than every document that names it once.
+ACRONYM_RE = re.compile(r"\b([A-Z][A-Z0-9]{1,7})\b")
+ACRONYM_MENTIONS = 3
+ACRONYM_STOP = {"AND", "OR", "NOT", "THE", "FOR", "ALL", "ANY", "NEW", "GET", "SET",
+                "PUT", "ADD", "RUN", "USE", "TODO", "FIXME", "NOTE", "OK", "NO",
+                "YES", "ID", "URL", "URI", "API", "APIS", "CI", "CD", "UI", "UX",
+                "HTTP", "HTTPS", "JSON", "YAML", "XML", "HTML", "CSS", "SQL", "PHP",
+                "AWS", "GET", "POST", "PATCH", "HEAD", "BAD", "GOOD", "WHY"}
+# A person asks about "Largest Contentful Paint", not `LCP`. The base already glosses
+# its acronyms on first use, so the expansions can be read out of the corpus itself
+# rather than kept as a hand-written list that would drift. The initials check is what
+# keeps this honest: only a phrase whose trailing words spell the acronym is accepted.
+GLOSS_RE = re.compile(
+    r"\b((?:[A-Z][\w-]*|to|of|the|and|for|in|on)"
+    r"(?:[ -](?:[A-Z][\w-]*|to|of|the|and|for|in|on)){1,5})\s+\(([A-Z]{2,6})s?\)"
+)
 FENCE_RE = re.compile(r"^```[a-zA-Z0-9_+.-]*\s*$\n(.*?)^```\s*$", re.DOTALL | re.MULTILINE)
 BAD_AT_RE = re.compile(
     r"^@(param|return|returns|var|throws|see|since|deprecated|example|inheritdoc|"
@@ -200,7 +219,28 @@ BAD_AT_RE = re.compile(
 )
 
 
-def document_symbols(body: str) -> set[str]:
+def glossary(bodies: list[str]) -> dict[str, str]:
+    """Acronym -> spelled-out term, harvested from the base's own first-use glosses."""
+    found: dict[str, str] = {}
+    for body in bodies:
+        prose = re.sub(r"```.*?```", " ", body, flags=re.DOTALL)
+        for phrase, acronym in GLOSS_RE.findall(prose):
+            words = [w for w in re.split(r"[ -]", phrase) if w]
+            # Which suffix of the phrase is the term, and whether a connector counts
+            # toward the acronym, both vary: "Time to First Byte" is TTFB but
+            # "Interaction to Next Paint" is INP. Accept the shortest suffix that
+            # spells the acronym under either reading.
+            for start in range(len(words) - 1, -1, -1):
+                tail = words[start:]
+                spelled = "".join(w[0] for w in tail).upper()
+                kept = "".join(w[0] for w in tail if w[0].isupper()).upper()
+                if acronym in (spelled, kept):
+                    found.setdefault(acronym, " ".join(tail).lower())
+                    break
+    return found
+
+
+def document_symbols(body: str, expansions: dict[str, str] | None = None) -> set[str]:
     """Every identifier a document's code actually names."""
     code = "\n".join(FENCE_RE.findall(body))
     prose = re.sub(r"```.*?```", " ", body, flags=re.DOTALL)
@@ -212,6 +252,24 @@ def document_symbols(body: str) -> set[str]:
         found.add(module.rsplit("/", 1)[-1])   # `@nestjs/common` -> `common`
     found.update(s for s in CSS_AT_RE.findall(code) if not BAD_AT_RE.match(s))
     found.update(INLINE_RE.findall(prose))
+
+    mentions: dict[str, int] = {}
+    for acronym in ACRONYM_RE.findall(prose):
+        mentions[acronym] = mentions.get(acronym, 0) + 1
+    found.update(
+        a for a, count in mentions.items()
+        if count >= ACRONYM_MENTIONS and a not in ACRONYM_STOP
+    )
+
+    if expansions:
+        lowered = prose.lower()
+        for acronym, phrase in expansions.items():
+            # The spelled-out term earns its place the same way the acronym does:
+            # by being what the document is about, not by being named once in an
+            # aside. Mentions of either form count toward the one threshold.
+            if lowered.count(phrase) + mentions.get(acronym, 0) >= ACRONYM_MENTIONS:
+                found.add(phrase)
+
     return {
         s for s in found
         if len(s) >= 3 and s.lower() not in SYMBOL_STOP and not s.isdigit()
@@ -220,8 +278,8 @@ def document_symbols(body: str) -> set[str]:
 
 def main() -> int:
     symbols: dict[str, list[str]] = {}
-    doc_count = 0
 
+    indexable: list[tuple[str, str, str, str]] = []
     for path in sorted(KB.rglob("*.md")):
         fm = frontmatter(path)
         if not fm or fm.get("status") != "ready":
@@ -230,12 +288,16 @@ def main() -> int:
         # are verification lists already reachable through their **Rules:** pointers.
         if path.name == "README.md" or path.name.startswith(("00-", "98-", "99-")):
             continue
-        doc_count += 1
-        doc_id = fm.get("id", "")
         text = path.read_text(encoding="utf-8", errors="replace")
-        body = FRONTMATTER_RE.sub("", text, count=1)
-        topic, slug = fm.get("topic", ""), fm.get("slug", "")
-        for symbol in document_symbols(body):
+        indexable.append((
+            fm.get("id", ""), FRONTMATTER_RE.sub("", text, count=1),
+            fm.get("topic", ""), fm.get("slug", ""),
+        ))
+    doc_count = len(indexable)
+    expansions = glossary([body for _, body, _, _ in indexable])
+
+    for doc_id, body, topic, slug in indexable:
+        for symbol in document_symbols(body, expansions):
             if symbol in (topic, slug):     # already reachable via topic/slug
                 continue
             symbols.setdefault(symbol, []).append(doc_id)

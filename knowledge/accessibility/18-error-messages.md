@@ -8,7 +8,7 @@ order: 18
 status: ready
 tags: [accessibility, error-messages, aria-describedby, aria-invalid]
 related: [accessibility/08-forms, accessibility/19-live-regions, accessibility/05-focus-management, accessibility/07-aria, accessibility/10-color-and-contrast]
-when_to_use: "Read before building or reviewing form validation, error summaries, or any UI that reports a problem to the user."
+when_to_use: "Read when a screen reader does not announce a validation failure, or before building form validation, error summaries, or any UI that reports a problem to the user."
 ---
 # Error Messages
 

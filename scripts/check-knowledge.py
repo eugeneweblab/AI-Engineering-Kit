@@ -585,13 +585,35 @@ def run_php_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]]:
 ESBUILD_ERROR_RE = re.compile(r"✘ \[ERROR\] ([^\n]+)\n\n\s+([\w.\-]+):(\d+):")
 
 
+def have(tool: str) -> bool:
+    """Is the tool runnable? `pip install sqlfluff` puts the console script in a bin
+    directory that is not always on PATH, while the module is importable either way —
+    a PATH-only check silently skipped 214 SQL blocks."""
+    if shutil.which(tool):
+        return True
+    if tool in PIP_TOOLS:
+        return subprocess.run([sys.executable, "-m", tool, "--version"],
+                              capture_output=True).returncode == 0
+    return False
+
+
+PIP_TOOLS = {"sqlfluff"}
+
+
 def run_sql_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] | None:
     """`sqlfluff lint --rules PRS`, one process per dialect.
 
     Per-block invocation cost ~2s of interpreter startup, which put a full run past
     ten minutes; batching by dialect brings it under a second.
     """
-    if not shutil.which("sqlfluff"):
+    # pip installs the console script into a bin directory that is not always on
+    # PATH; the module is there either way. Falling back on it is the difference
+    # between checking 214 SQL blocks and silently skipping them.
+    if shutil.which("sqlfluff"):
+        sqlfluff = ["sqlfluff"]
+    elif have("sqlfluff"):
+        sqlfluff = [sys.executable, "-m", "sqlfluff"]
+    else:
         return None
     failures: list[tuple[str, str]] = []
     with tempfile.TemporaryDirectory() as tmp:
@@ -608,7 +630,7 @@ def run_sql_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] 
 
         for dialect in by_dialect:
             proc = subprocess.run(
-                ["sqlfluff", "lint", "--format", "json",
+                [*sqlfluff, "lint", "--format", "json",
                  "--dialect", dialect, "--rules", "PRS", dialect],
                 capture_output=True, text=True, cwd=root,
             )
@@ -1091,8 +1113,8 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
         ("go", go_blocks, run_go_checks, "gofmt"),
         ("lua", lua_blocks, run_lua_checks, "luac"),
     ):
-        if skip_external or not blocks or not shutil.which(tool):
-            if not skip_external and blocks and not shutil.which(tool):
+        if skip_external or not blocks or not have(tool):
+            if not skip_external and blocks and not have(tool):
                 SKIPPED[family] = tool
                 print(f"  note: `{tool}` not found — {family} blocks were not checked")
             baseline.setdefault(family, baseline.get(family, []))

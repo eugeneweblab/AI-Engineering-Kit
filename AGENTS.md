@@ -18,9 +18,19 @@ Follow this loop for any coding task:
    naming, and patterns before writing code. Reuse over recreate.
 2. **Locate relevant knowledge.** Open [`knowledge/INDEX.json`](knowledge/INDEX.json)
    (machine-readable) or [`knowledge/INDEX.md`](knowledge/INDEX.md) (human-readable).
-   Filter to `status: "ready"`, then match. **`when_to_use` is the field written to
-   answer "does this document apply to what I am doing" — read it first**; `topic` and
-   `tags` narrow the set. Then read the doc at its `path`.
+   Filter to `status: "ready"`, then match **in this order** — each step is stronger
+   evidence than the one after it, and a later step must not outrank an earlier one:
+
+   1. **A signal from the repository or the diff.** A file that identifies the stack,
+      or an API name that appears in the change. This is evidence, not inference.
+   2. **`when_to_use`.** The one field written to answer "does this document apply to
+      what I am doing".
+   3. **`topic` and `tags`.** They narrow a set; they do not pick a winner.
+   4. **Words in the title or slug.** Weakest, and often coincidental — "block" in a
+      task about blocking a merge matches `block-editor`, which is about something
+      else entirely. Use this only to break a tie.
+
+   Then read the doc at its `path`.
 
    [`knowledge/SIGNALS.json`](knowledge/SIGNALS.json) inverts this lookup. Its
    `stack` list maps a file that identifies a stack or a variant — `app/**/page.tsx`

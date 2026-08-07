@@ -3,7 +3,7 @@
   "note": "Detect the stack from `stack`, then resolve any symbol in the diff via `symbols`. Both point at document ids in INDEX.json. In `when`, `|` separates alternatives and `**` matches any number of directories; a pattern is written to match both the root-level and the nested layout.",
   "stats": {
     "stack_signals": 31,
-    "symbols": 8754,
+    "symbols": 8969,
     "docs_indexed": 1271
   },
   "stack": [
@@ -1071,8 +1071,27 @@
     "@write": [
       "redis/21-security"
     ],
+    "A01": [
+      "security/28-owasp-top10"
+    ],
+    "A02": [
+      "security/28-owasp-top10"
+    ],
+    "A03": [
+      "security/28-owasp-top10"
+    ],
+    "A05": [
+      "security/28-owasp-top10"
+    ],
+    "A07": [
+      "security/28-owasp-top10"
+    ],
     "A11Y": [
       "accessibility/26-legal-requirements"
+    ],
+    "AAA": [
+      "accessibility/01-accessibility-fundamentals",
+      "accessibility/23-wcag"
     ],
     "ABC123": [
       "nextjs/21-environment-variables"
@@ -1099,9 +1118,22 @@
       "postgresql/20-vacuum",
       "postgresql/22-migrations"
     ],
+    "ACF": [
+      "divi/07-dynamic-content",
+      "divi/15-custom-fields"
+    ],
     "ACID": [
+      "databases/12-acid",
       "mysql/02-configuration",
       "mysql/08-storage-engines"
+    ],
+    "ACL": [
+      "redis/01-installation",
+      "redis/21-security"
+    ],
+    "ACM": [
+      "aws/08-cloudfront",
+      "aws/09-acm"
     ],
     "ACME_COMMERCE_FILE": [
       "wordpress/02-project-structure"
@@ -1141,6 +1173,13 @@
     "ACME_Signup_Service": [
       "examples/03-wordpress-feature"
     ],
+    "ACR": [
+      "accessibility/26-legal-requirements",
+      "accessibility/29-documentation"
+    ],
+    "ADA": [
+      "accessibility/26-legal-requirements"
+    ],
     "ADD": [
       "docker/08-dockerfile"
     ],
@@ -1167,6 +1206,18 @@
     ],
     "ADMIN_USER": [
       "woocommerce/02-installation"
+    ],
+    "ADR": [
+      "architecture/26-architecture-decision-records",
+      "architecture/27-architecture-review",
+      "backend/29-architecture-review",
+      "templates/02-architecture-decision-record"
+    ],
+    "AEAD": [
+      "security/17-encryption"
+    ],
+    "AES": [
+      "security/17-encryption"
     ],
     "AESGCM": [
       "security/17-encryption"
@@ -1207,6 +1258,7 @@
       "tools/26-ai-coding-tools"
     ],
     "AJAX": [
+      "woocommerce/16-security",
       "woocommerce/29-ai-review",
       "wordpress/28-debugging"
     ],
@@ -1218,6 +1270,12 @@
     ],
     "AKIA_SUPER_ADMIN_FULL_ACCESS": [
       "architecture/15-security"
+    ],
+    "ALB": [
+      "aws/07-route53",
+      "aws/08-cloudfront",
+      "aws/09-acm",
+      "aws/10-elastic-load-balancer"
     ],
     "ALBRequestCountPerTarget": [
       "aws/11-auto-scaling"
@@ -1296,6 +1354,7 @@
       "databases/08-query-optimization",
       "databases/20-performance",
       "devops/21-performance",
+      "mysql/05-query-optimization",
       "mysql/14-performance",
       "mysql/18-debugging",
       "mysql/29-tooling",
@@ -1311,13 +1370,25 @@
       "postgresql/25-best-practices",
       "postgresql/27-tuning",
       "postgresql/30-engineering-principles",
+      "prisma/20-debugging",
       "sql/16-query-planning",
+      "sql/17-query-optimization",
       "sql/23-performance",
       "sql/25-debugging",
       "tools/24-database-tools"
     ],
+    "ANSI": [
+      "sql/27-portability"
+    ],
     "ANSWER": [
       "github/05-discussions"
+    ],
+    "AOF": [
+      "redis/20-persistence",
+      "redis/27-production"
+    ],
+    "APG": [
+      "accessibility/07-aria"
     ],
     "API": [
       "wordpress/02-project-structure"
@@ -1398,9 +1469,28 @@
       "security/21-rate-limiting"
     ],
     "ARIA": [
+      "accessibility/03-semantic-html",
+      "accessibility/06-screen-readers",
+      "accessibility/07-aria",
+      "accessibility/100-common-antipatterns",
+      "accessibility/17-tables",
       "accessibility/25-remediation",
+      "accessibility/27-best-practices",
+      "accessibility/28-real-world-patterns",
       "accessibility/29-documentation",
-      "css/02-selectors"
+      "accessibility/30-engineering-principles",
+      "css/02-selectors",
+      "frontend/09-accessibility",
+      "html/02-semantic-html",
+      "html/11-accessibility",
+      "html/14-custom-data-attributes",
+      "html/21-best-practices",
+      "html/25-web-components",
+      "html/28-common-patterns",
+      "react/20-accessibility"
+    ],
+    "ARN": [
+      "aws/16-secrets-manager"
     ],
     "ARRAY_A": [
       "wordpress/19-database"
@@ -1410,6 +1500,9 @@
     ],
     "ASCII": [
       "html/10-metadata"
+    ],
+    "ASG": [
+      "aws/11-auto-scaling"
     ],
     "ASK": [
       "redis/19-clustering"
@@ -1458,8 +1551,10 @@
     ],
     "AVIF": [
       "frontend/18-assets",
+      "html/05-images",
       "nextjs/16-images",
-      "performance/11-images"
+      "performance/11-images",
+      "seo/16-images"
     ],
     "AWS_ACCESS_KEY_ID": [
       "aws/03-ec2",
@@ -1897,6 +1992,9 @@
     "AssignTagsDto": [
       "nestjs/08-validation"
     ],
+    "AssumeRole": [
+      "aws/02-iam"
+    ],
     "AsyncLocalStorage": [
       "backend/10-authentication",
       "nestjs/13-middleware",
@@ -2103,6 +2201,11 @@
     "BEHAVIOR": [
       "devops/22-testing"
     ],
+    "BEM": [
+      "css/21-architecture",
+      "css/29-css-methodologies",
+      "frontend/16-css-architecture"
+    ],
     "BEST": [
       "redis/06-sorted-sets"
     ],
@@ -2112,6 +2215,9 @@
       "mysql/04-indexes",
       "mysql/16-migrations",
       "sql/02-filtering"
+    ],
+    "BFF": [
+      "woocommerce/14-headless"
     ],
     "BGSAVE": [
       "redis/27-production"
@@ -2192,6 +2298,9 @@
       "graphql/24-testing",
       "graphql/28-tooling",
       "tools/17-commit-conventions"
+    ],
+    "BRIN": [
+      "postgresql/04-indexes"
     ],
     "BRPOP": [
       "redis/04-lists"
@@ -2402,8 +2511,23 @@
     "CAUSE": [
       "kubernetes/23-monitoring"
     ],
+    "CDC": [
+      "databases/26-auditing"
+    ],
     "CDN": [
-      "tailwind/25-debugging"
+      "aws/08-cloudfront",
+      "graphql/21-caching",
+      "nextjs/10-caching",
+      "nextjs/26-deployment",
+      "nginx/14-rate-limiting",
+      "performance/08-caching",
+      "performance/11-images",
+      "seo/16-images",
+      "tailwind/100-common-antipatterns",
+      "tailwind/25-debugging",
+      "tailwind/27-production",
+      "tailwind/29-tooling",
+      "woocommerce/14-headless"
     ],
     "CEIL": [
       "sql/10-functions"
@@ -2478,7 +2602,8 @@
       "workflows/10-build-divi-module"
     ],
     "CIDR": [
-      "aws/06-vpc"
+      "aws/06-vpc",
+      "aws/19-eks"
     ],
     "CITEXT": [
       "databases/24-soft-delete",
@@ -2496,6 +2621,10 @@
     "CI_GITHUB_TOKEN": [
       "github/23-cli"
     ],
+    "CJS": [
+      "nodejs/03-modules",
+      "typescript/14-modules"
+    ],
     "CLAUDE": [
       "tools/26-ai-coding-tools"
     ],
@@ -2504,7 +2633,14 @@
       "tools/26-ai-coding-tools"
     ],
     "CLI": [
-      "divi/22-deployment"
+      "architecture/04-hexagonal-architecture",
+      "divi/22-deployment",
+      "github/23-cli",
+      "nodejs/23-cli-development",
+      "php/16-cli",
+      "prisma/27-tooling",
+      "wordpress/25-multisite",
+      "wordpress/26-wp-cli"
     ],
     "CLIENT": [
       "rest-api/20-file-upload"
@@ -2515,6 +2651,14 @@
     "CLOSED": [
       "graphql/11-directives",
       "security/21-rate-limiting"
+    ],
+    "CLS": [
+      "css/22-performance",
+      "divi/10-performance",
+      "javascript/27-browser-performance",
+      "performance/12-fonts",
+      "performance/18-web-vitals",
+      "seo/13-core-web-vitals"
     ],
     "CMD": [
       "devops/10-containerization",
@@ -2529,9 +2673,17 @@
     "CMD-SHELL": [
       "docker/15-healthchecks"
     ],
+    "CMS": [
+      "figma/11-ai-design-review",
+      "seo/20-headless-seo"
+    ],
     "CNAME": [
       "aws/07-route53",
       "aws/09-acm"
+    ],
+    "CNI": [
+      "kubernetes/17-network-policies",
+      "kubernetes/25-upgrades"
     ],
     "COALESCE": [
       "databases/26-auditing",
@@ -2679,6 +2831,7 @@
       "docker/08-dockerfile",
       "docker/09-image-optimization",
       "docker/10-buildkit",
+      "docker/100-common-antipatterns",
       "docker/11-multi-stage-builds",
       "docker/14-secrets",
       "docker/18-security",
@@ -2701,14 +2854,64 @@
       "databases/18-backup-and-recovery"
     ],
     "CORS": [
+      "html/17-canvas",
+      "nestjs/13-middleware",
       "nestjs/26-security",
+      "security/12-csrf",
+      "security/19-cors",
       "tools/09-vite"
     ],
+    "CPT": [
+      "wordpress/09-custom-post-types"
+    ],
     "CPU": [
-      "devops/26-postmortems"
+      "aws/18-ecs",
+      "aws/26-monitoring",
+      "backend/27-production",
+      "devops/15-alerting",
+      "devops/20-scalability",
+      "devops/26-postmortems",
+      "devops/27-sre-principles",
+      "docker/17-resource-limits",
+      "docker/22-production",
+      "docker/24-monitoring",
+      "docker/25-performance",
+      "javascript/11-browser-api",
+      "javascript/25-performance",
+      "kubernetes/19-resource-management",
+      "kubernetes/20-autoscaling",
+      "kubernetes/26-production",
+      "linux/16-monitoring",
+      "linux/18-performance",
+      "linux/19-debugging",
+      "linux/22-containers",
+      "nestjs/27-performance",
+      "nginx/09-compression",
+      "nginx/17-monitoring",
+      "nginx/18-performance",
+      "nodejs/01-nodejs-runtime",
+      "nodejs/02-event-loop",
+      "nodejs/12-worker-threads",
+      "nodejs/13-cluster",
+      "nodejs/19-performance",
+      "nodejs/22-debugging",
+      "nodejs/24-background-jobs",
+      "nodejs/28-best-practices",
+      "performance/03-cpu",
+      "performance/04-memory",
+      "performance/16-profiling",
+      "performance/17-monitoring",
+      "performance/20-capacity-planning",
+      "performance/25-production-monitoring",
+      "testing/16-load-testing"
     ],
     "CPUQuota": [
       "linux/18-performance"
+    ],
+    "CQRS": [
+      "architecture/07-cqrs",
+      "architecture/29-real-world-patterns",
+      "nestjs/22-cqrs"
     ],
     "CRASHED": [
       "kubernetes/24-debugging"
@@ -2754,17 +2957,42 @@
       "redis/19-clustering"
     ],
     "CRUD": [
+      "architecture/03-clean-architecture",
       "graphql/26-best-practices",
       "mysql/13-users-and-roles",
+      "nestjs/22-cqrs",
+      "prisma/07-crud",
+      "rest-api/04-endpoints",
+      "woocommerce/01-architecture",
+      "woocommerce/04-product-management",
+      "woocommerce/06-customers",
       "woocommerce/13-rest-api",
       "woocommerce/17-customization",
       "woocommerce/24-scaling",
       "woocommerce/25-best-practices",
-      "woocommerce/28-real-world-patterns"
+      "woocommerce/28-real-world-patterns",
+      "woocommerce/29-ai-review",
+      "woocommerce/30-engineering-principles"
+    ],
+    "CSI": [
+      "kubernetes/12-persistent-volumes",
+      "kubernetes/25-upgrades"
+    ],
+    "CSP": [
+      "frontend/14-security",
+      "nginx/13-security",
+      "react/25-security",
+      "security/11-xss",
+      "security/20-csp",
+      "security/22-security-headers"
     ],
     "CSPRNG": [
       "javascript/26-security",
+      "security/06-session-management",
       "security/17-encryption"
+    ],
+    "CSR": [
+      "frontend/07-rendering"
     ],
     "CSRF": [
       "divi/19-security",
@@ -2773,7 +3001,25 @@
       "security/06-session-management",
       "security/08-oauth",
       "security/12-csrf",
+      "security/19-cors",
       "woocommerce/16-security"
+    ],
+    "CSSOM": [
+      "html/20-browser-rendering"
+    ],
+    "CSV": [
+      "engineering/01-decision-framework"
+    ],
+    "CTA": [
+      "divi/03-modules",
+      "divi/05-layouts",
+      "divi/06-global-elements",
+      "divi/26-real-world-patterns"
+    ],
+    "CTE": [
+      "sql/06-subqueries",
+      "sql/07-common-table-expressions",
+      "sql/08-window-functions"
     ],
     "CURRENCY": [
       "nestjs/14-configuration"
@@ -2785,6 +3031,20 @@
       "mysql/08-storage-engines",
       "mysql/19-best-practices",
       "mysql/30-engineering-principles"
+    ],
+    "CVA": [
+      "tailwind/17-components",
+      "tailwind/24-react",
+      "tailwind/28-patterns"
+    ],
+    "CVE": [
+      "cicd/06-security-scanning",
+      "linux/17-security",
+      "security/23-dependency-security",
+      "testing/17-security-testing"
+    ],
+    "CWV": [
+      "seo/13-core-web-vitals"
     ],
     "Cache-Control": [
       "backend/13-caching",
@@ -3436,6 +3696,9 @@
     "CustomerRepository": [
       "wordpress/100-common-antipatterns"
     ],
+    "DAL": [
+      "nextjs/15-authorization"
+    ],
     "DANGER": [
       "nextjs/29-engineering-principles"
     ],
@@ -3554,6 +3817,20 @@
     "DB_USER": [
       "wordpress/27-deployment"
     ],
+    "DDD": [
+      "architecture/06-domain-driven-design",
+      "backend/05-ddd"
+    ],
+    "DDL": [
+      "databases/03-data-modeling",
+      "databases/11-locking",
+      "mysql/16-migrations",
+      "postgresql/12-replication",
+      "postgresql/22-migrations",
+      "sql/12-ddl",
+      "sql/28-architecture",
+      "sql/29-tooling"
+    ],
     "DEAD": [
       "rest-api/05-routing"
     ],
@@ -3621,6 +3898,7 @@
       "sql/08-window-functions"
     ],
     "DENY": [
+      "linux/21-firewall",
       "nextjs/13-middleware",
       "nginx/13-security",
       "nginx/26-best-practices",
@@ -3730,13 +4008,43 @@
     ],
     "DISTINCT": [
       "sql/01-select",
+      "sql/04-grouping",
       "sql/09-aggregate-functions",
       "sql/16-query-planning",
       "sql/17-query-optimization",
       "wordpress/19-database"
     ],
+    "DKIM": [
+      "woocommerce/18-emails"
+    ],
+    "DLQ": [
+      "architecture/20-message-brokers",
+      "aws/21-sqs",
+      "aws/22-sns",
+      "aws/23-eventbridge",
+      "backend/15-message-brokers",
+      "nestjs/20-queues"
+    ],
+    "DMARC": [
+      "woocommerce/18-emails"
+    ],
+    "DML": [
+      "sql/13-dml"
+    ],
     "DNS": [
-      "kubernetes/13-statefulsets"
+      "aws/07-route53",
+      "aws/09-acm",
+      "aws/31-high-availability",
+      "devops/19-high-availability",
+      "docker/07-networks",
+      "kubernetes/07-services",
+      "kubernetes/13-statefulsets",
+      "kubernetes/17-network-policies",
+      "kubernetes/24-debugging",
+      "linux/09-networking",
+      "nginx/23-docker",
+      "nginx/27-high-availability",
+      "seo/22-search-console"
     ],
     "DOCKER_HOST": [
       "docker/02-docker-architecture"
@@ -3751,6 +4059,32 @@
       "wordpress/23-caching"
     ],
     "DOM": [
+      "accessibility/06-screen-readers",
+      "accessibility/100-common-antipatterns",
+      "accessibility/12-layout",
+      "accessibility/19-live-regions",
+      "accessibility/24-accessibility-testing",
+      "accessibility/30-engineering-principles",
+      "css/02-selectors",
+      "css/23-accessibility",
+      "frontend/100-common-antipatterns",
+      "frontend/22-testing",
+      "html/14-custom-data-attributes",
+      "html/17-canvas",
+      "html/20-browser-rendering",
+      "html/25-web-components",
+      "html/29-debugging",
+      "javascript/12-dom",
+      "javascript/15-memory-management",
+      "javascript/27-browser-performance",
+      "performance/06-rendering",
+      "react/03-jsx",
+      "react/07-lifecycle",
+      "react/21-testing",
+      "security/11-xss",
+      "seo/04-rendering",
+      "seo/28-real-world-patterns",
+      "testing/13-ui-testing",
       "tools/03-typescript-compiler"
     ],
     "DOMContentLoaded": [
@@ -3758,6 +4092,10 @@
     ],
     "DONOTCACHEPAGE": [
       "wordpress/23-caching"
+    ],
+    "DORA": [
+      "cicd/23-monitoring",
+      "devops/01-devops-culture"
     ],
     "DOUBLE": [
       "databases/01-database-fundamentals",
@@ -3775,6 +4113,14 @@
       "backend/05-ddd",
       "graphql/03-types",
       "graphql/26-best-practices"
+    ],
+    "DTO": [
+      "backend/06-api-design",
+      "nestjs/04-controllers",
+      "nestjs/05-services",
+      "nestjs/07-dto",
+      "nestjs/08-validation",
+      "nestjs/12-pipes"
     ],
     "DUMMY_HASH": [
       "security/03-authentication"
@@ -4072,10 +4418,17 @@
       "aws/30-engineering-principles"
     ],
     "E2E": [
+      "devops/22-testing",
       "nestjs/25-testing",
       "nextjs/22-testing",
       "react/21-testing",
+      "testing/01-testing-fundamentals",
+      "testing/04-e2e-testing",
+      "testing/100-common-antipatterns",
+      "testing/21-cicd",
+      "tools/14-playwright",
       "tools/16-git-hooks",
+      "woocommerce/21-testing",
       "wordpress/07-testing"
     ],
     "E2E_PASSWORD": [
@@ -4096,6 +4449,23 @@
     "EAGAIN": [
       "linux/19-debugging"
     ],
+    "EBS": [
+      "aws/03-ec2"
+    ],
+    "EC2": [
+      "aws/03-ec2",
+      "aws/11-auto-scaling",
+      "aws/30-engineering-principles"
+    ],
+    "ECDHE": [
+      "nginx/12-ssl-tls"
+    ],
+    "ECR": [
+      "aws/20-ecr"
+    ],
+    "ECS": [
+      "aws/18-ecs"
+    ],
     "EDITABLE": [
       "wordpress/03-best-practices",
       "wordpress/06-security",
@@ -4110,6 +4480,9 @@
     "EFFECT": [
       "figma/14-figma-inspection-checklist"
     ],
+    "EKS": [
+      "aws/19-eks"
+    ],
     "ELB": [
       "aws/11-auto-scaling",
       "aws/31-high-availability"
@@ -4120,11 +4493,17 @@
     "EMAIL_ALREADY_EXISTS": [
       "nestjs/11-exception-filters"
     ],
+    "EMF": [
+      "aws/14-cloudwatch"
+    ],
     "EMFILE": [
       "nodejs/05-file-system"
     ],
     "EMPTY_TRASH_DAYS": [
       "wordpress/29-maintenance"
+    ],
+    "EMU": [
+      "github/28-enterprise"
     ],
     "ENABLE": [
       "databases/25-multi-tenancy"
@@ -4132,9 +4511,13 @@
     "ENABLE_CACHE": [
       "nodejs/14-environment"
     ],
+    "ENCODING": [
+      "redis/25-debugging"
+    ],
     "ENGINE": [
       "mysql/03-data-types",
       "mysql/08-storage-engines",
+      "mysql/18-debugging",
       "mysql/19-best-practices",
       "mysql/22-partitioning",
       "mysql/23-full-text-search",
@@ -4201,11 +4584,19 @@
     "ES2023": [
       "typescript/16-configuration"
     ],
+    "ES5": [
+      "tools/12-babel"
+    ],
+    "ES6": [
+      "javascript/17-es6-features"
+    ],
     "ESCAPED": [
       "divi/07-dynamic-content"
     ],
     "ESM": [
-      "nodejs/03-modules"
+      "javascript/07-modules",
+      "nodejs/03-modules",
+      "typescript/14-modules"
     ],
     "ETCD": [
       "kubernetes/28-disaster-recovery"
@@ -4353,8 +4744,10 @@
     "EXPLAIN": [
       "architecture/14-performance",
       "backend/19-performance",
+      "databases/08-query-optimization",
       "databases/100-common-antipatterns",
       "databases/16-partitioning",
+      "databases/20-performance",
       "devops/21-performance",
       "graphql/14-filtering",
       "mysql/04-indexes",
@@ -4398,6 +4791,7 @@
       "sql/07-common-table-expressions",
       "sql/15-indexes",
       "sql/16-query-planning",
+      "sql/17-query-optimization",
       "sql/18-views",
       "sql/24-testing",
       "sql/25-debugging",
@@ -4768,8 +5162,22 @@
       "figma/19-design-handoff",
       "wordpress/17-block-themes"
     ],
+    "FHS": [
+      "linux/01-filesystem"
+    ],
+    "FID": [
+      "performance/18-web-vitals",
+      "seo/13-core-web-vitals"
+    ],
     "FIELD_DEFINITION": [
       "graphql/11-directives"
+    ],
+    "FIFO": [
+      "aws/21-sqs",
+      "redis/04-lists"
+    ],
+    "FIG": [
+      "php/24-psr-standards"
     ],
     "FIGMA_FILE_KEY": [
       "figma/01-figma-analysis",
@@ -4813,6 +5221,7 @@
       "nestjs/24-observability",
       "prisma/16-indexes",
       "rest-api/05-routing",
+      "sql/03-sorting",
       "sql/04-grouping",
       "workflows/02-fix-a-bug"
     ],
@@ -4873,9 +5282,11 @@
       "linux/08-systemd"
     ],
     "FOREIGN": [
+      "databases/06-schema-design",
       "mysql/08-storage-engines",
       "mysql/19-best-practices",
-      "mysql/30-engineering-principles"
+      "mysql/30-engineering-principles",
+      "sql/12-ddl"
     ],
     "FOREVER": [
       "devops/16-security"
@@ -4885,6 +5296,9 @@
     ],
     "FOUC": [
       "tailwind/12-dark-mode"
+    ],
+    "FPM": [
+      "nginx/22-php-fpm"
     ],
     "FQCN": [
       "php/06-autoloading"
@@ -4897,6 +5311,9 @@
     ],
     "FRESH": [
       "kubernetes/24-debugging"
+    ],
+    "FTS": [
+      "postgresql/10-full-text-search"
     ],
     "FULL": [
       "mysql/15-monitoring",
@@ -5029,8 +5446,14 @@
     "Fprintf": [
       "kubernetes/21-observability"
     ],
+    "GA4": [
+      "seo/21-analytics"
+    ],
     "GATES": [
       "cicd/23-monitoring"
+    ],
+    "GCM": [
+      "security/17-encryption"
     ],
     "GDPR": [
       "playbooks/03-security-incident"
@@ -5105,6 +5528,7 @@
       "github/26-automation"
     ],
     "GIN": [
+      "postgresql/04-indexes",
       "postgresql/08-jsonb",
       "postgresql/09-arrays",
       "postgresql/10-full-text-search"
@@ -5194,6 +5618,11 @@
       "nestjs/28-deployment",
       "playbooks/02-failed-deployment"
     ],
+    "GPU": [
+      "html/20-browser-rendering",
+      "kubernetes/03-nodes",
+      "kubernetes/14-daemonsets"
+    ],
     "GRAFANA": [
       "cicd/23-monitoring"
     ],
@@ -5212,8 +5641,16 @@
     "GREEN": [
       "ai/05-bug-fixing"
     ],
+    "GSC": [
+      "seo/22-search-console"
+    ],
     "GTID": [
+      "mysql/09-replication",
       "mysql/21-high-availability"
+    ],
+    "GUI": [
+      "tools/23-api-clients",
+      "tools/24-database-tools"
     ],
     "Gauge": [
       "devops/12-monitoring",
@@ -5418,12 +5855,19 @@
     "HINCRBYFLOAT": [
       "redis/07-hashes"
     ],
+    "HIT": [
+      "nginx/08-caching"
+    ],
     "HMAC": [
-      "github/01-github-platform"
+      "github/01-github-platform",
+      "github/29-integrations"
     ],
     "HMGET": [
       "redis/07-hashes",
       "redis/26-best-practices"
+    ],
+    "HOC": [
+      "react/14-patterns"
     ],
     "HOME": [
       "cicd/21-docker-integration",
@@ -5443,12 +5887,19 @@
       "wordpress/22-cron-and-background-tasks",
       "wordpress/23-caching"
     ],
+    "HPA": [
+      "kubernetes/05-deployments",
+      "kubernetes/20-autoscaling"
+    ],
     "HPOS": [
       "woocommerce/01-architecture",
       "woocommerce/02-installation",
       "woocommerce/05-orders",
       "woocommerce/06-customers",
+      "woocommerce/100-common-antipatterns",
+      "woocommerce/15-performance",
       "woocommerce/20-multisite",
+      "woocommerce/21-testing",
       "woocommerce/22-deployment",
       "woocommerce/24-scaling",
       "woocommerce/25-best-practices",
@@ -5480,6 +5931,7 @@
       "nestjs/26-security",
       "nginx/12-ssl-tls",
       "nginx/26-best-practices",
+      "rest-api/24-security",
       "security/18-https",
       "security/22-security-headers"
     ],
@@ -5729,6 +6181,21 @@
       "nestjs/04-controllers",
       "nestjs/11-exception-filters"
     ],
+    "IAM": [
+      "architecture/22-cloud-architecture",
+      "aws/02-iam",
+      "aws/03-ec2",
+      "aws/04-s3",
+      "aws/05-rds",
+      "aws/100-common-antipatterns",
+      "aws/16-secrets-manager",
+      "aws/17-parameter-store",
+      "aws/18-ecs",
+      "aws/19-eks",
+      "aws/25-security",
+      "aws/30-engineering-principles",
+      "devops/16-security"
+    ],
     "IDENTIFIED": [
       "mysql/12-security",
       "mysql/13-users-and-roles"
@@ -5764,6 +6231,7 @@
       "nextjs/15-authorization",
       "rest-api/16-authorization",
       "rest-api/24-security",
+      "security/02-threat-modeling",
       "security/04-authorization",
       "security/29-security-review",
       "testing/17-security-testing"
@@ -5830,6 +6298,16 @@
       "sql/24-testing",
       "sql/26-best-practices",
       "wordpress/100-common-antipatterns"
+    ],
+    "INNODB": [
+      "mysql/18-debugging"
+    ],
+    "INP": [
+      "frontend/08-performance",
+      "javascript/27-browser-performance",
+      "performance/18-web-vitals",
+      "performance/23-performance-budget",
+      "seo/13-core-web-vitals"
     ],
     "INPLACE": [
       "mysql/16-migrations"
@@ -5924,11 +6402,25 @@
     "INVOKER": [
       "mysql/27-procedures"
     ],
+    "IRSA": [
+      "aws/19-eks"
+    ],
+    "ISO": [
+      "seo/09-structured-data",
+      "seo/14-international-seo"
+    ],
     "ISOLATION": [
       "sql/14-transactions"
     ],
+    "ISR": [
+      "frontend/07-rendering",
+      "nextjs/08-rendering-strategies"
+    ],
     "IS_REPEATABLE": [
       "php/17-attributes"
+    ],
+    "ITCSS": [
+      "css/29-css-methodologies"
     ],
     "ITSELF": [
       "seo/06-canonicalization",
@@ -6311,12 +6803,17 @@
     "JIRA": [
       "engineering/01-decision-framework"
     ],
+    "JIT": [
+      "performance/19-benchmarking",
+      "testing/15-performance-testing"
+    ],
     "JOB_COMPLETION_INDEX": [
       "kubernetes/15-jobs"
     ],
     "JPEG": [
       "html/05-images",
       "nginx/09-compression",
+      "performance/11-images",
       "rest-api/20-file-upload"
     ],
     "JSON": [
@@ -6401,6 +6898,7 @@
     "JSONB": [
       "databases/02-relational-vs-nosql",
       "databases/26-auditing",
+      "postgresql/08-jsonb",
       "sql/11-data-types",
       "sql/27-portability"
     ],
@@ -6431,11 +6929,25 @@
     "JSON_UNESCAPED_UNICODE": [
       "php/11-http"
     ],
+    "JSX": [
+      "react/03-jsx",
+      "react/11-rendering",
+      "react/23-code-style",
+      "workflows/08-build-react-component"
+    ],
     "JWKS": [
       "rest-api/15-authentication"
     ],
     "JWKS_URL": [
       "backend/10-authentication"
+    ],
+    "JWT": [
+      "aws/13-api-gateway",
+      "backend/10-authentication",
+      "graphql/18-authentication",
+      "nestjs/14-configuration",
+      "rest-api/15-authentication",
+      "security/07-jwt"
     ],
     "JWT_AUDIENCE": [
       "nestjs/09-guards",
@@ -6521,6 +7033,13 @@
     "KILL": [
       "linux/06-processes"
     ],
+    "KMS": [
+      "aws/16-secrets-manager",
+      "aws/17-parameter-store",
+      "aws/20-ecr",
+      "aws/25-security",
+      "security/17-encryption"
+    ],
     "KbdInteractiveAuthentication": [
       "linux/10-ssh"
     ],
@@ -6570,6 +7089,25 @@
     "LAYOUT": [
       "css/22-performance"
     ],
+    "LCP": [
+      "divi/10-performance",
+      "divi/13-seo",
+      "frontend/08-performance",
+      "frontend/18-assets",
+      "html/05-images",
+      "html/18-performance",
+      "javascript/27-browser-performance",
+      "nextjs/16-images",
+      "performance/07-loading",
+      "performance/09-lazy-loading",
+      "performance/11-images",
+      "performance/18-web-vitals",
+      "performance/23-performance-budget",
+      "seo/12-performance",
+      "seo/13-core-web-vitals",
+      "seo/16-images",
+      "wordpress/21-media-and-uploads"
+    ],
     "LEAD": [
       "sql/08-window-functions"
     ],
@@ -6588,7 +7126,12 @@
     ],
     "LEVEL": [
       "databases/25-multi-tenancy",
+      "postgresql/19-roles-and-permissions",
       "sql/14-transactions"
+    ],
+    "LFS": [
+      "git/24-monorepo",
+      "git/25-lfs"
     ],
     "LGTM": [
       "architecture/27-architecture-review",
@@ -6599,7 +7142,8 @@
       "workflows/05-review-pull-request"
     ],
     "LICENSE": [
-      "github/02-repositories"
+      "github/02-repositories",
+      "github/27-best-practices"
     ],
     "LIKE": [
       "databases/19-security",
@@ -6683,6 +7227,9 @@
     "LLEN": [
       "redis/04-lists"
     ],
+    "LLM": [
+      "seo/19-javascript-seo"
+    ],
     "LMOVE": [
       "redis/04-lists",
       "redis/16-message-queues"
@@ -6749,7 +7296,8 @@
     "LRANGE": [
       "redis/02-data-types",
       "redis/04-lists",
-      "redis/22-monitoring"
+      "redis/22-monitoring",
+      "redis/23-performance"
     ],
     "LREM": [
       "redis/04-lists",
@@ -6761,6 +7309,9 @@
     ],
     "LTRIM": [
       "redis/04-lists"
+    ],
+    "LTS": [
+      "nodejs/01-nodejs-runtime"
     ],
     "LVM": [
       "linux/11-storage"
@@ -6932,11 +7483,17 @@
     "M-of-N": [
       "aws/26-monitoring"
     ],
+    "MAC": [
+      "security/17-encryption"
+    ],
     "MAILTO": [
       "linux/23-automation"
     ],
     "MAIL_KEY": [
       "nestjs/03-dependency-injection"
+    ],
+    "MAJOR": [
+      "cicd/08-versioning"
     ],
     "MAJOR.MINOR.PATCH": [
       "cicd/08-versioning",
@@ -7009,6 +7566,9 @@
     "MB_IN_BYTES": [
       "wordpress/04-code-style"
     ],
+    "MCP": [
+      "tools/26-ai-coding-tools"
+    ],
     "MEASURE": [
       "sql/25-debugging"
     ],
@@ -7021,6 +7581,7 @@
     "MEMORY": [
       "mysql/06-transactions",
       "mysql/08-storage-engines",
+      "mysql/28-architecture",
       "redis/25-debugging"
     ],
     "MERGE": [
@@ -7037,6 +7598,16 @@
       "postgresql/02-configuration",
       "postgresql/18-security"
     ],
+    "MFA": [
+      "aws/02-iam",
+      "aws/25-security",
+      "github/19-organizations",
+      "github/28-enterprise",
+      "nestjs/15-authentication",
+      "security/03-authentication",
+      "security/21-rate-limiting",
+      "security/28-owasp-top10"
+    ],
     "MGET": [
       "redis/03-strings",
       "redis/19-clustering",
@@ -7046,7 +7617,9 @@
     "MIME": [
       "nginx/13-security",
       "php/11-http",
-      "security/22-security-headers"
+      "security/22-security-headers",
+      "wordpress/06-security",
+      "wordpress/21-media-and-uploads"
     ],
     "MIN": [
       "sql/04-grouping",
@@ -7057,6 +7630,9 @@
     ],
     "MINID": [
       "redis/08-streams"
+    ],
+    "MINOR": [
+      "cicd/08-versioning"
     ],
     "MINUTE": [
       "mysql/25-events"
@@ -7118,6 +7694,9 @@
       "redis/19-clustering",
       "redis/23-performance",
       "redis/26-best-practices"
+    ],
+    "MSW": [
+      "react/21-testing"
     ],
     "MULTI": [
       "redis/10-transactions",
@@ -7464,6 +8043,15 @@
     "My_Shipping_Method": [
       "woocommerce/09-shipping"
     ],
+    "NAP": [
+      "seo/15-local-seo"
+    ],
+    "NAT": [
+      "aws/06-vpc",
+      "aws/100-common-antipatterns",
+      "aws/24-cost-optimization",
+      "aws/31-high-availability"
+    ],
     "NATURAL": [
       "mysql/23-full-text-search"
     ],
@@ -7515,6 +8103,9 @@
     ],
     "NEXT_RUNTIME": [
       "nextjs/23-observability"
+    ],
+    "NLB": [
+      "aws/10-elastic-load-balancer"
     ],
     "NODE_ENV": [
       "devops/09-configuration-management",
@@ -7623,6 +8214,7 @@
       "sql/30-engineering-principles"
     ],
     "NVDA": [
+      "accessibility/20-testing-tools",
       "accessibility/26-legal-requirements",
       "accessibility/29-documentation"
     ],
@@ -7849,6 +8441,12 @@
     "NumberOfNotificationsFailed": [
       "aws/22-sns"
     ],
+    "OAC": [
+      "aws/08-cloudfront"
+    ],
+    "OAS": [
+      "rest-api/21-openapi"
+    ],
     "OBJECT": [
       "redis/25-debugging"
     ],
@@ -7889,10 +8487,13 @@
       "cicd/15-secrets",
       "cicd/17-github-actions",
       "cicd/18-gitlab-ci",
+      "cicd/19-bitbucket-pipelines",
       "devops/16-security",
       "docker/19-registry",
       "github/08-actions",
       "github/12-pages",
+      "github/16-secret-scanning",
+      "github/28-enterprise",
       "security/08-oauth",
       "security/24-supply-chain-security"
     ],
@@ -7957,6 +8558,19 @@
       "testing/07-test-data",
       "tools/05-prettier"
     ],
+    "OOM": [
+      "docker/17-resource-limits",
+      "docker/20-container-debugging",
+      "docker/24-monitoring",
+      "docker/25-performance",
+      "docker/27-troubleshooting",
+      "kubernetes/19-resource-management",
+      "kubernetes/26-production",
+      "linux/25-production",
+      "nodejs/20-memory-management",
+      "postgresql/27-tuning",
+      "redis/27-production"
+    ],
     "OOMKilled": [
       "devops/11-orchestration",
       "docker/20-container-debugging",
@@ -8006,6 +8620,21 @@
     "ORIGINAL": [
       "rest-api/18-idempotency"
     ],
+    "ORM": [
+      "architecture/03-clean-architecture",
+      "architecture/04-hexagonal-architecture",
+      "architecture/05-layered-architecture",
+      "backend/02-layered-architecture",
+      "backend/03-clean-architecture",
+      "backend/04-hexagonal-architecture",
+      "backend/07-business-logic",
+      "backend/25-code-organization",
+      "nestjs/06-repositories",
+      "nestjs/07-dto",
+      "nestjs/17-database",
+      "php/29-architecture",
+      "security/13-sql-injection"
+    ],
     "OTEL_EXPORTER_OTLP_ENDPOINT": [
       "nestjs/24-observability",
       "tools/29-observability-tools"
@@ -8031,6 +8660,11 @@
     ],
     "OVER": [
       "sql/08-window-functions"
+    ],
+    "OWASP": [
+      "nestjs/26-security",
+      "security/28-owasp-top10",
+      "security/29-security-review"
     ],
     "OWNER": [
       "github/17-branch-protection"
@@ -8563,6 +9197,14 @@
     "PASSWORD_DEFAULT": [
       "php/13-security"
     ],
+    "PAT": [
+      "github/01-github-platform",
+      "github/10-packages",
+      "github/21-permissions",
+      "github/22-api",
+      "github/26-automation",
+      "github/29-integrations"
+    ],
     "PATCH": [
       "ai/02-task-planning",
       "backend/06-api-design",
@@ -8587,6 +9229,14 @@
     "PAYMENT_GATEWAY": [
       "nestjs/03-dependency-injection"
     ],
+    "PCI": [
+      "divi/14-woocommerce",
+      "woocommerce/08-payments",
+      "woocommerce/27-production"
+    ],
+    "PDF": [
+      "css/24-print-styles"
+    ],
     "PDO": [
       "php/12-database",
       "php/20-dependency-injection"
@@ -8600,6 +9250,9 @@
     "PDOStatement": [
       "php/12-database"
     ],
+    "PEL": [
+      "redis/08-streams"
+    ],
     "PENDING": [
       "architecture/27-architecture-review",
       "nestjs/05-services",
@@ -8608,6 +9261,9 @@
       "nextjs/11-server-actions",
       "performance/28-real-world-patterns",
       "rest-api/27-best-practices"
+    ],
+    "PER": [
+      "php/24-psr-standards"
     ],
     "PERFORM": [
       "sql/21-triggers"
@@ -8628,6 +9284,9 @@
     "PGDATA": [
       "postgresql/01-installation"
     ],
+    "PGDG": [
+      "postgresql/01-installation"
+    ],
     "PG_PASS": [
       "postgresql/18-security"
     ],
@@ -8646,6 +9305,31 @@
     ],
     "PHP_SAPI": [
       "php/16-cli"
+    ],
+    "PID": [
+      "docker/04-containers",
+      "docker/26-best-practices",
+      "docker/30-engineering-principles",
+      "linux/06-processes"
+    ],
+    "PII": [
+      "architecture/18-observability",
+      "aws/14-cloudwatch",
+      "backend/22-observability",
+      "cicd/16-environments",
+      "databases/19-security",
+      "devops/14-logging",
+      "frontend/23-monitoring",
+      "graphql/25-monitoring",
+      "html/27-html-apis",
+      "nodejs/27-monitoring",
+      "prisma/20-debugging",
+      "rest-api/01-http",
+      "rest-api/26-monitoring",
+      "woocommerce/06-customers",
+      "woocommerce/16-security",
+      "woocommerce/18-emails",
+      "woocommerce/23-monitoring"
     ],
     "PING": [
       "redis/01-installation",
@@ -8677,6 +9361,7 @@
     ],
     "PNG": [
       "figma/15-screenshot-comparison",
+      "figma/18-image-assets",
       "performance/11-images"
     ],
     "POLICY": [
@@ -8716,6 +9401,12 @@
     ],
     "POSTGRES_USER": [
       "tools/20-local-environments"
+    ],
+    "POUR": [
+      "accessibility/02-pour-principles"
+    ],
+    "PPR": [
+      "nextjs/08-rendering-strategies"
     ],
     "PREPARE": [
       "mysql/27-procedures"
@@ -8811,6 +9502,14 @@
     "PR_URL": [
       "github/15-dependabot"
     ],
+    "PSR": [
+      "php/05-namespaces",
+      "php/06-autoloading",
+      "php/11-http",
+      "php/24-psr-standards",
+      "php/29-architecture",
+      "php/30-engineering-principles"
+    ],
     "PSUBSCRIBE": [
       "redis/09-pub-sub"
     ],
@@ -8844,6 +9543,10 @@
       "rest-api/27-best-practices",
       "rest-api/30-engineering-principles",
       "security/12-csrf"
+    ],
+    "PVC": [
+      "kubernetes/12-persistent-volumes",
+      "kubernetes/13-statefulsets"
     ],
     "PXAT": [
       "redis/12-expiration"
@@ -9556,6 +10259,9 @@
       "architecture/15-security",
       "aws/02-iam"
     ],
+    "QPS": [
+      "mysql/15-monitoring"
+    ],
     "QUIC": [
       "nginx/11-http3"
     ],
@@ -9616,6 +10322,15 @@
     "QuickStats": [
       "nextjs/08-rendering-strategies"
     ],
+    "RAM": [
+      "docker/17-resource-limits",
+      "mysql/02-configuration",
+      "mysql/14-performance",
+      "nginx/22-php-fpm",
+      "postgresql/02-configuration",
+      "postgresql/27-tuning",
+      "redis/27-production"
+    ],
     "RAND": [
       "mysql/09-replication"
     ],
@@ -9639,6 +10354,32 @@
     "RATE_LIMIT": [
       "engineering/05-context-first-development"
     ],
+    "RBAC": [
+      "cicd/22-kubernetes-integration",
+      "kubernetes/01-architecture",
+      "kubernetes/02-cluster",
+      "kubernetes/10-secrets",
+      "kubernetes/100-common-antipatterns",
+      "kubernetes/17-network-policies",
+      "kubernetes/18-rbac",
+      "nestjs/09-guards",
+      "nestjs/16-authorization"
+    ],
+    "RCE": [
+      "nginx/21-fastcgi",
+      "nginx/22-php-fpm"
+    ],
+    "RDB": [
+      "redis/18-replication",
+      "redis/20-persistence",
+      "redis/27-production",
+      "redis/29-tooling"
+    ],
+    "RDS": [
+      "aws/01-global-infrastructure",
+      "aws/05-rds",
+      "aws/31-high-availability"
+    ],
     "READABLE": [
       "wordpress/04-code-style",
       "wordpress/05-performance",
@@ -9646,9 +10387,12 @@
       "wordpress/18-rest-api"
     ],
     "README": [
+      "architecture/25-documentation",
+      "backend/24-documentation",
       "frontend/24-documentation",
       "git/03-repository",
       "github/02-repositories",
+      "github/27-best-practices",
       "tools/16-git-hooks",
       "tools/19-task-runners",
       "tools/20-local-environments",
@@ -9672,6 +10416,11 @@
     ],
     "RECURSIVE": [
       "sql/07-common-table-expressions"
+    ],
+    "RED": [
+      "performance/02-metrics",
+      "performance/17-monitoring",
+      "rest-api/26-monitoring"
     ],
     "REDACTED": [
       "cicd/15-secrets",
@@ -9787,17 +10536,34 @@
     ],
     "REST": [
       "ai/01-context-gathering",
+      "aws/13-api-gateway",
+      "divi/17-rest-api",
+      "divi/18-headless",
       "examples/03-wordpress-feature",
+      "github/01-github-platform",
       "github/04-projects",
+      "github/22-api",
       "graphql/01-graphql-fundamentals",
+      "rest-api/01-http",
+      "rest-api/02-rest-principles",
+      "rest-api/15-authentication",
+      "rest-api/24-security",
+      "rest-api/27-best-practices",
+      "woocommerce/06-customers",
+      "woocommerce/13-rest-api",
       "wordpress/01-wordpress-architecture",
       "wordpress/03-best-practices",
+      "wordpress/07-testing",
       "wordpress/09-custom-post-types",
       "wordpress/10-taxonomies",
+      "wordpress/100-common-antipatterns",
       "wordpress/11-metadata",
+      "wordpress/14-theme-development",
       "wordpress/15-plugin-development",
+      "wordpress/18-rest-api",
       "wordpress/27-deployment",
       "wordpress/28-debugging",
+      "workflows/07-add-api-endpoint",
       "workflows/09-build-wordpress-feature"
     ],
     "RESTART": [
@@ -9851,6 +10617,13 @@
     "RIGHT": [
       "redis/04-lists",
       "sql/05-joins"
+    ],
+    "RLS": [
+      "databases/25-multi-tenancy",
+      "postgresql/19-roles-and-permissions",
+      "postgresql/23-testing",
+      "prisma/22-multi-tenancy",
+      "sql/22-security"
     ],
     "ROBOTS_DEFAULT": [
       "seo/29-seo-review"
@@ -9910,6 +10683,22 @@
     "ROW_NUMBER": [
       "sql/08-window-functions"
     ],
+    "RPC": [
+      "rest-api/02-rest-principles"
+    ],
+    "RPO": [
+      "aws/27-production",
+      "aws/31-high-availability",
+      "databases/18-backup-and-recovery",
+      "databases/22-high-availability",
+      "databases/29-architecture",
+      "devops/18-disaster-recovery",
+      "kubernetes/28-disaster-recovery",
+      "mysql/11-backups",
+      "postgresql/13-high-availability",
+      "postgresql/14-backups",
+      "postgresql/26-production"
+    ],
     "RPOP": [
       "redis/04-lists",
       "redis/16-message-queues"
@@ -9922,6 +10711,25 @@
       "backend/10-authentication",
       "rest-api/15-authentication",
       "security/07-jwt"
+    ],
+    "RSS": [
+      "nodejs/20-memory-management"
+    ],
+    "RTO": [
+      "aws/27-production",
+      "aws/31-high-availability",
+      "databases/18-backup-and-recovery",
+      "databases/29-architecture",
+      "devops/18-disaster-recovery",
+      "kubernetes/28-disaster-recovery",
+      "linux/20-backups",
+      "mysql/11-backups",
+      "mysql/21-high-availability",
+      "postgresql/14-backups",
+      "postgresql/26-production"
+    ],
+    "RTT": [
+      "nginx/11-http3"
     ],
     "RULE": [
       "backend/07-business-logic"
@@ -10453,8 +11261,16 @@
       "sql/27-portability",
       "tailwind/16-theme"
     ],
+    "SAML": [
+      "github/28-enterprise"
+    ],
     "SARIF": [
-      "cicd/06-security-scanning"
+      "cicd/06-security-scanning",
+      "cicd/29-tooling"
+    ],
+    "SAST": [
+      "cicd/06-security-scanning",
+      "testing/17-security-testing"
     ],
     "SAVE": [
       "redis/21-security"
@@ -10480,7 +11296,14 @@
     ],
     "SBOM": [
       "cicd/07-artifacts",
-      "docker/28-tooling"
+      "devops/16-security",
+      "docker/28-tooling",
+      "docker/29-ci-integration",
+      "github/10-packages",
+      "security/23-dependency-security"
+    ],
+    "SCA": [
+      "cicd/06-security-scanning"
     ],
     "SCAN": [
       "redis/100-common-antipatterns",
@@ -10527,10 +11350,19 @@
       "nginx/22-php-fpm"
     ],
     "SCSS": [
-      "figma/12-ai-prompts"
+      "figma/12-ai-prompts",
+      "tools/06-stylelint"
     ],
     "SDIFF": [
       "redis/05-sets"
+    ],
+    "SDK": [
+      "architecture/04-hexagonal-architecture",
+      "backend/04-hexagonal-architecture"
+    ],
+    "SDL": [
+      "graphql/02-schema",
+      "graphql/28-tooling"
     ],
     "SECOND": [
       "rest-api/18-idempotency"
@@ -10545,7 +11377,10 @@
     ],
     "SECURITY": [
       "databases/25-multi-tenancy",
-      "mysql/27-procedures"
+      "github/13-security",
+      "mysql/27-procedures",
+      "postgresql/19-roles-and-permissions",
+      "sql/20-stored-procedures"
     ],
     "SECURITY.md": [
       "github/02-repositories",
@@ -10564,6 +11399,32 @@
     ],
     "SENTRY_DSN": [
       "tools/29-observability-tools"
+    ],
+    "SEO": [
+      "divi/13-seo",
+      "divi/18-headless",
+      "frontend/11-seo",
+      "html/12-seo",
+      "nextjs/04-routing",
+      "nextjs/08-rendering-strategies",
+      "nextjs/19-seo",
+      "seo/01-seo-fundamentals",
+      "seo/04-rendering",
+      "seo/05-metadata",
+      "seo/100-common-antipatterns",
+      "seo/14-international-seo",
+      "seo/15-local-seo",
+      "seo/17-links",
+      "seo/19-javascript-seo",
+      "seo/20-headless-seo",
+      "seo/21-analytics",
+      "seo/23-audits",
+      "seo/24-monitoring",
+      "seo/26-best-practices",
+      "seo/27-production-checks",
+      "seo/29-seo-review",
+      "seo/30-engineering-principles",
+      "woocommerce/14-headless"
     ],
     "SEPARATE": [
       "prompts/03-refactoring"
@@ -10633,6 +11494,24 @@
     "SFTP": [
       "woocommerce/22-deployment"
     ],
+    "SHA": [
+      "architecture/24-deployment",
+      "cicd/08-versioning",
+      "cicd/17-github-actions",
+      "cicd/21-docker-integration",
+      "cicd/29-tooling",
+      "devops/05-build-pipelines",
+      "devops/06-release-management",
+      "git/21-submodules",
+      "github/08-actions",
+      "github/100-common-antipatterns",
+      "github/13-security",
+      "github/30-engineering-principles",
+      "security/03-authentication",
+      "security/05-password-security",
+      "security/17-encryption",
+      "security/24-supply-chain-security"
+    ],
     "SHAPE": [
       "testing/11-contract-testing"
     ],
@@ -10657,10 +11536,14 @@
     ],
     "SHOW": [
       "mysql/15-monitoring",
+      "mysql/18-debugging",
       "tools/24-database-tools"
     ],
     "SHUTDOWN": [
       "redis/21-security"
+    ],
+    "SIEM": [
+      "github/28-enterprise"
     ],
     "SIGINT": [
       "linux/06-processes",
@@ -10696,6 +11579,7 @@
       "backend/27-production",
       "devops/07-deployment-strategies",
       "devops/10-containerization",
+      "devops/11-orchestration",
       "docker/04-containers",
       "docker/08-dockerfile",
       "docker/100-common-antipatterns",
@@ -10765,14 +11649,33 @@
     "SKIP": [
       "postgresql/07-locking"
     ],
+    "SLA": [
+      "databases/13-eventual-consistency"
+    ],
     "SLACK_WEBHOOK": [
       "cicd/24-notifications"
+    ],
+    "SLI": [
+      "devops/27-sre-principles"
     ],
     "SLIDING_WINDOW": [
       "security/21-rate-limiting"
     ],
     "SLO": [
-      "performance/25-production-monitoring"
+      "architecture/16-high-availability",
+      "cicd/23-monitoring",
+      "devops/15-alerting",
+      "devops/19-high-availability",
+      "devops/21-performance",
+      "devops/27-sre-principles",
+      "kubernetes/23-monitoring",
+      "nginx/17-monitoring",
+      "nodejs/27-monitoring",
+      "performance/02-metrics",
+      "performance/17-monitoring",
+      "performance/22-load-testing",
+      "performance/25-production-monitoring",
+      "rest-api/26-monitoring"
     ],
     "SLOWER": [
       "css/22-performance"
@@ -10782,6 +11685,9 @@
       "redis/28-observability",
       "redis/29-tooling",
       "redis/30-engineering-principles"
+    ],
+    "SLSA": [
+      "security/24-supply-chain-security"
     ],
     "SMALLINT": [
       "sql/11-data-types"
@@ -10803,11 +11709,16 @@
       "nestjs/21-events",
       "wordpress/03-best-practices"
     ],
+    "SNS": [
+      "aws/22-sns",
+      "aws/23-eventbridge"
+    ],
     "SOA": [
       "aws/07-route53"
     ],
     "SOLID": [
-      "figma/01-figma-analysis"
+      "figma/01-figma-analysis",
+      "nestjs/30-engineering-principles"
     ],
     "SOME": [
       "docker/17-resource-limits"
@@ -10829,6 +11740,19 @@
     ],
     "SOURCE_LOG_POS": [
       "mysql/21-high-availability"
+    ],
+    "SPA": [
+      "nginx/07-static-files",
+      "seo/28-real-world-patterns"
+    ],
+    "SPF": [
+      "woocommerce/18-emails"
+    ],
+    "SPL": [
+      "php/09-exceptions"
+    ],
+    "SPOF": [
+      "devops/19-high-availability"
     ],
     "SPRING25": [
       "tools/23-api-clients"
@@ -10861,17 +11785,59 @@
     "SQL_OP": [
       "rest-api/11-filtering"
     ],
+    "SQS": [
+      "aws/21-sqs",
+      "aws/22-sns",
+      "aws/23-eventbridge"
+    ],
+    "SRE": [
+      "devops/27-sre-principles"
+    ],
     "SSCAN": [
       "redis/05-sets",
       "redis/100-common-antipatterns",
       "redis/23-performance",
       "redis/26-best-practices"
     ],
+    "SSD": [
+      "postgresql/27-tuning"
+    ],
+    "SSE": [
+      "aws/04-s3"
+    ],
+    "SSG": [
+      "frontend/07-rendering"
+    ],
+    "SSH": [
+      "aws/03-ec2",
+      "docker/10-buildkit",
+      "git/13-remote-repositories",
+      "git/28-security",
+      "linux/05-permissions",
+      "linux/10-ssh",
+      "linux/17-security",
+      "linux/21-firewall",
+      "linux/29-system-administration"
+    ],
+    "SSL": [
+      "nginx/12-ssl-tls"
+    ],
+    "SSM": [
+      "aws/03-ec2"
+    ],
+    "SSO": [
+      "github/19-organizations",
+      "github/28-enterprise"
+    ],
     "SSR": [
-      "react/24-design-patterns"
+      "frontend/07-rendering",
+      "react/24-design-patterns",
+      "seo/19-javascript-seo",
+      "seo/29-seo-review"
     ],
     "SSRF": [
       "aws/03-ec2",
+      "kubernetes/17-network-policies",
       "nextjs/24-security",
       "nginx/28-tooling"
     ],
@@ -10920,6 +11886,9 @@
     ],
     "STORAGE_REGION": [
       "nestjs/02-modules"
+    ],
+    "STORE": [
+      "redis/05-sets"
     ],
     "STORED": [
       "mysql/24-json",
@@ -11007,6 +11976,19 @@
       "databases/19-security",
       "postgresql/19-roles-and-permissions",
       "sql/30-engineering-principles"
+    ],
+    "SVG": [
+      "figma/18-image-assets",
+      "html/16-svg",
+      "html/17-canvas",
+      "nextjs/16-images",
+      "security/15-file-upload-security",
+      "wordpress/21-media-and-uploads"
+    ],
+    "SWC": [
+      "tools/03-typescript-compiler",
+      "tools/11-esbuild-and-swc",
+      "tools/12-babel"
     ],
     "SYSTEM": [
       "postgresql/12-replication"
@@ -11569,8 +12551,17 @@
     "TARGET_URL": [
       "tools/24-database-tools"
     ],
+    "TBD": [
+      "git/23-trunk-based-development"
+    ],
     "TCP": [
-      "nginx/11-http3"
+      "aws/10-elastic-load-balancer",
+      "nginx/10-http2",
+      "nginx/11-http3",
+      "nginx/22-php-fpm"
+    ],
+    "TDZ": [
+      "javascript/02-execution-context"
     ],
     "TEMPLATE": [
       "devops/12-monitoring"
@@ -11636,10 +12627,38 @@
     "TKey": [
       "typescript/08-generics"
     ],
+    "TLS": [
+      "aws/04-s3",
+      "aws/08-cloudfront",
+      "aws/09-acm",
+      "aws/10-elastic-load-balancer",
+      "aws/13-api-gateway",
+      "databases/19-security",
+      "kubernetes/08-ingress",
+      "mysql/12-security",
+      "nginx/03-server-blocks",
+      "nginx/09-compression",
+      "nginx/10-http2",
+      "nginx/11-http3",
+      "nginx/12-ssl-tls",
+      "nginx/15-authentication",
+      "nginx/18-performance",
+      "nginx/23-docker",
+      "nginx/25-production",
+      "nginx/28-tooling",
+      "nginx/29-troubleshooting",
+      "nginx/30-engineering-principles",
+      "php/11-http",
+      "postgresql/18-security",
+      "redis/21-security",
+      "redis/27-production",
+      "security/18-https"
+    ],
     "TLS13": [
       "aws/10-elastic-load-balancer"
     ],
     "TOAST": [
+      "postgresql/08-jsonb",
       "postgresql/25-best-practices"
     ],
     "TODO": [
@@ -11688,8 +12707,27 @@
       "seo/12-performance"
     ],
     "TTL": [
+      "architecture/19-caching-strategies",
+      "aws/07-route53",
+      "backend/13-caching",
+      "graphql/21-caching",
+      "nestjs/19-caching",
+      "performance/08-caching",
+      "performance/100-common-antipatterns",
+      "performance/27-best-practices",
+      "redis/03-strings",
+      "redis/05-sets",
+      "redis/07-hashes",
+      "redis/100-common-antipatterns",
       "redis/12-expiration",
-      "redis/24-testing"
+      "redis/13-caching",
+      "redis/14-rate-limiting",
+      "redis/15-session-storage",
+      "redis/17-distributed-locks",
+      "redis/24-testing",
+      "redis/26-best-practices",
+      "redis/30-engineering-principles",
+      "rest-api/18-idempotency"
     ],
     "TTL_MS": [
       "nestjs/19-caching"
@@ -12003,6 +13041,14 @@
       "tools/25-editor-setup",
       "tools/26-ai-coding-tools"
     ],
+    "UDP": [
+      "aws/10-elastic-load-balancer",
+      "nginx/11-http3"
+    ],
+    "UID": [
+      "linux/04-users-and-groups",
+      "linux/22-containers"
+    ],
     "UNAUTHENTICATED": [
       "graphql/08-context",
       "graphql/18-authentication",
@@ -12134,6 +13180,11 @@
       "tools/22-profilers"
     ],
     "UTC": [
+      "backend/18-database-design",
+      "kubernetes/16-cronjobs",
+      "postgresql/03-data-types",
+      "security/25-monitoring",
+      "sql/11-data-types",
       "templates/03-incident-report"
     ],
     "UTF-8": [
@@ -12142,10 +13193,14 @@
     "UTF8": [
       "postgresql/01-installation"
     ],
+    "UTM": [
+      "seo/21-analytics"
+    ],
     "UUID": [
       "databases/06-schema-design",
       "graphql/09-scalars",
       "linux/11-storage",
+      "mysql/04-indexes",
       "mysql/19-best-practices",
       "mysql/30-engineering-principles",
       "nestjs/12-pipes",
@@ -12490,6 +13545,10 @@
     "VIEWPORTS": [
       "figma/10-design-qa"
     ],
+    "VIP": [
+      "nginx/27-high-availability",
+      "postgresql/13-high-availability"
+    ],
     "VIRTUAL": [
       "mysql/24-json"
     ],
@@ -12515,6 +13574,16 @@
     ],
     "VOLATILE": [
       "sql/07-common-table-expressions"
+    ],
+    "VPA": [
+      "kubernetes/20-autoscaling"
+    ],
+    "VPAT": [
+      "accessibility/26-legal-requirements",
+      "accessibility/29-documentation"
+    ],
+    "VPC": [
+      "aws/06-vpc"
     ],
     "VRRP": [
       "nginx/27-high-availability"
@@ -12599,6 +13668,12 @@
       "kubernetes/12-persistent-volumes",
       "kubernetes/28-disaster-recovery"
     ],
+    "WAF": [
+      "aws/08-cloudfront"
+    ],
+    "WAI": [
+      "html/28-common-patterns"
+    ],
     "WAIT": [
       "cicd/22-kubernetes-integration",
       "redis/18-replication"
@@ -12609,6 +13684,10 @@
     "WAIT_FOR_EXECUTED_GTID_SET": [
       "mysql/09-replication"
     ],
+    "WAL": [
+      "postgresql/12-replication",
+      "postgresql/14-backups"
+    ],
     "WATCH": [
       "redis/10-transactions",
       "redis/100-common-antipatterns",
@@ -12616,16 +13695,27 @@
       "redis/30-engineering-principles"
     ],
     "WCAG": [
+      "accessibility/01-accessibility-fundamentals",
+      "accessibility/02-pour-principles",
+      "accessibility/10-color-and-contrast",
+      "accessibility/11-typography",
       "accessibility/13-responsive-accessibility",
       "accessibility/14-motion-and-animation",
       "accessibility/15-media",
+      "accessibility/18-error-messages",
       "accessibility/21-axe",
       "accessibility/23-wcag",
+      "accessibility/24-accessibility-testing",
       "accessibility/26-legal-requirements",
       "accessibility/29-documentation",
       "css/11-colors",
+      "css/13-borders",
+      "css/23-accessibility",
+      "divi/12-accessibility",
       "figma/16-accessibility-from-figma",
-      "html/15-iframes"
+      "html/15-iframes",
+      "tailwind/22-accessibility",
+      "testing/18-accessibility-testing"
     ],
     "WC_Cart": [
       "woocommerce/12-hooks"
@@ -12786,6 +13876,9 @@
     ],
     "WORKER_PID": [
       "linux/06-processes"
+    ],
+    "WPCS": [
+      "wordpress/04-code-style"
     ],
     "WP_AUTO_UPDATE_CORE": [
       "divi/25-production",
@@ -13209,6 +14302,12 @@
       "redis/08-streams",
       "redis/16-message-queues"
     ],
+    "XID": [
+      "postgresql/17-monitoring"
+    ],
+    "XINFO": [
+      "redis/08-streams"
+    ],
     "XLSX": [
       "workflows/03-create-new-feature"
     ],
@@ -13222,6 +14321,22 @@
     "XREADGROUP": [
       "redis/08-streams",
       "redis/16-message-queues"
+    ],
+    "XSS": [
+      "divi/07-dynamic-content",
+      "divi/15-custom-fields",
+      "frontend/14-security",
+      "html/19-security",
+      "javascript/12-dom",
+      "php/11-http",
+      "react/25-security",
+      "security/06-session-management",
+      "security/07-jwt",
+      "security/11-xss",
+      "security/12-csrf",
+      "security/20-csp",
+      "security/22-security-headers",
+      "wordpress/06-security"
     ],
     "XTRIM": [
       "redis/08-streams",
@@ -14755,6 +15870,13 @@
     "apt-get": [
       "linux/12-package-management"
     ],
+    "architecture decision record": [
+      "architecture/26-architecture-decision-records",
+      "architecture/27-architecture-review",
+      "backend/29-architecture-review",
+      "nestjs/29-maintenance",
+      "templates/02-architecture-decision-record"
+    ],
     "archive": [
       "devops/22-testing",
       "wordpress/13-template-hierarchy",
@@ -15295,6 +16417,9 @@
     "author_ids": [
       "architecture/14-performance"
     ],
+    "authoring practices guide": [
+      "accessibility/07-aria"
+    ],
     "authorization": [
       "backend/10-authentication"
     ],
@@ -15316,6 +16441,9 @@
       "figma/04-auto-layout",
       "nginx/18-performance",
       "performance/12-fonts"
+    ],
+    "auto scaling groups": [
+      "aws/11-auto-scaling"
     ],
     "auto-fill": [
       "css/07-grid",
@@ -15580,6 +16708,9 @@
       "kubernetes/08-ingress",
       "nginx/29-troubleshooting",
       "postgresql/24-debugging"
+    ],
+    "backend for frontend": [
+      "woocommerce/14-headless"
     ],
     "background": [
       "css/01-css-fundamentals",
@@ -17310,6 +18441,11 @@
       "tools/14-playwright",
       "tools/21-debuggers"
     ],
+    "command query responsibility segregation": [
+      "architecture/07-cqrs",
+      "architecture/29-real-world-patterns",
+      "nestjs/22-cqrs"
+    ],
     "commander": [
       "nodejs/23-cli-development"
     ],
@@ -17399,6 +18535,11 @@
       "nestjs/28-deployment",
       "nestjs/29-maintenance",
       "react/100-common-antipatterns"
+    ],
+    "common table expressions": [
+      "sql/06-subqueries",
+      "sql/07-common-table-expressions",
+      "sql/08-window-functions"
     ],
     "compare_digest": [
       "github/01-github-platform"
@@ -17814,6 +18955,15 @@
       "tailwind/15-customization",
       "wordpress/13-template-hierarchy"
     ],
+    "content security policy": [
+      "frontend/14-security",
+      "html/19-security",
+      "nginx/13-security",
+      "react/25-security",
+      "security/11-xss",
+      "security/20-csp",
+      "security/22-security-headers"
+    ],
     "content-auto": [
       "tailwind/19-performance"
     ],
@@ -17977,6 +19127,21 @@
       "nestjs/27-performance",
       "nestjs/28-deployment",
       "nestjs/29-maintenance"
+    ],
+    "core web vitals": [
+      "divi/13-seo",
+      "frontend/08-performance",
+      "frontend/11-seo",
+      "frontend/23-monitoring",
+      "javascript/27-browser-performance",
+      "nextjs/20-performance",
+      "performance/18-web-vitals",
+      "seo/13-core-web-vitals",
+      "seo/16-images",
+      "seo/21-analytics",
+      "seo/22-search-console",
+      "seo/24-monitoring",
+      "seo/27-production-checks"
     ],
     "core-js": [
       "tools/12-babel"
@@ -18303,6 +19468,20 @@
       "linux/23-automation",
       "woocommerce/27-production"
     ],
+    "cross origin resource sharing": [
+      "html/17-canvas",
+      "nestjs/13-middleware",
+      "security/12-csrf",
+      "security/19-cors"
+    ],
+    "cross site request forgery": [
+      "php/13-security",
+      "security/06-session-management",
+      "security/08-oauth",
+      "security/12-csrf",
+      "security/19-cors",
+      "woocommerce/16-security"
+    ],
     "crossorigin": [
       "frontend/18-assets",
       "performance/12-fonts"
@@ -18378,6 +19557,18 @@
       "prisma/04-relations",
       "prisma/05-migrations",
       "prisma/16-indexes"
+    ],
+    "cumulative layout shift": [
+      "css/22-performance",
+      "divi/10-performance",
+      "frontend/07-rendering",
+      "frontend/18-assets",
+      "html/18-performance",
+      "javascript/27-browser-performance",
+      "nextjs/17-fonts",
+      "performance/12-fonts",
+      "performance/18-web-vitals",
+      "seo/13-core-web-vitals"
     ],
     "cur": [
       "mysql/12-security",
@@ -18594,6 +19785,18 @@
       "figma/13-visual-regression",
       "nextjs/30-migration-guide"
     ],
+    "data access layer": [
+      "nextjs/02-project-structure",
+      "nextjs/15-authorization"
+    ],
+    "data transfer objects": [
+      "backend/06-api-design",
+      "nestjs/04-controllers",
+      "nestjs/05-services",
+      "nestjs/07-dto",
+      "nestjs/08-validation",
+      "nestjs/12-pipes"
+    ],
     "data-expanded": [
       "html/14-custom-data-attributes"
     ],
@@ -18753,6 +19956,14 @@
     "deactivate": [
       "typescript/05-objects",
       "wordpress/15-plugin-development"
+    ],
+    "dead letter queue": [
+      "architecture/20-message-brokers",
+      "aws/21-sqs",
+      "aws/22-sns",
+      "aws/23-eventbridge",
+      "backend/15-message-brokers",
+      "nestjs/20-queues"
     ],
     "deadLetter": [
       "backend/15-message-brokers"
@@ -19057,6 +20268,13 @@
     "dependency": [
       "ai/02-task-planning",
       "rest-api/28-production"
+    ],
+    "dependency injection": [
+      "nestjs/01-architecture",
+      "nestjs/03-dependency-injection",
+      "nestjs/14-configuration",
+      "php/20-dependency-injection",
+      "php/21-design-patterns"
     ],
     "dependency-cruiser": [
       "backend/25-code-organization"
@@ -19609,6 +20827,10 @@
     "domain": [
       "nestjs/11-exception-filters"
     ],
+    "domain driven design": [
+      "architecture/06-domain-driven-design",
+      "backend/05-ddd"
+    ],
     "domain_name": [
       "aws/09-acm"
     ],
@@ -19938,6 +21160,9 @@
     "embed": [
       "html/15-iframes"
     ],
+    "embedded metric format": [
+      "aws/14-cloudwatch"
+    ],
     "emit": [
       "aws/14-cloudwatch",
       "nestjs/05-services",
@@ -20241,6 +21466,9 @@
     "err.message": [
       "javascript/14-error-handling",
       "nodejs/17-logging"
+    ],
+    "errexit": [
+      "linux/03-bash"
     ],
     "errgroup": [
       "performance/14-api-performance"
@@ -21344,6 +22572,9 @@
     ],
     "filesystem": [
       "linux/11-storage"
+    ],
+    "filesystem hierarchy standard": [
+      "linux/01-filesystem"
     ],
     "fill": [
       "nextjs/100-common-antipatterns",
@@ -23448,6 +24679,9 @@
       "nextjs/28-best-practices",
       "tailwind/23-nextjs"
     ],
+    "google search console": [
+      "seo/22-search-console"
+    ],
     "googleapiclient": [
       "seo/22-search-console"
     ],
@@ -24615,6 +25849,10 @@
     "incident": [
       "linux/27-troubleshooting"
     ],
+    "incident commander": [
+      "devops/25-incident-management",
+      "security/26-incident-response"
+    ],
     "includeSubDomains": [
       "nginx/12-ssl-tls",
       "security/18-https",
@@ -24662,6 +25900,10 @@
     ],
     "incremental": [
       "typescript/29-tooling"
+    ],
+    "incremental static regeneration": [
+      "frontend/07-rendering",
+      "nextjs/08-rendering-strategies"
     ],
     "indent_size": [
       "tools/05-prettier",
@@ -25035,6 +26277,13 @@
     ],
     "inter.variable": [
       "nextjs/17-fonts"
+    ],
+    "interaction to next paint": [
+      "frontend/08-performance",
+      "javascript/27-browser-performance",
+      "performance/18-web-vitals",
+      "performance/23-performance-budget",
+      "seo/13-core-web-vitals"
     ],
     "interactive": [
       "figma/16-accessibility-from-figma"
@@ -25644,6 +26893,14 @@
       "woocommerce/14-headless",
       "workflows/07-add-api-endpoint"
     ],
+    "json web tokens": [
+      "aws/13-api-gateway",
+      "backend/10-authentication",
+      "graphql/18-authentication",
+      "nestjs/14-configuration",
+      "rest-api/15-authentication",
+      "security/07-jwt"
+    ],
     "json-file": [
       "docker/16-logging"
     ],
@@ -25884,8 +27141,31 @@
     "large": [
       "nestjs/05-services"
     ],
+    "large file storage": [
+      "git/24-monorepo",
+      "git/25-lfs"
+    ],
     "large_client_header_buffers": [
       "nginx/13-security"
+    ],
+    "largest contentful paint": [
+      "divi/10-performance",
+      "divi/13-seo",
+      "frontend/08-performance",
+      "frontend/18-assets",
+      "html/05-images",
+      "html/18-performance",
+      "javascript/27-browser-performance",
+      "nextjs/16-images",
+      "performance/07-loading",
+      "performance/09-lazy-loading",
+      "performance/11-images",
+      "performance/18-web-vitals",
+      "performance/23-performance-budget",
+      "seo/12-performance",
+      "seo/13-core-web-vitals",
+      "seo/16-images",
+      "wordpress/21-media-and-uploads"
     ],
     "last": [
       "graphql/100-common-antipatterns",
@@ -27787,6 +29067,16 @@
     "multi": [
       "redis/10-transactions"
     ],
+    "multi factor authentication": [
+      "aws/02-iam",
+      "aws/25-security",
+      "github/19-organizations",
+      "github/28-enterprise",
+      "nestjs/15-authentication",
+      "security/03-authentication",
+      "security/21-rate-limiting",
+      "security/28-owasp-top10"
+    ],
     "multi_az": [
       "aws/05-rds",
       "aws/27-production",
@@ -28691,6 +29981,9 @@
       "backend/17-transactions",
       "cicd/24-notifications"
     ],
+    "nounset": [
+      "linux/03-bash"
+    ],
     "now": [
       "architecture/21-distributed-systems",
       "backend/18-database-design",
@@ -29183,6 +30476,12 @@
       "performance/04-memory",
       "workflows/03-create-new-feature"
     ],
+    "open graph": [
+      "html/10-metadata",
+      "nextjs/18-metadata",
+      "seo/10-open-graph",
+      "seo/11-twitter-cards"
+    ],
     "open-pull-requests-limit": [
       "github/15-dependabot",
       "tools/27-dependency-management"
@@ -29359,6 +30658,10 @@
       "git/07-rebasing",
       "git/13-remote-repositories",
       "nestjs/26-security"
+    ],
+    "origin access control": [
+      "aws/04-s3",
+      "aws/08-cloudfront"
     ],
     "origin_access_control_origin_type": [
       "aws/08-cloudfront"
@@ -30003,6 +31306,9 @@
       "rest-api/20-file-upload",
       "woocommerce/05-orders",
       "woocommerce/26-debugging"
+    ],
+    "pending entries list": [
+      "redis/08-streams"
     ],
     "pending-cancel": [
       "woocommerce/19-subscriptions"
@@ -32014,6 +33320,9 @@
       "tools/13-test-runners",
       "tools/15-storybook"
     ],
+    "react server components": [
+      "nextjs/06-server-components"
+    ],
     "react-dom": [
       "react/06-state",
       "tools/27-dependency-management"
@@ -33608,6 +34917,17 @@
       "typescript/06-interfaces",
       "typescript/20-immutability"
     ],
+    "role based access control": [
+      "cicd/22-kubernetes-integration",
+      "kubernetes/01-architecture",
+      "kubernetes/02-cluster",
+      "kubernetes/10-secrets",
+      "kubernetes/100-common-antipatterns",
+      "kubernetes/17-network-policies",
+      "kubernetes/18-rbac",
+      "nestjs/09-guards",
+      "nestjs/16-authorization"
+    ],
     "role-to-assume": [
       "cicd/15-secrets",
       "cicd/17-github-actions",
@@ -33740,6 +35060,13 @@
     ],
     "routes": [
       "frontend/01-frontend-architecture"
+    ],
+    "row level security": [
+      "databases/25-multi-tenancy",
+      "postgresql/19-roles-and-permissions",
+      "postgresql/23-testing",
+      "prisma/22-multi-tenancy",
+      "sql/22-security"
     ],
     "row-reverse": [
       "accessibility/12-layout",
@@ -34268,6 +35595,32 @@
       "nextjs/07-client-components",
       "tools/25-editor-setup",
       "wordpress/13-template-hierarchy"
+    ],
+    "search engine optimization": [
+      "divi/13-seo",
+      "divi/18-headless",
+      "frontend/11-seo",
+      "html/12-seo",
+      "nextjs/04-routing",
+      "nextjs/08-rendering-strategies",
+      "nextjs/19-seo",
+      "seo/01-seo-fundamentals",
+      "seo/04-rendering",
+      "seo/05-metadata",
+      "seo/100-common-antipatterns",
+      "seo/14-international-seo",
+      "seo/15-local-seo",
+      "seo/17-links",
+      "seo/19-javascript-seo",
+      "seo/20-headless-seo",
+      "seo/21-analytics",
+      "seo/23-audits",
+      "seo/24-monitoring",
+      "seo/26-best-practices",
+      "seo/27-production-checks",
+      "seo/29-seo-review",
+      "seo/30-engineering-principles",
+      "woocommerce/14-headless"
     ],
     "search-replace": [
       "tools/24-database-tools",
@@ -35625,6 +36978,14 @@
     "softDelete": [
       "nestjs/06-repositories"
     ],
+    "software bill of materials": [
+      "cicd/07-artifacts",
+      "devops/16-security",
+      "docker/28-tooling",
+      "docker/29-ci-integration",
+      "github/10-packages",
+      "security/23-dependency-security"
+    ],
     "some": [
       "nestjs/09-guards",
       "nestjs/16-authorization",
@@ -36260,6 +37621,9 @@
       "javascript/21-functional-programming",
       "nodejs/01-nodejs-runtime",
       "tools/27-dependency-management"
+    ],
+    "sts:AssumeRole": [
+      "aws/02-iam"
     ],
     "stub_status": [
       "nginx/17-monitoring",
@@ -37427,6 +38791,32 @@
       "wordpress/22-cron-and-background-tasks",
       "wordpress/23-caching",
       "wordpress/28-debugging"
+    ],
+    "time to first byte": [
+      "seo/12-performance"
+    ],
+    "time to live": [
+      "architecture/19-caching-strategies",
+      "aws/07-route53",
+      "backend/13-caching",
+      "graphql/21-caching",
+      "nestjs/19-caching",
+      "performance/08-caching",
+      "performance/100-common-antipatterns",
+      "performance/27-best-practices",
+      "redis/03-strings",
+      "redis/05-sets",
+      "redis/07-hashes",
+      "redis/100-common-antipatterns",
+      "redis/12-expiration",
+      "redis/13-caching",
+      "redis/14-rate-limiting",
+      "redis/15-session-storage",
+      "redis/17-distributed-locks",
+      "redis/24-testing",
+      "redis/26-best-practices",
+      "redis/30-engineering-principles",
+      "rest-api/18-idempotency"
     ],
     "timeZone": [
       "kubernetes/16-cronjobs"
@@ -39772,6 +41162,9 @@
     "virtual": [
       "woocommerce/03-product-types"
     ],
+    "virtual private cloud": [
+      "aws/06-vpc"
+    ],
     "visibility": [
       "html/29-debugging"
     ],
@@ -40016,6 +41409,27 @@
     ],
     "wcs_get_subscription": [
       "woocommerce/19-subscriptions"
+    ],
+    "web content accessibility guidelines": [
+      "accessibility/01-accessibility-fundamentals",
+      "accessibility/02-pour-principles",
+      "accessibility/10-color-and-contrast",
+      "accessibility/11-typography",
+      "accessibility/13-responsive-accessibility",
+      "accessibility/14-motion-and-animation",
+      "accessibility/15-media",
+      "accessibility/18-error-messages",
+      "accessibility/21-axe",
+      "accessibility/23-wcag",
+      "accessibility/24-accessibility-testing",
+      "accessibility/26-legal-requirements",
+      "css/11-colors",
+      "css/13-borders",
+      "css/23-accessibility",
+      "divi/12-accessibility",
+      "figma/16-accessibility-from-figma",
+      "tailwind/22-accessibility",
+      "testing/18-accessibility-testing"
     ],
     "web-vitals": [
       "frontend/23-monitoring",

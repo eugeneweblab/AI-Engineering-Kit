@@ -157,5 +157,55 @@ python3 scripts/check-agent-instructions.py
 
 ---
 
-All four linters run in CI via `.github/workflows/knowledge-guardrails.yml`, which
-also fails the build if `INDEX.json`/`INDEX.md` are out of sync with the frontmatter.
+## `selftest-guardrails.py`
+
+Proves the linters can fail. It copies the base, injects one real defect per rule and
+per block language — 39 in all, each in its own document — and reports any that goes
+unnoticed.
+
+This exists because a green run is not evidence on its own. Two checks here reported
+success while doing nothing: `html-validate` wrote its report to a stdout pipe that
+Node truncated at 64 KiB, so the JSON never parsed; and a missing parser returned the
+same value as "no problem found". Neither was visible from the outside.
+
+A case whose parser is not installed is reported as **not proved** rather than as a
+missing rule, and still fails the run — an unchecked language must not read as clean.
+
+```bash
+python3 scripts/selftest-guardrails.py            # every case (~70 s)
+python3 scripts/selftest-guardrails.py sql html   # only matching names
+```
+
+---
+
+## `selftest-retrieval.py`
+
+Answers a different question: not "is the base well-formed" but "does an agent
+following [`AGENTS.md`](../AGENTS.md) actually land on the right rule". It runs 41
+realistic questions — at least one per language and framework in the base — through
+the documented protocol: detect the stack from `SIGNALS.stack`, resolve symbols
+through `SIGNALS.symbols`, then rank `ready` documents by `when_to_use`, `tags`,
+slug and title.
+
+Every miss is a metadata defect, and fixing it means fixing the base. Real ones this
+found: `errexit` and `nounset` appeared nowhere in the base, so the document teaching
+`set -euo pipefail` was unreachable by the names of its own options; `AssumeRole` was
+in a checklist but not in `aws/02-iam`; and terms of art that live in prose — `LCP`,
+`CLS`, `IAM`, `JWT` — were not indexed at all, because only code and inline spans
+were.
+
+```bash
+python3 scripts/selftest-retrieval.py            # pass/fail per question
+python3 scripts/selftest-retrieval.py --why      # which evidence carried each answer
+python3 scripts/selftest-retrieval.py --ablate   # what each source of evidence is worth
+```
+
+`--ablate` is the honesty check: it disables one source at a time and counts how many
+questions still reach their rule. If a source can be removed with no effect, it is not
+doing the work its weight claims.
+
+---
+
+All six checks run in CI via `.github/workflows/knowledge-guardrails.yml`, which also
+fails the build if `INDEX.json`/`INDEX.md` or `SIGNALS.json` are out of sync with the
+frontmatter.

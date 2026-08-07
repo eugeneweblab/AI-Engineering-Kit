@@ -36,8 +36,10 @@ is the one discipline that contains the blast radius when something else fails.
   Start from nothing and add permissions as concrete needs appear — never start from `*`
   and trim.
 - **Roles for workloads, never long-lived keys.** EC2, Lambda, ECS, and CI should assume an
-  IAM role and receive short-lived, auto-rotated credentials. Static access keys are the
-  most-leaked secret in existence.
+  IAM role via `sts:AssumeRole` and receive short-lived, auto-rotated credentials. Static
+  access keys are the most-leaked secret in existence. The role's trust policy names who
+  may call `AssumeRole`; its permission policy names what they may then do. Both are
+  needed, and confusing them is the usual reason an assume fails.
 - **Humans authenticate through an identity provider.** Use IAM Identity Center (SSO)
   federated to your corporate IdP, not per-person IAM users with passwords.
 - **The root account is not for daily use.** Lock it with hardware MFA, remove its access

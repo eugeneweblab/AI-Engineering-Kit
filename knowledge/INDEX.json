@@ -527,7 +527,7 @@
             "accessibility/07-aria",
             "accessibility/10-color-and-contrast"
           ],
-          "when_to_use": "Read before building or reviewing form validation, error summaries, or any UI that reports a problem to the user.",
+          "when_to_use": "Read when a screen reader does not announce a validation failure, or before building form validation, error summaries, or any UI that reports a problem to the user.",
           "path": "knowledge/accessibility/18-error-messages.md"
         },
         {
@@ -22502,7 +22502,7 @@
             "performance/18-web-vitals",
             "performance/06-rendering"
           ],
-          "when_to_use": "Read before adding, serving, or reviewing any image on a page — especially hero images, thumbnails, and galleries.",
+          "when_to_use": "Read before adding, serving, or reviewing any image on a page — especially a hero image that is the LCP element, thumbnails, and galleries.",
           "path": "knowledge/performance/11-images.md"
         },
         {
@@ -22679,11 +22679,12 @@
           "tags": [
             "performance",
             "web-vitals",
-            "shift",
+            "lcp",
+            "cls",
+            "inp",
             "onLCP",
             "onINP",
-            "onCLS",
-            "sendBeacon"
+            "onCLS"
           ],
           "related": [
             "performance/02-metrics",
@@ -22692,7 +22693,7 @@
             "performance/11-images",
             "performance/23-performance-budget"
           ],
-          "when_to_use": "Read before measuring or optimizing the perceived loading and responsiveness of a web page.",
+          "when_to_use": "Read when LCP, CLS, or INP regressed, or before measuring and optimizing the perceived loading and responsiveness of a web page.",
           "path": "knowledge/performance/18-web-vitals.md"
         },
         {
