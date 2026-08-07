@@ -94,6 +94,7 @@ Blocks are handed to the real parser for their language:
 | HCL / Terraform | python-hcl2 | `pip install python-hcl2` |
 | INI | `configparser` with a synthetic section | — |
 | GraphQL | graphql-core | `pip install graphql-core` |
+| Dockerfile | hadolint, build-breaking codes only | `hadolint` binary |
 | SQL | `sqlfluff lint --rules PRS` | `pip install sqlfluff` |
 | HTML | html-validate (syntax rules only) | `npx` |
 | CSS / SCSS | stylelint with no rules enabled | `npx` |

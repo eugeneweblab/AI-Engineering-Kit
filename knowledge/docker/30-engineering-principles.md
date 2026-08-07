@@ -90,18 +90,22 @@ FROM node:22.11-slim@sha256:1a2b3c...
 WORKDIR /app
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/node_modules ./node_modules
-USER node                      # least privilege: never run as root
+# least privilege: never run as root
+USER node
 EXPOSE 3000
 HEALTHCHECK CMD node dist/health.js || exit 1
-ENTRYPOINT ["node", "dist/server.js"]   # exec form → PID 1 gets SIGTERM
+# exec form → PID 1 gets SIGTERM
+ENTRYPOINT ["node", "dist/server.js"]
 ```
 
 **Bad Example** — floating base, root, mutable, un-cacheable
 
 ```dockerfile
-FROM node:latest              # non-reproducible: "latest" drifts every rebuild
+# non-reproducible: "latest" drifts every rebuild
+FROM node:latest
 WORKDIR /app
-COPY . .                      # any code edit busts the cache for the install below
+# any code edit busts the cache for the install below
+COPY . .
 RUN npm install               # dev deps + compilers shipped to production
 # no USER → runs as root; no HEALTHCHECK; shell-form CMD swallows SIGTERM
 CMD npm start

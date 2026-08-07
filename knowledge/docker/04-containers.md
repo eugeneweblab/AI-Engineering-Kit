@@ -68,7 +68,8 @@ killed and recreated constantly, any assumption of persistence is a latent bug.
 FROM node:20-slim
 WORKDIR /app
 COPY --chown=app:app . .
-USER app                       # not root: an escape is far less dangerous
+# not root: an escape is far less dangerous
+USER app
 # Exec form → node is PID 1 and receives SIGTERM directly.
 CMD ["node", "server.js"]
 ```

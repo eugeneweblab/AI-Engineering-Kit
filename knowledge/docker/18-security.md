@@ -74,8 +74,10 @@ container hardening is held to a higher bar than the application code inside it.
 FROM gcr.io/distroless/nodejs22-debian12@sha256:abc123...
 WORKDIR /app
 COPY --chown=10001:10001 . .
-USER 10001                       # non-root: an escape lands as an unprivileged user
-CMD ["server.js"]                # distroless has no shell to exploit
+# non-root: an escape lands as an unprivileged user
+USER 10001
+# distroless has no shell to exploit
+CMD ["server.js"]
 ```
 
 ```bash
@@ -90,10 +92,13 @@ docker run \
 **Bad Example** — root, mutable base, full privileges
 
 ```dockerfile
-FROM node:latest                 # mutable tag: contents change unpredictably
+# mutable tag: contents change unpredictably
+FROM node:latest
 COPY . .
-ENV DB_PASSWORD=hunter2          # secret baked into an immutable, cached layer
-CMD ["node", "server.js"]        # runs as root by default
+# secret baked into an immutable, cached layer
+ENV DB_PASSWORD=hunter2
+# runs as root by default
+CMD ["node", "server.js"]
 ```
 
 ```bash

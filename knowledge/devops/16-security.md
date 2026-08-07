@@ -83,7 +83,8 @@ RUN npm ci --omit=dev            # locked versions, prod deps only
 
 FROM gcr.io/distroless/nodejs22@sha256:9ab1...44cd
 COPY --from=build /app /app
-USER 10001                        # non-root -> a container escape lacks host root
+# non-root -> a container escape lacks host root
+USER 10001
 # distroless has no shell/package manager -> smaller attack surface
 CMD ["/app/server.js"]
 ```
@@ -105,11 +106,14 @@ jobs:
 **Bad Example** — mutable base, root, long-lived secret in the image
 
 ```dockerfile
-FROM node:latest              # unpinned -> build is non-reproducible and unauditable
+# unpinned -> build is non-reproducible and unauditable
+FROM node:latest
 WORKDIR /app
-COPY . .                      # copies .env, .git, keys into the image layers
+# copies .env, .git, keys into the image layers
+COPY . .
 RUN npm install               # unlocked versions -> supply chain can shift under you
-ENV AWS_SECRET_ACCESS_KEY=AKIA...   # long-lived key baked into an image layer FOREVER
+# long-lived key baked into an image layer FOREVER
+ENV AWS_SECRET_ACCESS_KEY=AKIA...
 # Runs as root by default -> a single RCE is now host root.
 CMD ["node", "server.js"]
 ```

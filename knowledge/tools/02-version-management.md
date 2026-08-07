@@ -110,7 +110,8 @@ FROM node:20.11.1-alpine AS build
 ```
 
 ```dockerfile
-FROM node:latest                    # changes under you between builds
+# changes under you between builds
+FROM node:latest
 ```
 
 ```bash

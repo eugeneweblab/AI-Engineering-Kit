@@ -85,8 +85,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci --omit=dev            # no dev deps in the shipped image
 COPY --from=build /app/dist ./dist
-USER node                        # never run as root
-CMD ["node", "dist/server.js"]   # exec form: the process receives SIGTERM directly
+# never run as root
+USER node
+# exec form: the process receives SIGTERM directly
+CMD ["node", "dist/server.js"]
 ```
 
 ```ts
@@ -103,12 +105,16 @@ process.on("SIGTERM", async () => {
 **Bad Example** — fat image, root, signal-swallowing start, secrets baked in
 
 ```dockerfile
-FROM node:latest              # unpinned: today's "latest" is not tomorrow's
+# unpinned: today's "latest" is not tomorrow's
+FROM node:latest
 WORKDIR /app
-COPY . .                      # copies .env, secrets, node_modules, .git into the image
+# copies .env, secrets, node_modules, .git into the image
+COPY . .
 RUN npm install               # non-deterministic; installs dev deps into production
-ENV DATABASE_PASSWORD=hunter2 # secret baked into an image layer, readable by anyone
-CMD ["npm", "start"]          # npm eats SIGTERM → no graceful shutdown, dropped requests
+# secret baked into an image layer, readable by anyone
+ENV DATABASE_PASSWORD=hunter2
+# npm eats SIGTERM → no graceful shutdown, dropped requests
+CMD ["npm", "start"]
 ```
 
 ## Common Mistakes

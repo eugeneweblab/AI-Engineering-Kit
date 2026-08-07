@@ -88,10 +88,12 @@ CMD ["python", "-m", "app"]
 **Bad Example** — full base, caches and build tools retained across layers
 
 ```dockerfile
-FROM python:3.12            # full image: ~1 GB before your code
+# full image: ~1 GB before your code
+FROM python:3.12
 
 WORKDIR /app
-COPY . .                    # no .dockerignore → .git and caches shipped in
+# no .dockerignore → .git and caches shipped in
+COPY . .
 RUN apt-get update && apt-get install -y build-essential  # never removed
 RUN pip install -r requirements.txt                       # cache kept in a layer
 # build-essential and pip's cache live in the final image forever, adding

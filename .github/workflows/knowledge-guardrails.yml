@@ -37,6 +37,13 @@ jobs:
       - name: Install checker dependencies
         run: python3 -m pip install --quiet pyyaml sqlfluff crossplane python-hcl2 graphql-core
 
+      - name: Install hadolint
+        run: |
+          curl -sSL -o /usr/local/bin/hadolint \
+            https://github.com/hadolint/hadolint/releases/download/v2.15.1/hadolint-Linux-x86_64
+          chmod +x /usr/local/bin/hadolint
+          hadolint --version
+
       - name: Warm the npx cache
         run: |
           npx --yes html-validate@8 --version

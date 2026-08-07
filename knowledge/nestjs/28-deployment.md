@@ -181,7 +181,8 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
 COPY package.json ./
-USER node                       # never run the application as root
+# never run the application as root
+USER node
 EXPOSE 3000
 CMD ["node", "dist/main.js"]
 ```
@@ -711,9 +712,11 @@ livenessProbe:
 **Bad Example** — the build image shipped, running as root, no graceful shutdown
 
 ```dockerfile
-FROM node:latest                 # floating tag: the build is not reproducible
+# floating tag: the build is not reproducible
+FROM node:latest
 WORKDIR /app
-COPY . .                         # includes .git, tests, and node_modules from the host
+# includes .git, tests, and node_modules from the host
+COPY . .
 RUN npm install                  # dev dependencies in the runtime image
 
 # Secrets baked into a layer, readable by anyone who can pull the image.

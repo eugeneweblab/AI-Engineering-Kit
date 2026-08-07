@@ -72,9 +72,12 @@ application problem.
 **Good Example** — pinned base, runtime DNS, stdout logs, graceful stop
 
 ```dockerfile
-FROM nginx:1.27-alpine            # pinned, minimal, reproducible
-COPY default.conf.template /etc/nginx/templates/   # envsubst'd at container start
-STOPSIGNAL SIGQUIT                 # graceful drain on docker stop, not a hard drop
+# pinned, minimal, reproducible
+FROM nginx:1.27-alpine
+# envsubst'd at container start
+COPY default.conf.template /etc/nginx/templates/
+# graceful drain on docker stop, not a hard drop
+STOPSIGNAL SIGQUIT
 HEALTHCHECK CMD wget -qO- http://localhost/healthz || exit 1
 # no certs, no secrets baked in — they are mounted at runtime
 ```
@@ -100,9 +103,12 @@ server {
 **Bad Example** — cached IP, lost logs, secrets in the image
 
 ```dockerfile
-FROM nginx:latest                  # unpinned: silent upgrades break builds
-COPY tls/privkey.pem /etc/nginx/certs/   # secret baked into a layer, kept in image history
-COPY app.log /var/log/nginx/       # writing to a file Docker never collects
+# unpinned: silent upgrades break builds
+FROM nginx:latest
+# secret baked into a layer, kept in image history
+COPY tls/privkey.pem /etc/nginx/certs/
+# writing to a file Docker never collects
+COPY app.log /var/log/nginx/
 ```
 
 ```nginx

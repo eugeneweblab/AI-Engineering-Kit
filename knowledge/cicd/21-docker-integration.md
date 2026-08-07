@@ -85,7 +85,8 @@ FROM node:22.11.0-slim@sha256:<digest>
 WORKDIR /app
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
-USER node                                   # never run as root
+# never run as root
+USER node
 HEALTHCHECK CMD node healthcheck.js || exit 1
 CMD ["node", "dist/server.js"]
 ```
@@ -103,11 +104,15 @@ docker push $REG/myapp:git-$GIT_SHA        # immutable tag; deploy references it
 **Bad Example** — unpinned, secret in a layer, mutable tag, root
 
 ```dockerfile
-FROM node:latest                 # non-reproducible base
-ARG NPM_TOKEN                    # baked into image history → recoverable forever
+# non-reproducible base
+FROM node:latest
+# baked into image history → recoverable forever
+ARG NPM_TOKEN
 RUN echo "//registry/:_authToken=$NPM_TOKEN" > .npmrc && npm install
-COPY . .                         # no .dockerignore → .git and secrets copied in
-CMD ["npm", "start"]             # runs as root
+# no .dockerignore → .git and secrets copied in
+COPY . .
+# runs as root
+CMD ["npm", "start"]
 ```
 
 ```bash

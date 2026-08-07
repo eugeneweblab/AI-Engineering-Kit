@@ -75,7 +75,8 @@ ignoring them is paid later, under pressure, during an outage or a CVE response.
 
 ```dockerfile
 # syntax=docker/dockerfile:1
-FROM node:22-slim@sha256:<digest> AS build   # pinned: reproducible builds
+# pinned: reproducible builds
+FROM node:22-slim@sha256:<digest> AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci
@@ -88,19 +89,24 @@ WORKDIR /app
 RUN useradd --uid 10001 --create-home app && chown -R app /app
 COPY --from=build --chown=app /app/dist ./dist
 COPY --from=build --chown=app /app/node_modules ./node_modules
-USER app                                     # drop root before running
+# drop root before running
+USER app
 HEALTHCHECK CMD wget -qO- http://localhost:8080/healthz || exit 1
-CMD ["node", "dist/server.js"]               # exec form: signals reach PID 1
+# exec form: signals reach PID 1
+CMD ["node", "dist/server.js"]
 ```
 
 **Bad Example** — root, unpinned, secret baked in, shell form
 
 ```dockerfile
-FROM node:latest                             # unpinned: not reproducible
+# unpinned: not reproducible
+FROM node:latest
 WORKDIR /app
-COPY . .                                     # no .dockerignore → .git, secrets ship
+# no .dockerignore → .git, secrets ship
+COPY . .
 RUN npm install
-ENV API_KEY=sk_live_9f3c...                  # secret persists in every layer forever
+# secret persists in every layer forever
+ENV API_KEY=sk_live_9f3c...
 # runs as root; no healthcheck; shell form swallows SIGTERM → slow, dirty shutdown
 CMD npm start
 ```

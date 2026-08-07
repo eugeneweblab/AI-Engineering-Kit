@@ -89,7 +89,8 @@ RUN --mount=type=cache,target=/root/.npm \
 COPY . .
 RUN npm run build
 
-FROM node:22-slim                    # slim runtime, no build toolchain
+# slim runtime, no build toolchain
+FROM node:22-slim
 WORKDIR /app
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/node_modules ./node_modules
@@ -99,10 +100,12 @@ CMD ["node", "dist/server.js"]
 **Bad Example** — cache-busting order, no cache mount, tools in final image
 
 ```dockerfile
-FROM node:22                         # full image: ~1GB pulled every deploy
+# full image: ~1GB pulled every deploy
+FROM node:22
 
 WORKDIR /app
-COPY . .                             # any file change invalidates everything below
+# any file change invalidates everything below
+COPY . .
 RUN npm install                      # re-downloads all deps on every source edit
 RUN npm run build
 # build toolchain, dev deps, and .git all ship to production and every node

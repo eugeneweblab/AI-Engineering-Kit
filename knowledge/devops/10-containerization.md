@@ -73,7 +73,8 @@ artifact at build time, so getting the Dockerfile right is the cheapest place to
 # --- build stage: has the toolchain, none of which ships to production ---
 FROM node:22.11-bookworm-slim AS build
 WORKDIR /app
-COPY package*.json ./          # copy manifests first → dependency layer stays cached
+# copy manifests first → dependency layer stays cached
+COPY package*.json ./
 RUN npm ci                     # on code-only changes this layer is reused
 COPY . .
 RUN npm run build
@@ -84,7 +85,8 @@ WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
-USER node                      # non-root: a breach can't own the host
+# non-root: a breach can't own the host
+USER node
 HEALTHCHECK CMD node dist/health.js || exit 1
 # exec form → SIGTERM reaches node for graceful shutdown/draining
 ENTRYPOINT ["node", "dist/server.js"]
@@ -93,13 +95,17 @@ ENTRYPOINT ["node", "dist/server.js"]
 **Bad Example** — fat, root, secret baked in, unpinned
 
 ```dockerfile
-FROM node:latest              # unpinned → today's and next week's build differ
+# unpinned → today's and next week's build differ
+FROM node:latest
 WORKDIR /app
-COPY . .                      # copies .env, .git, node_modules, everything in context
-ENV API_KEY=sk-live-abc123    # secret frozen into a layer, visible to anyone who pulls
+# copies .env, .git, node_modules, everything in context
+COPY . .
+# secret frozen into a layer, visible to anyone who pulls
+ENV API_KEY=sk-live-abc123
 RUN npm install               # dev + build deps shipped to prod = bloat + CVEs
 # runs as root by default: a container escape becomes a host compromise
-CMD npm start                 # shell form: SIGTERM goes to the shell, not node → no drain
+# shell form: SIGTERM goes to the shell, not node → no drain
+CMD npm start
 ```
 
 ## Common Mistakes

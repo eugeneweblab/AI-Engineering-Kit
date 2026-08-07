@@ -96,9 +96,12 @@ RUN --mount=type=secret,id=npm_token \
 **Bad Example** — secret embedded in the image, recoverable forever
 
 ```dockerfile
-ARG NPM_TOKEN                          # recorded in image history
-ENV DATABASE_PASSWORD=hunter2          # readable via `docker inspect`
-COPY id_rsa /root/.ssh/id_rsa          # private key now a permanent layer
+# recorded in image history
+ARG NPM_TOKEN
+# readable via `docker inspect`
+ENV DATABASE_PASSWORD=hunter2
+# private key now a permanent layer
+COPY id_rsa /root/.ssh/id_rsa
 RUN git clone https://x:$NPM_TOKEN@github.com/org/private.git  # token in layer
 # Deleting these lines later does NOT remove the earlier layers → must rotate.
 ```

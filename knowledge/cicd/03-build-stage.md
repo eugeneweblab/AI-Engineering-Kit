@@ -79,14 +79,16 @@ WORKDIR /app
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/node_modules ./node_modules
 ARG GIT_SHA
-LABEL org.opencontainers.image.revision=$GIT_SHA   # artifact traceable to its commit
+# artifact traceable to its commit
+LABEL org.opencontainers.image.revision=$GIT_SHA
 CMD ["node", "dist/server.js"]
 ```
 
 **Bad Example** — floating image, unlocked deps, rebuilt per env
 
 ```dockerfile
-FROM node:latest               # floating tag → different base every build
+# floating tag → different base every build
+FROM node:latest
 WORKDIR /app
 COPY . .
 RUN npm install                # resolver may pick newer versions than were tested

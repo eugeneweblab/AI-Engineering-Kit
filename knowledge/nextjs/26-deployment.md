@@ -539,7 +539,8 @@ readinessProbe:
 ```dockerfile
 FROM node:latest
 WORKDIR /app
-COPY . .                              # including .env.production and node_modules
+# including .env.production and node_modules
+COPY . .
 RUN npm install
 
 # Public values inlined at build time bind the artifact to one environment.

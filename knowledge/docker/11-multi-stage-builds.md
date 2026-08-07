@@ -78,8 +78,10 @@ RUN CGO_ENABLED=0 go build -o /app/server ./cmd/server
 
 # --- final stage: only the compiled binary, no compiler, no shell ---
 FROM gcr.io/distroless/static:nonroot
-COPY --from=build /app/server /server   # the ONLY thing that ships
-USER nonroot:nonroot                    # unprivileged runtime
+# the ONLY thing that ships
+COPY --from=build /app/server /server
+# unprivileged runtime
+USER nonroot:nonroot
 EXPOSE 8080
 ENTRYPOINT ["/server"]
 # Result: a ~15 MB image with no toolchain, no source, minimal CVE surface.
@@ -88,9 +90,11 @@ ENTRYPOINT ["/server"]
 **Bad Example** — single stage ships the entire build environment
 
 ```dockerfile
-FROM golang:1.23            # ~800 MB base with full toolchain
+# ~800 MB base with full toolchain
+FROM golang:1.23
 WORKDIR /src
-COPY . .                    # all source ships to production
+# all source ships to production
+COPY . .
 RUN go build -o server ./cmd/server
 # The compiler, module cache, source code, and a fat base all remain in the
 # final image. It is ~50x larger than needed and exposes source + build tools.

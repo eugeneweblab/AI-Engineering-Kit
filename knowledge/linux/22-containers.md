@@ -79,7 +79,8 @@ RUN CGO_ENABLED=0 go build -o /app ./cmd/server
 # Runtime stage: distroless, non-root, tiny attack surface.
 FROM gcr.io/distroless/static@sha256:<digest>
 COPY --from=build /app /app
-USER 65532:65532          # nonroot: an escape does not yield host root
+# nonroot: an escape does not yield host root
+USER 65532:65532
 ENTRYPOINT ["/app"]
 ```
 
@@ -96,11 +97,15 @@ docker run --read-only --cap-drop ALL \
 **Bad Example** — root, unbounded, secrets baked in, floating tag
 
 ```dockerfile
-FROM ubuntu:latest                 # floating tag: build is not reproducible
+# floating tag: build is not reproducible
+FROM ubuntu:latest
 RUN apt-get update && apt-get install -y build-essential python3  # build tools shipped
-COPY . /app                        # copies .git, tests, and local files too
-ENV API_KEY=sk-live-abc123         # secret persists forever in the image layers
-CMD ["python3", "/app/server.py"]  # runs as root, no user, no limits set
+# copies .git, tests, and local files too
+COPY . /app
+# secret persists forever in the image layers
+ENV API_KEY=sk-live-abc123
+# runs as root, no user, no limits set
+CMD ["python3", "/app/server.py"]
 # No memory/CPU cap: this container can OOM-kill everything else on the host.
 ```
 

@@ -76,7 +76,8 @@ your real requirements with clear ownership.
 
 ```dockerfile
 # Pin the exact toolchain so every build is reproducible.
-FROM golang:1.24.3-alpine        # exact version, not :latest
+# exact version, not :latest
+FROM golang:1.24.3-alpine
 # ...
 # CI config lives in Git and runs the same steps locally and in CI:
 #   task lint && task test && task build
@@ -87,7 +88,8 @@ FROM golang:1.24.3-alpine        # exact version, not :latest
 **Bad Example** — floating versions, ClickOps, lock-in
 
 ```dockerfile
-FROM node:latest                 # unpinned: today's build != tomorrow's
+# unpinned: today's build != tomorrow's
+FROM node:latest
 RUN npm i -g some-cli            # unpinned global tool, silently drifts
 # Deploy is configured by clicking through a vendor console — nothing in Git.
 # Telemetry uses a proprietary agent format tied to one vendor.

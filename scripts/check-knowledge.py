@@ -30,7 +30,7 @@ Checks
   pointers    98/99 checklists route each themed section to the rule behind it
 
 Language coverage: Python, JSON (incl. JSONC and multi-document), YAML, XML, nginx,
-HCL, INI, GraphQL, shell.
+HCL, INI, GraphQL, Dockerfile, shell.
 PHP, JS/TS, SQL, HTML, and CSS are checked only when `php`, `npx`, or `sqlfluff`
 is available, and only against a baseline — see "Baseline" below.
 
@@ -112,6 +112,11 @@ NGINX_TAGS = {"nginx", "conf", "apache"}
 HCL_TAGS = {"hcl", "tf"}
 INI_TAGS = {"ini", "gitconfig", "neon"}
 GRAPHQL_TAGS = {"graphql", "gql"}
+DOCKERFILE_TAGS = {"dockerfile", "containerfile"}
+# hadolint codes that mean the Dockerfile is wrong, not merely unidiomatic. Style
+# rules are excluded: a Bad Example uses `:latest` and shell-form CMD on purpose,
+# and an excerpt legitimately does not begin with FROM (DL3061).
+HADOLINT_CODES = {"DL1000", "DL3021", "DL3022", "DL3023", "DL3024"}
 
 
 class Doc:
@@ -226,6 +231,36 @@ def check_json(src: str) -> str | None:
     except ValueError as exc:
         return str(exc).split("\n")[0]
     return None
+
+
+def run_dockerfile_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] | None:
+    """hadolint, restricted to the codes that break a build.
+
+    `COPY a b # comment` is not a comment — Docker treats a mid-line `#` as an
+    argument, so the instruction gets an extra one and the build fails. That is
+    DL3021; DL1000 is the parser itself.
+    """
+    if not shutil.which("hadolint"):
+        return None
+    with tempfile.TemporaryDirectory() as tmp:
+        tmpdir, names = Path(tmp), {}
+        for n, (block_id, src, _) in enumerate(blocks):
+            name = f"b{n}.Dockerfile"
+            names[name] = block_id
+            (tmpdir / name).write_text(src, encoding="utf-8")
+        proc = subprocess.run(
+            ["hadolint", "--format", "json", *sorted(names)],
+            capture_output=True, text=True, cwd=tmpdir,
+        )
+        try:
+            report = json.loads(proc.stdout or "[]")
+        except ValueError:
+            return None
+        return [
+            (names[entry["file"]], f"{entry['code']}: {entry['message'][:80]}")
+            for entry in report
+            if entry.get("code") in HADOLINT_CODES and entry.get("file") in names
+        ]
 
 
 def check_nginx(src: str) -> str | None:
@@ -735,9 +770,10 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
         yaml_mod = None
 
     counts = {"python": 0, "json": 0, "yaml": 0, "xml": 0, "nginx": 0, "hcl": 0,
-              "ini": 0, "graphql": 0, "shell": 0, "sql": 0, "html": 0, "css": 0,
+              "ini": 0, "graphql": 0, "dockerfile": 0, "shell": 0, "sql": 0, "html": 0, "css": 0,
               "php": 0, "js": 0}
     shell_blocks: list[tuple[str, str, str]] = []
+    dockerfile_blocks: list[tuple[str, str, str]] = []
     sql_blocks: list[tuple[str, str, str]] = []
     html_blocks: list[tuple[str, str, str]] = []
     css_blocks: list[tuple[str, str, str]] = []
@@ -774,6 +810,8 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
                 family = "ini"
             elif tag in GRAPHQL_TAGS:
                 family = "graphql"
+            elif tag in DOCKERFILE_TAGS:
+                family = "dockerfile"
             else:
                 continue
             # Key by content hash, not position: inserting a section above a known
@@ -801,6 +839,8 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
                     problems.append(f"{doc.rel}:{line}: ```{tag} does not parse — {err}")
             elif family == "shell":
                 shell_blocks.append((block_id, src, tag))
+            elif family == "dockerfile":
+                dockerfile_blocks.append((block_id, src, tag))
             elif family == "sql":
                 dialect = "mysql" if doc.path.parent.name in MYSQL_TOPICS else "postgres"
                 sql_blocks.append((block_id, src, dialect))
@@ -826,6 +866,7 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
         ("sql", sql_blocks, run_sql_checks, "sqlfluff"),
         ("html", html_blocks, run_html_checks, "npx"),
         ("css", css_blocks, run_css_checks, "npx"),
+        ("dockerfile", dockerfile_blocks, run_dockerfile_checks, "hadolint"),
     ):
         if skip_external or not blocks or not shutil.which(tool):
             if not skip_external and blocks and not shutil.which(tool):

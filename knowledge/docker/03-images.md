@@ -68,7 +68,8 @@ these two facts writes small, fast, reproducible images by default.
 
 ```dockerfile
 # Pinned by tag AND digest → reproducible, auditable base.
-FROM node:20.17-slim@sha256:1c1c1c...  # digest truncated for brevity
+# digest truncated for brevity
+FROM node:20.17-slim@sha256:1c1c1c...
 
 WORKDIR /app
 
@@ -86,10 +87,12 @@ CMD ["node", "server.js"]
 **Bad Example** — cache-busting order, cleanup in a separate layer
 
 ```dockerfile
-FROM node:latest                 # floating tag → not reproducible, huge base
+# floating tag → not reproducible, huge base
+FROM node:latest
 
 WORKDIR /app
-COPY . .                         # any source change busts the cache for ALL steps below
+# any source change busts the cache for ALL steps below
+COPY . .
 RUN npm install                  # reinstalls every dependency on every code edit
 
 # The apt cache is deleted in a NEW layer, so the previous layer still ships it.

@@ -95,10 +95,12 @@ CMD ["node", "server.js"]
 **Bad Example** — cache-busting order, floating tag, root, shell form
 
 ```dockerfile
-FROM node:latest            # unpinned → not reproducible, silently changes
+# unpinned → not reproducible, silently changes
+FROM node:latest
 
 WORKDIR /app
-COPY . .                    # copies source first: any edit busts the install below
+# copies source first: any edit busts the install below
+COPY . .
 RUN npm install             # re-runs on every code change; installs devDeps too
 
 # No USER → runs as root; a container escape is a host compromise.

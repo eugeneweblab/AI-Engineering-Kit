@@ -97,9 +97,12 @@ for (const key of required) {
 
 ```dockerfile
 # Secret and per-env value are now permanent, extractable image layers
-ARG DB_PASSWORD                       # recorded in `docker history`
-ENV DATABASE_URL=postgres://app:hunter2@prod-db:5432/app  # leaks in `docker inspect`
-ENV API_KEY=sk_live_9f3a...           # anyone who pulls the image reads this
+# recorded in `docker history`
+ARG DB_PASSWORD
+# leaks in `docker inspect`
+ENV DATABASE_URL=postgres://app:hunter2@prod-db:5432/app
+# anyone who pulls the image reads this
+ENV API_KEY=sk_live_9f3a...
 # App also starts with silent defaults if these are unset → misconfig ships quietly
 ```
 
