@@ -51,9 +51,14 @@ the fragment itself does, which is when it should be looked at again.
 
 Exit code 0 = clean, 1 = violations found, 2 = bad invocation.
 
+A language whose parser is unavailable is skipped and named in the output. Pass
+`--require-tools` to make that a failure instead — use it in CI, where a silently
+skipped language means the build went green without checking anything.
+
 Usage:
     python3 scripts/check-knowledge.py [knowledge_dir]
-    python3 scripts/check-knowledge.py --skip-external   # no php / npx
+    python3 scripts/check-knowledge.py --require-tools    # skip == failure
+    python3 scripts/check-knowledge.py --skip-external    # no php / npx / hadolint
 """
 from __future__ import annotations
 
@@ -85,6 +90,10 @@ VARIANTS = {"app-router", "pages-router", "block-theme", "classic-theme",
             "typeorm", "prisma"}
 
 BASELINE_PATH = Path(__file__).with_name("codeblock-baseline.json")
+
+# Languages whose parser was unavailable this run. A missing tool must never read as
+# "clean": a silent skip is how a green build stops checking anything at all.
+SKIPPED: dict[str, str] = {}
 
 FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n", re.DOTALL)
 FENCE_RE = re.compile(r"^```([a-zA-Z0-9_+.-]*)\s*$")
@@ -456,6 +465,7 @@ def check_nginx(src: str) -> str | None:
     try:
         import crossplane
     except ImportError:
+        SKIPPED["nginx"] = "crossplane"
         return None
     with tempfile.NamedTemporaryFile("w", suffix=".conf", delete=False, encoding="utf-8") as fh:
         fh.write(src)
@@ -473,6 +483,7 @@ def check_hcl(src: str) -> str | None:
     try:
         import hcl2
     except ImportError:
+        SKIPPED["hcl"] = "hcl2"
         return None
     try:
         hcl2.loads(src)
@@ -501,6 +512,7 @@ def check_graphql(src: str) -> str | None:
     try:
         from graphql import parse as graphql_parse
     except ImportError:
+        SKIPPED["graphql"] = "graphql-core"
         return None
     try:
         graphql_parse(src)
@@ -1062,6 +1074,7 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
                 js_blocks.append((block_id, src, JS_FAMILY[tag]))
 
     if yaml_mod is None:
+        SKIPPED["yaml"] = "pyyaml"
         print("  note: PyYAML not installed — YAML blocks were not checked")
 
     for block_id, err in run_shell_checks(shell_blocks):
@@ -1080,11 +1093,13 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
     ):
         if skip_external or not blocks or not shutil.which(tool):
             if not skip_external and blocks and not shutil.which(tool):
+                SKIPPED[family] = tool
                 print(f"  note: `{tool}` not found — {family} blocks were not checked")
             baseline.setdefault(family, baseline.get(family, []))
             continue
         result = runner(blocks)
         if result is None:
+            SKIPPED[family] = tool
             print(f"  note: {tool} could not run — {family} blocks were not checked")
             continue
         failing = sorted({block_id for block_id, _ in result})
@@ -1101,7 +1116,7 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
 def main(argv: list[str]) -> int:
     args = [a for a in argv[1:] if not a.startswith("--")]
     flags = {a for a in argv[1:] if a.startswith("--")}
-    unknown = flags - {"--skip-external", "--update-baseline"}
+    unknown = flags - {"--skip-external", "--update-baseline", "--require-tools"}
     if unknown:
         print(f"error: unknown option(s): {', '.join(sorted(unknown))}", file=sys.stderr)
         return 2
@@ -1142,8 +1157,18 @@ def main(argv: list[str]) -> int:
         print(f"Baseline written to {BASELINE_PATH} ({total} known fragments).")
         return 0
 
+    if "--require-tools" in flags and SKIPPED:
+        for family, tool in sorted(SKIPPED.items()):
+            problems.append(
+                f"{family} blocks were not checked: `{tool}` is unavailable. "
+                f"A skipped language must not pass as clean — install it or drop "
+                f"--require-tools deliberately."
+            )
+
     summary = ", ".join(f"{v} {k}" for k, v in counts.items() if v)
     print(f"Checked {len(docs)} docs, {n_links} links, code blocks: {summary}.")
+    if SKIPPED:
+        print(f"  skipped: {', '.join(sorted(SKIPPED))}")
 
     if problems:
         print(f"\nFAIL: {len(problems)} problem(s)\n")

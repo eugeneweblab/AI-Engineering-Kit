@@ -112,9 +112,15 @@ SQL uses the `postgres` dialect except in MySQL-family topics (`mysql`, `wordpre
 often invalid on purpose, but never unparseable.
 
 ```bash
-python3 scripts/check-knowledge.py knowledge      # exit 0 = clean, 1 = violations
-python3 scripts/check-knowledge.py --skip-external  # structure/links only, no php/npx
+python3 scripts/check-knowledge.py knowledge                  # exit 0 = clean, 1 = violations
+python3 scripts/check-knowledge.py knowledge --require-tools  # a missing parser fails
+python3 scripts/check-knowledge.py --skip-external            # structure/links only
 ```
+
+**`--require-tools` is what CI runs.** Without it a language whose parser is missing is
+skipped with a printed note and the run still exits 0 — so a silently failed install
+would leave the build green while eight languages went unchecked. With it, a skip is a
+failure.
 
 ### `codeblock-baseline.json`
 
