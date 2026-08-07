@@ -30,8 +30,11 @@ is expensive to fix later.
 
 ## Core Principles
 
-- **Pin a version.** Redis 7.x is the current stable line as of 2026. Never depend on
-  "latest" in production or CI — behavior and defaults change across majors.
+- **Pin a version, and pin a supported one.** Redis 8.x is the current stable line;
+  7.2 and 7.4 still receive fixes but are not where new behavior lands, and 7.0 is
+  past end of life. Check the vendor's support dates rather than trusting a version
+  named in any document, this one included. Never depend on "latest" in production or
+  CI — behavior and defaults change across majors.
 - **Bind and authenticate before exposing.** Redis must not accept remote connections
   until it requires a password (or ACL) and TLS. See [Security](21-security.md).
 - **One connection model per process.** Use a client-managed connection pool; do not

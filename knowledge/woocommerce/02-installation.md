@@ -30,9 +30,11 @@ untested upgrade can corrupt orders. Treat installation as code, not as a manual
 
 ## Core Principles
 
-- **Meet the runtime requirements first.** As of 2026, target PHP 8.1+ (8.2/8.3
-  preferred), MySQL 8.0+ or MariaDB 10.6+, and a current WordPress. Below the floor,
-  WooCommerce refuses to run or degrades.
+- **Meet the runtime requirements first.** Target a PHP line that still receives
+  security fixes — 8.1 reached end of life in December 2025, so 8.2 is the floor and
+  8.3/8.4 are the sensible targets — plus MySQL 8.0+ or MariaDB 10.6+ and a current
+  WordPress. Below WooCommerce's own floor it refuses to run or degrades; below the
+  *supported* floor it runs and quietly stops being patched.
 - **Pin every version.** WordPress core, WooCommerce, and every extension must have an
   exact, committed version so environments are reproducible.
 - **Separate environments.** Local, staging, and production are distinct databases and
