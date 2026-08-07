@@ -67,7 +67,7 @@ made deliberately, per deployment, not inherited from `redis.conf` defaults.
 
 **Good Example** — bounded, durable, secured cache/datastore config
 
-```ini
+```text
 # redis.conf — datastore of record
 maxmemory 12gb                 # cap well below host RAM to leave fork headroom
 maxmemory-policy noeviction    # error on write when full, never silently drop data
@@ -84,7 +84,7 @@ rename-command FLUSHALL ""     # neuter accidental/malicious full wipes
 
 **Bad Example** — defaults shipped to production
 
-```ini
+```text
 # maxmemory unset      -> grows until the OOM killer terminates the process
 # appendonly no        -> RDB only; a crash loses everything since last snapshot
 bind 0.0.0.0           # reachable from anywhere...

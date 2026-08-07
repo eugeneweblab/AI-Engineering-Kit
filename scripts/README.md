@@ -90,6 +90,10 @@ Blocks are handed to the real parser for their language:
 | shell | `bash -n` | — |
 | PHP | `php -l` | `php` |
 | JS / TS / JSX / TSX | esbuild | `npx` |
+| nginx / conf | crossplane, context checks off | `pip install crossplane` |
+| HCL / Terraform | python-hcl2 | `pip install python-hcl2` |
+| INI | `configparser` with a synthetic section | — |
+| GraphQL | graphql-core | `pip install graphql-core` |
 | SQL | `sqlfluff lint --rules PRS` | `pip install sqlfluff` |
 | HTML | html-validate (syntax rules only) | `npx` |
 | CSS / SCSS | stylelint with no rules enabled | `npx` |

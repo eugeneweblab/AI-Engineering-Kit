@@ -29,7 +29,8 @@ Checks
   plan        docs/structure/ still describes the tree that exists on disk
   pointers    98/99 checklists route each themed section to the rule behind it
 
-Language coverage: Python, JSON (incl. JSONC and multi-document), YAML, XML, shell.
+Language coverage: Python, JSON (incl. JSONC and multi-document), YAML, XML, nginx,
+HCL, INI, GraphQL, shell.
 PHP, JS/TS, SQL, HTML, and CSS are checked only when `php`, `npx`, or `sqlfluff`
 is available, and only against a baseline — see "Baseline" below.
 
@@ -107,6 +108,10 @@ PYTHON_TAGS = {"python", "py"}
 JSON_TAGS = {"json", "jsonc", "json5"}
 YAML_TAGS = {"yaml", "yml"}
 XML_TAGS = {"xml", "svg"}
+NGINX_TAGS = {"nginx", "conf", "apache"}
+HCL_TAGS = {"hcl", "tf"}
+INI_TAGS = {"ini", "gitconfig", "neon"}
+GRAPHQL_TAGS = {"graphql", "gql"}
 
 
 class Doc:
@@ -220,6 +225,69 @@ def check_json(src: str) -> str | None:
                 idx += 1
     except ValueError as exc:
         return str(exc).split("\n")[0]
+    return None
+
+
+def check_nginx(src: str) -> str | None:
+    """crossplane, with context and argument validation off.
+
+    A doc shows a `server {}` or `location {}` on its own; crossplane would reject
+    those as "not allowed here" because the enclosing `http {}` is not in the excerpt.
+    Only the syntax is ours to check.
+    """
+    try:
+        import crossplane
+    except ImportError:
+        return None
+    with tempfile.NamedTemporaryFile("w", suffix=".conf", delete=False, encoding="utf-8") as fh:
+        fh.write(src)
+        path = fh.name
+    payload = crossplane.parse(path, catch_errors=True, check_ctx=False, check_args=False)
+    for entry in payload.get("errors") or []:
+        message = str(entry.get("error"))
+        if "No such file" in message:      # an `include` the excerpt cannot resolve
+            continue
+        return message[:90]
+    return None
+
+
+def check_hcl(src: str) -> str | None:
+    try:
+        import hcl2
+    except ImportError:
+        return None
+    try:
+        hcl2.loads(src)
+    except Exception as exc:  # noqa: BLE001
+        return str(exc).split("\n")[0][:90]
+    return None
+
+
+def check_ini(src: str) -> str | None:
+    """A synthetic section header: postgresql.conf and php.ini fragments are
+    key/value without one, and that is correct for the file they come from.
+
+    `allow_no_value` stays off deliberately: with it on, configparser accepts almost
+    any line and the check has no power — it did not notice an unclosed `[section`.
+    """
+    import configparser
+    parser = configparser.ConfigParser(strict=False, allow_no_value=False, interpolation=None)
+    try:
+        parser.read_string("[__root__]\n" + src)
+    except Exception as exc:  # noqa: BLE001
+        return str(exc).split("\n")[0][:90]
+    return None
+
+
+def check_graphql(src: str) -> str | None:
+    try:
+        from graphql import parse as graphql_parse
+    except ImportError:
+        return None
+    try:
+        graphql_parse(src)
+    except Exception as exc:  # noqa: BLE001
+        return str(exc).split("\n")[0][:90]
     return None
 
 
@@ -666,8 +734,9 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
     except ImportError:
         yaml_mod = None
 
-    counts = {"python": 0, "json": 0, "yaml": 0, "xml": 0, "shell": 0,
-              "sql": 0, "html": 0, "css": 0, "php": 0, "js": 0}
+    counts = {"python": 0, "json": 0, "yaml": 0, "xml": 0, "nginx": 0, "hcl": 0,
+              "ini": 0, "graphql": 0, "shell": 0, "sql": 0, "html": 0, "css": 0,
+              "php": 0, "js": 0}
     shell_blocks: list[tuple[str, str, str]] = []
     sql_blocks: list[tuple[str, str, str]] = []
     html_blocks: list[tuple[str, str, str]] = []
@@ -697,6 +766,14 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
                 family = "yaml"
             elif tag in XML_TAGS:
                 family = "xml"
+            elif tag in NGINX_TAGS:
+                family = "nginx"
+            elif tag in HCL_TAGS:
+                family = "hcl"
+            elif tag in INI_TAGS:
+                family = "ini"
+            elif tag in GRAPHQL_TAGS:
+                family = "graphql"
             else:
                 continue
             # Key by content hash, not position: inserting a section above a known
@@ -716,6 +793,11 @@ def check_blocks(docs: list[Doc], problems: list[str], skip_external: bool,
                     problems.append(f"{doc.rel}:{line}: ```{tag} does not parse — {err}")
             elif family == "xml":
                 if (err := check_xml(src)):
+                    problems.append(f"{doc.rel}:{line}: ```{tag} does not parse — {err}")
+            elif family in ("nginx", "hcl", "ini", "graphql"):
+                checker = {"nginx": check_nginx, "hcl": check_hcl,
+                           "ini": check_ini, "graphql": check_graphql}[family]
+                if (err := checker(src)):
                     problems.append(f"{doc.rel}:{line}: ```{tag} does not parse — {err}")
             elif family == "shell":
                 shell_blocks.append((block_id, src, tag))

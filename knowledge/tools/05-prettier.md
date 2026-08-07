@@ -88,7 +88,7 @@ git rev-parse HEAD >> .git-blame-ignore-revs
 git commit -am "chore: ignore the prettier commit in git blame"
 ```
 
-```gitconfig
+```bash
 # Make it apply for everyone (also honored by GitHub automatically).
 git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
