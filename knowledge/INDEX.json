@@ -7943,14 +7943,16 @@
             "getPage",
             "post_content",
             "register_rest_field",
-            "save_post"
+            "save_post",
+            "dangerouslySetInnerHTML"
           ],
           "related": [
             "divi/17-rest-api",
             "divi/01-architecture",
             "divi/10-performance",
             "divi/15-custom-fields",
-            "divi/13-seo"
+            "divi/13-seo",
+            "security/11-xss"
           ],
           "when_to_use": "Read before decoupling a Divi site's front-end (Next.js, Nuxt, etc.) from WordPress.",
           "path": "knowledge/divi/18-headless.md"

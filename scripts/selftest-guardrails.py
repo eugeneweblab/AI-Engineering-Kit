@@ -158,6 +158,11 @@ VERSION_CASES: list[tuple[str, object, str]] = [
      "reached end of life"),
     ("versions/stale-snapshot", "snapshot",
      "snapshot is"),
+    ("sinks/unreviewed",
+     replace("react/03-jsx.md", "## Purpose",
+             "## Purpose\n\n```tsx\nconst Bio = ({ html }) => "
+             "<div dangerouslySetInnerHTML={{ __html: html }} />;\n```\n"),
+     "with nothing nearby marking it as deliberate"),
 ]
 
 # Cases needing an external parser — one full pass.
@@ -237,7 +242,6 @@ def run_batch(cases: list[tuple[str, object, str]], extra: list[str]) -> dict[st
 def run_version_cases(cases: list[tuple[str, object, str]]) -> dict[str, str]:
     """Each case gets its own copy: the checker resolves paths from the tree root."""
     verdicts: dict[str, str] = {}
-    checker = ROOT / "scripts" / "check-versions.py"
     for name, defect, expected in cases:
         with tempfile.TemporaryDirectory() as tmp:
             sandbox = Path(tmp) / "kit"
@@ -250,8 +254,10 @@ def run_version_cases(cases: list[tuple[str, object, str]]) -> dict[str, str]:
                 data.write_text(json.dumps(payload), encoding="utf-8")
             else:
                 defect(sandbox / "knowledge")
+            script = "check-versions.py" if name.startswith("versions/") \
+                else "check-dangerous-sinks.py"
             proc = subprocess.run(
-                [sys.executable, str(sandbox / "scripts" / checker.name)],
+                [sys.executable, str(sandbox / "scripts" / script)],
                 capture_output=True, text=True,
             )
             output = proc.stdout + proc.stderr

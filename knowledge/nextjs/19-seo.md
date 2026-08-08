@@ -355,8 +355,28 @@ Render JSON-LD as a `<script type="application/ld+json">` from a Server
 Component. Build the object in JS and serialize it — do not hand-write the
 JSON string.
 
+**Escape `<` in the serialized JSON.** `JSON.stringify` does not escape `<` or
+`/`, and the contents of a `<script>` element are raw text: a value containing
+`</script>` closes the element early and everything after it becomes live HTML.
+Since the payload is built from page data — a title, an excerpt, an author name —
+that is an injection sink reachable by anyone who can edit content. React escapes
+text children, which is why `<script>{json}</script>` cannot be used here (the
+escaping corrupts the JSON), and why the bypass has to do the escaping itself.
+
+```ts
+// lib/json-ld.ts — one helper, used everywhere JSON-LD is emitted.
+export function jsonLdScript(data: unknown): string {
+  // `<` is valid JSON and parses back to "<", so consumers see the original
+  // string while the HTML parser never sees a tag. Escaping `<` alone is enough:
+  // `</script`, `<!--` and `<script` all start with it.
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+```
+
 ```tsx
 // app/blog/[slug]/page.tsx (inside the Server Component)
+import { jsonLdScript } from "@/lib/json-ld";
+
 export default async function PostPage({
   params,
 }: {
@@ -377,10 +397,11 @@ export default async function PostPage({
 
   return (
     <article>
-      {/* Good: serialized object, rendered server-side, in the initial HTML */}
+      {/* Good: serialized server-side, in the initial HTML. The bypass is safe
+          only because jsonLdScript escapes `<` — never JSON.stringify here. */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
       />
       <h1>{post.title}</h1>
       {/* ...body... */}
@@ -753,6 +774,8 @@ export default function robots(): MetadataRoute.Robots {
 
 ```tsx
 // Structured data rendered on the server, so crawlers see it in the HTML.
+import { jsonLdScript } from '@/lib/json-ld';   // escapes `<`; see Structured Data
+
 export default async function EventPage({ params }: { params: Promise<{ slug: string }> }) {
   const event = await getEvent((await params).slug);
 
@@ -766,7 +789,9 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {/* jsonLdScript escapes `<`, so a value containing `</script>` cannot
+          close the element. */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       <h1>{event.name}</h1>
     </>
   );

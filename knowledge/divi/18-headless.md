@@ -6,8 +6,8 @@ title: "Divi Headless"
 type: doc
 order: 18
 status: ready
-tags: [divi, headless, getPage, post_content, register_rest_field, save_post]
-related: [divi/17-rest-api, divi/01-architecture, divi/10-performance, divi/15-custom-fields, divi/13-seo]
+tags: [divi, headless, getPage, post_content, register_rest_field, save_post, dangerouslySetInnerHTML]
+related: [divi/17-rest-api, divi/01-architecture, divi/10-performance, divi/15-custom-fields, divi/13-seo, security/11-xss]
 when_to_use: "Read before decoupling a Divi site's front-end (Next.js, Nuxt, etc.) from WordPress."
 ---
 # Divi Headless
@@ -58,6 +58,14 @@ respecting where the rendering boundary is.
   Divi does not render your `<head>` in a headless world.
 - For new builds, prefer **Divi 5's JSON content model** — it is far more portable than
   Divi 4 shortcodes and easier to map to components.
+- **Rendered content goes into an HTML sink, so name the trust boundary.** Passing
+  `content.rendered` to `dangerouslySetInnerHTML` is the standard headless pattern and it
+  is also the sink [XSS](../security/11-xss.md) warns about. WordPress filters markup only
+  for users who lack `unfiltered_html` — administrators and editors usually have it — so
+  this trusts everyone who can edit a page, plus every plugin that touches
+  `the_content`. That is often acceptable for a site whose editors you employ. Decide it
+  deliberately: if it is not acceptable, sanitize server-side with an allowlist wide
+  enough for Divi's markup, and never widen the allowlist to make a layout work.
 
 ## Examples
 
@@ -76,7 +84,9 @@ export default async function Page({ params }) {
   const post = await getPage(params.slug);
   return (
     <>
-      {/* Divi's static CSS is loaded globally in layout.tsx so this HTML is styled */}
+      {/* Divi's static CSS is loaded globally in layout.tsx so this HTML is styled.
+          `content.rendered` is trusted markup here — see the trust boundary above;
+          sanitize server-side instead if your editors are not trusted. */}
       <article dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
     </>
   );

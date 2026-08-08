@@ -183,6 +183,36 @@ python3 scripts/check-versions.py --update-baseline # accept the current excepti
 
 ---
 
+## `check-dangerous-sinks.py`
+
+Fails when a construct that executes or injects appears with nothing nearby saying why
+it is safe.
+
+An agent copies from this base, so a `dangerouslySetInnerHTML` in a document labelled
+"Good Example" ships as production code. This does not judge whether a use is correct —
+judging is what found the two cases that prompted it, and the heuristic was right twice
+out of twenty-eight. It enforces something procedural instead: an occurrence either
+reads as a warning from its surroundings, or it is recorded as reviewed in
+`scripts/data/sinks-baseline.json`. Anything else is new and unexamined.
+
+The two it was built from:
+
+- `nextjs/19-seo.md` fed `JSON.stringify(jsonLd)` into a `<script>` through
+  `dangerouslySetInnerHTML` and called it Good. `JSON.stringify` escapes neither `<` nor
+  `/`, and script content is raw text, so a post title containing `</script>` closed the
+  element and made the rest live HTML.
+- `divi/18-headless.md` passed WordPress `content.rendered` to the same sink in its Good
+  Example, while `security/11-xss.md` and `frontend/14-security.md` both list that exact
+  thing as a mistake. The pattern is defensible for trusted editors; leaving it unsaid
+  was not.
+
+```bash
+python3 scripts/check-dangerous-sinks.py                   # exit 0 = clean
+python3 scripts/check-dangerous-sinks.py --update-baseline # record reviewed occurrences
+```
+
+---
+
 ## `selftest-guardrails.py`
 
 Proves the linters can fail. It copies the base, injects one real defect per rule and
@@ -232,6 +262,6 @@ doing the work its weight claims.
 
 ---
 
-All seven checks run in CI via `.github/workflows/knowledge-guardrails.yml`, which also
+All eight checks run in CI via `.github/workflows/knowledge-guardrails.yml`, which also
 fails the build if `INDEX.json`/`INDEX.md` or `SIGNALS.json` are out of sync with the
 frontmatter.

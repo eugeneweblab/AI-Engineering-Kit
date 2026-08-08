@@ -3,7 +3,7 @@
   "note": "Detect the stack from `stack`, then resolve any symbol in the diff via `symbols`. Both point at document ids in INDEX.json. In `when`, `|` separates alternatives and `**` matches any number of directories; a pattern is written to match both the root-level and the nested layout.",
   "stats": {
     "stack_signals": 32,
-    "symbols": 8991,
+    "symbols": 8994,
     "docs_indexed": 1271
   },
   "stack": [
@@ -344,6 +344,9 @@
       "nextjs/26-deployment",
       "nextjs/28-best-practices",
       "nextjs/29-engineering-principles"
+    ],
+    "@/lib/json-ld": [
+      "nextjs/19-seo"
     ],
     "@/lib/logger": [
       "ai/03-code-generation",
@@ -6908,6 +6911,7 @@
     "JSON.stringify": [
       "javascript/13-fetch-api",
       "javascript/19-symbols",
+      "nextjs/19-seo",
       "nodejs/20-memory-management",
       "security/10-output-encoding",
       "typescript/19-collections"
@@ -18977,6 +18981,7 @@
       "architecture/11-api-first",
       "css/04-box-model",
       "css/24-print-styles",
+      "divi/18-headless",
       "figma/15-screenshot-comparison",
       "figma/16-accessibility-from-figma",
       "html/26-microdata",
@@ -19775,6 +19780,7 @@
       "tailwind/21-design-system"
     ],
     "dangerouslySetInnerHTML": [
+      "divi/18-headless",
       "frontend/100-common-antipatterns",
       "frontend/14-security",
       "nextjs/24-security",
@@ -26965,6 +26971,12 @@
     ],
     "json-file": [
       "docker/16-logging"
+    ],
+    "json-ld": [
+      "nextjs/19-seo"
+    ],
+    "jsonLdScript": [
+      "nextjs/19-seo"
     ],
     "json_decode": [
       "wordpress/05-performance"
@@ -38721,6 +38733,7 @@
     ],
     "the_content": [
       "divi/16-wordpress-hooks",
+      "divi/18-headless",
       "snippets/02-php-wordpress",
       "wordpress/100-common-antipatterns",
       "wordpress/13-template-hierarchy",
@@ -40020,6 +40033,7 @@
       "nestjs/11-exception-filters"
     ],
     "unfiltered_html": [
+      "divi/18-headless",
       "divi/19-security",
       "divi/29-review"
     ],

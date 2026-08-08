@@ -101,6 +101,11 @@ jobs:
       - name: No document recommends an unsupported runtime
         run: python3 scripts/check-versions.py
 
+      # An agent copies from this base, so a construct that executes or injects
+      # ships. Each one must either warn about itself in place or be reviewed.
+      - name: Every executing construct is warned about or reviewed
+        run: python3 scripts/check-dangerous-sinks.py
+
       # A guardrail that passes is only evidence when it can fail. Twice in this
       # repository a check reported success while doing nothing. These two inject
       # real defects and fail if any goes unreported.
