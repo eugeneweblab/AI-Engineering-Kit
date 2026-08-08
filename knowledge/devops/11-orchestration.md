@@ -111,8 +111,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata: { name: api }
 spec:
+  selector: { matchLabels: { app: api } }
   replicas: 1                          # single pod: any node failure = full outage
   template:
+    metadata: { labels: { app: api } }
     spec:
       containers:
         - name: api

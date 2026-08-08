@@ -96,10 +96,12 @@ permissions:
   contents: read         # least privilege for the job
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     steps:
       - uses: aws-actions/configure-aws-credentials@v4  # pin by SHA in production
         with:
           role-to-assume: arn:aws:iam::123:role/deploy-web  # scoped to this service
+          aws-region: eu-west-1                             # required by the action
           # No AWS_ACCESS_KEY_ID secret -> nothing long-lived to leak.
 ```
 

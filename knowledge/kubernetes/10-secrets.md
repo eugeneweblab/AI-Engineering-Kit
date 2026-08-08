@@ -86,7 +86,9 @@ kind: Deployment
 metadata:
   name: checkout
 spec:
+  selector: { matchLabels: { app: checkout } }
   template:
+    metadata: { labels: { app: checkout } }
     spec:
       containers:
         - name: web
@@ -112,7 +114,11 @@ metadata:
 type: Opaque
 data:
   password: czNjcjN0LXByb2QtcHc=   # base64("s3cr3t-prod-pw") — reversible, committed to Git forever
----
+```
+
+Consumed as an environment variable in the Pod's container spec:
+
+```yaml
     env:
       - name: DB_PASSWORD
         valueFrom:

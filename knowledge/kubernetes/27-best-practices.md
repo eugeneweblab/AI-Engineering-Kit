@@ -85,7 +85,13 @@ metadata:
     app.kubernetes.io/part-of: shop
     app.kubernetes.io/managed-by: argocd
 spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: checkout   # immutable after creation — choose it once
   template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: checkout # must match the selector
     spec:
       containers:
         - name: checkout
@@ -104,7 +110,9 @@ metadata:
   name: checkout                 # no namespace -> lands in 'default'
   # no standard labels -> invisible to dashboards, cost, and selectors
 spec:
+  selector: { matchLabels: { app: checkout } }
   template:
+    metadata: { labels: { app: checkout } }
     spec:
       containers:
         - name: checkout

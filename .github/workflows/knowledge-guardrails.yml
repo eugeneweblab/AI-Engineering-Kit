@@ -106,6 +106,19 @@ jobs:
       - name: Every executing construct is warned about or reviewed
         run: python3 scripts/check-dangerous-sinks.py
 
+      # Valid YAML is a much weaker claim than a valid manifest. Each format is
+      # checked by the tool that would actually consume it.
+      - name: Install manifest validators
+        run: |
+          set -euo pipefail
+          curl -fsSL -o /tmp/kc.tar.gz https://github.com/yannh/kubeconform/releases/download/v0.8.0/kubeconform-linux-amd64.tar.gz
+          tar xzf /tmp/kc.tar.gz -C /tmp kubeconform && sudo mv /tmp/kubeconform /usr/local/bin/
+          curl -fsSL -o /tmp/al.tar.gz https://github.com/rhysd/actionlint/releases/download/v1.7.7/actionlint_1.7.7_linux_amd64.tar.gz
+          tar xzf /tmp/al.tar.gz -C /tmp actionlint && sudo mv /tmp/actionlint /usr/local/bin/
+
+      - name: Manifests are valid to the tools that consume them
+        run: python3 scripts/check-manifests.py --require-tools
+
       # A guardrail that passes is only evidence when it can fail. Twice in this
       # repository a check reported success while doing nothing. These two inject
       # real defects and fail if any goes unreported.

@@ -76,7 +76,9 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    steps: [ /* unit tests, run concurrently with lint */ ]
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci && npm test    # runs concurrently with lint
 
   build:
     needs: [lint, test]            # expensive build only after cheap checks pass

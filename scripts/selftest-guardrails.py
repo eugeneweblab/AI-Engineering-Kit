@@ -158,6 +158,13 @@ VERSION_CASES: list[tuple[str, object, str]] = [
      "reached end of life"),
     ("versions/stale-snapshot", "snapshot",
      "snapshot is"),
+    ("manifests/k8s-no-selector",
+     replace("kubernetes/05-deployments.md",
+             "  selector: { matchLabels: { app: web } }\n", ""),
+     "missing property 'selector'"),
+    ("manifests/workflow-no-runs-on",
+     replace("testing/21-cicd.md", "    runs-on: ubuntu-latest\n", ""),
+     '"runs-on" section is missing'),
     ("sinks/unreviewed",
      replace("react/03-jsx.md", "## Purpose",
              "## Purpose\n\n```tsx\nconst Bio = ({ html }) => "
@@ -254,8 +261,9 @@ def run_version_cases(cases: list[tuple[str, object, str]]) -> dict[str, str]:
                 data.write_text(json.dumps(payload), encoding="utf-8")
             else:
                 defect(sandbox / "knowledge")
-            script = "check-versions.py" if name.startswith("versions/") \
-                else "check-dangerous-sinks.py"
+            script = ("check-versions.py" if name.startswith("versions/")
+                      else "check-manifests.py" if name.startswith("manifests/")
+                      else "check-dangerous-sinks.py")
             proc = subprocess.run(
                 [sys.executable, str(sandbox / "scripts" / script)],
                 capture_output=True, text=True,

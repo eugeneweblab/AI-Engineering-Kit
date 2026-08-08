@@ -98,8 +98,15 @@ kind: Deployment
 metadata:
   name: web            # ends up in default, unbounded and untracked
 spec:
+  selector: { matchLabels: { app: web } }
   replicas: 50
-  # ...no ResourceQuota constrains this; 50 unbounded pods can drain the cluster
+  template:
+    metadata: { labels: { app: web } }
+    spec:
+      containers:
+        - name: web
+          image: web:latest
+          # ...no ResourceQuota constrains this; 50 unbounded pods can drain the cluster
 ```
 
 ## Common Mistakes

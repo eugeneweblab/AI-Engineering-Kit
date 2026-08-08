@@ -104,6 +104,7 @@ jobs:
 ```yaml
 jobs:
   build:
+    runs-on: ubuntu-latest
     steps:
       - run: npm install           # no lockfile enforcement → drifts between runs
       - run: npx eslint . || true  # "|| true" makes lint failures invisible — pure theatre

@@ -106,8 +106,10 @@ apiVersion: apps/v1
 kind: Deployment          # BUG: gives N random pods, not one-per-node coverage
 metadata: { name: node-exporter }
 spec:
+  selector: { matchLabels: { app: node-exporter } }
   replicas: 3             # BUG: 3 copies somewhere, blind on every other node
   template:
+    metadata: { labels: { app: node-exporter } }
     spec:
       # No tolerations → skips tainted/control-plane nodes → silent coverage gaps.
       containers:

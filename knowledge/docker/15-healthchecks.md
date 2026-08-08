@@ -84,6 +84,16 @@ services:
     depends_on:
       db:
         condition: service_healthy   # app starts only once db passes its check
+  db:
+    image: postgres:17
+    healthcheck:
+      # The gate is only as good as the check it waits on: `pg_isready` answers
+      # "can this accept a connection", which is what `app` actually needs.
+      test: ["CMD-SHELL", "pg_isready -U app"]
+      interval: 5s
+      timeout: 3s
+      start_period: 20s
+      retries: 5
 ```
 
 **Bad Example** — checks nothing real, cascades a dependency, no start grace

@@ -77,16 +77,24 @@ on:
   push: { branches: [main] }
 jobs:
   release:
+    runs-on: ubuntu-latest
+    # A job's step outputs are not visible to `needs` unless the job forwards them.
+    # Skip this and `needs.release.outputs.*` is empty, so `deploy` silently never
+    # runs — a green pipeline that ships nothing.
+    outputs:
+      created: ${{ steps.rp.outputs.release_created }}
+      tag: ${{ steps.rp.outputs.tag_name }}
     steps:
       - uses: googleapis/release-please-action@v4 # computes version + changelog from commits
         id: rp
 
   deploy:
     needs: release
-    if: ${{ needs.release.outputs.release_created }}
+    if: ${{ needs.release.outputs.created == 'true' }}
+    runs-on: ubuntu-latest
     environment: production      # protected env → requires a recorded human approval
     steps:
-      - run: deploy --version ${{ needs.release.outputs.tag_name }} --strategy canary
+      - run: deploy --version ${{ needs.release.outputs.tag }} --strategy canary
         # Deploy is gated, tied to a version, and progressive — validated before full rollout.
 ```
 

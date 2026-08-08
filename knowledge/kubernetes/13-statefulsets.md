@@ -111,8 +111,10 @@ apiVersion: apps/v1
 kind: Deployment              # BUG: random pod names, no stable identity for replication
 metadata: { name: pg }
 spec:
+  selector: { matchLabels: { app: pg } }
   replicas: 3
   template:
+    metadata: { labels: { app: pg } }
     spec:
       containers:
         - name: pg

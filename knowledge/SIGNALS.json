@@ -11551,6 +11551,7 @@
     "SHELL": [
       "aws/18-ecs",
       "docker/12-docker-compose",
+      "docker/15-healthchecks",
       "docker/21-development-workflow",
       "linux/14-cron",
       "tools/20-local-environments"
@@ -16600,6 +16601,7 @@
     "aws-region": [
       "cicd/15-secrets",
       "cicd/17-github-actions",
+      "devops/16-security",
       "github/08-actions"
     ],
     "aws:PrincipalOrgID": [
@@ -18957,6 +18959,7 @@
       "devops/07-deployment-strategies",
       "devops/11-orchestration",
       "docker/23-orchestration",
+      "kubernetes/02-cluster",
       "kubernetes/04-pods",
       "kubernetes/05-deployments",
       "kubernetes/06-replicasets",
@@ -19461,6 +19464,7 @@
       "wordpress/02-project-structure"
     ],
     "created": [
+      "cicd/09-release-management",
       "nestjs/21-events",
       "nestjs/22-cqrs",
       "nestjs/25-testing"
@@ -25177,6 +25181,7 @@
       "devops/24-change-management",
       "docker/08-dockerfile",
       "docker/12-docker-compose",
+      "docker/15-healthchecks",
       "docker/21-development-workflow",
       "docker/22-production",
       "docker/24-monitoring",
@@ -25736,6 +25741,7 @@
       "docker/24-monitoring",
       "docker/28-tooling",
       "html/13-structured-data",
+      "kubernetes/02-cluster",
       "kubernetes/04-pods",
       "kubernetes/05-deployments",
       "kubernetes/06-replicasets",
@@ -27182,6 +27188,7 @@
       "devops/15-alerting",
       "github/05-discussions",
       "kubernetes/06-replicasets",
+      "kubernetes/09-configmaps",
       "kubernetes/23-monitoring",
       "kubernetes/27-best-practices",
       "linux/16-monitoring",
@@ -35284,12 +35291,15 @@
       "cicd/02-pipeline-design",
       "cicd/05-quality-gates",
       "cicd/06-security-scanning",
+      "cicd/09-release-management",
       "cicd/15-secrets",
       "cicd/17-github-actions",
       "cicd/24-notifications",
       "cicd/27-best-practices",
       "cicd/29-tooling",
       "devops/05-build-pipelines",
+      "devops/16-security",
+      "devops/23-quality-gates",
       "docker/29-ci-integration",
       "figma/13-visual-regression",
       "github/04-projects",
@@ -35855,14 +35865,21 @@
       "aws/20-ecr"
     ],
     "selector": [
+      "aws/19-eks",
       "cicd/11-blue-green-deployment",
       "devops/11-orchestration",
+      "docker/23-orchestration",
+      "kubernetes/02-cluster",
       "kubernetes/05-deployments",
       "kubernetes/06-replicasets",
       "kubernetes/07-services",
+      "kubernetes/09-configmaps",
+      "kubernetes/10-secrets",
+      "kubernetes/12-persistent-volumes",
       "kubernetes/13-statefulsets",
       "kubernetes/14-daemonsets",
       "kubernetes/21-observability",
+      "kubernetes/27-best-practices",
       "tools/04-eslint"
     ],
     "selector-class-pattern": [
@@ -38361,6 +38378,7 @@
       "devops/11-orchestration",
       "divi/08-templates",
       "docker/23-orchestration",
+      "kubernetes/02-cluster",
       "kubernetes/05-deployments",
       "kubernetes/06-replicasets",
       "kubernetes/09-configmaps",
@@ -38445,6 +38463,7 @@
       "devops/22-testing",
       "docker/11-multi-stage-builds",
       "docker/12-docker-compose",
+      "docker/15-healthchecks",
       "docker/21-development-workflow",
       "docker/22-production",
       "docker/24-monitoring",

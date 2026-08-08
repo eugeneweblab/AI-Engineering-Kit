@@ -106,6 +106,7 @@ build: ; npm run build
 ```yaml
 jobs:
   ci:
+    runs-on: ubuntu-latest
     steps:
       # 40 lines of inline shell + vendor-specific syntax: impossible to run locally,
       # painful to migrate off this platform.

@@ -93,6 +93,7 @@ jobs:
 ```yaml
 jobs:
   build:
+    runs-on: ubuntu-latest
     steps:
       - run: npm install                   # no lockfile ci → versions drift per run
       - run: npm run test:e2e              # slow 20-min suite runs BEFORE unit/lint

@@ -83,8 +83,10 @@ kind: Deployment
 metadata:
   name: checkout
 spec:
+  selector: { matchLabels: { app: checkout } }
   template:
     metadata:
+      labels: { app: checkout }        # must match the selector above
       annotations:
         checksum/config: "b21f...e3"   # hash of the ConfigMap → changes trigger a rollout
     spec:
@@ -111,10 +113,14 @@ metadata:
 data:
   LOG_LEVEL: info
   DB_PASSWORD: "s3cr3t-prod-pw"   # SECRET in plaintext, readable by the whole namespace
----
-# Consumed via envFrom: values are captured at container start.
-# Editing this ConfigMap later changes nothing until every Pod is restarted,
-# so operators "update config" and are baffled that nothing takes effect.
+```
+
+Consumed via `envFrom`, values are captured at container start. Editing this
+ConfigMap later changes nothing until every Pod is restarted, so operators
+"update config" and are baffled that nothing takes effect.
+
+```yaml
+# inside the Pod's container spec
     envFrom:
       - configMapRef:
           name: checkout-config

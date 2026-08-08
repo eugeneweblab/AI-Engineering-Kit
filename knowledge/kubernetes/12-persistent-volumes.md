@@ -102,8 +102,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata: { name: db }
 spec:
+  selector: { matchLabels: { app: db } }
   replicas: 1
   template:
+    metadata: { labels: { app: db } }
     spec:
       containers:
         - name: db

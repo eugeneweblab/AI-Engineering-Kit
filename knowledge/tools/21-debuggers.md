@@ -71,7 +71,7 @@ repository is what makes the tool available when it matters.
 ```
 
 ```yaml
-# compose.yaml — expose the inspector from the container
+# compose.override.yaml — local-only, merged over the base compose file
 services:
   app:
     command: node --inspect=0.0.0.0:9229 dist/server.js

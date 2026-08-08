@@ -213,6 +213,47 @@ python3 scripts/check-dangerous-sinks.py --update-baseline # record reviewed occ
 
 ---
 
+## `check-manifests.py`
+
+Validates every YAML example against the tool that would actually consume it.
+
+`check-knowledge.py` proves 244 YAML blocks are YAML, which is a much weaker claim
+than it looks. A Kubernetes Deployment without `spec.selector` is valid YAML and is
+rejected by the API server. A workflow job without `runs-on` is valid YAML and fails
+to load. Both parse without complaint.
+
+Both were in the base. Thirteen Deployments across five topics had no `selector` —
+including in `kubernetes/`, whose own `05-deployments.md` shows it correctly — so
+every one would have failed `kubectl apply`. A release workflow declared no `runs-on`
+on either job and forwarded no `outputs` from the job computing the version, so
+`needs.release.outputs.release_created` was always empty and the deploy job would
+never have run: a green pipeline that ships nothing.
+
+| Kind | Tool | What it catches |
+| --- | --- | --- |
+| Kubernetes | `kubeconform -strict` | missing required fields, unknown properties |
+| Workflows | `actionlint` | syntax, expression types, required action inputs |
+| Compose | `docker compose config` | schema, references to undefined services |
+
+Workflow examples usually omit `on:` to keep the point in view. Requiring it meant
+they were classified as nothing and checked by nothing — closing that hole turned 23
+checked workflows into 49 and surfaced seven more defects. The validator supplies a
+minimal trigger for those blocks; the documents are untouched.
+
+Deliberately-partial blocks — a `compose.override.yaml` has no `image` because it
+merges over a base file — are recorded in `scripts/data/manifests-baseline.json`.
+
+```bash
+python3 scripts/check-manifests.py                   # exit 0 = clean
+python3 scripts/check-manifests.py --require-tools    # a missing validator fails
+python3 scripts/check-manifests.py --update-baseline  # accept partial blocks
+```
+
+Needs `kubeconform`, `actionlint`, and `docker` on PATH; each missing one is reported
+rather than silently skipped.
+
+---
+
 ## `selftest-guardrails.py`
 
 Proves the linters can fail. It copies the base, injects one real defect per rule and
@@ -262,6 +303,6 @@ doing the work its weight claims.
 
 ---
 
-All eight checks run in CI via `.github/workflows/knowledge-guardrails.yml`, which also
+All nine checks run in CI via `.github/workflows/knowledge-guardrails.yml`, which also
 fails the build if `INDEX.json`/`INDEX.md` or `SIGNALS.json` are out of sync with the
 frontmatter.

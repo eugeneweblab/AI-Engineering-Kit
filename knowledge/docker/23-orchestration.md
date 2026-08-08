@@ -73,10 +73,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata: { name: myapp }
 spec:
+  selector: { matchLabels: { app: myapp } }   # required, and immutable once created
   replicas: 3                       # survive a single node/pod loss
   strategy:
     rollingUpdate: { maxUnavailable: 0, maxSurge: 1 }  # never dip below capacity
   template:
+    metadata: { labels: { app: myapp } }        # must match the selector
     spec:
       terminationGracePeriodSeconds: 30                # time to drain on SIGTERM
       containers:
@@ -97,9 +99,12 @@ spec:
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
+metadata: { name: app }
 spec:
+  selector: { matchLabels: { app: app } }
   replicas: 1                        # any node loss = full outage; no rolling headroom
   template:
+    metadata: { labels: { app: app } }
     spec:
       containers:
         - name: app

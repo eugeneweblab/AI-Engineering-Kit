@@ -88,7 +88,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata: { name: orders-api, namespace: orders }
 spec:
+  selector: { matchLabels: { app: orders-api } }   # required, and immutable once created
   template:
+    metadata: { labels: { app: orders-api } }      # must match the selector
     spec:
       serviceAccountName: orders-api          # not the node role
       containers:
@@ -106,7 +108,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata: { name: orders-api, namespace: orders }
 spec:
+  selector: { matchLabels: { app: orders-api } }
   template:
+    metadata: { labels: { app: orders-api } }
     spec:
       # No serviceAccountName -> pods use the node instance role, which can read
       # every AWS resource the node can. One RCE = account-wide AWS access.
