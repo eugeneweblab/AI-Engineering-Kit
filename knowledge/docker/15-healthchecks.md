@@ -59,7 +59,15 @@ restart loops and evicting healthy containers. The healthcheck is the definition
   not flip state but real failures are caught within an acceptable window.
 - Prefer a check tool already in the image. Do not add `curl` just for the probe on a
   minimal/distroless image; use the app's own health binary or a small built-in.
-- Use `CMD-SHELL` when you need shell features (pipes, `||`), `CMD` for a direct exec.
+- **The two syntaxes are not interchangeable.** In a Dockerfile, `HEALTHCHECK CMD`
+  followed by a bare string is the shell form and `HEALTHCHECK CMD ["exe", "arg"]` is
+  the exec form; there is no `CMD-SHELL` there and writing one fails the build. In
+  compose it is the opposite shape: `test: ["CMD-SHELL", "..."]` for shell features,
+  `test: ["CMD", "exe", "arg"]` for a direct exec.
+- The trailing `|| exit 1` on a Dockerfile probe is not decoration. Docker reads 0 as
+  healthy and 1 as unhealthy, and reserves 2 — so a tool that exits with anything else
+  (`curl` uses 7 for connection refused, 22 for an HTTP error) needs its status
+  normalised before Docker sees it.
 - In compose, gate dependents with `depends_on: { db: { condition: service_healthy }}`
   so an app never starts against a not-yet-ready dependency.
 
