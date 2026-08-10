@@ -59,6 +59,7 @@
  "architecture/21-distributed-systems.md|F821|Undefined name `Result`": 2,
  "architecture/21-distributed-systems.md|F821|Undefined name `ledger`": 3,
  "architecture/21-distributed-systems.md|F821|Undefined name `retry`": 1,
+ "aws/09-acm.md|aws_acm_certificate_lifecycle|resource `\u2026` needs to contain `\u2026` in `\u2026` block": 1,
  "aws/12-lambda.md|F821|Undefined name `charge`": 1,
  "aws/16-secrets-manager.md|F821|Undefined name `open_pool`": 1,
  "aws/17-parameter-store.md|F821|Undefined name `connect`": 1,

@@ -266,6 +266,55 @@ def lint_web_batch() -> tuple[int, list[tuple[str, str, str]]]:
     return total, findings
 
 
+# Terraform: python-hcl2 in check-knowledge proves the syntax parses. tflint with
+# the AWS ruleset answers whether the resource is *right* — an ACM certificate that
+# replaces without create_before_destroy takes every listener down with it.
+TF_SANDBOX = Path(os.environ.get("KB_TF_SANDBOX", "/tmp/kb-tf"))
+TF_FENCE = re.compile(r"^```(?:hcl|terraform|tf)\s*$\n(.*?)^```\s*$", re.DOTALL | re.MULTILINE)
+TF_CONFIG = """plugin "aws" {
+  enabled = true
+  version = "0.42.0"
+  source  = "github.com/terraform-linters/tflint-ruleset-aws"
+}
+# An excerpt showing one resource has no root module, so these two fire on all of
+# them and mean nothing here.
+rule "terraform_required_version" { enabled = false }
+rule "terraform_required_providers" { enabled = false }
+"""
+
+
+def lint_terraform_batch() -> tuple[int, list[tuple[str, str, str]]]:
+    if not shutil.which("tflint"):
+        SKIPPED["hcl"] = "tflint"
+        return 0, []
+    TF_SANDBOX.mkdir(parents=True, exist_ok=True)
+    (TF_SANDBOX / ".tflint.hcl").write_text(TF_CONFIG, encoding="utf-8")
+    subprocess.run(["tflint", "--init"], cwd=TF_SANDBOX, capture_output=True, text=True)
+
+    findings: list[tuple[str, str, str]] = []
+    count = 0
+    for path in sorted(KB.rglob("*.md")):
+        document = path.relative_to(KB).as_posix()
+        for source in TF_FENCE.findall(path.read_text(encoding="utf-8", errors="replace")):
+            count += 1
+            work = TF_SANDBOX / f"d{count:03d}"
+            shutil.rmtree(work, ignore_errors=True)
+            work.mkdir()
+            (work / "main.tf").write_text(source, encoding="utf-8")
+            (work / ".tflint.hcl").write_text(TF_CONFIG, encoding="utf-8")
+            proc = subprocess.run(
+                ["tflint", "--chdir", str(work), "--format=json"],
+                cwd=TF_SANDBOX, capture_output=True, text=True,
+            )
+            try:
+                report = json.loads(proc.stdout or "{}")
+            except json.JSONDecodeError:
+                continue
+            for issue in report.get("issues", []):
+                findings.append((document, issue["rule"]["name"], issue["message"]))
+    return count, findings
+
+
 PHP_LOCK = ROOT / "scripts" / "data" / "lint-env.json"
 PHP_PACKAGES = {
     "phpstan/phpstan": "^2.0",
@@ -404,6 +453,15 @@ def main(argv: list[str]) -> int:
                 found[key] = found.get(key, 0) + 1
                 where[key] = rel
                 sample.setdefault(key, message)
+
+    analysed, findings = lint_terraform_batch()
+    counted += analysed
+    for document, code, message in findings:
+        shape = re.sub(r"`[^`]*`", "`…`", message)[:150]
+        key = f"{document}|{code}|{shape}"
+        found[key] = found.get(key, 0) + 1
+        where[key] = document
+        sample.setdefault(key, message)
 
     if shutil.which("npx"):
         analysed, findings = lint_web_batch()

@@ -72,6 +72,13 @@ resource "aws_acm_certificate" "app" {
   domain_name               = "example.com"
   subject_alternative_names = ["*.example.com"]
   validation_method         = "DNS" # renews automatically while the CNAME exists
+
+  lifecycle {
+    # Adding a SAN or changing the domain forces replacement. Without this the old
+    # certificate is destroyed first, and every listener referencing it goes down
+    # until the new one validates — minutes of outage for a one-line change.
+    create_before_destroy = true
+  }
 }
 
 # Create the validation CNAME in Route 53 and keep it under IaC so it never gets deleted.

@@ -92,6 +92,13 @@ data "aws_iam_policy_document" "bucket" {
     }
   }
 }
+
+# Declaring the policy is not attaching it: without this the bucket keeps whatever
+# policy it had, and the distribution gets 403s that look like an OAC problem.
+resource "aws_s3_bucket_policy" "assets" {
+  bucket = aws_s3_bucket.assets.id
+  policy = data.aws_iam_policy_document.bucket.json
+}
 ```
 
 **Bad Example** — public bucket, HTTP allowed, cookies not in the cache key

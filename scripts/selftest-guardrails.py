@@ -195,6 +195,14 @@ VERSION_CASES: list[tuple[str, object, str]] = [
     ("lint/css-unknown-property",
      in_fence("css/06-flexbox.md", "css", ".x { flexx-direction: row; }"),
      "unknown property"),
+    ("lint/terraform-acm-lifecycle",
+     replace("aws/09-acm.md",
+             "\n  lifecycle {\n    # Adding a SAN or changing the domain forces "
+             "replacement. Without this the old\n    # certificate is destroyed first, "
+             "and every listener referencing it goes down\n    # until the new one "
+             "validates — minutes of outage for a one-line change.\n"
+             "    create_before_destroy = true\n  }\n", ""),
+     "create_before_destroy"),
     ("sinks/unreviewed",
      replace("react/03-jsx.md", "## Purpose",
              "## Purpose\n\n```tsx\nconst Bio = ({ html }) => "

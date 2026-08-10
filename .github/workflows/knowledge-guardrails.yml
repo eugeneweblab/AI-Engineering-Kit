@@ -146,6 +146,12 @@ jobs:
       - name: Install ruff
         run: python3 -m pip install --quiet ruff
 
+      - name: Install tflint
+        run: |
+          set -euo pipefail
+          curl -fsSL -o /tmp/tflint.zip https://github.com/terraform-linters/tflint/releases/download/v0.64.0/tflint_linux_amd64.zip
+          unzip -oq /tmp/tflint.zip -d /tmp && sudo install /tmp/tflint /usr/local/bin/tflint
+
       - name: Examples pass their language's linter
         run: |
           python3 scripts/check-lint.py --refresh-env
