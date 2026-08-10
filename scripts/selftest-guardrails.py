@@ -176,6 +176,10 @@ VERSION_CASES: list[tuple[str, object, str]] = [
     ("lint/parses-ls",
      in_fence("linux/03-bash.md", "bash", "for f in $(ls /tmp/*.log); do echo $f; done"),
      "Iterating over ls output"),
+    ("lint/php-unknown-api",
+     replace("wordpress/08-hooks.md", "```php\n",
+             "```php\n<?php\nwp_totally_removed_function( 1 );\n"),
+     "wp_totally_removed_function not found"),
     ("sinks/unreviewed",
      replace("react/03-jsx.md", "## Purpose",
              "## Purpose\n\n```tsx\nconst Bio = ({ html }) => "

@@ -324,8 +324,29 @@ python3 scripts/check-lint.py --require-tools     # a missing linter fails
 python3 scripts/check-lint.py --update-baseline   # accept current diagnostics
 ```
 
-The linter registry is keyed by fence tag, so adding PHPStan for the 480 PHP blocks
-or ESLint for the React ones is a table entry rather than a new script.
+PHP is handled too, as a batch: PHPStan over the 445 parseable blocks with
+`php-stubs/wordpress-stubs` 7 and `php-stubs/woocommerce-stubs` 11, which answers
+"does this WordPress API exist" for the base's largest topic. It found nothing —
+every `wp_*`, `WP_*` and `wc_*` symbol in 445 blocks is real on the current major.
+
+Getting to that answer took three false starts, each of which reported clean while
+checking nothing:
+
+- `bootstrapFiles` for the stubs instead of `scanFiles` — the stubs were never used
+  for symbol discovery.
+- A run that exceeded PHPStan's memory limit inside a parallel worker still emitted
+  `{"totals": {"file_errors": 0}}`.
+- Worst of the three: a single unparseable fragment makes PHPStan declare the whole
+  run incomplete and stop applying rules, so 445 files reported zero errors. Blocks
+  are now pre-filtered with `php -l`, and the 36 that are class bodies or bare array
+  literals never reach PHPStan. That change alone took the report from 0 to 193
+  diagnostics.
+
+Each of those was caught by injecting a call to a function that does not exist and
+noticing the run stayed green. None would have been visible from the output.
+
+The linter registry is keyed by fence tag, so adding ESLint for the React blocks is
+a table entry rather than a new script.
 
 ---
 

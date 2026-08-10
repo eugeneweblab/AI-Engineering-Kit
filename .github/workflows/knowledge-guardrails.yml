@@ -130,8 +130,15 @@ jobs:
       - name: Install shellcheck
         run: sudo apt-get install -y --no-install-recommends shellcheck
 
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          tools: composer
+
       - name: Examples pass their language's linter
-        run: python3 scripts/check-lint.py --require-tools
+        run: |
+          python3 scripts/check-lint.py --refresh-env
+          python3 scripts/check-lint.py --require-tools
 
       # A guardrail that passes is only evidence when it can fail. Twice in this
       # repository a check reported success while doing nothing. These two inject
