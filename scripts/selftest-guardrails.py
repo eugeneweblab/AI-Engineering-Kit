@@ -188,6 +188,13 @@ VERSION_CASES: list[tuple[str, object, str]] = [
      in_fence("react/12-performance.md", "tsx",
               "function Widget({on}){ if(on){ const [v,setV]=useState(0); } return null; }"),
      "is called conditionally"),
+    ("lint/html-missing-alt",
+     in_fence("html/05-images.md", "html",
+              '<img src="/logo.png" width="100" height="40">'),
+     'missing required "alt"'),
+    ("lint/css-unknown-property",
+     in_fence("css/06-flexbox.md", "css", ".x { flexx-direction: row; }"),
+     "unknown property"),
     ("sinks/unreviewed",
      replace("react/03-jsx.md", "## Purpose",
              "## Purpose\n\n```tsx\nconst Bio = ({ html }) => "

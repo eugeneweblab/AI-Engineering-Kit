@@ -74,7 +74,10 @@ device hits them, so they must be designed in from the start.
         aria-label="Monthly signups, peaking in June">
   <!-- Fallback: real data for screen readers and no-JS/no-canvas clients -->
   <table><caption>Monthly signups</caption>
-    <tr><th>May</th><td>1,200</td></tr><tr><th>Jun</th><td>3,400</td></tr>
+    <!-- scope="row" is what makes the header announce with its cell; without it
+         the fallback is less accessible than the canvas it stands in for. -->
+    <tr><th scope="row">May</th><td>1,200</td></tr>
+    <tr><th scope="row">Jun</th><td>3,400</td></tr>
   </table>
 </canvas>
 

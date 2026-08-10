@@ -152,8 +152,13 @@ Reference those instead of literals in any supplementary CSS:
 	background: var(--wp--preset--color--primary);
 	padding: var(--wp--preset--spacing--50);
 }
+```
 
-/* Bad — drifts the moment the palette changes. */
+The same rule with the values written out drifts the moment the palette changes —
+and note that as one stylesheet these two cannot coexist, since the later wins:
+
+```css
+/* Bad — hard-coded; theme.json no longer controls it. */
 .acme-callout {
 	background: #2563EB;
 	padding: 2rem;

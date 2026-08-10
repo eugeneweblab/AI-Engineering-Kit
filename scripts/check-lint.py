@@ -181,6 +181,91 @@ def lint_js_batch() -> tuple[int, list[tuple[str, str, str]]]:
     return len(origin), findings
 
 
+# CSS and HTML go through npx, which resolves a pinned version on demand, so they
+# need no sandbox of their own — only a config that turns on the rules that mean a
+# defect. `check-knowledge.py` already runs both with rules off, for syntax alone.
+WEB_SANDBOX = Path(os.environ.get("KB_WEB_SANDBOX", "/tmp/kb-web"))
+CSS_FENCE = re.compile(r"^```css\s*$\n(.*?)^```\s*$", re.DOTALL | re.MULTILINE)
+HTML_FENCE = re.compile(r"^```html\s*$\n(.*?)^```\s*$", re.DOTALL | re.MULTILINE)
+STYLELINT_CONFIG = {"rules": {
+    "property-no-unknown": True,
+    "declaration-property-value-no-unknown": True,
+    "unit-no-unknown": True,
+    "function-no-unknown": True,
+    "at-rule-no-unknown": [True, {"ignoreAtRules": [
+        "tailwind", "apply", "screen", "layer", "variants", "responsive", "theme",
+        "utility", "custom-variant", "plugin", "config", "source"]}],
+    "selector-pseudo-class-no-unknown": True,
+    "selector-pseudo-element-no-unknown": True,
+    "no-duplicate-selectors": True,
+    "declaration-block-no-duplicate-properties": [
+        True, {"ignore": ["consecutive-duplicates-with-different-values"]}],
+}}
+HTMLVALIDATE_CONFIG = {
+    "extends": ["html-validate:recommended"],
+    "rules": {
+        # Off: presentation choices an excerpt cannot satisfy.
+        "void-style": "off", "no-trailing-whitespace": "off", "attr-quotes": "off",
+        "element-required-content": "off", "long-title": "off",
+        "require-sri": "off", "no-inline-style": "off", "unique-landmark": "off",
+        # On: the accessibility rules this base has a whole topic about.
+        "wcag/h30": "error", "wcag/h32": "error", "wcag/h36": "error",
+        "wcag/h37": "error", "wcag/h63": "error", "wcag/h67": "error",
+        "wcag/h71": "error", "input-missing-label": "error",
+        "form-dup-name": "error", "heading-level": "error", "empty-heading": "error",
+        "attribute-misuse": "error", "no-dup-id": "error",
+    },
+}
+
+
+def lint_web_batch() -> tuple[int, list[tuple[str, str, str]]]:
+    """stylelint and html-validate with real rules, over every css/html block."""
+    findings: list[tuple[str, str, str]] = []
+    total = 0
+    for kind, fence, config_name, config, pattern, argv in (
+        ("css", CSS_FENCE, ".stylelintrc.json", STYLELINT_CONFIG, "*.css",
+         ["npx", "--yes", "stylelint@16"]),
+        ("html", HTML_FENCE, ".htmlvalidate.json", HTMLVALIDATE_CONFIG, "*.html",
+         ["npx", "--yes", "html-validate@8"]),
+    ):
+        work = WEB_SANDBOX / kind
+        shutil.rmtree(work, ignore_errors=True)
+        work.mkdir(parents=True)
+        (work / config_name).write_text(json.dumps(config), encoding="utf-8")
+        origin: dict[str, str] = {}
+        written = 0
+        for path in sorted(KB.rglob("*.md")):
+            for source in fence.findall(path.read_text(encoding="utf-8", errors="replace")):
+                written += 1
+                name = f"b{written:04d}.{kind}"
+                (work / name).write_text(source, encoding="utf-8")
+                origin[name] = path.relative_to(KB).as_posix()
+        total += written
+        report = work / "report.json"
+        # Both write to a file rather than stdout: Node truncates a large pipe on
+        # exit, which once made a checker parse half a document and report success.
+        if kind == "css":
+            subprocess.run([*argv, pattern, "--formatter", "json",
+                            "--output-file", str(report)],
+                           cwd=work, capture_output=True, text=True)
+        else:
+            subprocess.run([*argv, pattern, "--formatter", f"json={report.name}"],
+                           cwd=work, capture_output=True, text=True)
+        if not report.exists():
+            findings.append((f"({kind})", "TOOL", "linter produced no report"))
+            continue
+        data = json.loads(report.read_text(encoding="utf-8"))
+        for entry in data:
+            key = "source" if kind == "css" else "filePath"
+            document = origin.get(os.path.basename(entry[key]), entry[key])
+            items = entry["warnings"] if kind == "css" else entry["messages"]
+            for item in items:
+                rule = item.get("rule") or item.get("ruleId") or kind.upper()
+                text = item.get("text") or item.get("message") or ""
+                findings.append((document, rule, text))
+    return total, findings
+
+
 PHP_LOCK = ROOT / "scripts" / "data" / "lint-env.json"
 PHP_PACKAGES = {
     "phpstan/phpstan": "^2.0",
@@ -319,6 +404,18 @@ def main(argv: list[str]) -> int:
                 found[key] = found.get(key, 0) + 1
                 where[key] = rel
                 sample.setdefault(key, message)
+
+    if shutil.which("npx"):
+        analysed, findings = lint_web_batch()
+        counted += analysed
+        for document, code, message in findings:
+            shape = re.sub(r"'[^']*'", "'…'", re.sub(r'"[^"]*"', '"…"', message))[:150]
+            key = f"{document}|{code}|{shape}"
+            found[key] = found.get(key, 0) + 1
+            where[key] = document
+            sample.setdefault(key, message)
+    else:
+        SKIPPED["css/html"] = "npx"
 
     if (ES_SANDBOX / "node_modules").exists():
         analysed, findings = lint_js_batch()

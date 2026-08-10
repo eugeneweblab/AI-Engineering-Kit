@@ -83,8 +83,9 @@ accessibility tree. Using the platform's own state removes a whole category of
 </ul>
 
 <!-- Asterisk is decorative (after:content); `required` carries the real meaning -->
-<label class="after:ml-0.5 after:text-red-500 after:content-['*']">Email</label>
+<label for="email" class="after:ml-0.5 after:text-red-500 after:content-['*']">Email</label>
 <input
+  id="email"
   type="email" required aria-required="true"
   class="border placeholder-shown:italic
          user-invalid:border-red-500 autofill:bg-white"
