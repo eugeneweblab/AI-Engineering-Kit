@@ -82,13 +82,11 @@ LINTERS: dict[str, tuple[str, object]] = {
 # block by block: 445 separate invocations would cost minutes of process startup.
 PHP_SANDBOX = Path(os.environ.get("KB_PHP_SANDBOX", "/tmp/kb-php"))
 PHP_FENCE = re.compile(r"^```php\s*$\n(.*?)^```\s*$", re.DOTALL | re.MULTILINE)
-PHP_COMPOSER = {
-    "name": "kb/phpcheck",
-    "require-dev": {
-        "phpstan/phpstan": "^2.0",
-        "php-stubs/wordpress-stubs": "^7.0",
-        "php-stubs/woocommerce-stubs": "^11.0",
-    },
+PHP_LOCK = ROOT / "scripts" / "data" / "lint-env.json"
+PHP_PACKAGES = {
+    "phpstan/phpstan": "^2.0",
+    "php-stubs/wordpress-stubs": "^7.0",
+    "php-stubs/woocommerce-stubs": "^11.0",
 }
 PHP_CONFIG = """parameters:
   level: 0
@@ -100,9 +98,18 @@ PHP_CONFIG = """parameters:
 
 
 def refresh_php_env() -> int:
+    # Exact versions from the lock unless asked to move them: a stub release changes
+    # which symbols exist, and the baseline should record a review, not a Tuesday.
+    pinned = json.loads(PHP_LOCK.read_text(encoding="utf-8")) if PHP_LOCK.exists() else {}
+    upgrade = "--upgrade" in sys.argv
+    require = {
+        name: (constraint if upgrade or name not in pinned else pinned[name])
+        for name, constraint in PHP_PACKAGES.items()
+    }
     PHP_SANDBOX.mkdir(parents=True, exist_ok=True)
     (PHP_SANDBOX / "composer.json").write_text(
-        json.dumps(PHP_COMPOSER, indent=2) + "\n", encoding="utf-8"
+        json.dumps({"name": "kb/phpcheck", "require-dev": require}, indent=2) + "\n",
+        encoding="utf-8",
     )
     proc = subprocess.run(
         ["composer", "update", "--quiet", "--no-interaction"],
@@ -111,16 +118,22 @@ def refresh_php_env() -> int:
     if proc.returncode != 0:
         print(proc.stdout[-1500:], proc.stderr[-1500:])
         return 1
+    installed = subprocess.run(
+        ["composer", "show", "--format=json"], cwd=PHP_SANDBOX,
+        capture_output=True, text=True,
+    )
     versions = {}
-    for package in ("php-stubs/wordpress-stubs", "php-stubs/woocommerce-stubs",
-                    "phpstan/phpstan"):
-        manifest = PHP_SANDBOX / "vendor" / package / "composer.json"
-        if manifest.exists():
-            versions[package] = json.loads(manifest.read_text(encoding="utf-8")).get(
-                "version", "installed"
-            )
+    try:
+        for entry in json.loads(installed.stdout).get("installed", []):
+            if entry["name"] in PHP_PACKAGES:
+                versions[entry["name"]] = entry["version"].lstrip("v")
+    except (json.JSONDecodeError, KeyError):
+        pass
+    if versions:
+        PHP_LOCK.write_text(json.dumps(versions, indent=1, sort_keys=True) + "\n",
+                            encoding="utf-8")
     print(f"PHP sandbox ready at {PHP_SANDBOX}: "
-          f"{', '.join(sorted(versions)) or 'packages installed'}.")
+          + ", ".join(f"{n} {v}" for n, v in sorted(versions.items())))
     return 0
 
 

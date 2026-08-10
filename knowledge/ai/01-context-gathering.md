@@ -70,7 +70,7 @@ rg --files --hidden -g '!.git' \
   | sed 's|/[^/]*$||' | sort -u | head -50
 
 # Identify the stack from the manifest, not from guessing
-cat package.json | jq '{name, scripts, dependencies, devDependencies}'
+jq '{name, scripts, dependencies, devDependencies}' package.json
 ```
 
 Read the folder layout as a signal of the architecture. A `src/modules/*/` layout with per-module controllers and services implies a modular (often NestJS) architecture; a `app/` directory with `page.tsx`/`layout.tsx` implies the Next.js App Router; a flat `pkg/` and `cmd/` split implies Go. Match your output to the layout you observe — do not impose a layout the repo does not use.

@@ -281,7 +281,8 @@ next framework migration: when a pinned library moves a major, this check is wha
 which examples stopped compiling.
 
 ```bash
-python3 scripts/check-types.py --refresh-env      # build the sandbox (npm + prisma generate)
+python3 scripts/check-types.py --refresh-env           # rebuild from the pinned lock
+python3 scripts/check-types.py --refresh-env --upgrade # move the lock to latest
 python3 scripts/check-types.py                    # exit 0 = clean
 python3 scripts/check-types.py --update-baseline   # accept current excerpts
 ```
@@ -318,10 +319,17 @@ shape alone, and a second `SC2086` in a document that already had one passed uns
 Injection caught it, and the same hole was then found and fixed in `check-types.py`,
 which had been shipped one commit earlier with the same keying.
 
+Every tool version is pinned — shellcheck in the workflow, PHPStan and the stubs in
+`scripts/data/lint-env.json`. CI caught this the hard way: an unpinned shellcheck on
+the runner emitted an `SC2002` the laptop's did not, and the baseline is a record of
+what someone reviewed, not of what one machine happened to report that day.
+
 ```bash
-python3 scripts/check-lint.py                    # exit 0 = clean
-python3 scripts/check-lint.py --require-tools     # a missing linter fails
-python3 scripts/check-lint.py --update-baseline   # accept current diagnostics
+python3 scripts/check-lint.py                        # exit 0 = clean
+python3 scripts/check-lint.py --refresh-env          # rebuild PHP sandbox from the lock
+python3 scripts/check-lint.py --refresh-env --upgrade # move the lock to latest
+python3 scripts/check-lint.py --require-tools         # a missing linter fails
+python3 scripts/check-lint.py --update-baseline       # accept current diagnostics
 ```
 
 PHP is handled too, as a batch: PHPStan over the 445 parseable blocks with

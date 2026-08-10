@@ -1,0 +1,5 @@
+{
+ "php-stubs/woocommerce-stubs": "11.0.0",
+ "php-stubs/wordpress-stubs": "7.0.1",
+ "phpstan/phpstan": "2.2.8"
+}

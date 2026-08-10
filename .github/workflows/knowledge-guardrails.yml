@@ -127,8 +127,16 @@ jobs:
           python3 scripts/check-types.py
 
       # `bash -n` proves a shell block parses. `for f in $(ls *.log)` parses too.
+      # Pinned: a different shellcheck emits a different set of diagnostics, and the
+      # baseline is a record of what was reviewed, not of what one machine happens to
+      # report. An unpinned linter makes CI and a laptop disagree.
       - name: Install shellcheck
-        run: sudo apt-get install -y --no-install-recommends shellcheck
+        run: |
+          set -euo pipefail
+          curl -fsSL https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.linux.x86_64.tar.xz \
+            | tar -xJ -C /tmp
+          sudo install /tmp/shellcheck-v0.11.0/shellcheck /usr/local/bin/shellcheck
+          shellcheck --version | grep version
 
       - uses: shivammathur/setup-php@v2
         with:

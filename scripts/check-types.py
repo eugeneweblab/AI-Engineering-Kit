@@ -27,15 +27,18 @@ The baseline holds a *count* per key. Keying alone was not enough: a second
 `TS2304` in a document that already had one passed unseen, which injection caught
 one commit after this check shipped.
 
-`--refresh-env` reinstalls the library set and regenerates the Prisma client. The
-installed versions are pinned in `scripts/data/types-env.json` so a run is
-reproducible and a deliberate library upgrade is a visible commit.
+`--refresh-env` rebuilds the sandbox from the exact versions in
+`scripts/data/types-env.json` and regenerates the Prisma client, so CI and a laptop
+analyse the same code. `--refresh-env --upgrade` moves those versions to latest and
+rewrites the lock, which makes a library upgrade a visible commit rather than a
+silent difference between two machines.
 
 Exit code 0 = clean, 1 = a block does not compile against the real types.
 
 Usage:
     python3 scripts/check-types.py
-    python3 scripts/check-types.py --refresh-env      # (re)build the library sandbox
+    python3 scripts/check-types.py --refresh-env            # rebuild from the lock
+    python3 scripts/check-types.py --refresh-env --upgrade  # move the lock to latest
     python3 scripts/check-types.py --update-baseline  # accept current diagnostics
 """
 from __future__ import annotations
@@ -118,9 +121,20 @@ def refresh_env() -> int:
         json.dumps({"name": "kb-types", "private": True, "type": "module"}) + "\n",
         encoding="utf-8",
     )
-    print(f"installing {len(LIBRARIES)} libraries into {SANDBOX} …")
+    # Install the exact versions the lock records, unless asked to move them. An
+    # unpinned install makes CI and a laptop disagree by a patch release, and the
+    # baseline then churns for reasons that have nothing to do with the base.
+    pinned = json.loads(ENV_LOCK.read_text(encoding="utf-8")) if ENV_LOCK.exists() else {}
+    if "--upgrade" in sys.argv:
+        wanted = list(LIBRARIES)
+        print(f"installing {len(LIBRARIES)} libraries at latest into {SANDBOX} …")
+    else:
+        wanted = [f"{name}@{pinned[name]}" if name in pinned else name
+                  for name in LIBRARIES]
+        print(f"installing {len(LIBRARIES)} libraries at pinned versions into "
+              f"{SANDBOX} …")
     proc = subprocess.run(
-        ["npm", "install", "--silent", "--no-audit", "--no-fund", *LIBRARIES],
+        ["npm", "install", "--silent", "--no-audit", "--no-fund", *wanted],
         cwd=SANDBOX, capture_output=True, text=True,
     )
     if proc.returncode != 0:
