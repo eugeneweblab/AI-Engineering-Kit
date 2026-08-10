@@ -6,7 +6,7 @@ title: "PostgreSQL Partitioning"
 type: doc
 order: 11
 status: ready
-tags: [postgresql, partitioning, VACUUM, pg_partman, DETACH, HASH, RANGE, EXPLAIN]
+tags: [postgresql, partitioning, VACUUM, pg_partman, DETACH, HASH, RANGE, EXPLAIN, time-series, growing, large]
 related: [postgresql/04-indexes, postgresql/05-query-planner, postgresql/20-vacuum, postgresql/16-performance]
 when_to_use: "Read before partitioning a large table, or when a growing time-series/multi-tenant table is becoming slow to query, vacuum, or prune."
 ---

@@ -6,7 +6,7 @@ title: "NestJS Controllers"
 type: doc
 order: 4
 status: ready
-tags: [nestjs, controllers, Controller, IsOptional, Param, HttpCode, MinLength, UseGuards]
+tags: [nestjs, controllers, Controller, IsOptional, Param, HttpCode, MinLength, UseGuards, handler, route, http]
 related: [nestjs/07-dto, nestjs/08-validation, nestjs/12-pipes, nestjs/05-services, rest-api/04-endpoints]
 when_to_use: "Read before writing or reviewing any controller, route handler, or HTTP endpoint."
 ---

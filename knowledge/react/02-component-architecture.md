@@ -6,7 +6,7 @@ title: "React Component Architecture"
 type: doc
 order: 2
 status: ready
-tags: [react, component-architecture, LoginForm, OrderList, useState, useTheme, setOrders, setLoading]
+tags: [react, component-architecture, LoginForm, OrderList, useState, useTheme, setOrders, setLoading, splitting, structure, designing]
 related: [react/13-component-composition, react/14-patterns, react/22-folder-structure, react/01-react-philosophy]
 when_to_use: "Read before designing, splitting, or reviewing React component structure and composition."
 ---

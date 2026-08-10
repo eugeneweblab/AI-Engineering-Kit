@@ -6,7 +6,7 @@ title: "Proxying Applications"
 type: doc
 order: 19
 status: ready
-tags: [nginx, proxying-applications, X-Forwarded-Proto, X-Forwarded-For, Host, proxy_next_upstream, proxy_read_timeout, real_ip_header]
+tags: [nginx, proxying-applications, X-Forwarded-Proto, X-Forwarded-For, Host, proxy_next_upstream, proxy_read_timeout, real_ip_header, python, putting, front]
 related: [nginx/05-reverse-proxy, nginx/06-load-balancing, nginx/20-websockets, nginx/18-performance, nginx/13-security]
 when_to_use: "Read before putting nginx in front of a Node, Python, Go, or Ruby application server."
 ---

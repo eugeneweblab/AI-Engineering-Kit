@@ -6,7 +6,7 @@ title: "NestJS Maintenance"
 type: doc
 order: 29
 status: ready
-tags: [nestjs, maintenance, Controller, Header, UseInterceptors, Param, Injectable, findAll]
+tags: [nestjs, maintenance, Controller, Header, UseInterceptors, Param, Injectable, findAll, maintaining, debt, managing]
 related: [nestjs/28-deployment, nestjs/24-observability, nestjs/25-testing]
 when_to_use: "Read when maintaining, upgrading, or managing technical debt in a NestJS application after deployment."
 ---

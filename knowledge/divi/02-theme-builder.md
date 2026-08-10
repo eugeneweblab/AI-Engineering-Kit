@@ -6,7 +6,7 @@ title: "Theme Builder"
 type: doc
 order: 2
 status: ready
-tags: [divi, theme-builder, Footer, Header]
+tags: [divi, theme-builder, Footer, Header, like, headers, pages]
 related: [divi/01-architecture, divi/05-layouts, divi/07-dynamic-content, divi/08-templates, divi/00-overview]
 when_to_use: "Read before building or changing site-wide headers, footers, or templated pages like blog posts and archives."
 ---

@@ -3,7 +3,7 @@
   "note": "Detect the stack from `stack`, then resolve any symbol in the diff via `symbols`. Both point at document ids in INDEX.json. In `when`, `|` separates alternatives and `**` matches any number of directories; a pattern is written to match both the root-level and the nested layout.",
   "stats": {
     "stack_signals": 32,
-    "symbols": 9001,
+    "symbols": 9002,
     "docs_indexed": 1271
   },
   "stack": [
@@ -16837,6 +16837,7 @@
     "backoff": [
       "backend/16-background-jobs",
       "backend/27-production",
+      "databases/09-transactions",
       "nestjs/20-queues",
       "rest-api/28-production"
     ],
@@ -17348,6 +17349,7 @@
     "bucket": [
       "architecture/23-infrastructure",
       "aws/04-s3",
+      "aws/08-cloudfront",
       "aws/25-security",
       "devops/08-infrastructure-as-code",
       "nestjs/02-modules",
@@ -19506,6 +19508,9 @@
       "nodejs/05-file-system",
       "nodejs/06-streams",
       "nodejs/20-memory-management"
+    ],
+    "create_before_destroy": [
+      "aws/09-acm"
     ],
     "create_many": [
       "wordpress/07-testing"
@@ -32041,6 +32046,7 @@
     "policy": [
       "architecture/22-cloud-architecture",
       "aws/04-s3",
+      "aws/08-cloudfront",
       "aws/20-ecr",
       "aws/25-security",
       "backend/11-authorization",
@@ -33384,7 +33390,8 @@
       "php/10-files"
     ],
     "random_jitter": [
-      "backend/27-production"
+      "backend/27-production",
+      "databases/09-transactions"
     ],
     "random_page_cost": [
       "postgresql/27-tuning"
@@ -37079,6 +37086,7 @@
     "sleep": [
       "backend/27-production",
       "cicd/04-test-stage",
+      "databases/09-transactions",
       "github/26-automation",
       "javascript/30-engineering-principles",
       "linux/07-services",

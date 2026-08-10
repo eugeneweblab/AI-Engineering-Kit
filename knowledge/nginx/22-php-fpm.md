@@ -6,7 +6,7 @@ title: "Php FPM"
 type: doc
 order: 22
 status: ready
-tags: [nginx, php-fpm, pm.max_children, fastcgi_read_timeout, SCRIPT_FILENAME, max_execution_time, index.php, try_files]
+tags: [nginx, php-fpm, pm.max_children, fastcgi_read_timeout, SCRIPT_FILENAME, max_execution_time, index.php, try_files, deploying, wordpress]
 related: [nginx/21-fastcgi, nginx/19-proxying-applications, nginx/07-static-files, nginx/13-security, nginx/18-performance]
 when_to_use: "Read before deploying nginx with PHP-FPM for WordPress, Laravel, Symfony, or any PHP app."
 ---

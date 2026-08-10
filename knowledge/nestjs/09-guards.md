@@ -6,7 +6,7 @@ title: "NestJS Guards"
 type: doc
 order: 9
 status: ready
-tags: [nestjs, guards, UseGuards, ForbiddenException, JwtAuthGuard, Controller, Injectable]
+tags: [nestjs, guards, UseGuards, ForbiddenException, JwtAuthGuard, Controller, Injectable, guard, enforces, authentication]
 related: [nestjs/15-authentication, nestjs/16-authorization, nestjs/13-middleware, security/04-authorization]
 when_to_use: "Read before writing or reviewing any guard that enforces authentication or access control on a route."
 ---

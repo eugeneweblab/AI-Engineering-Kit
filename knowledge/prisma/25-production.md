@@ -6,7 +6,7 @@ title: "Prisma Production"
 type: doc
 order: 25
 status: ready
-tags: [prisma, production, PrismaClient, max_connections, DATABASE_URL, SIGTERM, connection_limit, SIGINT]
+tags: [prisma, production, PrismaClient, max_connections, DATABASE_URL, SIGTERM, connection_limit, SIGINT, runtime, connection, deploying]
 related: [prisma/05-migrations, prisma/15-performance, prisma/26-observability, prisma/18-error-handling, prisma/98-production-checklist]
 when_to_use: "Read before deploying a Prisma app or reviewing its connection, migration, and runtime configuration for production."
 ---

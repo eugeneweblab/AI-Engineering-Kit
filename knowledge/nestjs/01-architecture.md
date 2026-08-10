@@ -6,7 +6,7 @@ title: "NestJS Architecture"
 type: doc
 order: 1
 status: ready
-tags: [nestjs, architecture, Column, Injectable, OrdersRepository, InjectRepository, Controller, OrdersService]
+tags: [nestjs, architecture, Column, Injectable, OrdersRepository, InjectRepository, Controller, OrdersService, overall, dependencies, layer]
 related: [nestjs/02-modules, nestjs/03-dependency-injection, nestjs/05-services, nestjs/06-repositories, architecture/03-clean-architecture]
 when_to_use: "Read before designing or reviewing the layer boundaries, dependencies, or overall structure of a NestJS application."
 ---

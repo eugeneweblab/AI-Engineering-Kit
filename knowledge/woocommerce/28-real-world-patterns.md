@@ -6,7 +6,7 @@ title: "WooCommerce Real World Patterns"
 type: doc
 order: 28
 status: ready
-tags: [woocommerce, real-world-patterns, add_action, create_order, ERP_Client, wp_postmeta, as_enqueue_async_action, wp_posts]
+tags: [woocommerce, real-world-patterns, add_action, create_order, ERP_Client, wp_postmeta, as_enqueue_async_action, wp_posts, customization, programmatic, orders]
 related: [woocommerce/05-orders, woocommerce/12-hooks, woocommerce/13-rest-api, woocommerce/24-scaling, woocommerce/25-best-practices]
 when_to_use: "Read before implementing a common store customization — custom order status, ERP sync, programmatic orders, or checkout fields."
 ---

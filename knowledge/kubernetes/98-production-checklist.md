@@ -6,7 +6,7 @@ title: "Kubernetes Production Checklist"
 type: checklist
 order: 98
 status: ready
-tags: [kubernetes, production-checklist, SIGTERM, readinessProbe, livenessProbe, LimitRange, ResourceQuota, Guaranteed]
+tags: [kubernetes, production-checklist, SIGTERM, readinessProbe, livenessProbe, LimitRange, ResourceQuota, Guaranteed, go-live, signing, off]
 related: [kubernetes/26-production, kubernetes/19-resource-management, kubernetes/22-security, kubernetes/28-disaster-recovery, kubernetes/21-observability]
 when_to_use: "Read before promoting any Kubernetes workload to production or signing off a go-live review."
 ---

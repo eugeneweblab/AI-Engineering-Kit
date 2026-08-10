@@ -6,7 +6,7 @@ title: "AI Coding Tools"
 type: doc
 order: 26
 status: ready
-tags: [tools, ai-coding-tools, applyDiscount, CLAUDE.md, AGENTS.md, TypeScript, PostgreSQL, WordPress]
+tags: [tools, ai-coding-tools, applyDiscount, CLAUDE.md, AGENTS.md, TypeScript, PostgreSQL, WordPress, adopting, connecting, touch]
 related: [tools/25-editor-setup, tools/16-git-hooks, tools/27-dependency-management, ai/00-ai-engineering-principles, engineering/02-code-review]
 when_to_use: "Read before adopting an AI coding assistant on a project — writing project instructions, connecting tools, setting review expectations, and deciding what the assistant must not touch."
 ---

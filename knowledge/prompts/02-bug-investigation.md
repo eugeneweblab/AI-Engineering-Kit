@@ -6,7 +6,7 @@ title: "Prompt — Bug Investigation"
 type: prompt
 order: 2
 status: ready
-tags: [prompts, bug-investigation, applyDiscount, TypeError]
+tags: [prompts, bug-investigation, applyDiscount, TypeError, fill, have, asking]
 related: [prompts/01-code-review, prompts/03-refactoring, workflows/02-fix-a-bug, engineering/03-debugging-methodology, workflows/06-investigate-production-bug]
 when_to_use: "Copy when asking an assistant to find a root cause, and fill in the evidence you already have."
 ---

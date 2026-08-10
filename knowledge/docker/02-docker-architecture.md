@@ -6,7 +6,7 @@ title: "Docker Architecture"
 type: doc
 order: 2
 status: ready
-tags: [docker, docker-architecture, node_modules]
+tags: [docker, docker-architecture, node_modules, unexpectedly, behaves, context]
 related: [docker/00-overview, docker/03-images, docker/04-containers, docker/07-networks, docker/18-security]
 when_to_use: "Read before debugging why a Docker command behaves unexpectedly, or before reasoning about build context, sockets, or the daemon."
 ---

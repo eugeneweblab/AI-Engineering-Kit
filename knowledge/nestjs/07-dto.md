@@ -6,7 +6,7 @@ title: "NestJS Data Transfer Objects (DTO)"
 type: doc
 order: 7
 status: ready
-tags: [nestjs, dto, IsString, IsInt, ValidateNested, MaxLength, IsOptional]
+tags: [nestjs, dto, IsString, IsInt, ValidateNested, MaxLength, IsOptional, contracts, response, defining]
 related: [nestjs/08-validation, nestjs/12-pipes, nestjs/04-controllers, rest-api/06-request-response]
 when_to_use: "Read before defining or reviewing request and response DTOs and API contracts."
 ---

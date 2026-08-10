@@ -6,7 +6,7 @@ title: "Static Analysis"
 type: doc
 order: 8
 status: ready
-tags: [tools, static-analysis, get_post, WP_Post, WordPress]
+tags: [tools, static-analysis, get_post, WP_Post, WordPress, introducing, legacy, rule]
 related: [tools/07-php-code-standards, tools/03-typescript-compiler, tools/04-eslint, tools/27-dependency-management, tools/30-engineering-principles, php/28-tooling]
 when_to_use: "Read before adding static analysis to a project — configuring PHPStan or Psalm, choosing a rule level, or introducing analysis to a legacy codebase with a baseline."
 ---

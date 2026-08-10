@@ -6,7 +6,7 @@ title: "Next.js API Routes"
 type: doc
 order: 12
 status: ready
-tags: [nextjs, api-routes, NextResponse, CreateOrder, route.ts, NextRequest, treeifyError]
+tags: [nextjs, api-routes, NextResponse, CreateOrder, route.ts, NextRequest, treeifyError, handlers, endpoints, route]
 applies_to: [app-router]
 related: [nextjs/11-server-actions, nextjs/13-proxy, rest-api/04-endpoints, rest-api/09-error-handling]
 when_to_use: "Read before building HTTP endpoints or Route Handlers in a Next.js app."

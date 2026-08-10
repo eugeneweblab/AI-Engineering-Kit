@@ -6,7 +6,7 @@ title: "TypeScript Performance"
 type: doc
 order: 25
 status: ready
-tags: [typescript, performance, getProfile, getOrders, array.includes, Promise.all]
+tags: [typescript, performance, getProfile, getOrders, array.includes, Promise.all, hot, paths, runtime]
 related: [typescript/18-asynchronous-programming, typescript/19-collections, typescript/16-configuration, typescript/29-tooling]
 when_to_use: "Read before optimizing TypeScript runtime hot paths or diagnosing slow compilation."
 ---

@@ -6,7 +6,7 @@ title: "PostgreSQL Monitoring"
 type: doc
 order: 17
 status: ready
-tags: [postgresql, monitoring, pg_stat_activity, pg_stat_statements, pg_stat_replication, wait_event_type, pg_stat_user_tables, autovacuum_freeze_max_age]
+tags: [postgresql, monitoring, pg_stat_activity, pg_stat_statements, pg_stat_replication, wait_event_type, pg_stat_user_tables, autovacuum_freeze_max_age, dashboards, alerts, incident]
 related: [postgresql/16-performance, postgresql/12-replication, postgresql/20-vacuum, postgresql/26-production]
 when_to_use: "Read before setting up PostgreSQL metrics, alerts, or dashboards, or when diagnosing a live database incident."
 ---

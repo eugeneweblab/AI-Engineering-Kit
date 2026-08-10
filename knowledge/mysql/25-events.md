@@ -6,7 +6,7 @@ title: "MySQL Events"
 type: doc
 order: 25
 status: ready
-tags: [mysql, events, NOW, ROW_COUNT, LIMIT, my.cnf]
+tags: [mysql, events, NOW, ROW_COUNT, LIMIT, my.cnf, scheduling, inside, event]
 related: [mysql/27-procedures, mysql/26-triggers, mysql/15-monitoring, mysql/09-replication]
 when_to_use: "Read before scheduling recurring work (purges, rollups, refreshes) inside MySQL with the Event Scheduler."
 ---

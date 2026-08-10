@@ -6,7 +6,7 @@ title: "Backend Deployment"
 type: doc
 order: 26
 status: ready
-tags: [backend, deployment, SIGTERM, VARCHAR]
+tags: [backend, deployment, SIGTERM, VARCHAR, rollback, strategy, migration]
 related: [backend/27-production, backend/22-observability, backend/17-transactions, backend/98-production-checklist]
 when_to_use: "Read before setting up a release pipeline, a database migration, or a rollback strategy for a backend service."
 ---

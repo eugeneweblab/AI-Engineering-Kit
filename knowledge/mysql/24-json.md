@@ -6,7 +6,7 @@ title: "JSON"
 type: doc
 order: 24
 status: ready
-tags: [mysql, json, JSON, VARCHAR, CAST, CHECK, FULLTEXT, MySQL]
+tags: [mysql, json, JSON, VARCHAR, CAST, CHECK, FULLTEXT, MySQL, relational, tempted, indexing]
 related: [mysql/03-data-types, mysql/04-indexes, mysql/05-query-optimization, mysql/23-full-text-search]
 when_to_use: "Read before storing, indexing, or querying JSON columns, or when tempted to model relational data as a JSON blob."
 ---

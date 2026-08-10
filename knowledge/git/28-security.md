@@ -6,7 +6,7 @@ title: "Git Security"
 type: doc
 order: 28
 status: ready
-tags: [git, security, user.email, user.name]
+tags: [git, security, user.email, user.name, sensitive, leaked, secret]
 related: [git/20-hooks, git/18-history, git/16-push, git/27-best-practices, git/13-remote-repositories]
 when_to_use: "Read before committing anything sensitive, handling a leaked secret, or hardening a repository."
 ---

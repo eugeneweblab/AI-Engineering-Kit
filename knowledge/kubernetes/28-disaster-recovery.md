@@ -6,7 +6,7 @@ title: "Kubernetes Disaster Recovery"
 type: doc
 order: 28
 status: ready
-tags: [kubernetes, disaster-recovery, VolumeSnapshot]
+tags: [kubernetes, disaster-recovery, VolumeSnapshot, posture, procedures, backups]
 related: [kubernetes/25-upgrades, kubernetes/12-persistent-volumes, kubernetes/13-statefulsets, kubernetes/26-production, kubernetes/23-monitoring]
 when_to_use: "Read before designing backups, recovery procedures, or reviewing a cluster's DR posture."
 ---

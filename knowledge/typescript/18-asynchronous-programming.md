@@ -6,7 +6,7 @@ title: "Asynchronous Programming"
 type: doc
 order: 18
 status: ready
-tags: [typescript, asynchronous-programming, Promise.all, loadDashboard, fetchProfile, AbortSignal, for...of]
+tags: [typescript, asynchronous-programming, Promise.all, loadDashboard, fetchProfile, AbortSignal, for...of, await, concurrent, uses]
 related: [typescript/17-error-handling, typescript/04-functions, typescript/08-generics, typescript/25-performance, typescript/28-best-practices]
 when_to_use: "Read before writing or reviewing any code that uses Promises, async/await, timers, streams, or concurrent I/O."
 ---

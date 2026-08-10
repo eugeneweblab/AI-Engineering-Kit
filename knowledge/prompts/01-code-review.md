@@ -8,7 +8,7 @@ order: 1
 status: ready
 tags: [prompts, code-review]
 related: [prompts/02-bug-investigation, engineering/02-code-review, workflows/05-review-pull-request, checklists/02-pull-request-author, tools/26-ai-coding-tools]
-when_to_use: "Copy when asking an assistant to review a diff, and adapt the context section to the project."
+when_to_use: "Copy when writing the instruction you give an assistant to review a diff or a pull request, and adapt the context section to the change."
 ---
 # Prompt — Code Review
 

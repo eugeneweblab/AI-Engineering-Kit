@@ -6,7 +6,7 @@ title: "Storage Engines"
 type: doc
 order: 8
 status: ready
-tags: [mysql, storage-engines, MyISAM, MEMORY, CURRENT_TIMESTAMP, AUTO_INCREMENT, InnoDB, DATETIME]
+tags: [mysql, storage-engines, MyISAM, MEMORY, CURRENT_TIMESTAMP, AUTO_INCREMENT, InnoDB, DATETIME, engine, legacy, migrating]
 related: [mysql/06-transactions, mysql/07-locking, mysql/04-indexes, mysql/09-replication]
 when_to_use: "Read before creating a table, migrating a legacy MyISAM table, or choosing an engine for a workload."
 ---

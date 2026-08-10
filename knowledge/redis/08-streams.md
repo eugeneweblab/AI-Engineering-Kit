@@ -6,7 +6,7 @@ title: "Redis Streams"
 type: doc
 order: 8
 status: ready
-tags: [redis, streams, XAUTOCLAIM, XACK, XPENDING, XCLAIM, XREADGROUP, XTRIM]
+tags: [redis, streams, XAUTOCLAIM, XACK, XPENDING, XCLAIM, XREADGROUP, XTRIM, lose, restart, event]
 related: [redis/09-pub-sub, redis/16-message-queues, redis/06-sorted-sets, redis/12-expiration, redis/100-common-antipatterns]
 when_to_use: "Read before building an event log, a durable work queue, or any consumer that must not lose messages on restart."
 ---

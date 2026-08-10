@@ -6,7 +6,7 @@ title: "SQL Overview"
 type: doc
 order: 0
 status: ready
-tags: [sql, overview, HAVING, DISTINCT, EXPLAIN, UNKNOWN, snake_case]
+tags: [sql, overview, HAVING, DISTINCT, EXPLAIN, UNKNOWN, snake_case, conventions, right, shared]
 related: [sql/01-select, sql/02-filtering, sql/05-joins, sql/17-query-optimization, sql/26-best-practices]
 when_to_use: "Read before writing or reviewing any SQL query, to find the right topic doc and shared conventions."
 ---

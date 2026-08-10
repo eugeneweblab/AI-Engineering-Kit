@@ -6,7 +6,7 @@ title: "Tags"
 type: doc
 order: 12
 status: ready
-tags: [git, tags, vMAJOR.MINOR.PATCH, v2.4.0]
+tags: [git, tags, vMAJOR.MINOR.PATCH, v2.4.0, point, cutting, marking]
 related: [git/16-push, git/13-remote-repositories, git/04-commits, git/22-git-flow, git/27-best-practices]
 when_to_use: "Read before cutting a release or marking any commit as a permanent, referenceable point."
 ---

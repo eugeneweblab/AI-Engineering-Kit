@@ -6,7 +6,7 @@ title: "SQL AI Review Checklist"
 type: checklist
 order: 99
 status: ready
-tags: [sql, ai-review-checklist, EXPLAIN, SERIALIZABLE, NUMERIC, DECIMAL, OFFSET, CHECK]
+tags: [sql, ai-review-checklist, EXPLAIN, SERIALIZABLE, NUMERIC, DECIMAL, OFFSET, CHECK, approving, migration, diff]
 related: [sql/17-query-optimization, sql/22-security, sql/24-testing, sql/25-debugging, sql/30-engineering-principles]
 when_to_use: "Read when reviewing any SQL diff — schema, query, or migration — before approving it."
 ---

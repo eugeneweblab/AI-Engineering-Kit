@@ -6,7 +6,7 @@ title: "Pull Request Template"
 type: template
 order: 1
 status: ready
-tags: [templates, pull-request, getOrders]
+tags: [templates, pull-request, getOrders, install, opening, template]
 related: [templates/02-architecture-decision-record, workflows/05-review-pull-request, engineering/02-code-review, tools/17-commit-conventions, checklists/02-pull-request-author]
 when_to_use: "Copy when opening a pull request, or install as .github/PULL_REQUEST_TEMPLATE.md for a repository."
 ---

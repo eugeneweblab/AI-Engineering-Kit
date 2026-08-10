@@ -6,7 +6,7 @@ title: "REST API AI Review Checklist"
 type: checklist
 order: 99
 status: ready
-tags: [rest-api, ai-review-checklist, request_id]
+tags: [rest-api, ai-review-checklist, request_id, adds, approving, pull]
 related: [rest-api/09-error-handling, rest-api/08-validation, rest-api/16-authorization, rest-api/18-idempotency, rest-api/07-status-codes]
 when_to_use: "Read when reviewing a pull request that adds or changes a REST endpoint, before approving it."
 ---

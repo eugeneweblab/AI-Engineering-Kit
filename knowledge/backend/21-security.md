@@ -6,7 +6,7 @@ title: "Backend Security"
 type: doc
 order: 21
 status: ready
-tags: [backend, security, findUser, Strict-Transport-Security, Content-Security-Policy, X-Content-Type-Options, Content-Type]
+tags: [backend, security, findUser, Strict-Transport-Security, Content-Security-Policy, X-Content-Type-Options, Content-Type, accepting, untrusted, secrets]
 related: [backend/09-validation, backend/10-authentication, backend/11-authorization, backend/12-error-handling, backend/18-database-design]
 when_to_use: "Read before exposing an endpoint, accepting user input, handling secrets, or reviewing any code that touches untrusted data."
 ---

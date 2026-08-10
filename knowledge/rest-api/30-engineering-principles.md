@@ -6,7 +6,7 @@ title: "REST API Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [rest-api, engineering-principles, Idempotency-Key, request_id, camelCase, snake_case, PUT, ETag]
+tags: [rest-api, engineering-principles, Idempotency-Key, request_id, camelCase, snake_case, PUT, ETag, endpoints, cross-cutting, many]
 related: [rest-api/02-rest-principles, rest-api/07-status-codes, rest-api/14-versioning, rest-api/18-idempotency, rest-api/27-best-practices]
 when_to_use: "Read before designing a new REST API or making a cross-cutting change that many endpoints will inherit."
 ---

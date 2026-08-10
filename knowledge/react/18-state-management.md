@@ -6,7 +6,7 @@ title: "React State Management"
 type: doc
 order: 18
 status: ready
-tags: [react, state-management, useState, ProductList, OrderList, useEffect, setParams, fetchOrders]
+tags: [react, state-management, useState, ProductList, OrderList, useEffect, setParams, fetchOrders, global, local, shared]
 related: [react/06-state, react/10-context-api, react/16-data-fetching]
 when_to_use: "Read before adding or reviewing React state, whether local, shared, or global."
 ---

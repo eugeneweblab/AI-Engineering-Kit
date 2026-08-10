@@ -6,7 +6,7 @@ title: "Integration Testing"
 type: doc
 order: 3
 status: ready
-tags: [testing, integration-testing, UserRepository, findByEmail, toBe, mockResolvedValue]
+tags: [testing, integration-testing, UserRepository, findByEmail, toBe, mockResolvedValue, crosses, call, message]
 related: [testing/02-unit-testing, testing/04-e2e-testing, testing/05-test-doubles, testing/12-api-testing, testing/11-contract-testing]
 when_to_use: "Read before testing code that crosses a real boundary such as a database, HTTP call, or message queue."
 ---

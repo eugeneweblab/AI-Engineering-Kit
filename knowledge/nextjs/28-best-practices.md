@@ -6,7 +6,7 @@ title: "Next.js Best Practices"
 type: doc
 order: 28
 status: ready
-tags: [nextjs, best-practices, NextResponse, EventPage, ProductsPage, generateMetadata, getEvent]
+tags: [nextjs, best-practices, NextResponse, EventPage, ProductsPage, generateMetadata, getEvent, engineering, next, building]
 related: [nextjs/29-engineering-principles, nextjs/100-common-antipatterns, nextjs/06-server-components]
 when_to_use: "Read for a concise reference of engineering best practices when building a Next.js app."
 ---

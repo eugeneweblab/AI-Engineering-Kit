@@ -6,7 +6,7 @@ title: "Prisma Overview"
 type: doc
 order: 0
 status: ready
-tags: [prisma, overview, schema.prisma, PrismaClient, DATABASE_URL]
+tags: [prisma, overview, schema.prisma, PrismaClient, DATABASE_URL, answers, question, deciding]
 related: [prisma/01-installation, prisma/02-schema, prisma/04-relations, prisma/05-migrations, prisma/06-client]
 when_to_use: "Read first when starting Prisma work or deciding which Prisma doc answers your question."
 ---

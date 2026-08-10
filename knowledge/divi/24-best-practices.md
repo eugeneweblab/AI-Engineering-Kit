@@ -6,7 +6,7 @@ title: "Divi Best Practices"
 type: doc
 order: 24
 status: ready
-tags: [divi, best-practices, wp_enqueue_style, wp_get_theme, get_stylesheet_directory_uri, add_action, post_content, wp_enqueue_script]
+tags: [divi, best-practices, wp_enqueue_style, wp_get_theme, get_stylesheet_directory_uri, add_action, post_content, wp_enqueue_script, update-safe, maintainable, conventions]
 related: [divi/00-overview, divi/09-custom-css, divi/10-performance, divi/06-global-elements, divi/16-wordpress-hooks]
 when_to_use: "Read before starting or reviewing any Divi build to apply the conventions that keep a site fast, maintainable, and update-safe."
 ---

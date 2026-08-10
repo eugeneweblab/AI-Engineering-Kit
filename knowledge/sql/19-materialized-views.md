@@ -6,7 +6,7 @@ title: "Materialized Views"
 type: doc
 order: 19
 status: ready
-tags: [sql, materialized-views, UNIQUE, CONCURRENTLY]
+tags: [sql, materialized-views, UNIQUE, CONCURRENTLY, aggregation, read-heavy, join]
 related: [sql/18-views, sql/15-indexes, sql/23-performance, sql/17-query-optimization, sql/14-transactions]
 when_to_use: "Read before caching an expensive aggregation or join in the database, or when a plain view is too slow for a read-heavy dashboard or report."
 ---

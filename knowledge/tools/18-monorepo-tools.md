@@ -6,7 +6,7 @@ title: "Monorepo Tools"
 type: doc
 order: 18
 status: ready
-tags: [tools, monorepo-tools, tsconfig.json]
+tags: [tools, monorepo-tools, tsconfig.json, orchestration, caching, whether]
 related: [tools/01-package-managers, tools/19-task-runners, tools/28-release-tools, tools/03-typescript-compiler, tools/30-engineering-principles, git/24-monorepo]
 when_to_use: "Read before setting up or working in a monorepo — configuring workspaces, task orchestration and caching, or deciding whether a monorepo is warranted."
 ---

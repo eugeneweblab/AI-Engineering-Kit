@@ -6,7 +6,7 @@ title: "Component Composition"
 type: doc
 order: 13
 status: ready
-tags: [react, component-composition, ReactNode, TabPanel, TabsContext, useTabs, TabList, setOpen]
+tags: [react, component-composition, ReactNode, TabPanel, TabsContext, useTabs, TabList, setOpen, props, reusable, configuration]
 related: [react/05-props, react/04-components, react/14-patterns, react/24-design-patterns, react/02-component-architecture]
 when_to_use: "Read before designing a reusable component's API or when a component is drowning in configuration props."
 ---

@@ -6,7 +6,7 @@ title: "MySQL Debugging"
 type: doc
 order: 18
 status: ready
-tags: [mysql, debugging, performance_schema, DATE, long_query_time, EXPLAIN, performance_schema.events_statements_summary_by_digest, innodb_lock_wait_timeout]
+tags: [mysql, debugging, performance_schema, DATE, long_query_time, EXPLAIN, performance_schema.events_statements_summary_by_digest, innodb_lock_wait_timeout, wait, lock, unexpected]
 related: [mysql/05-query-optimization, mysql/07-locking, mysql/15-monitoring, mysql/14-performance, mysql/06-transactions]
 when_to_use: "Read before diagnosing a slow query, a deadlock, a lock wait timeout, or unexpected query results in MySQL."
 ---

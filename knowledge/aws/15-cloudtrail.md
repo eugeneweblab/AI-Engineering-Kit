@@ -6,7 +6,7 @@ title: "CloudTrail"
 type: doc
 order: 15
 status: ready
-tags: [aws, cloudtrail, GetAtt, CloudWatch]
+tags: [aws, cloudtrail, GetAtt, CloudWatch, audit, investigating, resource]
 related: [aws/14-cloudwatch, aws/02-iam, aws/04-s3, aws/25-security, aws/16-secrets-manager]
 when_to_use: "Read before configuring audit logging, or when investigating who changed or accessed an AWS resource."
 ---

@@ -6,7 +6,7 @@ title: "Window Functions"
 type: doc
 order: 8
 status: ready
-tags: [sql, window-functions, SUM, RANGE, HAVING, LIMIT]
+tags: [sql, window-functions, SUM, RANGE, HAVING, LIMIT, rows, running]
 related: [sql/09-aggregate-functions, sql/04-grouping, sql/07-common-table-expressions, sql/17-query-optimization, sql/15-indexes]
 when_to_use: "Read before computing running totals, rankings, per-group top-N, or row-to-row comparisons without collapsing rows."
 ---

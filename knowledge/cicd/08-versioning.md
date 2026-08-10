@@ -6,7 +6,7 @@ title: "CI/CD Versioning"
 type: doc
 order: 8
 status: ready
-tags: [cicd, versioning, MAJOR.MINOR.PATCH, GITHUB_SHA, GITHUB_OUTPUT, GIT_SHA]
+tags: [cicd, versioning, MAJOR.MINOR.PATCH, GITHUB_SHA, GITHUB_OUTPUT, GIT_SHA, scheme, version, automating]
 related: [cicd/07-artifacts, cicd/09-release-management, cicd/10-deployment, cicd/14-rollbacks]
 when_to_use: "Read before choosing a version scheme or automating version bumps in a pipeline."
 ---

@@ -6,7 +6,7 @@ title: "Divi Overview"
 type: doc
 order: 0
 status: ready
-tags: [divi, overview, post_content]
+tags: [divi, overview, post_content, understand, topic, build]
 related: [divi/01-architecture, divi/03-modules, divi/04-custom-modules, divi/05-layouts, divi/02-theme-builder]
 when_to_use: "Read first when starting any Divi build to understand how the topic's docs fit together."
 ---

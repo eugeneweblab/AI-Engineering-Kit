@@ -6,7 +6,7 @@ title: "GraphQL Tooling"
 type: doc
 order: 28
 status: ready
-tags: [graphql, tooling, BREAKING]
+tags: [graphql, tooling, BREAKING, codegen, checks, server]
 related: [graphql/02-schema, graphql/03-types, graphql/24-testing, graphql/29-schema-evolution, graphql/26-best-practices]
 when_to_use: "Read before choosing a GraphQL server, setting up codegen, or wiring schema checks into CI."
 ---

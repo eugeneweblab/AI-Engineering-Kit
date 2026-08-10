@@ -6,7 +6,7 @@ title: "Configmaps"
 type: doc
 order: 9
 status: ready
-tags: [kubernetes, configmaps, ConfigMap, LOG_LEVEL, DB_PASSWORD]
+tags: [kubernetes, configmaps, ConfigMap, LOG_LEVEL, DB_PASSWORD, pods, settings, configuration]
 related: [kubernetes/10-secrets, kubernetes/11-volumes, kubernetes/05-deployments, kubernetes/04-pods, kubernetes/26-production]
 when_to_use: "Read before externalizing non-secret application configuration or wiring environment-specific settings into Pods."
 ---

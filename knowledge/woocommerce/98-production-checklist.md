@@ -6,7 +6,7 @@ title: "WooCommerce Production Checklist"
 type: checklist
 order: 98
 status: ready
-tags: [woocommerce, production-checklist, wp_options, WP_DEBUG]
+tags: [woocommerce, production-checklist, wp_options, WP_DEBUG, significant, launching, live]
 related: [woocommerce/27-production, woocommerce/22-deployment, woocommerce/15-performance, woocommerce/16-security, woocommerce/99-ai-review-checklist]
 when_to_use: "Read before launching a WooCommerce store or promoting a significant change to a live store."
 ---

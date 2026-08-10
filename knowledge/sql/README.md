@@ -6,7 +6,7 @@ title: "SQL Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [sql, readme, HAVING, LIMIT]
+tags: [sql, readme, HAVING, LIMIT, see, fit, docs]
 related: []
 when_to_use: "Read first when starting any SQL work, to see how this section's docs fit together."
 ---

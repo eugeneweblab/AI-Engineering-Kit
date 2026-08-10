@@ -6,7 +6,7 @@ title: "Divi Architecture"
 type: doc
 order: 1
 status: ready
-tags: [divi, architecture, post_content, functions.php]
+tags: [divi, architecture, post_content, functions.php, render, editing, understand]
 applies_to: [classic-theme]
 related: [divi/00-overview, divi/03-modules, divi/04-custom-modules, divi/05-layouts, divi/10-performance]
 when_to_use: "Read before editing Divi content or writing module code, to understand the content model and render pipeline."

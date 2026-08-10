@@ -6,7 +6,7 @@ title: "Relational vs NoSQL"
 type: doc
 order: 2
 status: ready
-tags: [databases, relational-vs-nosql, JSONB, PostgreSQL]
+tags: [databases, relational-vs-nosql, JSONB, PostgreSQL, follows, instead, pattern]
 related: [databases/01-database-fundamentals, databases/03-data-modeling, databases/12-acid, databases/13-eventual-consistency, databases/15-sharding]
 when_to_use: "Read before choosing a data store for a new service or feature, so the choice follows the access pattern instead of habit or hype."
 ---

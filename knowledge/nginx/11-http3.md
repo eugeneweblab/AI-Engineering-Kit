@@ -6,7 +6,7 @@ title: "HTTP/3"
 type: doc
 order: 11
 status: ready
-tags: [nginx, http3, Alt-Svc, ssl_protocols, server_name]
+tags: [nginx, http3, Alt-Svc, ssl_protocols, server_name, opening, enabling, http]
 related: [nginx/10-http2, nginx/12-ssl-tls, nginx/13-security, nginx/18-performance, nginx/03-server-blocks]
 when_to_use: "Read before enabling HTTP/3 (QUIC) or opening UDP/443 for it in your firewall."
 ---

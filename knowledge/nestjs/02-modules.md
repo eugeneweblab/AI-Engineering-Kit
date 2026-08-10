@@ -6,7 +6,7 @@ title: "NestJS Modules"
 type: doc
 order: 2
 status: ready
-tags: [nestjs, modules, Module, UsersService, OrdersService, PaymentsService, UsersRepository, Inject]
+tags: [nestjs, modules, Module, UsersService, OrdersService, PaymentsService, UsersRepository, Inject, exports, imports, splitting]
 related: [nestjs/01-architecture, nestjs/03-dependency-injection, nestjs/14-configuration, nestjs/05-services, architecture/10-modular-monolith]
 when_to_use: "Read before creating, splitting, or reviewing NestJS modules and their imports and exports."
 ---

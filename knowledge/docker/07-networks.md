@@ -6,7 +6,7 @@ title: "Networks"
 type: doc
 order: 7
 status: ready
-tags: [docker, networks, EXPOSE, POSTGRES_PASSWORD_FILE]
+tags: [docker, networks, EXPOSE, POSTGRES_PASSWORD_FILE, reachable, containers, publishing]
 related: [docker/04-containers, docker/12-docker-compose, docker/18-security, docker/22-production, docker/15-healthchecks]
 when_to_use: "Read before wiring containers together, publishing ports, or deciding what a service should be reachable from."
 ---

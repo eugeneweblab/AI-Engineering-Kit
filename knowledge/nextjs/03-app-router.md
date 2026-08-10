@@ -6,7 +6,7 @@ title: "Next.js App Router"
 type: doc
 order: 3
 status: ready
-tags: [nextjs, app-router, NextResponse, ProductsPage, getUser, NextRequest, error.tsx, page.tsx]
+tags: [nextjs, app-router, NextResponse, ProductsPage, getUser, NextRequest, error.tsx, page.tsx, directories, routes, structuring]
 applies_to: [app-router]
 related: [nextjs/06-server-components, nextjs/09-data-fetching, nextjs/10-caching, nextjs/12-api-routes, nextjs/18-metadata, nextjs/04-routing, nextjs/05-layouts, nextjs/08-rendering-strategies]
 when_to_use: "Read before structuring routes and directories with the Next.js App Router."

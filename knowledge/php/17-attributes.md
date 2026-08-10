@@ -6,7 +6,7 @@ title: "Attributes"
 type: doc
 order: 17
 status: ready
-tags: [php, attributes, MaxLength, RuntimeException, __construct, SignupForm]
+tags: [php, attributes, MaxLength, RuntimeException, __construct, SignupForm, native, orm, consuming]
 related: [php/04-oop, php/23-modern-php, php/20-dependency-injection, php/15-testing]
 when_to_use: "Read before defining or consuming PHP attributes (native #[...] metadata) for routing, validation, ORM mapping, or DI."
 ---

@@ -6,7 +6,7 @@ title: "Performance Common Antipatterns"
 type: antipatterns
 order: 100
 status: ready
-tags: [performance, common-antipatterns, EXPLAIN, indexOf, LIMIT]
+tags: [performance, common-antipatterns, EXPLAIN, indexOf, LIMIT, walking, trap, loop]
 related: [performance/01-performance-fundamentals, performance/13-database-performance, performance/08-caching, performance/30-engineering-principles, performance/99-ai-review-checklist]
 when_to_use: "Read before optimizing a loop, a query, or a cache, to check you are not walking into a known trap."
 ---

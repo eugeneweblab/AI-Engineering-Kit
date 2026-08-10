@@ -6,7 +6,7 @@ title: "NestJS Pipes"
 type: doc
 order: 12
 status: ready
-tags: [nestjs, pipes, Injectable, Param, BadRequestException, MinLength, Controller, ParseUUIDPipe]
+tags: [nestjs, pipes, Injectable, Param, BadRequestException, MinLength, Controller, ParseUUIDPipe, incoming, validate, request]
 related: [nestjs/07-dto, nestjs/08-validation, nestjs/04-controllers]
 when_to_use: "Read before building or reviewing pipes that transform or validate incoming request data."
 ---

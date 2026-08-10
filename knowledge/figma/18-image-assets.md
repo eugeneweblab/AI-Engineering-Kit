@@ -6,7 +6,7 @@ title: "Image Assets"
 type: doc
 order: 18
 status: ready
-tags: [figma, image-assets, currentColor, FILE_KEY, FIGMA_TOKEN]
+tags: [figma, image-assets, currentColor, FILE_KEY, FIGMA_TOKEN, production-ready, responsive, them]
 related: [figma/07-figma-to-html, performance/11-images, nextjs/16-images]
 when_to_use: "Read before exporting and implementing image assets from Figma, to keep them optimized, responsive, and production-ready."
 ---

@@ -6,7 +6,7 @@ title: "Message Queues"
 type: doc
 order: 16
 status: ready
-tags: [redis, message-queues, XCLAIM, XTRIM, XACK, XAUTOCLAIM, RPOP, MAXLEN]
+tags: [redis, message-queues, XCLAIM, XTRIM, XACK, XAUTOCLAIM, RPOP, MAXLEN, worker, pool, event]
 related: [redis/08-streams, redis/09-pub-sub, redis/04-lists, redis/17-distributed-locks, redis/20-persistence]
 when_to_use: "Read before building a job queue, worker pool, or event pipeline on Redis."
 ---

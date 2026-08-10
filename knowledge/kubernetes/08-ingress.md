@@ -6,7 +6,7 @@ title: "Ingress"
 type: doc
 order: 8
 status: ready
-tags: [kubernetes, ingress, ClusterIP]
+tags: [kubernetes, ingress, ClusterIP, outside, edge, tls]
 related: [kubernetes/07-services, kubernetes/10-secrets, kubernetes/17-network-policies, kubernetes/22-security, kubernetes/05-deployments]
 when_to_use: "Read before exposing HTTP(S) services to the outside world or configuring host/path routing and TLS at the cluster edge."
 ---

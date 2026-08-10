@@ -6,7 +6,7 @@ title: "Architecture Security"
 type: doc
 order: 15
 status: ready
-tags: [architecture, security, AWS_KEY, PutObject, GetObject, DB_PASSWORD]
+tags: [architecture, security, AWS_KEY, PutObject, GetObject, DB_PASSWORD, posture, trust, protection]
 related: [architecture/11-api-first, architecture/12-integration-patterns, architecture/17-fault-tolerance, architecture/18-observability, architecture/22-cloud-architecture]
 when_to_use: "Read when designing the security posture of a system: trust boundaries, secrets, data protection, and defense in depth."
 ---

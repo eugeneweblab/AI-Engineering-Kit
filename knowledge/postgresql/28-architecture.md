@@ -6,7 +6,7 @@ title: "PostgreSQL Architecture"
 type: doc
 order: 28
 status: ready
-tags: [postgresql, architecture, PgBouncer, RANGE, synchronous_commit]
+tags: [postgresql, architecture, PgBouncer, RANGE, synchronous_commit, partitioning, topology, fits]
 related: [postgresql/12-replication, postgresql/13-high-availability, postgresql/11-partitioning, postgresql/06-transactions, postgresql/20-vacuum]
 when_to_use: "Read before designing how PostgreSQL fits into a system: replicas, partitioning, connection topology, and scaling boundaries."
 ---

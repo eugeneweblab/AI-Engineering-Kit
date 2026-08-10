@@ -6,7 +6,7 @@ title: "Collections"
 type: doc
 order: 19
 status: ready
-tags: [typescript, collections, array.includes, Record, noUncheckedIndexedAccess, for...in, for...of]
+tags: [typescript, collections, array.includes, Record, noUncheckedIndexedAccess, for...in, for...of, groups, looks, elements]
 related: [typescript/20-immutability, typescript/21-functional-programming, typescript/08-generics, typescript/25-performance, typescript/05-objects]
 when_to_use: "Read before choosing a data structure or writing code that iterates, transforms, groups, or looks up elements."
 ---

@@ -6,7 +6,7 @@ title: "PHP Error Handling"
 type: doc
 order: 8
 status: ready
-tags: [php, error-handling, ini_set, error_reporting, display_errors, E_ALL, print_r, json_encode]
+tags: [php, error-handling, ini_set, error_reporting, display_errors, E_ALL, print_r, json_encode, reporting, global, surface]
 related: [php/09-exceptions, php/11-http, php/27-production, php/25-debugging]
 when_to_use: "Read before configuring error reporting, writing a global handler, or deciding how a failure should surface."
 ---

@@ -6,7 +6,7 @@ title: "Contract Testing"
 type: doc
 order: 11
 status: ready
-tags: [testing, contract-testing, mockResolvedValue, orderId, toBe]
+tags: [testing, contract-testing, mockResolvedValue, orderId, toBe, relying, versioned, mock]
 related: [testing/06-mocking, testing/03-integration-testing, testing/12-api-testing, testing/05-test-doubles, testing/04-e2e-testing]
 when_to_use: "Read before relying on a mock of an external service, or when two services communicate across a versioned API."
 ---

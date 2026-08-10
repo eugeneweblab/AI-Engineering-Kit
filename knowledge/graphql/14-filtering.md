@@ -6,7 +6,7 @@ title: "GraphQL Filtering"
 type: doc
 order: 14
 status: ready
-tags: [graphql, filtering, PostConnection, findMany, PostStatus, DateTime, EXPLAIN]
+tags: [graphql, filtering, PostConnection, findMany, PostStatus, DateTime, EXPLAIN, sort, filter, arguments]
 related: [graphql/13-pagination, graphql/10-input-types, graphql/17-security, graphql/22-performance, graphql/04-queries]
 when_to_use: "Read before adding filter, search, or sort arguments to a list field, or when reviewing how filter inputs reach the database."
 ---

@@ -6,7 +6,7 @@ title: "Pods"
 type: doc
 order: 4
 status: ready
-tags: [kubernetes, pods, securityContext, SIGTERM, runAsNonRoot, RuntimeDefault, topologySpreadConstraints, terminationGracePeriodSeconds]
+tags: [kubernetes, pods, securityContext, SIGTERM, runAsNonRoot, RuntimeDefault, topologySpreadConstraints, terminationGracePeriodSeconds, spec, resources, pod]
 related: [kubernetes/05-deployments, kubernetes/03-nodes, kubernetes/19-resource-management, kubernetes/22-security, kubernetes/24-debugging]
 when_to_use: "Read before writing or reviewing any pod spec — probes, resources, security context, or container layout."
 ---

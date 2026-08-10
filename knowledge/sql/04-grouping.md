@@ -6,7 +6,7 @@ title: "Grouping"
 type: doc
 order: 4
 status: ready
-tags: [sql, grouping, SUM, HAVING, COALESCE, MIN, MAX, AVG]
+tags: [sql, grouping, SUM, HAVING, COALESCE, MIN, MAX, AVG, clause, report, group]
 related: [sql/01-select, sql/02-filtering, sql/09-aggregate-functions, sql/08-window-functions, sql/05-joins]
 when_to_use: "Read before writing any GROUP BY, aggregate query, or HAVING clause, or when a report double-counts."
 ---

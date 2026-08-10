@@ -6,7 +6,7 @@ title: "Divi Common Antipatterns"
 type: antipatterns
 order: 100
 status: ready
-tags: [divi, common-antipatterns, wp_enqueue_style, wp_get_theme, get_stylesheet_directory_uri, wp_kses, add_action, post_content]
+tags: [divi, common-antipatterns, wp_enqueue_style, wp_get_theme, get_stylesheet_directory_uri, wp_kses, add_action, post_content, break, mistakes, avoid]
 related: [divi/24-best-practices, divi/30-engineering-principles, divi/09-custom-css, divi/10-performance, divi/16-wordpress-hooks]
 when_to_use: "Read before or during a Divi build to recognize and avoid the recurring mistakes that corrupt, slow, or break a site."
 ---

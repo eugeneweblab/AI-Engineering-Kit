@@ -6,7 +6,7 @@ title: "Copilot"
 type: doc
 order: 25
 status: ready
-tags: [github, copilot, findUser, toBeDefined]
+tags: [github, copilot, findUser, toBeDefined, produced, org, enabling]
 related: [github/07-code-review, github/14-codeql, github/16-secret-scanning, github/24-codespaces, github/27-best-practices]
 when_to_use: "Read before enabling GitHub Copilot for an org, or when reviewing code produced with AI assistance."
 ---

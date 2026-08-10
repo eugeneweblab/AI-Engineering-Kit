@@ -6,7 +6,7 @@ title: "WooCommerce AI Review Checklist"
 type: checklist
 order: 99
 status: ready
-tags: [woocommerce, ai-review-checklist, wc_clean, __return_true, wp_kses, permission_callback, sanitize_text_field, wp_posts]
+tags: [woocommerce, ai-review-checklist, wc_clean, __return_true, wp_kses, permission_callback, sanitize_text_field, wp_posts, merged, generating]
 related: [woocommerce/29-ai-review, woocommerce/16-security, woocommerce/12-hooks, woocommerce/98-production-checklist, woocommerce/100-common-antipatterns]
 when_to_use: "Read when reviewing or generating any WooCommerce code change, before it is merged."
 ---

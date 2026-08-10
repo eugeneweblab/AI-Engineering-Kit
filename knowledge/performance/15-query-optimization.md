@@ -6,7 +6,7 @@ title: "Performance Query Optimization"
 type: doc
 order: 15
 status: ready
-tags: [performance, query-optimization, OFFSET, DATE, ANALYZE, pg_stat_statements]
+tags: [performance, query-optimization, OFFSET, DATE, ANALYZE, pg_stat_statements, complex, statement, specific]
 related: [performance/13-database-performance, performance/16-profiling, performance/14-api-performance, performance/08-caching, performance/02-metrics]
 when_to_use: "Read before writing a complex SQL query, adding an index, or diagnosing one specific slow statement."
 ---

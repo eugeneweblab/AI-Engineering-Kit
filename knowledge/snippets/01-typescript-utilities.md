@@ -8,7 +8,7 @@ order: 1
 status: ready
 tags: [snippets, typescript-utilities, clearTimeout, required, isError, assertNever, setTimeout, TypeError]
 related: [snippets/02-php-wordpress, typescript/09-utility-types, javascript/08-asynchronous-javascript, react/09-custom-hooks, snippets/03-shell-scripts]
-when_to_use: "Copy when you need money formatting, async control flow, or type-narrowing helpers."
+when_to_use: "Copy when you need to format money without floating point error, control async flow (retry, timeout, concurrency), or narrow a type — small helpers with the edge cases already handled."
 ---
 # TypeScript Utilities
 

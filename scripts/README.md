@@ -407,6 +407,27 @@ doing the work its weight claims.
 
 ---
 
+## Language coverage
+
+Every fenced language is now checked by something that understands it, not only by a
+parser. What each one costs and what it caught:
+
+| Language | Blocks | Checked by | Found |
+| --- | --- | --- | --- |
+| ts / tsx | 1462 | esbuild parse, `tsc` against pinned libraries, ESLint hook rules | the Prisma 6→7 migration, `findUnique({ id })`, two files in one block |
+| php | 480 | `php -l`, PHPStan with WordPress 7 / WooCommerce 11 stubs | nothing — every `wp_*`/`wc_*` symbol is real |
+| bash | 383 | `bash -n`, shellcheck | `ls` parsed in a rollback playbook, `pgrep` returning several PIDs |
+| yaml | 246 | PyYAML, kubeconform / actionlint / `docker compose config` | 22 manifests that their own tool rejects |
+| html | 219 | html-validate with the WCAG rules | `<th>` without `scope` inside a canvas fallback, an unassociated label |
+| sql | 214 | sqlfluff (parse), executed against PostgreSQL 17 | nothing — errors were all excerpt artifacts |
+| js / jsx | 246 | esbuild parse, ESLint hook rules | nothing — every violation is a labelled Bad Example |
+| css | 131 | stylelint with real rules | good and bad rule in one stylesheet, where the bad one wins |
+| python | 115 | `ast.parse`, ruff (E9/F/B) | a retry loop with no backoff, a swallowed exception, `zip` without `strict` |
+| hcl | 40 | python-hcl2, tflint with the AWS ruleset | ACM certificate replaceable only with downtime, an unattached bucket policy |
+| dockerfile | 53 | hadolint (parse codes) | 77 inline comments that were arguments, not comments |
+| graphql | 27 | graphql-core parse, `build_schema` | nothing — excerpts legitimately reference outside types |
+| json, ini, nginx, xml, lua, go, http, diff, cron, makefile, redis | 300 | format parsers | wrong fence tags, unclosed sections |
+
 ## Angles tried that found nothing
 
 Recorded so they are not re-run blind. Each was measured, not guessed at.

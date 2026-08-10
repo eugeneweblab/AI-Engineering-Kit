@@ -6,7 +6,7 @@ title: "Next.js Overview"
 type: doc
 order: 0
 status: ready
-tags: [nextjs, overview, getServerSideProps, route.ts, page.tsx, layout.tsx]
+tags: [nextjs, overview, getServerSideProps, route.ts, page.tsx, layout.tsx, concern, specific, understand]
 related: [nextjs/01-architecture, nextjs/03-app-router, nextjs/15-authorization, nextjs/24-security, nextjs/28-best-practices]
 when_to_use: "Read first to understand how the Next.js docs fit together and where to go for a specific concern."
 ---

@@ -6,7 +6,7 @@ title: "React Anti-Patterns"
 type: antipatterns
 order: 100
 status: ready
-tags: [react, common-antipatterns, useState, useEffect, setFullName, React.memo, useCallback, useMemo]
+tags: [react, common-antipatterns, useState, useEffect, setFullName, React.memo, useCallback, useMemo, detect, implementation, refactoring]
 related: [react/26-best-practices, react/11-rendering, react/06-state, react/99-ai-review-checklist]
 when_to_use: "Read during React implementation, code review, or refactoring to detect and avoid common anti-patterns."
 ---

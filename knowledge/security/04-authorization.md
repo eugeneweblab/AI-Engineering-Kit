@@ -6,7 +6,7 @@ title: "Security Authorization"
 type: doc
 order: 4
 status: ready
-tags: [security, authorization, ForbiddenError, NotFoundError, findOne, findById, isAdmin]
+tags: [security, authorization, ForbiddenError, NotFoundError, findOne, findById, isAdmin, authenticated, decides, user]
 related: [security/03-authentication, security/01-security-fundamentals, security/06-session-management, security/29-security-review, security/28-owasp-top10]
 when_to_use: "Read before building or reviewing any code that decides what an authenticated user is allowed to do."
 ---

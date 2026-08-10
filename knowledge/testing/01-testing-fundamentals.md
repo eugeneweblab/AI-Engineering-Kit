@@ -6,7 +6,7 @@ title: "Testing Fundamentals"
 type: doc
 order: 1
 status: ready
-tags: [testing, testing-fundamentals, spyOn, toBeDefined, toHaveBeenCalled, toBe]
+tags: [testing, testing-fundamentals, spyOn, toBeDefined, toHaveBeenCalled, toBe, place, whether, test]
 related: [testing/00-overview, testing/02-unit-testing, testing/03-integration-testing, testing/09-assertions, testing/28-testing-strategy]
 when_to_use: "Read before deciding what kind of test to write or reviewing whether a test earns its place."
 ---

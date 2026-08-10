@@ -6,7 +6,7 @@ title: "State Management"
 type: doc
 order: 4
 status: ready
-tags: [frontend, state-management, setState, fetchCart, useQuery, useSearchParams, Cart, isValid]
+tags: [frontend, state-management, setState, fetchCart, useQuery, useSearchParams, Cart, isValid, stale, store, debugging]
 related: [frontend/01-frontend-architecture, frontend/02-component-driven-development, frontend/05-routing, frontend/06-data-fetching, frontend/12-forms]
 when_to_use: "Read before adding state, choosing a store, or debugging stale, duplicated, or out-of-sync UI state."
 ---

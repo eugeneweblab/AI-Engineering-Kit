@@ -769,6 +769,37 @@ LIST_DIR_RE = re.compile(r"^knowledge/([a-z0-9-]+)/\s*$")
 LIST_FILE_RE = re.compile(r"^([0-9]{2,3}-[a-z0-9-]+\.md|README\.md|WRITING_STANDARD\.md)$")
 
 
+RULES_SKIP_RE = re.compile(r"^## (Purpose|Why It Matters|Overview)\b", re.IGNORECASE)
+EXAMPLES_RE = re.compile(r"^## Examples?\b", re.IGNORECASE)
+
+
+def check_rule_before_example(doc, problems: list[str]) -> None:
+    """A rule must appear before the code that applies it.
+
+    An agent that matches a document reads from the top and often stops early. If
+    `## Examples` comes first, what it takes away is a snippet with no reasoning
+    attached — the copyable part without the part that says when it applies. The
+    base already holds to this everywhere (rules land at a median line 23, examples
+    never before them); this keeps it true.
+    """
+    if doc.fm.get("type") != "doc":
+        return
+    rule = example = None
+    for number, line in enumerate(doc.body.split("\n"), start=1):
+        if not line.startswith("## "):
+            continue
+        if EXAMPLES_RE.match(line):
+            example = example or number
+        elif not RULES_SKIP_RE.match(line) and rule is None:
+            rule = number
+    if example is not None and (rule is None or example < rule):
+        problems.append(
+            f"{doc.rel}: `## Examples` at line {example} comes before any section "
+            f"stating a rule. A reader who stops early gets the snippet without the "
+            f"reason for it."
+        )
+
+
 def check_planning_docs(root: Path, problems: list[str]) -> None:
     """The structure spec and file list must still describe the tree on disk.
 
@@ -831,6 +862,7 @@ def check_checklist_pointers(root: Path, docs: list[Doc], problems: list[str]) -
     did not disappear wholesale, since the per-section mapping is editorial.
     """
     for doc in docs:
+        check_rule_before_example(doc, problems)
         if not doc.path.name.startswith(("98-", "99-")):
             continue
         found = len(re.findall(r"^\*\*Rules:\*\*", doc.body, re.MULTILINE))

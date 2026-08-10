@@ -6,7 +6,7 @@ title: "SQL Functions"
 type: doc
 order: 10
 status: ready
-tags: [sql, functions, LOWER, COALESCE, DATE, CAST, CONCAT, TIMESTAMPTZ]
+tags: [sql, functions, LOWER, COALESCE, DATE, CAST, CONCAT, TIMESTAMPTZ, scalar, strings, dates]
 related: [sql/11-data-types, sql/09-aggregate-functions, sql/15-indexes, sql/27-portability, sql/02-filtering]
 when_to_use: "Read before using scalar functions on strings, dates, numbers, or NULLs — especially inside a WHERE clause or on money."
 ---

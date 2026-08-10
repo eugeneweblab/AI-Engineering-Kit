@@ -6,7 +6,7 @@ title: "Next.js Architecture"
 type: doc
 order: 1
 status: ready
-tags: [nextjs, architecture, ProductPage, AddToCart, useState, getProduct, DashboardPage]
+tags: [nextjs, architecture, ProductPage, AddToCart, useState, getProduct, DashboardPage, overall, establishing, next]
 related: [nextjs/02-project-structure, nextjs/03-app-router, nextjs/06-server-components, nextjs/08-rendering-strategies, react/02-component-architecture]
 when_to_use: "Read before establishing the overall architecture of a new Next.js application."
 ---

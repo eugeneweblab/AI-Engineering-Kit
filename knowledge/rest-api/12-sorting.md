@@ -6,7 +6,7 @@ title: "REST API Sorting"
 type: doc
 order: 12
 status: ready
-tags: [rest-api, sorting, BadRequest, startsWith, created_at]
+tags: [rest-api, sorting, BadRequest, startsWith, created_at, sort, parameter, collection]
 related: [rest-api/10-pagination, rest-api/11-filtering, rest-api/13-search, rest-api/08-validation, rest-api/25-performance]
 when_to_use: "Read before adding a `sort` parameter to any list or collection endpoint."
 ---

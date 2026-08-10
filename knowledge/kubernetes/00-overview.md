@@ -6,7 +6,7 @@ title: "Kubernetes Overview"
 type: doc
 order: 0
 status: ready
-tags: [kubernetes, overview, securityContext, PodDisruptionBudget]
+tags: [kubernetes, overview, securityContext, PodDisruptionBudget, topic, where, next]
 related: [kubernetes/01-architecture, kubernetes/04-pods, kubernetes/05-deployments, kubernetes/07-services, kubernetes/27-best-practices]
 when_to_use: "Read first when starting any Kubernetes task, to see how the topic's docs fit together and where to go next."
 ---

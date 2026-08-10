@@ -6,7 +6,7 @@ title: "WooCommerce Common Antipatterns"
 type: antipatterns
 order: 100
 status: ready
-tags: [woocommerce, common-antipatterns, add_product, wc_get_product, permission_callback, calculate_totals, wp_posts, wp_postmeta]
+tags: [woocommerce, common-antipatterns, add_product, wc_get_product, permission_callback, calculate_totals, wp_posts, wp_postmeta, payments, customizing, walking]
 related: [woocommerce/01-architecture, woocommerce/12-hooks, woocommerce/16-security, woocommerce/30-engineering-principles, woocommerce/99-ai-review-checklist]
 when_to_use: "Read before customizing WooCommerce data access, checkout, or payments, to check you are not walking into a known trap."
 ---

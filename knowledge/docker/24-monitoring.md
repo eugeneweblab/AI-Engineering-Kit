@@ -6,7 +6,7 @@ title: "Docker Monitoring"
 type: doc
 order: 24
 status: ready
-tags: [docker, monitoring, container_cpu_cfs_throttled_seconds_total]
+tags: [docker, monitoring, container_cpu_cfs_throttled_seconds_total, cannot, container, running]
 related: [docker/16-logging, docker/15-healthchecks, docker/17-resource-limits, docker/22-production, docker/23-orchestration]
 when_to_use: "Read before shipping a container to production or when you cannot see why a running container is unhealthy."
 ---

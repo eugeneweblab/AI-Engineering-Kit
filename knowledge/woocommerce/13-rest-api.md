@@ -6,7 +6,7 @@ title: "Rest API"
 type: doc
 order: 13
 status: ready
-tags: [woocommerce, rest-api, register_rest_route, WP_Error, permission_callback, WooCommerce, file_get_contents, update_meta_data]
+tags: [woocommerce, rest-api, register_rest_route, WP_Error, permission_callback, WooCommerce, file_get_contents, update_meta_data, authenticating, consuming, extending]
 related: [woocommerce/14-headless, woocommerce/16-security, woocommerce/15-performance, woocommerce/05-orders, woocommerce/12-hooks]
 when_to_use: "Read before consuming, authenticating to, or extending the WooCommerce REST API."
 ---

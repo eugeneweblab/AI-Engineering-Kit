@@ -6,7 +6,7 @@ title: "Compression"
 type: doc
 order: 9
 status: ready
-tags: [nginx, compression, Accept-Encoding, gzip_comp_level]
+tags: [nginx, compression, Accept-Encoding, gzip_comp_level, being, responses, enabling]
 related: [nginx/07-static-files, nginx/08-caching, nginx/12-ssl-tls, nginx/10-http2, nginx/18-performance]
 when_to_use: "Read before enabling gzip/brotli or debugging why responses are not being compressed."
 ---

@@ -6,7 +6,7 @@ title: "Task Execution Workflow"
 type: doc
 order: 4
 status: ready
-tags: [engineering, task-execution, createOrder, applyCoupon, toThrow, toBe, useState]
+tags: [engineering, task-execution, createOrder, applyCoupon, toThrow, toBe, useState, standard, process, starting]
 related: [engineering/05-context-first-development, ai/02-task-planning, workflows/03-create-new-feature]
 when_to_use: "Read before starting any engineering task to follow the standard execution process."
 ---

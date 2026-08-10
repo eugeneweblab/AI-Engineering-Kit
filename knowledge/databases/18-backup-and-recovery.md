@@ -6,7 +6,7 @@ title: "Backup And Recovery"
 type: doc
 order: 18
 status: ready
-tags: [databases, backup-and-recovery, pg_verifybackup, PostgreSQL]
+tags: [databases, backup-and-recovery, pg_verifybackup, PostgreSQL, restore, schedule, readiness]
 related: [databases/22-high-availability, databases/14-replication, databases/17-migrations, databases/19-security, databases/21-monitoring]
 when_to_use: "Read before designing a backup schedule, running a restore, or reviewing disaster-recovery readiness for any datastore."
 ---

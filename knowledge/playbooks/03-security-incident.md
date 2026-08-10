@@ -6,7 +6,7 @@ title: "Playbook — Security Incident"
 type: playbook
 order: 3
 status: ready
-tags: [playbooks, security-incident, DEPLOY_TOKEN]
+tags: [playbooks, security-incident, DEPLOY_TOKEN, leaked, credential, has]
 related: [playbooks/01-site-down, security/26-incident-response, security/16-secrets-management, templates/03-incident-report, tools/29-observability-tools]
 when_to_use: "Follow when a credential has leaked, unauthorized access is suspected, or a compromise is reported."
 ---

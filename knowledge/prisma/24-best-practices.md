@@ -6,7 +6,7 @@ title: "Prisma Best Practices"
 type: doc
 order: 24
 status: ready
-tags: [prisma, best-practices, PrismaClient, Float, findMany, findUniqueOrThrow, findFirst, PrismaClientKnownRequestError]
+tags: [prisma, best-practices, PrismaClient, Float, findMany, findUniqueOrThrow, findFirst, PrismaClientKnownRequestError, prisma-backed, day-to-day, correct]
 related: [prisma/06-client, prisma/15-performance, prisma/08-transactions, prisma/18-error-handling, prisma/29-architecture]
 when_to_use: "Read before writing or reviewing any Prisma-backed data-access code, to apply the day-to-day rules that keep queries correct and cheap."
 ---

@@ -6,7 +6,7 @@ title: "Redis Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [redis, readme, SCAN, EXPIRE]
+tags: [redis, readme, SCAN, EXPIRE, see, fit, docs]
 related: []
 when_to_use: "Read first when starting any Redis work, to see how this section's docs fit together."
 ---

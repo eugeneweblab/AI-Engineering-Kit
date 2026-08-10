@@ -6,7 +6,7 @@ title: "DML"
 type: doc
 order: 13
 status: ready
-tags: [sql, dml, deleted_at, RETURNING, updated_at, ROLLBACK, COMMIT, LIMIT]
+tags: [sql, dml, deleted_at, RETURNING, updated_at, ROLLBACK, COMMIT, LIMIT, insert, bulk, delete]
 related: [sql/12-ddl, sql/14-transactions, sql/05-joins, sql/06-subqueries, sql/100-common-antipatterns]
 when_to_use: "Read before writing any INSERT, UPDATE, DELETE, MERGE, or bulk data change."
 ---

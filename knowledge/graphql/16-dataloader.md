@@ -6,7 +6,7 @@ title: "DataLoader"
 type: doc
 order: 16
 status: ready
-tags: [graphql, dataloader, ApolloServer, findMany, DataLoader]
+tags: [graphql, dataloader, ApolloServer, findMany, DataLoader, loaded, related, resolvers]
 related: [graphql/15-n1-problem, graphql/08-context, graphql/07-resolvers, graphql/21-caching, graphql/22-performance]
 when_to_use: "Read before wiring batching/caching into resolvers, or when reviewing how related data is loaded per request."
 ---

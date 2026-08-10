@@ -6,7 +6,7 @@ title: "DevOps Testing"
 type: doc
 order: 22
 status: ready
-tags: [devops, testing, OrderRepo, toMatchObject, toHaveBeenCalled, Date, findById]
+tags: [devops, testing, OrderRepo, toMatchObject, toHaveBeenCalled, Date, findById, coverage, suite, test]
 related: [devops/23-quality-gates, devops/05-build-pipelines, devops/07-deployment-strategies, devops/21-performance, devops/16-security]
 when_to_use: "Read before writing a test suite or CI test stage, or reviewing test coverage for a change."
 ---

@@ -6,7 +6,7 @@ title: "Repositories"
 type: doc
 order: 2
 status: ready
-tags: [github, repositories, CODEOWNERS, README, SECURITY.md, README.md, DB_PASSWORD]
+tags: [github, repositories, CODEOWNERS, README, SECURITY.md, README.md, DB_PASSWORD, restructuring, pushing, one]
 related: [github/01-github-platform, github/06-pull-requests, github/17-branch-protection, github/18-rulesets, github/13-security]
 when_to_use: "Read before creating, configuring, or restructuring a repository, or before pushing changes into one you do not own."
 ---

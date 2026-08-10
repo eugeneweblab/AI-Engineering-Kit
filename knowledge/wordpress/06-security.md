@@ -6,7 +6,7 @@ title: "WordPress Security"
 type: doc
 order: 6
 status: ready
-tags: [wordpress, security, current_user_can, wp_die, wp_unslash, esc_html__, update_post_meta, add_action]
+tags: [wordpress, security, current_user_can, wp_die, wp_unslash, esc_html__, update_post_meta, add_action, endpoints, authentication, input]
 related: [wordpress/20-users-and-capabilities, wordpress/18-rest-api, wordpress/19-database, security/09-input-validation, security/11-xss]
 when_to_use: "Read before handling input, endpoints, or authentication in a WordPress project."
 ---

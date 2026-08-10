@@ -6,7 +6,7 @@ title: "DevOps Performance"
 type: doc
 order: 21
 status: ready
-tags: [devops, performance, fetchProfile]
+tags: [devops, performance, fetchProfile, slos, throughput, latency]
 related: [devops/20-scalability, devops/12-monitoring, devops/13-observability, devops/05-build-pipelines, devops/22-testing]
 when_to_use: "Read before optimizing latency/throughput, setting SLOs, or diagnosing a slow service."
 ---

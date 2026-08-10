@@ -6,7 +6,7 @@ title: "Procedures"
 type: doc
 order: 27
 status: ready
-tags: [mysql, procedures, DEFINER, is_active, ROW_COUNT, CONCAT, DECIMAL, VARCHAR]
+tags: [mysql, procedures, DEFINER, is_active, ROW_COUNT, CONCAT, DECIMAL, VARCHAR, procedure, stored, belongs]
 related: [mysql/26-triggers, mysql/25-events, mysql/06-transactions, mysql/12-security]
 when_to_use: "Read before writing a stored procedure or function, or when deciding whether logic belongs in the database."
 ---

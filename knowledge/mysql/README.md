@@ -6,7 +6,7 @@ title: "MySQL Engineering Standards"
 type: index
 order: -1
 status: ready
-tags: [mysql, readme, EXPLAIN]
+tags: [mysql, readme, EXPLAIN, see, fit, docs]
 related: []
 when_to_use: "Read first when starting any mysql work, to see how this section's docs fit together."
 ---

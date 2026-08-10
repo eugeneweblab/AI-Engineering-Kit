@@ -6,7 +6,7 @@ title: "Dom"
 type: doc
 order: 12
 status: ready
-tags: [javascript, dom, innerHTML, getElementById, insertAdjacentHTML, querySelectorAll, textContent, AbortController]
+tags: [javascript, dom, innerHTML, getElementById, insertAdjacentHTML, querySelectorAll, textContent, AbortController, creates, nodes, mutates]
 related: [javascript/11-browser-api, javascript/13-fetch-api, javascript/26-security, javascript/27-browser-performance, javascript/15-memory-management]
 when_to_use: "Read before writing or reviewing any code that reads, creates, or mutates DOM nodes in the browser."
 ---

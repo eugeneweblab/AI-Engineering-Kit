@@ -6,7 +6,7 @@ title: "Custom Hooks"
 type: doc
 order: 9
 status: ready
-tags: [react, custom-hooks, useState, matchMedia, useEffect, addEventListener, useAuth, useUser]
+tags: [react, custom-hooks, useState, matchMedia, useEffect, addEventListener, useAuth, useUser, extracting, hook, logic]
 related: [react/08-hooks, react/16-data-fetching, react/14-patterns]
 when_to_use: "Read before writing or reviewing a custom React hook or extracting logic out of a component."
 ---

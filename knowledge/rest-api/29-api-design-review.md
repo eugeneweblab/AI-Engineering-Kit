@@ -6,7 +6,7 @@ title: "API Design Review"
 type: doc
 order: 29
 status: ready
-tags: [rest-api, api-design-review, Location, PascalCase]
+tags: [rest-api, api-design-review, Location, PascalCase, proposal, approving, whether]
 related: [rest-api/03-resource-design, rest-api/07-status-codes, rest-api/14-versioning, rest-api/27-best-practices, rest-api/21-openapi]
 when_to_use: "Read before approving a new or changed REST endpoint, whether reviewing a PR or a design proposal."
 ---

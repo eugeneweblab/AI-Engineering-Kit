@@ -6,7 +6,7 @@ title: "GraphQL Best Practices"
 type: doc
 order: 26
 status: ready
-tags: [graphql, best-practices, updatePost, publishPost, PublishPostPayload, PublishPostInput, PostStatus, camelCase]
+tags: [graphql, best-practices, updatePost, publishPost, PublishPostPayload, PublishPostInput, PostStatus, camelCase, quality, existing, one]
 related: [graphql/02-schema, graphql/13-pagination, graphql/16-dataloader, graphql/20-error-handling, graphql/29-schema-evolution]
 when_to_use: "Read before designing a new GraphQL schema or reviewing an existing one for design quality."
 ---

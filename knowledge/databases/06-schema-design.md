@@ -6,7 +6,7 @@ title: "Schema Design"
 type: doc
 order: 6
 status: ready
-tags: [databases, schema-design, VARCHAR, CHECK, TIMESTAMPTZ, DOUBLE, BIGINT]
+tags: [databases, schema-design, VARCHAR, CHECK, TIMESTAMPTZ, DOUBLE, BIGINT, column, migration, structure]
 related: [databases/04-normalization, databases/05-denormalization, databases/23-data-integrity, databases/07-indexing, databases/17-migrations]
 when_to_use: "Read before creating a new table, adding a column, or reviewing a migration that changes structure."
 ---

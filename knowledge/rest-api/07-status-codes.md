@@ -6,7 +6,7 @@ title: "Status Codes"
 type: doc
 order: 7
 status: ready
-tags: [rest-api, status-codes, Location, Retry-After]
+tags: [rest-api, status-codes, Location, Retry-After, returns, client, error]
 related: [rest-api/09-error-handling, rest-api/06-request-response, rest-api/08-validation, rest-api/18-idempotency, rest-api/16-authorization]
 when_to_use: "Read before choosing the HTTP status code an endpoint returns for success, redirect, client error, or server error."
 ---

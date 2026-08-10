@@ -6,7 +6,7 @@ title: "PostgreSQL High Availability"
 type: doc
 order: 13
 status: ready
-tags: [postgresql, high-availability, DATABASE_URL]
+tags: [postgresql, high-availability, DATABASE_URL, promotion, loss, survive]
 related: [postgresql/12-replication, postgresql/14-backups, postgresql/17-monitoring, postgresql/26-production]
 when_to_use: "Read before designing automatic failover, promotion, or connection routing for a PostgreSQL cluster that must survive node loss."
 ---

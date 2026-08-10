@@ -6,7 +6,7 @@ title: "SQL Triggers"
 type: doc
 order: 21
 status: ready
-tags: [sql, triggers, AFTER, BEFORE, CHECK, UNIQUE, updated_at]
+tags: [sql, triggers, AFTER, BEFORE, CHECK, UNIQUE, updated_at, constraint, trigger, whether]
 related: [sql/20-stored-procedures, sql/14-transactions, sql/13-dml, sql/22-security, sql/23-performance]
 when_to_use: "Read before adding a trigger, or when deciding whether an invariant should be enforced by a trigger, a constraint, or application code."
 ---

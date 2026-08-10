@@ -6,7 +6,7 @@ title: "Prisma Observability"
 type: doc
 order: 26
 status: ready
-tags: [prisma, observability, PrismaClient, P2024, setInterval, console.log, pg_stat_statements]
+tags: [prisma, observability, PrismaClient, P2024, setInterval, console.log, pg_stat_statements, failing, instrumenting, tracing]
 related: [prisma/15-performance, prisma/20-debugging, prisma/25-production, prisma/18-error-handling, prisma/13-middleware]
 when_to_use: "Read before instrumenting a Prisma app with logging, metrics, or tracing, or when diagnosing slow or failing queries in production."
 ---

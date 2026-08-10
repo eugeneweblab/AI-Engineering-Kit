@@ -6,7 +6,7 @@ title: "MySQL Partitioning"
 type: doc
 order: 22
 status: ready
-tags: [mysql, partitioning, AUTO_INCREMENT, InnoDB, HASH, EXPLAIN, RANGE, MySQL]
+tags: [mysql, partitioning, AUTO_INCREMENT, InnoDB, HASH, EXPLAIN, RANGE, MySQL, scheme, time-series, proposed]
 related: [mysql/04-indexes, mysql/05-query-optimization, mysql/14-performance, mysql/03-data-types, mysql/16-migrations]
 when_to_use: "Read before adding table partitioning to manage very large tables or time-series data, or when reviewing a proposed partitioning scheme."
 ---

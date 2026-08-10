@@ -6,7 +6,7 @@ title: "Joins"
 type: doc
 order: 5
 status: ready
-tags: [sql, joins, LEFT, INNER, SUM, EXISTS, COALESCE, EXPLAIN]
+tags: [sql, joins, LEFT, INNER, SUM, EXISTS, COALESCE, EXPLAIN, duplicate, have, missing]
 related: [sql/01-select, sql/02-filtering, sql/04-grouping, sql/06-subqueries, sql/15-indexes]
 when_to_use: "Read before writing any query that combines two or more tables, or when results have duplicate or missing rows."
 ---

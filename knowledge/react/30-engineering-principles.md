@@ -6,7 +6,7 @@ title: "React Engineering Principles"
 type: doc
 order: 30
 status: ready
-tags: [react, engineering-principles, UserList, localeCompare, useMemo, UserRow, useEffect]
+tags: [react, engineering-principles, UserList, localeCompare, useMemo, UserRow, useEffect, decisions, belongs, boundaries]
 related: [react/13-component-composition, react/26-best-practices, react/24-design-patterns, react/02-component-architecture, react/09-custom-hooks]
 when_to_use: "Read when making design decisions about component structure, boundaries, or where logic belongs."
 ---

@@ -6,7 +6,7 @@ title: "Subqueries"
 type: doc
 order: 6
 status: ready
-tags: [sql, subqueries, EXISTS, EXPLAIN, UNKNOWN, HAVING]
+tags: [sql, subqueries, EXISTS, EXPLAIN, UNKNOWN, HAVING, express, join, filter]
 related: [sql/07-common-table-expressions, sql/05-joins, sql/09-aggregate-functions, sql/17-query-optimization, sql/08-window-functions]
 when_to_use: "Read before nesting a query inside a WHERE, FROM, or SELECT clause, or when a join alone cannot express the filter you need."
 ---

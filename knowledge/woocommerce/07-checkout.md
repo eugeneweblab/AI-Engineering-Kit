@@ -6,7 +6,7 @@ title: "Checkout"
 type: doc
 order: 7
 status: ready
-tags: [woocommerce, checkout, add_action, set_total, update_meta_data, sanitize_text_field, woocommerce_order_status_processing, woocommerce_checkout_create_order]
+tags: [woocommerce, checkout, add_action, set_total, update_meta_data, sanitize_text_field, woocommerce_order_status_processing, woocommerce_checkout_create_order, customizing, blocks, fields]
 related: [woocommerce/06-customers, woocommerce/08-payments, woocommerce/05-orders, woocommerce/16-security]
 when_to_use: "Read before customizing checkout fields, validation, or the order-creation flow (Blocks or shortcode)."
 ---

@@ -6,7 +6,7 @@ title: "WordPress Architecture"
 type: doc
 order: 1
 status: ready
-tags: [wordpress, wordpress-architecture, add_action, WP_Query, update_option, esc_html__, register_rest_route, get_col]
+tags: [wordpress, wordpress-architecture, add_action, WP_Query, update_option, esc_html__, register_rest_route, get_col, extending, designing]
 related: [wordpress/02-project-structure, wordpress/08-hooks, wordpress/12-queries, wordpress/13-template-hierarchy, wordpress/19-database]
 when_to_use: "Read before designing or extending the architecture of a WordPress application."
 ---

@@ -6,7 +6,7 @@ title: "Self Verification"
 type: doc
 order: 6
 status: ready
-tags: [ai, self-verification, getUserById, calculateTax, findById]
+tags: [ai, self-verification, getUserById, calculateTax, findById, self-verify, ai-assisted, complete]
 related: [ai/03-code-generation, ai/04-code-modification, engineering/02-code-review]
 when_to_use: "Read before marking any AI-assisted task complete to self-verify the implementation."
 ---

@@ -6,7 +6,7 @@ title: "Roles And Permissions"
 type: doc
 order: 19
 status: ready
-tags: [postgresql, roles-and-permissions, USAGE, REVOKE, SUPERUSER, app_readwrite, app_readonly, USING]
+tags: [postgresql, roles-and-permissions, USAGE, REVOKE, SUPERUSER, app_readwrite, app_readonly, USING, privileges, tables, login]
 related: [postgresql/18-security, postgresql/22-migrations, postgresql/06-transactions, postgresql/26-production, postgresql/25-best-practices]
 when_to_use: "Read before creating database roles, granting privileges, wiring an application's login user, or reviewing who can read or write which tables."
 ---

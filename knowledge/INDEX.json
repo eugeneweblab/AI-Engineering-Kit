@@ -719,7 +719,10 @@
           "tags": [
             "accessibility",
             "legal-requirements",
-            "VoiceOver"
+            "VoiceOver",
+            "conformance",
+            "compliance",
+            "effort"
           ],
           "related": [
             "accessibility/23-wcag",
@@ -798,7 +801,10 @@
           "tags": [
             "accessibility",
             "documentation",
-            "VoiceOver"
+            "VoiceOver",
+            "gap",
+            "documenting",
+            "statement"
           ],
           "related": [
             "accessibility/26-legal-requirements",
@@ -986,7 +992,9 @@
             "UserRepository",
             "CreateOrderDto",
             "formatPrice",
-            "formatCurrency"
+            "formatCurrency",
+            "ai-assisted",
+            "coding"
           ],
           "related": [
             "ai/02-task-planning",
@@ -1037,14 +1045,17 @@
             "PrismaClient",
             "cancelOrder",
             "IsString",
-            "findUnique"
+            "findUnique",
+            "integrates",
+            "generating",
+            "existing"
           ],
           "related": [
             "ai/02-task-planning",
             "ai/04-code-modification",
             "ai/06-self-verification"
           ],
-          "when_to_use": "Read before generating new code so it integrates naturally with the existing project.",
+          "when_to_use": "Read before generating new code, or when what was generated works but does not look like the rest of the codebase — wrong conventions, duplicated helpers, a foreign layer.",
           "path": "knowledge/ai/03-code-generation.md"
         },
         {
@@ -1111,7 +1122,10 @@
             "self-verification",
             "getUserById",
             "calculateTax",
-            "findById"
+            "findById",
+            "self-verify",
+            "ai-assisted",
+            "complete"
           ],
           "related": [
             "ai/03-code-generation",
@@ -1547,7 +1561,10 @@
             "AWS_KEY",
             "PutObject",
             "GetObject",
-            "DB_PASSWORD"
+            "DB_PASSWORD",
+            "posture",
+            "trust",
+            "protection"
           ],
           "related": [
             "architecture/11-api-first",
@@ -1823,7 +1840,10 @@
             "architecture",
             "architecture-decision-records",
             "Accepted",
-            "OrderPlaced"
+            "OrderPlaced",
+            "architectural",
+            "significant",
+            "reasoning"
           ],
           "related": [
             "architecture/25-documentation",
@@ -2090,7 +2110,10 @@
             "PutObject",
             "Action",
             "SecureTransport",
-            "Condition"
+            "Condition",
+            "policy",
+            "role",
+            "granting"
           ],
           "related": [
             "aws/00-overview",
@@ -2114,7 +2137,10 @@
             "aws",
             "ec2",
             "AWS_ACCESS_KEY_ID",
-            "AWS_SECRET_ACCESS_KEY"
+            "AWS_SECRET_ACCESS_KEY",
+            "securing",
+            "launching",
+            "sizing"
           ],
           "related": [
             "aws/02-iam",
@@ -2207,7 +2233,10 @@
             "aws",
             "route53",
             "example.com",
-            "evaluate_target_health"
+            "evaluate_target_health",
+            "cloudfront",
+            "balancer",
+            "records"
           ],
           "related": [
             "aws/08-cloudfront",
@@ -2304,7 +2333,10 @@
             "aws",
             "auto-scaling",
             "max_size",
-            "ELB"
+            "ELB",
+            "policies",
+            "capacity",
+            "balancer"
           ],
           "related": [
             "aws/03-ec2",
@@ -2406,7 +2438,10 @@
             "aws",
             "cloudtrail",
             "GetAtt",
-            "CloudWatch"
+            "CloudWatch",
+            "audit",
+            "investigating",
+            "resource"
           ],
           "related": [
             "aws/14-cloudwatch",
@@ -2803,7 +2838,10 @@
             "aws",
             "high-availability",
             "evaluate_target_health",
-            "ELB"
+            "ELB",
+            "zone",
+            "region",
+            "survive"
           ],
           "related": [
             "aws/01-global-infrastructure",
@@ -2829,7 +2867,10 @@
             "aws",
             "production-checklist",
             "Resource",
-            "Action"
+            "Action",
+            "go-live",
+            "signing",
+            "off"
           ],
           "related": [
             "aws/27-production",
@@ -3443,7 +3484,10 @@
             "backend",
             "performance",
             "OFFSET",
-            "EXPLAIN"
+            "EXPLAIN",
+            "handler",
+            "latency",
+            "optimizing"
           ],
           "related": [
             "backend/13-caching",
@@ -3494,7 +3538,10 @@
             "Strict-Transport-Security",
             "Content-Security-Policy",
             "X-Content-Type-Options",
-            "Content-Type"
+            "Content-Type",
+            "accepting",
+            "untrusted",
+            "secrets"
           ],
           "related": [
             "backend/09-validation",
@@ -3547,7 +3594,10 @@
             "placeOrder",
             "toBe",
             "toBeGreaterThan",
-            "toHaveBeenCalled"
+            "toHaveBeenCalled",
+            "level",
+            "suite",
+            "test"
           ],
           "related": [
             "backend/07-business-logic",
@@ -3618,7 +3668,10 @@
             "backend",
             "deployment",
             "SIGTERM",
-            "VARCHAR"
+            "VARCHAR",
+            "rollback",
+            "strategy",
+            "migration"
           ],
           "related": [
             "backend/27-production",
@@ -3784,7 +3837,10 @@
           "tags": [
             "backend",
             "common-antipatterns",
-            "LIMIT"
+            "LIMIT",
+            "patterns",
+            "avoid",
+            "recurring"
           ],
           "related": [
             "backend/30-engineering-principles",
@@ -4038,7 +4094,10 @@
             "setTimeout",
             "useRealTimers",
             "useFakeTimers",
-            "afterEach"
+            "afterEach",
+            "ordering",
+            "automated",
+            "tests"
           ],
           "related": [
             "cicd/02-pipeline-design",
@@ -4137,7 +4196,10 @@
             "MAJOR.MINOR.PATCH",
             "GITHUB_SHA",
             "GITHUB_OUTPUT",
-            "GIT_SHA"
+            "GIT_SHA",
+            "scheme",
+            "version",
+            "automating"
           ],
           "related": [
             "cicd/07-artifacts",
@@ -4322,7 +4384,10 @@
             "cicd",
             "environments",
             "DATABASE_URL",
-            "LOG_LEVEL"
+            "LOG_LEVEL",
+            "staging",
+            "dev",
+            "creating"
           ],
           "related": [
             "cicd/15-secrets",
@@ -4680,7 +4745,10 @@
           "tags": [
             "cicd",
             "engineering-principles",
-            "RepoDigests"
+            "RepoDigests",
+            "delivery",
+            "refactoring",
+            "workflow"
           ],
           "related": [
             "cicd/02-pipeline-design",
@@ -5562,7 +5630,10 @@
           "tags": [
             "css",
             "css-methodologies",
-            "block__element--modifier"
+            "block__element--modifier",
+            "joining",
+            "unfamiliar",
+            "convention"
           ],
           "related": [
             "css/21-architecture",
@@ -5769,7 +5840,10 @@
             "databases",
             "relational-vs-nosql",
             "JSONB",
-            "PostgreSQL"
+            "PostgreSQL",
+            "follows",
+            "instead",
+            "pattern"
           ],
           "related": [
             "databases/01-database-fundamentals",
@@ -5868,7 +5942,10 @@
             "CHECK",
             "TIMESTAMPTZ",
             "DOUBLE",
-            "BIGINT"
+            "BIGINT",
+            "column",
+            "migration",
+            "structure"
           ],
           "related": [
             "databases/04-normalization",
@@ -5893,7 +5970,10 @@
             "indexing",
             "is_active",
             "pg_stat_user_indexes",
-            "UNIQUE"
+            "UNIQUE",
+            "plan",
+            "index",
+            "diagnosing"
           ],
           "related": [
             "databases/08-query-optimization",
@@ -6136,7 +6216,10 @@
             "HASH",
             "RANGE",
             "pg_partman",
-            "UNION"
+            "UNION",
+            "time-series",
+            "tables",
+            "splitting"
           ],
           "related": [
             "databases/15-sharding",
@@ -6161,7 +6244,10 @@
             "migrations",
             "lock_timeout",
             "CHECK",
-            "VALIDATE"
+            "VALIDATE",
+            "has",
+            "live",
+            "deploying"
           ],
           "related": [
             "databases/06-schema-design",
@@ -6185,7 +6271,10 @@
             "databases",
             "backup-and-recovery",
             "pg_verifybackup",
-            "PostgreSQL"
+            "PostgreSQL",
+            "restore",
+            "schedule",
+            "readiness"
           ],
           "related": [
             "databases/22-high-availability",
@@ -6262,7 +6351,10 @@
           "tags": [
             "databases",
             "monitoring",
-            "pg_stat_statements"
+            "pg_stat_statements",
+            "was",
+            "know",
+            "doing"
           ],
           "related": [
             "databases/20-performance",
@@ -6337,7 +6429,10 @@
           "tags": [
             "databases",
             "soft-delete",
-            "deleted_at"
+            "deleted_at",
+            "deleted",
+            "requirement",
+            "don"
           ],
           "related": [
             "databases/23-data-integrity",
@@ -6670,7 +6765,10 @@
           "tags": [
             "devops",
             "development-lifecycle",
-            "GIT_SHA"
+            "GIT_SHA",
+            "moves",
+            "software",
+            "environments"
           ],
           "related": [
             "devops/00-overview",
@@ -6801,7 +6899,10 @@
             "preStop",
             "maxUnavailable",
             "maxSurge",
-            "SIGTERM"
+            "SIGTERM",
+            "replaces",
+            "risks",
+            "rollout"
           ],
           "related": [
             "devops/06-release-management",
@@ -7162,7 +7263,10 @@
           "tags": [
             "devops",
             "performance",
-            "fetchProfile"
+            "fetchProfile",
+            "slos",
+            "throughput",
+            "latency"
           ],
           "related": [
             "devops/20-scalability",
@@ -7189,7 +7293,10 @@
             "toMatchObject",
             "toHaveBeenCalled",
             "Date",
-            "findById"
+            "findById",
+            "coverage",
+            "suite",
+            "test"
           ],
           "related": [
             "devops/23-quality-gates",
@@ -7327,7 +7434,10 @@
             "devops",
             "best-practices",
             "GIT_SHA",
-            "DB_PASSWORD"
+            "DB_PASSWORD",
+            "delivery",
+            "auditing",
+            "baseline"
           ],
           "related": [
             "devops/00-overview",
@@ -7486,7 +7596,10 @@
           "tags": [
             "divi",
             "overview",
-            "post_content"
+            "post_content",
+            "understand",
+            "topic",
+            "build"
           ],
           "related": [
             "divi/01-architecture",
@@ -7510,7 +7623,10 @@
             "divi",
             "architecture",
             "post_content",
-            "functions.php"
+            "functions.php",
+            "render",
+            "editing",
+            "understand"
           ],
           "applies_to": [
             "classic-theme"
@@ -7537,7 +7653,10 @@
             "divi",
             "theme-builder",
             "Footer",
-            "Header"
+            "Header",
+            "like",
+            "headers",
+            "pages"
           ],
           "related": [
             "divi/01-architecture",
@@ -7733,7 +7852,10 @@
           "tags": [
             "divi",
             "performance",
-            "JavaScript"
+            "JavaScript",
+            "weight",
+            "vitals",
+            "launching"
           ],
           "related": [
             "divi/09-custom-css",
@@ -7833,7 +7955,10 @@
             "woocommerce",
             "WooCommerce",
             "woocommerce_checkout_fields",
-            "add_filter"
+            "add_filter",
+            "cart",
+            "product",
+            "templates"
           ],
           "related": [
             "divi/02-theme-builder",
@@ -7917,7 +8042,10 @@
             "validate_callback",
             "sanitize_callback",
             "get_param",
-            "WP_REST_Response"
+            "WP_REST_Response",
+            "headless",
+            "otherwise",
+            "endpoints"
           ],
           "related": [
             "divi/18-headless",
@@ -7944,7 +8072,10 @@
             "post_content",
             "register_rest_field",
             "save_post",
-            "dangerouslySetInnerHTML"
+            "dangerouslySetInnerHTML",
+            "decoupling",
+            "etc",
+            "site"
           ],
           "related": [
             "divi/17-rest-api",
@@ -7973,7 +8104,10 @@
             "update_post_meta",
             "current_user_can",
             "add_action",
-            "esc_html"
+            "esc_html",
+            "ajax",
+            "builder",
+            "handler"
           ],
           "related": [
             "divi/04-custom-modules",
@@ -8026,7 +8160,10 @@
             "testing",
             "assertStringContainsString",
             "WP_UnitTestCase",
-            "WordPress"
+            "WordPress",
+            "nothing",
+            "regressed",
+            "verify"
           ],
           "related": [
             "divi/20-debugging",
@@ -8106,7 +8243,10 @@
             "get_stylesheet_directory_uri",
             "add_action",
             "post_content",
-            "wp_enqueue_script"
+            "wp_enqueue_script",
+            "update-safe",
+            "maintainable",
+            "conventions"
           ],
           "related": [
             "divi/00-overview",
@@ -8181,7 +8321,9 @@
             "client-projects",
             "remove_cap",
             "get_role",
-            "add_action"
+            "add_action",
+            "site",
+            "building"
           ],
           "related": [
             "divi/24-best-practices",
@@ -8208,7 +8350,10 @@
             "wp_get_theme",
             "get_stylesheet_directory_uri",
             "wp_enqueue_style",
-            "add_action"
+            "add_action",
+            "agent",
+            "layout",
+            "content"
           ],
           "related": [
             "divi/00-overview",
@@ -8261,7 +8406,10 @@
             "get_stylesheet_directory_uri",
             "add_action",
             "post_content",
-            "wp_enqueue_script"
+            "wp_enqueue_script",
+            "update-safe",
+            "correct",
+            "durable"
           ],
           "related": [
             "divi/24-best-practices",
@@ -8285,7 +8433,10 @@
             "divi",
             "production-checklist",
             "WP_DEBUG",
-            "robots.txt"
+            "robots.txt",
+            "handing",
+            "non-negotiable",
+            "place"
           ],
           "related": [
             "divi/25-production",
@@ -8312,7 +8463,10 @@
             "post_content",
             "esc_url",
             "esc_attr",
-            "esc_html"
+            "esc_html",
+            "merged",
+            "agent",
+            "another"
           ],
           "related": [
             "divi/29-review",
@@ -8340,7 +8494,10 @@
             "get_stylesheet_directory_uri",
             "wp_kses",
             "add_action",
-            "post_content"
+            "post_content",
+            "break",
+            "mistakes",
+            "avoid"
           ],
           "related": [
             "divi/24-best-practices",
@@ -8433,7 +8590,10 @@
           "tags": [
             "docker",
             "docker-architecture",
-            "node_modules"
+            "node_modules",
+            "unexpectedly",
+            "behaves",
+            "context"
           ],
           "related": [
             "docker/00-overview",
@@ -8512,7 +8672,10 @@
             "docker",
             "volumes",
             "POSTGRES_PASSWORD_FILE",
-            "POSTGRES_PASSWORD"
+            "POSTGRES_PASSWORD",
+            "outlive",
+            "databases",
+            "uploads"
           ],
           "related": [
             "docker/04-containers",
@@ -8561,7 +8724,10 @@
             "docker",
             "networks",
             "EXPOSE",
-            "POSTGRES_PASSWORD_FILE"
+            "POSTGRES_PASSWORD_FILE",
+            "reachable",
+            "containers",
+            "publishing"
           ],
           "related": [
             "docker/04-containers",
@@ -8589,7 +8755,10 @@
             "EXPOSE",
             "ARG",
             "COPY",
-            "HEALTHCHECK"
+            "HEALTHCHECK",
+            "base",
+            "concerns",
+            "order"
           ],
           "related": [
             "docker/03-images",
@@ -8802,7 +8971,10 @@
             "logging",
             "toISOString",
             "Date",
-            "Authorization"
+            "Authorization",
+            "containerized",
+            "logs",
+            "ships"
           ],
           "related": [
             "docker/15-healthchecks",
@@ -9013,7 +9185,10 @@
           "tags": [
             "docker",
             "monitoring",
-            "container_cpu_cfs_throttled_seconds_total"
+            "container_cpu_cfs_throttled_seconds_total",
+            "cannot",
+            "container",
+            "running"
           ],
           "related": [
             "docker/16-logging",
@@ -9392,7 +9567,7 @@
             "workflows/02-fix-a-bug",
             "workflows/06-investigate-production-bug"
           ],
-          "when_to_use": "Read before debugging a defect to investigate the root cause systematically.",
+          "when_to_use": "Read when a defect reproduces but you cannot find where it originates, or before debugging anything, to isolate the root cause instead of guessing.",
           "path": "knowledge/engineering/03-debugging-methodology.md"
         },
         {
@@ -9410,7 +9585,10 @@
             "applyCoupon",
             "toThrow",
             "toBe",
-            "useState"
+            "useState",
+            "standard",
+            "process",
+            "starting"
           ],
           "related": [
             "engineering/05-context-first-development",
@@ -9615,7 +9793,10 @@
             "PlanCard",
             "Primary",
             "Desktop",
-            "URL"
+            "URL",
+            "fully",
+            "plan",
+            "implementation"
           ],
           "related": [
             "figma/02-layout-analysis",
@@ -9745,7 +9926,10 @@
             "Button",
             "ButtonProps",
             "PricingTable",
-            "ComponentPropsWithoutRef"
+            "ComponentPropsWithoutRef",
+            "identify",
+            "repeated",
+            "coding"
           ],
           "related": [
             "figma/01-figma-analysis",
@@ -9792,7 +9976,10 @@
             "theme.json",
             "register_block_pattern",
             "WordPress",
-            "WooCommerce"
+            "WooCommerce",
+            "converting",
+            "editable",
+            "maintainable"
           ],
           "related": [
             "figma/07-figma-to-html",
@@ -10042,7 +10229,10 @@
             "image-assets",
             "currentColor",
             "FILE_KEY",
-            "FIGMA_TOKEN"
+            "FIGMA_TOKEN",
+            "production-ready",
+            "responsive",
+            "them"
           ],
           "related": [
             "figma/07-figma-to-html",
@@ -10139,7 +10329,10 @@
             "frontend",
             "overview",
             "ProductList",
-            "useSearchParams"
+            "useSearchParams",
+            "pick",
+            "orient",
+            "yourself"
           ],
           "related": [
             "frontend/01-frontend-architecture",
@@ -10249,7 +10442,10 @@
             "useQuery",
             "useSearchParams",
             "Cart",
-            "isValid"
+            "isValid",
+            "stale",
+            "store",
+            "debugging"
           ],
           "related": [
             "frontend/01-frontend-architecture",
@@ -10798,7 +10994,10 @@
             "ButtonProps",
             "Button",
             "TODO",
-            "ReactNode"
+            "ReactNode",
+            "restructuring",
+            "package",
+            "component"
           ],
           "related": [
             "frontend/03-design-systems",
@@ -10882,7 +11081,10 @@
             "useState",
             "setTotal",
             "useEffect",
-            "useCallback"
+            "useCallback",
+            "view",
+            "whole",
+            "hook"
           ],
           "related": [
             "frontend/02-component-driven-development",
@@ -10964,7 +11166,10 @@
             "useEffect",
             "setItems",
             "fetchCart",
-            "useQuery"
+            "useQuery",
+            "structural",
+            "technical",
+            "boundaries"
           ],
           "related": [
             "frontend/27-best-practices",
@@ -11385,7 +11590,10 @@
             "git",
             "tags",
             "vMAJOR.MINOR.PATCH",
-            "v2.4.0"
+            "v2.4.0",
+            "point",
+            "cutting",
+            "marking"
           ],
           "related": [
             "git/16-push",
@@ -11670,7 +11878,10 @@
           "tags": [
             "git",
             "monorepo",
-            "CODEOWNERS"
+            "CODEOWNERS",
+            "holds",
+            "projects",
+            "committing"
           ],
           "related": [
             "git/25-lfs",
@@ -11767,7 +11978,10 @@
             "git",
             "security",
             "user.email",
-            "user.name"
+            "user.name",
+            "sensitive",
+            "leaked",
+            "secret"
           ],
           "related": [
             "git/20-hooks",
@@ -11943,7 +12157,10 @@
           "tags": [
             "github",
             "overview",
-            "GITHUB_TOKEN"
+            "GITHUB_TOKEN",
+            "know",
+            "answers",
+            "question"
           ],
           "related": [
             "github/01-github-platform",
@@ -11998,7 +12215,10 @@
             "README",
             "SECURITY.md",
             "README.md",
-            "DB_PASSWORD"
+            "DB_PASSWORD",
+            "restructuring",
+            "pushing",
+            "one"
           ],
           "related": [
             "github/01-github-platform",
@@ -12070,7 +12290,10 @@
             "github",
             "discussions",
             "SECURITY.md",
-            "GitHub"
+            "GitHub",
+            "versus",
+            "issue",
+            "live"
           ],
           "related": [
             "github/03-issues",
@@ -12376,7 +12599,10 @@
           "tags": [
             "github",
             "branch-protection",
-            "CODEOWNERS"
+            "CODEOWNERS",
+            "required",
+            "default",
+            "reviews"
           ],
           "related": [
             "github/18-rulesets",
@@ -12536,7 +12762,10 @@
             "github",
             "cli",
             "GH_TOKEN",
-            "GITHUB_TOKEN"
+            "GITHUB_TOKEN",
+            "scripting",
+            "tasks",
+            "inside"
           ],
           "related": [
             "github/22-api",
@@ -12586,7 +12815,10 @@
             "github",
             "copilot",
             "findUser",
-            "toBeDefined"
+            "toBeDefined",
+            "produced",
+            "org",
+            "enabling"
           ],
           "related": [
             "github/07-code-review",
@@ -12928,7 +13160,10 @@
             "types",
             "PostStatus",
             "DateTime",
-            "Float"
+            "Float",
+            "interfaces",
+            "field",
+            "objects"
           ],
           "related": [
             "graphql/02-schema",
@@ -13169,7 +13404,10 @@
             "fragments",
             "ProfilePage",
             "UserAvatar",
-            "UserCard"
+            "UserCard",
+            "sets",
+            "requirements",
+            "reusable"
           ],
           "related": [
             "graphql/04-queries",
@@ -13223,7 +13461,10 @@
             "findMany",
             "PostStatus",
             "DateTime",
-            "EXPLAIN"
+            "EXPLAIN",
+            "sort",
+            "filter",
+            "arguments"
           ],
           "related": [
             "graphql/13-pagination",
@@ -13274,7 +13515,10 @@
             "dataloader",
             "ApolloServer",
             "findMany",
-            "DataLoader"
+            "DataLoader",
+            "loaded",
+            "related",
+            "resolvers"
           ],
           "related": [
             "graphql/15-n1-problem",
@@ -13299,7 +13543,10 @@
             "security",
             "ApolloServer",
             "depthLimit",
-            "NODE_ENV"
+            "NODE_ENV",
+            "risks",
+            "exposing",
+            "server"
           ],
           "related": [
             "graphql/18-authentication",
@@ -13325,7 +13572,10 @@
             "verifyAccessToken",
             "onConnect",
             "getStats",
-            "GraphQLError"
+            "GraphQLError",
+            "identity",
+            "gateway",
+            "login"
           ],
           "related": [
             "graphql/19-authorization",
@@ -13542,7 +13792,10 @@
             "PublishPostPayload",
             "PublishPostInput",
             "PostStatus",
-            "camelCase"
+            "camelCase",
+            "quality",
+            "existing",
+            "one"
           ],
           "related": [
             "graphql/02-schema",
@@ -13593,7 +13846,10 @@
           "tags": [
             "graphql",
             "tooling",
-            "BREAKING"
+            "BREAKING",
+            "codegen",
+            "checks",
+            "server"
           ],
           "related": [
             "graphql/02-schema",
@@ -14477,7 +14733,10 @@
             "showModal",
             "querySelectorAll",
             "getElementById",
-            "addEventListener"
+            "addEventListener",
+            "observers",
+            "dialog",
+            "etc"
           ],
           "related": [
             "html/25-web-components",
@@ -14757,7 +15016,10 @@
           "tags": [
             "javascript",
             "scope-and-closures",
-            "setTimeout"
+            "setTimeout",
+            "callbacks",
+            "loops",
+            "handlers"
           ],
           "related": [
             "javascript/00-overview",
@@ -14895,7 +15157,10 @@
             "Promise.all",
             "AbortController",
             "AbortSignal",
-            "Promise.allSettled"
+            "Promise.allSettled",
+            "await",
+            "callback",
+            "concurrent"
           ],
           "related": [
             "javascript/09-promises",
@@ -14976,7 +15241,10 @@
             "localStorage",
             "setInterval",
             "setItem",
-            "URL"
+            "URL",
+            "observers",
+            "global",
+            "timers"
           ],
           "related": [
             "javascript/12-dom",
@@ -15003,7 +15271,10 @@
             "insertAdjacentHTML",
             "querySelectorAll",
             "textContent",
-            "AbortController"
+            "AbortController",
+            "creates",
+            "nodes",
+            "mutates"
           ],
           "related": [
             "javascript/11-browser-api",
@@ -15359,7 +15630,10 @@
             "worker_threads",
             "indexOf",
             "perf_hooks.monitorEventLoopDelay",
-            "JSON.parse"
+            "JSON.parse",
+            "execution",
+            "speed",
+            "throughput"
           ],
           "related": [
             "javascript/10-event-loop",
@@ -15554,7 +15828,8 @@
             "innerHTML",
             "parseInt",
             "document.write",
-            "JSON.parse"
+            "JSON.parse",
+            "ai-generated"
           ],
           "related": [
             "javascript/30-engineering-principles",
@@ -15629,7 +15904,10 @@
             "kubernetes",
             "overview",
             "securityContext",
-            "PodDisruptionBudget"
+            "PodDisruptionBudget",
+            "topic",
+            "where",
+            "next"
           ],
           "related": [
             "kubernetes/01-architecture",
@@ -15678,7 +15956,10 @@
             "kubernetes",
             "cluster",
             "ResourceQuota",
-            "LimitRange"
+            "LimitRange",
+            "provisioning",
+            "making",
+            "configuring"
           ],
           "related": [
             "kubernetes/01-architecture",
@@ -15734,7 +16015,10 @@
             "runAsNonRoot",
             "RuntimeDefault",
             "topologySpreadConstraints",
-            "terminationGracePeriodSeconds"
+            "terminationGracePeriodSeconds",
+            "spec",
+            "resources",
+            "pod"
           ],
           "related": [
             "kubernetes/05-deployments",
@@ -15839,7 +16123,10 @@
           "tags": [
             "kubernetes",
             "ingress",
-            "ClusterIP"
+            "ClusterIP",
+            "outside",
+            "edge",
+            "tls"
           ],
           "related": [
             "kubernetes/07-services",
@@ -15864,7 +16151,10 @@
             "configmaps",
             "ConfigMap",
             "LOG_LEVEL",
-            "DB_PASSWORD"
+            "DB_PASSWORD",
+            "pods",
+            "settings",
+            "configuration"
           ],
           "related": [
             "kubernetes/10-secrets",
@@ -15919,7 +16209,10 @@
             "ReadWriteMany",
             "ReadWriteOnce",
             "readOnlyRootFilesystem",
-            "volumeClaimTemplates"
+            "volumeClaimTemplates",
+            "sharing",
+            "restart",
+            "storage"
           ],
           "related": [
             "kubernetes/12-persistent-volumes",
@@ -15947,7 +16240,10 @@
             "ReadWriteMany",
             "volumeClaimTemplates",
             "hostPath",
-            "Pending"
+            "Pending",
+            "restarts",
+            "requesting",
+            "durable"
           ],
           "related": [
             "kubernetes/11-volumes",
@@ -16031,7 +16327,10 @@
             "activeDeadlineSeconds",
             "OnFailure",
             "Always",
-            "resources.requests"
+            "resources.requests",
+            "rather",
+            "script",
+            "migration"
           ],
           "related": [
             "kubernetes/16-cronjobs",
@@ -16058,7 +16357,10 @@
             "activeDeadlineSeconds",
             "ttlSecondsAfterFinished",
             "Allow",
-            "OnFailure"
+            "OnFailure",
+            "cleanup",
+            "cron",
+            "schedule"
           ],
           "related": [
             "kubernetes/15-jobs",
@@ -16158,7 +16460,10 @@
             "kubernetes",
             "autoscaling",
             "minReplicas",
-            "PodDisruptionBudgets"
+            "PodDisruptionBudgets",
+            "fails",
+            "scale",
+            "cluster"
           ],
           "related": [
             "kubernetes/19-resource-management",
@@ -16368,7 +16673,10 @@
           "tags": [
             "kubernetes",
             "disaster-recovery",
-            "VolumeSnapshot"
+            "VolumeSnapshot",
+            "posture",
+            "procedures",
+            "backups"
           ],
           "related": [
             "kubernetes/25-upgrades",
@@ -16449,7 +16757,10 @@
             "livenessProbe",
             "LimitRange",
             "ResourceQuota",
-            "Guaranteed"
+            "Guaranteed",
+            "go-live",
+            "signing",
+            "off"
           ],
           "related": [
             "kubernetes/26-production",
@@ -16738,7 +17049,10 @@
             "ExecStart",
             "StartLimitBurst",
             "StartLimit",
-            "WantedBy"
+            "WantedBy",
+            "turning",
+            "long-running",
+            "service"
           ],
           "related": [
             "linux/06-processes",
@@ -17202,7 +17516,10 @@
             "RestartSec",
             "LimitNOFILE",
             "ProtectSystem",
-            "NoNewPrivileges"
+            "NoNewPrivileges",
+            "operational",
+            "readiness",
+            "host"
           ],
           "related": [
             "linux/08-systemd",
@@ -17447,7 +17764,10 @@
           "tags": [
             "mysql",
             "readme",
-            "EXPLAIN"
+            "EXPLAIN",
+            "see",
+            "fit",
+            "docs"
           ],
           "related": [],
           "when_to_use": "Read first when starting any mysql work, to see how this section's docs fit together.",
@@ -17524,7 +17844,10 @@
             "sql_mode",
             "STRICT_TRANS_TABLES",
             "max_connections",
-            "innodb_flush_log_at_trx_commit"
+            "innodb_flush_log_at_trx_commit",
+            "buffer",
+            "durability",
+            "pool"
           ],
           "related": [
             "mysql/01-installation",
@@ -17636,7 +17959,10 @@
             "COMMIT",
             "information_schema.INNODB_TRX",
             "MEMORY",
-            "innodb_lock_wait_timeout"
+            "innodb_lock_wait_timeout",
+            "row",
+            "table",
+            "one"
           ],
           "related": [
             "mysql/07-locking",
@@ -17690,7 +18016,10 @@
             "CURRENT_TIMESTAMP",
             "AUTO_INCREMENT",
             "InnoDB",
-            "DATETIME"
+            "DATETIME",
+            "engine",
+            "legacy",
+            "migrating"
           ],
           "related": [
             "mysql/06-transactions",
@@ -17954,7 +18283,10 @@
             "long_query_time",
             "EXPLAIN",
             "performance_schema.events_statements_summary_by_digest",
-            "innodb_lock_wait_timeout"
+            "innodb_lock_wait_timeout",
+            "wait",
+            "lock",
+            "unexpected"
           ],
           "related": [
             "mysql/05-query-optimization",
@@ -18033,7 +18365,10 @@
           "tags": [
             "mysql",
             "high-availability",
-            "MySQL"
+            "MySQL",
+            "topology",
+            "replication",
+            "failover"
           ],
           "related": [
             "mysql/09-replication",
@@ -18061,7 +18396,10 @@
             "HASH",
             "EXPLAIN",
             "RANGE",
-            "MySQL"
+            "MySQL",
+            "scheme",
+            "time-series",
+            "proposed"
           ],
           "related": [
             "mysql/04-indexes",
@@ -18116,7 +18454,10 @@
             "CAST",
             "CHECK",
             "FULLTEXT",
-            "MySQL"
+            "MySQL",
+            "relational",
+            "tempted",
+            "indexing"
           ],
           "related": [
             "mysql/03-data-types",
@@ -18141,7 +18482,10 @@
             "NOW",
             "ROW_COUNT",
             "LIMIT",
-            "my.cnf"
+            "my.cnf",
+            "scheduling",
+            "inside",
+            "event"
           ],
           "related": [
             "mysql/27-procedures",
@@ -18168,7 +18512,10 @@
             "SUM",
             "COALESCE",
             "MESSAGE_TEXT",
-            "AFTER"
+            "AFTER",
+            "simple",
+            "insert",
+            "surprising"
           ],
           "related": [
             "mysql/27-procedures",
@@ -18195,7 +18542,10 @@
             "ROW_COUNT",
             "CONCAT",
             "DECIMAL",
-            "VARCHAR"
+            "VARCHAR",
+            "procedure",
+            "stored",
+            "belongs"
           ],
           "related": [
             "mysql/26-triggers",
@@ -18222,7 +18572,10 @@
             "COMMIT",
             "Seconds_Behind_Source",
             "MyISAM",
-            "innodb_buffer_pool_size"
+            "innodb_buffer_pool_size",
+            "durability",
+            "buffer",
+            "topology"
           ],
           "related": [
             "mysql/08-storage-engines",
@@ -18304,7 +18657,10 @@
             "EXPLAIN",
             "sys.schema_unused_indexes",
             "performance_schema",
-            "STRICT_TRANS_TABLES"
+            "STRICT_TRANS_TABLES",
+            "instance",
+            "go-live",
+            "promoting"
           ],
           "related": [
             "mysql/20-production",
@@ -18434,7 +18790,10 @@
             "OrdersRepository",
             "InjectRepository",
             "Controller",
-            "OrdersService"
+            "OrdersService",
+            "overall",
+            "dependencies",
+            "layer"
           ],
           "related": [
             "nestjs/02-modules",
@@ -18462,7 +18821,10 @@
             "OrdersService",
             "PaymentsService",
             "UsersRepository",
-            "Inject"
+            "Inject",
+            "exports",
+            "imports",
+            "splitting"
           ],
           "related": [
             "nestjs/01-architecture",
@@ -18517,7 +18879,10 @@
             "Param",
             "HttpCode",
             "MinLength",
-            "UseGuards"
+            "UseGuards",
+            "handler",
+            "route",
+            "http"
           ],
           "related": [
             "nestjs/07-dto",
@@ -18545,7 +18910,9 @@
             "Column",
             "OrdersService",
             "IsInt",
-            "InjectRepository"
+            "InjectRepository",
+            "class",
+            "service"
           ],
           "related": [
             "nestjs/06-repositories",
@@ -18601,7 +18968,10 @@
             "IsInt",
             "ValidateNested",
             "MaxLength",
-            "IsOptional"
+            "IsOptional",
+            "contracts",
+            "response",
+            "defining"
           ],
           "related": [
             "nestjs/08-validation",
@@ -18628,7 +18998,10 @@
             "ValidateNested",
             "IsInt",
             "IsArray",
-            "IsOptional"
+            "IsOptional",
+            "incoming",
+            "boundary",
+            "request"
           ],
           "related": [
             "nestjs/07-dto",
@@ -18655,7 +19028,10 @@
             "ForbiddenException",
             "JwtAuthGuard",
             "Controller",
-            "Injectable"
+            "Injectable",
+            "guard",
+            "enforces",
+            "authentication"
           ],
           "related": [
             "nestjs/15-authentication",
@@ -18736,7 +19112,10 @@
             "BadRequestException",
             "MinLength",
             "Controller",
-            "ParseUUIDPipe"
+            "ParseUUIDPipe",
+            "incoming",
+            "validate",
+            "request"
           ],
           "related": [
             "nestjs/07-dto",
@@ -18788,7 +19167,10 @@
             "process.env",
             "Module",
             "STRIPE_KEY",
-            "CanActivate"
+            "CanActivate",
+            "variables",
+            "secrets",
+            "environment"
           ],
           "related": [
             "nestjs/02-modules",
@@ -18842,7 +19224,10 @@
             "Controller",
             "Injectable",
             "ForbiddenException",
-            "Roles"
+            "Roles",
+            "authenticated",
+            "decides",
+            "permissions"
           ],
           "related": [
             "nestjs/15-authentication",
@@ -18868,7 +19253,10 @@
             "IsInt",
             "InjectRepository",
             "Column",
-            "InjectDataSource"
+            "InjectDataSource",
+            "orm",
+            "entities",
+            "integrating"
           ],
           "applies_to": [
             "typeorm"
@@ -18951,7 +19339,10 @@
             "IsEmail",
             "Injectable",
             "sendWelcome",
-            "sendConfirmation"
+            "sendConfirmation",
+            "asynchronous",
+            "outside",
+            "background"
           ],
           "related": [
             "nestjs/21-events",
@@ -19113,7 +19504,9 @@
             "ForbiddenException",
             "Column",
             "ValidationPipe",
-            "IsOptional"
+            "IsOptional",
+            "hardening",
+            "building"
           ],
           "related": [
             "nestjs/15-authentication",
@@ -19167,7 +19560,10 @@
             "enableShutdownHooks",
             "TypeOrmHealthIndicator",
             "OnApplicationShutdown",
-            "HealthController"
+            "HealthController",
+            "release",
+            "build",
+            "setting"
           ],
           "related": [
             "nestjs/14-configuration",
@@ -19194,7 +19590,10 @@
             "UseInterceptors",
             "Param",
             "Injectable",
-            "findAll"
+            "findAll",
+            "maintaining",
+            "debt",
+            "managing"
           ],
           "related": [
             "nestjs/28-deployment",
@@ -19337,7 +19736,10 @@
             "getServerSideProps",
             "route.ts",
             "page.tsx",
-            "layout.tsx"
+            "layout.tsx",
+            "concern",
+            "specific",
+            "understand"
           ],
           "related": [
             "nextjs/01-architecture",
@@ -19364,7 +19766,10 @@
             "AddToCart",
             "useState",
             "getProduct",
-            "DashboardPage"
+            "DashboardPage",
+            "overall",
+            "establishing",
+            "next"
           ],
           "related": [
             "nextjs/02-project-structure",
@@ -19420,7 +19825,10 @@
             "getUser",
             "NextRequest",
             "error.tsx",
-            "page.tsx"
+            "page.tsx",
+            "directories",
+            "routes",
+            "structuring"
           ],
           "applies_to": [
             "app-router"
@@ -19454,7 +19862,10 @@
             "getAllPostSlugs",
             "notFound",
             "getPost",
-            "generateStaticParams"
+            "generateStaticParams",
+            "links",
+            "navigation",
+            "pages"
           ],
           "related": [
             "nextjs/03-app-router",
@@ -19481,7 +19892,10 @@
             "DashboardLayout",
             "QueryClient",
             "ThemeProvider",
-            "QueryClientProvider"
+            "QueryClientProvider",
+            "persistent",
+            "routes",
+            "shared"
           ],
           "applies_to": [
             "app-router"
@@ -19545,7 +19959,10 @@
             "useState",
             "useEffect",
             "ProductList",
-            "useTransition"
+            "useTransition",
+            "interactivity",
+            "client-side",
+            "state"
           ],
           "applies_to": [
             "app-router"
@@ -19633,7 +20050,10 @@
             "revalidateTag",
             "API_URL",
             "getProduct",
-            "revalidatePath"
+            "revalidatePath",
+            "routes",
+            "next",
+            "configuring"
           ],
           "applies_to": [
             "app-router"
@@ -19664,7 +20084,10 @@
             "updateMany",
             "updateTag",
             "revalidateTag",
-            "useActionState"
+            "useActionState",
+            "mutations",
+            "form",
+            "implementing"
           ],
           "applies_to": [
             "app-router"
@@ -19693,7 +20116,10 @@
             "CreateOrder",
             "route.ts",
             "NextRequest",
-            "treeifyError"
+            "treeifyError",
+            "handlers",
+            "endpoints",
+            "route"
           ],
           "applies_to": [
             "app-router"
@@ -19914,7 +20340,10 @@
             "AccountPage",
             "AddToCartButton",
             "ProductPage",
-            "setPending"
+            "setPending",
+            "vitals",
+            "core",
+            "web"
           ],
           "related": [
             "nextjs/10-caching",
@@ -20126,7 +20555,10 @@
             "EventPage",
             "ProductsPage",
             "generateMetadata",
-            "getEvent"
+            "getEvent",
+            "engineering",
+            "next",
+            "building"
           ],
           "related": [
             "nextjs/29-engineering-principles",
@@ -20152,7 +20584,10 @@
             "Component",
             "getProducts",
             "useReportWebVitals",
-            "useState"
+            "useState",
+            "architectural",
+            "router",
+            "codebase"
           ],
           "related": [
             "nextjs/06-server-components",
@@ -20294,7 +20729,10 @@
           "tags": [
             "nginx",
             "readme",
-            "Host"
+            "Host",
+            "see",
+            "fit",
+            "docs"
           ],
           "related": [],
           "when_to_use": "Read first when starting any nginx work, to see how this section's docs fit together.",
@@ -20450,7 +20888,10 @@
             "Connection",
             "X-Forwarded-Proto",
             "real_ip",
-            "Upgrade"
+            "Upgrade",
+            "putting",
+            "requests",
+            "front"
           ],
           "related": [
             "nginx/06-load-balancing",
@@ -20534,7 +20975,10 @@
             "Cache-Control",
             "proxy_no_cache",
             "proxy_cache_bypass",
-            "Vary"
+            "Vary",
+            "proxy",
+            "served",
+            "responses"
           ],
           "related": [
             "nginx/05-reverse-proxy",
@@ -20558,7 +21002,10 @@
             "nginx",
             "compression",
             "Accept-Encoding",
-            "gzip_comp_level"
+            "gzip_comp_level",
+            "being",
+            "responses",
+            "enabling"
           ],
           "related": [
             "nginx/07-static-files",
@@ -20608,7 +21055,10 @@
             "http3",
             "Alt-Svc",
             "ssl_protocols",
-            "server_name"
+            "server_name",
+            "opening",
+            "enabling",
+            "http"
           ],
           "related": [
             "nginx/10-http2",
@@ -20765,7 +21215,10 @@
             "monitoring",
             "stub_status",
             "request_time",
-            "worker_connections"
+            "worker_connections",
+            "tier",
+            "edge",
+            "observability"
           ],
           "related": [
             "nginx/16-logging",
@@ -20820,7 +21273,10 @@
             "Host",
             "proxy_next_upstream",
             "proxy_read_timeout",
-            "real_ip_header"
+            "real_ip_header",
+            "python",
+            "putting",
+            "front"
           ],
           "related": [
             "nginx/05-reverse-proxy",
@@ -20876,7 +21332,10 @@
             "fastcgi_read_timeout",
             "proxy_pass",
             "proxy_set_header",
-            "try_files"
+            "try_files",
+            "php-fpm",
+            "python",
+            "pass"
           ],
           "related": [
             "nginx/22-php-fpm",
@@ -20904,7 +21363,9 @@
             "SCRIPT_FILENAME",
             "max_execution_time",
             "index.php",
-            "try_files"
+            "try_files",
+            "deploying",
+            "wordpress"
           ],
           "related": [
             "nginx/21-fastcgi",
@@ -21787,7 +22248,10 @@
             "getOrder",
             "Promise.all",
             "getOrders",
-            "crypto.pbkdf2Sync"
+            "crypto.pbkdf2Sync",
+            "throughput",
+            "latency",
+            "load"
           ],
           "related": [
             "nodejs/02-event-loop",
@@ -22340,7 +22804,10 @@
             "asyncio.gather",
             "ETag",
             "Cache-Control",
-            "Promise.all"
+            "Promise.all",
+            "waiting",
+            "round-trips",
+            "shows"
           ],
           "related": [
             "performance/01-performance-fundamentals",
@@ -22551,7 +23018,10 @@
             "OFFSET",
             "log_min_duration_statement",
             "statement_timeout",
-            "LIMIT"
+            "LIMIT",
+            "indexes",
+            "endpoint",
+            "schema"
           ],
           "defers_to": "databases/20-performance",
           "related": [
@@ -22580,7 +23050,10 @@
             "getUser",
             "ETag",
             "Cache-Control",
-            "asyncio.gather"
+            "asyncio.gather",
+            "concurrency",
+            "rpc",
+            "payload"
           ],
           "related": [
             "performance/13-database-performance",
@@ -22606,7 +23079,10 @@
             "OFFSET",
             "DATE",
             "ANALYZE",
-            "pg_stat_statements"
+            "pg_stat_statements",
+            "complex",
+            "statement",
+            "specific"
           ],
           "related": [
             "performance/13-database-performance",
@@ -23055,7 +23531,10 @@
             "common-antipatterns",
             "EXPLAIN",
             "indexOf",
-            "LIMIT"
+            "LIMIT",
+            "walking",
+            "trap",
+            "loop"
           ],
           "related": [
             "performance/01-performance-fundamentals",
@@ -23321,7 +23800,10 @@
             "display_errors",
             "E_ALL",
             "print_r",
-            "json_encode"
+            "json_encode",
+            "reporting",
+            "global",
+            "surface"
           ],
           "related": [
             "php/09-exceptions",
@@ -23348,7 +23830,10 @@
             "TypeError",
             "RuntimeException",
             "Exception",
-            "http_response_code"
+            "http_response_code",
+            "catching",
+            "types",
+            "boundary"
           ],
           "related": [
             "php/08-error-handling",
@@ -23558,7 +24043,10 @@
             "MaxLength",
             "RuntimeException",
             "__construct",
-            "SignupForm"
+            "SignupForm",
+            "native",
+            "orm",
+            "consuming"
           ],
           "related": [
             "php/04-oop",
@@ -23608,7 +24096,10 @@
             "enums",
             "InvalidArgumentException",
             "OrderStatus",
-            "ValueError"
+            "ValueError",
+            "fixed",
+            "string",
+            "named"
           ],
           "related": [
             "php/02-types",
@@ -24078,7 +24569,10 @@
           "tags": [
             "playbooks",
             "security-incident",
-            "DEPLOY_TOKEN"
+            "DEPLOY_TOKEN",
+            "leaked",
+            "credential",
+            "has"
           ],
           "related": [
             "playbooks/01-site-down",
@@ -24273,7 +24767,10 @@
             "EXPLAIN",
             "BUFFERS",
             "pg_stat_statements",
-            "auto_explain"
+            "auto_explain",
+            "interpreting",
+            "plan",
+            "diagnosing"
           ],
           "related": [
             "postgresql/04-indexes",
@@ -24352,7 +24849,10 @@
             "jsonb",
             "CHECK",
             "GIN",
-            "EXPLAIN"
+            "EXPLAIN",
+            "querying",
+            "inside",
+            "column"
           ],
           "related": [
             "postgresql/03-data-types",
@@ -24433,7 +24933,10 @@
             "DETACH",
             "HASH",
             "RANGE",
-            "EXPLAIN"
+            "EXPLAIN",
+            "time-series",
+            "growing",
+            "large"
           ],
           "related": [
             "postgresql/04-indexes",
@@ -24478,7 +24981,10 @@
           "tags": [
             "postgresql",
             "high-availability",
-            "DATABASE_URL"
+            "DATABASE_URL",
+            "promotion",
+            "loss",
+            "survive"
           ],
           "related": [
             "postgresql/12-replication",
@@ -24557,7 +25063,10 @@
             "EXPLAIN",
             "auto_explain",
             "pg_stat_activity",
-            "CONCURRENTLY"
+            "CONCURRENTLY",
+            "high",
+            "index",
+            "load"
           ],
           "related": [
             "postgresql/04-indexes",
@@ -24585,7 +25094,10 @@
             "pg_stat_replication",
             "wait_event_type",
             "pg_stat_user_tables",
-            "autovacuum_freeze_max_age"
+            "autovacuum_freeze_max_age",
+            "dashboards",
+            "alerts",
+            "incident"
           ],
           "related": [
             "postgresql/16-performance",
@@ -24639,7 +25151,10 @@
             "SUPERUSER",
             "app_readwrite",
             "app_readonly",
-            "USING"
+            "USING",
+            "privileges",
+            "tables",
+            "login"
           ],
           "related": [
             "postgresql/18-security",
@@ -24667,7 +25182,10 @@
             "pg_stat_user_tables",
             "autovacuum_vacuum_scale_factor",
             "autovacuum_freeze_max_age",
-            "idle_in_transaction_session_timeout"
+            "idle_in_transaction_session_timeout",
+            "autovacuum",
+            "tuning",
+            "index"
           ],
           "related": [
             "postgresql/21-analyze",
@@ -24863,7 +25381,10 @@
             "max_connections",
             "autovacuum_vacuum_scale_factor",
             "effective_cache_size",
-            "EXPLAIN"
+            "EXPLAIN",
+            "planner",
+            "autovacuum",
+            "improve"
           ],
           "related": [
             "postgresql/02-configuration",
@@ -24888,7 +25409,10 @@
             "architecture",
             "PgBouncer",
             "RANGE",
-            "synchronous_commit"
+            "synchronous_commit",
+            "partitioning",
+            "topology",
+            "fits"
           ],
           "related": [
             "postgresql/12-replication",
@@ -25078,7 +25602,10 @@
             "overview",
             "schema.prisma",
             "PrismaClient",
-            "DATABASE_URL"
+            "DATABASE_URL",
+            "answers",
+            "question",
+            "deciding"
           ],
           "related": [
             "prisma/01-installation",
@@ -25691,7 +26218,10 @@
             "deleteMany",
             "PrismaClient",
             "listUsers",
-            "deleteUser"
+            "deleteUser",
+            "deleted",
+            "removing",
+            "marking"
           ],
           "related": [
             "prisma/14-extensions",
@@ -25718,7 +26248,10 @@
             "findMany",
             "findUniqueOrThrow",
             "findFirst",
-            "PrismaClientKnownRequestError"
+            "PrismaClientKnownRequestError",
+            "prisma-backed",
+            "day-to-day",
+            "correct"
           ],
           "related": [
             "prisma/06-client",
@@ -25746,7 +26279,10 @@
             "DATABASE_URL",
             "SIGTERM",
             "connection_limit",
-            "SIGINT"
+            "SIGINT",
+            "runtime",
+            "connection",
+            "deploying"
           ],
           "related": [
             "prisma/05-migrations",
@@ -25773,7 +26309,10 @@
             "P2024",
             "setInterval",
             "console.log",
-            "pg_stat_statements"
+            "pg_stat_statements",
+            "failing",
+            "instrumenting",
+            "tracing"
           ],
           "related": [
             "prisma/15-performance",
@@ -25941,7 +26480,10 @@
             "Prisma.validator",
             "onUpdate",
             "onDelete",
-            "Unsafe"
+            "Unsafe",
+            "generating",
+            "migration",
+            "schema"
           ],
           "related": [
             "prisma/30-engineering-principles",
@@ -26024,7 +26566,7 @@
             "checklists/02-pull-request-author",
             "tools/26-ai-coding-tools"
           ],
-          "when_to_use": "Copy when asking an assistant to review a diff, and adapt the context section to the project.",
+          "when_to_use": "Copy when writing the instruction you give an assistant to review a diff or a pull request, and adapt the context section to the change.",
           "path": "knowledge/prompts/01-code-review.md"
         },
         {
@@ -26039,7 +26581,10 @@
             "prompts",
             "bug-investigation",
             "applyDiscount",
-            "TypeError"
+            "TypeError",
+            "fill",
+            "have",
+            "asking"
           ],
           "related": [
             "prompts/01-code-review",
@@ -26162,7 +26707,10 @@
             "useState",
             "useTheme",
             "setOrders",
-            "setLoading"
+            "setLoading",
+            "splitting",
+            "structure",
+            "designing"
           ],
           "related": [
             "react/13-component-composition",
@@ -26245,7 +26793,10 @@
             "UserAvatar",
             "ButtonProps",
             "Layout",
-            "Card"
+            "Card",
+            "public",
+            "component",
+            "api"
           ],
           "related": [
             "react/04-components",
@@ -26299,7 +26850,10 @@
             "useLayoutEffect",
             "useState",
             "removeEventListener",
-            "addEventListener"
+            "addEventListener",
+            "subscriptions",
+            "cleanup",
+            "effects"
           ],
           "related": [
             "react/08-hooks",
@@ -26327,7 +26881,10 @@
             "useState",
             "useActionState",
             "SearchBox",
-            "useOptimistic"
+            "useOptimistic",
+            "hook",
+            "rules",
+            "error"
           ],
           "related": [
             "react/06-state",
@@ -26355,7 +26912,10 @@
             "useEffect",
             "addEventListener",
             "useAuth",
-            "useUser"
+            "useUser",
+            "extracting",
+            "hook",
+            "logic"
           ],
           "related": [
             "react/08-hooks",
@@ -26462,7 +27022,10 @@
             "TabsContext",
             "useTabs",
             "TabList",
-            "setOpen"
+            "setOpen",
+            "props",
+            "reusable",
+            "configuration"
           ],
           "related": [
             "react/05-props",
@@ -26490,7 +27053,10 @@
             "useState",
             "TabPanel",
             "TabList",
-            "useCallback"
+            "useCallback",
+            "reusable",
+            "components",
+            "logic"
           ],
           "related": [
             "react/13-component-composition",
@@ -26518,7 +27084,10 @@
             "useState",
             "FormData",
             "setEmail",
-            "onSubmit"
+            "onSubmit",
+            "inputs",
+            "validation",
+            "building"
           ],
           "related": [
             "react/06-state",
@@ -26599,7 +27168,10 @@
             "OrderList",
             "useEffect",
             "setParams",
-            "fetchOrders"
+            "fetchOrders",
+            "global",
+            "local",
+            "shared"
           ],
           "related": [
             "react/06-state",
@@ -26625,7 +27197,10 @@
             "DeleteButton",
             "deleteItem",
             "handleClick",
-            "reportError"
+            "reportError",
+            "boundaries",
+            "implementing",
+            "failure"
           ],
           "related": [
             "react/15-forms",
@@ -26929,7 +27504,10 @@
             "localeCompare",
             "useMemo",
             "UserRow",
-            "useEffect"
+            "useEffect",
+            "decisions",
+            "belongs",
+            "boundaries"
           ],
           "related": [
             "react/13-component-composition",
@@ -26980,7 +27558,10 @@
           "tags": [
             "react",
             "ai-review-checklist",
-            "useEffect"
+            "useEffect",
+            "done",
+            "confirm",
+            "ai-generated"
           ],
           "related": [
             "react/98-production-checklist",
@@ -27006,7 +27587,10 @@
             "setFullName",
             "React.memo",
             "useCallback",
-            "useMemo"
+            "useMemo",
+            "detect",
+            "implementation",
+            "refactoring"
           ],
           "related": [
             "react/26-best-practices",
@@ -27037,7 +27621,10 @@
             "redis",
             "readme",
             "SCAN",
-            "EXPIRE"
+            "EXPIRE",
+            "see",
+            "fit",
+            "docs"
           ],
           "related": [],
           "when_to_use": "Read first when starting any Redis work, to see how this section's docs fit together.",
@@ -27057,7 +27644,10 @@
             "SMEMBERS",
             "SCAN",
             "EXPIRE",
-            "HGETALL"
+            "HGETALL",
+            "open",
+            "learn",
+            "topic"
           ],
           "related": [
             "redis/02-data-types",
@@ -27113,7 +27703,10 @@
             "HSET",
             "SADD",
             "INCR",
-            "EXPIRE"
+            "EXPIRE",
+            "matches",
+            "value",
+            "pattern"
           ],
           "related": [
             "redis/03-strings",
@@ -27141,7 +27734,9 @@
             "EXPIRE",
             "KEEPTTL",
             "INCRBYFLOAT",
-            "MSET"
+            "MSET",
+            "locks",
+            "values"
           ],
           "related": [
             "redis/02-data-types",
@@ -27195,7 +27790,10 @@
             "SISMEMBER",
             "SSCAN",
             "SADD",
-            "SUNIONSTORE"
+            "SUNIONSTORE",
+            "membership",
+            "collections",
+            "tagging"
           ],
           "related": [
             "redis/02-data-types",
@@ -27278,7 +27876,10 @@
             "XPENDING",
             "XCLAIM",
             "XREADGROUP",
-            "XTRIM"
+            "XTRIM",
+            "lose",
+            "restart",
+            "event"
           ],
           "related": [
             "redis/09-pub-sub",
@@ -27302,7 +27903,10 @@
             "redis",
             "pub-sub",
             "PUBLISH",
-            "SUBSCRIBE"
+            "SUBSCRIBE",
+            "decide",
+            "stream",
+            "actually"
           ],
           "related": [
             "redis/08-streams",
@@ -27493,7 +28097,10 @@
             "XACK",
             "XAUTOCLAIM",
             "RPOP",
-            "MAXLEN"
+            "MAXLEN",
+            "worker",
+            "pool",
+            "event"
           ],
           "related": [
             "redis/08-streams",
@@ -27546,7 +28153,10 @@
             "WAIT",
             "master_link_status:down",
             "master_repl_offset",
-            "FLUSHALL"
+            "FLUSHALL",
+            "replicas",
+            "failover",
+            "scaling"
           ],
           "related": [
             "redis/19-clustering",
@@ -27573,7 +28183,10 @@
             "MGET",
             "MULTI",
             "SUNIONSTORE",
-            "MSET"
+            "MSET",
+            "hold",
+            "dataset",
+            "longer"
           ],
           "related": [
             "redis/18-replication",
@@ -27704,7 +28317,10 @@
             "TTL",
             "FLUSHDB",
             "FLUSHALL",
-            "Redis"
+            "Redis",
+            "writes",
+            "reads",
+            "tests"
           ],
           "related": [
             "redis/25-debugging",
@@ -27928,7 +28544,10 @@
             "WAIT",
             "MOVED",
             "ASK",
-            "UNLINK"
+            "UNLINK",
+            "coordinates",
+            "writes",
+            "through"
           ],
           "related": [
             "redis/30-engineering-principles",
@@ -28030,7 +28649,10 @@
             "Last-Modified",
             "Accept",
             "ETag",
-            "Content-Type"
+            "Content-Type",
+            "protocol",
+            "method",
+            "header"
           ],
           "related": [
             "rest-api/02-rest-principles",
@@ -28186,7 +28808,10 @@
             "rest-api",
             "status-codes",
             "Location",
-            "Retry-After"
+            "Retry-After",
+            "returns",
+            "client",
+            "error"
           ],
           "related": [
             "rest-api/09-error-handling",
@@ -28317,7 +28942,10 @@
             "sorting",
             "BadRequest",
             "startsWith",
-            "created_at"
+            "created_at",
+            "sort",
+            "parameter",
+            "collection"
           ],
           "related": [
             "rest-api/10-pagination",
@@ -28508,7 +29136,10 @@
             "getProfile",
             "Vary",
             "Cache-Control",
-            "If-None-Match"
+            "If-None-Match",
+            "read-heavy",
+            "cdn",
+            "front"
           ],
           "related": [
             "rest-api/07-status-codes",
@@ -28777,7 +29408,10 @@
             "rest-api",
             "api-design-review",
             "Location",
-            "PascalCase"
+            "PascalCase",
+            "proposal",
+            "approving",
+            "whether"
           ],
           "related": [
             "rest-api/03-resource-design",
@@ -28805,7 +29439,10 @@
             "camelCase",
             "snake_case",
             "PUT",
-            "ETag"
+            "ETag",
+            "endpoints",
+            "cross-cutting",
+            "many"
           ],
           "related": [
             "rest-api/02-rest-principles",
@@ -28833,7 +29470,10 @@
             "Idempotency-Key",
             "request_id",
             "PATCH",
-            "Retry-After"
+            "Retry-After",
+            "sign",
+            "surface",
+            "public"
           ],
           "related": [
             "rest-api/24-security",
@@ -28856,7 +29496,10 @@
           "tags": [
             "rest-api",
             "ai-review-checklist",
-            "request_id"
+            "request_id",
+            "adds",
+            "approving",
+            "pull"
           ],
           "related": [
             "rest-api/09-error-handling",
@@ -28883,7 +29526,10 @@
             "Idempotency-Key",
             "request_id",
             "PATCH",
-            "PUT"
+            "PUT",
+            "ship",
+            "they",
+            "mistakes"
           ],
           "related": [
             "rest-api/02-rest-principles",
@@ -28954,7 +29600,10 @@
             "security-fundamentals",
             "ForbiddenError",
             "NotFoundError",
-            "canRead"
+            "canRead",
+            "identity",
+            "handles",
+            "untrusted"
           ],
           "related": [
             "security/02-threat-modeling",
@@ -29033,7 +29682,10 @@
             "NotFoundError",
             "findOne",
             "findById",
-            "isAdmin"
+            "isAdmin",
+            "authenticated",
+            "decides",
+            "user"
           ],
           "related": [
             "security/03-authentication",
@@ -29112,7 +29764,10 @@
             "security",
             "jwt",
             "verifyAccessToken",
-            "localStorage"
+            "localStorage",
+            "issuing",
+            "verifying",
+            "storing"
           ],
           "related": [
             "security/03-authentication",
@@ -29241,7 +29896,10 @@
             "sendStatus",
             "Strict",
             "SameSite",
-            "HttpOnly"
+            "HttpOnly",
+            "cookies",
+            "endpoints",
+            "post"
           ],
           "related": [
             "security/06-session-management",
@@ -29415,7 +30073,10 @@
             "cors",
             "setHeader",
             "Origin",
-            "SameSite"
+            "SameSite",
+            "browser",
+            "error",
+            "access"
           ],
           "related": [
             "security/22-security-headers",
@@ -29521,7 +30182,10 @@
             "poetry.lock",
             "go.sum",
             "package-lock.json",
-            "package.json"
+            "package.json",
+            "scanning",
+            "updating",
+            "setting"
           ],
           "related": [
             "security/24-supply-chain-security",
@@ -29649,7 +30313,10 @@
             "owasp-top10",
             "getInvoice",
             "ForbiddenError",
-            "findById"
+            "findById",
+            "risks",
+            "triaging",
+            "list"
           ],
           "related": [
             "security/27-best-practices",
@@ -29940,7 +30607,10 @@
             "getProduct",
             "AddToCartButton",
             "useState",
-            "useEffect"
+            "useEffect",
+            "produced",
+            "client-side",
+            "whose"
           ],
           "related": [
             "seo/19-javascript-seo",
@@ -30767,7 +31437,7 @@
             "react/09-custom-hooks",
             "snippets/03-shell-scripts"
           ],
-          "when_to_use": "Copy when you need money formatting, async control flow, or type-narrowing helpers.",
+          "when_to_use": "Copy when you need to format money without floating point error, control async flow (retry, timeout, concurrency), or narrow a type — small helpers with the edge cases already handled.",
           "path": "knowledge/snippets/01-typescript-utilities.md"
         },
         {
@@ -30844,7 +31514,10 @@
             "sql",
             "readme",
             "HAVING",
-            "LIMIT"
+            "LIMIT",
+            "see",
+            "fit",
+            "docs"
           ],
           "related": [],
           "when_to_use": "Read first when starting any SQL work, to see how this section's docs fit together.",
@@ -30865,7 +31538,10 @@
             "DISTINCT",
             "EXPLAIN",
             "UNKNOWN",
-            "snake_case"
+            "snake_case",
+            "conventions",
+            "right",
+            "shared"
           ],
           "related": [
             "sql/01-select",
@@ -30920,7 +31596,10 @@
             "BETWEEN",
             "EXTRACT",
             "EXISTS",
-            "HAVING"
+            "HAVING",
+            "clause",
+            "column",
+            "index"
           ],
           "related": [
             "sql/01-select",
@@ -30945,7 +31624,10 @@
             "sorting",
             "LIMIT",
             "OFFSET",
-            "EXPLAIN"
+            "EXPLAIN",
+            "result",
+            "caller",
+            "order"
           ],
           "related": [
             "sql/01-select",
@@ -30973,7 +31655,10 @@
             "COALESCE",
             "MIN",
             "MAX",
-            "AVG"
+            "AVG",
+            "clause",
+            "report",
+            "group"
           ],
           "related": [
             "sql/01-select",
@@ -31001,7 +31686,10 @@
             "SUM",
             "EXISTS",
             "COALESCE",
-            "EXPLAIN"
+            "EXPLAIN",
+            "duplicate",
+            "have",
+            "missing"
           ],
           "related": [
             "sql/01-select",
@@ -31027,7 +31715,10 @@
             "EXISTS",
             "EXPLAIN",
             "UNKNOWN",
-            "HAVING"
+            "HAVING",
+            "express",
+            "join",
+            "filter"
           ],
           "related": [
             "sql/07-common-table-expressions",
@@ -31052,7 +31743,10 @@
             "common-table-expressions",
             "UNION",
             "statement_timeout",
-            "EXPLAIN"
+            "EXPLAIN",
+            "nested",
+            "readability",
+            "refactoring"
           ],
           "related": [
             "sql/06-subqueries",
@@ -31078,7 +31772,9 @@
             "SUM",
             "RANGE",
             "HAVING",
-            "LIMIT"
+            "LIMIT",
+            "rows",
+            "running"
           ],
           "related": [
             "sql/09-aggregate-functions",
@@ -31106,7 +31802,10 @@
             "NUMERIC",
             "COALESCE",
             "HAVING",
-            "MAX"
+            "MAX",
+            "min",
+            "aggregation",
+            "count"
           ],
           "related": [
             "sql/04-grouping",
@@ -31134,7 +31833,10 @@
             "DATE",
             "CAST",
             "CONCAT",
-            "TIMESTAMPTZ"
+            "TIMESTAMPTZ",
+            "scalar",
+            "strings",
+            "dates"
           ],
           "related": [
             "sql/11-data-types",
@@ -31218,7 +31920,10 @@
             "updated_at",
             "ROLLBACK",
             "COMMIT",
-            "LIMIT"
+            "LIMIT",
+            "insert",
+            "bulk",
+            "delete"
           ],
           "related": [
             "sql/12-ddl",
@@ -31349,7 +32054,10 @@
           "tags": [
             "sql",
             "views",
-            "EXPLAIN"
+            "EXPLAIN",
+            "abstraction",
+            "subset",
+            "repeated"
           ],
           "related": [
             "sql/19-materialized-views",
@@ -31373,7 +32081,10 @@
             "sql",
             "materialized-views",
             "UNIQUE",
-            "CONCURRENTLY"
+            "CONCURRENTLY",
+            "aggregation",
+            "read-heavy",
+            "join"
           ],
           "related": [
             "sql/18-views",
@@ -31397,7 +32108,10 @@
             "sql",
             "stored-procedures",
             "search_path",
-            "DEFINER"
+            "DEFINER",
+            "procedure",
+            "belongs",
+            "function"
           ],
           "related": [
             "sql/21-triggers",
@@ -31424,7 +32138,10 @@
             "BEFORE",
             "CHECK",
             "UNIQUE",
-            "updated_at"
+            "updated_at",
+            "constraint",
+            "trigger",
+            "whether"
           ],
           "related": [
             "sql/20-stored-procedures",
@@ -31561,7 +32278,10 @@
             "HAVING",
             "OFFSET",
             "LOWER",
-            "LEFT"
+            "LEFT",
+            "statement",
+            "non-trivial",
+            "schema"
           ],
           "related": [
             "sql/13-dml",
@@ -31589,7 +32309,10 @@
             "CONFLICT",
             "SUM",
             "RETURNING",
-            "JSONB"
+            "JSONB",
+            "engine",
+            "syntax",
+            "one"
           ],
           "related": [
             "sql/11-data-types",
@@ -31726,7 +32449,10 @@
             "NUMERIC",
             "DECIMAL",
             "OFFSET",
-            "CHECK"
+            "CHECK",
+            "approving",
+            "migration",
+            "diff"
           ],
           "related": [
             "sql/17-query-optimization",
@@ -32755,7 +33481,10 @@
           "tags": [
             "templates",
             "pull-request",
-            "getOrders"
+            "getOrders",
+            "install",
+            "opening",
+            "template"
           ],
           "related": [
             "templates/02-architecture-decision-record",
@@ -32880,7 +33609,10 @@
             "spyOn",
             "toBeDefined",
             "toHaveBeenCalled",
-            "toBe"
+            "toBe",
+            "place",
+            "whether",
+            "test"
           ],
           "related": [
             "testing/00-overview",
@@ -32934,7 +33666,10 @@
             "UserRepository",
             "findByEmail",
             "toBe",
-            "mockResolvedValue"
+            "mockResolvedValue",
+            "crosses",
+            "call",
+            "message"
           ],
           "related": [
             "testing/02-unit-testing",
@@ -32989,7 +33724,10 @@
             "mockReturnValue",
             "toHaveBeenCalledTimes",
             "toHaveBeenCalled",
-            "toBe"
+            "toBe",
+            "mock",
+            "replacing",
+            "dependency"
           ],
           "related": [
             "testing/02-unit-testing",
@@ -33016,7 +33754,10 @@
             "mockReturnValue",
             "mockResolvedValue",
             "toHaveBeenCalledBefore",
-            "toHaveBeenCalledTimes"
+            "toHaveBeenCalledTimes",
+            "asserts",
+            "was",
+            "called"
           ],
           "related": [
             "testing/05-test-doubles",
@@ -33150,7 +33891,10 @@
             "contract-testing",
             "mockResolvedValue",
             "orderId",
-            "toBe"
+            "toBe",
+            "relying",
+            "versioned",
+            "mock"
           ],
           "related": [
             "testing/06-mocking",
@@ -33504,7 +34248,10 @@
             "toBe",
             "not.toThrow",
             "toBeDefined",
-            "console.log"
+            "console.log",
+            "fast",
+            "keep",
+            "suite"
           ],
           "related": [
             "testing/01-testing-fundamentals",
@@ -33953,7 +34700,10 @@
             "tools",
             "php-code-standards",
             "WordPress",
-            "get_results"
+            "get_results",
+            "fixes",
+            "linting",
+            "standard"
           ],
           "related": [
             "tools/08-static-analysis",
@@ -33980,7 +34730,10 @@
             "static-analysis",
             "get_post",
             "WP_Post",
-            "WordPress"
+            "WordPress",
+            "introducing",
+            "legacy",
+            "rule"
           ],
           "related": [
             "tools/07-php-code-standards",
@@ -34260,7 +35013,10 @@
           "tags": [
             "tools",
             "monorepo-tools",
-            "tsconfig.json"
+            "tsconfig.json",
+            "orchestration",
+            "caching",
+            "whether"
           ],
           "related": [
             "tools/01-package-managers",
@@ -34487,7 +35243,10 @@
             "AGENTS.md",
             "TypeScript",
             "PostgreSQL",
-            "WordPress"
+            "WordPress",
+            "adopting",
+            "connecting",
+            "touch"
           ],
           "related": [
             "tools/25-editor-setup",
@@ -34973,7 +35732,10 @@
             "Required",
             "Partial",
             "PublicUser",
-            "Readonly"
+            "Readonly",
+            "return",
+            "payload",
+            "view"
           ],
           "related": [
             "typescript/07-type-aliases",
@@ -35079,7 +35841,9 @@
             "Partial",
             "Omit",
             "loadUser",
-            "Parameters"
+            "Parameters",
+            "nested",
+            "debugging"
           ],
           "related": [
             "typescript/08-generics",
@@ -35210,7 +35974,10 @@
             "loadDashboard",
             "fetchProfile",
             "AbortSignal",
-            "for...of"
+            "for...of",
+            "await",
+            "concurrent",
+            "uses"
           ],
           "related": [
             "typescript/17-error-handling",
@@ -35237,7 +36004,10 @@
             "Record",
             "noUncheckedIndexedAccess",
             "for...in",
-            "for...of"
+            "for...of",
+            "groups",
+            "looks",
+            "elements"
           ],
           "related": [
             "typescript/20-immutability",
@@ -35399,7 +36169,10 @@
             "getProfile",
             "getOrders",
             "array.includes",
-            "Promise.all"
+            "Promise.all",
+            "hot",
+            "paths",
+            "runtime"
           ],
           "related": [
             "typescript/18-asynchronous-programming",
@@ -35650,7 +36423,10 @@
             "readme",
             "WC_Customer",
             "WC_Product",
-            "WC_Order"
+            "WC_Order",
+            "extension",
+            "point",
+            "store"
           ],
           "related": [],
           "when_to_use": "Read first when starting work on a WooCommerce store, to see how this section's docs fit together and which extension point applies.",
@@ -35671,7 +36447,10 @@
             "get_price",
             "get_post_meta",
             "wp_posts",
-            "wp_postmeta"
+            "wp_postmeta",
+            "specific",
+            "orient",
+            "yourself"
           ],
           "related": [
             "woocommerce/01-architecture",
@@ -35783,7 +36562,10 @@
             "set_regular_price",
             "set_name",
             "set_stock_quantity",
-            "set_manage_stock"
+            "set_manage_stock",
+            "manages",
+            "creates",
+            "products"
           ],
           "related": [
             "woocommerce/00-overview",
@@ -35839,7 +36621,10 @@
             "wp_postmeta",
             "update_user_meta",
             "wc_get_orders",
-            "get_results"
+            "get_results",
+            "account",
+            "records",
+            "updating"
           ],
           "related": [
             "woocommerce/05-orders",
@@ -35866,7 +36651,10 @@
             "update_meta_data",
             "sanitize_text_field",
             "woocommerce_order_status_processing",
-            "woocommerce_checkout_create_order"
+            "woocommerce_checkout_create_order",
+            "customizing",
+            "blocks",
+            "fields"
           ],
           "related": [
             "woocommerce/06-customers",
@@ -36023,7 +36811,10 @@
             "permission_callback",
             "WooCommerce",
             "file_get_contents",
-            "update_meta_data"
+            "update_meta_data",
+            "authenticating",
+            "consuming",
+            "extending"
           ],
           "related": [
             "woocommerce/14-headless",
@@ -36214,7 +37005,10 @@
             "restore_current_blog",
             "get_var",
             "wc_get_orders",
-            "wp_2_options"
+            "wp_2_options",
+            "touches",
+            "network",
+            "site"
           ],
           "related": [
             "woocommerce/01-architecture",
@@ -36264,7 +37058,10 @@
             "woocommerce",
             "deployment",
             "composer.json",
-            "WooCommerce"
+            "WooCommerce",
+            "deployed",
+            "store",
+            "changing"
           ],
           "related": [
             "woocommerce/21-testing",
@@ -36374,7 +37171,10 @@
             "debug.log",
             "wc_get_logger",
             "error_reporting",
-            "ini_set"
+            "ini_set",
+            "background",
+            "broken",
+            "checkout"
           ],
           "related": [
             "woocommerce/23-monitoring",
@@ -36430,7 +37230,10 @@
             "ERP_Client",
             "wp_postmeta",
             "as_enqueue_async_action",
-            "wp_posts"
+            "wp_posts",
+            "customization",
+            "programmatic",
+            "orders"
           ],
           "related": [
             "woocommerce/05-orders",
@@ -36510,7 +37313,10 @@
             "woocommerce",
             "production-checklist",
             "wp_options",
-            "WP_DEBUG"
+            "WP_DEBUG",
+            "significant",
+            "launching",
+            "live"
           ],
           "related": [
             "woocommerce/27-production",
@@ -36538,7 +37344,9 @@
             "wp_kses",
             "permission_callback",
             "sanitize_text_field",
-            "wp_posts"
+            "wp_posts",
+            "merged",
+            "generating"
           ],
           "related": [
             "woocommerce/29-ai-review",
@@ -36566,7 +37374,10 @@
             "permission_callback",
             "calculate_totals",
             "wp_posts",
-            "wp_postmeta"
+            "wp_postmeta",
+            "payments",
+            "customizing",
+            "walking"
           ],
           "related": [
             "woocommerce/01-architecture",
@@ -36613,7 +37424,10 @@
           "tags": [
             "wordpress",
             "overview",
-            "WP_Query"
+            "WP_Query",
+            "covers",
+            "answers",
+            "question"
           ],
           "related": [
             "wordpress/01-wordpress-architecture",
@@ -36642,7 +37456,9 @@
             "update_option",
             "esc_html__",
             "register_rest_route",
-            "get_col"
+            "get_col",
+            "extending",
+            "designing"
           ],
           "related": [
             "wordpress/02-project-structure",
@@ -36698,7 +37514,8 @@
             "update_option",
             "get_option",
             "esc_html__",
-            "current_user_can"
+            "current_user_can",
+            "engineering"
           ],
           "related": [
             "wordpress/04-code-style",
@@ -36726,7 +37543,9 @@
             "get_post_status",
             "WP_Query",
             "update_option",
-            "wp_insert_post"
+            "wp_insert_post",
+            "formatting",
+            "coding"
           ],
           "related": [
             "wordpress/03-best-practices",
@@ -36754,7 +37573,10 @@
             "plugins_url",
             "get_col",
             "wp_enqueue_script",
-            "get_the_title"
+            "get_the_title",
+            "performance-sensitive",
+            "features",
+            "optimizing"
           ],
           "related": [
             "wordpress/12-queries",
@@ -36782,7 +37604,10 @@
             "wp_unslash",
             "esc_html__",
             "update_post_meta",
-            "add_action"
+            "add_action",
+            "endpoints",
+            "authentication",
+            "input"
           ],
           "related": [
             "wordpress/20-users-and-capabilities",
@@ -36838,7 +37663,10 @@
             "pre_get_posts",
             "did_action",
             "is_main_query",
-            "is_admin"
+            "is_admin",
+            "priority",
+            "callback",
+            "does"
           ],
           "related": [
             "wordpress/01-wordpress-architecture",
@@ -36896,7 +37724,10 @@
             "add_action",
             "show_in_rest",
             "WP_Query",
-            "WP_Error"
+            "WP_Error",
+            "term",
+            "meta",
+            "querying"
           ],
           "related": [
             "wordpress/09-custom-post-types",
@@ -36953,7 +37784,10 @@
             "get_posts",
             "the_post",
             "pre_get_posts",
-            "posts_per_page"
+            "posts_per_page",
+            "main",
+            "diagnosing",
+            "slow"
           ],
           "related": [
             "wordpress/08-hooks",
@@ -36982,7 +37816,10 @@
             "get_footer",
             "index.php",
             "is_singular",
-            "add_filter"
+            "add_filter",
+            "parts",
+            "loaded",
+            "overriding"
           ],
           "applies_to": [
             "classic-theme"
@@ -37344,7 +38181,10 @@
             "get_sites",
             "update_option",
             "get_option",
-            "current_user_can"
+            "current_user_can",
+            "switching",
+            "sites",
+            "evaluating"
           ],
           "related": [
             "wordpress/19-database",
@@ -37489,7 +38329,10 @@
             "flush_rewrite_rules",
             "the_post",
             "have_posts",
-            "get_the_ID"
+            "get_the_ID",
+            "regardless",
+            "satisfy",
+            "plugin"
           ],
           "related": [
             "wordpress/01-wordpress-architecture",
@@ -37558,7 +38401,10 @@
             "my_plugin_register_routes",
             "plugins_url",
             "update_option",
-            "wp_enqueue_script"
+            "wp_enqueue_script",
+            "mistakes",
+            "implementation",
+            "avoid"
           ],
           "related": [
             "wordpress/03-best-practices",
@@ -37683,7 +38529,10 @@
           "tags": [
             "workflows",
             "refactor-existing-code",
-            "toBe"
+            "toBe",
+            "refactoring",
+            "behavior",
+            "workflow"
           ],
           "related": [
             "engineering/02-code-review",
@@ -37711,7 +38560,9 @@
             "workflows",
             "review-pull-request",
             "IsInt",
-            "userId"
+            "userId",
+            "merging",
+            "workflow"
           ],
           "related": [
             "engineering/02-code-review",

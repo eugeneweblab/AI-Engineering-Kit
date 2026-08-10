@@ -6,7 +6,7 @@ title: "Taxonomies"
 type: doc
 order: 10
 status: ready
-tags: [wordpress, taxonomies, register_taxonomy, wp_set_object_terms, add_action, show_in_rest, WP_Query, WP_Error]
+tags: [wordpress, taxonomies, register_taxonomy, wp_set_object_terms, add_action, show_in_rest, WP_Query, WP_Error, term, meta, querying]
 related: [wordpress/09-custom-post-types, wordpress/11-metadata, wordpress/12-queries, wordpress/19-database, wordpress/05-performance]
 when_to_use: "Read before classifying content — registering a taxonomy, deciding between a taxonomy and post meta, or querying by term."
 ---

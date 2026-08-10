@@ -6,7 +6,7 @@ title: "GraphQL Security"
 type: doc
 order: 17
 status: ready
-tags: [graphql, security, ApolloServer, depthLimit, NODE_ENV]
+tags: [graphql, security, ApolloServer, depthLimit, NODE_ENV, risks, exposing, server]
 related: [graphql/18-authentication, graphql/19-authorization, graphql/20-error-handling, graphql/14-filtering, graphql/22-performance]
 when_to_use: "Read before exposing a GraphQL endpoint publicly, or when reviewing a schema and server for query-abuse and disclosure risks."
 ---

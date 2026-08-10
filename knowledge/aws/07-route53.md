@@ -6,7 +6,7 @@ title: "Route 53"
 type: doc
 order: 7
 status: ready
-tags: [aws, route53, example.com, evaluate_target_health]
+tags: [aws, route53, example.com, evaluate_target_health, cloudfront, balancer, records]
 related: [aws/08-cloudfront, aws/09-acm, aws/10-elastic-load-balancer, aws/31-high-availability]
 when_to_use: "Read before creating DNS records, delegating a domain, or wiring a hostname to a load balancer, CloudFront, or S3."
 ---

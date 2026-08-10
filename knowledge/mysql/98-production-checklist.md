@@ -6,7 +6,7 @@ title: "MySQL Production Checklist"
 type: checklist
 order: 98
 status: ready
-tags: [mysql, production-checklist, sql_mode, max_connections, EXPLAIN, sys.schema_unused_indexes, performance_schema, STRICT_TRANS_TABLES]
+tags: [mysql, production-checklist, sql_mode, max_connections, EXPLAIN, sys.schema_unused_indexes, performance_schema, STRICT_TRANS_TABLES, instance, go-live, promoting]
 related: [mysql/20-production, mysql/11-backups, mysql/09-replication, mysql/15-monitoring, mysql/12-security]
 when_to_use: "Read before promoting a MySQL instance or schema change to production, or during a go-live review."
 ---

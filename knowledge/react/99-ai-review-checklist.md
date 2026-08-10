@@ -6,7 +6,7 @@ title: "React Definition of Done"
 type: checklist
 order: 99
 status: ready
-tags: [react, ai-review-checklist, useEffect]
+tags: [react, ai-review-checklist, useEffect, done, confirm, ai-generated]
 related: [react/98-production-checklist, react/100-common-antipatterns, react/26-best-practices]
 when_to_use: "Read before reviewing a React pull request or AI-generated React, or to confirm an implementation is done."
 ---

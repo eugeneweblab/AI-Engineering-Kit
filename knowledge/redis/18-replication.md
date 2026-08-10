@@ -6,7 +6,7 @@ title: "Redis Replication"
 type: doc
 order: 18
 status: ready
-tags: [redis, replication, WAIT, "master_link_status:down", master_repl_offset, FLUSHALL]
+tags: [redis, replication, WAIT, "master_link_status:down", master_repl_offset, FLUSHALL, replicas, failover, scaling]
 related: [redis/19-clustering, redis/20-persistence, redis/22-monitoring, redis/27-production]
 when_to_use: "Read before deploying Redis with replicas, adding read scaling, or configuring failover."
 ---
