@@ -157,11 +157,12 @@ const me = await fetch("https://api.example.com/me", { cache: "no-store" });
   props before reading their fields.
 
 ```tsx
-// Bad — request APIs and route props are async in Next 15+; this throws at runtime
+// Bad — request APIs and route props are async. Next 15 threw at runtime; Next 16
+// removed the synchronous shim, so this no longer compiles.
 import { cookies } from "next/headers";
 
 export default function Page({ params }: { params: { id: string } }) {
-  const token = cookies().get("token"); // TypeError: cookies() is a Promise
+  const token = cookies().get("token"); // cookies() is a Promise
   return <Item id={params.id} />;
 }
 ```

@@ -84,7 +84,9 @@ export default async function Page() {
 import { cookies } from "next/headers";
 
 export default async function Page() {
-  const session = cookies().get("session")?.value; // TypeError in 15+: cookies() returns a Promise
+  const session = cookies().get("session")?.value; // cookies() returns a Promise: a
+                                                   // runtime error in 15, a compile
+                                                   // error in 16
   // Assumes fetch still caches by default (it does not in 15+) → serves stale or refetches unexpectedly
   const data = await fetch("https://api/…/dashboard").then((r) => r.json());
   return <Dashboard data={data} />;

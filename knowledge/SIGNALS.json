@@ -13063,8 +13063,6 @@
       "javascript/14-error-handling",
       "javascript/18-iterators-and-generators",
       "javascript/20-proxies-and-reflect",
-      "nextjs/100-common-antipatterns",
-      "nextjs/30-migration-guide",
       "php/01-language-fundamentals",
       "php/02-types",
       "php/09-exceptions",

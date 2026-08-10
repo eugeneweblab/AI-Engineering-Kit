@@ -110,7 +110,7 @@ import { PrismaClient } from "@/generated/prisma/client";
 export async function getUser(id: string) {
   const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
   const prisma = new PrismaClient({ adapter });   // new pool on EVERY request
-  const user = await prisma.user.findUnique({ id }); // pool never released...
+  const user = await prisma.user.findUnique({ where: { id } }); // pool never released...
   return user;                                 // ...connections leak until DB refuses more
 }
 // Under load this exhausts the database's max_connections and takes the app down.

@@ -254,6 +254,40 @@ rather than silently skipped.
 
 ---
 
+## `check-types.py`
+
+Compiles the base's TypeScript examples against the real libraries they import.
+
+`check-knowledge.py` parses 1707 JS/TS blocks with esbuild, which proves syntax and
+nothing else. `revalidateTag('posts')` parses. So does `new PrismaClient()`. Both are
+compile errors against the libraries the base teaches — the first found by hand during
+the Next.js 16 migration, the second by this check, which is what surfaced the whole
+Prisma 6 to 7 migration.
+
+The difficulty is not compiling; it is that most blocks are excerpts referencing a
+`logger`, a `db`, a model from the reader's own project. Those produce TS2304 and
+TS2307 by the hundred, and filtering by error code also discards real findings — a
+missing `await` on `cookies()` arrives as TS2339, which is also what an undefined local
+produces.
+
+So nothing is filtered by cleverness. Every diagnostic is recorded in
+`scripts/data/types-baseline.json`, keyed by document and message shape, and only
+unreviewed ones fail. A new type error gets exactly one review — the same contract as
+`check-dangerous-sinks.py`, for the same reason.
+
+Library versions are pinned in `scripts/data/types-env.json`, so a run is reproducible
+and a deliberate upgrade is a visible commit. That file is also the tripwire for the
+next framework migration: when a pinned library moves a major, this check is what says
+which examples stopped compiling.
+
+```bash
+python3 scripts/check-types.py --refresh-env      # build the sandbox (npm + prisma generate)
+python3 scripts/check-types.py                    # exit 0 = clean
+python3 scripts/check-types.py --update-baseline   # accept current excerpts
+```
+
+---
+
 ## `selftest-guardrails.py`
 
 Proves the linters can fail. It copies the base, injects one real defect per rule and
@@ -303,6 +337,6 @@ doing the work its weight claims.
 
 ---
 
-All nine checks run in CI via `.github/workflows/knowledge-guardrails.yml`, which also
+All ten checks run in CI via `.github/workflows/knowledge-guardrails.yml`, which also
 fails the build if `INDEX.json`/`INDEX.md` or `SIGNALS.json` are out of sync with the
 frontmatter.

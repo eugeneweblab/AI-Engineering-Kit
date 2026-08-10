@@ -74,7 +74,12 @@ export const requireUser = cache(async () => {
   if (!session) redirect('/login');            // fail closed
   return session.user;
 });
+```
 
+Every caller goes through it, and the check is part of the query rather than a
+separate guard that a later refactor can drop:
+
+```ts
 // src/features/invoices/queries.ts
 import 'server-only';
 import { requireUser } from '@/server/auth';

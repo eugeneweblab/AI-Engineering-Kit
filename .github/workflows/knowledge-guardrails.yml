@@ -119,6 +119,13 @@ jobs:
       - name: Manifests are valid to the tools that consume them
         run: python3 scripts/check-manifests.py --require-tools
 
+      # Parsing a TypeScript block proves syntax and nothing else. This compiles
+      # them against the real libraries, which is where a wrong signature shows up.
+      - name: TypeScript examples compile against real libraries
+        run: |
+          python3 scripts/check-types.py --refresh-env
+          python3 scripts/check-types.py
+
       # A guardrail that passes is only evidence when it can fail. Twice in this
       # repository a check reported success while doing nothing. These two inject
       # real defects and fail if any goes unreported.

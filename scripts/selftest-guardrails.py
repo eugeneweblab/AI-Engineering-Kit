@@ -165,6 +165,14 @@ VERSION_CASES: list[tuple[str, object, str]] = [
     ("manifests/workflow-no-runs-on",
      replace("testing/21-cicd.md", "    runs-on: ubuntu-latest\n", ""),
      '"runs-on" section is missing'),
+    ("types/wrong-arity",
+     replace("nextjs/10-caching.md", "revalidateTag('products', 'max');",
+             "revalidateTag('products');"),
+     "Expected 2 arguments"),
+    ("types/unknown-api",
+     replace("prisma/06-client.md", "await prisma.$disconnect();",
+             "await prisma.$closeAll();"),
+     "$closeAll"),
     ("sinks/unreviewed",
      replace("react/03-jsx.md", "## Purpose",
              "## Purpose\n\n```tsx\nconst Bio = ({ html }) => "
@@ -263,6 +271,7 @@ def run_version_cases(cases: list[tuple[str, object, str]]) -> dict[str, str]:
                 defect(sandbox / "knowledge")
             script = ("check-versions.py" if name.startswith("versions/")
                       else "check-manifests.py" if name.startswith("manifests/")
+                      else "check-types.py" if name.startswith("types/")
                       else "check-dangerous-sinks.py")
             proc = subprocess.run(
                 [sys.executable, str(sandbox / "scripts" / script)],
