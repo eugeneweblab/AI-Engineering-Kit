@@ -64,10 +64,12 @@ statement — without ever leaking the parameter values, which are user data.
 **Good Example** — event logging with slow-query flag and redacted params
 
 ```ts
-import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "@/generated/prisma/client";
 import { logger } from "./logger";
 
 const prisma = new PrismaClient({
+  adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL! }),
   log: [{ level: "query", emit: "event" }, "warn", "error"],
 });
 
@@ -86,7 +88,8 @@ setInterval(async () => {
 **Bad Example** — console logging that leaks data and hides the pool
 
 ```ts
-const prisma = new PrismaClient({ log: ["query"] }); // prints to stdout, unstructured
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
+const prisma = new PrismaClient({ adapter, log: ["query"] }); // prints to stdout, unstructured
 
 prisma.$on("query" as any, (e: any) => {
   console.log(e.query, e.params); // params contain emails, tokens → PII in logs

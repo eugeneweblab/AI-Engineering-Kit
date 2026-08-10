@@ -62,9 +62,11 @@ plan. Every debugging technique below exists to shrink that loop.
 **Good Example** — event-based query logging behind a flag
 
 ```ts
-import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "@/generated/prisma/client";
 
 const prisma = new PrismaClient({
+  adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL! }),
   // Emit as events so we can format, filter, and route them — not raw stdout spam.
   log: process.env.DEBUG_SQL
     ? [{ level: "query", emit: "event" }, "warn", "error"]
@@ -83,6 +85,7 @@ if (process.env.DEBUG_SQL) {
 
 ```ts
 const prisma = new PrismaClient({
+  adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL! }),
   log: ["query"], // fires in production too: leaks PII in params, floods logs, slows I/O
 });
 

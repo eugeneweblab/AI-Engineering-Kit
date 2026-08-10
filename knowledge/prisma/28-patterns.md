@@ -63,7 +63,7 @@ re-litigating mechanics.
 **Good Example** — transaction-passing repository and optimistic concurrency
 
 ```ts
-import { Prisma, PrismaClient } from "@prisma/client";
+import { Prisma, PrismaClient } from "@/generated/prisma/client";
 
 // Accepts either the base client or a transaction client → composable & atomic.
 type Db = PrismaClient | Prisma.TransactionClient;

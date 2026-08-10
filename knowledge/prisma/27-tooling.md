@@ -45,8 +45,12 @@ schema the single source of truth and makes generation impossible to skip.
 
 ## Best Practices
 
-- Configure `generator client { provider = "prisma-client-js" }` and a `datasource` whose
-  `url = env("DATABASE_URL")` — the URL is always an env var, never a literal.
+- Configure `generator client { provider = "prisma-client", output = "..." }`. Both fields
+  are required in Prisma 7: the old `prisma-client-js` provider is gone, and nothing is
+  generated into `node_modules` any more.
+- Put the connection URL in `prisma.config.ts` as `env("DATABASE_URL")`. Since Prisma 7 a
+  `url` in the `datasource` block is a validation error, not a deprecation — the schema
+  declares only the provider.
 - Add `"postinstall": "prisma generate"` so installs (including CI and Docker builds)
   always produce a matching client.
 - Use `prisma migrate dev --name <change>` locally to create a migration + regenerate;
@@ -69,12 +73,23 @@ schema the single source of truth and makes generation impossible to skip.
 ```prisma
 // prisma/schema.prisma
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "../generated/prisma"  // required in v7
 }
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL") // config from environment, not a literal
 }
+```
+
+```ts
+// prisma.config.ts — config from environment, not a literal
+import { defineConfig, env } from "prisma/config";
+
+export default defineConfig({
+  schema: "prisma/schema.prisma",
+  datasource: { url: env("DATABASE_URL") },
+  migrations: { seed: "tsx prisma/seed.ts" },
+});
 ```
 
 ```jsonc
@@ -103,7 +118,7 @@ datasource db {
     // No postinstall generate → CI ships whatever client was last committed
     "start": "node dist/server.js"
   },
-  "dependencies": { "@prisma/client": "^6.0.0" }, // caret: CLI and client can diverge
+  "dependencies": { "@prisma/client": "^7.0.0" }, // caret: CLI and client can diverge
   "devDependencies": { "prisma": "latest" }        // "latest": non-reproducible builds
 }
 ```

@@ -517,9 +517,11 @@ results.
 // Correct in isolation, wrong here: this codebase returns Result and never
 // throws across a service boundary, uses pino rather than console, and has an
 // ordersRepository that this bypasses entirely.
-import { PrismaClient } from '@prisma/client';
+import { PrismaPg } from '@prisma/adapter-pg';
+import { PrismaClient } from '@/generated/prisma/client';
 
-const prisma = new PrismaClient();          // a second client instance
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
+const prisma = new PrismaClient({ adapter });          // a second client instance
 
 export default async function cancelOrder(orderId: any, userId: any) {
   try {

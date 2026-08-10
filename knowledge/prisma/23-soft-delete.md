@@ -53,7 +53,7 @@ layer; implementing it half-way is worse than not having it.
 - Enforce the default filter with a **Prisma Client extension** that rewrites `findMany`/
   `findFirst`/`findUnique` to add `where: { deletedAt: null }`, and rewrites `delete`/
   `deleteMany` into an `update` setting `deletedAt`. This is the modern replacement for
-  the deprecated `$use` middleware.
+  the removed `$use` middleware.
 - Provide an explicit escape hatch (e.g. a separate unscoped client or a `withDeleted`
   flag) for admin, restore, and audit paths that legitimately need deleted rows.
 - Replace plain unique constraints with **partial unique indexes** on live rows so
@@ -116,7 +116,8 @@ async function listUsers() {
 - Forgetting to cascade the soft delete to child rows, orphaning them as visible.
 - No purge policy, letting soft-deleted rows accumulate and bloat indexes forever.
 - Using soft delete for data that law requires be truly erased (GDPR right to erasure).
-- Building on the deprecated `$use` middleware instead of a client extension.
+- Building on `$use` middleware instead of a client extension — it was removed in
+  Prisma 7 and no longer compiles. See [migrating off middleware](13-middleware.md).
 
 ## Production Tips
 

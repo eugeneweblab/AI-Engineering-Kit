@@ -61,11 +61,12 @@ and it is the contract the whole team codes against.
 // prisma/schema.prisma
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL") // env-driven, never a literal
+  // No `url` since Prisma 7 — it lives in prisma.config.ts. See Installation.
 }
 
 generator client {
-  provider = "prisma-client-js"  // generates the type-safe Client
+  provider = "prisma-client"        // generates the type-safe Client as TS source
+  output   = "../generated/prisma"  // required in v7
 }
 
 model User {

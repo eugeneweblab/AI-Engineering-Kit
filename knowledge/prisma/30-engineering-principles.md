@@ -75,9 +75,12 @@ ask for one. The generated SQL is only as good as the model and the call.
 
 ```ts
 // db.ts — a single shared client for the whole process
-import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "@/generated/prisma/client";
+
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 export const prisma =
-  globalThis.__prisma ?? (globalThis.__prisma = new PrismaClient());
+  globalThis.__prisma ?? (globalThis.__prisma = new PrismaClient({ adapter }));
 
 // query.ts — ask for exactly the columns and rows you need
 const posts = await prisma.post.findMany({
@@ -92,7 +95,8 @@ const posts = await prisma.post.findMany({
 
 ```ts
 async function listPosts() {
-  const prisma = new PrismaClient();              // new pool every call → connection exhaustion
+  const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
+  const prisma = new PrismaClient({ adapter });   // new pool every call → connection exhaustion
   const posts = await prisma.post.findMany();     // no select, no take → full table, all columns
   for (const post of posts) {
     // one extra query PER post → N+1; a page of 200 posts = 201 round trips

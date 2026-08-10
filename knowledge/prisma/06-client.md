@@ -37,6 +37,16 @@ until scale, the client must be treated as a long-lived singleton from day one.
 
 - **One client per process.** Instantiate `PrismaClient` exactly once and share that
   instance everywhere. It is safe for concurrent use across the whole application.
+- **Construct it with a driver adapter.** Prisma 7 requires one: `new PrismaClient()`
+  with no argument does not type-check. Pick the adapter for your database
+  (`@prisma/adapter-pg`, `@prisma/adapter-mariadb`, …) and give it the connection string;
+  the schema no longer carries a `url`.
+- **Import it from where you generated it.** Since Prisma 7 the Client is emitted as
+  TypeScript source into the `output` directory named in the generator block, not into
+  `node_modules`, so `import { PrismaClient } from "@prisma/client"` no longer resolves.
+  Import from the generated path (aliased as `@/generated/prisma/client` throughout these
+  documents). The `Prisma` namespace, and with it `Prisma.PrismaClientKnownRequestError`,
+  is re-exported from the same place.
 - **Own the lifecycle explicitly.** The client connects lazily on first query; you are
   responsible for calling `$disconnect()` on shutdown so pooled connections drain.
 - **Configure the pool for your runtime.** A long-running server and a serverless function
@@ -67,7 +77,8 @@ until scale, the client must be treated as a long-lived singleton from day one.
 
 ```ts
 // db.ts — the ONE place PrismaClient is constructed
-import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "@/generated/prisma/client";
 
 // Reuse across hot reloads in dev so we do not open a new pool per file save.
 const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
@@ -75,6 +86,9 @@ const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
 export const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
+    // Required since Prisma 7: the client talks to the database through a driver
+    // adapter, so the connection string is supplied here rather than by the schema.
+    adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL! }),
     // Structured, minimal logging: noisy `query` stays off in prod.
     log: [{ level: "warn", emit: "stdout" }, { level: "error", emit: "stdout" }],
   });
@@ -90,10 +104,12 @@ process.on("beforeExit", async () => {
 **Bad Example** — a new client per call, no shutdown
 
 ```ts
-import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "@/generated/prisma/client";
 
 export async function getUser(id: string) {
-  const prisma = new PrismaClient();          // new pool on EVERY request
+  const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
+  const prisma = new PrismaClient({ adapter });   // new pool on EVERY request
   const user = await prisma.user.findUnique({ id }); // pool never released...
   return user;                                 // ...connections leak until DB refuses more
 }

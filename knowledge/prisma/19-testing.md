@@ -64,8 +64,11 @@ is what makes the suite worth running.
 **Good Example** — real DB, per-test isolation, assert on stored state
 
 ```ts
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "@/generated/prisma/client";
+
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
+const prisma = new PrismaClient({ adapter });
 
 beforeEach(async () => {
   // Deterministic starting point: every test owns the whole schema, fresh.

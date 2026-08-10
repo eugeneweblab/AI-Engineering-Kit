@@ -70,8 +70,11 @@ authority. Treat the seed as production code that happens to run rarely.
 **Good Example** — idempotent, gated, transactional
 
 ```ts
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "@/generated/prisma/client";
+
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
+const prisma = new PrismaClient({ adapter });
 
 async function main() {
   // Reference data: required everywhere, keyed on a stable natural key.

@@ -67,7 +67,7 @@ reviewed, and always parameterized.
 **Good Example** — parameterized, typed, allow-listed sort
 
 ```ts
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@/generated/prisma/client";
 
 type Row = { id: string; email: string };
 

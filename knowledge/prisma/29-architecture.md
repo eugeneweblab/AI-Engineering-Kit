@@ -70,7 +70,7 @@ export interface UserRepository {
 }
 
 // infra/prisma-user-repository.ts — Prisma is confined to this file
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@/generated/prisma/client";
 export class PrismaUserRepository implements UserRepository {
   constructor(private db: PrismaClient) {}      // injected, not imported global
   async byId(id: string): Promise<User | null> {

@@ -72,9 +72,11 @@ npx prisma migrate deploy        # applies committed migrations only; no reset, 
 
 ```ts
 // db.ts — pool size and logging from the environment; clean shutdown
-import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "@/generated/prisma/client";
 
 export const prisma = new PrismaClient({
+  adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL! }),
   // DATABASE_URL="postgresql://…/app?connection_limit=10&pool_timeout=20"
   log: (process.env.PRISMA_LOG ?? "warn,error").split(",") as any,
 });

@@ -68,7 +68,7 @@ HTTP response.
 **Good Example** — narrow by class and code, map at the boundary
 
 ```ts
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@/generated/prisma/client";
 
 class AppError extends Error {
   constructor(public status: number, message: string) { super(message); }

@@ -25412,7 +25412,7 @@
         {
           "id": "prisma/13-middleware",
           "topic": "prisma",
-          "title": "Middleware",
+          "title": "Migrating Off Prisma Middleware",
           "slug": "middleware",
           "type": "doc",
           "order": 13,
@@ -25420,8 +25420,10 @@
           "tags": [
             "prisma",
             "middleware",
+            "$use",
+            "$extends",
             "args.where",
-            "Date"
+            "PrismaClient"
           ],
           "related": [
             "prisma/14-extensions",
@@ -25429,7 +25431,7 @@
             "prisma/26-observability",
             "prisma/06-client"
           ],
-          "when_to_use": "Read before adding, reviewing, or migrating any `prisma.$use` middleware that intercepts queries.",
+          "when_to_use": "Read when a codebase still calls `prisma.$use`, or when a Prisma 7 upgrade fails because `$use` no longer exists.",
           "path": "knowledge/prisma/13-middleware.md"
         },
         {

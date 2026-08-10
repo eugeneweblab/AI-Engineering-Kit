@@ -1145,7 +1145,7 @@ Agents: load `INDEX.json`, filter `status: "ready"`, match `tags` / `when_to_use
 | 10 | Prisma Pagination | ✅ ready | `knowledge/prisma/10-pagination.md` |
 | 11 | Relations Loading | ✅ ready | `knowledge/prisma/11-relations-loading.md` |
 | 12 | Seeding | ✅ ready | `knowledge/prisma/12-seeding.md` |
-| 13 | Middleware | ✅ ready | `knowledge/prisma/13-middleware.md` |
+| 13 | Migrating Off Prisma Middleware | ✅ ready | `knowledge/prisma/13-middleware.md` |
 | 14 | Prisma Extensions | ✅ ready | `knowledge/prisma/14-extensions.md` |
 | 15 | Prisma Performance | ✅ ready | `knowledge/prisma/15-performance.md` |
 | 16 | Prisma Indexes | ✅ ready | `knowledge/prisma/16-indexes.md` |

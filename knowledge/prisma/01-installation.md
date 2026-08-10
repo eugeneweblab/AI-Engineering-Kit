@@ -61,17 +61,31 @@ it ends up in git history forever.
   "scripts": {
     "postinstall": "prisma generate" // fresh clone/CI gets a Client with no manual step
   },
-  "devDependencies": { "prisma": "6.5.0" },      // CLI
-  "dependencies": { "@prisma/client": "6.5.0" }  // runtime — SAME version, on purpose
+  "devDependencies": { "prisma": "7.9.1" },      // CLI
+  "dependencies": { "@prisma/client": "7.9.1" }  // runtime — SAME version, on purpose
 }
 ```
 
 ```prisma
-// schema.prisma
+// prisma/schema.prisma — since Prisma 7 the datasource carries no `url`
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL") // resolved from .env at runtime, never hard-coded
 }
+
+generator client {
+  provider = "prisma-client"   // the Rust-free generator; `prisma-client-js` is gone
+  output   = "../generated/prisma"  // required in v7: nothing lands in node_modules
+}
+```
+
+```ts
+// prisma.config.ts — the connection URL lives here now, not in the schema
+import { defineConfig, env } from "prisma/config";
+
+export default defineConfig({
+  schema: "prisma/schema.prisma",
+  datasource: { url: env("DATABASE_URL") },
+});
 ```
 
 ```ini

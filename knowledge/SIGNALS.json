@@ -3,7 +3,7 @@
   "note": "Detect the stack from `stack`, then resolve any symbol in the diff via `symbols`. Both point at document ids in INDEX.json. In `when`, `|` separates alternatives and `**` matches any number of directories; a pattern is written to match both the root-level and the nested layout.",
   "stats": {
     "stack_signals": 32,
-    "symbols": 8994,
+    "symbols": 9000,
     "docs_indexed": 1271
   },
   "stack": [
@@ -323,6 +323,23 @@
     ],
     "@/features/products/service": [
       "nextjs/01-architecture"
+    ],
+    "@/generated/prisma/client": [
+      "ai/03-code-generation",
+      "prisma/06-client",
+      "prisma/12-seeding",
+      "prisma/13-middleware",
+      "prisma/14-extensions",
+      "prisma/17-raw-sql",
+      "prisma/18-error-handling",
+      "prisma/19-testing",
+      "prisma/20-debugging",
+      "prisma/24-best-practices",
+      "prisma/25-production",
+      "prisma/26-observability",
+      "prisma/28-patterns",
+      "prisma/29-architecture",
+      "prisma/30-engineering-principles"
     ],
     "@/lib/auth": [
       "nextjs/05-layouts",
@@ -847,20 +864,17 @@
     "@plugin": [
       "tailwind/18-plugins"
     ],
-    "@prisma/client": [
+    "@prisma/adapter-pg": [
       "ai/03-code-generation",
       "prisma/06-client",
       "prisma/12-seeding",
+      "prisma/13-middleware",
       "prisma/14-extensions",
-      "prisma/17-raw-sql",
-      "prisma/18-error-handling",
       "prisma/19-testing",
       "prisma/20-debugging",
       "prisma/24-best-practices",
       "prisma/25-production",
       "prisma/26-observability",
-      "prisma/28-patterns",
-      "prisma/29-architecture",
       "prisma/30-engineering-principles"
     ],
     "@prod": [
@@ -3742,6 +3756,7 @@
       "nestjs/14-configuration"
     ],
     "DATABASE_URL": [
+      "ai/03-code-generation",
       "cicd/16-environments",
       "devops/09-configuration-management",
       "devops/17-secrets-management",
@@ -3764,11 +3779,17 @@
       "postgresql/13-high-availability",
       "postgresql/18-security",
       "prisma/01-installation",
-      "prisma/02-schema",
+      "prisma/06-client",
       "prisma/12-seeding",
+      "prisma/13-middleware",
+      "prisma/14-extensions",
       "prisma/19-testing",
+      "prisma/20-debugging",
+      "prisma/24-best-practices",
       "prisma/25-production",
+      "prisma/26-observability",
       "prisma/27-tooling",
+      "prisma/30-engineering-principles",
       "snippets/01-typescript-utilities",
       "snippets/03-shell-scripts",
       "tools/09-vite",
@@ -4676,7 +4697,6 @@
       "postgresql/12-replication",
       "prisma/06-client",
       "prisma/09-filtering",
-      "prisma/13-middleware",
       "prisma/22-multi-tenancy",
       "react/06-state",
       "redis/25-debugging",
@@ -7735,7 +7755,6 @@
       "nextjs/100-common-antipatterns",
       "postgresql/06-transactions",
       "postgresql/11-partitioning",
-      "prisma/13-middleware",
       "prisma/14-extensions",
       "security/11-xss",
       "woocommerce/12-hooks",
@@ -9972,10 +9991,14 @@
       "nestjs/18-transactions",
       "nestjs/26-security"
     ],
+    "Prisma": [
+      "prisma/06-client"
+    ],
     "Prisma.PrismaClientInitializationError": [
       "prisma/18-error-handling"
     ],
     "Prisma.PrismaClientKnownRequestError": [
+      "prisma/06-client",
       "prisma/18-error-handling"
     ],
     "Prisma.PrismaClientValidationError": [
@@ -9999,6 +10022,7 @@
       "prisma/06-client",
       "prisma/100-common-antipatterns",
       "prisma/12-seeding",
+      "prisma/13-middleware",
       "prisma/14-extensions",
       "prisma/19-testing",
       "prisma/20-debugging",
@@ -10024,6 +10048,19 @@
     ],
     "PrismaClientValidationError": [
       "prisma/18-error-handling"
+    ],
+    "PrismaPg": [
+      "ai/03-code-generation",
+      "prisma/06-client",
+      "prisma/12-seeding",
+      "prisma/13-middleware",
+      "prisma/14-extensions",
+      "prisma/19-testing",
+      "prisma/20-debugging",
+      "prisma/24-best-practices",
+      "prisma/25-production",
+      "prisma/26-observability",
+      "prisma/30-engineering-principles"
     ],
     "PrismaService": [
       "ai/01-context-gathering",
@@ -15032,6 +15069,26 @@
       "react/08-hooks",
       "sql/16-query-planning"
     ],
+    "adapter": [
+      "prisma/06-client",
+      "prisma/13-middleware",
+      "prisma/20-debugging",
+      "prisma/25-production",
+      "prisma/26-observability"
+    ],
+    "adapter-pg": [
+      "ai/03-code-generation",
+      "prisma/06-client",
+      "prisma/12-seeding",
+      "prisma/13-middleware",
+      "prisma/14-extensions",
+      "prisma/19-testing",
+      "prisma/20-debugging",
+      "prisma/24-best-practices",
+      "prisma/25-production",
+      "prisma/26-observability",
+      "prisma/30-engineering-principles"
+    ],
     "add": [
       "architecture/20-message-brokers",
       "backend/08-domain-modeling",
@@ -15434,6 +15491,7 @@
       "typescript/25-performance"
     ],
     "allOperations": [
+      "prisma/13-middleware",
       "prisma/22-multi-tenancy"
     ],
     "allSettled": [
@@ -16839,6 +16897,7 @@
       "github/12-pages",
       "javascript/17-es6-features",
       "nodejs/17-logging",
+      "prisma/13-middleware",
       "tailwind/18-plugins",
       "tools/29-observability-tools"
     ],
@@ -18218,6 +18277,7 @@
       "nestjs/29-maintenance",
       "nodejs/27-monitoring",
       "prisma/12-seeding",
+      "prisma/13-middleware",
       "prisma/14-extensions",
       "prisma/17-raw-sql",
       "prisma/18-error-handling",
@@ -19919,6 +19979,7 @@
       "html/14-custom-data-attributes"
     ],
     "datasource": [
+      "prisma/01-installation",
       "prisma/02-schema",
       "prisma/27-tooling"
     ],
@@ -20174,6 +20235,8 @@
       "figma/13-visual-regression",
       "frontend/19-build-tools",
       "nextjs/22-testing",
+      "prisma/01-installation",
+      "prisma/27-tooling",
       "tailwind/01-installation",
       "tools/09-vite",
       "tools/13-test-runners",
@@ -22781,6 +22844,7 @@
       "prisma/10-pagination",
       "prisma/100-common-antipatterns",
       "prisma/11-relations-loading",
+      "prisma/13-middleware",
       "prisma/14-extensions",
       "prisma/15-performance",
       "prisma/16-indexes",
@@ -28778,6 +28842,9 @@
       "testing/25-production-testing",
       "tools/24-database-tools"
     ],
+    "migrations": [
+      "prisma/27-tooling"
+    ],
     "migrator": [
       "mysql/13-users-and-roles",
       "mysql/16-migrations"
@@ -29893,6 +29960,8 @@
       "nestjs/28-deployment",
       "nodejs/26-deployment",
       "nodejs/29-tooling",
+      "prisma/06-client",
+      "prisma/27-tooling",
       "tailwind/19-performance",
       "tailwind/27-production",
       "tailwind/30-engineering-principles",
@@ -30815,6 +30884,10 @@
       "frontend/19-build-tools",
       "frontend/20-bundling",
       "nextjs/26-deployment",
+      "prisma/01-installation",
+      "prisma/02-schema",
+      "prisma/06-client",
+      "prisma/27-tooling",
       "tools/09-vite",
       "tools/10-webpack",
       "wordpress/26-wp-cli"
@@ -31080,15 +31153,6 @@
       "tools/15-storybook"
     ],
     "params.action": [
-      "prisma/13-middleware"
-    ],
-    "params.args": [
-      "prisma/13-middleware"
-    ],
-    "params.args.data": [
-      "prisma/13-middleware"
-    ],
-    "params.args.where": [
       "prisma/13-middleware"
     ],
     "params.model": [
@@ -31423,6 +31487,7 @@
     ],
     "performance": [
       "graphql/25-monitoring",
+      "prisma/13-middleware",
       "rest-api/26-monitoring",
       "tools/10-webpack",
       "tools/22-profilers"
@@ -32466,8 +32531,14 @@
     "prisma": [
       "ai/03-code-generation"
     ],
+    "prisma-client-js": [
+      "prisma/27-tooling"
+    ],
     "prisma.$metrics": [
       "prisma/06-client"
+    ],
+    "prisma.config.ts": [
+      "prisma/27-tooling"
     ],
     "prisma.seed": [
       "prisma/12-seeding",
@@ -32476,6 +32547,10 @@
     "prisma.user.findMany": [
       "prisma/19-testing",
       "prisma/29-architecture"
+    ],
+    "prisma/config": [
+      "prisma/01-installation",
+      "prisma/27-tooling"
     ],
     "prisma:client": [
       "prisma/20-debugging"
@@ -40391,6 +40466,8 @@
       "nodejs/15-configuration",
       "performance/12-fonts",
       "prisma/02-schema",
+      "prisma/06-client",
+      "prisma/27-tooling",
       "rest-api/15-authentication",
       "tools/20-local-environments"
     ],

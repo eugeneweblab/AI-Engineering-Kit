@@ -56,7 +56,8 @@ endangers the entire codebase at once.
 - Use `model` to attach domain methods (e.g. `user.signUp(...)`) instead of scattering
   helper functions, keeping intent close to the data.
 - Use a `query` `$allOperations` override to enforce tenant/soft-delete filters in one
-  place — the modern replacement for `$use` — and merge, never overwrite, existing `where`.
+  place — the replacement for `$use`, which Prisma 7 removed — and merge, never
+  overwrite, existing `where`.
 - Publish reusable extensions with `Prisma.defineExtension(...)` so they are typed and
   shareable across clients.
 - Treat the extended client as the single source of truth: forbid importing the raw
@@ -67,9 +68,12 @@ endangers the entire codebase at once.
 **Good Example** — computed field via `needs`, scoped soft-delete filter
 
 ```ts
-import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "@/generated/prisma/client";
 
-export const prisma = new PrismaClient()
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
+
+export const prisma = new PrismaClient({ adapter })
   .$extends({
     result: {
       user: {
@@ -96,7 +100,9 @@ export const prisma = new PrismaClient()
 **Bad Example** — hidden N+1 and a chain that never continues
 
 ```ts
-export const prisma = new PrismaClient().$extends({
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
+
+export const prisma = new PrismaClient({ adapter }).$extends({
   result: {
     user: {
       postCount: {
@@ -130,7 +136,8 @@ export const prisma = new PrismaClient().$extends({
 ## Production Tips
 
 - Migrate legacy [middleware](13-middleware.md) to extensions one behavior at a time,
-  deleting the `$use` call in the same change to avoid double application.
+  deleting the `$use` call in the same change to avoid double application. On Prisma 7
+  the old call will not compile, which makes the pairing hard to forget.
 - Unit-test extensions directly: assert that computed fields are correct and that a
   scoped `query` override injects the expected `where` and preserves caller filters.
 - Keep the extension stack short; deep chains make it hard to reason about final args.
