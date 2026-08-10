@@ -126,6 +126,13 @@ jobs:
           python3 scripts/check-types.py --refresh-env
           python3 scripts/check-types.py
 
+      # `bash -n` proves a shell block parses. `for f in $(ls *.log)` parses too.
+      - name: Install shellcheck
+        run: sudo apt-get install -y --no-install-recommends shellcheck
+
+      - name: Examples pass their language's linter
+        run: python3 scripts/check-lint.py --require-tools
+
       # A guardrail that passes is only evidence when it can fail. Twice in this
       # repository a check reported success while doing nothing. These two inject
       # real defects and fail if any goes unreported.

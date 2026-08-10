@@ -27,7 +27,11 @@ investigate at your own pace with the pressure off.
 
 ```bash
 # Symlink-based deploy: repoint and clear the bytecode cache
-PREVIOUS=$(ls -1dt /var/www/app/releases/* | sed -n 2p)   # the release before the current one
+# Releases are named with a sortable timestamp, so a glob is already in
+# chronological order — and unlike `ls` output it survives odd characters.
+shopt -s nullglob
+releases=(/var/www/app/releases/*/)
+PREVIOUS="${releases[-2]}"                                # the one before current
 ln -sfn "$PREVIOUS" /var/www/app/current
 sudo systemctl reload php8.3-fpm
 
@@ -177,7 +181,9 @@ Add the missing check as an action item — see [Incident Report](../templates/0
 kubectl rollout status deployment/api --timeout=120s || kubectl rollout undo deployment/api
 
 # For a symlink-based deploy, the previous release is still on disk.
-PREVIOUS=$(ls -1dt /var/www/app/releases/* | sed -n 2p)
+shopt -s nullglob
+releases=(/var/www/app/releases/*/)
+PREVIOUS="${releases[-2]}"
 ln -sfn "$PREVIOUS" /var/www/app/current
 sudo systemctl reload php8.3-fpm
 

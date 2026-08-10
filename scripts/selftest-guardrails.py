@@ -173,6 +173,9 @@ VERSION_CASES: list[tuple[str, object, str]] = [
      replace("prisma/06-client.md", "await prisma.$disconnect();",
              "await prisma.$closeAll();"),
      "$closeAll"),
+    ("lint/parses-ls",
+     in_fence("linux/03-bash.md", "bash", "for f in $(ls /tmp/*.log); do echo $f; done"),
+     "Iterating over ls output"),
     ("sinks/unreviewed",
      replace("react/03-jsx.md", "## Purpose",
              "## Purpose\n\n```tsx\nconst Bio = ({ html }) => "
@@ -272,6 +275,7 @@ def run_version_cases(cases: list[tuple[str, object, str]]) -> dict[str, str]:
             script = ("check-versions.py" if name.startswith("versions/")
                       else "check-manifests.py" if name.startswith("manifests/")
                       else "check-types.py" if name.startswith("types/")
+                      else "check-lint.py" if name.startswith("lint/")
                       else "check-dangerous-sinks.py")
             proc = subprocess.run(
                 [sys.executable, str(sandbox / "scripts" / script)],

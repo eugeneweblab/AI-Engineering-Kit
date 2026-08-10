@@ -23,6 +23,10 @@ check fails only on diagnostics that are not in it. A new type error gets exactl
 one review. That is the same contract as check-dangerous-sinks, for the same reason:
 a heuristic that is right twice out of twenty-eight is not a gate.
 
+The baseline holds a *count* per key. Keying alone was not enough: a second
+`TS2304` in a document that already had one passed unseen, which injection caught
+one commit after this check shipped.
+
 `--refresh-env` reinstalls the library set and regenerates the Prisma client. The
 installed versions are pinned in `scripts/data/types-env.json` so a run is
 reproducible and a deliberate library upgrade is a visible commit.
@@ -213,7 +217,9 @@ def main(argv: list[str]) -> int:
     baseline: dict[str, str] = (
         json.loads(BASELINE.read_text(encoding="utf-8")) if BASELINE.exists() else {}
     )
-    found: dict[str, str] = {}
+    found: dict[str, int] = {}
+    where: dict[str, str] = {}
+    sample: dict[str, str] = {}
     problems: list[str] = []
     for line in (proc.stdout + proc.stderr).split("\n"):
         match = DIAGNOSTIC.match(line.strip())
@@ -225,19 +231,27 @@ def main(argv: list[str]) -> int:
         # block moving down a file does not invalidate its entry.
         shape = re.sub(r"'[^']*'", "'…'", message)[:160]
         key = f"{document}|{code}|{shape}"
-        found[key] = document
-        if key not in baseline:
-            problems.append(f"{document}: {code} {message[:200]}")
+        found[key] = found.get(key, 0) + 1
+        where[key] = document
+        sample.setdefault(key, message)
 
     if "--update-baseline" in argv:
         BASELINE.write_text(json.dumps(found, indent=1, sort_keys=True) + "\n", encoding="utf-8")
-        print(f"baseline updated: {len(found)} diagnostics recorded across "
-              f"{len(set(found.values()))} documents.")
+        print(f"baseline updated: {sum(found.values())} diagnostics recorded across "
+              f"{len(set(where.values()))} documents.")
         return 0
 
+    for key, seen in sorted(found.items()):
+        known = baseline.get(key, 0)
+        if seen > known:
+            document, code, _ = key.split("|", 2)
+            problems.append(
+                f"{document}: {code} {sample.get(key, '')[:180]}"
+                + (f"  ({seen - known} more than the {known} reviewed)" if known else "")
+            )
     for key in sorted(set(baseline) - set(found)):
         problems.append(
-            f"baseline: an entry for {baseline[key]} no longer occurs. "
+            f"baseline: {key.split('|')[0]} no longer produces {key.split('|')[1]}. "
             f"Run --update-baseline."
         )
 
@@ -258,7 +272,7 @@ def main(argv: list[str]) -> int:
         if name in versions
     )
     print(f"OK: {count} TypeScript blocks compile against the real libraries "
-          f"({headline}; {len(baseline)} reviewed excerpts).")
+          f"({headline}; {sum(baseline.values())} reviewed excerpts).")
     return 0
 
 

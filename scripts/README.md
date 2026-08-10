@@ -288,6 +288,47 @@ python3 scripts/check-types.py --update-baseline   # accept current excerpts
 
 ---
 
+## `check-lint.py`
+
+Runs each language's real linter over the examples, not just its parser.
+
+`bash -n` proves a shell block parses. So does `for f in $(ls *.log)`, which breaks on
+the first filename with a space — and which this base teaches as an antipattern in
+three separate documents. A document can state a rule and break it two hundred lines
+away, and until now nothing noticed.
+
+Two defects of exactly that shape, both in Good Examples:
+
+- `playbooks/02-failed-deployment.md` chose the rollback target with
+  `ls -1dt … | sed -n 2p`, while `linux/01`, `linux/28` and `snippets/03` all say
+  never to parse `ls` output. A rollback playbook is the worst place to pick the
+  wrong release.
+- `linux/19-debugging.md` took `pid=$(pgrep -f my-service)` and used `$pid` unquoted
+  in six following commands. `pgrep` returns several PIDs whenever the pattern is at
+  all ambiguous, and every one of those commands then breaks.
+
+A third finding was about the rule rather than the code: `linux/03` said "Quote
+everything" flatly, while twenty-five Good Examples across the base are command
+transcripts nobody quotes. The rule now says where it binds, and names `shellcheck`
+as the arbiter.
+
+Diagnostics are recorded in `scripts/data/lint-baseline.json` as a **count** per
+document, code and message shape. The count matters: the first version keyed on the
+shape alone, and a second `SC2086` in a document that already had one passed unseen.
+Injection caught it, and the same hole was then found and fixed in `check-types.py`,
+which had been shipped one commit earlier with the same keying.
+
+```bash
+python3 scripts/check-lint.py                    # exit 0 = clean
+python3 scripts/check-lint.py --require-tools     # a missing linter fails
+python3 scripts/check-lint.py --update-baseline   # accept current diagnostics
+```
+
+The linter registry is keyed by fence tag, so adding PHPStan for the 480 PHP blocks
+or ESLint for the React ones is a table entry rather than a new script.
+
+---
+
 ## `selftest-guardrails.py`
 
 Proves the linters can fail. It copies the base, injects one real defect per rule and
@@ -357,6 +398,6 @@ The one angle that paid was compiling against real libraries, and it is now
 
 ---
 
-All ten checks run in CI via `.github/workflows/knowledge-guardrails.yml`, which also
+All eleven checks run in CI via `.github/workflows/knowledge-guardrails.yml`, which also
 fails the build if `INDEX.json`/`INDEX.md` or `SIGNALS.json` are out of sync with the
 frontmatter.

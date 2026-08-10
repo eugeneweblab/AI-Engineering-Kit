@@ -40,8 +40,14 @@ turn silent, dangerous behavior into loud, safe behavior.
   they are what `set -o` prints and what you disable deliberately, per command, when
   a failure is expected. Without them errors are swallowed and the script marches on
   with bad state.
-- **Quote everything.** An unquoted expansion is a latent bug that triggers the first
-  time a value contains a space, glob, or newline. See [shell](02-shell.md).
+- **Quote every expansion in a script.** An unquoted one is a latent bug that triggers
+  the first time a value contains a space, glob, or newline — and in a script the value
+  usually comes from somewhere you do not control: a branch name, a filename, an
+  environment variable set by CI. See [shell](02-shell.md). Documented one-liners you
+  type at a prompt over values you can see are the exception, which is why the command
+  transcripts in these documents are not uniformly quoted; the moment such a line is
+  pasted into a file with a shebang, the rule applies to it. `shellcheck` is the arbiter
+  — run it on anything committed.
 - **A script is a program.** It deserves functions, a `main`, `local` variables, and
   input validation — not a flat wall of commands.
 - **Idempotent and re-runnable.** Automation reruns after partial failures; a correct

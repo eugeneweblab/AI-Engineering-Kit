@@ -69,7 +69,9 @@ capture what you need. Preserving and reading that evidence is the whole job.
 
 ```bash
 # A service is hung. Preserve state FIRST, then recover.
-pid=$(pgrep -f my-service)
+# `pgrep` can match more than one process; take one deliberately rather than
+# letting an unquoted expansion split into several arguments later.
+pid=$(pgrep -f my-service | head -1)
 
 cat /proc/$pid/status | grep -E 'State|Threads'   # is it sleeping (D/S) or running (R)?
 cat /proc/$pid/stack 2>/dev/null                  # kernel stack: what is it blocked on?
