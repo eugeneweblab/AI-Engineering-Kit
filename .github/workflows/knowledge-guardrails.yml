@@ -83,7 +83,9 @@ jobs:
           echo "SIGNALS is up to date."
 
       - name: Agent instructions are executable
-        run: python3 scripts/check-agent-instructions.py
+        run: |
+          python3 scripts/check-agent-instructions.py --selftest
+          python3 scripts/check-agent-instructions.py
 
       - name: INDEX is in sync with frontmatter
         run: |

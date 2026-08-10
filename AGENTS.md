@@ -16,9 +16,27 @@ Follow this loop for any coding task:
 
 1. **Gather context first.** Understand the existing project, its architecture,
    naming, and patterns before writing code. Reuse over recreate.
-2. **Locate relevant knowledge.** Open [`knowledge/INDEX.json`](knowledge/INDEX.json)
-   (machine-readable) or [`knowledge/INDEX.md`](knowledge/INDEX.md) (human-readable).
-   Filter to `status: "ready"`, then match **in this order** — each step is stronger
+2. **Locate relevant knowledge. Query the index; do not read it.**
+   [`knowledge/INDEX.json`](knowledge/INDEX.json) is ~310k tokens and
+   [`knowledge/SIGNALS.json`](knowledge/SIGNALS.json) ~260k. Loading either wastes a
+   context window and most of them will not fit. Both are formatted one entry per
+   line so a search returns exactly the entry you need — a symbol lookup costs about
+   thirty tokens:
+
+   ```bash
+   # An API name from the diff -> the documents that govern it
+   grep -A5 '"revalidateTag":' knowledge/SIGNALS.json
+
+   # A symptom or subject -> candidate documents (INDEX.md is 30k, still worth grepping)
+   grep -i -B2 -A2 'serialization' knowledge/INDEX.json
+   grep -i 'transactions' knowledge/INDEX.md
+
+   # One document's metadata, without the other 1438
+   grep -A8 '"id": "nextjs/10-caching"' knowledge/INDEX.json
+   ```
+
+   Read a document in full only once you have chosen it. Filter to `status: "ready"`,
+   then match **in this order** — each step is stronger
    evidence than the one after it, and a later step must not outrank an earlier one:
 
    1. **A signal from the repository or the diff.** A file that identifies the stack,

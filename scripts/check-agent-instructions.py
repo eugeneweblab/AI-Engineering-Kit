@@ -21,6 +21,7 @@ Exit code 0 = clean, 1 = violations found.
 
 Usage:
     python3 scripts/check-agent-instructions.py
+    python3 scripts/check-agent-instructions.py --selftest   # prove it can fail
 """
 from __future__ import annotations
 
@@ -50,11 +51,55 @@ BARE_PATH_RE = re.compile(r"`((?:knowledge|scripts|docs|agents)/[\w./-]+)`")
 COMMAND_RE = re.compile(r"`(python3 scripts/[\w-]+\.py)[^`]*`")
 STATUS_RE = re.compile(r'`status:\s*"?(\w+)"?`')
 
+# An instruction file may not tell an agent to load something it cannot hold. The
+# index is ~310k tokens; "open INDEX.json" was in AGENTS.md for months, and every
+# retrieval test passed anyway because the test harness reads it with Python, which
+# has no context window. The consumer does.
+LOAD_VERBS = re.compile(
+    r"\b(open|read|load)\b[^.\n]{0,40}`?(knowledge/(?:INDEX|SIGNALS)\.json)`?",
+    re.IGNORECASE,
+)
+MAX_LOADABLE_CHARS = 200_000        # ~50k tokens
+
+
 # The lookups the instructions promise. Each must land on a document that exists.
 PROTOCOL_PROBES = {
     "stack": ["app/page.tsx", "wp-config.php", "Dockerfile", "prisma/schema.prisma"],
     "symbols": ["revalidateTag", "add_filter", "argon2", "OOMKilled", "jwtVerify"],
 }
+
+
+def selftest() -> int:
+    """Inject the defect this file exists to catch and assert it is reported.
+
+    A contract check that cannot fail is worth nothing, and this one guards a claim
+    that was false for months without any test noticing: AGENTS.md said "Open
+    knowledge/INDEX.json", and every retrieval probe still passed, because the test
+    harness reads that file with Python rather than with a context window.
+    """
+    agents = ROOT / "AGENTS.md"
+    original = agents.read_text(encoding="utf-8")
+    injected = original.replace(
+        "Query the index; do not read it.", "Open knowledge/INDEX.json.", 1
+    )
+    if injected == original:
+        print("selftest: the anchor phrase is gone; update the injection.")
+        return 1
+    try:
+        agents.write_text(injected, encoding="utf-8")
+        import io, contextlib
+        buffer = io.StringIO()
+        with contextlib.redirect_stdout(buffer):
+            code = main()
+        output = buffer.getvalue()
+    finally:
+        agents.write_text(original, encoding="utf-8")
+    if code == 0 or "Instruct a query, not a load" not in output:
+        print("selftest FAIL: telling an agent to open a 310k-token file was not "
+              "reported.")
+        return 1
+    print("selftest OK: an instruction to load an oversized artifact is reported.")
+    return 0
 
 
 def main() -> int:
@@ -106,6 +151,16 @@ def main() -> int:
         for value in set(STATUS_RE.findall(text)):
             if value not in statuses:
                 problems.append(f"{name}: names status {value!r}, which no doc uses")
+
+        for match in LOAD_VERBS.finditer(text):
+            target = ROOT / match.group(2)
+            if target.exists() and target.stat().st_size > MAX_LOADABLE_CHARS:
+                size = target.stat().st_size // 1000
+                problems.append(
+                    f"{name}: tells an agent to {match.group(1).lower()} "
+                    f"{match.group(2)}, which is {size}k characters "
+                    f"(~{size // 4}k tokens). Instruct a query, not a load."
+                )
 
         for command in set(COMMAND_RE.findall(text)):
             script = ROOT / command.split()[1]
@@ -178,4 +233,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(selftest() if "--selftest" in sys.argv else main())
