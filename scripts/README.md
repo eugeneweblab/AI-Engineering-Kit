@@ -337,6 +337,26 @@ doing the work its weight claims.
 
 ---
 
+## Angles tried that found nothing
+
+Recorded so they are not re-run blind. Each was measured, not guessed at.
+
+| Angle | Result |
+| --- | --- |
+| Building GraphQL SDL blocks as schemas rather than parsing them | 16 of 20 flagged, all legitimate excerpt references to types a project defines elsewhere (`DateTime`, `User`, `Post`) |
+| hadolint's full rule set on the 53 Dockerfile blocks | 89 findings: deliberate Bad Examples, fragment artifacts, and a DL3025 false positive on `HEALTHCHECK CMD … \|\| exit 1`, which is the only legal shell form there |
+| Prose citing `key: value` that the adjacent code contradicts | 55 candidates, 0 real. Prose that names a value almost always names the one to *avoid*; the code then correctly shows the opposite |
+| The inverse — code using a value the adjacent prose forbids | 1 candidate, a mis-attributed negation. 0 real |
+| Constants compared across documents (bcrypt cost, HSTS max-age, pool limits) | Consistent. Every HSTS instance is `max-age=63072000`; the `max-age=60` is a labelled Bad Example; differing `connection_limit` values are contextual and explained in place |
+| Running each document's SQL against a real PostgreSQL 17 | Errors were all excerpt, concatenation, or psql artifacts — `:input` is a driver placeholder psql reads as its own variable |
+| Contradictory directives about the same identifier | 161 candidates, 0 real. The polarity heuristic fires on any mention, so "`any` used to silence an error instead of `unknown`" reads as both |
+| Whether a `**Rules:**` pointer is topically relevant | 416 of 511 flagged — a broken metric, not a finding: "Structure and Semantics" → `03-semantic-html` fails word overlap and is obviously right |
+
+The one angle that paid was compiling against real libraries, and it is now
+`check-types.py`.
+
+---
+
 All ten checks run in CI via `.github/workflows/knowledge-guardrails.yml`, which also
 fails the build if `INDEX.json`/`INDEX.md` or `SIGNALS.json` are out of sync with the
 frontmatter.
