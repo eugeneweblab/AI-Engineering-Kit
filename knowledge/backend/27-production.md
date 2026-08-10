@@ -75,7 +75,7 @@ async def fetch_quote(symbol: str) -> Quote:
         try:
             return await http.get(url(symbol), timeout=2.0)   # hard timeout
         except (Timeout, ConnError) as e:
-            breaker.record_failure()
+            breaker.record_failure(reason=type(e).__name__)   # which failure, not just that one
             if attempt == 2:
                 raise
             await sleep(backoff(attempt) + random_jitter())   # backoff + jitter avoids sync retry storms

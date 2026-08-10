@@ -69,8 +69,6 @@ off and keeps the risk bounded.
 **Good Example** — measure, then optimize the dominant cost
 
 ```python
-import time
-
 # Baseline first: profile shows 92% of time is in the per-row DB call, not the loop.
 def total_price(order_ids: list[int]) -> int:
     # One query for all rows (dominant cost fixed) instead of one per id.

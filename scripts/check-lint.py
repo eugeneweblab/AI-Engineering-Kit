@@ -46,6 +46,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -70,18 +71,116 @@ def lint_shell(source: str) -> list[tuple[str, str]]:
     return [(f"SC{item['code']}", item["message"]) for item in report]
 
 
+def lint_python(source: str) -> list[tuple[str, str]]:
+    """ruff, restricted to the rule families that mean a bug rather than a style
+    preference: E9 (syntax/runtime), F (pyflakes — undefined names, dead bindings)
+    and B (bugbear — mutable defaults, silent `zip` truncation)."""
+    with tempfile.NamedTemporaryFile("w", suffix=".py", delete=False) as handle:
+        handle.write(source)
+        path = handle.name
+    try:
+        proc = subprocess.run(
+            [sys.executable, "-m", "ruff", "check", path, "--select=E9,F,B",
+             "--output-format=json", "--no-cache"],
+            capture_output=True, text=True,
+        )
+        try:
+            report = json.loads(proc.stdout or "[]")
+        except json.JSONDecodeError:
+            return [("RUFF", (proc.stderr or "ruff produced no report")[:200])]
+        return [(item["code"] or "RUFF", item["message"]) for item in report]
+    finally:
+        os.unlink(path)
+
+
 # language tags -> (tool that must be on PATH, function returning [(code, message)])
 LINTERS: dict[str, tuple[str, object]] = {
     "bash": ("shellcheck", lint_shell),
     "sh": ("shellcheck", lint_shell),
     "shell": ("shellcheck", lint_shell),
     "zsh": ("shellcheck", lint_shell),
+    "python": (sys.executable, lint_python),
 }
 
 # PHPStan analyses a whole tree at once, so PHP is handled as a batch rather than
 # block by block: 445 separate invocations would cost minutes of process startup.
 PHP_SANDBOX = Path(os.environ.get("KB_PHP_SANDBOX", "/tmp/kb-php"))
 PHP_FENCE = re.compile(r"^```php\s*$\n(.*?)^```\s*$", re.DOTALL | re.MULTILINE)
+ES_SANDBOX = Path(os.environ.get("KB_ES_SANDBOX", "/tmp/kb-eslint"))
+ES_FENCE = re.compile(r"^```(ts|tsx|js|jsx)\s*$\n(.*?)^```\s*$", re.DOTALL | re.MULTILINE)
+ES_PACKAGES = ["eslint", "eslint-plugin-react-hooks", "@typescript-eslint/parser"]
+ES_CONFIG = """import reactHooks from "eslint-plugin-react-hooks";
+import tsParser from "@typescript-eslint/parser";
+export default [
+  {
+    files: ["blocks/**/*.{ts,tsx}"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: "latest", sourceType: "module", ecmaFeatures: { jsx: true },
+      },
+    },
+    plugins: { "react-hooks": reactHooks },
+    rules: {
+      // The two rules this base teaches by name. Everything else eslint offers is
+      // style, and style findings on excerpts are noise.
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+    },
+  },
+];
+"""
+
+
+def refresh_es_env(pinned: dict) -> dict:
+    ES_SANDBOX.mkdir(parents=True, exist_ok=True)
+    (ES_SANDBOX / "package.json").write_text(
+        json.dumps({"name": "kb-eslint", "private": True, "type": "module"}) + "\n",
+        encoding="utf-8",
+    )
+    wanted = [f"{name}@{pinned[name]}" if name in pinned else name for name in ES_PACKAGES]
+    subprocess.run(["npm", "install", "--silent", "--no-audit", "--no-fund", *wanted],
+                   cwd=ES_SANDBOX, capture_output=True, text=True)
+    versions = {}
+    for name in ES_PACKAGES:
+        manifest = ES_SANDBOX / "node_modules" / name / "package.json"
+        if manifest.exists():
+            versions[name] = json.loads(manifest.read_text(encoding="utf-8"))["version"]
+    return versions
+
+
+def lint_js_batch() -> tuple[int, list[tuple[str, str, str]]]:
+    """ESLint over every ts/tsx/js/jsx block, checking only the React hook rules."""
+    blocks = ES_SANDBOX / "blocks"
+    shutil.rmtree(blocks, ignore_errors=True)
+    blocks.mkdir(parents=True)
+
+    origin: dict[str, str] = {}
+    written = 0
+    for path in sorted(KB.rglob("*.md")):
+        for tag, source in ES_FENCE.findall(path.read_text(encoding="utf-8", errors="replace")):
+            written += 1
+            name = f"b{written:04d}." + ("tsx" if tag in ("tsx", "jsx") else "ts")
+            (blocks / name).write_text(source, encoding="utf-8")
+            origin[name] = path.relative_to(KB).as_posix()
+
+    (ES_SANDBOX / "eslint.config.js").write_text(ES_CONFIG, encoding="utf-8")
+    proc = subprocess.run(["npx", "eslint", "blocks", "--format", "json"],
+                          cwd=ES_SANDBOX, capture_output=True, text=True)
+    start = proc.stdout.find("[")
+    if start < 0:
+        return len(origin), [("(eslint)", "ESLINT", proc.stderr[:200] or "no report")]
+    findings = []
+    for entry in json.loads(proc.stdout[start:]):
+        document = origin.get(os.path.basename(entry["filePath"]), entry["filePath"])
+        for item in entry["messages"]:
+            rule = item.get("ruleId")
+            if not rule:
+                continue          # a parse failure is an excerpt, and check-knowledge owns syntax
+            findings.append((document, rule.split("/")[-1], item["message"]))
+    return len(origin), findings
+
+
 PHP_LOCK = ROOT / "scripts" / "data" / "lint-env.json"
 PHP_PACKAGES = {
     "phpstan/phpstan": "^2.0",
@@ -186,7 +285,16 @@ FENCE = re.compile(
 
 def main(argv: list[str]) -> int:
     if "--refresh-env" in argv:
-        return refresh_php_env()
+        pinned = json.loads(PHP_LOCK.read_text(encoding="utf-8")) if PHP_LOCK.exists() else {}
+        node_versions = refresh_es_env({} if "--upgrade" in argv else pinned)
+        code = refresh_php_env()
+        if node_versions:
+            lock = json.loads(PHP_LOCK.read_text(encoding="utf-8")) if PHP_LOCK.exists() else {}
+            lock.update(node_versions)
+            PHP_LOCK.write_text(json.dumps(lock, indent=1, sort_keys=True) + "\n",
+                                encoding="utf-8")
+            print("  eslint: " + ", ".join(f"{n} {v}" for n, v in sorted(node_versions.items())))
+        return code
 
     baseline: dict[str, str] = (
         json.loads(BASELINE.read_text(encoding="utf-8")) if BASELINE.exists() else {}
@@ -211,6 +319,18 @@ def main(argv: list[str]) -> int:
                 found[key] = found.get(key, 0) + 1
                 where[key] = rel
                 sample.setdefault(key, message)
+
+    if (ES_SANDBOX / "node_modules").exists():
+        analysed, findings = lint_js_batch()
+        counted += analysed
+        for document, code, message in findings:
+            shape = re.sub(r"'[^']*'", "'…'", message)[:150]
+            key = f"{document}|{code}|{shape}"
+            found[key] = found.get(key, 0) + 1
+            where[key] = document
+            sample.setdefault(key, message)
+    else:
+        SKIPPED["ts/tsx/js/jsx"] = "eslint (run --refresh-env)"
 
     if shutil.which("phpstan") or (PHP_SANDBOX / "vendor" / "bin" / "phpstan").exists():
         analysed, findings = lint_php_batch()

@@ -82,7 +82,8 @@ async def enrich(order_ids):
     async def score(o):
         async with sem: return await risk_service.score(o)
     scores = await asyncio.gather(*(score(o) for o in orders))
-    return [(o, by_id[o.user_id], s) for o, s in zip(orders, scores)]
+    # strict=True: a length mismatch is a bug, not something to silently truncate.
+    return [(o, by_id[o.user_id], s) for o, s in zip(orders, scores, strict=True)]
 ```
 
 **Bad Example** — N+1, O(n) scans, serial I/O, unbounded

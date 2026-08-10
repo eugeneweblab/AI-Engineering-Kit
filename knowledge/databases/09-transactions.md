@@ -92,7 +92,9 @@ def transfer(db, from_id, to_id, cents):
                     "WHERE id = %s", (cents, to_id))
             return                                  # committed atomically
         except SerializationError:
-            continue                                # safe: nothing was committed
+            # Safe to retry: nothing was committed. Back off with jitter — a tight
+            # loop turns one contended row into a retry storm across every worker.
+            sleep(backoff(attempt) + random_jitter())
     raise RetriesExhausted()
 ```
 
