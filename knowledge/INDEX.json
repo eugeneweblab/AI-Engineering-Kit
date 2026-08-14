@@ -3305,7 +3305,7 @@
             "backend/19-performance",
             "backend/100-common-antipatterns"
           ],
-          "when_to_use": "Read before writing or reviewing any code that can fail — I/O, external calls, parsing, or business rules.",
+          "when_to_use": "Read before writing or reviewing any code that can fail — I/O, external calls, parsing, or business rules — to choose which error to throw and what the client sees instead of a stack trace.",
           "path": "knowledge/backend/12-error-handling.md"
         },
         {

@@ -167,3 +167,12 @@ jobs:
 
       - name: An agent following the protocol reaches the right rule
         run: python3 scripts/selftest-retrieval.py --ablate
+
+      # 52 questions all landing is a floor, not a measurement: they were written
+      # alongside the metadata they match. This asks the same of all 1439 documents,
+      # using a query built from each one's own body. A document reachable by nothing
+      # is a rule only someone who already knows its name can find.
+      - name: Every rule is reachable, not only the 52 with a question
+        run: |
+          python3 scripts/check-reachability.py --selftest
+          python3 scripts/check-reachability.py

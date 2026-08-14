@@ -382,7 +382,7 @@ python3 scripts/selftest-guardrails.py sql html   # only matching names
 ## `selftest-retrieval.py`
 
 Answers a different question: not "is the base well-formed" but "does an agent
-following [`AGENTS.md`](../AGENTS.md) actually land on the right rule". It runs 41
+following [`AGENTS.md`](../AGENTS.md) actually land on the right rule". It runs 52
 realistic questions — at least one per language and framework in the base — through
 the documented protocol: detect the stack from `SIGNALS.stack`, resolve symbols
 through `SIGNALS.symbols`, then rank `ready` documents by `when_to_use`, `tags`,
@@ -404,6 +404,73 @@ python3 scripts/selftest-retrieval.py --ablate   # what each source of evidence 
 `--ablate` is the honesty check: it disables one source at a time and counts how many
 questions still reach their rule. If a source can be removed with no effect, it is not
 doing the work its weight claims.
+
+---
+
+## `check-reachability.py`
+
+Asks the same question as `selftest-retrieval.py`, for all 1439 documents instead of 52.
+
+Fifty-two questions all landing is a floor, not a measurement. The questions were
+written alongside the metadata they match, and 52 of 1439 is 3.6% of the base — a
+document nobody wrote a question for can go unreachable for a year with every check
+green. This builds a query from each document's *own body* — the `## Purpose` prose and
+its non-boilerplate headings, text no part of the retrieval protocol scores against —
+and asks whether the document comes back. Then it checks the two paths `AGENTS.md`
+offers besides ranking:
+
+| Path | Reached when |
+|---|---|
+| rank | the document is in the top five for a query drawn from its own content |
+| symbol | it is in `SIGNALS.symbols`, so an API name in a diff resolves to it |
+| index | the significant words of its title isolate it within 12 rows of `INDEX.md` |
+
+Losing `rank` is a metadata defect, recorded in `scripts/data/reachability-baseline.json`.
+308 documents lose it today — nearly all by placing sixth behind five documents on the
+same subject — and `grep` still finds every one. Losing **all three** is a hole: a rule
+that is in the base and reachable only by someone who already knows its name. That fails
+outright and cannot be baselined.
+
+```bash
+python3 scripts/check-reachability.py                    # exit 0 = clean, 1 = a hole or a regression
+python3 scripts/check-reachability.py --ablate           # what each source is worth, over 1439
+python3 scripts/check-reachability.py --selftest         # prove it can fail
+python3 scripts/check-reachability.py --update-baseline
+```
+
+The scorer is imported from `selftest-retrieval.py` rather than restated — two copies of
+a ranking rule drift, and then this measures a protocol no agent follows.
+
+### Why the wider sample was needed
+
+Ablation over 52 questions cannot tell a dead source of evidence from a rare one. Over
+1439 documents the same sources separate clearly:
+
+| Source | 52 questions | 1439 documents |
+|---|---|---|
+| the task text | −16 | −958 |
+| `when_to_use` | −12 | −284 |
+| `tags` | −1 | −42 |
+| `terms` | **−0** | −11 |
+
+`terms` reads as worthless at 52 samples and is worth 11 documents at 1439. It was one
+measurement away from being deleted as dead code. (`stack` and `symbols` are not ablated
+here — a query built from a document's body supplies neither, so both would score a flat
++0 meaning "not under test"; `selftest-retrieval.py --ablate` is where they are measured.)
+
+The check also prices metadata edits, which ranking makes zero-sum: every query a longer
+`when_to_use` wins is one a sibling loses. `backend/12-error-handling` did not rank for
+*"return consistent errors from the service layer instead of leaking stack traces"* —
+its `when_to_use` said "any code that can fail" and never named an error, so
+`02-layered-architecture` took the query on the words "service layer". Of three candidate
+rewrites, two fixed the miss; the one that also cost `prisma/18-error-handling`,
+`performance/16-profiling` and `frontend/16-css-architecture` their own rankings was
+rejected in favour of the one that cost nothing.
+
+That zero-sum property is a property of the scorer, not of the base: it counts matching
+words without weighting how rare they are, so `prisma` counts for exactly as much as
+`code`. It is why a document distinguished by one uncommon term loses to general
+documents on the same subject.
 
 ---
 
