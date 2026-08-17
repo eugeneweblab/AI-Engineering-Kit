@@ -337,7 +337,9 @@ def run_version_cases(cases: list[tuple[str, object, str]]) -> dict[str, str]:
                 capture_output=True, text=True,
             )
             output = proc.stdout + proc.stderr
-            if "timed out after" in output or "is unavailable" in output:
+            if ("timed out after" in output or "is unavailable" in output
+                    or "tflint --init failed" in output
+                    or "plugin did not load" in output):
                 verdicts[name] = (
                     "not proved: the required validator was unavailable or timed out"
                 )

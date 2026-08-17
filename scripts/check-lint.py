@@ -24,7 +24,10 @@ transcripts that nobody quotes. The rule now says where it binds.
 Nothing is filtered by severity or code. Every current diagnostic is recorded in
 `scripts/data/lint-baseline.json` keyed by document, code and message shape, and
 only unreviewed ones fail — the same contract as check-types.py and
-check-dangerous-sinks.py. A missing linter is reported, never silently skipped.
+check-dangerous-sinks.py. A missing linter is reported, never silently skipped. A plugin that failed to
+install is a tool failure, not a clean Terraform pass: tflint still emits JSON,
+with `errors` instead of `issues`, and reading only `issues` used to look like
+the ACM lifecycle rule had vanished.
 
 The baseline stores a *count* per key, not just the key. Keying alone let a second
 `SC2086` in a document that already had one pass unseen, which is how the first
@@ -47,6 +50,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 
 COMMAND_TIMEOUT_SECONDS = 180
@@ -293,13 +297,47 @@ rule "terraform_required_providers" { enabled = false }
 """
 
 
+def init_tflint_plugins() -> None:
+    # GitHub release downloads 429; ignoring that used to look like a clean lint.
+    last_error = "no output"
+    for attempt in range(1, 4):
+        proc = run_command(
+            ["tflint", "--init"], cwd=TF_SANDBOX, capture_output=True, text=True,
+        )
+        if proc.returncode == 0:
+            return
+        last_error = (proc.stderr or proc.stdout or "tflint --init failed").strip()[:800]
+        if attempt < 3:
+            time.sleep(5 * attempt)
+    raise SystemExit(f"tflint --init failed after 3 attempts: {last_error}")
+
+
+def tflint_issues(work: Path, document: str) -> list[tuple[str, str, str]]:
+    proc = run_command(
+        ["tflint", "--chdir", str(work), "--format=json"],
+        cwd=TF_SANDBOX, capture_output=True, text=True,
+    )
+    try:
+        report = json.loads(proc.stdout or "{}")
+    except json.JSONDecodeError:
+        return []
+    for err in report.get("errors") or []:
+        message = err["message"] if isinstance(err, dict) else str(err)
+        if "Failed to initialize plugins" in message:
+            raise SystemExit(f"tflint AWS plugin did not load: {message}")
+    findings: list[tuple[str, str, str]] = []
+    for issue in report.get("issues") or []:
+        findings.append((document, issue["rule"]["name"], issue["message"]))
+    return findings
+
+
 def lint_terraform_batch() -> tuple[int, list[tuple[str, str, str]]]:
     if not shutil.which("tflint"):
         SKIPPED["hcl"] = "tflint"
         return 0, []
     TF_SANDBOX.mkdir(parents=True, exist_ok=True)
     (TF_SANDBOX / ".tflint.hcl").write_text(TF_CONFIG, encoding="utf-8")
-    run_command(["tflint", "--init"], cwd=TF_SANDBOX, capture_output=True, text=True)
+    init_tflint_plugins()
 
     findings: list[tuple[str, str, str]] = []
     count = 0
@@ -312,16 +350,7 @@ def lint_terraform_batch() -> tuple[int, list[tuple[str, str, str]]]:
             work.mkdir()
             (work / "main.tf").write_text(source, encoding="utf-8")
             (work / ".tflint.hcl").write_text(TF_CONFIG, encoding="utf-8")
-            proc = run_command(
-                ["tflint", "--chdir", str(work), "--format=json"],
-                cwd=TF_SANDBOX, capture_output=True, text=True,
-            )
-            try:
-                report = json.loads(proc.stdout or "{}")
-            except json.JSONDecodeError:
-                continue
-            for issue in report.get("issues", []):
-                findings.append((document, issue["rule"]["name"], issue["message"]))
+            findings.extend(tflint_issues(work, document))
     return count, findings
 
 
