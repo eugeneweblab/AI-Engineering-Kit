@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Guardrail: every rule in the base must be findable by someone who does not know it exists.
 
-`selftest-retrieval.py` asks 52 questions and all 52 land. That is a floor, not a
-measurement: the questions were written alongside the metadata they match, and 52 of
-1439 documents is 3.6% of the base. A document nobody wrote a question for can be
+`selftest-retrieval.py` asks 56 questions and all 56 land. That is a floor, not a
+measurement: the questions were written alongside the metadata they match, and 56 of
+1439 documents is 3.9% of the base. A document nobody wrote a question for can be
 unreachable for a year without any check going red.
 
 This asks the inverse, for every `ready` document: build a query from the document's

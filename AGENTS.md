@@ -68,7 +68,9 @@ Follow this loop for any coding task:
    `stack` list maps a file that identifies a stack or a variant — `app/**/page.tsx`
    versus `pages/_app.tsx`, a theme with `theme.json` versus one without — to the
    documents that govern it, so the applicable rule set is determined by the
-   repository rather than guessed. Its `symbols` index maps an API name to the
+   repository rather than guessed. Treat that list as the starting set, not the
+   complete set: also resolve symbols from the files you will edit (`timeout-minutes`,
+   `lock_timeout`, `SET NX`). Its `symbols` index maps an API name to the
    documents that state its rules.
 
    **Match from the code, not only from the task description.** After the topic and
@@ -142,9 +144,11 @@ review_after: "2026-11-17"
 `applies_to` and `defers_to` appear only when they say something. `applies_to`
 names the variant a document is specific to — App Router caching rules are not
 "mostly right" on the Pages Router, they are wrong — so a document carrying it
-should be skipped when the repository is the other variant. `defers_to` names the
-document that owns the rule when two topics cover one subject; the deferring
-document still applies, but it does not override the owner.
+should be skipped unless `SIGNALS.stack` matched that variant in this repository.
+No matched variant means skip it: Prisma migration rules do not apply to a folder
+of raw SQL. `defers_to` names the document that owns the rule when two topics
+cover one subject; the deferring document still applies, but it does not override
+the owner.
 
 **`status` controls whether a document may be used; `maturity` states how strongly
 its correctness has been established:**

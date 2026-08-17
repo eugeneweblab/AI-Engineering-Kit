@@ -12,9 +12,10 @@ diff) → follow the matching [`knowledge/workflows/`](knowledge/workflows/) gui
 self-verify with the topic's `98`/`99`/`100` checklists, whose sections name the rule
 behind each item.
 
-Skip a doc whose `applies_to` names a variant the repository does not use — App Router
-rules are wrong on the Pages Router, not merely inexact. When two topics cover one
-subject, `defers_to` names the one that owns the rule.
+Skip a doc whose `applies_to` names a variant `SIGNALS.stack` did not match in this
+repository — including when no variant matched. App Router rules are wrong on the Pages
+Router, not merely inexact. When two topics cover one subject, `defers_to` names the
+owner.
 
 Never treat a `draft` stub (`status: draft` — frontmatter, empty body) as an
 authoritative source.

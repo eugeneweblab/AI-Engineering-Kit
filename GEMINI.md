@@ -13,5 +13,5 @@ task description: `stack` maps a file such as `app/page.tsx` or `wp-config.php` 
 documents that govern that stack, and `symbols` maps an API name such as `revalidateTag`
 or `argon2` to the documents that state its rules.
 
-Skip a document whose `applies_to` names a variant the repository does not use.
-Do not cite `draft` stubs as sources.
+Skip a document whose `applies_to` names a variant `SIGNALS.stack` did not match in this
+repository, including when no variant matched. Do not cite `draft` stubs as sources.

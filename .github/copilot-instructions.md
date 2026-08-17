@@ -12,7 +12,8 @@ When answering or generating code:
 2. Use [`knowledge/SIGNALS.json`](../knowledge/SIGNALS.json) to work from the code:
    `stack` maps a repository file to the documents that govern it, `symbols` maps an API
    name in the diff to the documents that state its rules.
-3. Skip a document whose `applies_to` names a variant this repository does not use.
+3. Skip a document whose `applies_to` names a variant `SIGNALS.stack` did not match,
+   including when no variant matched.
 4. Reuse existing patterns; stay in scope; prefer consistency over cleverness.
 5. Verify against the topic's `98-production-checklist.md`,
    `99-ai-review-checklist.md`, and `100-common-antipatterns.md`. Each section of those

@@ -9,7 +9,7 @@ repo root or in `.github` / `.cursor` that points back to `AGENTS.md`:
 | Tool | Native entrypoint | Verification status |
 |------|-------------------|---------------------|
 | Claude Code | `CLAUDE.md`, `AGENTS.md` | Adapter present; live compliance trial not yet recorded. |
-| Cursor | `.cursor/rules/*.mdc`, `AGENTS.md` | `alwaysApply` adapter present; live trial not yet recorded. |
+| Cursor | `.cursor/rules/*.mdc`, `AGENTS.md` | `alwaysApply` adapter present; live protocol execution and output grading 13/13 on 2026-08-17 (n=1, no control arm). |
 | Codex | `AGENTS.md` | Automatic load and document retrieval verified 2026-08-17. |
 | GitHub Copilot | `.github/copilot-instructions.md` | Adapter present; live agent-mode trial not yet recorded. |
 | Gemini CLI | `GEMINI.md` | Adapter present; live compliance trial not yet recorded. |

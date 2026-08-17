@@ -42,7 +42,7 @@ STACK_SIGNALS: list[dict] = [
     {"when": "app/page.tsx|app/**/page.tsx", "variant": "app-router", "means": "Next.js App Router — the current model",
      "docs": ["nextjs/03-app-router", "nextjs/06-server-components", "nextjs/10-caching"]},
     {"when": "pages/_app.tsx", "variant": "pages-router", "means": "Next.js Pages Router — legacy; do not extend it",
-     "docs": ["nextjs/30-migration-guide", "nextjs/03-app-router"]},
+     "docs": ["nextjs/30-migration-guide"]},
     # `middleware.ts` is the deprecated spelling of the same file. Both point at
     # the same rules, which is where the rename is explained.
     {"when": "proxy.ts|proxy.js|src/proxy.ts|src/proxy.js|middleware.ts|middleware.js|src/middleware.ts|src/middleware.js",
@@ -97,7 +97,7 @@ STACK_SIGNALS: list[dict] = [
      "docs": ["kubernetes/05-deployments", "kubernetes/19-resource-management",
               "kubernetes/22-security"]},
     {"when": ".github/workflows/*.y*ml", "means": "GitHub Actions pipeline",
-     "docs": ["github/08-actions", "cicd/02-pipeline-design", "cicd/06-security-scanning"]},
+     "docs": ["github/09-workflows", "github/08-actions", "cicd/17-github-actions"]},
     {"when": ".gitlab-ci.yml", "means": "GitLab CI pipeline",
      "docs": ["cicd/18-gitlab-ci", "cicd/02-pipeline-design"]},
     {"when": "*.tf|**/*.tf", "means": "Terraform — infrastructure as code",
@@ -112,6 +112,14 @@ STACK_SIGNALS: list[dict] = [
      "docs": ["rest-api/21-openapi", "rest-api/03-resource-design"]},
     {"when": "migrations/*|**/migrations/*", "means": "versioned schema changes",
      "docs": ["databases/17-migrations", "sql/12-ddl"]},
+    {"when": "migrations/*.sql|**/migrations/*.sql", "means": "SQL schema migrations",
+     "docs": ["postgresql/22-migrations", "databases/17-migrations"]},
+    {"when": "lock.ts|**/lock.ts|**/redlock.ts", "means": "a distributed lock helper",
+     "docs": ["redis/17-distributed-locks"]},
+    {"when": "redis.conf|**/redis.conf", "means": "Redis server configuration",
+     "docs": ["redis/01-installation", "redis/27-production"]},
+    {"when": "postgresql.conf|**/postgresql.conf", "means": "PostgreSQL server",
+     "docs": ["postgresql/02-configuration", "postgresql/26-production"]},
 
     # --- Cross-cutting ------------------------------------------------------
     {"when": ".env|.env.example", "means": "environment-based configuration",
@@ -137,6 +145,9 @@ PROBES: list[tuple[str, str]] = [
     ("deploy/k8s/app.yaml", "Kubernetes"),
     ("migrations/001_init.sql", "schema changes"),
     ("db/migrations/001_init.sql", "schema changes"),
+    ("eval/src/lock.ts", "distributed lock"),
+    ("redis.conf", "Redis server"),
+    ("postgresql.conf", "PostgreSQL server"),
     ("schema.graphql", "GraphQL"),
     ("src/schema.graphql", "GraphQL"),
     ("openapi.yaml", "HTTP API"),

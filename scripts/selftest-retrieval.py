@@ -152,7 +152,7 @@ class Protocol:
         query = tokens(task) if without != "task" else set()
         for doc in self.docs:
             applies = doc.get("applies_to")
-            if applies and variants and not (set(applies) & variants):
+            if applies and not (set(applies) & variants):
                 continue                     # a rule for a variant this repo does not use
             points = (
                 8 * len(query & tokens(doc.get("when_to_use", "")
@@ -291,7 +291,20 @@ CASES: list[dict] = [
      "expect": ["tools/02-version-management", "tools/01-package-managers"]},
     {"name": "cicd", "task": "Block the merge when tests fail",
      "files": [".github/workflows/ci.yml"], "symbols": [],
-     "expect": ["cicd/05-quality-gates", "github/08-actions", "cicd/02-pipeline-design"]},
+     "expect": ["cicd/05-quality-gates", "github/08-actions", "github/09-workflows",
+                "cicd/17-github-actions"]},
+    {"name": "github-workflows", "task": "Pin Actions, bound the job, and cancel superseded runs",
+     "files": [".github/workflows/ci.yml"], "symbols": ["timeout-minutes", "cancel-in-progress"],
+     "expect": ["github/09-workflows", "cicd/17-github-actions", "github/08-actions"]},
+    {"name": "pg-migration", "task": "Add a required status column on a large write-heavy PostgreSQL table without a blocking validation",
+     "files": ["migrations/001_orders_status.sql"], "symbols": ["NOT VALID", "lock_timeout"],
+     "expect": ["postgresql/22-migrations", "databases/17-migrations"]},
+    {"name": "nextjs-pages", "task": "Keep the Pages Router app running while planning the App Router move",
+     "files": ["pages/_app.tsx"], "symbols": [],
+     "expect": ["nextjs/30-migration-guide"]},
+    {"name": "redis-lock-file", "task": "Worker A deletes Worker B's Redis lock after its lease expires",
+     "files": ["src/lock.ts"], "symbols": ["randomUUID", "eval"],
+     "expect": ["redis/17-distributed-locks"]},
     {"name": "git", "task": "Undo a commit that is already pushed",
      "files": [], "symbols": ["git revert", "reflog"],
      "expect": ["git/10-revert", "git/19-reflog", "git/09-reset"]},

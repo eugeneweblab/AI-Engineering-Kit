@@ -132,9 +132,11 @@ def grade_arm(repo: Path, trace: Path, base: bool) -> dict[str, bool]:
     if base:
         checks.update({
             "protocol_index_query": "knowledge/INDEX" in commands or "knowledge/SIGNALS" in commands,
-            "protocol_owner_docs": all(name in commands for name in (
-                "github-actions", "distributed-locks", "migrations.md",
-            )),
+            "protocol_owner_docs": (
+                ("github-actions" in commands or "09-workflows" in commands)
+                and "distributed-locks" in commands
+                and "migrations.md" in commands
+            ),
             "protocol_checklists": all(name in commands for name in (
                 "98-production-checklist", "99-ai-review-checklist", "100-common-antipatterns",
             )),

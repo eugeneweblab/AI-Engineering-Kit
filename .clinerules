@@ -3,5 +3,6 @@ Resolve the Git root first; run every knowledge/... lookup from there, even when
 Find knowledge via knowledge/INDEX.json — use only status: "ready" docs; when_to_use says
 when a doc applies, tags and topic narrow it. knowledge/SIGNALS.json maps a repository
 file to the applicable docs and an API name in the diff to the docs that govern it.
-Skip a doc whose applies_to names a variant this repo does not use. Ignore draft stubs.
+Skip a doc whose applies_to names a variant SIGNALS.stack did not match in this repo,
+including when no variant matched. Ignore draft stubs.
 Verify with the topic 98/99/100 checklists; each section names the rule behind its items.

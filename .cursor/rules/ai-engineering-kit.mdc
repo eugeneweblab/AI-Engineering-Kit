@@ -9,14 +9,18 @@ interpret those paths relative to a nested working directory.
 
 Before writing code:
 - Detect the stack from the repository with `knowledge/SIGNALS.json`: `stack` maps a file
-  such as `app/page.tsx` or `wp-config.php` to the documents that govern it.
+  such as `app/page.tsx` or `wp-config.php` to the documents that govern it. That list is
+  the starting set, not the complete set — also resolve symbols from the files you will
+  edit (`timeout-minutes`, `lock_timeout`, `SET NX`).
 - Find relevant knowledge via `knowledge/INDEX.json`; use only `status: "ready"` docs.
   `when_to_use` states when a document applies; `tags` and `topic` narrow it. Then read
   the doc `path`.
 - Resolve an API name from the diff through `SIGNALS.symbols` — a more reliable match
   than guessing the topic from the ticket.
-- Skip a document whose `applies_to` names a variant this repository does not use; when
-  two topics cover one subject, `defers_to` names the one that owns the rule.
+- Skip a document whose `applies_to` names a variant `SIGNALS.stack` did not match in
+  this repository, including when no variant matched at all. When two topics cover one
+  subject, `defers_to` names the owner: still read the deferring doc, but the owner wins
+  on conflict.
 - Follow the matching guide in `knowledge/workflows/` and principles in
   `knowledge/engineering/` and `knowledge/ai/`.
 - Reuse existing patterns, stay in scope, prefer consistency over cleverness.

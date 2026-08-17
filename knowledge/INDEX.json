@@ -5276,11 +5276,13 @@
             "pull_request",
             "pull_request_target"
           ],
+          "defers_to": "github/09-workflows",
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
           "related": [
+            "github/09-workflows",
             "cicd/15-secrets",
             "cicd/16-environments",
             "cicd/02-pipeline-design",
@@ -30638,6 +30640,9 @@
             "cuid",
             "migrate"
           ],
+          "applies_to": [
+            "prisma"
+          ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
@@ -30648,7 +30653,7 @@
             "prisma/04-relations",
             "prisma/25-production"
           ],
-          "when_to_use": "Read before changing the schema of any shared or production database, or wiring migrations into CI/CD.",
+          "when_to_use": "Read before changing a Prisma schema, generating a Prisma migration, or wiring `prisma migrate` into CI/CD.",
           "path": "knowledge/prisma/05-migrations.md"
         },
         {
@@ -33459,7 +33464,8 @@
             "INCR",
             "EXPIRE",
             "eval",
-            "randomUUID"
+            "randomUUID",
+            "SETNX"
           ],
           "verified_against": "",
           "source_urls": [],

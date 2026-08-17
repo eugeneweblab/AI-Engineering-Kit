@@ -7,8 +7,9 @@ type: doc
 order: 5
 status: ready
 tags: [prisma, migrations, "@default", cuid, migrate]
+applies_to: [prisma]
 related: [prisma/02-schema, prisma/03-models, prisma/04-relations, prisma/25-production]
-when_to_use: "Read before changing the schema of any shared or production database, or wiring migrations into CI/CD."
+when_to_use: "Read before changing a Prisma schema, generating a Prisma migration, or wiring `prisma migrate` into CI/CD."
 ---
 # Prisma Migrations
 

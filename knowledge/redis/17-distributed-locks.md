@@ -6,7 +6,7 @@ title: "Distributed Locks"
 type: doc
 order: 17
 status: ready
-tags: [redis, distributed-locks, DEL, INCR, EXPIRE, eval, randomUUID]
+tags: [redis, distributed-locks, DEL, INCR, EXPIRE, eval, randomUUID, SETNX]
 related: [redis/11-lua-scripting, redis/12-expiration, redis/10-transactions, redis/13-caching, redis/18-replication]
 when_to_use: "Read before using Redis to make sure only one process runs a critical section at a time."
 ---
@@ -124,8 +124,8 @@ try {
 
 ## Common Mistakes
 
-- `SET NX` followed by a separate `EXPIRE`, leaving a crash window that deadlocks
-  the lock forever. Always use `SET ... NX PX`.
+- `SET NX` followed by a separate `EXPIRE`, or the older `SETNX` then `EXPIRE`,
+  leaving a crash window that deadlocks the lock forever. Always use `SET ... NX PX`.
 - Releasing with a plain `DEL` instead of a token-checked Lua script, letting a
   stale holder delete the current holder's lock.
 - No expiry at all, so a crashed holder never releases and the resource is stuck.

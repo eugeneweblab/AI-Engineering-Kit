@@ -7,7 +7,8 @@ type: doc
 order: 17
 status: ready
 tags: [cicd, github-actions, timeout-minutes, concurrency, "permissions:", cancel-in-progress, pull_request, pull_request_target]
-related: [cicd/15-secrets, cicd/16-environments, cicd/02-pipeline-design, cicd/06-security-scanning, cicd/07-artifacts]
+related: [github/09-workflows, cicd/15-secrets, cicd/16-environments, cicd/02-pipeline-design, cicd/06-security-scanning, cicd/07-artifacts]
+defers_to: github/09-workflows
 when_to_use: "Read before writing or reviewing a GitHub Actions workflow file."
 ---
 # GitHub Actions
@@ -145,6 +146,7 @@ jobs:
 
 ## Related
 
+- `knowledge/github/09-workflows.md`
 - `knowledge/cicd/15-secrets.md`
 - `knowledge/cicd/16-environments.md`
 - `knowledge/cicd/02-pipeline-design.md`
