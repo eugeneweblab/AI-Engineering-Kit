@@ -114,10 +114,14 @@ class Protocol:
         return found
 
     def retrieve(self, task: str, files: list[str], symbols: list[str],
-                 without: str = "") -> list[str]:
+                 without: str = "", assume_variants: list[str] | None = None) -> list[str]:
         """`without` blanks one source of evidence, so a caller can ask which one
         was actually carrying the result. A test that cannot be made to fail proves
-        nothing; ablation is how this one shows its answers are not coincidental."""
+        nothing; ablation is how this one shows its answers are not coincidental.
+
+        `assume_variants` is for reachability probes that have no repository files:
+        they still have to measure a variant-specific document in a repo where it
+        applies, not skip it as if the repo were a different variant."""
         if without == "stack":
             files = []
         if without == "symbols":
@@ -128,6 +132,8 @@ class Protocol:
 
         stack = self.stack(files)
         variants = {e["variant"] for e in stack if "variant" in e}
+        if assume_variants:
+            variants |= set(assume_variants)
         stack_topics: set[str] = set()
         for entry in stack:
             for doc_id in entry["docs"]:

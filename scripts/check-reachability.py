@@ -135,8 +135,13 @@ def assess(protocol, docs: list[dict], rows: list[str], read: callable,
     out = {}
     for doc in docs:
         queries = read(doc)
+        # Body queries carry no repository files. Without assuming this document's
+        # own variant, every `applies_to` rule is skipped and looks like a regression.
         ranked = any(
-            doc["id"] in protocol.retrieve(q, [], [], without=without) for q in queries
+            doc["id"] in protocol.retrieve(
+                q, [], [], without=without,
+                assume_variants=doc.get("applies_to") or None,
+            ) for q in queries
         )
         out[doc["id"]] = {
             "rank": ranked,
@@ -173,6 +178,16 @@ def selftest(protocol, rows: list[str]) -> int:
         failures.append("a document reachable by nothing was reported as reachable")
     if not any(result[real["id"]][path] for path in ("rank", "symbol", "index")):
         failures.append(f"{real['id']} is reachable in the base but was reported as a hole")
+    owned = next((d for d in ready_docs() if d["id"] == "nextjs/03-app-router"), None)
+    if owned:
+        owned_result = assess(
+            protocol, [owned], rows, lambda d: body_queries(ROOT / d["path"]),
+        )
+        if not owned_result[owned["id"]]["rank"]:
+            failures.append(
+                "nextjs/03-app-router did not rank from its own body — "
+                "applies_to is skipping it as if the repo were not App Router"
+            )
     for message in failures:
         print(f"SELFTEST FAIL: {message}")
     if failures:
