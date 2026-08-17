@@ -7,7 +7,10 @@ type: workflow
 order: 7
 status: ready
 tags: [workflows, add-api-endpoint, problem, signup, treeifyError, auth, safeParse, register]
-related: [rest-api/04-endpoints, nestjs/04-controllers, examples/01-rest-endpoint]
+related:
+  - rest-api/04-endpoints
+  - nestjs/04-controllers
+  - examples/01-rest-endpoint
   - rest-api/03-resource-design
   - rest-api/06-request-response
   - rest-api/07-status-codes
@@ -20,7 +23,6 @@ related: [rest-api/04-endpoints, nestjs/04-controllers, examples/01-rest-endpoin
   - security/09-input-validation
   - security/04-authorization
   - testing/12-api-testing
-  - nestjs/04-controllers
 when_to_use: "Follow this workflow when adding a new API endpoint to an existing project."
 ---
 # Workflow — Add an API Endpoint

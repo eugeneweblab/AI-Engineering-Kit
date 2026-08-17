@@ -77,14 +77,14 @@ permissions:
   security-events: write              # scoped to uploading scan results only
 jobs:
   analyze:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: github/codeql-action/init@v3
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: github/codeql-action/init@v3  # illustrative ref; pin the reviewed SHA in production
         with:
           languages: javascript-typescript
           queries: security-extended   # deeper coverage than the default suite
-      - uses: github/codeql-action/analyze@v3
+      - uses: github/codeql-action/analyze@v3  # illustrative ref; pin the reviewed SHA in production
 ```
 
 **Bad Example** — cron-only, default queries, results ignored

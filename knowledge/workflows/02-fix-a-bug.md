@@ -7,8 +7,10 @@ type: workflow
 order: 2
 status: ready
 tags: [workflows, fix-a-bug, IsInt, InvoiceRow, getHttpServer, send, CreateOrderItemDto]
-related: [engineering/03-debugging-methodology, ai/05-bug-fixing, workflows/06-investigate-production-bug]
+related:
   - engineering/03-debugging-methodology
+  - ai/05-bug-fixing
+  - workflows/06-investigate-production-bug
   - engineering/02-code-review
   - testing/02-unit-testing
   - testing/03-integration-testing

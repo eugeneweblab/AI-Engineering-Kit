@@ -49,6 +49,16 @@ import sys
 import tempfile
 from pathlib import Path
 
+COMMAND_TIMEOUT_SECONDS = 180
+
+
+def run_command(*args, **kwargs):
+    kwargs.setdefault("timeout", COMMAND_TIMEOUT_SECONDS)
+    try:
+        return subprocess.run(*args, **kwargs)
+    except subprocess.TimeoutExpired as exc:
+        raise SystemExit(f"linter timed out after {exc.timeout}s: {exc.cmd}") from exc
+
 ROOT = Path(__file__).resolve().parent.parent
 KB = ROOT / "knowledge"
 BASELINE = ROOT / "scripts" / "data" / "lint-baseline.json"
@@ -60,7 +70,7 @@ def lint_shell(source: str) -> list[tuple[str, str]]:
     # A block that is a fragment of a script still deserves script rules; the shebang
     # only tells shellcheck which dialect to assume.
     body = source if source.lstrip().startswith("#!") else "#!/usr/bin/env bash\n" + source
-    proc = subprocess.run(
+    proc = run_command(
         ["shellcheck", "--format=json", "-s", "bash", "-"],
         input=body, capture_output=True, text=True,
     )
@@ -79,7 +89,7 @@ def lint_python(source: str) -> list[tuple[str, str]]:
         handle.write(source)
         path = handle.name
     try:
-        proc = subprocess.run(
+        proc = run_command(
             [sys.executable, "-m", "ruff", "check", path, "--select=E9,F,B",
              "--output-format=json", "--no-cache"],
             capture_output=True, text=True,
@@ -139,7 +149,7 @@ def refresh_es_env(pinned: dict) -> dict:
         encoding="utf-8",
     )
     wanted = [f"{name}@{pinned[name]}" if name in pinned else name for name in ES_PACKAGES]
-    subprocess.run(["npm", "install", "--silent", "--no-audit", "--no-fund", *wanted],
+    run_command(["npm", "install", "--silent", "--no-audit", "--no-fund", *wanted],
                    cwd=ES_SANDBOX, capture_output=True, text=True)
     versions = {}
     for name in ES_PACKAGES:
@@ -165,7 +175,7 @@ def lint_js_batch() -> tuple[int, list[tuple[str, str, str]]]:
             origin[name] = path.relative_to(KB).as_posix()
 
     (ES_SANDBOX / "eslint.config.js").write_text(ES_CONFIG, encoding="utf-8")
-    proc = subprocess.run(["npx", "eslint", "blocks", "--format", "json"],
+    proc = run_command(["npx", "eslint", "blocks", "--format", "json"],
                           cwd=ES_SANDBOX, capture_output=True, text=True)
     start = proc.stdout.find("[")
     if start < 0:
@@ -245,11 +255,11 @@ def lint_web_batch() -> tuple[int, list[tuple[str, str, str]]]:
         # Both write to a file rather than stdout: Node truncates a large pipe on
         # exit, which once made a checker parse half a document and report success.
         if kind == "css":
-            subprocess.run([*argv, pattern, "--formatter", "json",
+            run_command([*argv, pattern, "--formatter", "json",
                             "--output-file", str(report)],
                            cwd=work, capture_output=True, text=True)
         else:
-            subprocess.run([*argv, pattern, "--formatter", f"json={report.name}"],
+            run_command([*argv, pattern, "--formatter", f"json={report.name}"],
                            cwd=work, capture_output=True, text=True)
         if not report.exists():
             findings.append((f"({kind})", "TOOL", "linter produced no report"))
@@ -289,7 +299,7 @@ def lint_terraform_batch() -> tuple[int, list[tuple[str, str, str]]]:
         return 0, []
     TF_SANDBOX.mkdir(parents=True, exist_ok=True)
     (TF_SANDBOX / ".tflint.hcl").write_text(TF_CONFIG, encoding="utf-8")
-    subprocess.run(["tflint", "--init"], cwd=TF_SANDBOX, capture_output=True, text=True)
+    run_command(["tflint", "--init"], cwd=TF_SANDBOX, capture_output=True, text=True)
 
     findings: list[tuple[str, str, str]] = []
     count = 0
@@ -302,7 +312,7 @@ def lint_terraform_batch() -> tuple[int, list[tuple[str, str, str]]]:
             work.mkdir()
             (work / "main.tf").write_text(source, encoding="utf-8")
             (work / ".tflint.hcl").write_text(TF_CONFIG, encoding="utf-8")
-            proc = subprocess.run(
+            proc = run_command(
                 ["tflint", "--chdir", str(work), "--format=json"],
                 cwd=TF_SANDBOX, capture_output=True, text=True,
             )
@@ -344,14 +354,14 @@ def refresh_php_env() -> int:
         json.dumps({"name": "kb/phpcheck", "require-dev": require}, indent=2) + "\n",
         encoding="utf-8",
     )
-    proc = subprocess.run(
+    proc = run_command(
         ["composer", "update", "--quiet", "--no-interaction"],
         cwd=PHP_SANDBOX, capture_output=True, text=True,
     )
     if proc.returncode != 0:
         print(proc.stdout[-1500:], proc.stderr[-1500:])
         return 1
-    installed = subprocess.run(
+    installed = run_command(
         ["composer", "show", "--format=json"], cwd=PHP_SANDBOX,
         capture_output=True, text=True,
     )
@@ -388,14 +398,14 @@ def lint_php_batch() -> tuple[int, list[tuple[str, str, str]]]:
             # own. Feeding one to PHPStan makes it call the whole run incomplete and
             # silently stop applying rules — which is how an earlier version of this
             # reported zero errors while checking nothing.
-            if subprocess.run(["php", "-l", str(candidate)],
+            if run_command(["php", "-l", str(candidate)],
                               capture_output=True).returncode != 0:
                 candidate.unlink()
                 continue
             origin[candidate.name] = path.relative_to(KB).as_posix()
 
     (PHP_SANDBOX / "phpstan.neon").write_text(PHP_CONFIG, encoding="utf-8")
-    proc = subprocess.run(
+    proc = run_command(
         ["./vendor/bin/phpstan", "analyse", "--no-progress", "--memory-limit=4G",
          "--error-format=json"],
         cwd=PHP_SANDBOX, capture_output=True, text=True,

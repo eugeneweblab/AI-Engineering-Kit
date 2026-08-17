@@ -189,6 +189,8 @@ A document is complete only if all of the following are true:
 - **Examples exist** — At least one good example; bad examples included when they clarify common mistakes.
 - **Checklist exists** — For practical guidance, the reader can verify completion without guessing.
 - **Reader can immediately apply the knowledge** — Rules and steps are specific enough to act on in real work.
+- **Evidence level is honest** — Version-sensitive rules name primary sources, the
+  product/version checked, and review dates before claiming `reviewed` or `validated`.
 
 If any item is missing, the document is a draft—not ready for the repository.
 

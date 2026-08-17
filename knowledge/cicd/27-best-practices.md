@@ -81,17 +81,17 @@ permissions:
   contents: read              # least privilege: read-only by default
 jobs:
   ci:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15       # bounded runtime
     steps:
-      - uses: actions/checkout@v4        # pinned major version
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2        # pinned major version
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with: { node-version: '22', cache: 'npm' }
       - run: npm ci                       # reproducible install from lockfile
       - run: npm run lint                 # cheap check first (fail fast)
       - run: npm test -- --coverage       # gate: coverage enforced in config
       - run: npm run build                # build the artifact ONCE
-      - uses: actions/upload-artifact@v4  # promote this exact artifact downstream
+      - uses: actions/upload-artifact@v4  # promote this exact artifact downstream  # illustrative ref; pin the reviewed SHA in production
         with: { name: dist, path: dist/ }
 ```
 

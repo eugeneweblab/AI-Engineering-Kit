@@ -7,13 +7,14 @@ type: doc
 order: 19
 status: ready
 tags: [figma, design-handoff, PlanCard, ComparisonTable, "@sam", "@maria", "@dev"]
-related: [figma/03-design-token-extraction, figma/06-component-detection, figma/20-implementation-definition-of-done]
+related:
+  - figma/03-design-token-extraction
+  - figma/06-component-detection
+  - figma/20-implementation-definition-of-done
   - figma/14-figma-inspection-checklist
   - figma/01-figma-analysis
-  - figma/03-design-token-extraction
   - figma/18-image-assets
   - figma/16-accessibility-from-figma
-  - figma/20-implementation-definition-of-done
   - workflows/01-implement-figma-design
   - workflows/03-create-new-feature
   - frontend/03-design-systems

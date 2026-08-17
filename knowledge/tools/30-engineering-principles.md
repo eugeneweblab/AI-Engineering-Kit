@@ -84,7 +84,7 @@ Nothing here is reproducible: the runtime floats, the dependency tree is rewritt
 
 ```yaml
 # CI calls the same script a developer does
-- uses: actions/setup-node@v4
+- uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
   with: { node-version-file: '.nvmrc', cache: 'pnpm' }
 - run: corepack enable
 - run: pnpm install --frozen-lockfile

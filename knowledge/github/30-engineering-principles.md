@@ -82,7 +82,7 @@ permissions:
   contents: read            # default-deny; grant only what this job needs
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       # Pinned to a commit SHA: a moved tag cannot swap in malicious code.
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2

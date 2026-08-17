@@ -199,7 +199,7 @@ pnpm changeset
 
 ```yaml
 # .github/workflows/release.yml — versioning and publishing are one reviewed PR.
-- uses: changesets/action@v1
+- uses: changesets/action@v1  # illustrative ref; pin the reviewed SHA in production
   with:
     version: pnpm changeset version   # bumps versions, writes CHANGELOG.md
     publish: pnpm changeset publish   # tags and publishes what the PR approved

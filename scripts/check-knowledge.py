@@ -69,7 +69,23 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from datetime import date
 from pathlib import Path
+
+from frontmatter import FrontmatterError, parse_text, schema_errors
+
+COMMAND_TIMEOUT_SECONDS = 90
+
+
+def run_command(*args, **kwargs):
+    """Run an external parser with a hard bound."""
+    kwargs.setdefault("timeout", COMMAND_TIMEOUT_SECONDS)
+    try:
+        return subprocess.run(*args, **kwargs)
+    except subprocess.TimeoutExpired as exc:
+        raise SystemExit(
+            f"external parser timed out after {exc.timeout}s: {exc.cmd}"
+        ) from exc
 
 # Topics with their own layout, per docs/structure/frozen-structure-v1.md.
 CUSTOM_STRUCTURE = {
@@ -88,6 +104,7 @@ DOC_TYPES = {"doc", "index", "checklist", "antipatterns", "workflow",
 # Router, and block-theme guidance does not apply to a classic theme.
 VARIANTS = {"app-router", "pages-router", "block-theme", "classic-theme",
             "typeorm", "prisma"}
+MATURITIES = {"unverified", "reviewed", "validated"}
 
 BASELINE_PATH = Path(__file__).with_name("codeblock-baseline.json")
 
@@ -95,7 +112,6 @@ BASELINE_PATH = Path(__file__).with_name("codeblock-baseline.json")
 # "clean": a silent skip is how a green build stops checking anything at all.
 SKIPPED: dict[str, str] = {}
 
-FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n", re.DOTALL)
 FENCE_RE = re.compile(r"^```([a-zA-Z0-9_+.-]*)\s*$")
 MD_LINK_RE = re.compile(r"\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 # Deliberately loose: a strict character class silently skips a malformed reference
@@ -142,33 +158,17 @@ class Doc:
         self.path = path
         self.rel = path.relative_to(root.parent)
         text = path.read_text(encoding="utf-8", errors="replace")
-        m = FRONTMATTER_RE.match(text)
-        self.has_frontmatter = m is not None
-        self.fm: dict[str, str] = {}
-        self.related: list[str] = []
-        if m:
-            self._parse_frontmatter(m.group(1))
-            self.body = text[m.end():]
-        else:
-            self.body = text
+        self.frontmatter_error = ""
+        try:
+            metadata, self.body = parse_text(text, str(self.rel))
+        except FrontmatterError as exc:
+            metadata, self.body = {}, text
+            self.frontmatter_error = str(exc)
+        self.has_frontmatter = metadata is not None or bool(self.frontmatter_error)
+        self.fm = metadata or {}
+        self.related = self.fm.get("related", [])
         self.lines = text.split("\n")
         self.blocks = self._parse_blocks()
-
-    def _parse_frontmatter(self, raw: str) -> None:
-        key = None
-        for line in raw.split("\n"):
-            kv = re.match(r"^([A-Za-z_]+):\s*(.*)$", line)
-            if kv:
-                key, value = kv.group(1), kv.group(2).strip()
-                self.fm[key] = value
-                if key == "related" and value.startswith("["):
-                    self.related = [
-                        v.strip().strip("\"'") for v in value[1:-1].split(",") if v.strip()
-                    ]
-                continue
-            item = re.match(r"^\s+-\s+(.*)$", line)
-            if item and key == "related":
-                self.related.append(item.group(1).strip().strip("\"'"))
 
     def _parse_blocks(self) -> list[tuple[str, str, int]]:
         """Return [(tag, source, opening_line_number)] for every fenced block."""
@@ -264,7 +264,7 @@ def run_dockerfile_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str,
             name = f"b{n}.Dockerfile"
             names[name] = block_id
             (tmpdir / name).write_text(src, encoding="utf-8")
-        proc = subprocess.run(
+        proc = run_command(
             ["hadolint", "--format", "json", *sorted(names)],
             capture_output=True, text=True, cwd=tmpdir,
         )
@@ -432,7 +432,7 @@ def run_go_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] |
             else:
                 source = "package p\n\nfunc _() {\n" + src + "\n}"
             path.write_text(source, encoding="utf-8")
-            proc = subprocess.run(["gofmt", "-e", "-l", str(path)],
+            proc = run_command(["gofmt", "-e", "-l", str(path)],
                                   capture_output=True, text=True)
             if proc.stderr.strip():
                 message = proc.stderr.strip().split("\n")[0].split(":", 1)[-1]
@@ -448,7 +448,7 @@ def run_lua_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] 
         path = Path(tmp) / "block.lua"
         for block_id, src, _ in blocks:
             path.write_text(src, encoding="utf-8")
-            proc = subprocess.run(["luac", "-p", "-o", "/dev/null", str(path)],
+            proc = run_command(["luac", "-p", "-o", "/dev/null", str(path)],
                                   capture_output=True, text=True)
             if proc.returncode:
                 failures.append((block_id, proc.stderr.strip().split(":", 2)[-1][:90]))
@@ -556,7 +556,7 @@ def run_shell_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]
         script = Path(tmp) / "block.sh"
         for block_id, src, _ in blocks:
             script.write_text(src, encoding="utf-8")
-            proc = subprocess.run(
+            proc = run_command(
                 ["bash", "-n", str(script)], capture_output=True, text=True
             )
             if proc.returncode != 0:
@@ -572,7 +572,7 @@ def run_php_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]]:
         for block_id, src, _ in blocks:
             source = src if src.lstrip().startswith("<?php") else "<?php\n" + src
             script.write_text(source, encoding="utf-8")
-            proc = subprocess.run(
+            proc = run_command(
                 ["php", "-l", str(script)], capture_output=True, text=True
             )
             if proc.returncode != 0:
@@ -592,7 +592,7 @@ def have(tool: str) -> bool:
     if shutil.which(tool):
         return True
     if tool in PIP_TOOLS:
-        return subprocess.run([sys.executable, "-m", tool, "--version"],
+        return run_command([sys.executable, "-m", tool, "--version"],
                               capture_output=True).returncode == 0
     return False
 
@@ -629,7 +629,7 @@ def run_sql_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] 
             by_dialect.setdefault(dialect, []).append(name)
 
         for dialect in by_dialect:
-            proc = subprocess.run(
+            proc = run_command(
                 [*sqlfluff, "lint", "--format", "json",
                  "--dialect", dialect, "--rules", "PRS", dialect],
                 capture_output=True, text=True, cwd=root,
@@ -668,7 +668,7 @@ def run_html_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]]
         # Write the report to a file: Node truncates a large stdout pipe on exit,
         # which silently cut the JSON at 64 KiB and made this check a no-op.
         report_path = tmpdir / "report.json"
-        subprocess.run(
+        run_command(
             ["npx", "--yes", "html-validate@8", f"--formatter=json={report_path.name}", "*.html"],
             capture_output=True, text=True, cwd=tmpdir,
         )
@@ -699,7 +699,7 @@ def run_css_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] 
             names[name] = block_id
             (tmpdir / name).write_text(src, encoding="utf-8")
         report_path = tmpdir / "report.json"
-        subprocess.run(
+        run_command(
             ["npx", "--yes", "stylelint@16", "*.css", "*.scss",
              "--formatter=json", "--output-file", report_path.name],
             capture_output=True, text=True, cwd=tmpdir,
@@ -731,7 +731,7 @@ def run_js_checks(blocks: list[tuple[str, str, str]]) -> list[tuple[str, str]] |
         # with experimentalDecorators. Enable it so real defects are not buried under
         # 80 spurious errors.
         tsconfig = '{"compilerOptions":{"experimentalDecorators":true}}'
-        proc = subprocess.run(
+        proc = run_command(
             ["npx", "--yes", "esbuild@0.24.0", "--log-limit=0",
              f"--tsconfig-raw={tsconfig}",
              f"--outdir={tmpdir / '_out'}", *sorted(names)],
@@ -853,6 +853,30 @@ def check_planning_docs(root: Path, problems: list[str]) -> None:
 MIN_RULES_LINES = 3
 
 
+GOOD_YAML_RE = re.compile(
+    r"\*\*Good Example\*\*.*?```(?:yaml|yml)\n(.*?)```",
+    re.DOTALL | re.IGNORECASE,
+)
+
+
+def check_copy_safe_good_examples(doc: Doc, problems: list[str]) -> None:
+    """A labelled good workflow example must not silently teach moving inputs."""
+    for block in GOOD_YAML_RE.findall(doc.body):
+        for line in block.splitlines():
+            lowered = line.lower()
+            warned = "pin" in lowered or "illustrative" in lowered
+            if re.search(r"uses:\s*\S+@(v\d+|main|master|latest)\b", line) and not warned:
+                problems.append(
+                    f"{doc.rel}: Good Example uses a mutable Action ref without an "
+                    "inline warning to pin the reviewed SHA"
+                )
+            if re.search(r"runs-on:\s*\S+-latest\b", line) and not warned:
+                problems.append(
+                    f"{doc.rel}: Good Example uses a moving runner without an inline "
+                    "warning or an explicit runner image"
+                )
+
+
 def check_checklist_pointers(root: Path, docs: list[Doc], problems: list[str]) -> None:
     """Topic checklists must route a failed check back to the rule that explains it.
 
@@ -863,6 +887,7 @@ def check_checklist_pointers(root: Path, docs: list[Doc], problems: list[str]) -
     """
     for doc in docs:
         check_rule_before_example(doc, problems)
+        check_copy_safe_good_examples(doc, problems)
         if not doc.path.name.startswith(("98-", "99-")):
             continue
         found = len(re.findall(r"^\*\*Rules:\*\*", doc.body, re.MULTILINE))
@@ -883,6 +908,9 @@ def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
             if doc.path.parent == root:
                 continue  # README/TEMPLATE/STYLE_GUIDE at the root carry no frontmatter
             problems.append(f"{rel}: no frontmatter")
+            continue
+        if doc.frontmatter_error:
+            problems.append(doc.frontmatter_error)
             continue
         # Zero-width and BOM characters survive copy-paste into filenames, commands,
         # and identifiers, and hide fences from every tool that looks for ``` at the
@@ -915,6 +943,8 @@ def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
 
         topic = doc.path.parent.name
         fm = doc.fm
+        for error in schema_errors(fm):
+            problems.append(f"{rel}: {error}")
         if doc.path.name != "README.md":
             expected_id = f"{topic}/{doc.path.stem}"
             if fm.get("id") != expected_id:
@@ -923,7 +953,7 @@ def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
                 problems.append(f"{rel}: topic is {fm.get('topic')!r}, expected {topic!r}")
             prefix = re.match(r"^(\d+)-", doc.path.name)
             if prefix:
-                want = str(int(prefix.group(1)))
+                want = int(prefix.group(1))
                 if fm.get("order") != want:
                     problems.append(f"{rel}: order is {fm.get('order')!r}, expected {want!r}")
                 key = (topic, int(want))
@@ -935,6 +965,22 @@ def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
             problems.append(f"{rel}: type is {fm.get('type')!r}, expected one of {sorted(DOC_TYPES)}")
         if fm.get("status") not in ("ready", "draft"):
             problems.append(f"{rel}: status is {fm.get('status')!r}, expected ready or draft")
+        maturity = fm.get("maturity", "unverified")
+        if maturity not in MATURITIES:
+            problems.append(f"{rel}: maturity is {maturity!r}, expected one of {sorted(MATURITIES)}")
+        if maturity in {"reviewed", "validated"}:
+            for field in ("verified_against", "last_reviewed", "review_after", "source_urls"):
+                if not fm.get(field):
+                    problems.append(f"{rel}: maturity {maturity!r} requires {field}")
+        for field in ("last_reviewed", "review_after"):
+            value = fm.get(field)
+            if value:
+                try:
+                    parsed_date = date.fromisoformat(value)
+                    if field == "review_after" and parsed_date < date.today():
+                        problems.append(f"{rel}: review_after {value} has expired")
+                except (TypeError, ValueError):
+                    problems.append(f"{rel}: {field} must be an ISO date (YYYY-MM-DD)")
         if not fm.get("title"):
             problems.append(f"{rel}: title is empty")
         else:
@@ -942,7 +988,7 @@ def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
             # H1 it is usually an automated title-casing pass mangling an acronym —
             # "Oauth", "Cicd", "Aria" all reached the index that way.
             heading = re.search(r"^#\s+(.+)$", doc.body, re.MULTILINE)
-            title = fm["title"].strip("\"'")
+            title = fm["title"]
             if heading:
                 want = heading.group(1).strip().replace("`", "")
                 if title != want:
@@ -955,13 +1001,12 @@ def check_docs(root: Path, docs: list[Doc], problems: list[str]) -> None:
                     f"{rel}: title {title!r} is already used by {seen_titles[title]}"
                 )
             seen_titles[title] = str(rel)
-        if not fm.get("when_to_use", "").strip('"\' '):
+        if not fm.get("when_to_use", "").strip():
             problems.append(f"{rel}: when_to_use is empty")
 
-        raw_applies = fm.get("applies_to", "")
-        if raw_applies:
-            values = [v.strip() for v in raw_applies.strip("[]").split(",") if v.strip()]
-            for v in values:
+        applies = fm.get("applies_to", [])
+        if isinstance(applies, list):
+            for v in applies:
                 if v not in VARIANTS:
                     problems.append(
                         f"{rel}: applies_to {v!r} is not a known variant {sorted(VARIANTS)}"

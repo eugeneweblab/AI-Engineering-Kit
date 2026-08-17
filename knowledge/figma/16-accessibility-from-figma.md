@@ -7,17 +7,18 @@ type: doc
 order: 16
 status: ready
 tags: [figma, accessibility-from-figma, parseInt, background, inset, toFixed, white-space, row-reverse]
-related: [figma/06-component-detection, accessibility/10-color-and-contrast, accessibility/05-focus-management]
+related:
+  - figma/06-component-detection
+  - accessibility/10-color-and-contrast
+  - accessibility/05-focus-management
   - figma/01-figma-analysis
   - figma/14-figma-inspection-checklist
   - figma/10-design-qa
   - figma/19-design-handoff
   - accessibility/03-semantic-html
   - accessibility/04-keyboard-navigation
-  - accessibility/05-focus-management
   - accessibility/07-aria
   - accessibility/08-forms
-  - accessibility/10-color-and-contrast
   - accessibility/23-wcag
   - html/02-semantic-html
 when_to_use: "Read while inspecting a Figma design, to identify accessibility requirements before implementation begins."

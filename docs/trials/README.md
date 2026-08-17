@@ -62,5 +62,10 @@ hours before this ran. Before that fix `AGENTS.md` said "Open `knowledge/INDEX.j
 python3 scripts/trial-grade.py /tmp/trial/base /tmp/trial/nobase
 ```
 
-The task prompts are in the git history of this file. When a framework moves a
-major, rerun it: the tasks are exactly the places where memory goes stale.
+The original 2026-08-10 outputs and prompts were not committed, so that result is
+historical evidence rather than a fully reproducible benchmark. New trials must use
+the versioned harness in [`agent-compliance-v1/`](agent-compliance-v1/), which commits
+the prompt and fixture and records raw traces, model/CLI identity, every repetition,
+token usage, output grading, and protocol-compliance grading. When a framework moves
+a major, add a new versioned scenario rather than rewriting an old prompt after seeing
+the result.

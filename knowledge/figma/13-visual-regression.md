@@ -7,11 +7,11 @@ type: doc
 order: 13
 status: ready
 tags: [figma, visual-regression, toHaveScreenshot, evaluate, getByTestId, goto, setViewportSize, locator]
-related: [figma/15-screenshot-comparison, figma/10-design-qa, testing/14-visual-regression]
-  - figma/10-design-qa
+related:
   - figma/15-screenshot-comparison
-  - figma/20-implementation-definition-of-done
+  - figma/10-design-qa
   - testing/14-visual-regression
+  - figma/20-implementation-definition-of-done
   - testing/22-flaky-tests
   - testing/21-cicd
   - testing/27-quality-gates
@@ -345,18 +345,18 @@ on: pull_request
 
 jobs:
   screenshots:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Pin the image to the installed Playwright version — a mismatch silently changes rendering.
     container: mcr.microsoft.com/playwright:v1.49.0-jammy
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with: { node-version: 24, cache: npm }
       - run: npm ci
       - run: npm run build && npm run start &
       - run: npx wait-on http://localhost:3000
       - run: npx playwright test --project=chromium-desktop --project=chromium-mobile
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4  # illustrative ref; pin the reviewed SHA in production
         if: failure()
         with:
           name: visual-diffs

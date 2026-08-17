@@ -143,6 +143,15 @@ AI agents consume the same documentation naturally instead of relying on prompt 
 
 AI Engineering Kit is currently under active development.
 
-The project is being built incrementally, with each release introducing complete and production-ready documentation rather than unfinished drafts.
+The current coverage is strongest for web/backend development, CI/CD, cloud,
+containers, security, testing, and common engineering workflows. It is not a
+universal standard for every language or platform: when a stack is not covered,
+agents should use the general engineering principles together with the target
+repository's code, tests, conventions, and official documentation.
+
+A document marked `ready` is structurally complete, not automatically proven in
+every supported tool or runtime. The separate `maturity` field records whether a
+document is `unverified`, `reviewed`, or `validated`; reviewed and validated
+claims require dated evidence and source provenance.
 
 Community feedback and contributions are welcome as the project evolves.

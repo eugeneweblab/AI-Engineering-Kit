@@ -73,10 +73,10 @@ changes become risky.
 # .github/workflows/ci.yml — same steps, same versions, every run
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with: { node-version-file: .nvmrc, cache: npm } # pinned Node, cached deps
       - run: npm ci                 # deterministic install from the committed lockfile
       - run: npm run lint           # ESLint — fails the build on any error

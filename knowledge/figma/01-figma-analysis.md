@@ -7,15 +7,15 @@ type: doc
 order: 1
 status: ready
 tags: [figma, figma-analysis, FIGMA_TOKEN, FILE_KEY, PlanCard, Primary, Desktop, URL, fully, plan, implementation]
-related: [figma/02-layout-analysis, figma/03-design-token-extraction, figma/06-component-detection, workflows/01-implement-figma-design]
+related:
   - figma/02-layout-analysis
   - figma/03-design-token-extraction
-  - figma/05-responsive-analysis
   - figma/06-component-detection
+  - workflows/01-implement-figma-design
+  - figma/05-responsive-analysis
   - figma/14-figma-inspection-checklist
   - figma/19-design-handoff
   - figma/20-implementation-definition-of-done
-  - workflows/01-implement-figma-design
   - accessibility/03-semantic-html
   - frontend/03-design-systems
 when_to_use: "Read before writing any code from a Figma design, to fully analyze the design and plan implementation first."

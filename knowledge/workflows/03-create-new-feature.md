@@ -7,7 +7,10 @@ type: workflow
 order: 3
 status: ready
 tags: [workflows, create-new-feature, ExportButton, unparse, createObjectURL, Blob, scope, open]
-related: [engineering/04-task-execution, ai/02-task-planning, workflows/07-add-api-endpoint]
+related:
+  - engineering/04-task-execution
+  - ai/02-task-planning
+  - workflows/07-add-api-endpoint
   - engineering/05-context-first-development
   - engineering/00-engineering-principles
   - architecture/00-overview

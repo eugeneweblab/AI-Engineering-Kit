@@ -74,7 +74,7 @@ composer install --no-dev --optimize-autoloader --no-interaction
 **Good Example** — a CI install that cannot drift
 
 ```yaml
-- uses: actions/setup-node@v4
+- uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
   with:
     node-version-file: '.nvmrc'   # one source of truth for the runtime
     cache: 'pnpm'

@@ -27,9 +27,10 @@ import json
 import re
 from pathlib import Path
 
+from frontmatter import FRONTMATTER_RE, parse_path
+
 ROOT = Path(__file__).resolve().parent.parent
 KB = ROOT / "knowledge"
-FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n", re.DOTALL)
 
 # Each entry: what to look for, what it means, and which documents govern it.
 # `absent` narrows a match — the same file means different things with and without
@@ -161,13 +162,8 @@ def unmatched_probes() -> list[str]:
 
 
 def frontmatter(path: Path) -> dict[str, str]:
-    m = FRONTMATTER_RE.match(path.read_text(encoding="utf-8", errors="replace"))
-    if not m:
-        return {}
-    return {
-        k: v.strip()
-        for k, v in re.findall(r"^([a-z_]+):\s*(.*)$", m.group(1), re.MULTILINE)
-    }
+    metadata, _ = parse_path(path)
+    return metadata or {}
 
 
 SYMBOL_STOP = set("""
@@ -185,7 +181,13 @@ console warn info debug map filter reduce find push slice split replace trim len
 size count render process env args options config params props state children status
 code message request response next user users order orders product products post
 posts page pages event events row report handler callback helper util temp thing
+get query json res fetch test expect constructor image save now api set server latest
+steps width location load execute close root spec table
 """.split())
+
+# Above this fan-out a token no longer identifies a useful rule. A query that returns
+# an entire topic is a text search, not a symbol lookup; INDEX/when_to_use handles it.
+MAX_SYMBOL_FANOUT = 24
 
 CALL_RE = re.compile(r"\b([A-Za-z_][A-Za-z0-9_]{2,})\s*\(")
 DECORATOR_RE = re.compile(r"@([A-Z][A-Za-z0-9_]{2,})")
@@ -311,7 +313,7 @@ def main() -> int:
 
     # A symbol present across a large share of the base identifies nothing in
     # particular. Keep the ones that point somewhere.
-    ceiling = max(12, doc_count // 12)
+    ceiling = MAX_SYMBOL_FANOUT
     symbols = {s: ids for s, ids in symbols.items() if len(set(ids)) <= ceiling}
 
     unmatched = unmatched_probes()

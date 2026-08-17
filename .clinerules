@@ -1,4 +1,5 @@
 Agent instructions for this repository are in AGENTS.md (repo root). Read it first.
+Resolve the Git root first; run every knowledge/... lookup from there, even when the current directory is nested.
 Find knowledge via knowledge/INDEX.json — use only status: "ready" docs; when_to_use says
 when a doc applies, tags and topic narrow it. knowledge/SIGNALS.json maps a repository
 file to the applicable docs and an API name in the diff to the docs that govern it.

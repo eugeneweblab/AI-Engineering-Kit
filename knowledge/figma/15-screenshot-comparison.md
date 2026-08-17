@@ -7,12 +7,12 @@ type: doc
 order: 15
 status: ready
 tags: [figma, screenshot-comparison, goto, toHaveScreenshot, evaluate, readFileSync, FIGMA_FILE_KEY]
-related: [figma/13-visual-regression, figma/10-design-qa, testing/14-visual-regression]
-  - figma/10-design-qa
+related:
   - figma/13-visual-regression
+  - figma/10-design-qa
+  - testing/14-visual-regression
   - figma/05-responsive-analysis
   - figma/20-implementation-definition-of-done
-  - testing/14-visual-regression
   - testing/13-ui-testing
   - performance/12-fonts
   - accessibility/10-color-and-contrast

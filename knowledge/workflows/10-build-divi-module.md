@@ -7,10 +7,11 @@ type: workflow
 order: 10
 status: ready
 tags: [workflows, build-divi-module, esc_html, esc_html__, ET_Builder_Module, get_fields, get_the_title, absint]
-related: [divi/04-custom-modules, divi/03-modules, figma/09-figma-to-divi]
-  - divi/01-architecture
-  - divi/03-modules
+related:
   - divi/04-custom-modules
+  - divi/03-modules
+  - figma/09-figma-to-divi
+  - divi/01-architecture
   - divi/09-custom-css
   - divi/11-responsive-design
   - divi/12-accessibility
@@ -19,7 +20,6 @@ related: [divi/04-custom-modules, divi/03-modules, figma/09-figma-to-divi]
   - divi/99-ai-review-checklist
   - wordpress/06-security
   - php/13-security
-  - figma/09-figma-to-divi
 when_to_use: "Follow this workflow when creating or modifying a custom Divi module."
 ---
 # Workflow — Build a Divi Module

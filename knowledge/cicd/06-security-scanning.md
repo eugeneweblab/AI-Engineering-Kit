@@ -70,13 +70,13 @@ the discipline is in keeping the gate's signal-to-noise high enough that people 
 # .github/workflows/security.yml — runs on every PR
 jobs:
   scan:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with: { fetch-depth: 0 } # full history so the secret scan sees new commits
 
       - name: Secrets
-        uses: gitleaks/gitleaks-action@v2 # fails the job on any detected secret
+        uses: gitleaks/gitleaks-action@v2 # fails the job on any detected secret  # illustrative ref; pin the reviewed SHA in production
 
       - name: Dependencies (SCA)
         uses: aquasecurity/trivy-action@0.28.0
@@ -89,7 +89,7 @@ jobs:
           output: trivy.sarif
 
       - name: Publish findings
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v3  # illustrative ref; pin the reviewed SHA in production
         with: { sarif_file: trivy.sarif } # findings show up inline on the PR
 ```
 

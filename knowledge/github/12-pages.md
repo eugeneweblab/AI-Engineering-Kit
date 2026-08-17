@@ -72,11 +72,11 @@ permissions:
   contents: read          # only read the repo; deploy job gets its own scope
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - run: npm ci && npm run build   # base path set in vite.config to '/repo/'
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3  # illustrative ref; pin the reviewed SHA in production
         with: { path: ./dist }
   deploy:
     needs: build
@@ -84,9 +84,9 @@ jobs:
       pages: write        # narrowly scoped: only what deploy needs
       id-token: write      # OIDC proof that this run produced the artifact
     environment: github-pages
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v4  # illustrative ref; pin the reviewed SHA in production
 ```
 
 **Bad Example** — committing built output and secrets to a branch source

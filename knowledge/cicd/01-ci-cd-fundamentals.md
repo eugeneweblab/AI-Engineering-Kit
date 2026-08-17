@@ -74,9 +74,9 @@ on:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - run: npm ci         # exact, locked dependencies — reproducible
       - run: npm run build
       - run: npm test
@@ -84,7 +84,7 @@ jobs:
   deploy:
     needs: verify                                   # never deploy an unproven commit
     if: github.event_name == 'push'                 # only on merge to main, not on PRs
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - run: ./scripts/deploy.sh                    # promotes the artifact verify built
 ```

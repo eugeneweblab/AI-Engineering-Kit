@@ -20,14 +20,21 @@ title: "<Human Title>"       # matches the first H1
 type: doc                    # doc | index
 order: <NN>                  # numeric prefix as an integer
 status: draft                # draft until complete, then: ready
+maturity: unverified         # unverified | reviewed | validated
 tags: [<topic>, <slug>]      # retrieval keywords
 related: []                  # ids of related docs
 when_to_use: ""              # one line: when an agent should read this doc
+verified_against: ""         # product/runtime/version or standard revision
+source_urls: []              # primary sources used to verify the rule
+last_reviewed: ""            # quoted ISO date: YYYY-MM-DD
+review_after: ""             # quoted ISO date; forces a freshness decision
 ---
 ```
 
 Flip `status` to `ready` only when the Definition of Done in `WRITING_STANDARD.md`
-is met. After editing, regenerate the index: `python3 scripts/build-index.py`.
+is met. Use `maturity: reviewed` or `validated` only with the four provenance fields
+filled; otherwise leave it `unverified`. After editing, regenerate the index:
+`python3 scripts/build-index.py`.
 
 ---
 

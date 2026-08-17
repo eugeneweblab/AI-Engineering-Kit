@@ -1,6 +1,8 @@
 # GitHub Copilot instructions
 
 This repository's full agent guidance is in [`AGENTS.md`](../AGENTS.md).
+Resolve the Git root first and run every lookup under `knowledge/` from there, even when
+the current directory is nested.
 
 When answering or generating code:
 

@@ -2,6 +2,10 @@
 
 Maintenance scripts for the knowledge base. Run from the repo root.
 
+All metadata readers share `frontmatter.py`, which uses PyYAML and validates field
+types. There is intentionally no regex fallback: malformed YAML must stop builders
+and checks instead of being interpreted differently by each script.
+
 ## `inject-frontmatter.py`
 
 Backfills the required YAML frontmatter into every `knowledge/<topic>/*.md` that is
@@ -38,10 +42,15 @@ Generates `knowledge/SIGNALS.json`, which answers the question an agent has *bef
   `pages/_app.tsx` means the legacy Pages Router; a theme with `theme.json` is a block
   theme, the same theme without one is classic. Which files mean which variant is
   judgement, so this list is hand-maintained here rather than derived.
-- **`symbols`** — generated from every document's `tags`: an API name in a diff
+- **`symbols`** — generated from identifiers in document code and repeated terms of
+  art in prose: an API name in a diff
   (`revalidateTag`, `switch_to_blog`, `autovacuum_freeze_max_age`) resolves to the
   documents that state its rules. READMEs, `00` overviews, and the `98`/`99`
   checklists are excluded — they index or verify rules rather than state them.
+
+Generic tokens and symbols that point to more than 24 documents are excluded. At
+that fan-out they no longer identify a governing rule; use `INDEX.json` and
+`when_to_use` for broad concepts instead.
 
 ```bash
 python3 scripts/build-signals.py
@@ -154,6 +163,25 @@ This is the check that would have caught the instructions telling agents to matc
 ```bash
 python3 scripts/check-agent-instructions.py
 ```
+
+Its self-test operates on a temporary copy and never rewrites the real `AGENTS.md`.
+
+## `agent-compliance.py`
+
+Prepares, runs, and grades the versioned real-agent A/B scenario under
+`docs/trials/agent-compliance-v1/`. It records raw JSONL traces, final responses,
+model and CLI identity, token usage, output checks, and retrieval/checklist process
+checks. Running agents is explicit and is not part of ordinary CI.
+
+```bash
+python3 scripts/agent-compliance.py prepare /tmp/ai-kit-trial
+python3 scripts/agent-compliance.py run /tmp/ai-kit-trial --model <exact-model-id> --repeats 5
+python3 scripts/agent-compliance.py grade /tmp/ai-kit-trial
+```
+
+External validators in the manifest, type, lint, and guardrail self-test scripts have
+bounded subprocess timeouts. A stuck tool now fails with the command name instead of
+hanging the job indefinitely.
 
 ---
 
@@ -361,7 +389,7 @@ a table entry rather than a new script.
 ## `selftest-guardrails.py`
 
 Proves the linters can fail. It copies the base, injects one real defect per rule and
-per block language — 39 in all, each in its own document — and reports any that goes
+per block language — 56 in all, each in its own document — and reports any that goes
 unnoticed.
 
 This exists because a green run is not evidence on its own. Two checks here reported
@@ -373,9 +401,16 @@ A case whose parser is not installed is reported as **not proved** rather than a
 missing rule, and still fails the run — an unchecked language must not read as clean.
 
 ```bash
-python3 scripts/selftest-guardrails.py            # every case (~70 s)
+python3 scripts/selftest-guardrails.py            # every case
 python3 scripts/selftest-guardrails.py sql html   # only matching names
+python3 scripts/selftest-guardrails.py --fast-only
+python3 scripts/selftest-guardrails.py --external-only
+python3 scripts/selftest-guardrails.py --integration-only
 ```
+
+The three mode flags isolate the structural, external-parser, and per-tool
+integration layers. External subprocesses have explicit timeouts, so a wedged
+validator fails with its command name instead of hanging indefinitely.
 
 ---
 

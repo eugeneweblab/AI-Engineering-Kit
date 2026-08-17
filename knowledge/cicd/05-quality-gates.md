@@ -73,9 +73,9 @@ meaningful, and enforced.
 ```yaml
 # This job is a REQUIRED status check on main. A red result blocks merge, full stop.
 quality-gate:
-  runs-on: ubuntu-latest
+  runs-on: ubuntu-24.04
   steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with: { fetch-depth: 0 }                 # need history for diff coverage
     - run: npm ci
     - run: npm run typecheck                   # fails the job on any type error

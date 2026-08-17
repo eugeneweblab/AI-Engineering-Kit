@@ -51,6 +51,16 @@ import subprocess
 import sys
 from pathlib import Path
 
+COMMAND_TIMEOUT_SECONDS = 180
+
+
+def run_command(*args, **kwargs):
+    kwargs.setdefault("timeout", COMMAND_TIMEOUT_SECONDS)
+    try:
+        return subprocess.run(*args, **kwargs)
+    except subprocess.TimeoutExpired as exc:
+        raise SystemExit(f"type checker timed out after {exc.timeout}s: {exc.cmd}") from exc
+
 ROOT = Path(__file__).resolve().parent.parent
 KB = ROOT / "knowledge"
 DATA = ROOT / "scripts" / "data"
@@ -133,7 +143,7 @@ def refresh_env() -> int:
                   for name in LIBRARIES]
         print(f"installing {len(LIBRARIES)} libraries at pinned versions into "
               f"{SANDBOX} …")
-    proc = subprocess.run(
+    proc = run_command(
         ["npm", "install", "--silent", "--no-audit", "--no-fund", *wanted],
         cwd=SANDBOX, capture_output=True, text=True,
     )
@@ -153,7 +163,7 @@ def refresh_env() -> int:
         '});\n',
         encoding="utf-8",
     )
-    generated = subprocess.run(
+    generated = run_command(
         ["npx", "prisma", "generate"], cwd=SANDBOX, capture_output=True, text=True,
         env={**os.environ, "DATABASE_URL": "postgresql://u:p@localhost:5432/db"},
     )
@@ -224,7 +234,7 @@ def main(argv: list[str]) -> int:
             origin[name] = path.relative_to(KB).as_posix()
 
     (SANDBOX / "tsconfig.json").write_text(json.dumps(TSCONFIG, indent=1), encoding="utf-8")
-    proc = subprocess.run(
+    proc = run_command(
         ["npx", "tsc", "-p", "tsconfig.json"], cwd=SANDBOX, capture_output=True, text=True
     )
 

@@ -1,6 +1,8 @@
 # GEMINI.md
 
 Agent instructions for this repository live in [`AGENTS.md`](AGENTS.md). Read it first.
+Resolve the Git root and run every lookup under `knowledge/` from there; the current
+working directory may be nested.
 
 Entrypoint for finding knowledge: [`knowledge/INDEX.json`](knowledge/INDEX.json).
 Filter to `status: "ready"`, then match: `when_to_use` states when a document applies,

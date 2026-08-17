@@ -27,8 +27,13 @@ from __future__ import annotations
 
 import json
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
+
+from frontmatter import FIELDS
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -44,7 +49,8 @@ ENTRYPOINTS = [
 INSTRUCTION_FILES = ["AGENTS.md", "README.md", "agents/README.md", *ENTRYPOINTS]
 
 FIELD_RE = re.compile(
-    r"`(status|tags|when_to_use|related|order|type|slug|topic|id|applies_to|defers_to)`"
+    r"`(status|maturity|tags|when_to_use|related|order|type|slug|topic|id|"
+    r"applies_to|defers_to|verified_against|source_urls|last_reviewed|review_after)`"
 )
 LINK_RE = re.compile(r"\[[^\]]*\]\(([^)\s]+)\)")
 BARE_PATH_RE = re.compile(r"`((?:knowledge|scripts|docs|agents)/[\w./-]+)`")
@@ -77,23 +83,30 @@ def selftest() -> int:
     knowledge/INDEX.json", and every retrieval probe still passed, because the test
     harness reads that file with Python rather than with a context window.
     """
-    agents = ROOT / "AGENTS.md"
-    original = agents.read_text(encoding="utf-8")
-    injected = original.replace(
-        "Query the index; do not read it.", "Open knowledge/INDEX.json.", 1
-    )
-    if injected == original:
-        print("selftest: the anchor phrase is gone; update the injection.")
-        return 1
-    try:
+    global ROOT
+    source_root = ROOT
+    with tempfile.TemporaryDirectory(prefix="agent-instructions-selftest-") as tmp:
+        test_root = Path(tmp) / "repo"
+        shutil.copytree(source_root, test_root, ignore=shutil.ignore_patterns(".git", ".idea"))
+        subprocess.run(["git", "init", "-q"], cwd=test_root, check=True)
+        agents = test_root / "AGENTS.md"
+        original = agents.read_text(encoding="utf-8")
+        injected = original.replace(
+            "Query the index; do not read it.", "Open knowledge/INDEX.json.", 1
+        )
+        if injected == original:
+            print("selftest: the anchor phrase is gone; update the injection.")
+            return 1
         agents.write_text(injected, encoding="utf-8")
         import io, contextlib
         buffer = io.StringIO()
-        with contextlib.redirect_stdout(buffer):
-            code = main()
+        try:
+            ROOT = test_root
+            with contextlib.redirect_stdout(buffer):
+                code = main()
+        finally:
+            ROOT = source_root
         output = buffer.getvalue()
-    finally:
-        agents.write_text(original, encoding="utf-8")
     if code == 0 or "Instruct a query, not a load" not in output:
         print("selftest FAIL: telling an agent to open a 310k-token file was not "
               "reported.")
@@ -118,12 +131,25 @@ def main() -> int:
     exposed_fields = set().union(*(set(d) for d in docs))
     statuses = {d["status"] for d in docs} | {"draft"}
 
+    nested = ROOT / "knowledge" / "nextjs"
+    root_probe = subprocess.run(
+        ["git", "rev-parse", "--show-toplevel"], cwd=nested,
+        capture_output=True, text=True,
+    )
+    if root_probe.returncode != 0 or Path(root_probe.stdout.strip()).resolve() != ROOT.resolve():
+        problems.append("nested cwd: Git-root discovery does not resolve to this repository")
+
     for name in INSTRUCTION_FILES:
         path = ROOT / name
         if not path.exists():
             problems.append(f"{name}: missing")
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
+
+        if name in ["AGENTS.md", *ENTRYPOINTS] and not re.search(
+            r"Git root|git rev-parse --show-toplevel", text, re.IGNORECASE
+        ):
+            problems.append(f"{name}: does not tell a nested-cwd agent to resolve the Git root")
 
         if name in ENTRYPOINTS and "AGENTS.md" not in text:
             problems.append(f"{name}: does not point at AGENTS.md")
@@ -167,29 +193,20 @@ def main() -> int:
             if not script.exists():
                 problems.append(f"{name}: command -> {script.name} does not exist")
 
-    # The metadata contract in AGENTS.md is a YAML sample. Every key it documents must
-    # be a key real documents carry — otherwise the contract describes a field that
-    # does not exist, and an agent looking for it finds nothing.
+    # The metadata contract in AGENTS.md must match the schema accepted by every
+    # builder/checker. Optional provenance fields need not appear in all legacy docs.
     agents_text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
     contract = re.search(r"```yaml\s*\n---\n(.*?)\n---\n```", agents_text, re.DOTALL)
     if contract:
         documented = set(re.findall(r"^([a-z_]+):", contract.group(1), re.MULTILINE))
-        actual: set[str] = set()
-        for path in (ROOT / "knowledge").rglob("*.md"):
-            head = re.match(
-                r"\A---\n(.*?)\n---\n", path.read_text(encoding="utf-8", errors="replace"),
-                re.DOTALL,
-            )
-            if head:
-                actual.update(re.findall(r"^([a-z_]+):", head.group(1), re.MULTILINE))
-        for field in sorted(documented - actual):
+        for field in sorted(documented - FIELDS):
             problems.append(
                 f"AGENTS.md: the metadata contract documents `{field}`, "
-                f"which no document carries"
+                f"which the parser schema does not accept"
             )
-        for field in sorted(actual - documented):
+        for field in sorted(FIELDS - documented):
             problems.append(
-                f"AGENTS.md: documents carry `{field}`, "
+                f"AGENTS.md: the parser accepts `{field}`, "
                 f"which the metadata contract does not mention"
             )
 

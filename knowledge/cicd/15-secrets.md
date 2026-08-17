@@ -78,10 +78,10 @@ permissions:
   contents: read
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: production    # scopes the deploy + its protections to prod only
     steps:
-      - uses: aws-actions/configure-aws-credentials@v4
+      - uses: aws-actions/configure-aws-credentials@v4  # illustrative ref; pin the reviewed SHA in production
         with:
           role-to-assume: arn:aws:iam::111111111111:role/deploy  # least-privilege role
           aws-region: us-east-1

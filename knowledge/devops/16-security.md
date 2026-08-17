@@ -96,7 +96,7 @@ permissions:
   contents: read         # least privilege for the job
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: aws-actions/configure-aws-credentials@v4  # pin by SHA in production
         with:

@@ -24,6 +24,8 @@ import re
 import sys
 from pathlib import Path
 
+from frontmatter import FrontmatterError, parse_path
+
 MIN_BODY_CHARS = 400          # a real `ready` doc has at least this much prose/code
 MIN_INDEX_BODY_CHARS = 250    # index docs may be shorter, but not empty
 
@@ -42,22 +44,10 @@ STUB_PHRASE_RE = re.compile(
 def has_placeholder(body: str) -> bool:
     return bool(STUB_TODO_LINE_RE.search(body) or STUB_PHRASE_RE.search(body))
 
-FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n?(.*)$", re.DOTALL)
-
-
 def parse(path: Path):
     """Return (frontmatter_dict_lite, body) or (None, None) if no frontmatter."""
-    text = path.read_text(encoding="utf-8")
-    m = FRONTMATTER_RE.match(text)
-    if not m:
-        return None, None
-    fm_raw, body = m.group(1), m.group(2)
-    fm = {}
-    for line in fm_raw.splitlines():
-        mm = re.match(r"^([A-Za-z_]+):\s*(.*)$", line)
-        if mm:
-            fm[mm.group(1)] = mm.group(2).strip()
-    return fm, body
+    fm, body = parse_path(path)
+    return (fm, body) if fm is not None else (None, None)
 
 
 def body_content_chars(body: str) -> int:
@@ -74,9 +64,7 @@ def body_content_chars(body: str) -> int:
 
 
 def related_is_empty(fm: dict) -> bool:
-    rel = fm.get("related", "")
-    # matches `related: []` or `related:` (nothing meaningful)
-    return rel in ("", "[]")
+    return not fm.get("related")
 
 
 def main(argv: list[str]) -> int:
@@ -89,7 +77,11 @@ def main(argv: list[str]) -> int:
     checked = 0
 
     for path in sorted(root.rglob("*.md")):
-        fm, body = parse(path)
+        try:
+            fm, body = parse(path)
+        except FrontmatterError as exc:
+            violations.append((str(path), str(exc)))
+            continue
         if fm is None:
             continue
         if fm.get("status") != "ready":

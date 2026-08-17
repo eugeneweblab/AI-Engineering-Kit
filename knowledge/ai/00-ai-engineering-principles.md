@@ -55,16 +55,20 @@ Two different orderings must not be confused.
 5. Existing conventions
 6. General knowledge
 
-**Authority when sources conflict:**
+**Authority when project evidence conflicts:**
 
-1. Explicit user instructions (highest — authoritative)
-2. Existing code
-3. Existing architecture
-4. Existing documentation
-5. Existing conventions
+1. Platform/system/developer safety and execution policy
+2. Explicit user instructions for the current task
+3. The closest applicable project instruction file
+4. A `ready` knowledge document that owns the rule (`defers_to` resolves overlaps)
+5. Verified code, architecture, tests, and conventions
 6. General knowledge (lowest)
 
-Explicit user instructions are always authoritative and win on conflict. Repository context overrides only the model's generic programming knowledge — never an explicit user directive. If a user instruction conflicts with repository context, follow the instruction and surface the conflict rather than silently overriding it.
+Existing code is evidence of current behaviour, not automatically the intended policy.
+When code conflicts with a `ready` owner document, report the drift, inspect history and
+tests, and follow the explicit task or confirmed project intent. Never silently choose
+the source that is most convenient. User instructions win inside the task only when
+they do not conflict with higher-level platform or safety policy.
 
 ---
 

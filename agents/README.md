@@ -6,14 +6,18 @@ Tool-specific integration notes for AI coding assistants.
 tells a specific tool how to load it. Each tool also has a native entrypoint at the
 repo root or in `.github` / `.cursor` that points back to `AGENTS.md`:
 
-| Tool | Native entrypoint | Notes |
-|------|-------------------|-------|
-| Claude Code | `CLAUDE.md`, `AGENTS.md` | Auto-loaded from repo root. |
-| Cursor | `.cursor/rules/*.mdc`, `AGENTS.md` | `alwaysApply` rule redirects here. |
-| Codex | `AGENTS.md` | Reads `AGENTS.md` directly. |
-| GitHub Copilot | `.github/copilot-instructions.md` | Auto-loaded by Copilot. |
-| Gemini CLI | `GEMINI.md` | Reads `GEMINI.md` from root. |
-| Cline | `.clinerules`, `AGENTS.md` | Redirects here. |
+| Tool | Native entrypoint | Verification status |
+|------|-------------------|---------------------|
+| Claude Code | `CLAUDE.md`, `AGENTS.md` | Adapter present; live compliance trial not yet recorded. |
+| Cursor | `.cursor/rules/*.mdc`, `AGENTS.md` | `alwaysApply` adapter present; live trial not yet recorded. |
+| Codex | `AGENTS.md` | Automatic load and document retrieval verified 2026-08-17. |
+| GitHub Copilot | `.github/copilot-instructions.md` | Adapter present; live agent-mode trial not yet recorded. |
+| Gemini CLI | `GEMINI.md` | Adapter present; live compliance trial not yet recorded. |
+| Cline | `.clinerules`, `AGENTS.md` | Adapter present; live compliance trial not yet recorded. |
+
+Do not convert “adapter present” into “tool follows every rule”. Run the versioned
+scenario under `docs/trials/agent-compliance-v1/`, save the trace and tool version,
+then update this table with the dated result.
 
 Keep engineering knowledge in `knowledge/`. Only genuinely tool-specific configuration
 belongs under `agents/`.

@@ -7,13 +7,13 @@ type: doc
 order: 14
 status: ready
 tags: [figma, figma-inspection-checklist, FIGMA_FILE_KEY, FIGMA_TOKEN, ComparisonTable, PlanCard, Desktop, style]
-related: [figma/01-figma-analysis, figma/03-design-token-extraction, figma/19-design-handoff]
+related:
   - figma/01-figma-analysis
   - figma/03-design-token-extraction
+  - figma/19-design-handoff
   - figma/05-responsive-analysis
   - figma/06-component-detection
   - figma/18-image-assets
-  - figma/19-design-handoff
   - figma/20-implementation-definition-of-done
   - workflows/01-implement-figma-design
   - accessibility/23-wcag

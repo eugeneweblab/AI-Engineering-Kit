@@ -4,6 +4,8 @@ alwaysApply: true
 ---
 
 Full guidance: `AGENTS.md` (repo root).
+Resolve the Git root first and run every lookup under `knowledge/` from there; do not
+interpret those paths relative to a nested working directory.
 
 Before writing code:
 - Detect the stack from the repository with `knowledge/SIGNALS.json`: `stack` maps a file

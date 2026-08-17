@@ -7,12 +7,13 @@ type: doc
 order: 20
 status: ready
 tags: [figma, implementation-definition-of-done, ComparisonTable, PlanCard, "@maria", Card, passes, PlanGrid]
-related: [figma/10-design-qa, figma/19-design-handoff, checklists/01-pre-launch]
+related:
   - figma/10-design-qa
+  - figma/19-design-handoff
+  - checklists/01-pre-launch
   - figma/13-visual-regression
   - figma/15-screenshot-comparison
   - figma/16-accessibility-from-figma
-  - figma/19-design-handoff
   - workflows/01-implement-figma-design
   - workflows/05-review-pull-request
   - testing/27-quality-gates

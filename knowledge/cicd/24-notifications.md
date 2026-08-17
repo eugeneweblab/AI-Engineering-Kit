@@ -81,9 +81,9 @@ of an alert directly sets the mean time to recovery.
 notify:
   needs: [build, test, deploy]
   if: failure() && github.ref == 'refs/heads/main'  # state change on protected branch
-  runs-on: ubuntu-latest
+  runs-on: ubuntu-24.04
   steps:
-    - uses: slackapi/slack-github-action@v2
+    - uses: slackapi/slack-github-action@v2  # illustrative ref; pin the reviewed SHA in production
       with:
         webhook: ${{ secrets.SLACK_WEBHOOK }}   # secret, not hardcoded
         webhook-type: incoming-webhook

@@ -14,6 +14,9 @@ guardrail is slow enough that one run per case would take an hour.
 Usage:
     python3 scripts/selftest-guardrails.py            # every case
     python3 scripts/selftest-guardrails.py sql html   # only matching names
+    python3 scripts/selftest-guardrails.py --fast-only
+    python3 scripts/selftest-guardrails.py --external-only
+    python3 scripts/selftest-guardrails.py --integration-only
 """
 from __future__ import annotations
 
@@ -24,6 +27,16 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+
+COMMAND_TIMEOUT_SECONDS = 300
+
+
+def run_command(*args, **kwargs):
+    kwargs.setdefault("timeout", COMMAND_TIMEOUT_SECONDS)
+    try:
+        return subprocess.run(*args, **kwargs)
+    except subprocess.TimeoutExpired as exc:
+        raise SystemExit(f"guardrail self-test timed out after {exc.timeout}s: {exc.cmd}") from exc
 
 ROOT = Path(__file__).resolve().parent.parent
 CHECKER = ROOT / "scripts" / "check-knowledge.py"
@@ -83,6 +96,9 @@ def strip_rules(path: str):
 FAST: list[tuple[str, object, str]] = [
     ("structure/missing-98", drop("redis/98-production-checklist.md"),
      "no document with order 98"),
+    ("frontmatter/invalid-yaml",
+     set_field("javascript/04-functions.md", "related", "[unclosed"),
+     "invalid YAML frontmatter"),
     ("frontmatter/id", replace("mysql/04-indexes.md", "id: mysql/04-indexes", "id: mysql/oops"),
      "id is"),
     ("frontmatter/topic", replace("linux/05-permissions.md", "topic: linux", "topic: unix"),
@@ -122,6 +138,11 @@ FAST: list[tuple[str, object, str]] = [
      replace("react/06-state.md", "## Core Principle",
              "## Examples\n\nx\n\n## Core Principle"),
      "comes before any section stating a rule"),
+    ("examples/mutable-action",
+     replace("cicd/17-github-actions.md",
+             "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, SHA-pinned",
+             "actions/checkout@v4"),
+     "Good Example uses a mutable Action ref"),
     ("pointers/rules-removed", strip_rules("redis/99-ai-review-checklist.md"),
      "`**Rules:**` pointer"),
     ("lang/python", in_fence("aws/14-cloudwatch.md", "python", "def broken(:"),
@@ -167,7 +188,7 @@ VERSION_CASES: list[tuple[str, object, str]] = [
              "  selector: { matchLabels: { app: web } }\n", ""),
      "missing property 'selector'"),
     ("manifests/workflow-no-runs-on",
-     replace("testing/21-cicd.md", "    runs-on: ubuntu-latest\n", ""),
+     replace("testing/21-cicd.md", "    runs-on: ubuntu-24.04\n", ""),
      '"runs-on" section is missing'),
     ("types/wrong-arity",
      replace("nextjs/10-caching.md", "revalidateTag('products', 'max');",
@@ -257,7 +278,7 @@ def run_batch(cases: list[tuple[str, object, str]], extra: list[str]) -> dict[st
             except AssertionError as exc:
                 verdicts[name] = f"could not inject: {exc}"
 
-        proc = subprocess.run(
+        proc = run_command(
             [sys.executable, str(CHECKER), str(sandbox / "knowledge"), *extra],
             capture_output=True, text=True,
         )
@@ -268,7 +289,10 @@ def run_batch(cases: list[tuple[str, object, str]], extra: list[str]) -> dict[st
         skipped = {
             family: tool
             for tool, family in re.findall(
-                r"note: `([^`]+)` not found — (\w+) blocks were not checked", output)
+                r"note: `?([^`\s]+)`? (?:not found — |could not run — )"
+                r"(\w+) blocks were not checked",
+                output,
+            )
         }
         for name, _, _ in cases:
             family = name.split("/", 1)[1] if name.startswith("lang/") else None
@@ -308,11 +332,16 @@ def run_version_cases(cases: list[tuple[str, object, str]]) -> dict[str, str]:
                       else "check-types.py" if name.startswith("types/")
                       else "check-lint.py" if name.startswith("lint/")
                       else "check-dangerous-sinks.py")
-            proc = subprocess.run(
+            proc = run_command(
                 [sys.executable, str(sandbox / "scripts" / script)],
                 capture_output=True, text=True,
             )
             output = proc.stdout + proc.stderr
+            if "timed out after" in output or "is unavailable" in output:
+                verdicts[name] = (
+                    "not proved: the required validator was unavailable or timed out"
+                )
+                continue
             if proc.returncode == 0:
                 verdicts[name] = "the guardrail reported success"
             elif expected not in output:
@@ -321,10 +350,24 @@ def run_version_cases(cases: list[tuple[str, object, str]]) -> dict[str, str]:
 
 
 def main(argv: list[str]) -> int:
-    wanted = argv[1:]
-    fast = [c for c in FAST if not wanted or any(w in c[0] for w in wanted)]
-    slow = [c for c in SLOW if not wanted or any(w in c[0] for w in wanted)]
-    versions = [c for c in VERSION_CASES if not wanted or any(w in c[0] for w in wanted)]
+    modes = {arg for arg in argv[1:] if arg.startswith("--")}
+    known_modes = {"--fast-only", "--external-only", "--integration-only"}
+    unknown_modes = modes - known_modes
+    if unknown_modes:
+        print(f"unknown option(s): {', '.join(sorted(unknown_modes))}")
+        return 2
+    if len(modes) > 1:
+        print("choose at most one self-test mode")
+        return 2
+
+    wanted = [arg for arg in argv[1:] if not arg.startswith("--")]
+
+    def select(cases):
+        return [c for c in cases if not wanted or any(w in c[0] for w in wanted)]
+
+    fast = select(FAST) if not modes or "--fast-only" in modes else []
+    slow = select(SLOW) if not modes or "--external-only" in modes else []
+    versions = select(VERSION_CASES) if not modes or "--integration-only" in modes else []
     if not fast and not slow and not versions:
         print(f"no case matches {wanted}")
         return 2

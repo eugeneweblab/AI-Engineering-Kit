@@ -1,6 +1,8 @@
 # CLAUDE.md
 
 This project's agent instructions live in [`AGENTS.md`](AGENTS.md). Read it first.
+Resolve the Git root and run every lookup under `knowledge/` from there; the current
+working directory may be nested.
 
 **TL;DR for coding tasks:** detect the stack from the repository via
 [`knowledge/SIGNALS.json`](knowledge/SIGNALS.json) → find a `ready` doc via

@@ -7,7 +7,10 @@ type: workflow
 order: 6
 status: ready
 tags: [workflows, investigate-production-bug]
-related: [workflows/02-fix-a-bug, playbooks/01-site-down, templates/03-incident-report]
+related:
+  - workflows/02-fix-a-bug
+  - playbooks/01-site-down
+  - templates/03-incident-report
   - devops/25-incident-management
   - devops/26-postmortems
   - devops/13-observability

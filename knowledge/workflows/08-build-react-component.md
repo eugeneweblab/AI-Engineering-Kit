@@ -7,13 +7,14 @@ type: workflow
 order: 8
 status: ready
 tags: [workflows, build-react-component, aProduct, ProductCard, ProductCardProps, addToBasket, formatCurrency, repeat]
-related: [react/13-component-composition, react/21-testing, examples/02-react-component]
+related:
+  - react/13-component-composition
+  - react/21-testing
+  - examples/02-react-component
   - react/02-component-architecture
   - react/05-props
   - react/09-custom-hooks
-  - react/13-component-composition
   - react/20-accessibility
-  - react/21-testing
   - react/22-folder-structure
   - react/98-production-checklist
   - frontend/02-component-driven-development

@@ -65,27 +65,27 @@ reproducibility, or it will be routed around.
 jobs:
   # Fast, independent checks run in parallel and gate the expensive stages.
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with: { node-version: '22', cache: 'npm' }   # cache keyed by lockfile
       - run: npm ci
       - run: npm run lint && npm run typecheck
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - run: npm ci && npm test    # runs concurrently with lint
 
   build:
     needs: [lint, test]            # expensive build only after cheap checks pass
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - run: npm ci && npm run build
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4  # illustrative ref; pin the reviewed SHA in production
         with: { name: dist, path: dist/ }            # publish once, reuse downstream
 ```
 

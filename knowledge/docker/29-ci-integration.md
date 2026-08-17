@@ -72,10 +72,10 @@ build that day.
 ```yaml
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: docker/setup-buildx-action@v3      # BuildKit builder
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: docker/setup-buildx-action@v3      # BuildKit builder  # illustrative ref; pin the reviewed SHA in production
 
       - name: Lint Dockerfile                    # gate BEFORE building
         run: hadolint Dockerfile

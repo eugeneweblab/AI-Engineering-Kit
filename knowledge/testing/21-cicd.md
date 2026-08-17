@@ -78,26 +78,26 @@ and a formality. Getting this right protects every downstream deploy.
 # GitHub Actions: cheap checks gate the expensive ones; failures upload evidence.
 jobs:
   static:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with: { node-version: 24, cache: npm } # cache keyed on package-lock.json
       - run: npm ci
       - run: npm run lint && npm run typecheck   # fastest signals first
 
   test:
     needs: static                                # don't burn runners if static fails
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix: { shard: [1, 2, 3, 4] }            # shard the suite for speed
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with: { node-version: 24, cache: npm }
       - run: npm ci
       - run: npm test -- --shard=${{ matrix.shard }}/4 --coverage
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4  # illustrative ref; pin the reviewed SHA in production
         if: failure()                            # traces/coverage available on red
         with:
           name: test-output-${{ matrix.shard }}

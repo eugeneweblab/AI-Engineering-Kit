@@ -91,7 +91,7 @@ production PHP version even when the developer runs a different one.
 
 ```yaml
 # .github/workflows/ci.yml
-- uses: actions/setup-node@v4
+- uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
   with:
     node-version-file: '.nvmrc'    # same file the developer's shell reads
     cache: 'pnpm'

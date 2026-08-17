@@ -28,6 +28,7 @@ ever reaches it.
 | Invariant | Broken when |
 |---|---|
 | `status: ready` means real content | a stub, TODO, or empty index doc claims `ready`; agents filter on this field and land on a dead end |
+| Maturity claims have evidence | `reviewed`/`validated` is missing sources, checked version, or review dates |
 | `INDEX.json`, `INDEX.md`, `SIGNALS.json` match the frontmatter | you edited frontmatter and did not rerun the generators |
 | Every rule is reachable | a document ranks for nothing, is in no symbol index, and its title does not isolate it in `INDEX.md` |
 | Agent instructions are executable | an entrypoint names a field, path, or command that does not exist |
@@ -89,9 +90,9 @@ Say so in review, because no script will:
   contradictory directives about one identifier — and produced 0 real findings from
   217 counted candidates. The heuristics do not work; a reader is still the only
   detector.
-- **Whether a Good Example is actually good**, beyond what a linter sees. The two XSS
-  findings that prompted `check-dangerous-sinks.py` were both labelled "Good Example"
-  and both parsed fine.
+- **Whether a Good Example is correct in every semantic dimension.** The checker now
+  rejects silently mutable Actions/runners in labelled workflow examples, and the sink
+  checker covers known injection APIs; broader engineering correctness still requires review.
 
 ---
 

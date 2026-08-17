@@ -83,10 +83,10 @@ well-understood tools and keeping the logic they run portable.
 # Orchestrator just calls scripts that also run locally -> portable, testable.
 jobs:
   ci:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with: { node-version: '22' }
       - run: make ci            # logic lives in Makefile: `make ci` works on a laptop too
       - uses: github/codeql-action/upload-sarif@4c...f9   # third-party action pinned to full SHA

@@ -7,17 +7,18 @@ type: doc
 order: 11
 status: ready
 tags: [figma, ai-design-review, PlanCard, ComparisonTable, Button, PlanGrid, card, Desktop]
-related: [figma/10-design-qa, figma/16-accessibility-from-figma, ai/06-self-verification]
+related:
+  - figma/10-design-qa
+  - figma/16-accessibility-from-figma
+  - ai/06-self-verification
   - figma/01-figma-analysis
   - figma/03-design-token-extraction
   - figma/06-component-detection
   - figma/12-ai-prompts
-  - figma/10-design-qa
   - figma/20-implementation-definition-of-done
   - workflows/01-implement-figma-design
   - ai/01-context-gathering
   - ai/02-task-planning
-  - ai/06-self-verification
   - engineering/05-context-first-development
 when_to_use: "Read as an AI assistant before implementing a Figma design, to follow the mandatory analyze-plan-reuse-verify reasoning process."
 ---

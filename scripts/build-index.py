@@ -4,33 +4,12 @@
 Run from repo root:  python3 scripts/build-index.py
 The index is the machine-readable entrypoint agents use to locate docs.
 """
-import os, re, json
+import os, json
+
+from frontmatter import parse_text, schema_errors
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KB = os.path.join(ROOT, "knowledge")
-
-def parse_frontmatter(text):
-    if not text.startswith("---"):
-        return {}
-    end = text.find("\n---", 3)
-    if end == -1:
-        return {}
-    block = text[3:end].strip("\n")
-    meta = {}
-    for line in block.splitlines():
-        m = re.match(r"^([a-zA-Z_]+):\s*(.*)$", line)
-        if not m:
-            continue
-        key, val = m.group(1), m.group(2).strip()
-        if val.startswith("[") and val.endswith("]"):
-            inner = val[1:-1].strip()
-            # strip surrounding quotes: a tag like "@layer" must be quoted in YAML
-            meta[key] = [x.strip().strip('"\'') for x in inner.split(",") if x.strip()] if inner else []
-        elif val.startswith('"') and val.endswith('"'):
-            meta[key] = val[1:-1]
-        else:
-            meta[key] = val
-    return meta
 
 topics = {}
 for topic in sorted(os.listdir(KB)):
@@ -43,7 +22,11 @@ for topic in sorted(os.listdir(KB)):
             continue
         path = os.path.join(tdir, fn)
         with open(path, encoding="utf-8") as f:
-            meta = parse_frontmatter(f.read())
+            meta, _ = parse_text(f.read(), path)
+        meta = meta or {}
+        errors = schema_errors(meta)
+        if errors:
+            raise SystemExit(f"{path}: " + "; ".join(errors))
         rel = os.path.relpath(path, ROOT)
         try:
             order = int(meta.get("order", 999))
@@ -60,11 +43,16 @@ for topic in sorted(os.listdir(KB)):
             "type": meta.get("type", "doc"),
             "order": order,
             "status": meta.get("status", "unknown"),
+            "maturity": meta.get("maturity", "unverified"),
             "tags": meta.get("tags", []),
             # Present only when they say something: the variant a doc is specific
             # to, and the doc that owns the rule when two topics cover one subject.
             **({"applies_to": meta["applies_to"]} if meta.get("applies_to") else {}),
             **({"defers_to": meta["defers_to"]} if meta.get("defers_to") else {}),
+            "verified_against": meta.get("verified_against", ""),
+            "source_urls": meta.get("source_urls", []),
+            "last_reviewed": meta.get("last_reviewed", ""),
+            "review_after": meta.get("review_after", ""),
             "related": meta.get("related", []),
             "when_to_use": meta.get("when_to_use", ""),
             "path": rel,
@@ -81,10 +69,15 @@ for topic in sorted(os.listdir(KB)):
 
 total = sum(t["doc_count"] for t in topics.values())
 ready_total = sum(t["ready"] for t in topics.values())
+maturities = {}
+for topic in topics.values():
+    for doc in topic["docs"]:
+        maturities[doc["maturity"]] = maturities.get(doc["maturity"], 0) + 1
 index = {
     "schema": "ai-engineering-kit/knowledge-index@1",
     "note": "Regenerate with `python3 scripts/build-index.py`. Do not edit by hand.",
-    "stats": {"topics": len(topics), "docs": total, "ready": ready_total, "draft": total - ready_total},
+    "stats": {"topics": len(topics), "docs": total, "ready": ready_total,
+              "draft": total - ready_total, "maturity": maturities},
     "topics": topics,
 }
 

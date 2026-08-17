@@ -68,9 +68,9 @@ on:
     types: [opened]
 jobs:
   track:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/add-to-project@v1
+      - uses: actions/add-to-project@v1  # illustrative ref; pin the reviewed SHA in production
         with:
           project-url: https://github.com/orgs/acme/projects/12
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}  # scoped: project + issues

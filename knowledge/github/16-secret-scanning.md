@@ -70,7 +70,7 @@ of reporting it — which is why it is the priority.
 # The token never touches the repo; it is an encrypted Actions secret, injected at run time.
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: production        # secret is gated behind an environment + reviewers
     steps:
       - run: ./deploy.sh

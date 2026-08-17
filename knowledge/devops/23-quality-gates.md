@@ -75,7 +75,7 @@ reviewer, guarantees the floor.
 # Cheapest checks first; the job FAILS the merge (required status check) on any red step.
 jobs:
   quality-gate:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - run: npm run lint        # seconds — catches the most, costs the least
       - run: npm run typecheck   # fast, high signal

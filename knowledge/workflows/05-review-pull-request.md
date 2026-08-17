@@ -7,8 +7,10 @@ type: workflow
 order: 5
 status: ready
 tags: [workflows, review-pull-request, IsInt, userId, merging, workflow]
-related: [engineering/02-code-review, checklists/02-pull-request-author, templates/01-pull-request]
+related:
   - engineering/02-code-review
+  - checklists/02-pull-request-author
+  - templates/01-pull-request
   - github/07-code-review
   - github/06-pull-requests
   - github/17-branch-protection

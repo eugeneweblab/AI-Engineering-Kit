@@ -45,6 +45,16 @@ import sys
 import tempfile
 from pathlib import Path
 
+COMMAND_TIMEOUT_SECONDS = 120
+
+
+def run_command(*args, **kwargs):
+    kwargs.setdefault("timeout", COMMAND_TIMEOUT_SECONDS)
+    try:
+        return subprocess.run(*args, **kwargs)
+    except subprocess.TimeoutExpired as exc:
+        raise SystemExit(f"validator timed out after {exc.timeout}s: {exc.cmd}") from exc
+
 try:
     import yaml
 except ImportError:
@@ -84,7 +94,7 @@ def classify(source: str) -> str | None:
 
 
 def check_kubernetes(source: str, _: Path) -> str | None:
-    proc = subprocess.run(
+    proc = run_command(
         ["kubeconform", "-strict", "-ignore-missing-schemas", "-output", "json", "-"],
         input=source, capture_output=True, text=True,
     )
@@ -113,7 +123,7 @@ def check_workflow(source: str, workdir: Path) -> str | None:
     # shellcheck and pyflakes are separate concerns and are off: the base's shell
     # blocks are already parsed by check-knowledge, and their findings here would be
     # noise about example placeholders.
-    proc = subprocess.run(
+    proc = run_command(
         ["actionlint", "-no-color", "-shellcheck=", "-pyflakes=", str(path)],
         capture_output=True, text=True, cwd=workdir,
     )
@@ -135,7 +145,7 @@ def check_compose(source: str, workdir: Path) -> str | None:
             name = name.strip("'\"[]")
             if name and "/" not in name:
                 (workdir / name).touch()
-    proc = subprocess.run(
+    proc = run_command(
         ["docker", "compose", "-f", str(path), "config", "--quiet"],
         capture_output=True, text=True, cwd=workdir,
     )
