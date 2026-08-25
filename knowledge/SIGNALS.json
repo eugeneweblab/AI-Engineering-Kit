@@ -3,8 +3,8 @@
   "note": "Detect the stack from `stack`, then resolve any symbol in the diff via `symbols`. Both point at document ids in INDEX.json. In `when`, `|` separates alternatives and `**` matches any number of directories; a pattern is written to match both the root-level and the nested layout.",
   "stats": {
     "stack_signals": 39,
-    "symbols": 8902,
-    "docs_indexed": 1295
+    "symbols": 9196,
+    "docs_indexed": 1333
   },
   "stack": [
     {
@@ -59,7 +59,7 @@
       ]
     },
     {
-      "when": "**/settings.py|**/settings/base.py",
+      "when": "settings.py|**/settings.py|**/settings/base.py",
       "means": "Django settings module",
       "docs": [
         "django/03-settings",
@@ -68,7 +68,7 @@
       ]
     },
     {
-      "when": "**/wagtail_hooks.py|**/wagtail_hooks/*.py",
+      "when": "**/wagtail_hooks.py|**/wagtail_hooks/*.py|home/templates/home/home_page.html|**/home/templates/home/home_page.html",
       "means": "Wagtail CMS application",
       "docs": [
         "wagtail/01-version-compatibility",
@@ -465,6 +465,9 @@
     "@/utils/currency": [
       "engineering/01-decision-framework"
     ],
+    "@admin": [
+      "django/18-admin"
+    ],
     "@ana": [
       "devops/01-devops-culture",
       "templates/03-incident-report"
@@ -509,7 +512,9 @@
       "git/02-installation"
     ],
     "@cache": [
-      "performance/30-engineering-principles"
+      "django/17-caching",
+      "performance/30-engineering-principles",
+      "wagtail/20-caching"
     ],
     "@canary": [
       "nextjs/13-proxy"
@@ -545,6 +550,9 @@
       "nextjs/19-seo",
       "seo/09-structured-data",
       "seo/15-local-seo"
+    ],
+    "@csrf": [
+      "django/06-security"
     ],
     "@custom-variant": [
       "tailwind/12-dark-mode",
@@ -619,6 +627,9 @@
     "@hash": [
       "redis/21-security"
     ],
+    "@hooks": [
+      "wagtail/15-hooks"
+    ],
     "@host": [
       "redis/01-installation"
     ],
@@ -681,12 +692,16 @@
       "wordpress/27-deployment"
     ],
     "@localhost": [
+      "django/21-email",
       "nextjs/21-environment-variables",
       "prisma/01-installation",
       "tools/20-local-environments"
     ],
     "@logged": [
       "typescript/15-decorators"
+    ],
+    "@login": [
+      "django/11-urls-and-views"
     ],
     "@lru": [
       "aws/16-secrets-manager",
@@ -874,6 +889,9 @@
     "@page": [
       "css/24-print-styles"
     ],
+    "@patch": [
+      "django/07-testing"
+    ],
     "@phpstan-ignore-next-line": [
       "tools/08-static-analysis"
     ],
@@ -922,8 +940,17 @@
     "@read": [
       "redis/21-security"
     ],
+    "@receiver": [
+      "django/02-architecture"
+    ],
+    "@register": [
+      "wagtail/13-snippets"
+    ],
     "@relation": [
       "prisma/04-relations"
+    ],
+    "@require": [
+      "django/24-rest-apis"
     ],
     "@router": [
       "backend/28-best-practices"
@@ -998,6 +1025,9 @@
     ],
     "@supports": [
       "css/26-browser-compatibility"
+    ],
+    "@sync": [
+      "django/08-async"
     ],
     "@tailwind": [
       "tailwind/01-installation"
@@ -1358,6 +1388,9 @@
     "ALLOWED_ATTR": [
       "security/11-xss"
     ],
+    "ALLOWED_HOSTS": [
+      "django/03-settings"
+    ],
     "ALLOWED_SORT": [
       "security/13-sql-injection"
     ],
@@ -1512,6 +1545,9 @@
     "ASK": [
       "redis/19-clustering"
     ],
+    "ATOMIC_REQUESTS": [
+      "django/27-database-backends"
+    ],
     "ATTACH": [
       "postgresql/11-partitioning"
     ],
@@ -1532,6 +1568,10 @@
     ],
     "AUTHENTICATED": [
       "databases/25-multi-tenancy"
+    ],
+    "AUTH_USER_MODEL": [
+      "django/15-authentication",
+      "wagtail/25-custom-users"
     ],
     "AUTO": [
       "figma/01-figma-analysis"
@@ -1646,6 +1686,15 @@
     ],
     "Aborted_connects": [
       "mysql/15-monitoring"
+    ],
+    "AbstractEmailForm": [
+      "wagtail/18-forms"
+    ],
+    "AbstractFormField": [
+      "wagtail/18-forms"
+    ],
+    "AbstractUser": [
+      "wagtail/25-custom-users"
     ],
     "Accept": [
       "frontend/18-assets",
@@ -1813,6 +1862,9 @@
       "nginx/10-http2",
       "nginx/11-http3"
     ],
+    "AlterField": [
+      "django/04-models-and-migrations"
+    ],
     "Always": [
       "kubernetes/15-jobs"
     ],
@@ -1969,6 +2021,9 @@
       "nodejs/07-buffers",
       "nodejs/12-worker-threads"
     ],
+    "ArrayField": [
+      "django/27-database-backends"
+    ],
     "ArrayMaxSize": [
       "nestjs/08-validation"
     ],
@@ -1987,6 +2042,28 @@
     "Article": [
       "html/13-structured-data",
       "seo/09-structured-data"
+    ],
+    "ArticleAPIViewSet": [
+      "wagtail/09-headless-api"
+    ],
+    "ArticlePage": [
+      "wagtail/02-architecture",
+      "wagtail/03-page-models",
+      "wagtail/04-streamfield-and-blocks",
+      "wagtail/07-search",
+      "wagtail/09-headless-api",
+      "wagtail/10-testing",
+      "wagtail/14-admin-panels",
+      "wagtail/17-localization",
+      "wagtail/20-caching",
+      "wagtail/21-performance",
+      "wagtail/23-migrations",
+      "wagtail/24-content-imports",
+      "wagtail/29-project-structure",
+      "wagtail/30-engineering-principles"
+    ],
+    "ArticlePageTests": [
+      "wagtail/10-testing"
     ],
     "Assert": [
       "testing/08-test-organization"
@@ -2019,6 +2096,9 @@
     ],
     "AuditLogBucket": [
       "aws/15-cloudtrail"
+    ],
+    "AuditMiddleware": [
+      "django/16-middleware"
     ],
     "AuditTrail": [
       "aws/15-cloudtrail"
@@ -2071,6 +2151,15 @@
       "nestjs/09-guards",
       "nestjs/16-authorization",
       "nestjs/30-engineering-principles"
+    ],
+    "AuthenticationMiddleware": [
+      "django/16-middleware"
+    ],
+    "Author": [
+      "wagtail/13-snippets"
+    ],
+    "AuthorPage": [
+      "wagtail/13-snippets"
     ],
     "Authorization": [
       "docker/16-logging",
@@ -2298,6 +2387,9 @@
     "BadgeProps": [
       "frontend/02-component-driven-development"
     ],
+    "BaseCommand": [
+      "django/20-management-commands"
+    ],
     "Bearer": [
       "backend/10-authentication"
     ],
@@ -2438,8 +2530,10 @@
       "backend/18-database-design",
       "databases/03-data-modeling",
       "databases/23-data-integrity",
+      "django/15-authentication",
       "prisma/19-testing",
-      "sql/12-ddl"
+      "sql/12-ddl",
+      "wagtail/18-forms"
     ],
     "CAST": [
       "mysql/24-json",
@@ -2466,6 +2560,7 @@
       "tailwind/25-debugging",
       "tailwind/27-production",
       "tailwind/29-tooling",
+      "wagtail/20-caching",
       "woocommerce/14-headless"
     ],
     "CEIL": [
@@ -2699,6 +2794,9 @@
       "postgresql/19-roles-and-permissions",
       "tools/24-database-tools"
     ],
+    "CONN_MAX_AGE": [
+      "django/27-database-backends"
+    ],
     "CONSISTENT": [
       "linux/20-backups"
     ],
@@ -2860,13 +2958,20 @@
     ],
     "CSRF": [
       "divi/19-security",
+      "django/06-security",
+      "django/12-forms-and-validation",
+      "django/16-middleware",
       "nginx/09-compression",
       "php/13-security",
       "security/06-session-management",
       "security/08-oauth",
       "security/12-csrf",
       "security/19-cors",
+      "wagtail/18-forms",
       "woocommerce/16-security"
+    ],
+    "CSRF_TRUSTED_ORIGINS": [
+      "django/03-settings"
     ],
     "CSSOM": [
       "html/20-browser-rendering"
@@ -3064,6 +3169,16 @@
     "ChangeMessageVisibility": [
       "aws/21-sqs"
     ],
+    "CharBlock": [
+      "wagtail/04-streamfield-and-blocks",
+      "wagtail/23-migrations"
+    ],
+    "CharField": [
+      "django/04-models-and-migrations",
+      "wagtail/13-snippets",
+      "wagtail/14-admin-panels",
+      "wagtail/25-custom-users"
+    ],
     "ChargeRequest": [
       "nestjs/23-distributed-systems"
     ],
@@ -3074,6 +3189,9 @@
     ],
     "ChartSkeleton": [
       "nextjs/20-performance"
+    ],
+    "CheckConstraint": [
+      "django/04-models-and-migrations"
     ],
     "Checkout": [
       "nextjs/21-environment-variables",
@@ -3137,7 +3255,9 @@
       "architecture/04-hexagonal-architecture"
     ],
     "Client": [
-      "databases/19-security"
+      "databases/19-security",
+      "django/07-testing",
+      "django/16-middleware"
     ],
     "ClientProxy": [
       "nestjs/23-distributed-systems"
@@ -3180,6 +3300,9 @@
     "ClusterRoleBinding": [
       "kubernetes/18-rbac"
     ],
+    "ClusterableModel": [
+      "wagtail/13-snippets"
+    ],
     "CodeQL": [
       "github/17-branch-protection"
     ],
@@ -3194,6 +3317,9 @@
       "nestjs/17-database",
       "nestjs/18-transactions",
       "nestjs/26-security"
+    ],
+    "Command": [
+      "django/20-management-commands"
     ],
     "Command::FAILURE": [
       "php/16-cli"
@@ -3575,6 +3701,9 @@
       "postgresql/18-security",
       "tools/24-database-tools"
     ],
+    "DATABASES": [
+      "django/27-database-backends"
+    ],
     "DATABASE_PASSWORD": [
       "docker/14-secrets",
       "nodejs/26-deployment"
@@ -3699,6 +3828,9 @@
       "github/18-rulesets",
       "github/28-enterprise"
     ],
+    "DEFAULT_FROM_EMAIL": [
+      "django/21-email"
+    ],
     "DEFAULT_GOAL": [
       "tools/19-task-runners"
     ],
@@ -3807,6 +3939,21 @@
       "sql/16-query-planning",
       "sql/17-query-optimization",
       "wordpress/19-database"
+    ],
+    "DJANGO_ALLOWED_HOSTS": [
+      "django/03-settings"
+    ],
+    "DJANGO_CSRF_TRUSTED_ORIGINS": [
+      "django/03-settings"
+    ],
+    "DJANGO_MEDIA_ROOT": [
+      "django/14-static-and-media"
+    ],
+    "DJANGO_SECRET_KEY": [
+      "django/03-settings"
+    ],
+    "DJANGO_STATIC_ROOT": [
+      "django/14-static-and-media"
     ],
     "DKIM": [
       "woocommerce/18-emails"
@@ -4003,6 +4150,9 @@
       "prisma/03-models",
       "prisma/24-best-practices"
     ],
+    "DecimalField": [
+      "django/19-internationalization"
+    ],
     "DeepPartial": [
       "nestjs/05-services"
     ],
@@ -4125,6 +4275,9 @@
     "DocumentFragment": [
       "javascript/12-dom"
     ],
+    "DoesNotExist": [
+      "django/11-urls-and-views"
+    ],
     "Dog": [
       "typescript/12-type-guards"
     ],
@@ -4226,6 +4379,9 @@
     "EMAIL_ALREADY_EXISTS": [
       "nestjs/11-exception-filters"
     ],
+    "EMAIL_BACKEND": [
+      "django/21-email"
+    ],
     "EMF": [
       "aws/14-cloudwatch"
     ],
@@ -4248,6 +4404,7 @@
       "redis/25-debugging"
     ],
     "ENGINE": [
+      "django/27-database-backends",
       "mysql/03-data-types",
       "mysql/08-storage-engines",
       "mysql/18-debugging",
@@ -4502,8 +4659,14 @@
     "EmailAlreadyTaken": [
       "php/29-architecture"
     ],
+    "EmailField": [
+      "wagtail/25-custom-users"
+    ],
     "EmailForm": [
       "frontend/12-forms"
+    ],
+    "EmailMessage": [
+      "django/21-email"
     ],
     "EmailModule": [
       "nestjs/20-queues"
@@ -5000,11 +5163,23 @@
     "Field": [
       "accessibility/27-best-practices"
     ],
+    "FieldPanel": [
+      "wagtail/14-admin-panels"
+    ],
+    "FileField": [
+      "django/14-static-and-media"
+    ],
     "FileInterceptor": [
       "nestjs/04-controllers"
     ],
     "FileName": [
       "tools/07-php-code-standards"
+    ],
+    "FileResponse": [
+      "wagtail/22-security"
+    ],
+    "FileSystemStorage": [
+      "django/14-static-and-media"
     ],
     "FileTypeValidator": [
       "nestjs/04-controllers"
@@ -5060,8 +5235,13 @@
       "nestjs/16-authorization",
       "nestjs/26-security"
     ],
+    "ForeignKey": [
+      "django/15-authentication"
+    ],
     "Form": [
-      "react/08-hooks"
+      "django/12-forms-and-validation",
+      "react/08-hooks",
+      "wagtail/18-forms"
     ],
     "FormData": [
       "nextjs/01-architecture",
@@ -5077,8 +5257,17 @@
       "frontend/12-forms",
       "react/15-forms"
     ],
+    "FormField": [
+      "wagtail/18-forms"
+    ],
+    "FormPage": [
+      "wagtail/18-forms"
+    ],
     "FormState": [
       "react/19-error-handling"
+    ],
+    "FormSubmission": [
+      "wagtail/18-forms"
     ],
     "Fprintf": [
       "kubernetes/21-observability"
@@ -5260,6 +5449,9 @@
       "devops/12-monitoring",
       "nodejs/27-monitoring",
       "performance/17-monitoring"
+    ],
+    "GeneratedField": [
+      "django/01-version-support"
     ],
     "Generator": [
       "php/14-performance",
@@ -5463,6 +5655,7 @@
       "linux/14-cron"
     ],
     "HOST": [
+      "django/27-database-backends",
       "nodejs/13-cluster"
     ],
     "HOUR_IN_SECONDS": [
@@ -5626,6 +5819,12 @@
     "Home": [
       "html/28-common-patterns"
     ],
+    "HomePage": [
+      "wagtail/03-page-models",
+      "wagtail/10-testing",
+      "wagtail/24-content-imports",
+      "wagtail/29-project-structure"
+    ],
     "Hooks": [
       "wordpress/02-project-structure"
     ],
@@ -5640,10 +5839,14 @@
       "nginx/20-websockets",
       "nginx/26-best-practices",
       "nginx/30-engineering-principles",
-      "php/11-http"
+      "php/11-http",
+      "wagtail/16-multisite"
     ],
     "HostName": [
       "linux/10-ssh"
+    ],
+    "Http404": [
+      "django/23-error-handling"
     ],
     "HttpAdapter": [
       "architecture/04-hexagonal-architecture"
@@ -5669,6 +5872,7 @@
       "nestjs/11-exception-filters"
     ],
     "HttpOnly": [
+      "django/15-authentication",
       "frontend/06-data-fetching",
       "frontend/14-security",
       "graphql/18-authentication",
@@ -5683,9 +5887,13 @@
       "security/18-https"
     ],
     "HttpResponse": [
+      "django/06-security",
+      "django/16-middleware",
+      "django/30-engineering-principles",
       "examples/02-react-component",
       "nextjs/22-testing",
-      "react/21-testing"
+      "react/21-testing",
+      "wagtail/18-forms"
     ],
     "HttpStatus": [
       "nestjs/04-controllers",
@@ -5941,6 +6149,9 @@
     "ImageBlock": [
       "react/24-design-patterns"
     ],
+    "ImageField": [
+      "django/14-static-and-media"
+    ],
     "ImageObject": [
       "html/13-structured-data",
       "seo/16-images"
@@ -6018,6 +6229,9 @@
     "InlineError": [
       "frontend/13-error-handling"
     ],
+    "InlinePanel": [
+      "wagtail/14-admin-panels"
+    ],
     "InnerBlocks": [
       "workflows/11-build-gutenberg-block"
     ],
@@ -6063,6 +6277,7 @@
       "graphql/09-scalars"
     ],
     "IntegrityError": [
+      "django/23-error-handling",
       "mysql/17-testing"
     ],
     "IntelliSense": [
@@ -6124,19 +6339,34 @@
       "nestjs/25-testing"
     ],
     "Invoice": [
+      "django/15-authentication",
+      "django/19-internationalization",
       "php/05-namespaces"
+    ],
+    "Invoice.objects.create": [
+      "django/12-forms-and-validation"
     ],
     "Invoice.test.tsx": [
       "nextjs/02-project-structure"
     ],
+    "InvoiceAdmin": [
+      "django/18-admin"
+    ],
     "InvoiceCreated": [
       "nestjs/21-events"
+    ],
+    "InvoiceForm": [
+      "django/12-forms-and-validation",
+      "django/30-engineering-principles"
     ],
     "InvoiceGenerated": [
       "nestjs/21-events"
     ],
     "InvoicePatch": [
       "security/04-authorization"
+    ],
+    "InvoiceQuerySet": [
+      "django/28-multi-tenancy"
     ],
     "InvoiceRow": [
       "ai/05-bug-fixing",
@@ -6149,6 +6379,9 @@
     "InvoiceService": [
       "nestjs/02-modules",
       "php/05-namespaces"
+    ],
+    "InvoiceViewTests": [
+      "django/07-testing"
     ],
     "InvoicesService": [
       "nestjs/03-dependency-injection"
@@ -6277,9 +6510,13 @@
     "JSONB": [
       "databases/02-relational-vs-nosql",
       "databases/26-auditing",
+      "django/27-database-backends",
       "postgresql/08-jsonb",
       "sql/11-data-types",
       "sql/27-portability"
+    ],
+    "JSONField": [
+      "django/27-database-backends"
     ],
     "JSON_ARRAY_APPEND": [
       "mysql/24-json"
@@ -6364,7 +6601,12 @@
       "nextjs/17-fonts"
     ],
     "JsonResponse": [
-      "php/29-architecture"
+      "django/08-async",
+      "django/23-error-handling",
+      "django/24-rest-apis",
+      "php/29-architecture",
+      "wagtail/06-permissions",
+      "wagtail/09-headless-api"
     ],
     "JwtAuthGuard": [
       "nestjs/04-controllers",
@@ -6577,6 +6819,9 @@
     "LOCK_EX": [
       "php/10-files"
     ],
+    "LOGGING": [
+      "django/22-logging-and-observability"
+    ],
     "LOGIN": [
       "databases/19-security",
       "postgresql/12-replication",
@@ -6720,6 +6965,9 @@
     "List": [
       "react/12-performance"
     ],
+    "ListBlock": [
+      "wagtail/04-streamfield-and-blocks"
+    ],
     "ListOrders": [
       "nestjs/22-cqrs"
     ],
@@ -6738,6 +6986,9 @@
     "LocalBusiness": [
       "seo/09-structured-data",
       "seo/15-local-seo"
+    ],
+    "Locale": [
+      "wagtail/17-localization"
     ],
     "Lock": [
       "postgresql/16-performance"
@@ -6789,6 +7040,9 @@
     ],
     "LoginPage": [
       "react/22-folder-structure"
+    ],
+    "LoginRequiredMixin": [
+      "django/11-urls-and-views"
     ],
     "LongContent": [
       "tools/15-storybook"
@@ -6889,6 +7143,14 @@
     "MEASURE": [
       "sql/25-debugging"
     ],
+    "MEDIA_ROOT": [
+      "django/14-static-and-media",
+      "wagtail/12-deployment",
+      "wagtail/22-security"
+    ],
+    "MEDIA_URL": [
+      "django/14-static-and-media"
+    ],
     "MEDIUM": [
       "docker/28-tooling"
     ],
@@ -6930,6 +7192,10 @@
       "redis/19-clustering",
       "redis/23-performance",
       "redis/26-best-practices"
+    ],
+    "MIDDLEWARE": [
+      "django/16-middleware",
+      "django/19-internationalization"
     ],
     "MIME": [
       "nginx/13-security",
@@ -7094,6 +7360,9 @@
     "Manager": [
       "php/21-design-patterns"
     ],
+    "ManifestStaticFilesStorage": [
+      "wagtail/26-frontend-assets"
+    ],
     "Map.groupBy": [
       "typescript/19-collections"
     ],
@@ -7160,6 +7429,9 @@
     "MemoryPressure": [
       "kubernetes/03-nodes"
     ],
+    "MenuItem": [
+      "wagtail/15-hooks"
+    ],
     "MessageAttributes": [
       "aws/21-sqs"
     ],
@@ -7206,6 +7478,12 @@
     "MiddlewareConsumer": [
       "nestjs/13-middleware"
     ],
+    "MiddlewareMixin": [
+      "django/16-middleware"
+    ],
+    "Migration": [
+      "django/04-models-and-migrations"
+    ],
     "MigrationInterface": [
       "nestjs/17-database"
     ],
@@ -7244,6 +7522,13 @@
     ],
     "Mode": [
       "divi/20-debugging"
+    ],
+    "ModelAdmin": [
+      "django/18-admin"
+    ],
+    "ModelForm": [
+      "django/12-forms-and-validation",
+      "django/30-engineering-principles"
     ],
     "Module": [
       "nestjs/01-architecture",
@@ -7290,6 +7575,9 @@
     ],
     "MouseProvider": [
       "react/10-context-api"
+    ],
+    "MultiFieldPanel": [
+      "wagtail/14-admin-panels"
     ],
     "Mutation": [
       "graphql/02-schema",
@@ -7909,6 +8197,7 @@
       "backend/04-hexagonal-architecture",
       "backend/07-business-logic",
       "backend/25-code-organization",
+      "django/08-async",
       "nestjs/06-repositories",
       "nestjs/07-dto",
       "nestjs/17-database",
@@ -8467,6 +8756,7 @@
     ],
     "PASSWORD": [
       "databases/19-security",
+      "django/27-database-backends",
       "nodejs/17-logging",
       "playbooks/03-security-incident",
       "postgresql/12-replication",
@@ -8659,13 +8949,18 @@
       "nodejs/15-configuration"
     ],
     "POSTGRES_DB": [
+      "django/27-database-backends",
       "postgresql/01-installation",
       "tools/20-local-environments"
+    ],
+    "POSTGRES_HOST": [
+      "django/27-database-backends"
     ],
     "POSTGRES_INITDB_ARGS": [
       "postgresql/01-installation"
     ],
     "POSTGRES_PASSWORD": [
+      "django/27-database-backends",
       "docker/05-volumes",
       "docker/12-docker-compose",
       "postgresql/01-installation",
@@ -8680,6 +8975,7 @@
       "postgresql/01-installation"
     ],
     "POSTGRES_USER": [
+      "django/27-database-backends",
       "tools/20-local-environments"
     ],
     "POUR": [
@@ -8793,6 +9089,12 @@
     "PXAT": [
       "redis/12-expiration"
     ],
+    "Page.objects.get": [
+      "wagtail/20-caching"
+    ],
+    "Page.objects.search": [
+      "wagtail/07-search"
+    ],
     "PageInfo": [
       "graphql/13-pagination"
     ],
@@ -8806,8 +9108,14 @@
     "PageSpinner": [
       "frontend/05-routing"
     ],
+    "PageViewRestriction": [
+      "wagtail/22-security"
+    ],
     "PagerTopic": [
       "aws/14-cloudwatch"
+    ],
+    "PagesAPIViewSet": [
+      "wagtail/09-headless-api"
     ],
     "PaginatedResponseDto": [
       "nestjs/07-dto"
@@ -8841,6 +9149,10 @@
     "Parameters": [
       "typescript/09-utility-types",
       "typescript/13-advanced-types"
+    ],
+    "ParentalKey": [
+      "wagtail/13-snippets",
+      "wagtail/18-forms"
     ],
     "ParseBoolPipe": [
       "nestjs/12-pipes"
@@ -8954,6 +9266,14 @@
     ],
     "PercentageDiscount": [
       "engineering/02-code-review"
+    ],
+    "PermissionDenied": [
+      "django/06-security",
+      "django/23-error-handling"
+    ],
+    "PermissionRequiredMixin": [
+      "django/11-urls-and-views",
+      "django/15-authentication"
     ],
     "Permissions-Policy": [
       "security/22-security-headers"
@@ -9072,6 +9392,9 @@
     "PositiveInt": [
       "graphql/09-scalars",
       "graphql/10-input-types"
+    ],
+    "PositiveIntegerField": [
+      "django/04-models-and-migrations"
     ],
     "PostCSS": [
       "tailwind/23-nextjs"
@@ -9564,6 +9887,14 @@
       "nestjs/17-database",
       "nestjs/18-transactions"
     ],
+    "QuerySet": [
+      "django/28-multi-tenancy"
+    ],
+    "QuerySet.update": [
+      "wagtail/05-revisions-and-workflows",
+      "wagtail/100-common-antipatterns",
+      "wagtail/23-migrations"
+    ],
     "Queue": [
       "nodejs/24-background-jobs",
       "php/16-cli"
@@ -9978,6 +10309,9 @@
     "RateLimitError": [
       "security/21-rate-limiting"
     ],
+    "RawSQL": [
+      "django/06-security"
+    ],
     "React.cloneElement": [
       "react/13-component-composition"
     ],
@@ -10067,7 +10401,14 @@
     "Recreate": [
       "devops/07-deployment-strategies"
     ],
+    "Redirect": [
+      "wagtail/19-redirects"
+    ],
+    "RedirectFallbackMiddleware": [
+      "wagtail/19-redirects"
+    ],
     "Redis": [
+      "django/17-caching",
       "php/24-psr-standards",
       "redis/24-testing",
       "redis/29-tooling"
@@ -10227,6 +10568,12 @@
     "RequestCount": [
       "aws/26-monitoring"
     ],
+    "RequestFactory": [
+      "django/07-testing"
+    ],
+    "RequestIDMiddleware": [
+      "django/16-middleware"
+    ],
     "RequestLoggerMiddleware": [
       "nestjs/13-middleware"
     ],
@@ -10339,6 +10686,9 @@
     "RichComment": [
       "frontend/14-security"
     ],
+    "RichTextBlock": [
+      "wagtail/04-streamfield-and-blocks"
+    ],
     "Risks": [
       "figma/11-ai-design-review"
     ],
@@ -10409,6 +10759,10 @@
     ],
     "RowProps": [
       "react/12-performance"
+    ],
+    "RunPython": [
+      "django/04-models-and-migrations",
+      "wagtail/23-migrations"
     ],
     "RunningTaskCount": [
       "aws/18-ecs"
@@ -10585,6 +10939,11 @@
       "kubernetes/09-configmaps",
       "nextjs/21-environment-variables",
       "rest-api/01-http"
+    ],
+    "SECRET_KEY": [
+      "django/03-settings",
+      "django/22-logging-and-observability",
+      "django/29-maintenance"
     ],
     "SECURITY": [
       "databases/25-multi-tenancy",
@@ -10866,6 +11225,7 @@
     ],
     "SMTP": [
       "backend/16-background-jobs",
+      "django/21-email",
       "nestjs/20-queues",
       "nestjs/21-events",
       "wordpress/03-best-practices"
@@ -11020,6 +11380,12 @@
     "STATES": [
       "figma/13-visual-regression"
     ],
+    "STATIC_ROOT": [
+      "django/14-static-and-media"
+    ],
+    "STATIC_URL": [
+      "django/14-static-and-media"
+    ],
     "STATISTICS": [
       "postgresql/21-analyze"
     ],
@@ -11157,7 +11523,11 @@
     "SYS_ADMIN": [
       "kubernetes/22-security"
     ],
+    "SafeString": [
+      "django/06-security"
+    ],
     "SameSite": [
+      "django/15-authentication",
       "frontend/14-security",
       "react/25-security",
       "security/06-session-management",
@@ -11197,6 +11567,9 @@
       "react/14-patterns",
       "react/21-testing"
     ],
+    "SearchField": [
+      "wagtail/03-page-models"
+    ],
     "SearchInput": [
       "react/12-performance"
     ],
@@ -11230,6 +11603,7 @@
       "security/16-secrets-management"
     ],
     "Secure": [
+      "django/15-authentication",
       "frontend/14-security",
       "nextjs/24-security",
       "react/25-security",
@@ -11246,6 +11620,9 @@
       "aws/02-iam",
       "aws/04-s3",
       "aws/25-security"
+    ],
+    "SecurityMiddleware": [
+      "django/16-middleware"
     ],
     "SelectQueryBuilder": [
       "nestjs/06-repositories"
@@ -11270,6 +11647,9 @@
     ],
     "SendShipmentEmail": [
       "backend/14-events"
+    ],
+    "SeparateDatabaseAndState": [
+      "django/04-models-and-migrations"
     ],
     "Serializable": [
       "prisma/08-transactions",
@@ -11397,6 +11777,12 @@
       "javascript/22-design-patterns",
       "php/21-design-patterns"
     ],
+    "Site": [
+      "wagtail/16-multisite"
+    ],
+    "Site.find_for_request": [
+      "wagtail/16-multisite"
+    ],
     "SiteFooter": [
       "nextjs/07-client-components"
     ],
@@ -11505,8 +11891,20 @@
     "StorageService": [
       "nestjs/02-modules"
     ],
+    "StoryBlock": [
+      "wagtail/04-streamfield-and-blocks",
+      "wagtail/14-admin-panels"
+    ],
     "StoryObj": [
       "tools/15-storybook"
+    ],
+    "StreamBlock": [
+      "wagtail/04-streamfield-and-blocks"
+    ],
+    "StreamField": [
+      "wagtail/04-streamfield-and-blocks",
+      "wagtail/14-admin-panels",
+      "wagtail/23-migrations"
     ],
     "Strict": [
       "security/03-authentication",
@@ -11554,6 +11952,9 @@
     "StripeService": [
       "nestjs/14-configuration"
     ],
+    "StructBlock": [
+      "wagtail/04-streamfield-and-blocks"
+    ],
     "StructuredLogger": [
       "nestjs/24-observability"
     ],
@@ -11581,6 +11982,9 @@
     "SubscriptionService": [
       "php/20-dependency-injection"
     ],
+    "Sum": [
+      "django/26-performance"
+    ],
     "Summary": [
       "figma/01-figma-analysis"
     ],
@@ -11595,6 +11999,9 @@
       "frontend/21-code-splitting",
       "react/21-testing",
       "react/28-production"
+    ],
+    "SuspiciousOperation": [
+      "django/23-error-handling"
     ],
     "Symbol": [
       "javascript/19-symbols",
@@ -11812,6 +12219,9 @@
       "react/13-component-composition",
       "react/14-patterns"
     ],
+    "TabbedInterface": [
+      "wagtail/14-admin-panels"
+    ],
     "Tabs": [
       "react/13-component-composition",
       "react/14-patterns"
@@ -11849,6 +12259,7 @@
       "nestjs/25-testing"
     ],
     "TestCase": [
+      "django/07-testing",
       "php/15-testing",
       "wordpress/07-testing"
     ],
@@ -11903,6 +12314,7 @@
       "nextjs/08-rendering-strategies"
     ],
     "Thread": [
+      "django/25-background-jobs",
       "react/06-state"
     ],
     "Threads_running": [
@@ -12008,6 +12420,9 @@
     "TransactionClient": [
       "prisma/28-patterns",
       "prisma/29-architecture"
+    ],
+    "TransactionTestCase": [
+      "django/07-testing"
     ],
     "TransferCompleted": [
       "backend/17-transactions"
@@ -12187,6 +12602,12 @@
     "USES": [
       "git/08-cherry-pick"
     ],
+    "USE_I18N": [
+      "django/19-internationalization"
+    ],
+    "USE_TZ": [
+      "django/19-internationalization"
+    ],
     "USING": [
       "databases/25-multi-tenancy",
       "postgresql/08-jsonb",
@@ -12244,6 +12665,9 @@
     "UnauthorizedException": [
       "nestjs/09-guards",
       "nestjs/15-authentication"
+    ],
+    "UniqueConstraint": [
+      "django/04-models-and-migrations"
     ],
     "UnknownBlock": [
       "react/24-design-patterns"
@@ -12551,6 +12975,8 @@
     "VERSION": [
       "cicd/08-versioning",
       "devops/06-release-management",
+      "django/01-version-support",
+      "django/10-upgrades",
       "github/10-packages",
       "postgresql/15-extensions"
     ],
@@ -12623,6 +13049,8 @@
     "ValidationError": [
       "architecture/05-layered-architecture",
       "backend/12-error-handling",
+      "django/12-forms-and-validation",
+      "django/23-error-handling",
       "graphql/100-common-antipatterns",
       "nodejs/16-error-handling"
     ],
@@ -12710,6 +13138,9 @@
     "WAL": [
       "postgresql/12-replication",
       "postgresql/14-backups"
+    ],
+    "WARNING": [
+      "django/29-maintenance"
     ],
     "WATCH": [
       "redis/10-transactions",
@@ -13088,9 +13519,15 @@
       "redis/24-testing",
       "redis/25-debugging"
     ],
+    "WSGI": [
+      "django/09-deployment"
+    ],
     "WWW-Authenticate": [
       "nginx/15-authentication",
       "rest-api/15-authentication"
+    ],
+    "WagtailPageTests": [
+      "wagtail/10-testing"
     ],
     "WaitForFirstConsumer": [
       "kubernetes/12-persistent-volumes"
@@ -13422,6 +13859,9 @@
     "__Host-": [
       "security/06-session-management"
     ],
+    "__call__": [
+      "django/16-middleware"
+    ],
     "__construct": [
       "php/02-types",
       "php/04-oop",
@@ -13451,7 +13891,8 @@
       "nodejs/03-modules"
     ],
     "__init__": [
-      "backend/25-code-organization"
+      "backend/25-code-organization",
+      "django/16-middleware"
     ],
     "__invoke": [
       "php/29-architecture"
@@ -13468,6 +13909,9 @@
     "__return_true": [
       "divi/17-rest-api",
       "wordpress/18-rest-api"
+    ],
+    "__str__": [
+      "wagtail/13-snippets"
     ],
     "__typename": [
       "graphql/12-fragments"
@@ -14071,8 +14515,19 @@
     "addVariant": [
       "tailwind/18-plugins"
     ],
+    "add_argument": [
+      "django/20-management-commands"
+    ],
+    "add_arguments": [
+      "django/20-management-commands"
+    ],
     "add_cap": [
       "wordpress/20-users-and-capabilities"
+    ],
+    "add_child": [
+      "wagtail/10-testing",
+      "wagtail/24-content-imports",
+      "wagtail/30-engineering-principles"
     ],
     "add_command": [
       "wordpress/26-wp-cli"
@@ -14140,6 +14595,12 @@
     ],
     "add_rate": [
       "woocommerce/09-shipping"
+    ],
+    "add_redirect": [
+      "wagtail/19-redirects"
+    ],
+    "add_sibling": [
+      "wagtail/24-content-imports"
     ],
     "add_term_meta": [
       "wordpress/10-taxonomies"
@@ -14246,6 +14707,9 @@
     "agent": [
       "cicd/20-jenkins"
     ],
+    "aget": [
+      "django/08-async"
+    ],
     "aggregate": [
       "nextjs/06-server-components",
       "prisma/15-performance"
@@ -14317,30 +14781,6 @@
     "align-self": [
       "css/06-flexbox",
       "figma/02-layout-analysis"
-    ],
-    "all": [
-      "css/15-transitions",
-      "databases/04-normalization",
-      "databases/15-sharding",
-      "javascript/08-asynchronous-javascript",
-      "javascript/09-promises",
-      "javascript/100-common-antipatterns",
-      "javascript/25-performance",
-      "nestjs/27-performance",
-      "nextjs/06-server-components",
-      "nextjs/09-data-fetching",
-      "nextjs/20-performance",
-      "nextjs/28-best-practices",
-      "nodejs/100-common-antipatterns",
-      "nodejs/19-performance",
-      "nodejs/28-best-practices",
-      "performance/05-network",
-      "performance/14-api-performance",
-      "php/29-architecture",
-      "prisma/09-filtering",
-      "snippets/01-typescript-utilities",
-      "typescript/18-asynchronous-programming",
-      "typescript/25-performance"
     ],
     "allOperations": [
       "prisma/13-middleware",
@@ -14471,6 +14911,8 @@
       "rest-api/30-engineering-principles"
     ],
     "amount": [
+      "django/12-forms-and-validation",
+      "django/19-internationalization",
       "docker/16-logging",
       "engineering/05-context-first-development",
       "woocommerce/14-headless"
@@ -14530,6 +14972,9 @@
     "animations": [
       "figma/13-visual-regression",
       "figma/15-screenshot-comparison"
+    ],
+    "annotate": [
+      "django/26-performance"
     ],
     "annotations": [
       "aws/19-eks",
@@ -14719,6 +15164,9 @@
     ],
     "approx_count_distinct": [
       "sql/09-aggregate-functions"
+    ],
+    "apps": [
+      "wagtail/23-migrations"
     ],
     "apt": [
       "docker/28-tooling",
@@ -14986,9 +15434,13 @@
     "article:published_time": [
       "seo/10-open-graph"
     ],
+    "article_api": [
+      "wagtail/06-permissions"
+    ],
     "articles": [
       "mysql/23-full-text-search",
-      "postgresql/09-arrays"
+      "postgresql/09-arrays",
+      "wagtail/17-localization"
     ],
     "artifact": [
       "cicd/30-engineering-principles"
@@ -15011,6 +15463,9 @@
       "css/10-typography",
       "nextjs/17-fonts",
       "performance/12-fonts"
+    ],
+    "asgiref": [
+      "django/08-async"
     ],
     "aspect-ratio": [
       "css/08-sizing",
@@ -15045,8 +15500,14 @@
     "assertArrayHasKey": [
       "wordpress/07-testing"
     ],
+    "assertCanCreateAt": [
+      "wagtail/10-testing"
+    ],
     "assertContains": [
       "wordpress/07-testing"
+    ],
+    "assertEqual": [
+      "django/07-testing"
     ],
     "assertEquals": [
       "php/15-testing"
@@ -15068,6 +15529,9 @@
     "assertNotFalse": [
       "wordpress/07-testing"
     ],
+    "assertNumQueries": [
+      "django/26-performance"
+    ],
     "assertSame": [
       "php/25-debugging",
       "woocommerce/21-testing",
@@ -15081,6 +15545,7 @@
       "divi/21-testing"
     ],
     "assertTrue": [
+      "wagtail/10-testing",
       "woocommerce/21-testing",
       "wordpress/07-testing"
     ],
@@ -15089,6 +15554,9 @@
     ],
     "assertWPError": [
       "wordpress/07-testing"
+    ],
+    "assert_called": [
+      "django/07-testing"
     ],
     "assertions": [
       "accessibility/22-lighthouse"
@@ -15133,6 +15601,10 @@
     ],
     "at-rule-no-unknown": [
       "tools/06-stylelint"
+    ],
+    "atomic": [
+      "django/05-querysets-and-transactions",
+      "django/20-management-commands"
     ],
     "atomically": [
       "redis/07-hashes"
@@ -15200,6 +15672,9 @@
     "auditd": [
       "linux/17-security"
     ],
+    "auth.User": [
+      "django/15-authentication"
+    ],
     "authDirectiveTransformer": [
       "graphql/11-directives"
     ],
@@ -15220,6 +15695,9 @@
     "authentication": [
       "react/22-folder-structure",
       "tools/17-commit-conventions"
+    ],
+    "authentication_classes": [
+      "django/24-rest-apis"
     ],
     "author": [
       "architecture/14-performance",
@@ -15540,6 +16018,9 @@
     "backend for frontend": [
       "woocommerce/14-headless"
     ],
+    "backends": [
+      "django/27-database-backends"
+    ],
     "background": [
       "css/01-css-fundamentals",
       "css/11-colors",
@@ -15819,6 +16300,7 @@
     ],
     "billing": [
       "backend/25-code-organization",
+      "django/08-async",
       "git/18-history",
       "nestjs/02-modules",
       "nestjs/23-distributed-systems",
@@ -15837,6 +16319,7 @@
       "php/10-files"
     ],
     "bind": [
+      "django/09-deployment",
       "javascript/16-this-keyword",
       "kubernetes/18-rbac"
     ],
@@ -15902,6 +16385,12 @@
       "nestjs/27-performance",
       "testing/27-quality-gates"
     ],
+    "blocks": [
+      "wagtail/04-streamfield-and-blocks"
+    ],
+    "blog": [
+      "wagtail/29-project-structure"
+    ],
     "blog_id": [
       "wordpress/25-multisite"
     ],
@@ -15916,6 +16405,9 @@
     ],
     "body_class": [
       "divi/16-wordpress-hooks"
+    ],
+    "body_fields": [
+      "wagtail/09-headless-api"
     ],
     "book": [
       "databases/03-data-modeling"
@@ -16170,6 +16662,10 @@
     "bulk": [
       "nestjs/11-exception-filters"
     ],
+    "bulk_create": [
+      "wagtail/100-common-antipatterns",
+      "wagtail/24-content-imports"
+    ],
     "bullmq": [
       "nestjs/20-queues",
       "nodejs/24-background-jobs"
@@ -16259,6 +16755,9 @@
     "cache-manager": [
       "nestjs/19-caching"
     ],
+    "cache.delete": [
+      "django/17-caching"
+    ],
     "cacheComponents": [
       "nextjs/08-rendering-strategies",
       "nextjs/20-performance"
@@ -16268,6 +16767,10 @@
     ],
     "cacheTime": [
       "react/16-data-fetching"
+    ],
+    "cache_page": [
+      "django/17-caching",
+      "wagtail/20-caching"
     ],
     "cacheable": [
       "nestjs/19-caching"
@@ -16327,6 +16830,9 @@
     ],
     "callUpstream": [
       "nodejs/09-http"
+    ],
+    "call_command": [
+      "django/20-management-commands"
     ],
     "call_next": [
       "devops/12-monitoring",
@@ -16621,32 +17127,6 @@
     "characters": [
       "figma/19-design-handoff"
     ],
-    "charge": [
-      "architecture/08-event-driven-architecture",
-      "architecture/12-integration-patterns",
-      "architecture/28-best-practices",
-      "architecture/30-engineering-principles",
-      "aws/12-lambda",
-      "backend/12-error-handling",
-      "backend/22-observability",
-      "backend/24-documentation",
-      "backend/30-engineering-principles",
-      "nestjs/03-dependency-injection",
-      "nestjs/05-services",
-      "nestjs/14-configuration",
-      "nestjs/18-transactions",
-      "nestjs/23-distributed-systems",
-      "nestjs/25-testing",
-      "nextjs/23-observability",
-      "nextjs/24-security",
-      "nodejs/100-common-antipatterns",
-      "php/30-engineering-principles",
-      "rest-api/18-idempotency",
-      "woocommerce/08-payments",
-      "woocommerce/19-subscriptions",
-      "woocommerce/21-testing",
-      "woocommerce/26-debugging"
-    ],
     "chargeCard": [
       "nodejs/21-testing"
     ],
@@ -16659,6 +17139,12 @@
     ],
     "charge_gateway": [
       "databases/09-transactions"
+    ],
+    "charge_invoice": [
+      "wagtail/29-project-structure"
+    ],
+    "charge_on_save": [
+      "django/02-architecture"
     ],
     "charge_payment": [
       "architecture/20-message-brokers"
@@ -16928,6 +17414,9 @@
       "rest-api/20-file-upload",
       "tools/10-webpack"
     ],
+    "clean_amount": [
+      "django/12-forms-and-validation"
+    ],
     "cleanup": [
       "snippets/03-shell-scripts",
       "tools/13-test-runners"
@@ -16959,6 +17448,10 @@
       "react/08-hooks",
       "react/09-custom-hooks",
       "snippets/01-typescript-utilities"
+    ],
+    "clearsessions": [
+      "django/29-maintenance",
+      "wagtail/28-maintenance"
     ],
     "cli": [
       "tools/11-esbuild-and-swc"
@@ -17131,6 +17624,11 @@
     "collectDefaultMetrics": [
       "nodejs/27-monitoring"
     ],
+    "collectstatic": [
+      "django/09-deployment",
+      "django/14-static-and-media",
+      "wagtail/26-frontend-assets"
+    ],
     "color": [
       "css/01-css-fundamentals",
       "css/11-colors",
@@ -17213,6 +17711,7 @@
     ],
     "comment": [
       "databases/05-denormalization",
+      "django/06-security",
       "html/19-security",
       "javascript/26-security"
     ],
@@ -17276,6 +17775,9 @@
       "nestjs/04-controllers",
       "nestjs/06-repositories",
       "nestjs/25-testing"
+    ],
+    "compilemessages": [
+      "django/19-internationalization"
     ],
     "compiler": [
       "tailwind/27-production"
@@ -17415,6 +17917,7 @@
     ],
     "condition": [
       "devops/27-sre-principles",
+      "django/04-models-and-migrations",
       "docker/12-docker-compose",
       "docker/15-healthchecks",
       "seo/24-monitoring"
@@ -17479,7 +17982,9 @@
       "redis/01-installation",
       "sql/22-security",
       "testing/10-fixtures",
-      "tools/22-profilers"
+      "tools/22-profilers",
+      "wagtail/20-caching",
+      "wagtail/27-observability"
     ],
     "connectedCallback": [
       "html/25-web-components"
@@ -17533,12 +18038,18 @@
     "constraint": [
       "git/04-commits"
     ],
+    "constraints": [
+      "django/04-models-and-migrations"
+    ],
     "constructor.name": [
       "typescript/12-type-guards"
     ],
     "consumer": [
       "backend/15-message-brokers",
       "nestjs/13-middleware"
+    ],
+    "contact": [
+      "wagtail/18-forms"
     ],
     "contain": [
       "css/12-backgrounds",
@@ -17648,6 +18159,10 @@
     "content.rendered": [
       "divi/18-headless"
     ],
+    "content_panels": [
+      "wagtail/14-admin-panels",
+      "wagtail/18-forms"
+    ],
     "contents": [
       "cicd/15-secrets",
       "cicd/17-github-actions",
@@ -17685,7 +18200,8 @@
       "react/16-data-fetching",
       "tools/14-playwright",
       "tools/20-local-environments",
-      "typescript/15-decorators"
+      "typescript/15-decorators",
+      "wagtail/02-architecture"
     ],
     "context.user": [
       "graphql/18-authentication"
@@ -17768,6 +18284,9 @@
     "copyLarge": [
       "nodejs/20-memory-management"
     ],
+    "copy_for_translation": [
+      "wagtail/17-localization"
+    ],
     "copytruncate": [
       "linux/15-logging"
     ],
@@ -17790,7 +18309,8 @@
       "nestjs/26-security",
       "nestjs/27-performance",
       "nestjs/28-deployment",
-      "nestjs/29-maintenance"
+      "nestjs/29-maintenance",
+      "wagtail/26-frontend-assets"
     ],
     "core web vitals": [
       "divi/13-seo",
@@ -18075,6 +18595,14 @@
     "create_before_destroy": [
       "aws/09-acm"
     ],
+    "create_for_user": [
+      "django/02-architecture"
+    ],
+    "create_invoice": [
+      "django/12-forms-and-validation",
+      "django/25-background-jobs",
+      "django/30-engineering-principles"
+    ],
     "create_many": [
       "wordpress/07-testing"
     ],
@@ -18088,6 +18616,9 @@
     ],
     "create_subscriber": [
       "wordpress/02-project-structure"
+    ],
+    "create_user": [
+      "django/07-testing"
     ],
     "created": [
       "cicd/09-release-management",
@@ -18143,11 +18674,15 @@
       "security/19-cors"
     ],
     "cross site request forgery": [
+      "django/06-security",
+      "django/12-forms-and-validation",
+      "django/16-middleware",
       "php/13-security",
       "security/06-session-management",
       "security/08-oauth",
       "security/12-csrf",
       "security/19-cors",
+      "wagtail/18-forms",
       "woocommerce/16-security"
     ],
     "crossorigin": [
@@ -18185,6 +18720,10 @@
     ],
     "cryptography": [
       "security/17-encryption"
+    ],
+    "csrf_exempt": [
+      "django/06-security",
+      "django/100-common-antipatterns"
     ],
     "csv": [
       "workflows/03-create-new-feature"
@@ -18260,6 +18799,7 @@
     ],
     "currency": [
       "backend/08-domain-modeling",
+      "django/12-forms-and-validation",
       "engineering/01-decision-framework",
       "snippets/01-typescript-utilities",
       "templates/01-pull-request",
@@ -18448,6 +18988,7 @@
       "tailwind/12-dark-mode"
     ],
     "dashboard": [
+      "django/17-caching",
       "figma/13-visual-regression",
       "nextjs/30-migration-guide"
     ],
@@ -18714,7 +19255,11 @@
       "tailwind/14-pseudo-classes"
     ],
     "decorators": [
-      "tools/15-storybook"
+      "django/06-security",
+      "django/17-caching",
+      "django/24-rest-apis",
+      "tools/15-storybook",
+      "wagtail/20-caching"
     ],
     "decrby": [
       "redis/10-transactions"
@@ -18771,6 +19316,7 @@
     ],
     "defer": [
       "databases/09-transactions",
+      "django/26-performance",
       "html/01-document-structure",
       "html/18-performance",
       "html/20-browser-rendering",
@@ -18836,6 +19382,7 @@
       "redis/17-distributed-locks"
     ],
     "delay": [
+      "django/25-background-jobs",
       "nestjs/23-distributed-systems"
     ],
     "delete-package-versions": [
@@ -19039,7 +19586,9 @@
       "php/27-production"
     ],
     "depth": [
-      "devops/20-scalability"
+      "devops/20-scalability",
+      "wagtail/02-architecture",
+      "wagtail/100-common-antipatterns"
     ],
     "depthLimit": [
       "graphql/17-security",
@@ -19052,6 +19601,10 @@
     ],
     "derived": [
       "nestjs/27-performance"
+    ],
+    "descendant_of": [
+      "wagtail/16-multisite",
+      "wagtail/22-security"
     ],
     "descent-override": [
       "performance/12-fonts"
@@ -19126,6 +19679,11 @@
     "detail": [
       "architecture/03-clean-architecture",
       "aws/23-eventbridge",
+      "django/06-security",
+      "django/11-urls-and-views",
+      "django/22-logging-and-observability",
+      "django/23-error-handling",
+      "django/28-multi-tenancy",
       "react/19-error-handling",
       "rest-api/09-error-handling"
     ],
@@ -19183,6 +19741,9 @@
     ],
     "dialogRef": [
       "react/20-accessibility"
+    ],
+    "dict": [
+      "django/30-engineering-principles"
     ],
     "did_action": [
       "wordpress/08-hooks",
@@ -19350,6 +19911,22 @@
       "html/05-images",
       "html/100-common-antipatterns",
       "nextjs/16-images"
+    ],
+    "django": [
+      "wagtail/06-permissions",
+      "wagtail/13-snippets",
+      "wagtail/20-caching",
+      "wagtail/23-migrations",
+      "wagtail/25-custom-users"
+    ],
+    "django.VERSION": [
+      "django/01-version-support"
+    ],
+    "django.core.mail.outbox": [
+      "django/21-email"
+    ],
+    "django.views.static.serve": [
+      "django/14-static-and-media"
     ],
     "dkr": [
       "aws/18-ecs",
@@ -19925,6 +20502,9 @@
       "tools/30-engineering-principles",
       "typescript/29-tooling"
     ],
+    "enqueue": [
+      "django/25-background-jobs"
+    ],
     "enqueueWelcomeEmail": [
       "nestjs/20-queues"
     ],
@@ -19998,6 +20578,9 @@
       "nodejs/10-process",
       "nodejs/14-environment",
       "nodejs/15-configuration"
+    ],
+    "environ": [
+      "django/03-settings"
     ],
     "environment": [
       "architecture/23-infrastructure",
@@ -20423,6 +21006,7 @@
     "except": [
       "architecture/17-fault-tolerance",
       "backend/27-production",
+      "django/23-error-handling",
       "kubernetes/17-network-policies"
     ],
     "exception": [
@@ -20486,7 +21070,8 @@
     "exists": [
       "architecture/08-event-driven-architecture",
       "backend/02-layered-architecture",
-      "php/29-architecture"
+      "php/29-architecture",
+      "wagtail/10-testing"
     ],
     "existsByEmail": [
       "backend/02-layered-architecture",
@@ -20569,6 +21154,9 @@
       "redis/15-session-storage",
       "redis/17-distributed-locks",
       "redis/26-best-practices"
+    ],
+    "expire_at": [
+      "wagtail/05-revisions-and-workflows"
     ],
     "expire_in": [
       "cicd/18-gitlab-ci"
@@ -20686,6 +21274,10 @@
     ],
     "externally": [
       "devops/17-secrets-management"
+    ],
+    "extra": [
+      "django/06-security",
+      "wagtail/27-observability"
     ],
     "extractToken": [
       "nestjs/09-guards"
@@ -20935,6 +21527,9 @@
       "php/10-files",
       "php/14-performance"
     ],
+    "field": [
+      "django/04-models-and-migrations"
+    ],
     "fieldConfig": [
       "graphql/11-directives"
     ],
@@ -20942,6 +21537,8 @@
       "react/15-forms"
     ],
     "fields": [
+      "django/12-forms-and-validation",
+      "django/18-admin",
       "rest-api/08-validation",
       "testing/12-api-testing"
     ],
@@ -20979,6 +21576,7 @@
     ],
     "files": [
       "cicd/18-gitlab-ci",
+      "django/14-static-and-media",
       "php/06-autoloading",
       "tools/04-eslint",
       "tools/25-editor-setup",
@@ -21197,6 +21795,9 @@
     "find_by_key": [
       "architecture/21-distributed-systems"
     ],
+    "find_for_request": [
+      "wagtail/16-multisite"
+    ],
     "find_referencing_symbols": [
       "ai/04-code-modification"
     ],
@@ -21237,7 +21838,9 @@
       "javascript/10-event-loop",
       "nodejs/07-buffers",
       "postgresql/04-indexes",
-      "sql/25-debugging"
+      "sql/25-debugging",
+      "wagtail/10-testing",
+      "wagtail/16-multisite"
     ],
     "first-of-type:": [
       "tailwind/14-pseudo-classes"
@@ -21281,6 +21884,9 @@
     ],
     "fixed_product": [
       "woocommerce/11-coupons"
+    ],
+    "fixtree": [
+      "wagtail/28-maintenance"
     ],
     "fixture": [
       "testing/10-fixtures"
@@ -21396,7 +22002,8 @@
       "linux/15-logging"
     ],
     "flush": [
-      "nestjs/28-deployment"
+      "nestjs/28-deployment",
+      "wagtail/28-maintenance"
     ],
     "flushSync": [
       "react/06-state"
@@ -21564,6 +22171,9 @@
       "aws/09-acm",
       "aws/31-high-availability"
     ],
+    "for_tenant": [
+      "django/28-multi-tenancy"
+    ],
     "forbidNonWhitelisted": [
       "nestjs/04-controllers",
       "nestjs/26-security"
@@ -21577,6 +22187,9 @@
     ],
     "force-dynamic": [
       "nextjs/08-rendering-strategies"
+    ],
+    "force_login": [
+      "django/07-testing"
     ],
     "forced-colors": [
       "accessibility/10-color-and-contrast",
@@ -21594,6 +22207,8 @@
       "nodejs/13-cluster"
     ],
     "form": [
+      "django/13-templates",
+      "django/30-engineering-principles",
       "nextjs/22-testing",
       "postgresql/05-query-planner"
     ],
@@ -21672,7 +22287,9 @@
       "nestjs/24-observability"
     ],
     "forms": [
-      "tailwind/18-plugins"
+      "django/12-forms-and-validation",
+      "tailwind/18-plugins",
+      "wagtail/29-project-structure"
     ],
     "forwardRef": [
       "nestjs/02-modules",
@@ -22181,6 +22798,10 @@
     "getJson": [
       "javascript/13-fetch-api"
     ],
+    "getLogger": [
+      "django/22-logging-and-observability",
+      "wagtail/27-observability"
+    ],
     "getMany": [
       "nestjs/100-common-antipatterns",
       "nestjs/17-database",
@@ -22391,6 +23012,9 @@
     "getViewer": [
       "graphql/21-caching"
     ],
+    "get_active": [
+      "wagtail/17-localization"
+    ],
     "get_billing_email": [
       "woocommerce/18-emails"
     ],
@@ -22427,6 +23051,9 @@
     ],
     "get_content": [
       "woocommerce/18-emails"
+    ],
+    "get_context": [
+      "wagtail/02-architecture"
     ],
     "get_currency": [
       "woocommerce/08-payments"
@@ -22475,6 +23102,9 @@
       "examples/03-wordpress-feature",
       "wordpress/13-template-hierarchy"
     ],
+    "get_full_name": [
+      "wagtail/25-custom-users"
+    ],
     "get_header": [
       "examples/03-wordpress-feature",
       "wordpress/13-template-hierarchy"
@@ -22504,11 +23134,19 @@
     "get_meta_data": [
       "woocommerce/26-debugging"
     ],
+    "get_model": [
+      "wagtail/23-migrations"
+    ],
     "get_network_option": [
       "wordpress/25-multisite"
     ],
     "get_num_queries": [
       "wordpress/07-testing"
+    ],
+    "get_object_or_404": [
+      "django/11-urls-and-views",
+      "django/23-error-handling",
+      "django/28-multi-tenancy"
     ],
     "get_option": [
       "examples/03-wordpress-feature",
@@ -22621,11 +23259,21 @@
       "architecture/19-caching-strategies",
       "performance/28-real-world-patterns"
     ],
+    "get_queryset": [
+      "django/18-admin"
+    ],
     "get_rate_id": [
       "woocommerce/09-shipping"
     ],
     "get_recommendations": [
       "architecture/17-fault-tolerance"
+    ],
+    "get_rendition": [
+      "wagtail/08-images-and-documents",
+      "wagtail/21-performance"
+    ],
+    "get_response": [
+      "django/16-middleware"
     ],
     "get_results": [
       "divi/04-custom-modules",
@@ -22789,6 +23437,9 @@
     "get_userdata": [
       "wordpress/12-queries"
     ],
+    "get_username": [
+      "wagtail/25-custom-users"
+    ],
     "get_var": [
       "woocommerce/20-multisite",
       "wordpress/05-performance",
@@ -22804,6 +23455,13 @@
       "php/30-engineering-principles",
       "woocommerce/27-production",
       "wordpress/27-deployment"
+    ],
+    "gettext": [
+      "django/19-internationalization",
+      "wagtail/17-localization"
+    ],
+    "gettext_lazy": [
+      "django/19-internationalization"
     ],
     "gh-ost": [
       "databases/11-locking",
@@ -22938,6 +23596,9 @@
     "go.sum": [
       "cicd/26-performance",
       "security/23-dependency-security"
+    ],
+    "go_live_at": [
+      "wagtail/05-revisions-and-workflows"
     ],
     "going": [
       "linux/14-cron"
@@ -23113,6 +23774,9 @@
     "guide": [
       "engineering/WRITING_STANDARD"
     ],
+    "gunicorn": [
+      "django/09-deployment"
+    ],
     "gzip": [
       "nginx/26-best-practices",
       "rest-api/06-request-response",
@@ -23152,6 +23816,7 @@
       "architecture/20-message-brokers",
       "aws/14-cloudwatch",
       "devops/12-monitoring",
+      "django/20-management-commands",
       "github/01-github-platform",
       "javascript/04-functions",
       "javascript/23-clean-code",
@@ -23216,6 +23881,12 @@
     "handle_webhook": [
       "woocommerce/08-payments"
     ],
+    "handler404": [
+      "django/23-error-handling"
+    ],
+    "handler500": [
+      "django/23-error-handling"
+    ],
     "handlers": [
       "nextjs/02-project-structure"
     ],
@@ -23265,12 +23936,21 @@
     "has_archive": [
       "wordpress/09-custom-post-types"
     ],
+    "has_change_permission": [
+      "django/18-admin"
+    ],
+    "has_delete_permission": [
+      "django/18-admin"
+    ],
     "has_filter": [
       "wordpress/07-testing",
       "wordpress/08-hooks"
     ],
     "has_term": [
       "woocommerce/30-engineering-principles"
+    ],
+    "has_view_permission": [
+      "django/18-admin"
     ],
     "hash": [
       "databases/15-sharding",
@@ -23362,7 +24042,11 @@
       "nodejs/09-http"
     ],
     "heading": [
-      "figma/01-figma-analysis"
+      "figma/01-figma-analysis",
+      "wagtail/04-streamfield-and-blocks"
+    ],
+    "heading_v2": [
+      "wagtail/04-streamfield-and-blocks"
     ],
     "headings": [
       "figma/16-accessibility-from-figma"
@@ -23437,6 +24121,7 @@
       "nodejs/18-security"
     ],
     "help": [
+      "django/20-management-commands",
       "nodejs/27-monitoring",
       "tools/19-task-runners"
     ],
@@ -23473,6 +24158,8 @@
       "seo/11-twitter-cards",
       "seo/12-performance",
       "seo/13-core-web-vitals",
+      "wagtail/08-images-and-documents",
+      "wagtail/21-performance",
       "wordpress/17-block-themes",
       "wordpress/21-media-and-uploads"
     ],
@@ -23544,6 +24231,12 @@
     ],
     "home": [
       "testing/14-visual-regression",
+      "wagtail/03-page-models",
+      "wagtail/10-testing",
+      "wagtail/16-multisite",
+      "wagtail/24-content-imports",
+      "wagtail/29-project-structure",
+      "wagtail/30-engineering-principles",
       "wordpress/13-template-hierarchy"
     ],
     "home.php": [
@@ -24027,6 +24720,9 @@
       "wordpress/20-users-and-capabilities",
       "wordpress/29-maintenance"
     ],
+    "in_site": [
+      "wagtail/16-multisite"
+    ],
     "in_the_loop": [
       "wordpress/01-wordpress-architecture"
     ],
@@ -24380,8 +25076,11 @@
       "tools/19-task-runners"
     ],
     "instance": [
+      "django/02-architecture",
       "frontend/22-testing",
-      "rest-api/09-error-handling"
+      "rest-api/09-error-handling",
+      "wagtail/20-caching",
+      "wagtail/27-observability"
     ],
     "instance_class": [
       "aws/05-rds"
@@ -24486,6 +25185,9 @@
       "testing/25-production-testing",
       "tools/20-local-environments"
     ],
+    "intro": [
+      "wagtail/14-admin-panels"
+    ],
     "introspection": [
       "graphql/17-security",
       "graphql/27-production"
@@ -24500,6 +25202,9 @@
     "invalidateQueries": [
       "react/16-data-fetching"
     ],
+    "invalidate_article": [
+      "wagtail/20-caching"
+    ],
     "inventory": [
       "architecture/06-domain-driven-design",
       "architecture/09-microservices",
@@ -24509,6 +25214,18 @@
       "sql/27-portability"
     ],
     "invoice": [
+      "django/06-security",
+      "django/07-testing",
+      "django/11-urls-and-views",
+      "django/13-templates",
+      "django/21-email",
+      "django/22-logging-and-observability",
+      "django/23-error-handling",
+      "django/24-rest-apis",
+      "django/25-background-jobs",
+      "django/26-performance",
+      "django/28-multi-tenancy",
+      "django/30-engineering-principles",
       "engineering/02-code-review",
       "graphql/19-authorization",
       "nextjs/15-authorization",
@@ -24520,8 +25237,21 @@
       "security/04-authorization",
       "testing/24-best-practices"
     ],
+    "invoice.owner": [
+      "django/30-engineering-principles"
+    ],
     "invoiceStatus": [
       "testing/24-best-practices"
+    ],
+    "invoice_detail": [
+      "django/06-security",
+      "django/11-urls-and-views",
+      "django/22-logging-and-observability",
+      "django/23-error-handling",
+      "django/28-multi-tenancy"
+    ],
+    "invoice_list": [
+      "django/24-rest-apis"
     ],
     "invoice_service": [
       "php/05-namespaces"
@@ -24533,6 +25263,8 @@
       "backend/11-authorization",
       "backend/14-events",
       "databases/25-multi-tenancy",
+      "django/24-rest-apis",
+      "django/26-performance",
       "graphql/19-authorization",
       "security/04-authorization",
       "security/28-owasp-top10",
@@ -24685,13 +25417,17 @@
     ],
     "is_active": [
       "databases/07-indexing",
-      "mysql/27-procedures"
+      "mysql/27-procedures",
+      "wagtail/25-custom-users"
     ],
     "is_admin": [
       "divi/16-wordpress-hooks",
       "examples/03-wordpress-feature",
       "woocommerce/12-hooks",
       "wordpress/08-hooks"
+    ],
+    "is_authenticated": [
+      "django/15-authentication"
     ],
     "is_business_hours": [
       "woocommerce/23-monitoring"
@@ -24753,9 +25489,15 @@
       "wordpress/14-theme-development",
       "wordpress/15-plugin-development"
     ],
+    "is_staff": [
+      "wagtail/25-custom-users"
+    ],
     "is_super_admin": [
       "wordpress/20-users-and-capabilities",
       "wordpress/25-multisite"
+    ],
+    "is_superuser": [
+      "wagtail/25-custom-users"
     ],
     "is_tax": [
       "wordpress/13-template-hierarchy"
@@ -24767,6 +25509,9 @@
       "wordpress/23-caching",
       "wordpress/28-debugging",
       "workflows/09-build-wordpress-feature"
+    ],
+    "is_valid": [
+      "django/30-engineering-principles"
     ],
     "is_wp_error": [
       "wordpress/01-wordpress-architecture",
@@ -24854,6 +25599,9 @@
     "iteration": [
       "wordpress/05-performance"
     ],
+    "iterator": [
+      "wagtail/23-migrations"
+    ],
     "javascript:": [
       "frontend/14-security",
       "html/19-security",
@@ -24907,6 +25655,9 @@
     ],
     "jobTemplate": [
       "kubernetes/16-cronjobs"
+    ],
+    "job_title": [
+      "wagtail/25-custom-users"
     ],
     "joi": [
       "ai/01-context-gathering",
@@ -25459,6 +26210,8 @@
     "list": [
       "architecture/14-performance",
       "backend/06-api-design",
+      "django/17-caching",
+      "django/24-rest-apis",
       "javascript/12-dom",
       "kubernetes/10-secrets",
       "kubernetes/18-rbac",
@@ -25468,7 +26221,8 @@
       "performance/27-best-practices",
       "react/09-custom-hooks",
       "seo/18-pagination",
-      "seo/22-search-console"
+      "seo/22-search-console",
+      "wagtail/09-headless-api"
     ],
     "list-style": [
       "html/06-lists"
@@ -25516,6 +26270,9 @@
     "listWithOrdersRelations": [
       "nestjs/17-database"
     ],
+    "list_display": [
+      "django/18-admin"
+    ],
     "list_orders": [
       "backend/28-best-practices"
     ],
@@ -25551,6 +26308,16 @@
     ],
     "literal": [
       "security/13-sql-injection"
+    ],
+    "live": [
+      "wagtail/02-architecture",
+      "wagtail/05-revisions-and-workflows",
+      "wagtail/06-permissions",
+      "wagtail/07-search",
+      "wagtail/10-testing",
+      "wagtail/17-localization",
+      "wagtail/21-performance",
+      "wagtail/22-security"
     ],
     "live-restore": [
       "docker/01-installation"
@@ -25698,6 +26465,9 @@
     "local_infile": [
       "mysql/12-security"
     ],
+    "locale": [
+      "wagtail/17-localization"
+    ],
     "localeCompare": [
       "react/30-engineering-principles",
       "typescript/20-immutability"
@@ -25802,10 +26572,15 @@
       "sql/25-debugging",
       "sql/29-tooling"
     ],
+    "log_publish": [
+      "wagtail/27-observability"
+    ],
     "logging": [
+      "django/22-logging-and-observability",
       "docker/24-monitoring",
       "nestjs/10-interceptors",
-      "nestjs/17-database"
+      "nestjs/17-database",
+      "wagtail/27-observability"
     ],
     "logic": [
       "react/22-folder-structure"
@@ -25826,6 +26601,9 @@
     ],
     "loginViaApi": [
       "testing/04-e2e-testing"
+    ],
+    "login_required": [
+      "django/15-authentication"
     ],
     "logo": [
       "figma/18-image-assets",
@@ -25919,6 +26697,9 @@
       "tools/20-local-environments",
       "wordpress/03-best-practices"
     ],
+    "mail_admins": [
+      "django/21-email"
+    ],
     "mailer": [
       "backend/16-background-jobs",
       "nestjs/03-dependency-injection",
@@ -25984,11 +26765,24 @@
     "make_thumbnail": [
       "security/14-command-injection"
     ],
+    "makemessages": [
+      "django/19-internationalization"
+    ],
+    "manage": [
+      "django/09-deployment",
+      "django/29-maintenance"
+    ],
+    "manage.py": [
+      "django/20-management-commands"
+    ],
     "manage_master_user_password": [
       "aws/05-rds"
     ],
     "manage_options": [
       "wordpress/20-users-and-capabilities"
+    ],
+    "management": [
+      "django/20-management-commands"
     ],
     "manager": [
       "git/02-installation",
@@ -26089,6 +26883,10 @@
     ],
     "mark_processed": [
       "aws/21-sqs"
+    ],
+    "mark_safe": [
+      "django/06-security",
+      "django/100-common-antipatterns"
     ],
     "mark_seen": [
       "aws/23-eventbridge"
@@ -26546,6 +27344,7 @@
       "prisma/05-migrations",
       "prisma/27-tooling",
       "sql/29-tooling",
+      "wagtail/25-custom-users",
       "wordpress/16-block-editor"
     ],
     "migration": [
@@ -26554,6 +27353,7 @@
       "tools/24-database-tools"
     ],
     "migrations": [
+      "django/04-models-and-migrations",
       "prisma/27-tooling"
     ],
     "migrator": [
@@ -26731,6 +27531,9 @@
       "testing/05-test-doubles",
       "testing/06-mocking"
     ],
+    "mock_objects": [
+      "django/07-testing"
+    ],
     "mocked": [
       "nextjs/22-testing"
     ],
@@ -26744,8 +27547,35 @@
       "tools/10-webpack"
     ],
     "model": [
+      "django/12-forms-and-validation",
       "nestjs/22-cqrs",
-      "prisma/14-extensions"
+      "prisma/14-extensions",
+      "wagtail/09-headless-api"
+    ],
+    "model.__dict__": [
+      "django/24-rest-apis"
+    ],
+    "model_name": [
+      "django/04-models-and-migrations"
+    ],
+    "modelcluster": [
+      "wagtail/18-forms"
+    ],
+    "models": [
+      "django/02-architecture",
+      "django/04-models-and-migrations",
+      "django/15-authentication",
+      "django/19-internationalization",
+      "django/28-multi-tenancy",
+      "wagtail/13-snippets",
+      "wagtail/14-admin-panels",
+      "wagtail/18-forms",
+      "wagtail/23-migrations",
+      "wagtail/25-custom-users",
+      "wagtail/29-project-structure"
+    ],
+    "models.py": [
+      "wagtail/29-project-structure"
     ],
     "moderate": [
       "testing/18-accessibility-testing"
@@ -27385,7 +28215,8 @@
     ],
     "nginx": [
       "docker/06-bind-mounts",
-      "kubernetes/08-ingress"
+      "kubernetes/08-ingress",
+      "wagtail/19-redirects"
     ],
     "nginx-prometheus-exporter": [
       "nginx/28-tooling"
@@ -27753,6 +28584,9 @@
       "backend/17-transactions",
       "cicd/24-notifications"
     ],
+    "notify_owner": [
+      "django/21-email"
+    ],
     "nounset": [
       "linux/03-bash"
     ],
@@ -27786,6 +28620,10 @@
     "number_format_i18n": [
       "wordpress/24-internationalization"
     ],
+    "numchild": [
+      "wagtail/02-architecture",
+      "wagtail/100-common-antipatterns"
+    ],
     "numeric": [
       "backend/18-database-design",
       "databases/100-common-antipatterns",
@@ -27811,9 +28649,15 @@
       "javascript/16-this-keyword",
       "typescript/23-clean-code"
     ],
+    "obj.foreign": [
+      "django/100-common-antipatterns"
+    ],
     "obj.method": [
       "javascript/100-common-antipatterns",
       "javascript/16-this-keyword"
+    ],
+    "obj.related": [
+      "django/13-templates"
     ],
     "obj.x": [
       "typescript/20-immutability"
@@ -27861,9 +28705,6 @@
     ],
     "objective": [
       "devops/27-sre-principles"
-    ],
-    "objects": [
-      "figma/16-accessibility-from-figma"
     ],
     "obs": [
       "html/27-html-apis",
@@ -28106,6 +28947,16 @@
     "onX": [
       "react/23-code-style"
     ],
+    "on_bound": [
+      "wagtail/14-admin-panels"
+    ],
+    "on_commit": [
+      "django/21-email",
+      "django/25-background-jobs"
+    ],
+    "on_delete": [
+      "django/15-authentication"
+    ],
     "on_demand_base_capacity": [
       "aws/24-cost-optimization"
     ],
@@ -28153,6 +29004,7 @@
     ],
     "only": [
       "cicd/18-gitlab-ci",
+      "django/26-performance",
       "github/21-permissions",
       "kubernetes/25-upgrades",
       "wordpress/29-maintenance"
@@ -28194,6 +29046,7 @@
       "html/25-web-components",
       "javascript/12-dom",
       "performance/04-memory",
+      "wagtail/22-security",
       "workflows/03-create-new-feature"
     ],
     "open graph": [
@@ -28251,6 +29104,7 @@
       "rest-api/22-swagger"
     ],
     "operations": [
+      "django/04-models-and-migrations",
       "graphql/28-tooling"
     ],
     "operator": [
@@ -28340,6 +29194,9 @@
     "order_audit": [
       "mysql/26-triggers"
     ],
+    "order_by": [
+      "django/26-performance"
+    ],
     "order_date": [
       "sql/19-materialized-views"
     ],
@@ -28351,6 +29208,9 @@
     ],
     "order_repo_sql": [
       "backend/25-code-organization"
+    ],
+    "order_status": [
+      "django/08-async"
     ],
     "orders.customer_id": [
       "sql/06-subqueries"
@@ -28504,6 +29364,10 @@
       "javascript/20-proxies-and-reflect"
     ],
     "owner": [
+      "django/07-testing",
+      "django/12-forms-and-validation",
+      "django/13-templates",
+      "django/15-authentication",
       "github/22-api",
       "nestjs/09-guards",
       "nestjs/26-security"
@@ -28631,6 +29495,19 @@
       "css/25-modern-css",
       "tailwind/02-core-concepts"
     ],
+    "page.body": [
+      "wagtail/23-migrations"
+    ],
+    "page.path": [
+      "wagtail/02-architecture"
+    ],
+    "page.specific": [
+      "wagtail/100-common-antipatterns",
+      "wagtail/21-performance"
+    ],
+    "page.title": [
+      "wagtail/05-revisions-and-workflows"
+    ],
     "page.tsx": [
       "ai/01-context-gathering",
       "nextjs/02-project-structure",
@@ -28641,6 +29518,14 @@
     ],
     "pageInfo.hasNextPage": [
       "github/22-api"
+    ],
+    "page_published": [
+      "wagtail/05-revisions-and-workflows",
+      "wagtail/20-caching",
+      "wagtail/27-observability"
+    ],
+    "pages_api": [
+      "wagtail/09-headless-api"
     ],
     "paginate": [
       "github/22-api",
@@ -28706,6 +29591,10 @@
     "parentElement": [
       "html/29-debugging"
     ],
+    "parent_page_types": [
+      "wagtail/03-page-models",
+      "wagtail/23-migrations"
+    ],
     "parseAmount": [
       "snippets/01-typescript-utilities"
     ],
@@ -28754,6 +29643,7 @@
       "typescript/26-security"
     ],
     "parser": [
+      "django/20-management-commands",
       "tools/10-webpack"
     ],
     "parserOptions.project": [
@@ -28810,6 +29700,7 @@
       "php/13-security"
     ],
     "patch": [
+      "django/07-testing",
       "kubernetes/18-rbac",
       "kubernetes/27-best-practices"
     ],
@@ -28874,6 +29765,7 @@
       "backend/14-events",
       "backend/28-best-practices",
       "cicd/24-notifications",
+      "django/17-caching",
       "graphql/06-subscriptions",
       "nestjs/18-transactions",
       "nestjs/20-queues",
@@ -29033,6 +29925,9 @@
       "wordpress/05-performance",
       "wordpress/06-security",
       "wordpress/18-rest-api"
+    ],
+    "permission_classes": [
+      "django/24-rest-apis"
     ],
     "permissions": [
       "cicd/15-secrets",
@@ -29391,7 +30286,8 @@
       "nestjs/21-events"
     ],
     "place_order": [
-      "backend/25-code-organization"
+      "backend/25-code-organization",
+      "django/02-architecture"
     ],
     "placeholder": [
       "accessibility/08-forms",
@@ -29705,6 +30601,10 @@
     "post_max_size": [
       "php/10-files"
     ],
+    "post_save": [
+      "django/02-architecture",
+      "django/100-common-antipatterns"
+    ],
     "post_status": [
       "wordpress/18-rest-api"
     ],
@@ -29800,6 +30700,10 @@
       "wordpress/09-custom-post-types",
       "wordpress/12-queries"
     ],
+    "pre_save": [
+      "django/02-architecture",
+      "django/100-common-antipatterns"
+    ],
     "preconnect": [
       "frontend/08-performance",
       "html/18-performance",
@@ -29860,7 +30764,11 @@
       "testing/18-accessibility-testing"
     ],
     "prefetch_related": [
-      "databases/100-common-antipatterns"
+      "databases/100-common-antipatterns",
+      "django/05-querysets-and-transactions",
+      "django/100-common-antipatterns",
+      "django/26-performance",
+      "wagtail/21-performance"
     ],
     "preg_replace": [
       "divi/15-custom-fields"
@@ -29936,7 +30844,8 @@
       "devops/08-infrastructure-as-code"
     ],
     "preview": [
-      "tools/15-storybook"
+      "tools/15-storybook",
+      "wagtail/20-caching"
     ],
     "previewFeatures": [
       "prisma/24-best-practices"
@@ -30198,6 +31107,7 @@
     ],
     "prod": [
       "aws/13-api-gateway",
+      "django/27-database-backends",
       "docker/21-development-workflow",
       "git/28-security",
       "wordpress/27-deployment"
@@ -30263,6 +31173,9 @@
     ],
     "promote-to-prod": [
       "devops/06-release-management"
+    ],
+    "promote_panels": [
+      "wagtail/14-admin-panels"
     ],
     "prop": [
       "frontend/24-documentation"
@@ -30532,7 +31445,12 @@
       "graphql/06-subscriptions",
       "nestjs/18-transactions",
       "nestjs/22-cqrs",
-      "tools/28-release-tools"
+      "tools/28-release-tools",
+      "wagtail/05-revisions-and-workflows",
+      "wagtail/10-testing",
+      "wagtail/15-hooks",
+      "wagtail/24-content-imports",
+      "wagtail/30-engineering-principles"
     ],
     "publishOrderCreated": [
       "nestjs/23-distributed-systems"
@@ -30545,6 +31463,9 @@
     "publishProduct": [
       "nextjs/08-rendering-strategies"
     ],
+    "publish_everything": [
+      "wagtail/15-hooks"
+    ],
     "publish_posts": [
       "wordpress/20-users-and-capabilities"
     ],
@@ -30553,6 +31474,9 @@
     ],
     "published_at": [
       "graphql/26-best-practices"
+    ],
+    "published_home": [
+      "django/17-caching"
     ],
     "publisher": [
       "nestjs/23-distributed-systems"
@@ -30588,6 +31512,9 @@
       "github/100-common-antipatterns",
       "github/15-dependabot"
     ],
+    "purge_revisions": [
+      "wagtail/28-maintenance"
+    ],
     "pushState": [
       "nextjs/04-routing"
     ],
@@ -30616,6 +31543,9 @@
     "pydantic": [
       "security/09-input-validation"
     ],
+    "pyproject": [
+      "django/01-version-support"
+    ],
     "pytest": [
       "mysql/17-testing",
       "redis/24-testing",
@@ -30640,6 +31570,8 @@
       "devops/23-quality-gates"
     ],
     "quantity": [
+      "django/04-models-and-migrations",
+      "django/05-querysets-and-transactions",
       "nestjs/01-architecture",
       "nestjs/07-dto",
       "nestjs/08-validation",
@@ -31043,6 +31975,7 @@
       "aws/21-sqs"
     ],
     "receiver": [
+      "django/02-architecture",
       "javascript/20-proxies-and-reflect"
     ],
     "recent": [
@@ -31100,6 +32033,7 @@
       "tools/29-observability-tools"
     ],
     "redirect": [
+      "django/30-engineering-principles",
       "nextjs/01-architecture",
       "nextjs/05-layouts",
       "nextjs/13-proxy",
@@ -31237,6 +32171,7 @@
     "register": [
       "architecture/04-hexagonal-architecture",
       "backend/02-layered-architecture",
+      "django/18-admin",
       "examples/01-rest-endpoint",
       "examples/03-wordpress-feature",
       "nestjs/03-dependency-injection",
@@ -31247,6 +32182,7 @@
       "nestjs/23-distributed-systems",
       "nextjs/23-observability",
       "php/29-architecture",
+      "wagtail/15-hooks",
       "wordpress/02-project-structure",
       "wordpress/04-code-style",
       "wordpress/07-testing",
@@ -31328,6 +32264,9 @@
       "wordpress/15-plugin-development",
       "wordpress/20-users-and-capabilities",
       "wordpress/30-engineering-principles"
+    ],
+    "register_reports_menu_item": [
+      "wagtail/15-hooks"
     ],
     "register_rest_field": [
       "divi/17-rest-api",
@@ -31549,6 +32488,9 @@
     "renameProject": [
       "nextjs/100-common-antipatterns"
     ],
+    "rename_story_block": [
+      "wagtail/23-migrations"
+    ],
     "render.php": [
       "wordpress/16-block-editor"
     ],
@@ -31719,6 +32661,10 @@
     "req.user": [
       "performance/21-scalability"
     ],
+    "request.POST": [
+      "django/12-forms-and-validation",
+      "django/17-caching"
+    ],
     "request.cookies": [
       "nextjs/13-proxy"
     ],
@@ -31729,7 +32675,11 @@
     "request.order": [
       "nestjs/09-guards"
     ],
+    "request.request_id": [
+      "django/16-middleware"
+    ],
     "request.user": [
+      "django/16-middleware",
       "nestjs/26-security"
     ],
     "requestAnimationFrame": [
@@ -31785,6 +32735,7 @@
       "aws/19-eks",
       "cicd/22-kubernetes-integration",
       "devops/11-orchestration",
+      "django/08-async",
       "docker/23-orchestration",
       "kubernetes/02-cluster",
       "kubernetes/04-pods",
@@ -32195,6 +33146,9 @@
     "reviewsByProduct": [
       "graphql/23-federation"
     ],
+    "revision": [
+      "wagtail/05-revisions-and-workflows"
+    ],
     "revisionHistoryLimit": [
       "kubernetes/05-deployments"
     ],
@@ -32346,6 +33300,9 @@
     "rootMargin": [
       "html/27-html-apis"
     ],
+    "root_page": [
+      "wagtail/16-multisite"
+    ],
     "rotate": [
       "css/14-transforms",
       "css/16-animations",
@@ -32390,6 +33347,7 @@
       "nextjs/27-folder-structure",
       "nextjs/28-best-practices",
       "rest-api/26-monitoring",
+      "wagtail/03-page-models",
       "woocommerce/14-headless",
       "workflows/03-create-new-feature",
       "workflows/05-review-pull-request"
@@ -32561,6 +33519,9 @@
     "running": [
       "linux/19-debugging"
     ],
+    "runserver": [
+      "django/09-deployment"
+    ],
     "runtime": [
       "aws/30-engineering-principles",
       "nextjs/13-proxy"
@@ -32580,6 +33541,9 @@
     "rxjs/operators": [
       "nestjs/10-interceptors",
       "nestjs/27-performance"
+    ],
+    "safe": [
+      "wagtail/09-headless-api"
     ],
     "safeParse": [
       "backend/09-validation",
@@ -32682,6 +33646,15 @@
     ],
     "save_post_acme_event": [
       "examples/03-wordpress-feature"
+    ],
+    "save_revision": [
+      "wagtail/05-revisions-and-workflows",
+      "wagtail/10-testing",
+      "wagtail/100-common-antipatterns",
+      "wagtail/15-hooks",
+      "wagtail/24-content-imports",
+      "wagtail/27-observability",
+      "wagtail/30-engineering-principles"
     ],
     "save_session": [
       "redis/24-testing"
@@ -32914,6 +33887,10 @@
       "nextjs/29-engineering-principles",
       "nextjs/30-migration-guide"
     ],
+    "search_fields": [
+      "wagtail/03-page-models",
+      "wagtail/07-search"
+    ],
     "search_path": [
       "postgresql/15-extensions",
       "sql/20-stored-procedures"
@@ -33034,8 +34011,16 @@
     "selectForUpdate": [
       "backend/17-transactions"
     ],
+    "select_for_update": [
+      "django/05-querysets-and-transactions"
+    ],
     "select_related": [
-      "databases/100-common-antipatterns"
+      "databases/100-common-antipatterns",
+      "django/05-querysets-and-transactions",
+      "django/100-common-antipatterns",
+      "django/26-performance",
+      "django/30-engineering-principles",
+      "wagtail/21-performance"
     ],
     "selected": [
       "react/26-best-practices"
@@ -33073,12 +34058,26 @@
       "css/03-specificity"
     ],
     "self": [
+      "django/07-testing",
+      "django/12-forms-and-validation",
+      "django/16-middleware",
+      "django/20-management-commands",
+      "django/28-multi-tenancy",
       "php/02-types",
       "php/19-enums",
       "php/21-design-patterns",
       "php/25-debugging",
       "php/26-best-practices",
+      "wagtail/10-testing",
+      "wagtail/13-snippets",
+      "wagtail/27-observability",
       "wordpress/15-plugin-development"
+    ],
+    "self.get_response": [
+      "django/16-middleware"
+    ],
+    "self.stdout": [
+      "django/20-management-commands"
     ],
     "semantic-conventions": [
       "nestjs/24-observability"
@@ -33137,6 +34136,13 @@
       "nestjs/06-repositories",
       "nestjs/20-queues"
     ],
+    "send_invoice_email": [
+      "django/25-background-jobs"
+    ],
+    "send_mail": [
+      "django/21-email",
+      "wagtail/18-forms"
+    ],
     "send_newsletter": [
       "wordpress/04-code-style"
     ],
@@ -33150,6 +34156,9 @@
     "sendfile": [
       "nginx/07-static-files",
       "nginx/18-performance"
+    ],
+    "sendmail": [
+      "django/21-email"
     ],
     "sent": [
       "backend/14-events",
@@ -33172,7 +34181,11 @@
       "testing/18-accessibility-testing"
     ],
     "serve": [
-      "devops/19-high-availability"
+      "devops/19-high-availability",
+      "wagtail/03-page-models",
+      "wagtail/16-multisite",
+      "wagtail/20-caching",
+      "wagtail/27-observability"
     ],
     "server-only": [
       "nextjs/02-project-structure",
@@ -33265,7 +34278,8 @@
       "postgresql/29-tooling",
       "redis/01-installation",
       "tools/20-local-environments",
-      "tools/21-debuggers"
+      "tools/21-debuggers",
+      "wagtail/29-project-structure"
     ],
     "session": [
       "examples/01-rest-endpoint",
@@ -33654,11 +34668,16 @@
       "linux/06-processes"
     ],
     "settings": [
+      "django/15-authentication",
       "tools/05-prettier",
       "tools/25-editor-setup",
       "wordpress/17-block-themes"
     ],
+    "settings.AUTH_USER_MODEL": [
+      "django/15-authentication"
+    ],
     "setup": [
+      "django/20-management-commands",
       "frontend/22-testing",
       "github/24-codespaces",
       "nextjs/22-testing",
@@ -33839,6 +34858,9 @@
     "show_ui": [
       "wordpress/09-custom-post-types"
     ],
+    "showmigrations": [
+      "django/29-maintenance"
+    ],
     "shrink": [
       "tailwind/05-flexbox"
     ],
@@ -33849,6 +34871,9 @@
       "nestjs/24-observability",
       "nodejs/10-process",
       "wordpress/08-hooks"
+    ],
+    "sibling_of": [
+      "wagtail/02-architecture"
     ],
     "side": [
       "kubernetes/01-architecture",
@@ -33941,8 +34966,14 @@
       "seo/17-links",
       "seo/22-search-console",
       "tools/25-editor-setup",
+      "wagtail/16-multisite",
+      "wagtail/22-security",
+      "wagtail/26-frontend-assets",
       "wordpress/27-deployment",
       "wordpress/28-debugging"
+    ],
+    "site-packages": [
+      "wagtail/26-frontend-assets"
     ],
     "site2": [
       "wordpress/26-wp-cli"
@@ -34083,6 +35114,12 @@
     "smoke": [
       "wordpress/29-maintenance"
     ],
+    "smtp": [
+      "django/21-email"
+    ],
+    "smtplib": [
+      "django/21-email"
+    ],
     "snake_case": [
       "databases/06-schema-design",
       "graphql/26-best-practices",
@@ -34181,6 +35218,14 @@
     ],
     "spec.template.metadata.labels": [
       "kubernetes/06-replicasets"
+    ],
+    "specific": [
+      "wagtail/03-page-models",
+      "wagtail/06-permissions",
+      "wagtail/21-performance"
+    ],
+    "specific_deferred": [
+      "wagtail/03-page-models"
     ],
     "splice": [
       "react/06-state",
@@ -34514,8 +35559,12 @@
       "frontend/24-documentation",
       "tools/15-storybook"
     ],
+    "story": [
+      "wagtail/04-streamfield-and-blocks"
+    ],
     "str": [
-      "performance/24-optimization-workflow"
+      "performance/24-optimization-workflow",
+      "wagtail/18-forms"
     ],
     "str_getcsv": [
       "php/14-performance"
@@ -34531,6 +35580,9 @@
     ],
     "strace": [
       "linux/19-debugging"
+    ],
+    "stranger": [
+      "django/07-testing"
     ],
     "strat": [
       "javascript/22-design-patterns"
@@ -34699,6 +35751,9 @@
       "css/26-browser-compatibility",
       "tailwind/06-grid"
     ],
+    "subject": [
+      "django/21-email"
+    ],
     "subject_alternative_names": [
       "aws/09-acm"
     ],
@@ -34729,7 +35784,12 @@
     "subnets": [
       "aws/31-high-availability"
     ],
+    "subpage_types": [
+      "wagtail/03-page-models",
+      "wagtail/23-migrations"
+    ],
     "subprocess": [
+      "django/25-background-jobs",
       "security/14-command-injection"
     ],
     "subscribe": [
@@ -34826,6 +35886,7 @@
     ],
     "super": [
       "backend/12-error-handling",
+      "django/18-admin",
       "javascript/06-classes",
       "javascript/13-fetch-api",
       "javascript/14-error-handling",
@@ -34837,7 +35898,9 @@
       "nestjs/20-queues",
       "nestjs/22-cqrs",
       "nodejs/16-error-handling",
-      "prisma/18-error-handling"
+      "prisma/18-error-handling",
+      "wagtail/02-architecture",
+      "wagtail/27-observability"
     ],
     "super_read_only": [
       "mysql/09-replication"
@@ -34938,6 +36001,9 @@
     "sync_price": [
       "wordpress/02-project-structure"
     ],
+    "sync_to_async": [
+      "django/08-async"
+    ],
     "synchronize": [
       "nestjs/17-database"
     ],
@@ -34964,6 +36030,9 @@
     ],
     "sys": [
       "mysql/15-monitoring"
+    ],
+    "sys.argv": [
+      "django/20-management-commands"
     ],
     "sys.dm_db_index_usage_stats": [
       "databases/07-indexing"
@@ -35267,7 +36336,8 @@
     "tenant_id": [
       "databases/15-sharding",
       "databases/25-multi-tenancy",
-      "databases/26-auditing"
+      "databases/26-auditing",
+      "django/28-multi-tenancy"
     ],
     "term": [
       "rest-api/13-search",
@@ -35339,6 +36409,9 @@
     "test_caches_result": [
       "wordpress/07-testing"
     ],
+    "test_can_create_under_home": [
+      "wagtail/10-testing"
+    ],
     "test_casts_numeric_strings": [
       "wordpress/07-testing"
     ],
@@ -35384,11 +36457,20 @@
     "test_get_books_returns_published_ids": [
       "wordpress/07-testing"
     ],
+    "test_invoice_called": [
+      "django/07-testing"
+    ],
     "test_nonce_verification": [
       "wordpress/07-testing"
     ],
+    "test_owner_can_get_invoice": [
+      "django/07-testing"
+    ],
     "test_parse_speed": [
       "performance/19-benchmarking"
+    ],
+    "test_publish_makes_title_public": [
+      "wagtail/10-testing"
     ],
     "test_query_returns_only_published_books": [
       "wordpress/07-testing"
@@ -35425,6 +36507,9 @@
     ],
     "test_starts_empty": [
       "testing/10-fixtures"
+    ],
+    "test_stranger_is_forbidden": [
+      "django/07-testing"
     ],
     "test_subscriber_cannot_delete_post": [
       "wordpress/07-testing"
@@ -35614,6 +36699,9 @@
     "this.total": [
       "nestjs/07-dto"
     ],
+    "threading": [
+      "django/25-background-jobs"
+    ],
     "threshold": [
       "aws/26-monitoring",
       "devops/12-monitoring",
@@ -35699,32 +36787,6 @@
     ],
     "timeZone": [
       "kubernetes/16-cronjobs"
-    ],
-    "timeout": [
-      "ai/04-code-modification",
-      "architecture/12-integration-patterns",
-      "architecture/17-fault-tolerance",
-      "aws/12-lambda",
-      "aws/30-engineering-principles",
-      "aws/31-high-availability",
-      "backend/16-background-jobs",
-      "cicd/20-jenkins",
-      "devops/19-high-availability",
-      "docker/12-docker-compose",
-      "docker/15-healthchecks",
-      "docker/22-production",
-      "docker/24-monitoring",
-      "javascript/13-fetch-api",
-      "nestjs/10-interceptors",
-      "nestjs/23-distributed-systems",
-      "nodejs/09-http",
-      "nodejs/100-common-antipatterns",
-      "nodejs/11-child-process",
-      "nodejs/25-microservices",
-      "prisma/08-transactions",
-      "prisma/28-patterns",
-      "security/14-command-injection",
-      "tools/14-playwright"
     ],
     "timeout-minutes": [
       "cicd/02-pipeline-design",
@@ -36230,6 +37292,7 @@
       "backend/08-domain-modeling",
       "backend/30-engineering-principles",
       "databases/04-normalization",
+      "django/26-performance",
       "graphql/07-resolvers",
       "javascript/02-execution-context",
       "javascript/04-functions",
@@ -36346,6 +37409,10 @@
       "backend/28-best-practices",
       "databases/09-transactions",
       "databases/13-eventual-consistency",
+      "django/05-querysets-and-transactions",
+      "django/20-management-commands",
+      "django/21-email",
+      "django/25-background-jobs",
       "examples/01-rest-endpoint",
       "nestjs/05-services",
       "nestjs/17-database",
@@ -36357,6 +37424,18 @@
       "prisma/12-seeding",
       "prisma/28-patterns",
       "rest-api/18-idempotency"
+    ],
+    "transaction.atomic": [
+      "django/05-querysets-and-transactions",
+      "django/20-management-commands",
+      "django/21-email",
+      "django/23-error-handling",
+      "django/27-database-backends",
+      "django/30-engineering-principles"
+    ],
+    "transaction.on_commit": [
+      "django/21-email",
+      "django/25-background-jobs"
     ],
     "transfer": [
       "architecture/21-distributed-systems",
@@ -36737,6 +37816,9 @@
     "ugc": [
       "seo/17-links"
     ],
+    "ugettext": [
+      "django/19-internationalization"
+    ],
     "ulimit": [
       "linux/06-processes"
     ],
@@ -36829,6 +37911,9 @@
     "unit": [
       "snippets/01-typescript-utilities",
       "testing/28-testing-strategy"
+    ],
+    "unittest": [
+      "django/07-testing"
     ],
     "unittest.mock": [
       "testing/06-mocking"
@@ -36954,6 +38039,12 @@
       "nextjs/09-data-fetching",
       "redis/13-caching"
     ],
+    "update_index": [
+      "wagtail/100-common-antipatterns",
+      "wagtail/12-deployment",
+      "wagtail/24-content-imports",
+      "wagtail/28-maintenance"
+    ],
     "update_isbn": [
       "wordpress/03-best-practices"
     ],
@@ -37029,6 +38120,7 @@
     ],
     "updated": [
       "databases/13-eventual-consistency",
+      "django/20-management-commands",
       "postgresql/22-migrations",
       "react/16-data-fetching"
     ],
@@ -37126,6 +38218,9 @@
     ],
     "url.pathname": [
       "nextjs/13-proxy"
+    ],
+    "urlpatterns": [
+      "django/11-urls-and-views"
     ],
     "us-east-1": [
       "aws/01-global-infrastructure",
@@ -37417,6 +38512,9 @@
     "useX": [
       "react/23-code-style"
     ],
+    "use_json_field": [
+      "wagtail/04-streamfield-and-blocks"
+    ],
     "used_memory": [
       "redis/12-expiration",
       "redis/22-monitoring",
@@ -37552,6 +38650,10 @@
     "user_name": [
       "rest-api/100-common-antipatterns"
     ],
+    "user_passes_test": [
+      "django/11-urls-and-views",
+      "django/15-authentication"
+    ],
     "user_service": [
       "php/06-autoloading"
     ],
@@ -37631,6 +38733,9 @@
     ],
     "uuid4": [
       "security/15-file-upload-security"
+    ],
+    "uvicorn": [
+      "django/09-deployment"
     ],
     "v-html": [
       "frontend/100-common-antipatterns",
@@ -37785,6 +38890,12 @@
     ],
     "verbose": [
       "nestjs/24-observability"
+    ],
+    "verbose_name": [
+      "django/19-internationalization"
+    ],
+    "verbose_name_plural": [
+      "django/19-internationalization"
     ],
     "verbs": [
       "kubernetes/18-rbac"
@@ -38038,6 +39149,17 @@
     ],
     "w-full": [
       "tailwind/08-sizing"
+    ],
+    "wagtail_hooks": [
+      "wagtail/29-project-structure"
+    ],
+    "wagtail_hooks.py": [
+      "wagtail/15-hooks",
+      "wagtail/29-project-structure"
+    ],
+    "wagtailcore_page": [
+      "wagtail/100-common-antipatterns",
+      "wagtail/24-content-imports"
     ],
     "wait": [
       "linux/06-processes"
@@ -38485,6 +39607,7 @@
       "nodejs/30-engineering-principles"
     ],
     "workers": [
+      "django/09-deployment",
       "tools/14-playwright"
     ],
     "workflow_call": [
@@ -38951,6 +40074,7 @@
     ],
     "write": [
       "databases/14-replication",
+      "django/20-management-commands",
       "figma/15-screenshot-comparison",
       "github/19-organizations",
       "github/20-teams",
@@ -38987,6 +40111,9 @@
     ],
     "writeStore": [
       "architecture/07-cqrs"
+    ],
+    "write_audit": [
+      "django/08-async"
     ],
     "writes": [
       "mysql/10-clustering",

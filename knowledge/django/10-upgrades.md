@@ -7,9 +7,9 @@ type: doc
 order: 10
 status: ready
 maturity: unverified
-tags: [django, upgrades]
+tags: [django, upgrades, django-admin, RemovedInDjango]
 related: [django/01-version-support, django/07-testing]
-when_to_use: "Read when implementing or reviewing django upgrades in a Django project."
+when_to_use: "Read when upgrading Django or Python, or resolving deprecation warnings."
 ---
 # Django Upgrades
 
@@ -27,11 +27,23 @@ Defines safe movement between Django minor and major versions.
 
 ## Good Example
 
-A compliant change records the detected framework versions, follows the existing project conventions, keeps policy at the correct boundary, and adds a regression test for the failure path.
+```python
+# Current: Django 5.2.17. Next step: Django 6.0.x, not 6.1.
+import django
+
+assert django.VERSION[:2] == (5, 2)
+```
+
+The project clears 5.2 deprecations, then moves to 6.0, then to 6.1. Each step has its own test run.
 
 ## Bad Example
 
-Copying an example from another major version without checking release notes or installed dependencies can produce code that imports successfully but behaves incorrectly in production.
+```python
+# pip install 'Django==6.1'  # jumped from 4.2 in one commit
+from django.conf import settings
+```
+
+Skipping minor lines hides removed APIs and unapplied release notes until production import errors.
 
 ## Checklist
 

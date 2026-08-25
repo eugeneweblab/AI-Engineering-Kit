@@ -7,23 +7,23 @@ type: antipatterns
 order: 100
 status: ready
 maturity: unverified
-tags: [wagtail, common-antipatterns]
+tags: [wagtail, common-antipatterns, path, save_revision, specific]
 related: [wagtail/99-ai-review-checklist]
-when_to_use: "Read when reviewing Wagtail changes."
+when_to_use: "Read when reviewing Wagtail changes for known failure modes."
 ---
 # Common Wagtail Antipatterns
 
 ## Purpose
 
-Use this as a mandatory, evidence-based gate.
+Use this as a mandatory, evidence-based gate against known Wagtail mistakes.
 
 ## Rules
 
-**Rules:** [01-version-compatibility](01-version-compatibility.md) · [02-architecture](02-architecture.md)
+**Rules:** [02-architecture](02-architecture.md) · [05-revisions-and-workflows](05-revisions-and-workflows.md) · [04-streamfield-and-blocks](04-streamfield-and-blocks.md)
 
-- [ ] Do not guess versions from memory or use APIs from a different compatibility line.
-- [ ] Do not bypass framework lifecycle APIs with direct table updates.
-- [ ] Do not hide authorization only in templates or admin UI.
-- [ ] Do not place core business behavior in signals, hooks, templates, or implicit callbacks.
-- [ ] Do not deploy migrations or dependency upgrades without a tested forward and rollback plan.
-
+- [ ] Do not guess versions from memory or pair Django 6.1 with Wagtail 7.4.
+- [ ] Do not write `path`, `depth`, or `numchild`, or `bulk_create` into `wagtailcore_page`.
+- [ ] Do not update live page rows with `QuerySet.update` or skip `save_revision`.
+- [ ] Do not call `page.specific` inside a loop or rename StreamField blocks without a data migration.
+- [ ] Do not hide authorization only in the admin UI or cache preview/draft responses.
+- [ ] Do not deploy without `update_index` after indexed-field or search-backend changes.

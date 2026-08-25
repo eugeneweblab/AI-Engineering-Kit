@@ -7,9 +7,9 @@ type: doc
 order: 2
 status: ready
 maturity: unverified
-tags: [wagtail, architecture]
+tags: [wagtail, architecture, Page, snippet, path, depth, numchild]
 related: [wagtail/03-page-models, django/02-architecture]
-when_to_use: "Read when implementing or reviewing wagtail architecture in a Wagtail project."
+when_to_use: "Read when deciding Page vs snippet vs Django model, or touching the page tree."
 ---
 # Wagtail Architecture
 
@@ -19,25 +19,41 @@ Defines boundaries between CMS content, domain logic, and presentation.
 
 ## Rules
 
-- Use Page models for routable editorial content and snippets for reusable non-page content.
+- Use `Page` models for routable editorial content and snippets for reusable non-page content.
 - Keep business rules out of templates, hooks, and StreamField block rendering.
-- Preserve the treebeard page tree through Wagtail APIs; do not manipulate path, depth, or numchild directly.
+- Preserve the treebeard page tree through Wagtail APIs; do not manipulate `path`, `depth`, or `numchild` directly.
 - Keep Django-domain services reusable outside the admin interface.
 
 ## Good Example
 
-A compliant change records the detected framework versions, follows the existing project conventions, keeps policy at the correct boundary, and adds a regression test for the failure path.
+```python
+from wagtail.models import Page
+
+class ArticlePage(Page):
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context["related"] = ArticlePage.objects.live().sibling_of(self)[:3]
+        return context
+```
+
+Tree queries go through `Page` QuerySets; pricing or checkout stays in a Django service the view can call.
 
 ## Bad Example
 
-Copying an example from another major version without checking release notes or installed dependencies can produce code that imports successfully but behaves incorrectly in production.
+```python
+page.path = page.path[:-4]
+page.depth -= 1
+page.save()
+```
+
+Rewriting `path` / `depth` corrupts the tree and bypasses `move()` / `add_child()`.
 
 ## Checklist
 
-- [ ] Use Page models for routable editorial content and snippets for reusable non-page content
-- [ ] Keep business rules out of templates, hooks, and StreamField block rendering
-- [ ] Preserve the treebeard page tree through Wagtail APIs
-- [ ] Keep Django-domain services reusable outside the admin interface
+- [ ] Routable content is a `Page`; reusable non-routable content is a snippet
+- [ ] Business rules are not in templates, hooks, or block rendering
+- [ ] Tree mutations use Wagtail APIs, not `path` / `depth` / `numchild`
+- [ ] Django-domain services remain usable outside admin
 
 ## Related
 

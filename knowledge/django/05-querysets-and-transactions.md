@@ -7,9 +7,9 @@ type: doc
 order: 5
 status: ready
 maturity: unverified
-tags: [django, querysets-and-transactions]
+tags: [django, querysets-and-transactions, select_related, prefetch_related, transaction.atomic, select_for_update, F]
 related: [django/04-models-and-migrations, django/07-testing]
-when_to_use: "Read when implementing or reviewing django querysets and transactions in a Django project."
+when_to_use: "Read when writing QuerySets, preventing N+1 queries, or wrapping writes in transactions."
 ---
 # Django QuerySets and Transactions
 
@@ -19,27 +19,49 @@ Defines correct data access and concurrency behavior.
 
 ## Rules
 
-- Evaluate QuerySets intentionally and prevent N+1 access with select_related or prefetch_related after measuring query shape.
-- Wrap only the atomic unit of work in transaction.atomic; do not hold transactions across network calls.
-- Use select_for_update or database constraints when correctness depends on concurrent writers.
+- Evaluate QuerySets intentionally and prevent N+1 access with `select_related` or `prefetch_related` after measuring query shape.
+- Wrap only the atomic unit of work in `transaction.atomic`; do not hold transactions across network calls.
+- Use `select_for_update` or database constraints when correctness depends on concurrent writers.
 - Do not catch database exceptions inside the atomic block whose rollback they require.
-- Use F expressions for race-safe in-database updates when appropriate.
+- Use `F` expressions for race-safe in-database updates when appropriate.
 
 ## Good Example
 
-A compliant change records the detected framework versions, follows the existing project conventions, keeps policy at the correct boundary, and adds a regression test for the failure path.
+```python
+from django.db import transaction
+from django.db.models import F
+
+orders = (
+    Order.objects.select_related("user")
+    .prefetch_related("items__product")
+    .filter(status="open")
+)
+with transaction.atomic():
+    Order.objects.filter(pk=order_id).select_for_update().update(
+        quantity=F("quantity") + 1
+    )
+```
+
+Related rows load in bounded queries; the increment happens in the database under a row lock.
 
 ## Bad Example
 
-Copying an example from another major version without checking release notes or installed dependencies can produce code that imports successfully but behaves incorrectly in production.
+```python
+for order in Order.objects.all():
+    print(order.user.email)
+    order.quantity += 1
+    order.save()
+```
+
+Each iteration hits the user table (N+1) and the increment races under concurrent writers.
 
 ## Checklist
 
-- [ ] Evaluate QuerySets intentionally and prevent N+1 access with select_related or prefetch_related after measuring query shape
-- [ ] Wrap only the atomic unit of work in transaction.atomic
-- [ ] Use select_for_update or database constraints when correctness depends on concurrent writers
+- [ ] Evaluate QuerySets intentionally and prevent N+1 access with `select_related` or `prefetch_related` after measuring query shape
+- [ ] Wrap only the atomic unit of work in `transaction.atomic`
+- [ ] Use `select_for_update` or database constraints when correctness depends on concurrent writers
 - [ ] Do not catch database exceptions inside the atomic block whose rollback they require
-- [ ] Use F expressions for race-safe in-database updates when appropriate
+- [ ] Use `F` expressions for race-safe in-database updates when appropriate
 
 ## Related
 

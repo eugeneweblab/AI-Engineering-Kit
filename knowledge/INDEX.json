@@ -4,8 +4,8 @@
   "stats": {
     "topics": 51,
     "docs": 1509,
-    "ready": 1471,
-    "draft": 38,
+    "ready": 1509,
+    "draft": 0,
     "maturity": {
       "unverified": 1509
     }
@@ -10159,8 +10159,8 @@
     "django": {
       "path": "knowledge/django",
       "doc_count": 35,
-      "ready": 15,
-      "draft": 20,
+      "ready": 35,
+      "draft": 0,
       "docs": [
         {
           "id": "django/readme",
@@ -10196,7 +10196,9 @@
           "maturity": "unverified",
           "tags": [
             "django",
-            "overview"
+            "overview",
+            "manage.py",
+            "DJANGO_SETTINGS_MODULE"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -10204,9 +10206,10 @@
           "review_after": "",
           "related": [
             "django/01-version-support",
+            "django/02-architecture",
             "django/98-production-checklist"
           ],
-          "when_to_use": "Read when implementing or reviewing django overview in a Django project.",
+          "when_to_use": "Read first when working in a Django repository, before choosing APIs or files to change.",
           "path": "knowledge/django/00-overview.md"
         },
         {
@@ -10220,7 +10223,9 @@
           "maturity": "unverified",
           "tags": [
             "django",
-            "version-support"
+            "version-support",
+            "LTS",
+            "get_version"
           ],
           "verified_against": "Django 5.2 LTS, 6.0, and 6.1; legacy 4.2 LTS",
           "source_urls": [
@@ -10234,7 +10239,7 @@
             "django/10-upgrades",
             "wagtail/01-version-compatibility"
           ],
-          "when_to_use": "Read before choosing framework APIs or changing dependencies.",
+          "when_to_use": "Read before choosing framework APIs or changing Django or Python dependencies.",
           "path": "knowledge/django/01-version-support.md"
         },
         {
@@ -10248,7 +10253,9 @@
           "maturity": "unverified",
           "tags": [
             "django",
-            "architecture"
+            "architecture",
+            "apps",
+            "AppConfig"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -10256,9 +10263,10 @@
           "review_after": "",
           "related": [
             "django/04-models-and-migrations",
-            "django/05-querysets-and-transactions"
+            "django/05-querysets-and-transactions",
+            "django/11-urls-and-views"
           ],
-          "when_to_use": "Read when implementing or reviewing django architecture in a Django project.",
+          "when_to_use": "Read when adding apps, placing business rules, or introducing services, managers, or signals.",
           "path": "knowledge/django/02-architecture.md"
         },
         {
@@ -10272,7 +10280,11 @@
           "maturity": "unverified",
           "tags": [
             "django",
-            "settings"
+            "settings",
+            "DEBUG",
+            "ALLOWED_HOSTS",
+            "CSRF_TRUSTED_ORIGINS",
+            "SECRET_KEY"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -10282,7 +10294,7 @@
             "django/06-security",
             "django/09-deployment"
           ],
-          "when_to_use": "Read when implementing or reviewing django settings and configuration in a Django project.",
+          "when_to_use": "Read when changing settings, environment variables, or per-environment configuration.",
           "path": "knowledge/django/03-settings.md"
         },
         {
@@ -10296,7 +10308,11 @@
           "maturity": "unverified",
           "tags": [
             "django",
-            "models-and-migrations"
+            "models-and-migrations",
+            "ForeignKey",
+            "CheckConstraint",
+            "RunPython",
+            "SeparateDatabaseAndState"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -10306,7 +10322,7 @@
             "django/05-querysets-and-transactions",
             "django/09-deployment"
           ],
-          "when_to_use": "Read when implementing or reviewing django models and migrations in a Django project.",
+          "when_to_use": "Read when changing models, constraints, or migration files.",
           "path": "knowledge/django/04-models-and-migrations.md"
         },
         {
@@ -10320,7 +10336,12 @@
           "maturity": "unverified",
           "tags": [
             "django",
-            "querysets-and-transactions"
+            "querysets-and-transactions",
+            "select_related",
+            "prefetch_related",
+            "transaction.atomic",
+            "select_for_update",
+            "F"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -10330,7 +10351,7 @@
             "django/04-models-and-migrations",
             "django/07-testing"
           ],
-          "when_to_use": "Read when implementing or reviewing django querysets and transactions in a Django project.",
+          "when_to_use": "Read when writing QuerySets, preventing N+1 queries, or wrapping writes in transactions.",
           "path": "knowledge/django/05-querysets-and-transactions.md"
         },
         {
@@ -10344,7 +10365,12 @@
           "maturity": "unverified",
           "tags": [
             "django",
-            "security"
+            "security",
+            "csrf_exempt",
+            "mark_safe",
+            "extra",
+            "raw",
+            "PermissionDenied"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -10352,9 +10378,10 @@
           "review_after": "",
           "related": [
             "django/03-settings",
-            "django/09-deployment"
+            "django/09-deployment",
+            "django/15-authentication"
           ],
-          "when_to_use": "Read when implementing or reviewing django security in a Django project.",
+          "when_to_use": "Read when changing authentication, authorization, CSRF, uploads, raw SQL, or HTML escaping.",
           "path": "knowledge/django/06-security.md"
         },
         {
@@ -10368,7 +10395,11 @@
           "maturity": "unverified",
           "tags": [
             "django",
-            "testing"
+            "testing",
+            "TestCase",
+            "TransactionTestCase",
+            "Client",
+            "RequestFactory"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -10378,7 +10409,7 @@
             "django/01-version-support",
             "django/05-querysets-and-transactions"
           ],
-          "when_to_use": "Read when implementing or reviewing django testing in a Django project.",
+          "when_to_use": "Read when adding Django tests, factories, or assertions against the database and HTTP stack.",
           "path": "knowledge/django/07-testing.md"
         },
         {
@@ -10392,7 +10423,11 @@
           "maturity": "unverified",
           "tags": [
             "django",
-            "async"
+            "async",
+            "ASGI",
+            "sync_to_async",
+            "async_to_sync",
+            "aclose"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -10402,7 +10437,7 @@
             "django/01-version-support",
             "django/09-deployment"
           ],
-          "when_to_use": "Read when implementing or reviewing django async and asgi in a Django project.",
+          "when_to_use": "Read when adding async views, ASGI, Channels, or mixing sync ORM code with async.",
           "path": "knowledge/django/08-async.md"
         },
         {
@@ -10416,7 +10451,11 @@
           "maturity": "unverified",
           "tags": [
             "django",
-            "deployment"
+            "deployment",
+            "gunicorn",
+            "uvicorn",
+            "collectstatic",
+            "check --deploy"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -10427,7 +10466,7 @@
             "django/04-models-and-migrations",
             "django/98-production-checklist"
           ],
-          "when_to_use": "Read when implementing or reviewing django deployment in a Django project.",
+          "when_to_use": "Read when changing process model, release steps, collectstatic, or production servers.",
           "path": "knowledge/django/09-deployment.md"
         },
         {
@@ -10441,7 +10480,9 @@
           "maturity": "unverified",
           "tags": [
             "django",
-            "upgrades"
+            "upgrades",
+            "django-admin",
+            "RemovedInDjango"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -10451,49 +10492,66 @@
             "django/01-version-support",
             "django/07-testing"
           ],
-          "when_to_use": "Read when implementing or reviewing django upgrades in a Django project.",
+          "when_to_use": "Read when upgrading Django or Python, or resolving deprecation warnings.",
           "path": "knowledge/django/10-upgrades.md"
         },
         {
           "id": "django/11-urls-and-views",
           "topic": "django",
-          "title": "Django Urls And Views",
+          "title": "Django URLs and Views",
           "slug": "urls-and-views",
           "type": "doc",
           "order": 11,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "urls-and-views"
+            "urls-and-views",
+            "path",
+            "include",
+            "reverse",
+            "get_object_or_404",
+            "LoginRequiredMixin"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django urls and views.",
+          "related": [
+            "django/02-architecture",
+            "django/06-security",
+            "django/15-authentication"
+          ],
+          "when_to_use": "Read when adding or changing URL routes, views, mixins, or reverse() names.",
           "path": "knowledge/django/11-urls-and-views.md"
         },
         {
           "id": "django/12-forms-and-validation",
           "topic": "django",
-          "title": "Django Forms And Validation",
+          "title": "Django Forms and Validation",
           "slug": "forms-and-validation",
           "type": "doc",
           "order": 12,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "forms-and-validation"
+            "forms-and-validation",
+            "ModelForm",
+            "ValidationError",
+            "clean",
+            "is_valid"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django forms and validation.",
+          "related": [
+            "django/06-security",
+            "django/11-urls-and-views",
+            "django/13-templates"
+          ],
+          "when_to_use": "Read when adding ModelForm, Form, clean_* methods, or processing POST bodies.",
           "path": "knowledge/django/12-forms-and-validation.md"
         },
         {
@@ -10503,39 +10561,54 @@
           "slug": "templates",
           "type": "doc",
           "order": 13,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "templates"
+            "templates",
+            "autoescape",
+            "csrf_token",
+            "safe",
+            "url"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django templates.",
+          "related": [
+            "django/06-security",
+            "django/12-forms-and-validation"
+          ],
+          "when_to_use": "Read when changing Django templates, context processors, or custom template tags.",
           "path": "knowledge/django/13-templates.md"
         },
         {
           "id": "django/14-static-and-media",
           "topic": "django",
-          "title": "Django Static And Media",
+          "title": "Django Static and Media Files",
           "slug": "static-and-media",
           "type": "doc",
           "order": 14,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "static-and-media"
+            "static-and-media",
+            "STATIC_ROOT",
+            "MEDIA_ROOT",
+            "collectstatic",
+            "FileField"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django static and media.",
+          "related": [
+            "django/03-settings",
+            "django/06-security",
+            "django/09-deployment"
+          ],
+          "when_to_use": "Read when changing static assets, FileField uploads, MEDIA_ROOT, or collectstatic.",
           "path": "knowledge/django/14-static-and-media.md"
         },
         {
@@ -10545,18 +10618,25 @@
           "slug": "authentication",
           "type": "doc",
           "order": 15,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "authentication"
+            "authentication",
+            "AUTH_USER_MODEL",
+            "get_user_model",
+            "login_required",
+            "PermissionRequiredMixin"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django authentication.",
+          "related": [
+            "django/06-security",
+            "django/11-urls-and-views"
+          ],
+          "when_to_use": "Read when changing login, users, permissions, AUTH_USER_MODEL, or password hashing.",
           "path": "knowledge/django/15-authentication.md"
         },
         {
@@ -10566,18 +10646,24 @@
           "slug": "middleware",
           "type": "doc",
           "order": 16,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "middleware"
+            "middleware",
+            "MIDDLEWARE",
+            "process_request",
+            "SecurityMiddleware"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django middleware.",
+          "related": [
+            "django/03-settings",
+            "django/06-security"
+          ],
+          "when_to_use": "Read when adding or reordering middleware, or changing request/response wrappers.",
           "path": "knowledge/django/16-middleware.md"
         },
         {
@@ -10587,18 +10673,26 @@
           "slug": "caching",
           "type": "doc",
           "order": 17,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "caching"
+            "caching",
+            "cache_page",
+            "cache.get",
+            "cache.set",
+            "locmem",
+            "Redis"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django caching.",
+          "related": [
+            "django/03-settings",
+            "django/09-deployment"
+          ],
+          "when_to_use": "Read when adding cache_page, low-level cache.get/set, or a cache backend.",
           "path": "knowledge/django/17-caching.md"
         },
         {
@@ -10608,18 +10702,25 @@
           "slug": "admin",
           "type": "doc",
           "order": 18,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "admin"
+            "admin",
+            "ModelAdmin",
+            "list_display",
+            "get_queryset",
+            "has_change_permission"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django admin.",
+          "related": [
+            "django/06-security",
+            "django/15-authentication"
+          ],
+          "when_to_use": "Read when registering ModelAdmin, changing list filters, or exposing models in /admin/.",
           "path": "knowledge/django/18-admin.md"
         },
         {
@@ -10629,18 +10730,25 @@
           "slug": "internationalization",
           "type": "doc",
           "order": 19,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "internationalization"
+            "internationalization",
+            "gettext",
+            "gettext_lazy",
+            "ugettext",
+            "makemessages"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django internationalization.",
+          "related": [
+            "django/13-templates",
+            "django/03-settings"
+          ],
+          "when_to_use": "Read when adding translatable strings, locales, timezone handling, or gettext_lazy.",
           "path": "knowledge/django/19-internationalization.md"
         },
         {
@@ -10650,18 +10758,24 @@
           "slug": "management-commands",
           "type": "doc",
           "order": 20,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "management-commands"
+            "management-commands",
+            "BaseCommand",
+            "handle",
+            "call_command"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django management commands.",
+          "related": [
+            "django/05-querysets-and-transactions",
+            "django/07-testing"
+          ],
+          "when_to_use": "Read when adding django-admin commands, batch jobs invoked via manage.py, or call_command tests.",
           "path": "knowledge/django/20-management-commands.md"
         },
         {
@@ -10671,39 +10785,52 @@
           "slug": "email",
           "type": "doc",
           "order": 21,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "email"
+            "email",
+            "send_mail",
+            "EmailMessage",
+            "locmem",
+            "EMAIL_BACKEND"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django email.",
+          "related": [
+            "django/03-settings",
+            "django/07-testing"
+          ],
+          "when_to_use": "Read when sending email, changing EMAIL_BACKEND, or asserting outbox contents in tests.",
           "path": "knowledge/django/21-email.md"
         },
         {
           "id": "django/22-logging-and-observability",
           "topic": "django",
-          "title": "Django Logging And Observability",
+          "title": "Django Logging and Observability",
           "slug": "logging-and-observability",
           "type": "doc",
           "order": 22,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "logging-and-observability"
+            "logging-and-observability",
+            "LOGGING",
+            "getLogger",
+            "request_id"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django logging and observability.",
+          "related": [
+            "django/03-settings",
+            "django/09-deployment"
+          ],
+          "when_to_use": "Read when changing LOGGING, adding loggers, request IDs, or error reporting.",
           "path": "knowledge/django/22-logging-and-observability.md"
         },
         {
@@ -10713,39 +10840,55 @@
           "slug": "error-handling",
           "type": "doc",
           "order": 23,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "error-handling"
+            "error-handling",
+            "Http404",
+            "PermissionDenied",
+            "ValidationError",
+            "SuspiciousOperation"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django error handling.",
+          "related": [
+            "django/06-security",
+            "django/11-urls-and-views",
+            "django/12-forms-and-validation"
+          ],
+          "when_to_use": "Read when mapping exceptions to HTTP status, writing handlers, or catching ORM errors.",
           "path": "knowledge/django/23-error-handling.md"
         },
         {
           "id": "django/24-rest-apis",
           "topic": "django",
-          "title": "Django Rest APIs",
+          "title": "Django REST APIs",
           "slug": "rest-apis",
           "type": "doc",
           "order": 24,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "rest-apis"
+            "rest-apis",
+            "JsonResponse",
+            "serializer",
+            "permission_classes",
+            "authentication_classes"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django rest apis.",
+          "related": [
+            "django/06-security",
+            "django/11-urls-and-views",
+            "rest-api/03-resource-design"
+          ],
+          "when_to_use": "Read when adding JSON endpoints, serializers, or token/session API authentication.",
           "path": "knowledge/django/24-rest-apis.md"
         },
         {
@@ -10755,18 +10898,25 @@
           "slug": "background-jobs",
           "type": "doc",
           "order": 25,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "background-jobs"
+            "background-jobs",
+            "delay",
+            "apply_async",
+            "on_commit",
+            "Celery"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django background jobs.",
+          "related": [
+            "django/05-querysets-and-transactions",
+            "django/20-management-commands"
+          ],
+          "when_to_use": "Read when enqueueing Celery/RQ/Huey tasks or moving work off the request thread.",
           "path": "knowledge/django/25-background-jobs.md"
         },
         {
@@ -10776,18 +10926,26 @@
           "slug": "performance",
           "type": "doc",
           "order": 26,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "performance"
+            "performance",
+            "select_related",
+            "prefetch_related",
+            "iterator",
+            "only",
+            "Count"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django performance.",
+          "related": [
+            "django/05-querysets-and-transactions",
+            "django/17-caching"
+          ],
+          "when_to_use": "Read when fixing N+1 queries, slow views, or large QuerySet iteration.",
           "path": "knowledge/django/26-performance.md"
         },
         {
@@ -10797,39 +10955,52 @@
           "slug": "database-backends",
           "type": "doc",
           "order": 27,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "database-backends"
+            "database-backends",
+            "ENGINE",
+            "CONN_MAX_AGE",
+            "ATOMIC_REQUESTS",
+            "PostgreSQL"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django database backends.",
+          "related": [
+            "django/03-settings",
+            "django/04-models-and-migrations"
+          ],
+          "when_to_use": "Read when changing DATABASES, CONN_MAX_AGE, engine-specific features, or ATOMIC_REQUESTS.",
           "path": "knowledge/django/27-database-backends.md"
         },
         {
           "id": "django/28-multi-tenancy",
           "topic": "django",
-          "title": "Django Multi Tenancy",
+          "title": "Django Multi-Tenancy",
           "slug": "multi-tenancy",
           "type": "doc",
           "order": 28,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "multi-tenancy"
+            "multi-tenancy",
+            "tenant",
+            "schema",
+            "filter"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django multi tenancy.",
+          "related": [
+            "django/06-security",
+            "django/05-querysets-and-transactions"
+          ],
+          "when_to_use": "Read when scoping rows or schemas per tenant, customer, or organization.",
           "path": "knowledge/django/28-multi-tenancy.md"
         },
         {
@@ -10839,18 +11010,24 @@
           "slug": "maintenance",
           "type": "doc",
           "order": 29,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
-            "maintenance"
+            "maintenance",
+            "clearsessions",
+            "check",
+            "showmigrations"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django maintenance.",
+          "related": [
+            "django/09-deployment",
+            "django/10-upgrades"
+          ],
+          "when_to_use": "Read when scheduling operational Django tasks, session cleanup, or health/maintenance windows.",
           "path": "knowledge/django/29-maintenance.md"
         },
         {
@@ -10860,7 +11037,7 @@
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "django",
@@ -10870,8 +11047,12 @@
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about django engineering principles.",
+          "related": [
+            "django/00-overview",
+            "django/02-architecture",
+            "django/06-security"
+          ],
+          "when_to_use": "Read when a Django change spans several topics and you need the default decision order.",
           "path": "knowledge/django/30-engineering-principles.md"
         },
         {
@@ -10885,7 +11066,9 @@
           "maturity": "unverified",
           "tags": [
             "django",
-            "production-checklist"
+            "production-checklist",
+            "check --deploy",
+            "collectstatic"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -10894,7 +11077,7 @@
           "related": [
             "django/99-ai-review-checklist"
           ],
-          "when_to_use": "Read before considering Django work complete.",
+          "when_to_use": "Read before considering Django work complete and ready to ship.",
           "path": "knowledge/django/98-production-checklist.md"
         },
         {
@@ -10918,7 +11101,7 @@
             "django/98-production-checklist",
             "django/100-common-antipatterns"
           ],
-          "when_to_use": "Read when reviewing Django changes.",
+          "when_to_use": "Read when reviewing a Django diff for correctness before merge.",
           "path": "knowledge/django/99-ai-review-checklist.md"
         },
         {
@@ -10932,7 +11115,10 @@
           "maturity": "unverified",
           "tags": [
             "django",
-            "common-antipatterns"
+            "common-antipatterns",
+            "csrf_exempt",
+            "mark_safe",
+            "post_save"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -10941,7 +11127,7 @@
           "related": [
             "django/99-ai-review-checklist"
           ],
-          "when_to_use": "Read when reviewing Django changes.",
+          "when_to_use": "Read when reviewing Django changes for known failure modes.",
           "path": "knowledge/django/100-common-antipatterns.md"
         }
       ]
@@ -44059,8 +44245,8 @@
     "wagtail": {
       "path": "knowledge/wagtail",
       "doc_count": 35,
-      "ready": 17,
-      "draft": 18,
+      "ready": 35,
+      "draft": 0,
       "docs": [
         {
           "id": "wagtail/readme",
@@ -44096,7 +44282,9 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "overview"
+            "overview",
+            "Page",
+            "StreamField"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44106,7 +44294,7 @@
             "wagtail/01-version-compatibility",
             "django/00-overview"
           ],
-          "when_to_use": "Read when implementing or reviewing wagtail overview in a Wagtail project.",
+          "when_to_use": "Read first when working in a Wagtail repository, including when wagtail_hooks.py is absent.",
           "path": "knowledge/wagtail/00-overview.md"
         },
         {
@@ -44120,7 +44308,8 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "version-compatibility"
+            "version-compatibility",
+            "LTS"
           ],
           "verified_against": "Wagtail 6.3 LTS through 7.4 LTS; Django 4.2 through 6.0",
           "source_urls": [
@@ -44133,7 +44322,7 @@
             "django/01-version-support",
             "wagtail/11-upgrades"
           ],
-          "when_to_use": "Read before choosing framework APIs or changing dependencies.",
+          "when_to_use": "Read before choosing Wagtail, Django, or Python versions or changing those dependencies.",
           "path": "knowledge/wagtail/01-version-compatibility.md"
         },
         {
@@ -44147,7 +44336,12 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "architecture"
+            "architecture",
+            "Page",
+            "snippet",
+            "path",
+            "depth",
+            "numchild"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44157,7 +44351,7 @@
             "wagtail/03-page-models",
             "django/02-architecture"
           ],
-          "when_to_use": "Read when implementing or reviewing wagtail architecture in a Wagtail project.",
+          "when_to_use": "Read when deciding Page vs snippet vs Django model, or touching the page tree.",
           "path": "knowledge/wagtail/02-architecture.md"
         },
         {
@@ -44171,7 +44365,12 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "page-models"
+            "page-models",
+            "Page",
+            "parent_page_types",
+            "subpage_types",
+            "specific",
+            "search_fields"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44181,7 +44380,7 @@
             "wagtail/05-revisions-and-workflows",
             "wagtail/07-search"
           ],
-          "when_to_use": "Read when implementing or reviewing wagtail page models in a Wagtail project.",
+          "when_to_use": "Read when adding or changing Page subclasses, parent/child types, or specific() queries.",
           "path": "knowledge/wagtail/03-page-models.md"
         },
         {
@@ -44195,7 +44394,11 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "streamfield-and-blocks"
+            "streamfield-and-blocks",
+            "StreamField",
+            "StructBlock",
+            "ListBlock",
+            "StreamBlock"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44203,9 +44406,10 @@
           "review_after": "",
           "related": [
             "wagtail/03-page-models",
-            "wagtail/10-testing"
+            "wagtail/10-testing",
+            "wagtail/23-migrations"
           ],
-          "when_to_use": "Read when implementing or reviewing wagtail streamfield and blocks in a Wagtail project.",
+          "when_to_use": "Read when adding StreamField, renaming blocks, or migrating stored block JSON.",
           "path": "knowledge/wagtail/04-streamfield-and-blocks.md"
         },
         {
@@ -44219,7 +44423,11 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "revisions-and-workflows"
+            "revisions-and-workflows",
+            "save_revision",
+            "publish",
+            "unpublish",
+            "go_live_at"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44229,7 +44437,7 @@
             "wagtail/03-page-models",
             "wagtail/06-permissions"
           ],
-          "when_to_use": "Read when implementing or reviewing wagtail revisions, publishing, and workflows in a Wagtail project.",
+          "when_to_use": "Read when publishing, unpublishing, scheduling, or writing page content from code.",
           "path": "knowledge/wagtail/05-revisions-and-workflows.md"
         },
         {
@@ -44243,7 +44451,10 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "permissions"
+            "permissions",
+            "page_permissions",
+            "Collection",
+            "ModelPermissionPolicy"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44253,7 +44464,7 @@
             "django/06-security",
             "wagtail/05-revisions-and-workflows"
           ],
-          "when_to_use": "Read when implementing or reviewing wagtail permissions in a Wagtail project.",
+          "when_to_use": "Read when changing Wagtail groups, page permissions, collections, or admin actions.",
           "path": "knowledge/wagtail/06-permissions.md"
         },
         {
@@ -44267,7 +44478,10 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "search"
+            "search",
+            "search_fields",
+            "update_index",
+            "autocomplete"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44277,7 +44491,7 @@
             "wagtail/03-page-models",
             "wagtail/12-deployment"
           ],
-          "when_to_use": "Read when implementing or reviewing wagtail search in a Wagtail project.",
+          "when_to_use": "Read when changing search_fields, backends, or rebuild-index jobs.",
           "path": "knowledge/wagtail/07-search.md"
         },
         {
@@ -44291,7 +44505,11 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "images-and-documents"
+            "images-and-documents",
+            "get_rendition",
+            "fill",
+            "Document",
+            "Collection"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44301,7 +44519,7 @@
             "django/06-security",
             "wagtail/12-deployment"
           ],
-          "when_to_use": "Read when implementing or reviewing wagtail images and documents in a Wagtail project.",
+          "when_to_use": "Read when changing Image/Document uploads, renditions, or private media serving.",
           "path": "knowledge/wagtail/08-images-and-documents.md"
         },
         {
@@ -44315,7 +44533,10 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "headless-api"
+            "headless-api",
+            "WagtailAPIRouter",
+            "pages",
+            "DRAFT"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44325,7 +44546,7 @@
             "rest-api/03-resource-design",
             "wagtail/05-revisions-and-workflows"
           ],
-          "when_to_use": "Read when implementing or reviewing wagtail headless api in a Wagtail project.",
+          "when_to_use": "Read when exposing Pages over the v2 API, GraphQL, or a custom headless serializer.",
           "path": "knowledge/wagtail/09-headless-api.md"
         },
         {
@@ -44339,7 +44560,10 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "testing"
+            "testing",
+            "WagtailPageTests",
+            "save_revision",
+            "StreamField"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44349,7 +44573,7 @@
             "wagtail/01-version-compatibility",
             "django/07-testing"
           ],
-          "when_to_use": "Read when implementing or reviewing wagtail testing in a Wagtail project.",
+          "when_to_use": "Read when writing tests for pages, StreamField, publish/preview, or tree factories.",
           "path": "knowledge/wagtail/10-testing.md"
         },
         {
@@ -44363,7 +44587,9 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "upgrades"
+            "upgrades",
+            "update_index",
+            "release notes"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44373,7 +44599,7 @@
             "wagtail/01-version-compatibility",
             "wagtail/10-testing"
           ],
-          "when_to_use": "Read when implementing or reviewing wagtail upgrades in a Wagtail project.",
+          "when_to_use": "Read when upgrading Wagtail, or when release notes mention StreamField, hooks, or search.",
           "path": "knowledge/wagtail/11-upgrades.md"
         },
         {
@@ -44387,7 +44613,10 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "deployment"
+            "deployment",
+            "update_index",
+            "collectstatic",
+            "fixtree"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44398,7 +44627,7 @@
             "wagtail/11-upgrades",
             "wagtail/98-production-checklist"
           ],
-          "when_to_use": "Read when implementing or reviewing wagtail deployment in a Wagtail project.",
+          "when_to_use": "Read when releasing a Wagtail site, rebuilding search, or placing media.",
           "path": "knowledge/wagtail/12-deployment.md"
         },
         {
@@ -44408,18 +44637,24 @@
           "slug": "snippets",
           "type": "doc",
           "order": 13,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "snippets"
+            "snippets",
+            "register_snippet",
+            "ClusterableModel",
+            "ParentalKey"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail snippets.",
+          "related": [
+            "wagtail/02-architecture",
+            "wagtail/03-page-models"
+          ],
+          "when_to_use": "Read when adding snippets, snippet choosers, or non-page reusable CMS models.",
           "path": "knowledge/wagtail/13-snippets.md"
         },
         {
@@ -44429,18 +44664,25 @@
           "slug": "admin-panels",
           "type": "doc",
           "order": 14,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "admin-panels"
+            "admin-panels",
+            "FieldPanel",
+            "MultiFieldPanel",
+            "TabbedInterface",
+            "content_panels"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail admin panels.",
+          "related": [
+            "wagtail/03-page-models",
+            "wagtail/06-permissions"
+          ],
+          "when_to_use": "Read when changing content_panels, promote_panels, or custom edit handlers.",
           "path": "knowledge/wagtail/14-admin-panels.md"
         },
         {
@@ -44450,18 +44692,24 @@
           "slug": "hooks",
           "type": "doc",
           "order": 15,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "hooks"
+            "hooks",
+            "register_hook",
+            "hooks.register",
+            "wagtail_hooks"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail hooks.",
+          "related": [
+            "wagtail/02-architecture",
+            "wagtail/06-permissions"
+          ],
+          "when_to_use": "Read when adding wagtail_hooks.py, register_page_listing_buttons, or after_create_page.",
           "path": "knowledge/wagtail/15-hooks.md"
         },
         {
@@ -44471,18 +44719,24 @@
           "slug": "multisite",
           "type": "doc",
           "order": 16,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "multisite"
+            "multisite",
+            "Site",
+            "root_page",
+            "hostname"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail multisite.",
+          "related": [
+            "wagtail/03-page-models",
+            "wagtail/06-permissions"
+          ],
+          "when_to_use": "Read when adding Site records, hostnames, or scoping pages to a site root.",
           "path": "knowledge/wagtail/16-multisite.md"
         },
         {
@@ -44492,18 +44746,24 @@
           "slug": "localization",
           "type": "doc",
           "order": 17,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "localization"
+            "localization",
+            "Locale",
+            "alias",
+            "copy_for_translation"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail localization.",
+          "related": [
+            "wagtail/03-page-models",
+            "django/19-internationalization"
+          ],
+          "when_to_use": "Read when adding locales, translated pages, aliases, or copy_for_translation.",
           "path": "knowledge/wagtail/17-localization.md"
         },
         {
@@ -44513,18 +44773,24 @@
           "slug": "forms",
           "type": "doc",
           "order": 18,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "forms"
+            "forms",
+            "AbstractEmailForm",
+            "FormPage",
+            "FormSubmission"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail forms.",
+          "related": [
+            "django/12-forms-and-validation",
+            "wagtail/06-permissions"
+          ],
+          "when_to_use": "Read when adding FormPage, AbstractEmailForm, or storing FormSubmission rows.",
           "path": "knowledge/wagtail/18-forms.md"
         },
         {
@@ -44534,18 +44800,23 @@
           "slug": "redirects",
           "type": "doc",
           "order": 19,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "redirects"
+            "redirects",
+            "Redirect",
+            "RedirectFallbackMiddleware"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail redirects.",
+          "related": [
+            "wagtail/12-deployment",
+            "django/11-urls-and-views"
+          ],
+          "when_to_use": "Read when adding Redirect records, fallback middleware, or post-publish URL changes.",
           "path": "knowledge/wagtail/19-redirects.md"
         },
         {
@@ -44555,18 +44826,24 @@
           "slug": "caching",
           "type": "doc",
           "order": 20,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "caching"
+            "caching",
+            "page_published",
+            "cache.delete",
+            "purge"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail caching.",
+          "related": [
+            "django/17-caching",
+            "wagtail/05-revisions-and-workflows"
+          ],
+          "when_to_use": "Read when caching page responses or purging CDN/cache on publish.",
           "path": "knowledge/wagtail/20-caching.md"
         },
         {
@@ -44576,18 +44853,24 @@
           "slug": "performance",
           "type": "doc",
           "order": 21,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "performance"
+            "performance",
+            "specific",
+            "prefetch_related",
+            "get_rendition"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail performance.",
+          "related": [
+            "django/26-performance",
+            "wagtail/03-page-models"
+          ],
+          "when_to_use": "Read when page listings are slow, specific() N+1 appears, or renditions stampede.",
           "path": "knowledge/wagtail/21-performance.md"
         },
         {
@@ -44597,18 +44880,25 @@
           "slug": "security",
           "type": "doc",
           "order": 22,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "security"
+            "security",
+            "PageViewRestriction",
+            "serve",
+            "mark_safe"
           ],
+          "defers_to": "django/06-security",
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail security.",
+          "related": [
+            "django/06-security",
+            "wagtail/06-permissions"
+          ],
+          "when_to_use": "Read when changing private pages, document serving, or editor HTML rendering.",
           "path": "knowledge/wagtail/22-security.md"
         },
         {
@@ -44618,18 +44908,24 @@
           "slug": "migrations",
           "type": "doc",
           "order": 23,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "migrations"
+            "migrations",
+            "StreamField",
+            "RunPython",
+            "parent_page_types"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail migrations.",
+          "related": [
+            "django/04-models-and-migrations",
+            "wagtail/04-streamfield-and-blocks"
+          ],
+          "when_to_use": "Read when migrating Page fields, StreamField JSON, or parent_page_types changes.",
           "path": "knowledge/wagtail/23-migrations.md"
         },
         {
@@ -44639,18 +44935,24 @@
           "slug": "content-imports",
           "type": "doc",
           "order": 24,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "content-imports"
+            "content-imports",
+            "add_child",
+            "save_revision",
+            "bulk_create"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail content imports.",
+          "related": [
+            "wagtail/05-revisions-and-workflows",
+            "wagtail/10-testing"
+          ],
+          "when_to_use": "Read when importing CMS content from CSV, CMS dumps, or scripts that create pages.",
           "path": "knowledge/wagtail/24-content-imports.md"
         },
         {
@@ -44660,18 +44962,23 @@
           "slug": "custom-users",
           "type": "doc",
           "order": 25,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "custom-users"
+            "custom-users",
+            "AUTH_USER_MODEL",
+            "AbstractUser"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail custom users.",
+          "related": [
+            "django/15-authentication",
+            "wagtail/06-permissions"
+          ],
+          "when_to_use": "Read when customizing the user model on a Wagtail site.",
           "path": "knowledge/wagtail/25-custom-users.md"
         },
         {
@@ -44681,18 +44988,24 @@
           "slug": "frontend-assets",
           "type": "doc",
           "order": 26,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "frontend-assets"
+            "frontend-assets",
+            "static",
+            "collectstatic",
+            "ManifestStaticFilesStorage"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail frontend assets.",
+          "related": [
+            "django/14-static-and-media",
+            "wagtail/08-images-and-documents"
+          ],
+          "when_to_use": "Read when bundling CSS/JS for Wagtail templates or the admin frontend.",
           "path": "knowledge/wagtail/26-frontend-assets.md"
         },
         {
@@ -44702,18 +45015,23 @@
           "slug": "observability",
           "type": "doc",
           "order": 27,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "observability"
+            "observability",
+            "page_published",
+            "getLogger"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail observability.",
+          "related": [
+            "django/22-logging-and-observability",
+            "wagtail/12-deployment"
+          ],
+          "when_to_use": "Read when logging publish events, tracing page serve, or adding CMS metrics.",
           "path": "knowledge/wagtail/27-observability.md"
         },
         {
@@ -44723,18 +45041,24 @@
           "slug": "maintenance",
           "type": "doc",
           "order": 28,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "maintenance"
+            "maintenance",
+            "fixtree",
+            "update_index",
+            "purgerevisions"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail maintenance.",
+          "related": [
+            "django/29-maintenance",
+            "wagtail/12-deployment"
+          ],
+          "when_to_use": "Read when repairing the page tree, rebuilding search, or purging old revisions.",
           "path": "knowledge/wagtail/28-maintenance.md"
         },
         {
@@ -44744,18 +45068,23 @@
           "slug": "project-structure",
           "type": "doc",
           "order": 29,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "project-structure"
+            "project-structure",
+            "home",
+            "wagtail_hooks"
           ],
           "verified_against": "",
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail project structure.",
+          "related": [
+            "wagtail/02-architecture",
+            "django/02-architecture"
+          ],
+          "when_to_use": "Read when adding apps, splitting Page models, or placing wagtail_hooks.py.",
           "path": "knowledge/wagtail/29-project-structure.md"
         },
         {
@@ -44765,7 +45094,7 @@
           "slug": "engineering-principles",
           "type": "doc",
           "order": 30,
-          "status": "draft",
+          "status": "ready",
           "maturity": "unverified",
           "tags": [
             "wagtail",
@@ -44775,8 +45104,12 @@
           "source_urls": [],
           "last_reviewed": "",
           "review_after": "",
-          "related": [],
-          "when_to_use": "Reserved for future verified guidance about wagtail engineering principles.",
+          "related": [
+            "wagtail/00-overview",
+            "wagtail/02-architecture",
+            "django/30-engineering-principles"
+          ],
+          "when_to_use": "Read when a Wagtail change spans pages, Django, and deploy and you need the default decision order.",
           "path": "knowledge/wagtail/30-engineering-principles.md"
         },
         {
@@ -44790,7 +45123,9 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "production-checklist"
+            "production-checklist",
+            "update_index",
+            "collectstatic"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44799,7 +45134,7 @@
           "related": [
             "wagtail/99-ai-review-checklist"
           ],
-          "when_to_use": "Read before considering Wagtail work complete.",
+          "when_to_use": "Read before considering Wagtail work complete and ready to ship.",
           "path": "knowledge/wagtail/98-production-checklist.md"
         },
         {
@@ -44823,7 +45158,7 @@
             "wagtail/98-production-checklist",
             "wagtail/100-common-antipatterns"
           ],
-          "when_to_use": "Read when reviewing Wagtail changes.",
+          "when_to_use": "Read when reviewing a Wagtail diff for correctness before merge.",
           "path": "knowledge/wagtail/99-ai-review-checklist.md"
         },
         {
@@ -44837,7 +45172,10 @@
           "maturity": "unverified",
           "tags": [
             "wagtail",
-            "common-antipatterns"
+            "common-antipatterns",
+            "path",
+            "save_revision",
+            "specific"
           ],
           "verified_against": "",
           "source_urls": [],
@@ -44846,7 +45184,7 @@
           "related": [
             "wagtail/99-ai-review-checklist"
           ],
-          "when_to_use": "Read when reviewing Wagtail changes.",
+          "when_to_use": "Read when reviewing Wagtail changes for known failure modes.",
           "path": "knowledge/wagtail/100-common-antipatterns.md"
         }
       ]

@@ -7,9 +7,9 @@ type: doc
 order: 6
 status: ready
 maturity: unverified
-tags: [wagtail, permissions]
+tags: [wagtail, permissions, page_permissions, Collection, ModelPermissionPolicy]
 related: [django/06-security, wagtail/05-revisions-and-workflows]
-when_to_use: "Read when implementing or reviewing wagtail permissions in a Wagtail project."
+when_to_use: "Read when changing Wagtail groups, page permissions, collections, or admin actions."
 ---
 # Wagtail Permissions
 
@@ -26,18 +26,38 @@ Defines admin and content authorization.
 
 ## Good Example
 
-A compliant change records the detected framework versions, follows the existing project conventions, keeps policy at the correct boundary, and adds a regression test for the failure path.
+```python
+from django.http import JsonResponse
+from wagtail.models import Page
+
+def article_api(request, pk):
+    page = (
+        Page.objects.live()
+        .public()
+        .specific()
+        .get(pk=pk)
+    )
+    return JsonResponse({"title": page.title})
+```
+
+`live().public()` excludes drafts and private pages before any field is serialized.
 
 ## Bad Example
 
-Copying an example from another major version without checking release notes or installed dependencies can produce code that imports successfully but behaves incorrectly in production.
+```
+{% if request.user.is_staff %}
+  <a href="{{ page.url }}">{{ page.title }}</a>
+{% endif %}
+```
+
+Hiding a link in the template does not stop a crafted GET to the draft or private URL.
 
 ## Checklist
 
-- [ ] Enforce permissions in server-side views, APIs, hooks, and actions
-- [ ] Respect collection, page, locale, and workflow permissions when resolving objects
-- [ ] Use Wagtail permission policies and groups instead of duplicating authorization logic
-- [ ] Test users with no access, partial subtree access, and cross-site or cross-locale access
+- [ ] Permissions are enforced in views, APIs, hooks, and actions
+- [ ] Collection, page, locale, and workflow permissions are respected
+- [ ] Wagtail permission policies are reused
+- [ ] Tests cover no access, partial subtree, and cross-site/locale users
 
 ## Related
 

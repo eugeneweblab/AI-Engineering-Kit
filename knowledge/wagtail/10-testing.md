@@ -7,9 +7,9 @@ type: doc
 order: 10
 status: ready
 maturity: unverified
-tags: [wagtail, testing]
+tags: [wagtail, testing, WagtailPageTests, save_revision, StreamField]
 related: [wagtail/01-version-compatibility, django/07-testing]
-when_to_use: "Read when implementing or reviewing wagtail testing in a Wagtail project."
+when_to_use: "Read when writing tests for pages, StreamField, publish/preview, or tree factories."
 ---
 # Wagtail Testing
 
@@ -19,7 +19,7 @@ Defines tests for content trees and editorial lifecycle.
 
 ## Rules
 
-- Build pages through Wagtail APIs and factories that preserve tree invariants.
+- Build pages through Wagtail APIs and factories that preserve tree invariants (`add_child`, `WagtailPageTests`).
 - Test draft, preview, publish, unpublish, scheduled, locale, alias, and permission paths as applicable.
 - Assert public responses and persisted revision state, not only mocked hook calls.
 - Test StreamField migrations against representative serialized values.
@@ -27,19 +27,38 @@ Defines tests for content trees and editorial lifecycle.
 
 ## Good Example
 
-A compliant change records the detected framework versions, follows the existing project conventions, keeps policy at the correct boundary, and adds a regression test for the failure path.
+```python
+from wagtail.test.utils import WagtailPageTests
+
+class ArticlePageTests(WagtailPageTests):
+    def test_can_create_under_home(self):
+        self.assertCanCreateAt(HomePage, ArticlePage)
+
+    def test_publish_makes_title_public(self):
+        home = HomePage.objects.first()
+        page = ArticlePage(title="Draft")
+        home.add_child(instance=page)
+        page.save_revision().publish()
+        self.assertTrue(ArticlePage.objects.live().filter(pk=page.pk).exists())
+```
+
+The tree is built with `add_child`, and live state is asserted after publish.
 
 ## Bad Example
 
-Copying an example from another major version without checking release notes or installed dependencies can produce code that imports successfully but behaves incorrectly in production.
+```python
+Page.objects.create(title="Orphan", path="00010002", depth=2, numchild=0)
+```
+
+Inserting path/depth by hand creates pages the tree APIs will not traverse correctly.
 
 ## Checklist
 
-- [ ] Build pages through Wagtail APIs and factories that preserve tree invariants
-- [ ] Test draft, preview, publish, unpublish, scheduled, locale, alias, and permission paths as applicable
-- [ ] Assert public responses and persisted revision state, not only mocked hook calls
-- [ ] Test StreamField migrations against representative serialized values
-- [ ] Run the matrix selected by the Wagtail/Django/Python compatibility document
+- [ ] Pages are created through Wagtail APIs / `WagtailPageTests`
+- [ ] Draft, preview, publish, and permission paths are tested as applicable
+- [ ] Assertions cover HTTP and revision rows, not only mocks
+- [ ] StreamField migrations are tested against stored JSON
+- [ ] The version matrix from the compatibility doc is run
 
 ## Related
 

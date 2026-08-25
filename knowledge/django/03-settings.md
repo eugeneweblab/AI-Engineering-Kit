@@ -7,9 +7,9 @@ type: doc
 order: 3
 status: ready
 maturity: unverified
-tags: [django, settings]
+tags: [django, settings, DEBUG, ALLOWED_HOSTS, CSRF_TRUSTED_ORIGINS, SECRET_KEY]
 related: [django/06-security, django/09-deployment]
-when_to_use: "Read when implementing or reviewing django settings and configuration in a Django project."
+when_to_use: "Read when changing settings, environment variables, or per-environment configuration."
 ---
 # Django Settings and Configuration
 
@@ -20,24 +20,39 @@ Defines safe configuration across environments.
 ## Rules
 
 - Split environment values from code and fail startup when required secrets are absent.
-- Never enable DEBUG in production and configure ALLOWED_HOSTS, CSRF_TRUSTED_ORIGINS, secure cookies, HTTPS redirect, and proxy headers deliberately.
-- Keep secret values out of source control and logs.
-- Run the deployment system check against production settings before release.
+- Never enable `DEBUG` in production and configure `ALLOWED_HOSTS`, `CSRF_TRUSTED_ORIGINS`, secure cookies, HTTPS redirect, and proxy headers deliberately.
+- Keep `SECRET_KEY` and other secret values out of source control and logs.
+- Run `django-admin check --deploy` against production settings before release.
 
 ## Good Example
 
-A compliant change records the detected framework versions, follows the existing project conventions, keeps policy at the correct boundary, and adds a regression test for the failure path.
+```python
+import os
+
+DEBUG = False
+SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+ALLOWED_HOSTS = os.environ["DJANGO_ALLOWED_HOSTS"].split(",")
+CSRF_TRUSTED_ORIGINS = os.environ.get("DJANGO_CSRF_TRUSTED_ORIGINS", "").split(",")
+```
+
+Missing secrets fail at import time instead of shipping with a committed fallback.
 
 ## Bad Example
 
-Copying an example from another major version without checking release notes or installed dependencies can produce code that imports successfully but behaves incorrectly in production.
+```python
+DEBUG = True
+SECRET_KEY = "not-secret"
+ALLOWED_HOSTS = ["*"]
+```
+
+A committed debug configuration with a wildcard host list exposes traces and accepts any Host header.
 
 ## Checklist
 
 - [ ] Split environment values from code and fail startup when required secrets are absent
-- [ ] Never enable DEBUG in production and configure ALLOWED_HOSTS, CSRF_TRUSTED_ORIGINS, secure cookies, HTTPS redirect, and proxy headers deliberately
+- [ ] Never enable `DEBUG` in production and configure `ALLOWED_HOSTS`, `CSRF_TRUSTED_ORIGINS`, secure cookies, HTTPS redirect, and proxy headers deliberately
 - [ ] Keep secret values out of source control and logs
-- [ ] Run the deployment system check against production settings before release
+- [ ] Run `check --deploy` against production settings before release
 
 ## Related
 

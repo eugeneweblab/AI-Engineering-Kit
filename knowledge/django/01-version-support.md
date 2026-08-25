@@ -7,9 +7,9 @@ type: doc
 order: 1
 status: ready
 maturity: unverified
-tags: [django, version-support]
+tags: [django, version-support, LTS, get_version]
 related: [django/10-upgrades, wagtail/01-version-compatibility]
-when_to_use: "Read before choosing framework APIs or changing dependencies."
+when_to_use: "Read before choosing framework APIs or changing Django or Python dependencies."
 verified_against: "Django 5.2 LTS, 6.0, and 6.1; legacy 4.2 LTS"
 source_urls: ["https://www.djangoproject.com/download/", "https://docs.djangoproject.com/en/6.1/faq/install/", "https://docs.djangoproject.com/en/6.1/releases/"]
 last_reviewed: "2026-08-25"
@@ -32,11 +32,22 @@ Defines version selection and upgrade policy for maintained Django lines.
 
 ## Good Example
 
-A compliant change records the detected framework versions, follows the existing project conventions, keeps policy at the correct boundary, and adds a regression test for the failure path.
+```python
+# pyproject.toml: django>=5.2.17,<5.3
+import django
+
+assert django.VERSION[:2] >= (5, 2)
+```
+
+The lock file pins a supported line; code that needs 6.x APIs is gated on `django.VERSION`, not on memory of the latest release.
 
 ## Bad Example
 
-Copying an example from another major version without checking release notes or installed dependencies can produce code that imports successfully but behaves incorrectly in production.
+```python
+from django.db.models import GeneratedField
+```
+
+Importing a field class from a newer line than the lock file allows produces code that may import in development and fail in production.
 
 ## Checklist
 

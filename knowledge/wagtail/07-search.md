@@ -7,9 +7,9 @@ type: doc
 order: 7
 status: ready
 maturity: unverified
-tags: [wagtail, search]
+tags: [wagtail, search, search_fields, update_index, autocomplete]
 related: [wagtail/03-page-models, wagtail/12-deployment]
-when_to_use: "Read when implementing or reviewing wagtail search in a Wagtail project."
+when_to_use: "Read when changing search_fields, backends, or rebuild-index jobs."
 ---
 # Wagtail Search
 
@@ -19,25 +19,40 @@ Defines predictable indexing and querying.
 
 ## Rules
 
-- Declare search_fields deliberately and rebuild indexes after incompatible schema changes.
+- Declare `search_fields` deliberately and rebuild indexes after incompatible schema changes (`wagtail update_index`).
 - Use the configured backend's supported operators; database and Elasticsearch/OpenSearch behavior can differ.
 - Apply live, site, locale, and permission filters before returning results.
 - Measure query counts and index freshness, and define behavior while indexing is delayed.
 
 ## Good Example
 
-A compliant change records the detected framework versions, follows the existing project conventions, keeps policy at the correct boundary, and adds a regression test for the failure path.
+```python
+from wagtail.search.models import Query
+
+results = (
+    ArticlePage.objects.live()
+    .public()
+    .filter(locale=request.locale)
+    .search(query_string)
+)
+```
+
+Search runs on an already-filtered live/public/locale queryset.
 
 ## Bad Example
 
-Copying an example from another major version without checking release notes or installed dependencies can produce code that imports successfully but behaves incorrectly in production.
+```python
+results = Page.objects.search(query_string)
+```
+
+Unfiltered `Page.objects.search` can return drafts, other sites, and pages the user cannot view.
 
 ## Checklist
 
-- [ ] Declare search_fields deliberately and rebuild indexes after incompatible schema changes
-- [ ] Use the configured backend's supported operators
-- [ ] Apply live, site, locale, and permission filters before returning results
-- [ ] Measure query counts and index freshness, and define behavior while indexing is delayed
+- [ ] `search_fields` match the fields editors expect to find
+- [ ] Indexes are rebuilt after incompatible schema changes
+- [ ] Results are filtered by live, site, locale, and permission
+- [ ] Backend-specific operators are not assumed portable
 
 ## Related
 

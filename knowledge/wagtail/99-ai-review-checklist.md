@@ -9,35 +9,33 @@ status: ready
 maturity: unverified
 tags: [wagtail, ai-review-checklist]
 related: [wagtail/98-production-checklist, wagtail/100-common-antipatterns]
-when_to_use: "Read when reviewing Wagtail changes."
+when_to_use: "Read when reviewing a Wagtail diff for correctness before merge."
 ---
 # Wagtail AI Review Checklist
 
 ## Purpose
 
-Use this as a mandatory, evidence-based gate.
+Use this as a mandatory review of the diff, not a second copy of the release gate.
 
 ## Version and architecture
 
 **Rules:** [01-version-compatibility](01-version-compatibility.md) · [02-architecture](02-architecture.md)
 
-- [ ] Installed framework and Python versions were detected from resolved dependencies.
-- [ ] The selected versions are mutually supported.
-- [ ] The change follows existing boundaries and conventions.
+- [ ] APIs in the diff exist on the installed Wagtail/Django line.
+- [ ] New CMS types are `Page` vs snippet correctly; Django services do not live in page `models.py` without cause.
+- [ ] No hook is the only place a publish, charge, or tree move happens.
 
 ## Correctness and security
 
-**Rules:** [06-permissions](06-permissions.md) · [10-testing](10-testing.md)
+**Rules:** [03-page-models](03-page-models.md) · [04-streamfield-and-blocks](04-streamfield-and-blocks.md) · [05-revisions-and-workflows](05-revisions-and-workflows.md)
 
-- [ ] Authorization and validation failure paths are tested.
-- [ ] Schema, transaction, publishing, and concurrency effects were reviewed.
-- [ ] Secrets and unsafe rendering or query sinks were reviewed.
+- [ ] `specific()` is not called per row; `parent_page_types` / `subpage_types` match the tree.
+- [ ] StreamField block names were not renamed without a data migration.
+- [ ] The diff does not `QuerySet.update` live pages or insert `path` / `depth` by hand.
 
 ## Release
 
-**Rules:** [11-upgrades](11-upgrades.md) · [12-deployment](12-deployment.md)
+**Rules:** [10-testing](10-testing.md) · [12-deployment](12-deployment.md)
 
-- [ ] Upgrade notes and deprecations were checked.
-- [ ] Production settings and deployment checks pass.
-- [ ] Rollback, migrations, assets, media, and observability are covered.
-
+- [ ] Tests use `add_child` / `WagtailPageTests` and cover publish or permission as applicable.
+- [ ] Search index and media implications of the change are named.

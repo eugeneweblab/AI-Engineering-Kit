@@ -19,7 +19,11 @@ Version-aware engineering rules for production Wagtail projects.
 
 ## Retrieval
 
-Detect the installed framework and Python versions from lock files or package metadata before selecting rules. Read only documents marked `ready`; drafts reserve the standard layout and are not authoritative.
+Detect Wagtail from `wagtail` imports, `Page` subclasses, `StreamField`, `wagtail_hooks.py`, or `home/templates/home/home_page.html`. Detect Django from `manage.py`. Intersect Wagtail, Django, and Python versions from the lock file before selecting APIs.
+
+Read only documents marked `ready`. Apply Django rules as well as Wagtail rules.
+
+Resolve APIs from the diff (`save_revision`, `specific`, `StreamField`, `add_child`) via `SIGNALS.symbols` and this topic's tags.
 
 ## Ready Rules
 
@@ -36,6 +40,24 @@ Detect the installed framework and Python versions from lock files or package me
 - [Wagtail Testing](10-testing.md)
 - [Wagtail Upgrades](11-upgrades.md)
 - [Wagtail Deployment](12-deployment.md)
+- [Wagtail Snippets](13-snippets.md)
+- [Wagtail Admin Panels](14-admin-panels.md)
+- [Wagtail Hooks](15-hooks.md)
+- [Wagtail Multisite](16-multisite.md)
+- [Wagtail Localization](17-localization.md)
+- [Wagtail Forms](18-forms.md)
+- [Wagtail Redirects](19-redirects.md)
+- [Wagtail Caching](20-caching.md)
+- [Wagtail Performance](21-performance.md)
+- [Wagtail Security](22-security.md)
+- [Wagtail Migrations](23-migrations.md)
+- [Wagtail Content Imports](24-content-imports.md)
+- [Wagtail Custom Users](25-custom-users.md)
+- [Wagtail Frontend Assets](26-frontend-assets.md)
+- [Wagtail Observability](27-observability.md)
+- [Wagtail Maintenance](28-maintenance.md)
+- [Wagtail Project Structure](29-project-structure.md)
+- [Wagtail Engineering Principles](30-engineering-principles.md)
 
 ## Completion
 
