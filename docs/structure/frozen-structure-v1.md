@@ -32,6 +32,8 @@ knowledge/
 
 ├── nodejs/
 ├── nestjs/
+├── django/
+├── wagtail/
 
 ├── php/
 ├── wordpress/
@@ -156,6 +158,6 @@ corrections that brought this document in line with what it already described el
 - Numbering section added, recording that `order` must be unique within a topic and that
   `aws/31-high-availability.md` extends past `30`. Both were already true on disk; neither
   was written down.
-- `canonical-file-list.md` extended from 28 topics to all 49, so every file the structure
-  produces is now named. Verified against the tree: 1,439 files listed, 1,439 on disk, no
+- `canonical-file-list.md` extended from 28 topics to all 51, so every file the structure
+  produces is now named. Verified against the tree: 1,509 files listed, 1,509 on disk, no
   difference in either direction.

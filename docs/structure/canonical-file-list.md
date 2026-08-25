@@ -7,8 +7,8 @@ This document names every file that layout produces, topic by topic.
 its topic below. The filename and its numeric prefix come from this list — the prefix is the
 document's `order`, and `order` must be unique within a topic.
 
-**Scope.** Parts 2–29 were written first and cover 28 topics; parts 30–50 were added later
-and cover the remaining 21, including the ten topics that use a custom structure. Numbering
+**Scope.** Parts 2–29 were written first and cover 28 topics; parts 30–52 were added later
+and cover the remaining 23, including the ten topics that use a custom structure. Numbering
 starts at Part 2 and is left as it is so existing references keep working — there is no
 Part 1 in this file.
 
@@ -2155,3 +2155,101 @@ README.md
 01-typescript-utilities.md
 02-php-wordpress.md
 03-shell-scripts.md
+
+
+
+# Part 51 — Django
+
+Directory:
+
+knowledge/django/
+
+---
+
+README.md
+
+00-overview.md
+
+01-version-support.md
+02-architecture.md
+03-settings.md
+04-models-and-migrations.md
+05-querysets-and-transactions.md
+06-security.md
+07-testing.md
+08-async.md
+09-deployment.md
+10-upgrades.md
+11-urls-and-views.md
+12-forms-and-validation.md
+13-templates.md
+14-static-and-media.md
+15-authentication.md
+16-middleware.md
+17-caching.md
+18-admin.md
+19-internationalization.md
+20-management-commands.md
+21-email.md
+22-logging-and-observability.md
+23-error-handling.md
+24-rest-apis.md
+25-background-jobs.md
+26-performance.md
+27-database-backends.md
+28-multi-tenancy.md
+29-maintenance.md
+30-engineering-principles.md
+
+98-production-checklist.md
+99-ai-review-checklist.md
+100-common-antipatterns.md
+
+
+
+# Part 52 — Wagtail
+
+Directory:
+
+knowledge/wagtail/
+
+---
+
+README.md
+
+00-overview.md
+
+01-version-compatibility.md
+02-architecture.md
+03-page-models.md
+04-streamfield-and-blocks.md
+05-revisions-and-workflows.md
+06-permissions.md
+07-search.md
+08-images-and-documents.md
+09-headless-api.md
+10-testing.md
+11-upgrades.md
+12-deployment.md
+13-snippets.md
+14-admin-panels.md
+15-hooks.md
+16-multisite.md
+17-localization.md
+18-forms.md
+19-redirects.md
+20-caching.md
+21-performance.md
+22-security.md
+23-migrations.md
+24-content-imports.md
+25-custom-users.md
+26-frontend-assets.md
+27-observability.md
+28-maintenance.md
+29-project-structure.md
+30-engineering-principles.md
+
+98-production-checklist.md
+99-ai-review-checklist.md
+100-common-antipatterns.md

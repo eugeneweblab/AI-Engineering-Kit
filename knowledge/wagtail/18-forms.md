@@ -1,0 +1,14 @@
+---
+id: wagtail/18-forms
+topic: wagtail
+slug: forms
+title: "Wagtail Forms"
+type: doc
+order: 18
+status: draft
+maturity: unverified
+tags: [wagtail, forms]
+related: []
+when_to_use: "Reserved for future verified guidance about wagtail forms."
+---
+# Wagtail Forms

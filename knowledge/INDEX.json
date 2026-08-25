@@ -2,12 +2,12 @@
   "schema": "ai-engineering-kit/knowledge-index@1",
   "note": "Regenerate with `python3 scripts/build-index.py`. Do not edit by hand.",
   "stats": {
-    "topics": 49,
-    "docs": 1439,
-    "ready": 1439,
-    "draft": 0,
+    "topics": 51,
+    "docs": 1509,
+    "ready": 1471,
+    "draft": 38,
     "maturity": {
-      "unverified": 1439
+      "unverified": 1509
     }
   },
   "topics": {
@@ -10153,6 +10153,796 @@
           ],
           "when_to_use": "Read before or during a Divi build to recognize and avoid the recurring mistakes that corrupt, slow, or break a site.",
           "path": "knowledge/divi/100-common-antipatterns.md"
+        }
+      ]
+    },
+    "django": {
+      "path": "knowledge/django",
+      "doc_count": 35,
+      "ready": 15,
+      "draft": 20,
+      "docs": [
+        {
+          "id": "django/readme",
+          "topic": "django",
+          "title": "Django Engineering Standards",
+          "slug": "readme",
+          "type": "index",
+          "order": -1,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "readme"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/00-overview"
+          ],
+          "when_to_use": "Read first when working in a Django repository.",
+          "path": "knowledge/django/README.md"
+        },
+        {
+          "id": "django/00-overview",
+          "topic": "django",
+          "title": "Django Overview",
+          "slug": "overview",
+          "type": "doc",
+          "order": 0,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "overview"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/01-version-support",
+            "django/98-production-checklist"
+          ],
+          "when_to_use": "Read when implementing or reviewing django overview in a Django project.",
+          "path": "knowledge/django/00-overview.md"
+        },
+        {
+          "id": "django/01-version-support",
+          "topic": "django",
+          "title": "Django Version Support",
+          "slug": "version-support",
+          "type": "doc",
+          "order": 1,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "version-support"
+          ],
+          "verified_against": "Django 5.2 LTS, 6.0, and 6.1; legacy 4.2 LTS",
+          "source_urls": [
+            "https://www.djangoproject.com/download/",
+            "https://docs.djangoproject.com/en/6.1/faq/install/",
+            "https://docs.djangoproject.com/en/6.1/releases/"
+          ],
+          "last_reviewed": "2026-08-25",
+          "review_after": "2026-11-25",
+          "related": [
+            "django/10-upgrades",
+            "wagtail/01-version-compatibility"
+          ],
+          "when_to_use": "Read before choosing framework APIs or changing dependencies.",
+          "path": "knowledge/django/01-version-support.md"
+        },
+        {
+          "id": "django/02-architecture",
+          "topic": "django",
+          "title": "Django Architecture",
+          "slug": "architecture",
+          "type": "doc",
+          "order": 2,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "architecture"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/04-models-and-migrations",
+            "django/05-querysets-and-transactions"
+          ],
+          "when_to_use": "Read when implementing or reviewing django architecture in a Django project.",
+          "path": "knowledge/django/02-architecture.md"
+        },
+        {
+          "id": "django/03-settings",
+          "topic": "django",
+          "title": "Django Settings and Configuration",
+          "slug": "settings",
+          "type": "doc",
+          "order": 3,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "settings"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/06-security",
+            "django/09-deployment"
+          ],
+          "when_to_use": "Read when implementing or reviewing django settings and configuration in a Django project.",
+          "path": "knowledge/django/03-settings.md"
+        },
+        {
+          "id": "django/04-models-and-migrations",
+          "topic": "django",
+          "title": "Django Models and Migrations",
+          "slug": "models-and-migrations",
+          "type": "doc",
+          "order": 4,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "models-and-migrations"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/05-querysets-and-transactions",
+            "django/09-deployment"
+          ],
+          "when_to_use": "Read when implementing or reviewing django models and migrations in a Django project.",
+          "path": "knowledge/django/04-models-and-migrations.md"
+        },
+        {
+          "id": "django/05-querysets-and-transactions",
+          "topic": "django",
+          "title": "Django QuerySets and Transactions",
+          "slug": "querysets-and-transactions",
+          "type": "doc",
+          "order": 5,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "querysets-and-transactions"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/04-models-and-migrations",
+            "django/07-testing"
+          ],
+          "when_to_use": "Read when implementing or reviewing django querysets and transactions in a Django project.",
+          "path": "knowledge/django/05-querysets-and-transactions.md"
+        },
+        {
+          "id": "django/06-security",
+          "topic": "django",
+          "title": "Django Security",
+          "slug": "security",
+          "type": "doc",
+          "order": 6,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "security"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/03-settings",
+            "django/09-deployment"
+          ],
+          "when_to_use": "Read when implementing or reviewing django security in a Django project.",
+          "path": "knowledge/django/06-security.md"
+        },
+        {
+          "id": "django/07-testing",
+          "topic": "django",
+          "title": "Django Testing",
+          "slug": "testing",
+          "type": "doc",
+          "order": 7,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "testing"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/01-version-support",
+            "django/05-querysets-and-transactions"
+          ],
+          "when_to_use": "Read when implementing or reviewing django testing in a Django project.",
+          "path": "knowledge/django/07-testing.md"
+        },
+        {
+          "id": "django/08-async",
+          "topic": "django",
+          "title": "Django Async and ASGI",
+          "slug": "async",
+          "type": "doc",
+          "order": 8,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "async"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/01-version-support",
+            "django/09-deployment"
+          ],
+          "when_to_use": "Read when implementing or reviewing django async and asgi in a Django project.",
+          "path": "knowledge/django/08-async.md"
+        },
+        {
+          "id": "django/09-deployment",
+          "topic": "django",
+          "title": "Django Deployment",
+          "slug": "deployment",
+          "type": "doc",
+          "order": 9,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "deployment"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/03-settings",
+            "django/04-models-and-migrations",
+            "django/98-production-checklist"
+          ],
+          "when_to_use": "Read when implementing or reviewing django deployment in a Django project.",
+          "path": "knowledge/django/09-deployment.md"
+        },
+        {
+          "id": "django/10-upgrades",
+          "topic": "django",
+          "title": "Django Upgrades",
+          "slug": "upgrades",
+          "type": "doc",
+          "order": 10,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "upgrades"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/01-version-support",
+            "django/07-testing"
+          ],
+          "when_to_use": "Read when implementing or reviewing django upgrades in a Django project.",
+          "path": "knowledge/django/10-upgrades.md"
+        },
+        {
+          "id": "django/11-urls-and-views",
+          "topic": "django",
+          "title": "Django Urls And Views",
+          "slug": "urls-and-views",
+          "type": "doc",
+          "order": 11,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "urls-and-views"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django urls and views.",
+          "path": "knowledge/django/11-urls-and-views.md"
+        },
+        {
+          "id": "django/12-forms-and-validation",
+          "topic": "django",
+          "title": "Django Forms And Validation",
+          "slug": "forms-and-validation",
+          "type": "doc",
+          "order": 12,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "forms-and-validation"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django forms and validation.",
+          "path": "knowledge/django/12-forms-and-validation.md"
+        },
+        {
+          "id": "django/13-templates",
+          "topic": "django",
+          "title": "Django Templates",
+          "slug": "templates",
+          "type": "doc",
+          "order": 13,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "templates"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django templates.",
+          "path": "knowledge/django/13-templates.md"
+        },
+        {
+          "id": "django/14-static-and-media",
+          "topic": "django",
+          "title": "Django Static And Media",
+          "slug": "static-and-media",
+          "type": "doc",
+          "order": 14,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "static-and-media"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django static and media.",
+          "path": "knowledge/django/14-static-and-media.md"
+        },
+        {
+          "id": "django/15-authentication",
+          "topic": "django",
+          "title": "Django Authentication",
+          "slug": "authentication",
+          "type": "doc",
+          "order": 15,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "authentication"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django authentication.",
+          "path": "knowledge/django/15-authentication.md"
+        },
+        {
+          "id": "django/16-middleware",
+          "topic": "django",
+          "title": "Django Middleware",
+          "slug": "middleware",
+          "type": "doc",
+          "order": 16,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "middleware"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django middleware.",
+          "path": "knowledge/django/16-middleware.md"
+        },
+        {
+          "id": "django/17-caching",
+          "topic": "django",
+          "title": "Django Caching",
+          "slug": "caching",
+          "type": "doc",
+          "order": 17,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "caching"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django caching.",
+          "path": "knowledge/django/17-caching.md"
+        },
+        {
+          "id": "django/18-admin",
+          "topic": "django",
+          "title": "Django Admin",
+          "slug": "admin",
+          "type": "doc",
+          "order": 18,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "admin"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django admin.",
+          "path": "knowledge/django/18-admin.md"
+        },
+        {
+          "id": "django/19-internationalization",
+          "topic": "django",
+          "title": "Django Internationalization",
+          "slug": "internationalization",
+          "type": "doc",
+          "order": 19,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "internationalization"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django internationalization.",
+          "path": "knowledge/django/19-internationalization.md"
+        },
+        {
+          "id": "django/20-management-commands",
+          "topic": "django",
+          "title": "Django Management Commands",
+          "slug": "management-commands",
+          "type": "doc",
+          "order": 20,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "management-commands"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django management commands.",
+          "path": "knowledge/django/20-management-commands.md"
+        },
+        {
+          "id": "django/21-email",
+          "topic": "django",
+          "title": "Django Email",
+          "slug": "email",
+          "type": "doc",
+          "order": 21,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "email"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django email.",
+          "path": "knowledge/django/21-email.md"
+        },
+        {
+          "id": "django/22-logging-and-observability",
+          "topic": "django",
+          "title": "Django Logging And Observability",
+          "slug": "logging-and-observability",
+          "type": "doc",
+          "order": 22,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "logging-and-observability"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django logging and observability.",
+          "path": "knowledge/django/22-logging-and-observability.md"
+        },
+        {
+          "id": "django/23-error-handling",
+          "topic": "django",
+          "title": "Django Error Handling",
+          "slug": "error-handling",
+          "type": "doc",
+          "order": 23,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "error-handling"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django error handling.",
+          "path": "knowledge/django/23-error-handling.md"
+        },
+        {
+          "id": "django/24-rest-apis",
+          "topic": "django",
+          "title": "Django Rest APIs",
+          "slug": "rest-apis",
+          "type": "doc",
+          "order": 24,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "rest-apis"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django rest apis.",
+          "path": "knowledge/django/24-rest-apis.md"
+        },
+        {
+          "id": "django/25-background-jobs",
+          "topic": "django",
+          "title": "Django Background Jobs",
+          "slug": "background-jobs",
+          "type": "doc",
+          "order": 25,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "background-jobs"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django background jobs.",
+          "path": "knowledge/django/25-background-jobs.md"
+        },
+        {
+          "id": "django/26-performance",
+          "topic": "django",
+          "title": "Django Performance",
+          "slug": "performance",
+          "type": "doc",
+          "order": 26,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "performance"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django performance.",
+          "path": "knowledge/django/26-performance.md"
+        },
+        {
+          "id": "django/27-database-backends",
+          "topic": "django",
+          "title": "Django Database Backends",
+          "slug": "database-backends",
+          "type": "doc",
+          "order": 27,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "database-backends"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django database backends.",
+          "path": "knowledge/django/27-database-backends.md"
+        },
+        {
+          "id": "django/28-multi-tenancy",
+          "topic": "django",
+          "title": "Django Multi Tenancy",
+          "slug": "multi-tenancy",
+          "type": "doc",
+          "order": 28,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "multi-tenancy"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django multi tenancy.",
+          "path": "knowledge/django/28-multi-tenancy.md"
+        },
+        {
+          "id": "django/29-maintenance",
+          "topic": "django",
+          "title": "Django Maintenance",
+          "slug": "maintenance",
+          "type": "doc",
+          "order": 29,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "maintenance"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django maintenance.",
+          "path": "knowledge/django/29-maintenance.md"
+        },
+        {
+          "id": "django/30-engineering-principles",
+          "topic": "django",
+          "title": "Django Engineering Principles",
+          "slug": "engineering-principles",
+          "type": "doc",
+          "order": 30,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "engineering-principles"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about django engineering principles.",
+          "path": "knowledge/django/30-engineering-principles.md"
+        },
+        {
+          "id": "django/98-production-checklist",
+          "topic": "django",
+          "title": "Django Production Checklist",
+          "slug": "production-checklist",
+          "type": "checklist",
+          "order": 98,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "production-checklist"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/99-ai-review-checklist"
+          ],
+          "when_to_use": "Read before considering Django work complete.",
+          "path": "knowledge/django/98-production-checklist.md"
+        },
+        {
+          "id": "django/99-ai-review-checklist",
+          "topic": "django",
+          "title": "Django AI Review Checklist",
+          "slug": "ai-review-checklist",
+          "type": "checklist",
+          "order": 99,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "ai-review-checklist"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/98-production-checklist",
+            "django/100-common-antipatterns"
+          ],
+          "when_to_use": "Read when reviewing Django changes.",
+          "path": "knowledge/django/99-ai-review-checklist.md"
+        },
+        {
+          "id": "django/100-common-antipatterns",
+          "topic": "django",
+          "title": "Common Django Antipatterns",
+          "slug": "common-antipatterns",
+          "type": "antipatterns",
+          "order": 100,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "django",
+            "common-antipatterns"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/99-ai-review-checklist"
+          ],
+          "when_to_use": "Read when reviewing Django changes.",
+          "path": "knowledge/django/100-common-antipatterns.md"
         }
       ]
     },
@@ -43263,6 +44053,801 @@
           ],
           "when_to_use": "Read before writing or reviewing TypeScript to avoid common type-safety traps.",
           "path": "knowledge/typescript/100-common-antipatterns.md"
+        }
+      ]
+    },
+    "wagtail": {
+      "path": "knowledge/wagtail",
+      "doc_count": 35,
+      "ready": 17,
+      "draft": 18,
+      "docs": [
+        {
+          "id": "wagtail/readme",
+          "topic": "wagtail",
+          "title": "Wagtail Engineering Standards",
+          "slug": "readme",
+          "type": "index",
+          "order": -1,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "readme"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "wagtail/00-overview"
+          ],
+          "when_to_use": "Read first when working in a Wagtail repository.",
+          "path": "knowledge/wagtail/README.md"
+        },
+        {
+          "id": "wagtail/00-overview",
+          "topic": "wagtail",
+          "title": "Wagtail Overview",
+          "slug": "overview",
+          "type": "doc",
+          "order": 0,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "overview"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "wagtail/01-version-compatibility",
+            "django/00-overview"
+          ],
+          "when_to_use": "Read when implementing or reviewing wagtail overview in a Wagtail project.",
+          "path": "knowledge/wagtail/00-overview.md"
+        },
+        {
+          "id": "wagtail/01-version-compatibility",
+          "topic": "wagtail",
+          "title": "Wagtail and Django Version Compatibility",
+          "slug": "version-compatibility",
+          "type": "doc",
+          "order": 1,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "version-compatibility"
+          ],
+          "verified_against": "Wagtail 6.3 LTS through 7.4 LTS; Django 4.2 through 6.0",
+          "source_urls": [
+            "https://docs.wagtail.org/en/stable/releases/upgrading.html",
+            "https://docs.wagtail.org/en/stable/releases/index.html"
+          ],
+          "last_reviewed": "2026-08-25",
+          "review_after": "2026-11-25",
+          "related": [
+            "django/01-version-support",
+            "wagtail/11-upgrades"
+          ],
+          "when_to_use": "Read before choosing framework APIs or changing dependencies.",
+          "path": "knowledge/wagtail/01-version-compatibility.md"
+        },
+        {
+          "id": "wagtail/02-architecture",
+          "topic": "wagtail",
+          "title": "Wagtail Architecture",
+          "slug": "architecture",
+          "type": "doc",
+          "order": 2,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "architecture"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "wagtail/03-page-models",
+            "django/02-architecture"
+          ],
+          "when_to_use": "Read when implementing or reviewing wagtail architecture in a Wagtail project.",
+          "path": "knowledge/wagtail/02-architecture.md"
+        },
+        {
+          "id": "wagtail/03-page-models",
+          "topic": "wagtail",
+          "title": "Wagtail Page Models",
+          "slug": "page-models",
+          "type": "doc",
+          "order": 3,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "page-models"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "wagtail/05-revisions-and-workflows",
+            "wagtail/07-search"
+          ],
+          "when_to_use": "Read when implementing or reviewing wagtail page models in a Wagtail project.",
+          "path": "knowledge/wagtail/03-page-models.md"
+        },
+        {
+          "id": "wagtail/04-streamfield-and-blocks",
+          "topic": "wagtail",
+          "title": "Wagtail StreamField and Blocks",
+          "slug": "streamfield-and-blocks",
+          "type": "doc",
+          "order": 4,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "streamfield-and-blocks"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "wagtail/03-page-models",
+            "wagtail/10-testing"
+          ],
+          "when_to_use": "Read when implementing or reviewing wagtail streamfield and blocks in a Wagtail project.",
+          "path": "knowledge/wagtail/04-streamfield-and-blocks.md"
+        },
+        {
+          "id": "wagtail/05-revisions-and-workflows",
+          "topic": "wagtail",
+          "title": "Wagtail Revisions, Publishing, and Workflows",
+          "slug": "revisions-and-workflows",
+          "type": "doc",
+          "order": 5,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "revisions-and-workflows"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "wagtail/03-page-models",
+            "wagtail/06-permissions"
+          ],
+          "when_to_use": "Read when implementing or reviewing wagtail revisions, publishing, and workflows in a Wagtail project.",
+          "path": "knowledge/wagtail/05-revisions-and-workflows.md"
+        },
+        {
+          "id": "wagtail/06-permissions",
+          "topic": "wagtail",
+          "title": "Wagtail Permissions",
+          "slug": "permissions",
+          "type": "doc",
+          "order": 6,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "permissions"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/06-security",
+            "wagtail/05-revisions-and-workflows"
+          ],
+          "when_to_use": "Read when implementing or reviewing wagtail permissions in a Wagtail project.",
+          "path": "knowledge/wagtail/06-permissions.md"
+        },
+        {
+          "id": "wagtail/07-search",
+          "topic": "wagtail",
+          "title": "Wagtail Search",
+          "slug": "search",
+          "type": "doc",
+          "order": 7,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "search"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "wagtail/03-page-models",
+            "wagtail/12-deployment"
+          ],
+          "when_to_use": "Read when implementing or reviewing wagtail search in a Wagtail project.",
+          "path": "knowledge/wagtail/07-search.md"
+        },
+        {
+          "id": "wagtail/08-images-and-documents",
+          "topic": "wagtail",
+          "title": "Wagtail Images and Documents",
+          "slug": "images-and-documents",
+          "type": "doc",
+          "order": 8,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "images-and-documents"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/06-security",
+            "wagtail/12-deployment"
+          ],
+          "when_to_use": "Read when implementing or reviewing wagtail images and documents in a Wagtail project.",
+          "path": "knowledge/wagtail/08-images-and-documents.md"
+        },
+        {
+          "id": "wagtail/09-headless-api",
+          "topic": "wagtail",
+          "title": "Wagtail Headless API",
+          "slug": "headless-api",
+          "type": "doc",
+          "order": 9,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "headless-api"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "rest-api/03-resource-design",
+            "wagtail/05-revisions-and-workflows"
+          ],
+          "when_to_use": "Read when implementing or reviewing wagtail headless api in a Wagtail project.",
+          "path": "knowledge/wagtail/09-headless-api.md"
+        },
+        {
+          "id": "wagtail/10-testing",
+          "topic": "wagtail",
+          "title": "Wagtail Testing",
+          "slug": "testing",
+          "type": "doc",
+          "order": 10,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "testing"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "wagtail/01-version-compatibility",
+            "django/07-testing"
+          ],
+          "when_to_use": "Read when implementing or reviewing wagtail testing in a Wagtail project.",
+          "path": "knowledge/wagtail/10-testing.md"
+        },
+        {
+          "id": "wagtail/11-upgrades",
+          "topic": "wagtail",
+          "title": "Wagtail Upgrades",
+          "slug": "upgrades",
+          "type": "doc",
+          "order": 11,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "upgrades"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "wagtail/01-version-compatibility",
+            "wagtail/10-testing"
+          ],
+          "when_to_use": "Read when implementing or reviewing wagtail upgrades in a Wagtail project.",
+          "path": "knowledge/wagtail/11-upgrades.md"
+        },
+        {
+          "id": "wagtail/12-deployment",
+          "topic": "wagtail",
+          "title": "Wagtail Deployment",
+          "slug": "deployment",
+          "type": "doc",
+          "order": 12,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "deployment"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "django/09-deployment",
+            "wagtail/11-upgrades",
+            "wagtail/98-production-checklist"
+          ],
+          "when_to_use": "Read when implementing or reviewing wagtail deployment in a Wagtail project.",
+          "path": "knowledge/wagtail/12-deployment.md"
+        },
+        {
+          "id": "wagtail/13-snippets",
+          "topic": "wagtail",
+          "title": "Wagtail Snippets",
+          "slug": "snippets",
+          "type": "doc",
+          "order": 13,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "snippets"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail snippets.",
+          "path": "knowledge/wagtail/13-snippets.md"
+        },
+        {
+          "id": "wagtail/14-admin-panels",
+          "topic": "wagtail",
+          "title": "Wagtail Admin Panels",
+          "slug": "admin-panels",
+          "type": "doc",
+          "order": 14,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "admin-panels"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail admin panels.",
+          "path": "knowledge/wagtail/14-admin-panels.md"
+        },
+        {
+          "id": "wagtail/15-hooks",
+          "topic": "wagtail",
+          "title": "Wagtail Hooks",
+          "slug": "hooks",
+          "type": "doc",
+          "order": 15,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "hooks"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail hooks.",
+          "path": "knowledge/wagtail/15-hooks.md"
+        },
+        {
+          "id": "wagtail/16-multisite",
+          "topic": "wagtail",
+          "title": "Wagtail Multisite",
+          "slug": "multisite",
+          "type": "doc",
+          "order": 16,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "multisite"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail multisite.",
+          "path": "knowledge/wagtail/16-multisite.md"
+        },
+        {
+          "id": "wagtail/17-localization",
+          "topic": "wagtail",
+          "title": "Wagtail Localization",
+          "slug": "localization",
+          "type": "doc",
+          "order": 17,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "localization"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail localization.",
+          "path": "knowledge/wagtail/17-localization.md"
+        },
+        {
+          "id": "wagtail/18-forms",
+          "topic": "wagtail",
+          "title": "Wagtail Forms",
+          "slug": "forms",
+          "type": "doc",
+          "order": 18,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "forms"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail forms.",
+          "path": "knowledge/wagtail/18-forms.md"
+        },
+        {
+          "id": "wagtail/19-redirects",
+          "topic": "wagtail",
+          "title": "Wagtail Redirects",
+          "slug": "redirects",
+          "type": "doc",
+          "order": 19,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "redirects"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail redirects.",
+          "path": "knowledge/wagtail/19-redirects.md"
+        },
+        {
+          "id": "wagtail/20-caching",
+          "topic": "wagtail",
+          "title": "Wagtail Caching",
+          "slug": "caching",
+          "type": "doc",
+          "order": 20,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "caching"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail caching.",
+          "path": "knowledge/wagtail/20-caching.md"
+        },
+        {
+          "id": "wagtail/21-performance",
+          "topic": "wagtail",
+          "title": "Wagtail Performance",
+          "slug": "performance",
+          "type": "doc",
+          "order": 21,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "performance"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail performance.",
+          "path": "knowledge/wagtail/21-performance.md"
+        },
+        {
+          "id": "wagtail/22-security",
+          "topic": "wagtail",
+          "title": "Wagtail Security",
+          "slug": "security",
+          "type": "doc",
+          "order": 22,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "security"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail security.",
+          "path": "knowledge/wagtail/22-security.md"
+        },
+        {
+          "id": "wagtail/23-migrations",
+          "topic": "wagtail",
+          "title": "Wagtail Migrations",
+          "slug": "migrations",
+          "type": "doc",
+          "order": 23,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "migrations"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail migrations.",
+          "path": "knowledge/wagtail/23-migrations.md"
+        },
+        {
+          "id": "wagtail/24-content-imports",
+          "topic": "wagtail",
+          "title": "Wagtail Content Imports",
+          "slug": "content-imports",
+          "type": "doc",
+          "order": 24,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "content-imports"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail content imports.",
+          "path": "knowledge/wagtail/24-content-imports.md"
+        },
+        {
+          "id": "wagtail/25-custom-users",
+          "topic": "wagtail",
+          "title": "Wagtail Custom Users",
+          "slug": "custom-users",
+          "type": "doc",
+          "order": 25,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "custom-users"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail custom users.",
+          "path": "knowledge/wagtail/25-custom-users.md"
+        },
+        {
+          "id": "wagtail/26-frontend-assets",
+          "topic": "wagtail",
+          "title": "Wagtail Frontend Assets",
+          "slug": "frontend-assets",
+          "type": "doc",
+          "order": 26,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "frontend-assets"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail frontend assets.",
+          "path": "knowledge/wagtail/26-frontend-assets.md"
+        },
+        {
+          "id": "wagtail/27-observability",
+          "topic": "wagtail",
+          "title": "Wagtail Observability",
+          "slug": "observability",
+          "type": "doc",
+          "order": 27,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "observability"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail observability.",
+          "path": "knowledge/wagtail/27-observability.md"
+        },
+        {
+          "id": "wagtail/28-maintenance",
+          "topic": "wagtail",
+          "title": "Wagtail Maintenance",
+          "slug": "maintenance",
+          "type": "doc",
+          "order": 28,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "maintenance"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail maintenance.",
+          "path": "knowledge/wagtail/28-maintenance.md"
+        },
+        {
+          "id": "wagtail/29-project-structure",
+          "topic": "wagtail",
+          "title": "Wagtail Project Structure",
+          "slug": "project-structure",
+          "type": "doc",
+          "order": 29,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "project-structure"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail project structure.",
+          "path": "knowledge/wagtail/29-project-structure.md"
+        },
+        {
+          "id": "wagtail/30-engineering-principles",
+          "topic": "wagtail",
+          "title": "Wagtail Engineering Principles",
+          "slug": "engineering-principles",
+          "type": "doc",
+          "order": 30,
+          "status": "draft",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "engineering-principles"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [],
+          "when_to_use": "Reserved for future verified guidance about wagtail engineering principles.",
+          "path": "knowledge/wagtail/30-engineering-principles.md"
+        },
+        {
+          "id": "wagtail/98-production-checklist",
+          "topic": "wagtail",
+          "title": "Wagtail Production Checklist",
+          "slug": "production-checklist",
+          "type": "checklist",
+          "order": 98,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "production-checklist"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "wagtail/99-ai-review-checklist"
+          ],
+          "when_to_use": "Read before considering Wagtail work complete.",
+          "path": "knowledge/wagtail/98-production-checklist.md"
+        },
+        {
+          "id": "wagtail/99-ai-review-checklist",
+          "topic": "wagtail",
+          "title": "Wagtail AI Review Checklist",
+          "slug": "ai-review-checklist",
+          "type": "checklist",
+          "order": 99,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "ai-review-checklist"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "wagtail/98-production-checklist",
+            "wagtail/100-common-antipatterns"
+          ],
+          "when_to_use": "Read when reviewing Wagtail changes.",
+          "path": "knowledge/wagtail/99-ai-review-checklist.md"
+        },
+        {
+          "id": "wagtail/100-common-antipatterns",
+          "topic": "wagtail",
+          "title": "Common Wagtail Antipatterns",
+          "slug": "common-antipatterns",
+          "type": "antipatterns",
+          "order": 100,
+          "status": "ready",
+          "maturity": "unverified",
+          "tags": [
+            "wagtail",
+            "common-antipatterns"
+          ],
+          "verified_against": "",
+          "source_urls": [],
+          "last_reviewed": "",
+          "review_after": "",
+          "related": [
+            "wagtail/99-ai-review-checklist"
+          ],
+          "when_to_use": "Read when reviewing Wagtail changes.",
+          "path": "knowledge/wagtail/100-common-antipatterns.md"
         }
       ]
     },
